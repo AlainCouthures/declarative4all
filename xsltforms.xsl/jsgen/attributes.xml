@@ -1,0 +1,56 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module attributes
+-->
+<xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" match="@at | @calculate | @caseref | @changed | @constraint | @context | @if | @index | @inner | @iterate | @nodeset | @origin | @outer | @readonly | @ref | @relevant | @required | @target | @targetref | @value | @while" mode="scriptattr" priority="1">
+	<xexpr xmlns=""><xsl:value-of select="."/></xexpr>
+</xsl:template>
+<xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" match="@model[not(../@ref)]" mode="scriptattr" priority="1">
+	<xexpr xmlns="">.</xexpr>
+</xsl:template>
+<xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" match="@schema" mode="scriptattr" priority="1">
+	<schema xmlns=""><xsl:value-of select="."/></schema>
+</xsl:template>
+<xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" match="@type" mode="scriptattr" priority="1">
+	<xsl:if test="contains(.,':')">
+		<type xmlns=""><xsl:value-of select="."/></type>
+	</xsl:if>
+</xsl:template>
+<xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" match="@class | @style" mode="scriptattr" priority="1">
+	<xsl:param name="workid"/>
+	<xsl:apply-templates select="." mode="script">
+		<xsl:with-param name="workid" select="$workid"/>
+	</xsl:apply-templates>
+</xsl:template>
+<xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" match="@name[../@targetNamespace]" mode="script" priority="1">
+	<namespace xmlns="" name="{.}"><xsl:value-of select="../@targetNamespace"/></namespace>
+</xsl:template>
+<xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" match="@xsi:type" mode="script" priority="1">
+	<type xmlns=""><xsl:value-of select="."/></type>
+</xsl:template>
+<xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" match="@*[contains(.,'{') and (namespace-uri(parent::*) != 'http://www.w3.org/2002/xforms' or local-name() = 'class' or local-name() = 'style')]" mode="script" priority="1">
+	<xsl:param name="workid"/>
+	<xsl:variable name="avt">
+		<xsl:call-template name="avtparser">
+			<xsl:with-param name="s" select="."/>
+		</xsl:call-template>
+	</xsl:variable>
+	<xsl:if test="starts-with($avt,'1:')">
+		<xexpr xmlns=""><xsl:value-of select="substring($avt,3)"/></xexpr>
+		<js xmlns="">
+			<xsl:variable name="lname" select="local-name(parent::*)"/>
+			<xsl:variable name="nsuri" select="namespace-uri(parent::*)"/>
+			<xsl:variable name="idparent"><xsl:choose><xsl:when test="parent::*/@id">"<xsl:value-of select="parent::*/@id"/></xsl:when><xsl:otherwise><xsl:value-of select="$jsid_pf"/><xsl:value-of select="$lname"/>-<xsl:value-of select="$workid"/></xsl:otherwise></xsl:choose></xsl:variable>
+			<xsl:text>new XsltForms_avt(</xsl:text>
+			<xsl:value-of select="$vn_subform"/>
+			<xsl:text>,</xsl:text>
+			<xsl:value-of select="$idparent"/>
+			<xsl:text>","</xsl:text>
+			<xsl:value-of select="local-name()"/>
+			<xsl:text>",</xsl:text>
+			<xsl:call-template name="toScriptBinding"><xsl:with-param name="p" select="substring($avt,3)"/><xsl:with-param name="type" select="'xsd:string'"/></xsl:call-template>
+			<xsl:text>);</xsl:text>
+		</js>
+	</xsl:if>
+</xsl:template>

@@ -1,0 +1,35 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module useEntity
+-->
+<xsl:template name="useEntity" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:param name="double"/>
+	<xsl:param name="simple"/>
+	<xsl:param name="s"/>
+	<xsl:param name="r"/>
+	<xsl:choose>
+		<xsl:when test="$s = ''"><xsl:value-of select="$r"/></xsl:when>
+		<xsl:otherwise>
+			<xsl:variable name="cd" select="substring($s,1,2)"/>
+			<xsl:choose>
+				<xsl:when test="$cd = $double">
+					<xsl:call-template name="useEntity">
+						<xsl:with-param name="double" select="$double"/>
+						<xsl:with-param name="simple" select="$simple"/>
+						<xsl:with-param name="s" select="substring($s,3)"/>
+						<xsl:with-param name="r" select="concat($r,$simple)"/>
+					</xsl:call-template>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:call-template name="useEntity">
+						<xsl:with-param name="double" select="$double"/>
+						<xsl:with-param name="simple" select="$simple"/>
+						<xsl:with-param name="s" select="substring($s,2)"/>
+						<xsl:with-param name="r" select="concat($r,substring($s,1,1))"/>
+					</xsl:call-template>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>

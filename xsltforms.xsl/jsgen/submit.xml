@@ -1,0 +1,71 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module submit
+-->
+<xsl:template match="xforms:submit" mode="script" priority="1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ajx="http://www.ajaxforms.net/2006/ajx" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events">
+	<xsl:param name="parentworkid"/>
+	<xsl:param name="workid" select="concat(position(),'_',$parentworkid)"/>
+	<xsl:apply-templates select="@*" mode="scriptattr"/>
+	<js xmlns="">
+		<xsl:text>var </xsl:text>
+		<xsl:value-of select="$vn_pf"/>
+		<xsl:text>submit_</xsl:text>
+		<xsl:value-of select="$workid"/>
+		<xsl:text> = new XsltForms_trigger(</xsl:text>
+		<xsl:value-of select="$vn_subform"/>
+		<xsl:text>,</xsl:text>
+		<xsl:choose>
+			<xsl:when test="@id">"<xsl:value-of select="@id"/></xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="$jsid_pf"/>
+				<xsl:text>submit-</xsl:text>
+				<xsl:value-of select="$workid"/>
+			</xsl:otherwise>
+		</xsl:choose>
+		<xsl:text>",</xsl:text>
+		<xsl:call-template name="toScriptBinding"><xsl:with-param name="p" select="@ref"/></xsl:call-template>
+		<xsl:text>);</xsl:text>
+	</js>
+	<js>
+		<xsl:text>new XsltForms_listener(</xsl:text>
+		<xsl:value-of select="$vn_subform"/>
+		<xsl:text>,document.getElementById(</xsl:text>
+		<xsl:choose>
+			<xsl:when test="@id">"<xsl:value-of select="@id"/></xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="$jsid_pf"/>
+				<xsl:text>submit-</xsl:text>
+				<xsl:value-of select="$workid"/>
+			</xsl:otherwise>
+		</xsl:choose>
+		<xsl:text>"),null,"DOMActivate",null,function(evt) {XsltForms_browser.run(new XsltForms_dispatch(</xsl:text>
+		<xsl:value-of select="$vn_subform"/>
+		<xsl:text>,"xforms-submit",</xsl:text>
+		<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="@submission"/></xsl:call-template>
+		<xsl:text>,null,</xsl:text>
+		<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="@if"/></xsl:call-template>
+		<xsl:text>,</xsl:text>
+		<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="@while"/></xsl:call-template>
+		<xsl:text>,</xsl:text>
+		<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="@iterate"/></xsl:call-template>
+		<xsl:text>),</xsl:text>
+		<xsl:choose>
+			<xsl:when test="@id">"<xsl:value-of select="@id"/></xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="$jsid_pf"/>
+				<xsl:text>submit-</xsl:text>
+				<xsl:value-of select="$workid"/>
+			</xsl:otherwise>
+		</xsl:choose>
+		<xsl:text>",evt,</xsl:text>
+		<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="@ajx:synchronized"/><xsl:with-param name="default">true</xsl:with-param></xsl:call-template>
+		<xsl:text>,true)});</xsl:text>
+	</js>
+	<xsl:apply-templates select="node()" mode="script">
+		<xsl:with-param name="parentworkid" select="$workid"/>
+	</xsl:apply-templates>
+	<xsl:call-template name="listeners">
+		<xsl:with-param name="workid" select="$workid"/>
+	</xsl:call-template>
+</xsl:template>

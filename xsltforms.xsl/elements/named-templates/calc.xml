@@ -1,0 +1,61 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module calc
+-->
+<xsl:template name="calc" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:param name="args"/>
+	<xsl:param name="ops"/>
+	<xsl:param name="opprec"/>
+	<xsl:choose>
+		<xsl:when test="$ops='' or number(substring-before(substring-after($ops,'.'),'.')) &gt; number($opprec)">
+			<xsl:value-of select="concat(string-length($args),'.',$args,string-length($ops),'.',$ops)"/>
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:variable name="op" select="substring-after(substring(substring-after($ops,'.'),1,substring-before($ops,'.')),'.')"/>
+			<xsl:variable name="arg2len" select="substring-before($args,'.')"/>
+			<xsl:variable name="arg2val" select="substring(substring-after($args,'.'),1,number($arg2len))"/>
+			<xsl:variable name="args3" select="substring($args,string-length($arg2len)+2+number($arg2len))"/>
+			<xsl:variable name="arg1len" select="substring-before($args3,'.')"/>
+			<xsl:variable name="arg1val" select="substring(substring-after($args3,'.'),1,number($arg1len))"/>
+			<xsl:variable name="arg">
+				<xsl:choose>
+					<xsl:when test="$op = ','">
+						<xsl:value-of select="$arg1val"/>
+						<xsl:text>,</xsl:text>
+						<xsl:value-of select="$arg2val"/>
+					</xsl:when>
+					<xsl:when test="$op = '/'">
+						<xsl:text>new XsltForms_pathExpr(</xsl:text>
+						<xsl:value-of select="$arg1val"/>
+						<xsl:text>,</xsl:text>
+						<xsl:value-of select="$arg2val"/>
+						<xsl:text>)</xsl:text>
+					</xsl:when>
+					<xsl:when test="$op = '|'">
+						<xsl:text>new XsltForms_unionExpr(</xsl:text>
+						<xsl:value-of select="$arg1val"/>
+						<xsl:text>,</xsl:text>
+						<xsl:value-of select="$arg2val"/>
+						<xsl:text>)</xsl:text>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:text>new XsltForms_binaryExpr(</xsl:text>
+						<xsl:value-of select="$arg1val"/>
+						<xsl:text>,'</xsl:text>
+						<xsl:value-of select="$op"/>
+						<xsl:text>',</xsl:text>
+						<xsl:value-of select="$arg2val"/>
+						<xsl:text>)</xsl:text>
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:variable>
+			<xsl:variable name="args2" select="concat(string-length($arg),'.',$arg,substring($args3,string-length($arg1len)+2+number($arg1len)))"/>
+			<xsl:call-template name="calc">
+				<xsl:with-param name="args" select="$args2"/>
+				<xsl:with-param name="ops" select="substring(substring-after($ops,'.'),number(substring-before($ops,'.'))+1)"/>
+				<xsl:with-param name="opprec" select="$opprec"/>
+			</xsl:call-template>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>

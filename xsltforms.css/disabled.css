@@ -1,0 +1,3 @@
+.xforms-disabled, span.xforms-control.xforms-appearance-minimal.xforms-disabled {
+	display				: none !important;
+}

@@ -1,0 +1,34 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module getString
+-->
+<xsl:template name="getString" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:param name="delim"/>
+	<xsl:param name="s"/>
+	<xsl:param name="r"/>
+	<xsl:choose>
+		<xsl:when test="$s = ''"><xsl:value-of select="$r"/></xsl:when>
+		<xsl:otherwise>
+			<xsl:variable name="c" select="substring($s,1,1)"/>
+			<xsl:variable name="d" select="substring($s,2,1)"/>
+			<xsl:choose>
+				<xsl:when test="($c = $delim) and ($d = $delim)">
+					<xsl:call-template name="getString">
+						<xsl:with-param name="delim" select="$delim"/>
+						<xsl:with-param name="s" select="substring($s,3)"/>
+						<xsl:with-param name="r" select="concat($r,$c,$d)"/>
+					</xsl:call-template>
+				</xsl:when>
+				<xsl:when test="$c != $delim">
+					<xsl:call-template name="getString">
+						<xsl:with-param name="delim" select="$delim"/>
+						<xsl:with-param name="s" select="substring($s,2)"/>
+						<xsl:with-param name="r" select="concat($r,$c)"/>
+					</xsl:call-template>
+				</xsl:when>
+				<xsl:otherwise><xsl:value-of select="$r"/></xsl:otherwise>
+			</xsl:choose>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>

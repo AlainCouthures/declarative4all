@@ -1,0 +1,51 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module restriction
+-->
+<xsl:template match="xsd:restriction" mode="schema" priority="1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsltforms="http://www.agencexml.com/xsltforms">
+	<xsl:text>new XsltForms_atomicType().setSchema(schema)</xsl:text>
+	<xsl:if test="local-name(../..) = 'schema'">
+		<xsl:text>.setName("</xsl:text>
+		<xsl:value-of select="../@name"/>
+		<xsl:text>")</xsl:text>
+	</xsl:if>
+	<xsl:if test="@base">
+		<xsl:text>.put("base", "</xsl:text>
+		<xsl:value-of select="@base"/>
+		<xsl:text>")</xsl:text>
+	</xsl:if>
+	<xsl:if test="xsd:simpleType">
+		<xsl:text>.put("base", </xsl:text>
+		<xsl:apply-templates select="xsd:simpleType" mode="schema"/>
+		<xsl:text>)</xsl:text>
+	</xsl:if>
+	<xsl:for-each select="xsd:length|xsd:minLength|xsd:maxLength|xsd:enumeration|xsd:whiteSpace|xsd:maxInclusive|xsd:minInclusive|xsd:maxExclusive|xsd:minExclusive|xsd:totalDigits|xsd:fractionDigits|xsd:maxScale|xsd:minScale">
+		<xsl:text>.put("</xsl:text>
+		<xsl:value-of select="local-name()"/>
+		<xsl:text>", "</xsl:text>
+		<xsl:value-of select="@value"/>
+		<xsl:text>")</xsl:text>
+	</xsl:for-each>
+	<xsl:for-each select="xsd:pattern">
+		<xsl:text>.put("</xsl:text>
+		<xsl:value-of select="local-name()"/>
+		<xsl:text>", /^(</xsl:text>
+		<xsl:call-template name="escapeslash"><xsl:with-param name="p" select="@value"/></xsl:call-template>
+		<xsl:text>)$/)</xsl:text>
+	</xsl:for-each>
+	<xsl:if test="@xsltforms:rte">
+		<xsl:text>.put("rte", "</xsl:text>
+		<xsl:value-of select="@xsltforms:rte"/>
+		<xsl:text>")</xsl:text>
+	</xsl:if>
+	<xsl:if test="../xsd:annotation/xsd:appinfo">
+		<xsl:text>.put("appinfo", "</xsl:text>
+		<xsl:call-template name="toXPathExpr"><xsl:with-param name="p" select="normalize-space(../xsd:annotation/xsd:appinfo)"/></xsl:call-template>
+		<xsl:text>")</xsl:text>
+	</xsl:if>
+	<xsl:if test="local-name(../..) = 'schema'">
+		<xsl:text>;
+</xsl:text>
+	</xsl:if>
+</xsl:template>

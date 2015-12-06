@@ -1,0 +1,28 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module style
+-->
+<xsl:template match="xhtml:style | style" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:param name="config"/>
+	<xsl:variable name="option"> css="no" </xsl:variable>
+	<xsl:choose>
+		<xsl:when test="$config/options/nocss">
+			<xsl:copy-of select="."/>
+		</xsl:when>
+		<xsl:when test="translate(normalize-space(/processing-instruction('css-conversion')[1]), 'YESNO ', 'yesno')='no'">
+			<xsl:copy-of select="."/>
+		</xsl:when>
+		<xsl:when test="contains(concat(' ',translate(normalize-space(/processing-instruction('xsltforms-options')[1]), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'),' '),$option)">
+			<xsl:copy-of select="."/>
+		</xsl:when>
+		<xsl:otherwise>
+			<style type="text/css">
+				<xsl:copy-of select="@*"/>
+				<xsl:call-template name="cssconv">
+					<xsl:with-param name="input" select="normalize-space(.)"/>
+				</xsl:call-template>
+			</style>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>

@@ -1,0 +1,27 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module schema
+-->
+<xsl:template match="xsd:schema" mode="schema" priority="1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsl:param name="filename"/>
+	<xsl:param name="namespaces" select="'{}'"/>
+	<xsl:param name="targetNamespace"/>
+	<xsl:if test="string($targetNamespace) = ''">
+		<xsl:text>var schema = new XsltForms_schema(</xsl:text>
+		<xsl:value-of select="$vn_subform"/>
+		<xsl:text>,"</xsl:text>
+		<xsl:value-of select="@targetNamespace"/>
+		<xsl:text>", "</xsl:text>
+		<xsl:value-of select="$filename"/>
+		<xsl:text>", </xsl:text>
+		<xsl:value-of select="$namespaces"/>
+		<xsl:text>);
+</xsl:text>
+	</xsl:if>
+	<xsl:if test="string($targetNamespace) = '' or $targetNamespace = @targetNamespace">
+		<xsl:apply-templates select="xsd:simpleType | xsd:include" mode="schema">
+			<xsl:with-param name="targetNamespace" select="@targetNamespace"/>
+		</xsl:apply-templates>
+	</xsl:if>
+</xsl:template>

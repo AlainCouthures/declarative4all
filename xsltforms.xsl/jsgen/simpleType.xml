@@ -1,0 +1,8 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module simpleType
+-->
+<xsl:template match="xsd:simpleType" mode="script" priority="1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<simpleType xmlns="" targetNamespace="{ancestor::xsd:schema/@targetNamespace}" name="{@name}"/>
+</xsl:template>

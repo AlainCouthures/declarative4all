@@ -1,0 +1,38 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module getPredicates
+-->
+<xsl:template name="getPredicates" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:param name="s"/>
+	<xsl:param name="r"/>
+	<xsl:param name="l" select="0"/>
+	<xsl:variable name="p">
+		<xsl:variable name="t"><xsl:call-template name="xp2js"><xsl:with-param name="xp" select="$s"/></xsl:call-template></xsl:variable>
+		<xsl:choose>
+			<xsl:when test="contains($t,'~~~~')">
+				<xsl:variable name="msg">"~~~~<xsl:value-of select="substring-after(translate(substring-before(concat($t,'~#~#'),'~#~#'),'&quot;',''),'~~~~')"/> in '<xsl:value-of select="$s"/>'~#~#"</xsl:variable>
+				<xsl:value-of select="string-length($s)-number(substring-before($t,'.'))+1"/>.<xsl:value-of select="$msg"/>
+			</xsl:when>
+			<xsl:when test="$t != ''">
+				<xsl:value-of select="string-length($s)-number(substring-before($t,'.'))+1"/>.,new XsltForms_predicateExpr(<xsl:value-of select="substring-after($t,'.')"/><xsl:text>)</xsl:text>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:variable name="msg">"~~~~Unrecognized expression '<xsl:value-of select="$s"/>'~#~#"</xsl:variable>
+				<xsl:value-of select="string-length($s)-number(substring-before($t,'.'))+1"/>.<xsl:value-of select="$msg"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:variable>
+	<xsl:choose>
+		<xsl:when test="substring($s,number(substring-before($p,'.')),1)='['">
+			<xsl:call-template name="getPredicates">
+				<xsl:with-param name="s" select="substring($s,number(substring-before($p,'.'))+1)"/>
+				<xsl:with-param name="r" select="concat($r,substring-after($p,'.'))"/>
+				<xsl:with-param name="l" select="$l+number(substring-before($p,'.'))"/>
+			</xsl:call-template>
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:value-of select="concat(string($l+number(substring-before($p,'.'))),'.',$r,substring-after($p,'.'))"/>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>

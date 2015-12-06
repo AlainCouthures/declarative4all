@@ -1,0 +1,14 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module toScriptParam
+-->
+<xsl:template name="toScriptParam" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:param name="p"/>
+	<xsl:param name="default"/>
+	<xsl:choose>
+		<xsl:when test="$p">"<xsl:call-template name="toXPathExpr"><xsl:with-param name="p" select="$p"/></xsl:call-template>"</xsl:when>
+		<xsl:when test="$default != ''"><xsl:value-of select="$default"/></xsl:when>
+		<xsl:otherwise>null</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>

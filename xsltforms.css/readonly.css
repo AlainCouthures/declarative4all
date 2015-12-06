@@ -1,0 +1,4 @@
+.xforms-readonly input, .xforms-readonly textarea, .xforms-readonly select, .xforms-readonly option {
+	background-color	: #f8f8f8;
+	color				: #333333;
+}

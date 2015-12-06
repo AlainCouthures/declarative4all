@@ -1,0 +1,44 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module choices
+-->
+<xsl:template match="xforms:choices" mode="item" priority="2" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xforms="http://www.w3.org/2002/xforms">
+	<xsl:param name="type" select="false()"/> 
+	<xsl:param name="parentworkid"/>
+	<xsl:param name="workid" select="concat(position(),'_',$parentworkid)"/>
+	<xsl:choose>
+		<xsl:when test="parent::*/@appearance = 'full'">
+			<div>
+				<xsl:call-template name="genid">
+					<xsl:with-param name="workid" select="$workid"/>
+				</xsl:call-template>
+				<xsl:call-template name="style">
+					<xsl:with-param name="class">xforms-choices</xsl:with-param>
+				</xsl:call-template>
+				<xsl:if test="normalize-space(xforms:label) != ''">
+					<div class="xforms-label">
+						<xsl:value-of select="xforms:label/text()"/>
+					</div>
+				</xsl:if>
+				<div class="xforms-choices-items">
+					<xsl:apply-templates select="node()" mode="item">
+						<xsl:with-param name="parentworkid" select="$workid"/>
+						<xsl:with-param name="type" select="$type"/>
+					</xsl:apply-templates>
+				</div>
+			</div>
+		</xsl:when>
+		<xsl:otherwise>
+			<optgroup label="{xforms:label/text()}">
+				<xsl:call-template name="genid">
+					<xsl:with-param name="workid" select="$workid"/>
+				</xsl:call-template>
+				<xsl:apply-templates select="node()" mode="item">
+					<xsl:with-param name="parentworkid" select="$workid"/>
+					<xsl:with-param name="type" select="$type"/>
+				</xsl:apply-templates>
+			</optgroup>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>

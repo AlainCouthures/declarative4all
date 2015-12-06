@@ -1,0 +1,40 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module case
+-->
+<xsl:template match="xforms:case" mode="script" priority="1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xforms="http://www.w3.org/2002/xforms">
+	<xsl:param name="parentworkid"/>
+	<xsl:param name="workid" select="concat(position(),'_',$parentworkid)"/>
+	<xsl:apply-templates select="@*" mode="scriptattr">
+		<xsl:with-param name="workid" select="$workid"/>
+	</xsl:apply-templates>
+	<xsl:apply-templates select="node()" mode="script">
+		<xsl:with-param name="parentworkid" select="$workid"/>
+	</xsl:apply-templates>
+	<xsl:call-template name="listeners">
+		<xsl:with-param name="workid" select="$workid"/>
+	</xsl:call-template>
+	<xsl:if test="parent::xforms:switch and not(parent::xforms:switch/@caseref)">
+		<case xmlns="">
+			<xsl:variable name="noselected" select="count(../xforms:case[@selected='true']) = 0"/>
+			<xsl:variable name="nopreviousselected" select="count(preceding-sibling::xforms:case[@selected='true']) = 0"/>
+			<xsl:if test="($noselected and count(preceding-sibling::xforms:case) = 0) or (@selected = 'true' and $nopreviousselected)">
+				<xsl:variable name="rid">
+					<xsl:choose>
+						<xsl:when test="@id">"<xsl:value-of select="@id"/></xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="$jsid_pf"/>
+							<xsl:text>case-</xsl:text>
+							<xsl:value-of select="$workid"/>
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:variable>
+				<xsl:text>XsltForms_xmlevents.dispatch(document.getElementById(</xsl:text>
+				<xsl:value-of select="$rid"/>
+				<xsl:text>"), "xforms-select");
+</xsl:text>
+			</xsl:if>
+		</case>
+	</xsl:if>
+</xsl:template>

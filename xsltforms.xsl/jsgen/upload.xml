@@ -1,0 +1,109 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module upload
+-->
+<xsl:template match="xforms:upload" mode="script" priority="1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xforms="http://www.w3.org/2002/xforms">
+	<xsl:param name="parentworkid"/>
+	<xsl:param name="workid" select="concat(position(),'_',$parentworkid)"/>
+	<xsl:apply-templates select="@*" mode="scriptattr"/>
+	<js xmlns="">
+		<xsl:text>new XsltForms_upload(</xsl:text>
+		<xsl:value-of select="$vn_subform"/>
+		<xsl:text>,</xsl:text>
+		<xsl:choose>
+			<xsl:when test="@id">"<xsl:value-of select="@id"/></xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="$jsid_pf"/>
+				<xsl:text>upload-</xsl:text>
+				<xsl:value-of select="$workid"/>
+			</xsl:otherwise>
+		</xsl:choose>
+		<xsl:text>",</xsl:text>
+		<xsl:choose>
+			<xsl:when test="(string(xforms:label) != '' or xforms:label/@* or xforms:label/*) and $required-position = 'left'">3</xsl:when>
+			<xsl:when test="string(xforms:label) != '' or xforms:label/@* or xforms:label/*">2</xsl:when>
+			<xsl:otherwise>0</xsl:otherwise>
+		</xsl:choose>
+		<xsl:text>,</xsl:text>
+		<xsl:call-template name="toScriptBinding"><xsl:with-param name="p" select="@ref"/></xsl:call-template>
+		<xsl:text>,</xsl:text>
+		<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="@incremental"/></xsl:call-template>
+		<xsl:text>,</xsl:text>
+		<xsl:choose>
+			<xsl:when test="xforms:filename">
+				<xsl:for-each select="xforms:filename[1]">
+					<xsl:call-template name="toScriptBinding"><xsl:with-param name="p" select="@ref"/></xsl:call-template>
+				</xsl:for-each>
+			</xsl:when>
+			<xsl:otherwise>null</xsl:otherwise>
+		</xsl:choose>
+		<xsl:text>,</xsl:text>
+		<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="@mediatype"/></xsl:call-template>
+		<xsl:text>,</xsl:text>
+		<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="@ajx:aid-button"/></xsl:call-template>
+		<xsl:text>)</xsl:text>
+		<xsl:if test="xforms:resource | @resource | @action">
+			<xsl:text>.resource(</xsl:text>
+			<xsl:choose>
+				<xsl:when test="xforms:resource/@value">
+					<xsl:for-each select="xforms:resource[1]">
+						<xsl:call-template name="toScriptBinding"/>
+					</xsl:for-each>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:variable name="resource">
+						<xsl:choose>
+							<xsl:when test="xforms:resource"><xsl:value-of select="xforms:resource"/></xsl:when>
+							<xsl:when test="@resource"><xsl:value-of select="@resource"/></xsl:when>
+							<xsl:otherwise><xsl:value-of select="@action"/></xsl:otherwise>
+						</xsl:choose>
+					</xsl:variable>
+					<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="$resource"/></xsl:call-template>
+				</xsl:otherwise>
+			</xsl:choose>
+			<xsl:text>)</xsl:text>
+		</xsl:if>
+		<xsl:for-each select="xforms:header">
+			<xsl:text>.header(</xsl:text>
+			<xsl:call-template name="toScriptBinding"><xsl:with-param name="p" select="@nodeset | @ref"/></xsl:call-template>
+			<xsl:text>,</xsl:text>
+			<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="@combine"/><xsl:with-param name="default">"append"</xsl:with-param></xsl:call-template>
+			<xsl:text>,</xsl:text>
+			<xsl:choose>
+				<xsl:when test="xforms:name/@value">
+					<xsl:text>new XsltForms_binding("xsd:string", "</xsl:text>
+					<xsl:call-template name="toXPathExpr"><xsl:with-param name="p" select="xforms:name/@value"/></xsl:call-template>
+					<xsl:text>")</xsl:text>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="xforms:name"/></xsl:call-template>
+				</xsl:otherwise>
+			</xsl:choose>
+			<xsl:text>,[</xsl:text>
+			<xsl:for-each select="xforms:value">
+				<xsl:choose>
+					<xsl:when test="@value">
+						<xsl:text>new XsltForms_binding("xsd:string", "</xsl:text>
+						<xsl:call-template name="toXPathExpr"><xsl:with-param name="p" select="@value"/></xsl:call-template>
+						<xsl:text>")</xsl:text>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="."/></xsl:call-template>
+					</xsl:otherwise>
+				</xsl:choose>
+				<xsl:if test="position() != last()">
+					<xsl:text>,</xsl:text>
+				</xsl:if>
+			</xsl:for-each>
+			<xsl:text>])</xsl:text>
+		</xsl:for-each>
+		<xsl:text>;</xsl:text>
+	</js>
+	<xsl:apply-templates select="node()" mode="script">
+		<xsl:with-param name="parentworkid" select="$workid"/>
+	</xsl:apply-templates>
+	<xsl:call-template name="listeners">
+		<xsl:with-param name="workid" select="$workid"/>
+	</xsl:call-template>
+</xsl:template>

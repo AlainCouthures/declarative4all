@@ -1,0 +1,24 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module getNumber
+-->
+<xsl:template name="getNumber" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:param name="s"/>
+	<xsl:param name="r"/>
+	<xsl:choose>
+		<xsl:when test="$s = ''"><xsl:value-of select="$r"/></xsl:when>
+		<xsl:otherwise>
+			<xsl:variable name="c" select="substring($s,1,1)"/>
+			<xsl:choose>
+				<xsl:when test="contains('0123456789',$c) or ($c='.' and not(contains($r,$c)))">
+					<xsl:call-template name="getNumber">
+						<xsl:with-param name="s" select="substring($s,2)"/>
+						<xsl:with-param name="r" select="concat($r,$c)"/>
+					</xsl:call-template>
+				</xsl:when>
+				<xsl:otherwise><xsl:value-of select="$r"/></xsl:otherwise>
+			</xsl:choose>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>

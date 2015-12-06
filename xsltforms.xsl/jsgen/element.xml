@@ -1,0 +1,49 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module element
+-->
+<xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" match="node()|@*" mode="script" priority="0">
+	<xsl:param name="parentworkid"/>
+	<xsl:param name="workid" select="concat(position(),'_',$parentworkid)"/>
+	<xsl:for-each select="namespace::*">
+		<namespace name="{name()}"><xsl:value-of select="."/></namespace>
+	</xsl:for-each>
+	<xsl:if test="contains(name(),':')">
+		<xsl:choose>
+			<xsl:when test="starts-with(name(),'xmlns:')">
+				<namespace name="{substring-after(name(),':')}"><xsl:value-of select="."/></namespace>
+			</xsl:when>
+			<xsl:otherwise>
+				<namespace name="{substring-before(name(),':')}"><xsl:value-of select="namespace-uri()"/></namespace>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:if>
+	<xsl:if test="namespace-uri() != 'http://www.w3.org/2002/xforms'">
+		<xsl:call-template name="listeners">
+			<xsl:with-param name="workid" select="$workid"/>
+		</xsl:call-template>
+	</xsl:if>
+	<xsl:choose>
+		<xsl:when test="namespace-uri() = 'http://www.w3.org/2002/xforms'">
+			<xsl:apply-templates select="@*" mode="scriptattr"/>
+			<xsl:apply-templates select="node()" mode="script">
+				<xsl:with-param name="parentworkid" select="$workid"/>
+			</xsl:apply-templates>
+		</xsl:when>
+		<xsl:when test="namespace-uri() = 'http://www.w3.org/2001/XMLSchema'">
+			<xsl:apply-templates select="node()" mode="script">
+				<xsl:with-param name="parentworkid" select="$workid"/>
+			</xsl:apply-templates>
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:apply-templates select="@*" mode="script">
+				<xsl:with-param name="workid" select="$workid"/>
+			</xsl:apply-templates>
+			<xsl:apply-templates select="node()" mode="script">
+				<xsl:with-param name="parentworkid" select="$workid"/>
+			</xsl:apply-templates>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
+<xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" match="@*" mode="scriptattr" priority="0"/>

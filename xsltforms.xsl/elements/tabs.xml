@@ -1,0 +1,53 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module tabs
+-->
+<xsl:template match="ajx:tabs" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ajx="http://www.ajaxforms.net/2006/ajx">
+	<xsl:param name="parentworkid"/>
+	<xsl:param name="workid" select="concat(position(),'_',$parentworkid)"/>
+	<div>
+		<xsl:call-template name="style">
+			<xsl:with-param name="class">ajx-tabs</xsl:with-param>
+		</xsl:call-template>
+		<xsl:variable name="defselect" select="not(ajx:tab[@selected = 'true'])"/>
+		<ul class="ajx-tabs-list">
+			<xsl:for-each select="node()">
+				<xsl:if test="self::ajx:tab">
+					<li>
+						<xsl:if test="@selected = 'true' or ($defselect and not(preceding::ajx:tab))">
+							<xsl:attribute name="class">ajx-tab-selected</xsl:attribute>
+						</xsl:if>
+						<xsl:variable name="tabworkid" select="concat(position(),'_',$workid)"/>
+						<xsl:for-each select="node()">
+							<xsl:if test="self::xforms:label">
+								<xsl:apply-templates select=".">
+									<xsl:with-param name="parentworkid" select="$tabworkid"/>
+									<xsl:with-param name="appearance">tabs</xsl:with-param>
+								</xsl:apply-templates>
+							</xsl:if>
+						</xsl:for-each>
+					</li>
+				</xsl:if>
+			</xsl:for-each>
+		</ul>
+		<xsl:for-each select="node()">
+			<xsl:if test="self::ajx:tab">
+				<div>
+					<xsl:call-template name="style">
+						<xsl:with-param name="class">ajx-tab</xsl:with-param>
+					</xsl:call-template>
+					<xsl:call-template name="genid">
+						<xsl:with-param name="workid" select="concat(position(),'_',$workid)"/>
+					</xsl:call-template>
+					<xsl:if test="(not(@selected) or @selected != 'true') and not($defselect and not(preceding::ajx:tab))">
+						<xsl:attribute name="style">display:none;</xsl:attribute>
+					</xsl:if>
+					<xsl:apply-templates select="node()">
+						<xsl:with-param name="parentworkid" select="concat(position(),'_',$workid)"/>
+					</xsl:apply-templates>
+				</div>
+			</xsl:if>
+		</xsl:for-each>
+	</div>
+</xsl:template>

@@ -1,0 +1,20 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module avt
+-->
+<xsl:template match="*[@*[contains(.,'{') and contains(substring-after(.,'{'),'}')] and not(@id)]" priority="1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:param name="parentworkid"/>
+	<xsl:param name="workid" select="concat(position(),'_',$parentworkid)"/>
+	<xsl:copy>
+		<xsl:call-template name="genid">
+			<xsl:with-param name="workid" select="$workid"/>
+		</xsl:call-template>
+		<xsl:apply-templates select="@*">
+			<xsl:with-param name="parentworkid" select="$workid"/>
+		</xsl:apply-templates>
+		<xsl:apply-templates select="node()">
+			<xsl:with-param name="parentworkid" select="$workid"/>
+		</xsl:apply-templates>
+	</xsl:copy>
+</xsl:template>

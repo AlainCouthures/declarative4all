@@ -1,0 +1,12 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module pis
+-->
+<xsl:template match="processing-instruction()" mode="xml2string" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:text>&lt;?</xsl:text> 
+	<xsl:value-of select="name()"/> 
+	<xsl:text> </xsl:text> 
+	<xsl:value-of select="."/> 
+	<xsl:text>?&gt;</xsl:text>
+</xsl:template>

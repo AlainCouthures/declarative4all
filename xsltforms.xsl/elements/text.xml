@@ -1,0 +1,6 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module text
+-->
+<xsl:template match="text()[normalize-space(.)='']" priority="-1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>

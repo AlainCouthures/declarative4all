@@ -1,0 +1,62 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module bind
+-->
+<xsl:template match="xforms:bind" mode="script" priority="1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xforms="http://www.w3.org/2002/xforms">
+	<xsl:param name="parentworkid"/>
+	<xsl:param name="workid" select="concat(position(),'_',$parentworkid)"/>
+	<xsl:if test="not(@nodeset) and not(@ref)">
+		<xexpr>.</xexpr>
+	</xsl:if>
+	<xsl:apply-templates select="@*" mode="scriptattr"/>
+	<js xmlns="">
+		<xsl:text>var </xsl:text>
+		<xsl:value-of select="$vn_pf"/>
+		<xsl:text>bind_</xsl:text>
+		<xsl:value-of select="$workid"/>
+		<xsl:text> = new XsltForms_bind(</xsl:text>
+		<xsl:value-of select="$vn_subform"/>
+		<xsl:text>,</xsl:text>
+		<xsl:choose>
+			<xsl:when test="@id">"<xsl:value-of select="@id"/></xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="$jsid_pf"/>
+				<xsl:text>bind-</xsl:text>
+				<xsl:value-of select="$workid"/>
+			</xsl:otherwise>
+		</xsl:choose>
+		<xsl:text>",</xsl:text>
+		<xsl:value-of select="$vn_pf"/>
+		<xsl:value-of select="local-name(parent::*)"/>
+		<xsl:text>_</xsl:text>
+		<xsl:value-of select="$parentworkid"/>
+		<xsl:text>,"</xsl:text>
+		<xsl:variable name="nodeset">
+			<xsl:choose>
+				<xsl:when test="@nodeset"><xsl:value-of select="@nodeset"/></xsl:when>
+				<xsl:when test="@ref"><xsl:value-of select="@ref"/></xsl:when>
+				<xsl:otherwise>.</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+		<xsl:call-template name="toXPathExpr"><xsl:with-param name="p" select="$nodeset"/></xsl:call-template>
+		<xsl:text>",</xsl:text>
+		<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="@type"/></xsl:call-template>
+		<xsl:text>,</xsl:text>
+		<xsl:call-template name="toScriptBinding"><xsl:with-param name="p" select="@readonly"/><xsl:with-param name="type" select="'xsd:boolean'"/><xsl:with-param name="mip" select="'mip'"/></xsl:call-template>
+		<xsl:text>,</xsl:text>
+		<xsl:call-template name="toScriptBinding"><xsl:with-param name="p" select="@required"/><xsl:with-param name="type" select="'xsd:boolean'"/><xsl:with-param name="mip" select="'mip'"/></xsl:call-template>
+		<xsl:text>,</xsl:text>
+		<xsl:call-template name="toScriptBinding"><xsl:with-param name="p" select="@relevant"/><xsl:with-param name="type" select="'xsd:boolean'"/><xsl:with-param name="mip" select="'mip'"/></xsl:call-template>
+		<xsl:text>,</xsl:text>
+		<xsl:call-template name="toScriptBinding"><xsl:with-param name="p" select="@calculate"/><xsl:with-param name="type" select="'xsd:string'"/><xsl:with-param name="mip" select="'mip'"/></xsl:call-template>
+		<xsl:text>,</xsl:text>
+		<xsl:call-template name="toScriptBinding"><xsl:with-param name="p" select="@constraint"/><xsl:with-param name="type" select="'xsd:boolean'"/><xsl:with-param name="mip" select="'mip'"/></xsl:call-template>
+		<xsl:text>,</xsl:text>
+		<xsl:call-template name="toScriptBinding"><xsl:with-param name="p" select="@changed"/><xsl:with-param name="type" select="'xsd:string'"/><xsl:with-param name="mip" select="'mip'"/></xsl:call-template>
+		<xsl:text>);</xsl:text>
+	</js>
+	<xsl:apply-templates select="node()" mode="script">
+		<xsl:with-param name="parentworkid" select="$workid"/>
+	</xsl:apply-templates>
+</xsl:template>

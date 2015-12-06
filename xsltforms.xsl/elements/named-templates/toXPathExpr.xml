@@ -1,0 +1,12 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module toXPathExpr
+-->
+<xsl:template name="toXPathExpr" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:param name="p"/>
+	<xsl:call-template name="escapeJS">
+		<xsl:with-param name="text" select="$p"/>
+		<xsl:with-param name="trtext" select="translate($p,concat(' ',$newline,$carriagereturn,'&quot;'),concat($tab,$tab,$tab,$tab))"/>
+	</xsl:call-template>
+</xsl:template>

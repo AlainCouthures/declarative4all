@@ -1,0 +1,26 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module loadschemas
+-->
+<xsl:template name="loadschemas" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:param name="schemas"/>
+	<xsl:variable name="schema">
+		<xsl:choose>
+			<xsl:when test="contains($schemas,' ')">
+				<xsl:value-of select="substring-before($schemas,' ')"/>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="$schemas"/>
+			</xsl:otherwise>
+		</xsl:choose>
+	</xsl:variable>
+	<xsl:apply-templates select="document($schema,/)/*" mode="schema">
+		<xsl:with-param name="filename" select="$schema"/>
+	</xsl:apply-templates>
+	<xsl:if test="contains($schemas,' ')">
+		<xsl:call-template name="loadschemas">
+			<xsl:with-param name="schemas" select="substring-after($schemas,' ')"/>
+		</xsl:call-template>
+	</xsl:if>
+</xsl:template>

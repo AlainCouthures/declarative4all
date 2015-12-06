@@ -1,0 +1,29 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module link
+-->
+<xsl:template match="xhtml:link[@rel='stylesheet'] | link[@rel='stylesheet']" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:param name="config"/>
+	<xsl:choose>
+		<xsl:when test="translate(normalize-space(/processing-instruction('css-conversion')[1]), 'YESNO ', 'yesno')='no'">
+			<xsl:element name="{local-name()}">
+				<xsl:apply-templates select="@*"/>
+				<xsl:apply-templates select="node()"/>
+			</xsl:element>
+		</xsl:when>
+		<xsl:when test="$config/options/nocss">
+			<xsl:element name="{local-name()}">
+				<xsl:apply-templates select="@*"/>
+				<xsl:apply-templates select="node()"/>
+			</xsl:element>
+		</xsl:when>
+		<xsl:otherwise>
+			<style type="text/css">
+				<xsl:call-template name="cssconv">
+					<xsl:with-param name="input" select="normalize-space(document(@href,/)/*)"/>
+				</xsl:call-template>
+			</style>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>

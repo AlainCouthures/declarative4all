@@ -1,0 +1,38 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module var
+-->
+<xsl:template match="xforms:var[not(ancestor::xforms:action)]" mode="script" priority="1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xforms="http://www.w3.org/2002/xforms">
+	<xsl:param name="parentworkid"/>
+	<xsl:param name="workid" select="concat(position(),'_',$parentworkid)"/>
+	<xsl:apply-templates select="@*" mode="scriptattr">
+		<xsl:with-param name="workid" select="$workid"/>
+	</xsl:apply-templates>
+	<js xmlns="">
+		<xsl:variable name="lname" select="local-name()"/>
+		<xsl:text>new XsltForms_var(</xsl:text>
+		<xsl:value-of select="$vn_subform"/>
+		<xsl:text>,</xsl:text>
+		<xsl:choose>
+			<xsl:when test="@id">"<xsl:value-of select="@id"/></xsl:when>
+			<xsl:otherwise>
+				<xsl:value-of select="$jsid_pf"/>
+				<xsl:value-of select="$lname"/>
+				<xsl:text>-</xsl:text>
+				<xsl:value-of select="$workid"/>
+			</xsl:otherwise>
+		</xsl:choose>
+		<xsl:text>",</xsl:text>
+		<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="@name"/></xsl:call-template>
+		<xsl:text>,</xsl:text>
+		<xsl:call-template name="toScriptBinding"><xsl:with-param name="p" select="@value"/><xsl:with-param name="type" select="'#nodes or constant'"/></xsl:call-template>
+		<xsl:text>);</xsl:text>
+	</js>
+	<xsl:apply-templates select="node()" mode="script">
+		<xsl:with-param name="parentworkid" select="$workid"/>
+	</xsl:apply-templates>
+	<xsl:call-template name="listeners">
+		<xsl:with-param name="workid" select="$workid"/>
+	</xsl:call-template>
+</xsl:template>

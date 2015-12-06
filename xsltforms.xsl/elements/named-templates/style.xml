@@ -1,0 +1,19 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module style
+-->
+<xsl:template name="style" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:param name="class"/>
+	<xsl:if test="@id">
+		<xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
+	</xsl:if>
+	<xsl:choose>
+		<xsl:when test="contains(concat(' ',$class, ' '), ' xforms-label ') or contains(concat(' ',$class, ' '), ' xforms-item-label ') or contains(concat(' ',$class, ' '), ' xforms-choices ') or contains(concat(' ',$class, ' '), ' xforms-case ') or contains(concat(' ',$class, ' '), ' ajx-tab ') or contains(concat(' ',$class, ' '), ' ajx-tabs ') or contains(concat(' ',$class, ' '), ' xforms-dialog ') or contains(concat(' ',$class, ' '), ' xforms-svg-repeat ') or contains(concat(' ',$class, ' '), ' xforms-svg-group ')">
+			<xsl:attribute name="class"><xsl:value-of select="normalize-space(concat(@class, ' ', $class))"/></xsl:attribute>
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:attribute name="class"><xsl:value-of select="normalize-space(concat(@class, ' xforms-disabled ', $class))"/></xsl:attribute>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>

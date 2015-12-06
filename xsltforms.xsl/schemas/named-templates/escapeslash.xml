@@ -1,0 +1,12 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module escapeslash
+-->
+<xsl:template name="escapeslash" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:param name="p"/>
+	<xsl:choose>
+		<xsl:when test="contains($p, '/')"><xsl:value-of select="substring-before($p, '/')"/>\/<xsl:call-template name="escapeslash"><xsl:with-param name="p" select="substring-after($p, '/')"/></xsl:call-template></xsl:when>
+		<xsl:otherwise><xsl:value-of select="$p"/></xsl:otherwise>
+	</xsl:choose>
+</xsl:template>

@@ -1,0 +1,57 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module closepar
+-->
+<xsl:template name="closepar" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:param name="s"/>
+	<xsl:param name="args"/>
+	<xsl:param name="ops"/>
+	<xsl:variable name="c" select="substring(normalize-space($s),1,1)"/>
+	<xsl:choose>
+		<xsl:when test="$c = ')'">
+			<xsl:variable name="stacks">
+				<xsl:call-template name="calc">
+					<xsl:with-param name="args" select="$args"/>
+					<xsl:with-param name="ops" select="$ops"/>
+					<xsl:with-param name="opprec" select="998"/>
+				</xsl:call-template>
+			</xsl:variable>
+			<xsl:variable name="args3len" select="substring-before($stacks,'.')"/>
+			<xsl:variable name="args3" select="substring(substring-after($stacks,'.'),1,number($args3len))"/>
+			<xsl:variable name="nextstack" select="substring($stacks,string-length($args3len)+2+number($args3len))"/>
+			<xsl:variable name="ops3len" select="substring-before($nextstack,'.')"/>
+			<xsl:variable name="ops3" select="substring(substring-after($nextstack,'.'),1,number($ops3len))"/>
+			<xsl:choose>
+				<xsl:when test="starts-with($ops3,'5.999.(')">
+					<xsl:call-template name="closepar">
+						<xsl:with-param name="s" select="substring-after($s,$c)"/>
+						<xsl:with-param name="args" select="$args3"/>
+						<xsl:with-param name="ops" select="substring($ops3,8)"/>
+					</xsl:call-template>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:variable name="arg1len" select="substring-before($args3,'.')"/>
+					<xsl:variable name="arg1val" select="substring(substring-after($args3,'.'),1,number($arg1len))"/>
+					<xsl:variable name="oplen" select="substring-before($ops3,'.')"/>
+					<xsl:variable name="opval" select="substring(substring-after($ops3,'.'),1,number($oplen))"/>
+					<xsl:variable name="newarg1">
+						<xsl:text>new XsltForms_functionCallExpr('</xsl:text>
+						<xsl:call-template name="fctfullname">
+							<xsl:with-param name="fctname" select="substring-after($opval,'.')"/>
+						</xsl:call-template>
+						<xsl:text>',</xsl:text>
+						<xsl:value-of select="$arg1val"/>
+						<xsl:text>)</xsl:text>
+					</xsl:variable>
+					<xsl:call-template name="closepar">
+						<xsl:with-param name="s" select="substring-after($s,$c)"/>
+						<xsl:with-param name="args" select="concat(string-length($newarg1),'.',$newarg1,substring($args3,string-length($arg1len)+2+number($arg1len)))"/>
+						<xsl:with-param name="ops" select="substring($ops3,string-length($oplen)+2+number($oplen))"/>
+					</xsl:call-template>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:when>
+		<xsl:otherwise><xsl:value-of select="concat(string-length($s),'.',$s,string-length($args),'.',$args,string-length($ops),'.',$ops)"/></xsl:otherwise>
+	</xsl:choose>
+</xsl:template>

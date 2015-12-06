@@ -1,0 +1,35 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module itext
+-->
+<xsl:template match="xforms:itext" mode="itext" priority="1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xforms="http://www.w3.org/2002/xforms">
+	<xsl:text>.additext({defaultlang:"</xsl:text>
+	<xsl:value-of select="xforms:translation[1]/@lang"/>
+	<xsl:text>",</xsl:text>
+	<xsl:apply-templates mode="itext"/>
+	<xsl:text>})</xsl:text>
+</xsl:template>
+<xsl:template match="xforms:translation" mode="itext" priority="1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xforms="http://www.w3.org/2002/xforms">
+	<xsl:text>"</xsl:text>
+	<xsl:value-of select="@lang"/>
+	<xsl:text>": {</xsl:text>
+		<xsl:apply-templates mode="itext"/>
+	<xsl:text>}</xsl:text>
+	<xsl:if test="following-sibling::*">
+		<xsl:text>,</xsl:text>
+	</xsl:if>
+</xsl:template>
+<xsl:template match="xforms:text" mode="itext" priority="1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xforms="http://www.w3.org/2002/xforms">
+	<xsl:text>"</xsl:text>
+	<xsl:value-of select="@id"/>
+	<xsl:text>": "</xsl:text>
+	<xsl:call-template name="escapeJS">
+		<xsl:with-param name="text" select="xforms:value"/>
+		<xsl:with-param name="trtext" select="translate(xforms:value,concat(' ',$newline,'&quot;'),concat($tab,$tab,$tab))"/>
+	</xsl:call-template>
+	<xsl:text>"</xsl:text>
+	<xsl:if test="following-sibling::*">
+		<xsl:text>,</xsl:text>
+	</xsl:if>
+</xsl:template>

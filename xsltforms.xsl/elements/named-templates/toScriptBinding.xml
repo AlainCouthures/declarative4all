@@ -1,0 +1,31 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module toScriptBinding
+-->
+<xsl:template name="toScriptBinding" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:param name="p"/>
+	<xsl:param name="model" select="concat('&quot;',string(@model),'&quot;')"/>
+	<xsl:param name="type" select="'null'"/>
+	<xsl:param name="mip"/>
+	<xsl:variable name="xpath">
+		<xsl:choose>
+			<xsl:when test="$p != ''"><xsl:value-of select="$p"/></xsl:when>
+			<xsl:when test="@value"><xsl:value-of select="@value"/></xsl:when>
+			<xsl:when test="@model != '' and $mip = ''">.</xsl:when>
+		</xsl:choose>
+	</xsl:variable>
+	<xsl:variable name="type2">
+		<xsl:choose>
+			<xsl:when test="$type != 'null'">"<xsl:value-of select="$type"/>"</xsl:when>
+			<xsl:when test="$p != '' or (@model != '' and $mip = '')">null</xsl:when>
+			<xsl:otherwise>"xsd:string"</xsl:otherwise>
+		</xsl:choose>
+	</xsl:variable>
+	<xsl:choose>
+		<xsl:when test="@bind">new XsltForms_<xsl:value-of select="$mip"/>binding(null, null, null, "<xsl:call-template name="toXPathExpr"><xsl:with-param name="p" select="@bind"/></xsl:call-template>")</xsl:when>
+		<xsl:when test="$xpath != '' and $model != '&quot;&amp;quot;'">new XsltForms_<xsl:value-of select="$mip"/>binding(<xsl:value-of select="$type2"/>, "<xsl:call-template name="toXPathExpr"><xsl:with-param name="p" select="$xpath"/></xsl:call-template>", <xsl:value-of select="$model"/>)</xsl:when>
+		<xsl:when test="$xpath != ''">new XsltForms_<xsl:value-of select="$mip"/>binding(<xsl:value-of select="$type2"/>, "<xsl:call-template name="toXPathExpr"><xsl:with-param name="p" select="$xpath"/></xsl:call-template>")</xsl:when>
+		<xsl:otherwise>null</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>

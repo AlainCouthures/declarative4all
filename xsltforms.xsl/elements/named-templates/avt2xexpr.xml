@@ -1,0 +1,15 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module avt2xexpr
+-->
+<xsl:template name="avt2xexpr" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:param name="a"/>
+	<xsl:variable name="avt" select="substring-before(substring-after($a,'{'),'}')"/>
+	<xsl:if test="$avt != ''">
+		<xsl:value-of select="string-length($avt)"/>.<xsl:value-of select="$avt"/>
+		<xsl:call-template name="avt2xexpr">
+			<xsl:with-param name="a" select="substring-after($a,'}')"/>
+		</xsl:call-template>
+	</xsl:if>
+</xsl:template>

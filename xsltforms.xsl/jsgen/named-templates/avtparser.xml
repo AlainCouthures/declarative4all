@@ -1,0 +1,154 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module avtparser
+-->
+<xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="avtparser">
+	<xsl:param name="s"/>
+	<xsl:param name="t" select="'0:'"/>
+	<xsl:param name="state" select="0"/>
+	<xsl:variable name="l" select="string-length($s)"/>
+	<xsl:variable name="la" select="string-length(substring-before(concat($s,&quot;'&quot;),&quot;'&quot;))"/>
+	<xsl:variable name="lb" select="string-length(substring-before(concat($s,'{'),'{'))"/>
+	<xsl:variable name="loo" select="string-length(substring-before(concat($s,'{{'),'{{'))"/>
+	<xsl:variable name="lcc" select="string-length(substring-before(concat($s,'}}'),'}}'))"/>
+	<xsl:choose>
+		<xsl:when test="$la  $l and $la  $lcc and $la  $loo and $la  $lb">
+			<xsl:call-template name="avtparser">
+				<xsl:with-param name="s" select="substring-after($s,&quot;'&quot;)"/>
+				<xsl:with-param name="t">
+					<xsl:value-of select="substring($t,1,2)"/>
+					<xsl:if test="(substring-before($s,&quot;'&quot;)!= &quot;&quot; or $state != 0) and not(starts-with(substring($t,3),&quot;concat(&quot;))">concat(</xsl:if>
+					<xsl:value-of select="substring($t,3)"/>
+					<xsl:if test="$state = 2">,</xsl:if>
+					<xsl:if test="$state != 1 and substring-before($s,&quot;'&quot;)">'</xsl:if>
+					<xsl:value-of select="substring-before($s,&quot;'&quot;)"/>
+					<xsl:if test="substring-before($s,&quot;'&quot;)">',</xsl:if>
+					<xsl:text>"'"</xsl:text>
+				</xsl:with-param>
+				<xsl:with-param name="state" select="2"/>
+			</xsl:call-template>
+		</xsl:when>
+		<xsl:when test="$loo  $l and $loo  $lcc and $loo = $lb">
+			<xsl:call-template name="avtparser">
+				<xsl:with-param name="s" select="substring-after($s,'{{')"/>
+				<xsl:with-param name="t">
+					<xsl:value-of select="substring($t,1,2)"/>
+					<xsl:if test="$state = 2 and not(starts-with(substring($t,3),'concat('))">concat(</xsl:if>
+					<xsl:value-of select="substring($t,3)"/>
+					<xsl:if test="$state = 2">,</xsl:if>
+					<xsl:if test="$state != 1">'</xsl:if>
+					<xsl:value-of select="concat(substring-before($s,'{{'),'{')"/>
+				</xsl:with-param>
+				<xsl:with-param name="state" select="1"/>
+			</xsl:call-template>
+		</xsl:when>
+		<xsl:when test="$lcc  $l and $lcc  $lb">
+			<xsl:call-template name="avtparser">
+				<xsl:with-param name="s" select="substring-after($s,'}}')"/>
+				<xsl:with-param name="t">
+					<xsl:value-of select="substring($t,1,2)"/>
+					<xsl:if test="$state = 2 and not(starts-with(substring($t,3),'concat('))">concat(</xsl:if>
+					<xsl:value-of select="substring($t,3)"/>
+					<xsl:if test="$state = 2">,</xsl:if>
+					<xsl:if test="$state != 1">'</xsl:if>
+					<xsl:value-of select="concat(substring-before($s,'}}'),'}')"/>
+				</xsl:with-param>
+				<xsl:with-param name="state" select="1"/>
+			</xsl:call-template>
+		</xsl:when>
+		<xsl:when test="$lb  $l and contains($s,'}')">
+			<xsl:call-template name="avtparser">
+				<xsl:with-param name="s" select="substring-after($s,'}')"/>
+				<xsl:with-param name="t">
+					<xsl:text>1:</xsl:text>
+					<xsl:if test="(substring-before($s,'{') != '' or $state != 0) and not(starts-with(substring($t,3),'concat('))">concat(</xsl:if>
+					<xsl:value-of select="substring($t,3)"/>
+					<xsl:if test="$state = 2 and substring-before($s,'{') != ''">,</xsl:if>
+					<xsl:if test="$state != 1 and substring-before($s,'{') != ''">'</xsl:if>
+					<xsl:value-of select="substring-before($s,'{')"/>
+					<xsl:if test="$state = 1 or substring-before($s,'{') != ''">'</xsl:if>
+					<xsl:if test="substring($t,3) != '' or substring-before($s,'{') != ''">,</xsl:if>
+					<xsl:value-of select="substring-before(substring-after($s,'{'),'}')"/>
+				</xsl:with-param>
+				<xsl:with-param name="state" select="2"/>
+			</xsl:call-template>
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:choose>
+				<xsl:when test="$state = 0">
+					<xsl:text>0:</xsl:text>
+					<xsl:value-of select="$s"/>
+				</xsl:when>
+				<xsl:when test="$state = 1">
+					<xsl:choose>
+						<xsl:when test="starts-with(substring($t,3),&quot;'&quot;)">
+							<xsl:text>0:</xsl:text>
+							<xsl:value-of select="concat(substring($t,4),$s)"/>
+						</xsl:when>
+						<xsl:when test="starts-with($t,'0:')">
+							<xsl:text>0:</xsl:text>
+							<xsl:call-template name="avtconcat">
+								<xsl:with-param name="s" select="concat(substring($t,10),$s,&quot;'&quot;)"/>
+							</xsl:call-template>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="$t"/>
+							<xsl:value-of select="$s"/>
+							<xsl:text>')</xsl:text>
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:when>
+				<xsl:when test="$state = 2">
+					<xsl:value-of select="substring($t,1,2)"/>
+					<xsl:choose>
+						<xsl:when test="$s != ''">
+							<xsl:if test="not(starts-with(substring($t,3),'concat('))">
+								<xsl:text>concat(</xsl:text>
+							</xsl:if>
+							<xsl:value-of select="substring($t,3)"/>
+							<xsl:text>,'</xsl:text>
+							<xsl:value-of select="$s"/>
+							<xsl:text>')</xsl:text>
+						</xsl:when>
+						<xsl:when test="starts-with(substring($t,3),'&quot;')">
+							<xsl:text>'</xsl:text>
+						</xsl:when>
+						<xsl:when test="starts-with($t,'0:')">
+							<xsl:call-template name="avtconcat">
+								<xsl:with-param name="s" select="substring($t,10)"/>
+							</xsl:call-template>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="substring($t,3)"/>
+							<xsl:if test="starts-with(substring($t,3),'concat(')">
+								<xsl:text>)</xsl:text>
+							</xsl:if>
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:when>
+			</xsl:choose>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
+<xsl:template xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="avtconcat">
+	<xsl:param name="s"/>
+	<xsl:choose>
+		<xsl:when test="starts-with($s,'&quot;')">
+			<xsl:text>'</xsl:text>
+			<xsl:if test="starts-with(substring($s,4),',')">
+				<xsl:call-template name="avtconcat">
+					<xsl:with-param name="s" select="substring($s,5)"/>
+				</xsl:call-template>
+			</xsl:if>
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:value-of select="substring-before(substring($s,2),&quot;'&quot;)"/>
+			<xsl:if test="starts-with(substring-after(substring($s,2),&quot;'&quot;),&quot;,&quot;)">
+				<xsl:call-template name="avtconcat">
+					<xsl:with-param name="s" select="substring-after(substring($s,2),&quot;',&quot;)"/>
+				</xsl:call-template>
+			</xsl:if>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>

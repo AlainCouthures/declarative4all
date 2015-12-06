@@ -1,0 +1,18 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module unordered
+-->
+<xsl:template name="unordered" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:param name="js"/>
+	<xsl:variable name="pipe">,'|',</xsl:variable>
+	<xsl:variable name="ancestor">new XsltForms_stepExpr('ancestor',</xsl:variable>
+	<xsl:variable name="ancestororself">new XsltForms_stepExpr('ancestor-or-self',</xsl:variable>
+	<xsl:variable name="preceding">new XsltForms_stepExpr('preceding',</xsl:variable>
+	<xsl:variable name="precedingsibling">new XsltForms_stepExpr('preceding-sibling',</xsl:variable>
+	<xsl:choose>
+		<xsl:when test="contains($js,'new XsltForms_binaryExpr(') and contains($js,$pipe)">true</xsl:when>
+		<xsl:when test="contains($js,$ancestor) or contains($js,$ancestororself) or contains($js,$preceding) or contains($js,$precedingsibling)">true</xsl:when>
+		<xsl:otherwise>false</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>

@@ -1,0 +1,24 @@
+{
+	"Name":"controls.js",
+	"Description":"== XForms Controls Management ==\nEach control is stored as a Javascript object created by the XSLT transformation with the id of the corresponding (X)HTML element as a property.\nThe element class is the parent class for all action classes, having the control class as intermediate for most of them.",
+	"Components":[
+		"tree.js",
+		"element.js",
+		"control.js",
+		"AVT.js",
+		"component.js",
+		"group.js",
+		"input.js",
+		"item.js",
+		"itemset.js",
+		"label.js",
+		"output.js",
+		"range.js",
+		"repeat.js",
+		"select.js",
+		"trigger.js",
+		"upload.js",
+		"var.js",
+		"Calendar.js"
+		]
+}

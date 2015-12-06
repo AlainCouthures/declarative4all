@@ -1,0 +1,11 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module genid
+-->
+<xsl:template name="genid" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:param name="workid"/>
+	<xsl:variable name="lname" select="local-name()"/>
+	<xsl:attribute name="id"><xsl:choose><xsl:when test="@id"><xsl:value-of select="@id"/></xsl:when><xsl:otherwise><xsl:value-of select="$id_pf"/><xsl:value-of select="$lname"/>-<xsl:value-of select="$workid"/></xsl:otherwise></xsl:choose>
+	</xsl:attribute>
+</xsl:template>

@@ -1,0 +1,27 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module tree
+-->
+<xsl:template match="xforms:tree" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xforms="http://www.w3.org/2002/xforms">
+	<xsl:param name="parentworkid"/>
+	<xsl:param name="workid" select="concat(position(),'_',$parentworkid)"/>
+	<div>
+		<xsl:call-template name="style">
+			<xsl:with-param name="class">xforms-tree</xsl:with-param>
+		</xsl:call-template>
+		<xsl:apply-templates select="node()">
+			<xsl:with-param name="parentworkid" select="$workid"/>
+			<xsl:with-param name="appearance">treeLabel</xsl:with-param>
+		</xsl:apply-templates>
+		<ul>
+			<li class="xforms-tree-item">
+				<span class="xforms-tree-item-button"><xsl:text/></span>
+				<xsl:apply-templates select="node()">
+					<xsl:with-param name="parentworkid" select="$workid"/>
+					<xsl:with-param name="appearance">itemTreeLabel</xsl:with-param>
+				</xsl:apply-templates>
+			</li>
+		</ul>
+	</div>
+</xsl:template>

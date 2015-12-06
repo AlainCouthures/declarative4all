@@ -1,0 +1,14 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module script
+-->
+<xsl:template match="xhtml:script[@data-uri] | script[@data-uri]" mode="script" priority="1" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xforms="http://www.w3.org/2002/xforms">
+	<js xmlns="">
+		<xsl:text>XsltForms_globals.jslibraries["</xsl:text>
+		<xsl:value-of select="@data-uri"/>
+		<xsl:text>"] = "</xsl:text>
+		<xsl:value-of select="@data-version"/>
+		<xsl:text>";</xsl:text>
+	</js>
+</xsl:template>

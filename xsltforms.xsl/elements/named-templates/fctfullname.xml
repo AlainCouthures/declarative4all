@@ -1,0 +1,30 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module fctfullname
+-->
+<xsl:template name="fctfullname" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:param name="fctname"/>
+	<xsl:choose>
+		<xsl:when test="contains($fctname,':')">
+			<xsl:variable name="ns" select="substring-before($fctname,':')"/>
+			<xsl:choose>
+				<xsl:when test="($main/descendant::*|$main/descendant::*/@*)/namespace::*[name()=$ns]"><xsl:value-of select="($main/descendant::*|$main/descendant::*/@*)/namespace::*[name()=$ns][1]"/></xsl:when>
+				<xsl:when test="($main/descendant::*|$main/descendant::*/@*)[starts-with(name(),concat($ns,':'))]"><xsl:value-of select="namespace-uri(($main/descendant::*|$main/descendant::*/@*)[starts-with(name(),concat($ns,':'))][1])"/></xsl:when>
+				<xsl:when test="($piformdoc/descendant::*|$piformdoc/descendant::*/@*)/namespace::*[name()=$ns]"><xsl:value-of select="($piformdoc/descendant::*|$piformdoc/descendant::*/@*)/namespace::*[name()=$ns][1]"/></xsl:when>
+				<xsl:when test="($piformdoc/descendant::*|$piformdoc/descendant::*/@*)[starts-with(name(),concat($ns,':'))]"><xsl:value-of select="namespace-uri(($piformdoc/descendant::*|$piformdoc/descendant::*/@*)[starts-with(name(),concat($ns,':'))][1])"/></xsl:when>
+				<xsl:when test="$ns = 'xf' or $ns = 'xform' or $ns = 'xforms'">http://www.w3.org/2002/xforms</xsl:when>
+				<xsl:when test="$ns = 'math'">http://exslt.org/math</xsl:when>
+				<xsl:otherwise>http://www.w3.org/2005/xpath-functions</xsl:otherwise>
+			</xsl:choose>
+			<xsl:text> </xsl:text>
+			<xsl:value-of select="substring-after($fctname,':')"/>
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:choose>
+				<xsl:when test="contains(' boolean-from-string is-card-number count-non-empty index power random if choose property digest hmac local-date local-dateTime now days-from-date days-to-date seconds-from-dateTime seconds-to-dateTime adjust-dateTime-to-timezone seconds months instance current context event nodeindex is-valid serialize transform ', concat(' ', $fctname, ' '))">http://www.w3.org/2002/xforms <xsl:value-of select="$fctname"/></xsl:when>
+				<xsl:otherwise>http://www.w3.org/2005/xpath-functions <xsl:value-of select="$fctname"/></xsl:otherwise>
+			</xsl:choose>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>
