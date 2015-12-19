@@ -1,0 +1,40 @@
+<?xml-stylesheet href="xsl/xsltforms.xsl" type="text/xsl"?>
+<html
+ xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:xf="http://www.w3.org/2002/xforms"
+ >
+   <head>
+      <title>XForms inputs with labels</title>
+      <xf:model>
+         <xf:instance>
+            <data xmlns="">
+               <constraint>constrained</constraint>
+               <name>sample</name>
+            </data>
+         </xf:instance>
+         <xf:bind nodeset="/data/name" constraint="../constraint != 'constrained'"/>
+      </xf:model>
+   </head>
+   <body>
+      <p>Enter your first name, and last name.</p>
+         <xf:select1 ref="constraint" incremental="true">
+            <xf:item>
+               <xf:label>Constrained</xf:label>
+               <xf:value>constrained</xf:value> 
+            </xf:item>
+            <xf:item>
+               <xf:label>Not Constrained</xf:label>
+               <xf:value>notconstrained</xf:value>
+            </xf:item>
+            <xf:label>Control constrained</xf:label>
+         </xf:select1>
+         <br/>
+         <xf:input ref="name" incremental="true">
+            <xf:label>Sample input:</xf:label>
+         </xf:input>
+         <br/>
+         <br/>
+         Output Name: <b><xf:output ref="name"/></b>
+         <br/>
+   </body>
+</html>

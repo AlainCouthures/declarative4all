@@ -1,0 +1,10 @@
+{
+	"Components":[
+		"match_template.js",
+		"mode_template.js",
+		"priority_template.js",
+		"stylesheet.js",
+		"template.js",
+		"todo.js"
+	]
+}

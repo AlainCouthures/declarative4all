@@ -1,0 +1,58 @@
+<?xml-stylesheet href="xsl/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsltforms="http://www.agencexml.com/xsltforms" xmlns:rte="http://www.agencexml.com/xsltforms/rte">
+	<head>
+		<title>TinyMCE Support</title>
+		<style type="text/css">
+			.large-textarea textarea {
+				font-family: Courier, sans-serif;
+				height: 10em;
+				width: 500px;
+			}
+		</style>
+		<script type="text/javascript" src="/xsltforms/scripts/tinymce_4.0.21/tinymce.min.js" data-uri="http://www.tinymce.com" data-version="4.0.21">/* */</script>
+		<model xmlns="http://www.w3.org/2002/xforms">
+			<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.agencexml.com/xsltforms/rte">
+				<simpleType name="standardHTML">
+					<restriction base="xforms:HTMLFragment" xsltforms:rte="TinyMCE"/>
+					<annotation>
+						<appinfo>
+							{
+								plugins: [
+									"advlist autolink lists link image charmap print preview anchor",
+									"searchreplace visualblocks code fullscreen",
+									"insertdatetime media table contextmenu paste"
+								],
+								toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+							}
+						</appinfo>
+					</annotation>
+				</simpleType>
+			</schema>
+			<instance id="main">
+				<data xmlns="">
+					<richtext>&lt;p&gt;Paragraph &lt;i&gt;number one&lt;/i&gt;&lt;/p&gt;</richtext>
+				</data>
+			</instance>
+			<bind nodeset="richtext" type="rte:standardHTML"/>
+		</model>
+	</head>
+	<body>
+		<group xmlns="http://www.w3.org/2002/xforms">
+			<trigger>
+				<label>Hello World!</label>
+				<setvalue ev:event="DOMActivate" ref="richtext" value="'Hello &lt;strong&gt;World&lt;/strong&gt;!'"/>
+			</trigger>
+			<textarea ref="richtext" class="large-textarea" mediatype="application/xhtml+xml"/>
+		</group>
+		<table>
+			<tr>
+				<td>Raw resulting value: </td>
+				<td><output xmlns="http://www.w3.org/2002/xforms" value="richtext"/></td>
+			</tr>
+			<tr>
+				<td>HTML resulting value: </td>
+				<td><output xmlns="http://www.w3.org/2002/xforms" value="richtext" mediatype="application/xhtml+xml"/></td>
+			</tr>
+		</table>
+	</body>
+</html>

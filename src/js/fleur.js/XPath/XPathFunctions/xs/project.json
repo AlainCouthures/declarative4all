@@ -1,0 +1,33 @@
+{
+	"Components":[
+		"base64Binary.js",
+		"boolean.js",
+		"byte.js",
+		"date.js",
+		"dateTime.js",
+		"decimal.js",
+		"double.js",
+		"duration.js",
+		"float.js",
+		"gDay.js",
+		"gMonth.js",
+		"gMonthDay.js",
+		"gYear.js",
+		"gYearMonth.js",
+		"int.js",
+		"integer.js",
+		"long.js",
+		"negativeInteger.js",
+		"nonNegativeInteger.js",
+		"nonPositiveInteger.js",
+		"positiveInteger.js",
+		"QName.js",
+		"short.js",
+		"time.js",
+		"unsignedByte.js",
+		"unsignedInt.js",
+		"unsignedLong.js",
+		"unsignedShort.js",
+		"todo.js"
+	]
+}

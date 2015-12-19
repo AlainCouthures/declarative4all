@@ -1,0 +1,18 @@
+{
+	"Components":[
+		"abs.js",
+		"boolean.js",
+		"ceiling.js",
+		"codepoints-to-string.js",
+		"error.js",
+		"false.js",
+		"floor.js",
+		"lower-case.js",
+		"QName.js",
+		"round.js",
+		"string-length.js",
+		"true.js",
+		"upper-case.js",
+		"todo.js"
+	]
+}

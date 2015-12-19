@@ -1,0 +1,29 @@
+<?xml-stylesheet href="xsl/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events">
+	<head>
+		<title>XForms Samples</title>
+		<xf:model>
+			<xf:instance>
+				<data xmlns="">
+					<form label="Hello" name="hello.xml"/>
+					<form label="Calculator" name="calculator.xml"/>
+					<form label="Balance" name="balance-table.xml"/>
+					<form label="Colors" name="colors.xml"/>
+					<form label="Flags" name="flags.xml"/>
+					<form label="Wikipedia Search" name="wikipediasearch.xml"/>
+					<form label="Writers" name="writers.xml"/>
+				</data>
+			</xf:instance>
+		</xf:model>
+	</head>
+	<body>
+		<xf:repeat ref="form">
+			<xf:trigger ref=".">
+				<xf:label ref="@label"/>
+				<xf:load ev:event="DOMActivate">
+					<xf:resource value="@name"/>
+				</xf:load>
+			</xf:trigger>
+		</xf:repeat>
+	</body>
+</html>

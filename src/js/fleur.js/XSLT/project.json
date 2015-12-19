@@ -1,0 +1,8 @@
+{
+	"Components":[
+		"Instructions/project.json",
+		"XsltEngine.js",
+		"XsltStylesheet.js",
+		"XsltXNames.js"
+	]
+}

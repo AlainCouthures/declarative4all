@@ -1,0 +1,9 @@
+{
+	"Components":[
+		"Instructions/project.json",
+		"Operators/project.json",
+		"toJS.js",
+		"XQueryEngine.js",
+		"XQueryXNames.js"
+	]
+}

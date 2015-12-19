@@ -1,0 +1,13 @@
+{
+	"Components":[
+		"addOp.js",
+		"andOp.js",
+		"divOp.js",
+		"idivOp.js",
+		"modOp.js",
+		"multiplyOp.js",
+		"orOp.js",
+		"subtractOp.js",
+		"todo.js"
+	]
+}

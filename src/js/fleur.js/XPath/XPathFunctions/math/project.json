@@ -1,0 +1,18 @@
+{
+	"Components":[
+		"acos.js",
+		"asin.js",
+		"atan.js",
+		"atan2.js",
+		"cos.js",
+		"exp.js",
+		"exp10.js",
+		"log.js",
+		"log10.js",
+		"pi.js",
+		"pow.js",
+		"sin.js",
+		"sqrt.js",
+		"tan.js"
+	]
+}

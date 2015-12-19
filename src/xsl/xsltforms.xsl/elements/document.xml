@@ -1,0 +1,249 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module document
+-->
+<xsl:param xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="baseuri"/>
+<xsl:param xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="pwd"/>
+<xsl:param xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="xsltforms_home"/>
+<xsl:param xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="xsltforms_caller"/>
+<xsl:param xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="xsltforms_chain"/>
+<xsl:param xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="xsltforms_config"/>
+<xsl:param xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="xsltforms_debug"/>
+<xsl:param xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="xsltforms_lang"/>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="xsltformspivalue" select="translate(normalize-space(/processing-instruction('xsltforms-options')[1]), ' ', '')"/>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="lang">
+	<xsl:choose>
+		<xsl:when test="$xsltforms_lang != ''"><xsl:value-of select="$xsltforms_lang"/></xsl:when>
+		<xsl:when test="substring(substring-after($xsltformspivalue, 'lang='), 1, 1) != ''">
+			<xsl:variable name="langquote" select="substring(substring-after($xsltformspivalue, 'lang='), 1, 1)"/>
+			<xsl:value-of select="substring-before(substring-after($xsltformspivalue, concat('lang=', $langquote)), $langquote)"/>
+		</xsl:when>
+	</xsl:choose>
+</xsl:variable>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="langextension">
+	<xsl:choose>
+		<xsl:when test="$lang != '' and $lang != 'navigator'">_<xsl:value-of select="$lang"/></xsl:when>
+	</xsl:choose>
+</xsl:variable>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="configdoc" select="document(concat($xsltforms_home,'config',$langextension,'.xsl'))/xsl:stylesheet/xsl:template[@name='config']"/>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="configlang">
+	<xsl:choose>
+		<xsl:when test="$xsltforms_lang != ''"><xsl:value-of select="$xsltforms_lang"/></xsl:when>
+		<xsl:otherwise><xsl:value-of select="$configdoc/properties/language"/></xsl:otherwise>
+	</xsl:choose>
+</xsl:variable>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="domengine">
+	<xsl:choose>
+		<xsl:when test="substring(substring-after($xsltformspivalue, 'domengine='), 1, 1) != ''">
+			<xsl:variable name="paramquote" select="substring(substring-after($xsltformspivalue, 'domengine='), 1, 1)"/>
+			<xsl:value-of select="substring-before(substring-after($xsltformspivalue, concat('domengine=', $paramquote)), $paramquote)"/>
+		</xsl:when>
+		<xsl:when test="$configdoc/properties/domengine"><xsl:value-of select="concat('name=',$configdoc/properties/domengine/@name,';url=',$configdoc/properties/domengine/@url,';uri=',$configdoc/properties/domengine/@uri,';version=',$configdoc/properties/domengine/@version)"/></xsl:when>
+	</xsl:choose>
+</xsl:variable>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="doc_id" select="'xsltforms-mainform'"/>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="id_pf" select="'xsltforms-mainform-'"/>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="jsid_pf" select="'xsltforms_subform.id + &quot;-'"/>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="vn_pf" select="'xsltforms_'"/>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="vn_subform" select="concat($vn_pf, 'subform')"/>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="piform" select="processing-instruction('xml-form')"/>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="piforminstanceid">
+	<xsl:if test="contains($piform, ' instance=&quot;')">
+		<xsl:value-of select="substring-before(substring-after($piform, ' instance=&quot;'), '&quot;')"/>
+	</xsl:if>
+</xsl:variable>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="piforminstance" select="/"/>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="piformhref"><xsl:if test="contains($piform, ' href=&quot;')"><xsl:value-of select="substring-before(substring-after($piform, ' href=&quot;'), '&quot;')"/></xsl:if></xsl:variable>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="piformdoc" select="document(concat($pwd, $piformhref))"/>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="script0">
+	<script xmlns="">
+		<collect>
+			<xsl:choose>
+				<xsl:when test="$piform != '' and count($piformdoc/*) != 0">
+					<xsl:apply-templates select="$piformdoc/*" mode="script">
+						<xsl:with-param name="workid">2_</xsl:with-param>
+					</xsl:apply-templates>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:apply-templates select="/" mode="script"/>
+				</xsl:otherwise>
+			</xsl:choose>
+		</collect>
+		<config>
+			<xsl:choose>
+				<xsl:when test="$xsltforms_config != ''"/>
+				<xsl:when test="$configdoc/properties"><xsl:copy-of select="$configdoc/*"/></xsl:when>
+				<xsl:otherwise>
+						<options>
+						</options>
+						<properties>
+							<html>4</html>
+							<jsrevision/>
+							<language>navigator</language>
+							<calendar.label>...</calendar.label>
+							<calendar.day0>Mon</calendar.day0>
+							<calendar.day1>Tue</calendar.day1>
+							<calendar.day2>Wed</calendar.day2>
+							<calendar.day3>Thu</calendar.day3>
+							<calendar.day4>Fri</calendar.day4>
+							<calendar.day5>Sat</calendar.day5>
+							<calendar.day6>Sun</calendar.day6>
+							<calendar.initDay>6</calendar.initDay>
+							<calendar.month0>January</calendar.month0>
+							<calendar.month1>February</calendar.month1>
+							<calendar.month2>March</calendar.month2>
+							<calendar.month3>April</calendar.month3>
+							<calendar.month4>May</calendar.month4>
+							<calendar.month5>June</calendar.month5>
+							<calendar.month6>July</calendar.month6>
+							<calendar.month7>August</calendar.month7>
+							<calendar.month8>September</calendar.month8>
+							<calendar.month9>October</calendar.month9>
+							<calendar.month10>November</calendar.month10>
+							<calendar.month11>December</calendar.month11>
+							<format.date>MM/dd/yyyy</format.date>
+							<format.datetime>MM/dd/yyyy hh:mm:ss</format.datetime>
+							<format.decimal>.</format.decimal>
+							<status>... Loading ...</status>
+						</properties>
+						<extensions/>
+				</xsl:otherwise>
+			</xsl:choose>
+		</config>
+	</script>
+</xsl:variable>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="required-position">
+	<xsl:choose>
+		<xsl:when test="$configdoc/properties/required-position">
+			<xsl:value-of select="$configdoc/config/properties/required-position"/>
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:variable name="requiredquote" select="substring(substring-after($xsltformspivalue, 'required-position='), 1, 1)"/>
+			<xsl:value-of select="substring-before(substring-after($xsltformspivalue, concat('required-position=', $requiredquote)), $requiredquote)"/>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:variable>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="main" select="/"/>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="amp"><xsl:text>&amp;</xsl:text></xsl:variable>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="apos"><xsl:text>'</xsl:text></xsl:variable>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="lt"><xsl:text>&lt;</xsl:text></xsl:variable>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="gt"><xsl:text>&gt;</xsl:text></xsl:variable>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="quot"><xsl:text>"</xsl:text></xsl:variable>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="backslash"><xsl:text>\</xsl:text></xsl:variable>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="lineseparator"><xsl:text>&#8232;</xsl:text></xsl:variable>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="newline"><xsl:text>&#10;</xsl:text></xsl:variable>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="carriagereturn"><xsl:text>&#13;</xsl:text></xsl:variable>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="tab"><xsl:text>&#9;</xsl:text></xsl:variable>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="nbsp"><xsl:text>&#160;</xsl:text></xsl:variable>
+<xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="profiler">
+<html xmlns:xf="http://www.w3.org/2002/xforms" xmlns:xsltforms="http://www.agencexml.com/xsltforms">
+	<head>
+<title>XSLTForms Profiler</title>
+<xf:model>
+	<xf:instance id="profile" src="opener://xsltforms-profiler"/>
+</xf:model>
+	</head>
+	<body>
+<xf:group ref=".[not(*)]">
+	<p>This profiler is accessible when pressing F1 key then activating the corresponding trigger.</p>
+</xf:group>
+<xf:group ref=".[*]">
+	<h2>XSLTForms Profiler</h2>
+	<p>
+		<xf:output value="xsltforms:date">
+			<xf:label>TimeStamp: </xf:label>
+		</xf:output>
+	</p>
+	<h3><xf:output value="xsltforms:location"/></h3>
+	<p>Environment:
+		<ul>
+			<li>Browser: <xf:output value="xsltforms:appname"/>&#160;<xf:output value="xsltforms:appcodename"/>&#160;<xf:output value="xsltforms:appversion"/></li>
+			<li>User-Agent: <xf:output value="xsltforms:useragent"/></li>
+			<li>Initial XSLT Engine: <xf:output value="xsltforms:xsltengine"/></li>
+			<li>Current XSLT Engine: <xf:output value="xsltforms:xsltengine2"/></li>
+			<li>XSLTForms Version: <xf:output value="xsltforms:version"/></li>
+		</ul>
+	</p>
+	<table>
+		<tr>
+			<td>Instances:</td>
+			<td>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+			<td>Controls:</td>
+		</tr>
+		<tr valign="top">
+			<td>
+				<ul>
+					<xf:repeat nodeset="xsltforms:instances/xsltforms:instance">
+						<li>"<xf:output value="@id"/>": <xf:output value="concat(., ' node', choose(. &gt; 1,'s',''))"/></li>
+					</xf:repeat>
+				</ul>
+			</td>
+			<td>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+			<td>
+				<ul>
+					<xf:repeat nodeset="xsltforms:controls/xsltforms:control">
+						<li>xforms:<xf:output value="@type"/>: <xf:output value="concat(., ' item', choose(. &gt; 1,'s',''))"/></li>
+					</xf:repeat>
+				</ul>
+			</td>
+		</tr>
+	</table>
+	<table>
+		<tr>
+			<td>HTML Elements Count: <xf:output value="xsltforms:htmlelements"/><br/>
+				HTML Parsing Time: <xf:output value="xsltforms:htmltime"/>ms<br/>
+				HTML Creation Time: <xf:output value="xsltforms:creatingtime"/>ms
+			</td>
+			<td>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+			<td>XForms Init Time: <xf:output value="xsltforms:inittime"/>ms<br/>
+				XForms Refresh Count: <xf:output value="xsltforms:refreshcount"/><br/>
+				XForms Cumulative Refresh Time: <xf:output value="xsltforms:refreshtime"/>ms
+			</td>
+		</tr>
+	</table>
+	<xf:group ref=".[xsltforms:xpaths/xsltforms:xpath]">
+		<p>XPath Expressions Cumulative Evaluation Time:
+			<ul>
+				<xf:repeat nodeset="xsltforms:xpaths/xsltforms:xpath | xsltforms:xpaths/xsltforms:others">
+					<li><xf:output value="choose(local-name()='others', 'Others', concat('&quot;',@expr,'&quot;'))"/>: <xf:output value="."/>ms</li>
+				</xf:repeat>
+				<li>Total: <xf:output value="xsltforms:xpaths/xsltforms:total"/>ms</li>
+			</ul>
+		</p>
+	</xf:group>
+</xf:group>
+	</body>
+</html>
+</xsl:variable>
+<xsl:template match="/" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:exslt="http://exslt.org/common" xmlns:xalan="http://xml.apache.org/xalan">
+	<xsl:choose>
+		<xsl:when test="$piform != ''">
+			<xsl:choose>
+				<xsl:when test="count($piformdoc/*) != 0">
+					<xsl:apply-templates select="$piformdoc/*"/>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:choose>
+						<xsl:when test="function-available('xalan:nodeset')">
+							<xsl:apply-templates select="xalan:nodeset($profiler)/*"/>
+						</xsl:when>
+						<xsl:when test="function-available('exslt:node-set')">
+							<xsl:apply-templates select="exslt:node-set($profiler)/*"/>
+						</xsl:when>
+						<xsl:when test="function-available('msxsl:node-set')">
+							<xsl:apply-templates select="msxsl:node-set($profiler)/*"/>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:variable name="profiler0" select="$profiler"/>
+							<xsl:apply-templates select="$profiler0/*"/>
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:apply-templates/>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>

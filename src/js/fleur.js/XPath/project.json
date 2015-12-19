@@ -1,0 +1,11 @@
+{
+	"Components":[
+		"XPathFunctions/project.json",
+		"Atomize.js",
+		"XPathConstructor.js",
+		"XPathEvaluator.js",
+		"XPathException.js",
+		"XPathNSResolver.js",
+		"XPathResult.js"
+	]
+}

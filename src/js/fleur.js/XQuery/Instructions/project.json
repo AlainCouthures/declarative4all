@@ -1,0 +1,23 @@
+{
+	"Components":[
+		"attributeTest.js",
+		"commentTest.js",
+		"decimalConstantExpr.js",
+		"documentTest.js",
+		"doubleConstantExpr.js",
+		"elementTest.js",
+		"functionCallExpr.js",
+		"integerConstantExpr.js",
+		"nameTest.js",
+		"pathExpr.js",
+		"piTest.js",
+		"rootExpr.js",
+		"sequenceExpr.js",
+		"stepExpr.js",
+		"stringConstantExpr.js",
+		"textTest.js",
+		"Wildcard.js",
+		"xpathAxis.js",
+		"todo.js"
+	]
+}

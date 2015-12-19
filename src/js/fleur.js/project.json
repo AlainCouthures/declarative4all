@@ -1,0 +1,11 @@
+{
+	"Name":"fleur.js",
+	"Header":"(function(Fleur) {\n",
+	"Footer":"\n})(typeof exports === 'undefined'? this.Fleur = {}: exports);",
+	"Components":[
+		"DOM/project.json",
+		"XPath/project.json",
+		"XQuery/project.json",
+		"XSLT/project.json"
+	]
+}

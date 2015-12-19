@@ -1,0 +1,10 @@
+{
+	"Components":[
+		"main.js",
+		"array/project.json",
+		"fn/project.json",
+		"map/project.json",
+		"math/project.json",
+		"xs/project.json"
+	]
+}
