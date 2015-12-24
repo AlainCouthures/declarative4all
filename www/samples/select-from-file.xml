@@ -1,8 +1,5 @@
 <?xml-stylesheet href="xsl/xsltforms.xsl" type="text/xsl"?>
-<html
-  xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:xf="http://www.w3.org/2002/xforms" 
-	>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms">
    <head>
       <title>Select List From File</title>
       

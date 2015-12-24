@@ -28,12 +28,12 @@ const contentTypesByExtension = {
 	'.json': 'application/json',
 	'.png':  'image/png',
 	'.svg':  'image/svg+xml',
-	'.xml':  'application/xml',
+	'.xml':  'application/xml; charset=utf-8',
 	'.xsl':  'text/xsl'
 };
 
 http.createServer(function(request, response) {
-	var body, uri, context, newuri, headers, filename, filestats, contentType, ifmodifiedsince, lastmodified, composed;
+	var body, uri, context, newcontext, newuri, headers, filename, newfilename, filestats, contentType, ifmodifiedsince, lastmodified, composed;
 	var versionInfo, commentStart, commentEnd;
 	body = "";
 	var sendfile = function(err, file) {
@@ -50,6 +50,9 @@ http.createServer(function(request, response) {
 		headers['Last-Modified'] = lastmodified;
 		response.writeHead(200, headers);
 		response.end(file, 'binary');
+		if (newfilename) {
+	        fs.writeFile(newfilename, file, err => console.log(err));
+		}
 	};
 	var composeResponse = function(components) {
 		var fname, descriptor, newcomponents;
@@ -113,8 +116,20 @@ http.createServer(function(request, response) {
 			return;
 		}
 		filename = path.join(process.cwd(), uri);
+		newcontext = null;
+		context = uri.split('/')[1];
+		if (context.indexOf('2') !== -1) {
+			context = context.split('2');
+			newcontext = context[1];
+			context = context[0];
+			filename = filename.split(path.sep);
+			filename.splice(filename.length - 3, 1, context);
+			filename = filename.join(path.sep);
+			newfilename = filename.split(path.sep);
+			newfilename.splice(newfilename.length - 3, 1, newcontext);
+			newfilename = newfilename.join(path.sep);
+		}
 		if (!fs.existsSync(filename)) {
-			context = uri.split('/')[1];
 			newuri = uri.split('/');
 			newuri.splice(0, 2);
 			newuri = newuri.join('/');
@@ -127,6 +142,7 @@ http.createServer(function(request, response) {
 					return;
 				}
 			}
+			newfilename = null;
 			if (!fs.existsSync(filename)) {
 				filename = filename.split(path.sep);
 				filename.splice(filename.length - 4, 2, context);
