@@ -393,7 +393,7 @@ if (XsltForms_domEngine === "") {
  */
 
 XsltForms_instance.prototype.revalidate = function() {
-	if (!this.readonly) {
+	if (!this.readonly && this.doc.documentElement) {
 		this.validation_(this.doc.documentElement);
 	}
 };

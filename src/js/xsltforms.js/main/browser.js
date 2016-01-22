@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals Fleur XsltForms_globals XsltForms_upload XsltForms_domEngine XsltForms_idManager XsltForms_schema XsltForms_xmlevents ActiveXObject XSLTProcessor*/
+/*globals Fleur XsltForms_globals XsltForms_upload XsltForms_domEngine XsltForms_idManager XsltForms_schema XsltForms_xmlevents ActiveXObject XSLTProcessor XsltForms_undefined*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -416,6 +416,9 @@ for (var __i = 0, __len = XsltForms_browser.scripts.length; __i < __len; __i++) 
 		if (XsltForms_browser.ROOT.indexOf("?") !== -1) {
 			XsltForms_browser.ROOT = XsltForms_browser.ROOT.substring(0, XsltForms_browser.ROOT.indexOf("?"));
 		}
+		XsltForms_browser.imgROOT = XsltForms_browser.ROOT.substr(XsltForms_browser.ROOT.length - 3, 3) === "js/" ? XsltForms_browser.ROOT + "../img/" : XsltForms_browser.ROOT;
+		XsltForms_browser.xslROOT = XsltForms_browser.ROOT.substr(XsltForms_browser.ROOT.length - 3, 3) === "js/" ? XsltForms_browser.ROOT + "../xsl/" : XsltForms_browser.ROOT;
+		XsltForms_browser.debugROOT = XsltForms_browser.ROOT.substr(XsltForms_browser.ROOT.length - 3, 3) === "js/" ? XsltForms_browser.ROOT + "../debug/" : XsltForms_browser.ROOT;
 		break;
 	}
 }
@@ -2336,16 +2339,20 @@ XsltForms_browser.assert = function(condition, message) {
 			XsltForms_globals.debugging();
 		}
 		XsltForms_browser.debugConsole.write("Assertion failed: " + message);
-		if (arguments.caller) { // Internet Explorer
+		if (XsltForms_browser.isIE) { // Internet Explorer
 			this.callstack = [];
 			for (var caller = arguments.caller; caller; caller = caller.caller) {
 				this.callstack.push(caller.name ? caller.name : "<anonymous>");
 			}
 		} else {
 			try {
-				var x; x.y;
-			} catch (exception) {
-				this.callstack = exception.stack.split("\n");
+				XsltForms_undefined();
+			} catch (e) {
+				if (e.stack) {
+					this.callstack = e.stack.split("\n");
+					this.callstack.shift();
+					this.callstack.shift();
+				}
 			}
 		}
 		if (this.callstack) {
@@ -2353,7 +2360,7 @@ XsltForms_browser.assert = function(condition, message) {
 				XsltForms_browser.debugConsole.write("> " + this.callstack[i]);
 			}
 		}
-		throw message;
+		throw new Error(message || "Assertion failed");
 	}
 };
 

@@ -1,0 +1,24 @@
+{
+	"Name":"xsltforms.css",
+	"Components":[
+		"xforms.css",
+		"aid.css",
+		"calendar.css",
+		"choices.css",
+		"console.css",
+		"dialog.css",
+		"disabled.css",
+		"icones.css",
+		"message.css",
+		"range.css",
+		"readonly.css",
+		"status.css",
+		"trigger.css"
+	],
+	"VersionYear":"2016",
+	"VersionDate":"2016-01-03",
+	"VersionDescription":"Chrome 48 Support",
+	"VersionName":"rev.628",
+	"VersionNumber":"628",
+	"Licence":"XSLTForms $$$VersionName$$$ ($$$VersionNumber$$$)\n$$$VersionDescription$$$\n\nCopyright (C) $$$VersionYear$$$ agenceXML - Alain COUTHURES\nContact at : xsltforms@agencexml.com\n\nThis library is free software; you can redistribute it and/or\nmodify it under the terms of the GNU Lesser General Public\nLicense as published by the Free Software Foundation; either\nversion 2.1 of the License, or (at your option) any later version.\n\nThis library is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU\nLesser General Public License for more details.\n\nYou should have received a copy of the GNU Lesser General Public\nLicense along with this library; if not, write to the Free Software\nFoundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA"
+}

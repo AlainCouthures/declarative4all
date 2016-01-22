@@ -1,0 +1,19 @@
+.xsltforms-range-rail {
+	width: 200px;
+	height: 4px;
+	border: 1px solid #999999;
+	position: relative;
+	margin: 6px 15px 0 10px;
+	display: inline-block;
+}
+	
+.xsltforms-range-cursor {
+	margin: 0;
+	margin-top: -8px;
+	margin-left: -5px;
+	width: 17px; 
+	height: 17px;
+	position: absolute;
+	background-image:url('ball.png');
+	outline-style: none;
+}

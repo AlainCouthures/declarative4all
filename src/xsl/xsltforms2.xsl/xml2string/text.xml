@@ -1,0 +1,8 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module text
+-->
+<xsl:template match="text()" mode="xml2string" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:if test="normalize-space(.)!=''"><xsl:call-template name="escapeEntities"><xsl:with-param name="text" select="."/><xsl:with-param name="trtext" select="translate(., $trEntities1, $trEntities2)"/></xsl:call-template></xsl:if>
+</xsl:template>

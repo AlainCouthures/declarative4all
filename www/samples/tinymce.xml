@@ -9,7 +9,7 @@
 				width: 500px;
 			}
 		</style>
-		<script type="text/javascript" src="/xsltforms/scripts/tinymce_4.0.21/tinymce.min.js" data-uri="http://www.tinymce.com" data-version="4.0.21">/* */</script>
+		<script type="text/javascript" src="js/tinymce_4.1.9/tinymce.min.js" data-uri="http://www.tinymce.com" data-version="4.1.9">/* */</script>
 		<model xmlns="http://www.w3.org/2002/xforms">
 			<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.agencexml.com/xsltforms/rte">
 				<simpleType name="standardHTML">

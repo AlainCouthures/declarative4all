@@ -1,9 +1,9 @@
 {
 	"Components":[
+		"XQueryXNames.js",
+		"XQueryEngine.js",
 		"Instructions/project.json",
 		"Operators/project.json",
-		"toJS.js",
-		"XQueryEngine.js",
-		"XQueryXNames.js"
+		"toJS.js"
 	]
 }

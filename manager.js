@@ -33,8 +33,8 @@ const contentTypesByExtension = {
 };
 
 http.createServer(function(request, response) {
-	var body, uri, context, newcontext, newuri, headers, filename, newfilename, filestats, contentType, ifmodifiedsince, lastmodified, composed;
-	var versionInfo, commentStart, commentEnd;
+	var body, uri, method, context, newcontext, newuri, headers, filename, newfilename, isnewfile, putname, filestats, contentType, ifmodifiedsince, lastmodified, composed;
+	var versionInfo, commentStart, commentEnd, upper;
 	body = "";
 	var sendfile = function(err, file) {
 		if (err) {        
@@ -47,11 +47,13 @@ http.createServer(function(request, response) {
 		if (contentType) {
 			headers['Content-Type'] = contentType;
 		}
-		headers['Last-Modified'] = lastmodified;
+		if (lastmodified) {
+			headers['Last-Modified'] = lastmodified;
+		}
 		response.writeHead(200, headers);
 		response.end(file, 'binary');
 		if (newfilename) {
-	        fs.writeFile(newfilename, file, err => console.log(err));
+	        fs.writeFile(newfilename, file, err => { if (err) console.log(err);});
 		}
 	};
 	var composeResponse = function(components) {
@@ -81,7 +83,7 @@ http.createServer(function(request, response) {
 				if (descriptor.Header) {
 					composed += descriptor.Header;
 				}
-				newcomponents = descriptor.Components.map(comp => path.join(path.dirname(fname), comp)).concat(components);
+				newcomponents = descriptor.Components.map(comp => (typeof comp === 'string') ? path.join(path.dirname(fname), comp) : comp).concat(components);
 				if (descriptor.Footer) {
 					newcomponents.push([descriptor.Footer]);
 				}
@@ -102,23 +104,54 @@ http.createServer(function(request, response) {
 	});
 	request.on('end', function () {
 		uri = url.parse(request.url).pathname;
+		method = request.method;
+		filename = path.join(process.cwd(), uri);
+		newfilename = null;
+		lastmodified = null;
 		if (uri === '/favicon.ico') {
-			response.writeHead(404, {'Content-Type': 'text/plain'});
-			response.end('404 Not Found');
+			fs.readFile(filename, 'binary', sendfile);
+			return;
+		}
+		if (uri === '/echo.htm') {
+			fs.readFile(filename, 'binary', (err, file) => {
+				if (err) {
+					sendfile(err, file);
+				} else {
+					file = file.replace('$$$body$$$', body.replace(/</gm, '&lt;').replace(/>/gm, '&gt;'));
+					file = file.replace('$$$request$$$', JSON.stringify({
+						'httpVersion': request.httpVersion,
+						'method': request.method,
+						'url': request.url,
+						'headers': request.headers,
+						'trailers': request.trailers
+					}, null, ' '));
+					sendfile(err, file);
+				}
+			});
 			return;
 		}
 		while (uri.endsWith('/')) {
 			uri = uri.substr(0, uri.length - 1);
 		}
 		if (uri === '') {
-			response.writeHead(301, {'Location': '/stable/manager/index.xml'});
-			response.end();
+			if (method === 'GET') {
+				response.writeHead(301, {'Location': '/stable/manager/index.xml'});
+				response.end();
+			} else {
+				response.writeHead(403, {'Content-Type': 'text/plain'});
+				response.end('403 Forbidden');
+			}
 			return;
 		}
 		filename = path.join(process.cwd(), uri);
 		newcontext = null;
 		context = uri.split('/')[1];
 		if (context.indexOf('2') !== -1) {
+			if (method !== 'GET') {
+				response.writeHead(403, {'Content-Type': 'text/plain'});
+				response.end('403 Forbidden');
+				return;
+			}
 			context = context.split('2');
 			newcontext = context[1];
 			context = context[0];
@@ -133,20 +166,57 @@ http.createServer(function(request, response) {
 			newuri = uri.split('/');
 			newuri.splice(0, 2);
 			newuri = newuri.join('/');
-			filename = path.join(process.cwd(), 'www' , newuri);
+			upper = !fs.existsSync(path.join(process.cwd(), 'www', newuri.split('/')[0]));
+			if (!upper) {
+				filename = path.join(process.cwd(), 'www', newuri);
+			} else {
+				filename = path.join(process.cwd(), '..', newuri);
+			}
+			if (method === 'PUT') {
+				filename = filename.split(path.sep);
+				putname = filename.pop();
+				filename = filename.join(path.sep);
+			}
 			if (fs.existsSync(filename)) {
 				filestats = fs.statSync(filename);
 				if (filestats.isDirectory()) {
-					response.writeHead(301, {'Location': uri + '/index.' + (fs.existsSync(filename + path.sep + 'index.html') ? 'html' : fs.existsSync(filename + path.sep + '/index.htm') ? 'htm' : 'xml')});
-					response.end();
+					if (method === 'GET') {
+						response.writeHead(301, {'Location': uri + '/index.' + (fs.existsSync(filename + path.sep + 'index.html') ? 'html' : fs.existsSync(filename + path.sep + '/index.htm') ? 'htm' : 'xml')});
+						response.end();
+					} else if (method === 'PUT') {
+						filename = path.join(filename, putname);
+						isnewfile = !fs.existsSync(filename);
+						fs.writeFile(filename, body, err => {
+							if (err) {
+							} else if (isnewfile) {
+								response.writeHead(201, {'Content-Type': 'text/plain'});
+								response.end('201 Created');
+							} else {
+								response.writeHead(204, {'Content-Type': 'text/plain'});
+								response.end('204 No Content');
+							}
+						});
+					} else {
+						response.writeHead(403, {'Content-Type': 'text/plain'});
+						response.end('403 Forbidden' + ' method:' + method);
+					}
 					return;
 				}
 			}
 			newfilename = null;
 			if (!fs.existsSync(filename)) {
+				if (method !== 'GET') {
+					response.writeHead(403, {'Content-Type': 'text/plain'});
+					response.end('403 Forbidden' + ' - filename:' + filename);
+					return;
+				}
 				filename = filename.split(path.sep);
-				filename.splice(filename.length - 4, 2, context);
-				filename = filename.join(path.sep);
+				if (!upper) {
+					filename.splice(filename.length - 4, 2, context);
+					filename = filename.join(path.sep);
+				} else {
+					filename = path.join(process.cwd(), context, filename[filename.length - 2], filename[filename.length - 1]);
+				}
 			}
 			if (!fs.existsSync(filename)) {
 				response.writeHead(404, {'Content-Type': 'text/plain'});
@@ -174,13 +244,20 @@ http.createServer(function(request, response) {
 			composeResponse([filename + path.sep + 'project.json']);
 			return;
 		}
-		ifmodifiedsince = request.headers['if-modified-since'];
-		if (ifmodifiedsince && (new Date(ifmodifiedsince)).getTime() >= filestats.mtime.getTime()) {
-			response.writeHead(304, {'Content-Type': 'text/plain'});
-			response.end('304 Not Modified');
-			return;
+		switch(method) {
+			case 'GET':
+				ifmodifiedsince = request.headers['if-modified-since'];
+				if (ifmodifiedsince && (new Date(ifmodifiedsince)).getTime() >= filestats.mtime.getTime()) {
+					response.writeHead(304, {'Content-Type': 'text/plain'});
+					response.end('304 Not Modified');
+					return;
+				}
+				lastmodified = filestats.mtime.toUTCString();
+				fs.readFile(filename, 'binary', sendfile);
+				break;
+			default:
+				response.writeHead(405, {'Content-Type': 'text/plain'});
+				response.end('405 Method Not Allowed');
 		}
-		lastmodified = filestats.mtime.toUTCString();
-		fs.readFile(filename, 'binary', sendfile);
 	});
 }).listen(port);

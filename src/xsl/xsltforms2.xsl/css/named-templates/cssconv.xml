@@ -1,0 +1,91 @@
+<!--
+ * @author Alain Couthures <alain.couthures@agencexml.com>
+ * @licence LGPL - See file 'LICENSE.md' in this project.
+ * @module cssconv
+-->
+<xsl:template name="cssconv" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<xsl:param name="input"/>
+	<xsl:param name="xformscontext" select="'|'"/>
+	<xsl:param name="xhtmlcontext" select="'|'"/>
+	<xsl:choose>
+		<xsl:when test="$input = ''"/>
+		<xsl:when test="starts-with($input, ' ')">
+			<xsl:text> </xsl:text>
+			<xsl:call-template name="cssconv">
+				<xsl:with-param name="input" select="substring($input,2)"/>
+				<xsl:with-param name="xformscontext" select="$xformscontext"/>
+				<xsl:with-param name="xhtmlcontext" select="$xhtmlcontext"/>
+			</xsl:call-template>
+		</xsl:when>
+		<xsl:when test="translate(substring($input, 1, 11),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz') = '@namespace '">
+			<xsl:variable name="prefix" select="substring-before(substring-after($input,' '),' ')"/>
+			<xsl:variable name="url" select="translate(substring-before(translate(substring-after(substring-after($input,' '),' '),';',' '),' '),'&quot;','')"/>
+			<xsl:variable name="url2" select="translate($url,'&quot;',&quot;&quot;)"/>
+			<xsl:variable name="xformsprefix">
+				<xsl:if test="$url2 = 'url(http://www.w3.org/2002/xforms)' or $url2 = 'http://www.w3.org/2002/xforms'">
+					<xsl:value-of select="concat($prefix,'|')"/>
+				</xsl:if>
+			</xsl:variable>
+			<xsl:variable name="xhtmlprefix">
+				<xsl:if test="$url2 = 'url(http://www.w3.org/1999/xhtml)' or $url2 = 'http://www.w3.org/1999/xhtml'">
+					<xsl:value-of select="concat($prefix,'|')"/>
+				</xsl:if>
+			</xsl:variable>
+			<xsl:value-of select="concat(substring-before($input,';'),';')"/>
+			<xsl:call-template name="cssconv">
+				<xsl:with-param name="input" select="substring-after($input,';')"/>
+				<xsl:with-param name="xformscontext" select="concat($xformscontext,$xformsprefix)"/>
+				<xsl:with-param name="xhtmlcontext" select="concat($xhtmlcontext,$xhtmlprefix)"/>
+			</xsl:call-template>
+		</xsl:when>
+		<xsl:when test="translate(substring($input, 1, 8),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz') = '@import '">
+			<xsl:variable name="url" select="substring-before(substring-after($input,' '),' ')"/>
+			<xsl:variable name="url2">
+				<xsl:choose>
+					<xsl:when test="starts-with($url,'url(')"><xsl:value-of select="substring-before(substring-after($url,'url('),')')"/></xsl:when>
+					<xsl:otherwise><xsl:value-of select="substring-before(substring-after($url,'&quot;'),'&quot;')"/></xsl:otherwise>
+				</xsl:choose>
+			</xsl:variable>
+			<xsl:call-template name="cssconv">
+				<xsl:with-param name="input" select="normalize-space(document($url2,/)/*)"/>
+				<xsl:with-param name="xformscontext" select="$xformscontext"/>
+				<xsl:with-param name="xhtmlcontext"><xsl:value-of select="$xhtmlcontext"/></xsl:with-param>
+			</xsl:call-template>
+			<xsl:call-template name="cssconv">
+				<xsl:with-param name="input"><xsl:value-of select="substring-after($input,';')"/></xsl:with-param>
+				<xsl:with-param name="xformscontext"><xsl:value-of select="$xformscontext"/></xsl:with-param>
+				<xsl:with-param name="xhtmlcontext"><xsl:value-of select="$xhtmlcontext"/></xsl:with-param>
+			</xsl:call-template>
+		</xsl:when>
+		<xsl:when test="starts-with($input, '@')">
+			<xsl:value-of select="concat(substring-before($input,';'),';')"/>
+			<xsl:call-template name="cssconv">
+				<xsl:with-param name="input" select="substring-after($input,';')"/>
+				<xsl:with-param name="xformscontext" select="$xformscontext"/>
+				<xsl:with-param name="xhtmlcontext" select="$xhtmlcontext"/>
+			</xsl:call-template>
+		</xsl:when>
+		<xsl:when test="starts-with($input, '/*')">
+			<xsl:call-template name="cssconv">
+				<xsl:with-param name="input" select="substring-after(substring($input,3),'*/')"/>
+				<xsl:with-param name="xformscontext" select="$xformscontext"/>
+				<xsl:with-param name="xhtmlcontext" select="$xhtmlcontext"/>
+			</xsl:call-template>
+		</xsl:when>
+		<xsl:otherwise>
+			<xsl:call-template name="addsel">
+				<xsl:with-param name="sels" select="normalize-space(substring-before($input,'{'))"/>
+				<xsl:with-param name="xformscontext" select="$xformscontext"/>
+				<xsl:with-param name="xhtmlcontext" select="$xhtmlcontext"/>
+			</xsl:call-template>
+			<xsl:value-of select="concat(' {',substring-before(substring-after($input,'{'),'}'),'}')"/>
+			<xsl:text>
+</xsl:text>
+			<xsl:call-template name="cssconv">
+				<xsl:with-param name="input" select="substring-after($input,'}')"/>
+				<xsl:with-param name="xformscontext" select="$xformscontext"/>
+				<xsl:with-param name="xhtmlcontext" select="$xhtmlcontext"/>
+			</xsl:call-template>
+		</xsl:otherwise>
+	</xsl:choose>
+</xsl:template>

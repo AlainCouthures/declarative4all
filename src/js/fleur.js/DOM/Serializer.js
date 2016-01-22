@@ -8,8 +8,41 @@
  * @description 
  */
 Fleur.Serializer = function() {};
+/**
+ * @name Fleur.Serializer.escapeXML
+ * @description description
+ * @function
+ * @param s {string}
+ * @returns {string}
+ */
 Fleur.Serializer.escapeXML = function(s) {
-	return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+	var i = 0, c, code, l = s.length, r = "";
+	while (i < l) {
+		c = s.charAt(i);
+		switch (c) {
+			case '&':
+				r += '&amp;';
+				break;
+			case '<':
+				r += '&lt;';
+				break;
+			case '>':
+				r += '&gt;';
+				break;
+			case '"':
+				r += '&quot;';
+				break;
+			default:
+				code = c.charCodeAt(0);
+				if (code === 9 || code === 10 || code === 13 || (code > 31 && code < 127)) {
+					r += c;
+				} else {
+					r += '&#' + code + ';';
+				}
+		}
+		i++;
+	}
+	return r;
 };
 Fleur.Serializer._serializeXMLToString = function(node, indent, offset) {
 	var s, i, l;
@@ -23,11 +56,11 @@ Fleur.Serializer._serializeXMLToString = function(node, indent, offset) {
 				}
 				names.sort();
 				for (i = 0, l = names.length; i < l; i++) {
-					s += " " + names[i] + "=\"" + Fleur.Serializer.escapeXML(node.getAttribute(names[i])).replace(/\"/g, "&quot;") + "\"";
+					s += " " + names[i] + "=\"" + Fleur.Serializer.escapeXML(node.getAttribute(names[i])) + "\"";
 				}
 			} else {
 				for (i = 0, l = node.attributes.length; i < l; i++) {
-					s += " " + node.attributes[i].nodeName + "=\"" + Fleur.Serializer.escapeXML(node.attributes[i].nodeValue).replace(/\"/g, "&quot;") + "\"";
+					s += " " + node.attributes[i].nodeName + "=\"" + Fleur.Serializer.escapeXML(node.attributes[i].nodeValue) + "\"";
 				}
 			}
 			if (node.childNodes.length === 0) {
@@ -66,7 +99,7 @@ Fleur.Serializer._serializeEXMLToString = function(node, indent, offset) {
 			nodeName = isqname ? node.nodeName : "exml:" + (node.nodeType === Fleur.Node.ELEMENT_NODE ? "element" : "entry");
 			s = (indent ? offset + "<" : "<") + nodeName;
 			if (!isqname) {
-				s += " name=\"" + Fleur.Serializer.escapeXML(node.nodeName).replace('"', "&quot;") + "\"";
+				s += " name=\"" + Fleur.Serializer.escapeXML(node.nodeName) + "\"";
 			}
 			if (node.attributes) {
 				if (indent) {
@@ -76,11 +109,11 @@ Fleur.Serializer._serializeEXMLToString = function(node, indent, offset) {
 					}
 					names.sort();
 					for (i = 0, l = names.length; i < l; i++) {
-						s += " " + names[i] + "=\"" + Fleur.Serializer.escapeXML(node.getAttribute(names[i])).replace('"', "&quot;") + "\"";
+						s += " " + names[i] + "=\"" + Fleur.Serializer.escapeXML(node.getAttribute(names[i])) + "\"";
 					}
 				} else {
 					for (i = 0, l = node.attributes.length; i < l; i++) {
-						s += " " + node.attributes[i].nodeName + "=\"" + Fleur.Serializer.escapeXML(node.attributes[i].nodeValue).replace('"', "&quot;") + "\"";
+						s += " " + node.attributes[i].nodeName + "=\"" + Fleur.Serializer.escapeXML(node.attributes[i].nodeValue) + "\"";
 					}
 				}
 			}
@@ -130,12 +163,44 @@ Fleur.Serializer._serializeEXMLToString = function(node, indent, offset) {
 			return s + (indent ? offset + "</exml:map>\n" : "</exml:map>");
 	}
 };
+/**
+ * @name Fleur.Serializer.escapeJSON
+ * @description description
+ * @function
+ * @param s {string}
+ * @returns {string}
+ */
 Fleur.Serializer.escapeJSON = function(s) {
-	try {
-		return s.replace(/"/g, '\\"').replace(/\n/g, "\\n").replace(/\r/g, "\\r").replace(/\t/g, "\\t").replace(/\\/g, "\\");
-	} catch (e) {
-		return "";
+	var i = 0, c, code, l = s.length, r = "";
+	while (i < l) {
+		c = s.charAt(i);
+		switch (c) {
+			case '\t':
+				r += '\\t';
+				break;
+			case '\n':
+				r += '\\n';
+				break;
+			case '\r':
+				r += '\\r';
+				break;
+			case '\\':
+				r += '\\\\';
+				break;
+			case '"':
+				r += '\\"';
+				break;
+			default:
+				code = c.charCodeAt(0);
+				if (code > 31 && code < 127) {
+					r += c;
+				} else {
+					r += '\\u' + ('000' + code.toString(16)).slice(-4);
+				}
+		}
+		i++;
 	}
+	return r;
 };
 Fleur.Serializer._serializeJSONToString = function(node, indent, offset, inline, comma) {
 	var s, i, l, quote;
@@ -542,90 +607,43 @@ Fleur.Serializer._serializeXQXToString = function(node) {
 			return " := " + Fleur.Serializer.XQX_renderChildren(node);
 		case "windowClause":
 			return " for " + Fleur.Serializer.XQX_renderChildren(node) + "\n";
-			/*
 		case "tumblingWindowClause":
-    <xsl:text>   tumbling window </xsl:text>
-    <xsl:apply-templates select="xqx:typedVariableBinding"/>
-    <xsl:text> in </xsl:text>
-    <xsl:apply-templates select="xqx:bindingSequence"/>
-    <xsl:value-of select="$NEWLINE"/>
-    <xsl:text>      </xsl:text>
-    <xsl:apply-templates select="xqx:windowStartCondition"/>
-    <xsl:value-of select="$NEWLINE"/>
-    <xsl:text>      </xsl:text>
-    <xsl:apply-templates select="xqx:windowEndCondition"/>
-  </xsl:template>
+			return "   tumbling window " + Fleur.Serializer.XQX_renderChildren(node, ["typedVariableBinding"]) +
+				" in " + Fleur.Serializer.XQX_renderChildren(node, ["bindingSequence"]) + "\n" +
+				"      " + Fleur.Serializer.XQX_renderChildren(node, ["windowStartCondition"]) + "\n" +
+				"      " + Fleur.Serializer.XQX_renderChildren(node, ["windowEndCondition"]);
 		case "slidingWindowClause":
-    <xsl:text>   sliding window </xsl:text>
-    <xsl:apply-templates select="xqx:typedVariableBinding"/>
-    <xsl:text> in </xsl:text>
-    <xsl:apply-templates select="xqx:bindingSequence"/>
-    <xsl:value-of select="$NEWLINE"/>
-    <xsl:text>      </xsl:text>
-    <xsl:apply-templates select="xqx:windowStartCondition"/>
-    <xsl:value-of select="$NEWLINE"/>
-    <xsl:text>      </xsl:text>
-    <xsl:apply-templates select="xqx:windowEndCondition"/>
-  </xsl:template>
-  */
+			return "   sliding window " + Fleur.Serializer.XQX_renderChildren(node, ["typedVariableBinding"]) +
+				" in " + Fleur.Serializer.XQX_renderChildren(node, ["bindingSequence"]) + "\n" +
+				"      " + Fleur.Serializer.XQX_renderChildren(node, ["windowStartCondition"]) + "\n" +
+				"      " + Fleur.Serializer.XQX_renderChildren(node, ["windowEndCondition"]);
 		case "bindingSequence":
 			return Fleur.Serializer.XQX_renderChildren(node);
-/*
 		case "windowStartCondition":
-    <xsl:text>start </xsl:text>
-    <xsl:apply-templates select="xqx:windowVars"/>
-    <xsl:text> when </xsl:text>
-    <xsl:apply-templates select="xqx:winStartExpr"/>
-  </xsl:template>
+			return "start " + Fleur.Serializer.XQX_renderChildren(node, ["windowVars"]) +
+				" when " + Fleur.Serializer.XQX_renderChildren(node, ["winStartExpr"]);
 		case "windowEndCondition":
-    <xsl:if test="@xqx:onlyEnd='true'">
-      <xsl:text>only </xsl:text>
-    </xsl:if>
-    <xsl:text>end </xsl:text>
-    <xsl:apply-templates select="xqx:windowVars"/>
-    <xsl:text> when </xsl:text>
-    <xsl:apply-templates select="xqx:winEndExpr"/>
-  </xsl:template>
+			return (node.getAttributeNS("http://www.w3.org/2005/XQueryX", "onlyEnd") === "true" ? "only end " : "end " ) +
+				Fleur.Serializer.XQX_renderChildren(node, ["windowVars"]) + " when " + Fleur.Serializer.XQX_renderChildren(node, ["winEndExpr"]);
 		case "windowVars":
-    <xsl:apply-templates select="xqx:currentItem"/>
-    <xsl:apply-templates select="xqx:positionalVariableBinding"/>
-    <xsl:apply-templates select="xqx:previousItem"/>
-    <xsl:apply-templates select="xqx:nextItem"/>
-  </xsl:template>
+			return Fleur.Serializer.XQX_renderChildren(node, ["currentItem"]) + Fleur.Serializer.XQX_renderChildren(node, ["positionalVariableBinding"]) +
+				Fleur.Serializer.XQX_renderChildren(node, ["previousItem"]) + Fleur.Serializer.XQX_renderChildren(node, ["nextItem"]);
 		case "currentItem":
-    <xsl:value-of select="$DOLLAR"/>
-    <xsl:call-template name="renderEQName"/>
-  </xsl:template>
+			return "$" + Fleur.Serializer.XQX_renderEQName(node);
 		case "previousItem":
-    <xsl:text> previous </xsl:text>
-    <xsl:value-of select="$DOLLAR"/>
-    <xsl:call-template name="renderEQName"/>
-  </xsl:template>
+			return " previous $" + Fleur.Serializer.XQX_renderEQName(node);
 		case "nextItem":
-    <xsl:text> next </xsl:text>
-    <xsl:value-of select="$DOLLAR"/>
-    <xsl:call-template name="renderEQName"/>
-  </xsl:template>
+			return " next $" + Fleur.Serializer.XQX_renderEQName(node);
 		case "countClause":
-    <xsl:text> count </xsl:text>
-    <xsl:apply-templates/>
-    <xsl:value-of select="$NEWLINE"/>
-  </xsl:template>
+			return " count " + Fleur.Serializer.XQX_renderChildren(node) + "\n";
 		case "whereClause":
-    <xsl:text> where </xsl:text>
-    <xsl:apply-templates select="*"/>
-    <xsl:value-of select="$NEWLINE"/>
-  </xsl:template>
+			return " where " + Fleur.Serializer.XQX_renderChildren(node) + "\n";
 		case "groupByClause":
-    <xsl:text>  group by </xsl:text>
-    <xsl:call-template name="commaSeparatedList"/>
-    <xsl:value-of select="$NEWLINE"/>
-  </xsl:template>
+			return "  group by " + Fleur.Serializer.XQX_commaSeparatedList(node) + "\n";
 		case "groupingSpec":
-    <xsl:value-of select="$DOLLAR"/>
-    <xsl:apply-templates/>
-  </xsl:template>
+			return "$" + Fleur.Serializer.XQX_renderChildren(node);
 		case "groupVarInitialize":
+/*
     <xsl:if test="xqx:typeDeclaration">
       <xsl:apply-templates select="xqx:typeDeclaration"/>
     </xsl:if>
@@ -634,27 +652,18 @@ Fleur.Serializer._serializeXQXToString = function(node) {
     <xsl:value-of select="$SPACE"/>
     <xsl:apply-templates select="xqx:varValue"/>
   </xsl:template>
+*/
 		case "collation":
-    <xsl:text> collation </xsl:text>
-    <xsl:call-template name="quote">
-      <xsl:with-param name="item">
-        <xsl:value-of select="."/>
-      </xsl:with-param>
-    </xsl:call-template>
-  </xsl:template>
-  */
+			return " collation " + Fleur.Serializer.XQX_quote(node.textContent);
 		case "emptyOrderingMode":
 		case "orderingKind":
 			return " " + node.textContent;
 		case "orderModifier":
 			return Fleur.Serializer.XQX_renderChildren(node);
-  /*
 		case "orderBySpec":
-    <xsl:apply-templates select="xqx:orderByExpr"/>
-    <xsl:value-of select="$SPACE"/>
-    <xsl:apply-templates select="xqx:orderModifier"/>
-  </xsl:template>
-		case "orderByClause":
+			return Fleur.Serializer.XQX_renderChildren(node, ["orderByExpr"]) + " " + Fleur.Serializer.XQX_renderChildren(node, ["orderModifier"]);
+ 		case "orderByClause":
+/*
     <xsl:if test="xqx:stable">
       <xsl:text> stable</xsl:text>
     </xsl:if>
@@ -673,30 +682,16 @@ Fleur.Serializer._serializeXQXToString = function(node) {
 			return "\n(" + Fleur.Serializer.XQX_renderChildren(node) + ")";
 		case "ifThenElseExpr":
 			return "( if (" + Fleur.Serializer.XQX_renderChildren(node, ["ifClause"]) + ") then " + Fleur.Serializer.XQX_renderChildren(node, ["thenClause"]) + " else " + Fleur.Serializer.XQX_renderChildren(node, ["elseClause"]) + ")";
-/*
-			case "positionalVariableBinding":
-    <xsl:text> at </xsl:text>
-    <xsl:value-of select="$DOLLAR"/>
-    <xsl:call-template name="renderEQName"/>
-  </xsl:template>
+		case "positionalVariableBinding":
+			return " at $" + Fleur.Serializer.XQX_renderEQName(node);
 		case "variableBinding":
-    <xsl:value-of select="$DOLLAR"/>
-    <xsl:call-template name="renderEQName"/>
-    <xsl:if test="parent::xqx:typeswitchExprCaseClause">
-      <xsl:text> as </xsl:text>
-    </xsl:if>
-  </xsl:template>
-		case "typedVariableBinding" name="typedVariableBinding":
-    <xsl:value-of select="$DOLLAR"/>
-    <xsl:apply-templates select="xqx:varName"/>
-    <xsl:apply-templates select="xqx:typeDeclaration"/>
-  </xsl:template>
+			return "$" + Fleur.Serializer.XQX_renderEQName(node) + (node.parentNode.localName === "typeswitchExprCaseClause" && node.parentNode.namespaceURI === "http://www.w3.org/2005/XQueryX" ? " as " : "");
+		case "typedVariableBinding": /* name="typedVariableBinding" */
+			return "$" + Fleur.Serializer.XQX_renderChildren(node, ["varName"]) + Fleur.Serializer.XQX_renderChildren(node, ["typeDeclaration"]);
 		case "quantifiedExprInClause":
-    <xsl:apply-templates select="xqx:typedVariableBinding"/>
-    <xsl:text> in </xsl:text>
-    <xsl:apply-templates select="xqx:sourceExpr"/>
-  </xsl:template>
+			return Fleur.Serializer.XQX_renderChildren(node, ["typedVariableBinding"]) + " in " + Fleur.Serializer.XQX_renderChildren(node, ["sourceExpr"]);
 		case "quantifiedExpr":
+	/*
     <xsl:value-of select="$LPAREN"/>
     <xsl:value-of select="xqx:quantifier"/>
     <xsl:value-of select="$SPACE"/>
@@ -709,35 +704,17 @@ Fleur.Serializer._serializeXQXToString = function(node) {
     <xsl:apply-templates select="xqx:predicateExpr"/>
     <xsl:value-of select="$RPAREN"/>
   </xsl:template>
+  */
 		case "instanceOfExpr":
-    <xsl:value-of select="$LPAREN"/>
-    <xsl:apply-templates select="xqx:argExpr"/>
-    <xsl:text> instance of </xsl:text>
-    <xsl:apply-templates select="xqx:sequenceType"/>
-    <xsl:value-of select="$RPAREN"/>
-  </xsl:template>
+			return "(" + Fleur.Serializer.XQX_renderChildren(node, ["argExpr"]) + " instance of " + Fleur.Serializer.XQX_renderChildren(node, ["sequenceType"]) + ")";
 		case "castExpr":
-    <xsl:value-of select="$LPAREN"/>
-    <xsl:apply-templates select="xqx:argExpr"/>
-    <xsl:text> cast as </xsl:text>
-    <xsl:apply-templates select="xqx:singleType"/>
-    <xsl:value-of select="$RPAREN"/>
-  </xsl:template>
+			return "(" + Fleur.Serializer.XQX_renderChildren(node, ["argExpr"]) + " cast as " + Fleur.Serializer.XQX_renderChildren(node, ["singleType"]) + ")";
 		case "castableExpr":
-    <xsl:value-of select="$LPAREN"/>
-    <xsl:apply-templates select="xqx:argExpr"/>
-    <xsl:text> castable as </xsl:text>
-    <xsl:apply-templates select="xqx:singleType"/>
-    <xsl:value-of select="$RPAREN"/>
-  </xsl:template>
+			return "(" + Fleur.Serializer.XQX_renderChildren(node, ["argExpr"]) + " castable as " + Fleur.Serializer.XQX_renderChildren(node, ["singleType"]) + ")";
 		case "treatExpr":
-    <xsl:value-of select="$LPAREN"/>
-    <xsl:apply-templates select="xqx:argExpr"/>
-    <xsl:text> treat as </xsl:text>
-    <xsl:apply-templates select="xqx:sequenceType"/>
-    <xsl:value-of select="$RPAREN"/>
-  </xsl:template>
+			return "(" + Fleur.Serializer.XQX_renderChildren(node, ["argExpr"]) + " treat as " + Fleur.Serializer.XQX_renderChildren(node, ["sequenceType"]) + ")";
 		case "switchExprCaseClause":
+/*
     <xsl:for-each select="xqx:switchCaseExpr">
       <xsl:value-of select="$NEWLINE"/>
       <xsl:text>   case (</xsl:text>
@@ -748,66 +725,30 @@ Fleur.Serializer._serializeXQXToString = function(node) {
     <xsl:text>     return </xsl:text>
     <xsl:apply-templates select="xqx:resultExpr"/>
   </xsl:template>
+  */
 		case "switchExprDefaultClause":
-    <xsl:value-of select="$NEWLINE"/>
-    <xsl:text>   default return </xsl:text>
-    <xsl:apply-templates select="xqx:resultExpr"/>
-  </xsl:template>
+			return "\n   default return " + Fleur.Serializer.XQX_renderChildren(node, ["resultExpr"]);
 		case "switchExpr":
-    <xsl:value-of select="$LPAREN"/>
-    <xsl:text>switch</xsl:text>
-    <xsl:value-of select="$LPAREN"/>
-    <xsl:apply-templates select="xqx:argExpr"/>
-    <xsl:value-of select="$RPAREN"/>
-    <xsl:apply-templates select="xqx:switchExprCaseClause"/>
-    <xsl:apply-templates select="xqx:switchExprDefaultClause"/>
-    <xsl:value-of select="$RPAREN"/>
-  </xsl:template>
+			return "(switch(" + Fleur.Serializer.XQX_renderChildren(node, ["argExpr"]) + ")" +
+				Fleur.Serializer.XQX_renderChildren(node, ["switchExprCaseClause"]) + Fleur.Serializer.XQX_renderChildren(node, ["switchExprDefaultClause"]) + ")";
 		case "typeswitchExprCaseClause":
-    <xsl:text> case </xsl:text>
-    <xsl:apply-templates select="xqx:variableBinding"/>
-    <xsl:apply-templates select="xqx:sequenceType | xqx:sequenceTypeUnion"/>
-    <xsl:text> return </xsl:text>
-    <xsl:apply-templates select="xqx:resultExpr"/>
-  </xsl:template>
+			return " case " + Fleur.Serializer.XQX_renderChildren(node, ["variableBinding"]) +
+				Fleur.Serializer.XQX_renderChildren(node, ["sequenceType", "sequenceTypeUnion"]) + " return " +
+				Fleur.Serializer.XQX_renderChildren(node, ["resultExpr"]);
 		case "typeswitchExprDefaultClause":
-    <xsl:text> default </xsl:text>
-    <xsl:apply-templates select="xqx:variableBinding"/>
-    <xsl:text> return </xsl:text>
-    <xsl:apply-templates select="xqx:resultExpr"/>
-  </xsl:template>
+			return " default " + Fleur.Serializer.XQX_renderChildren(node, ["variableBinding"]) + " return " + Fleur.Serializer.XQX_renderChildren(node, ["resultExpr"]);
 		case "typeswitchExpr":
-    <xsl:value-of select="$LPAREN"/>
-    <xsl:text>typeswitch</xsl:text>
-    <xsl:value-of select="$LPAREN"/>
-    <xsl:apply-templates select="xqx:argExpr"/>
-    <xsl:value-of select="$RPAREN"/>
-    <xsl:apply-templates select="xqx:typeswitchExprCaseClause"/>
-    <xsl:apply-templates select="xqx:typeswitchExprDefaultClause"/>
-    <xsl:value-of select="$RPAREN"/>
-  </xsl:template>
+			return "(typeswitch(" + Fleur.Serializer.XQX_renderChildren(node, ["argExpr"]) + ")" +
+				Fleur.Serializer.XQX_renderChildren(node, ["typeswitchExprCaseClause"]) + Fleur.Serializer.XQX_renderChildren(node, ["typeswitchExprDefaultClause"]) +
+				")";
 		case "tryCatchExpr":
-    <xsl:value-of select="$NEWLINE"/>
-    <xsl:value-of select="$LPAREN"/>
-    <xsl:text>try </xsl:text>
-    <xsl:apply-templates select="xqx:tryClause"/>
-    <xsl:apply-templates select="xqx:catchClause"/>
-    <xsl:value-of select="$RPAREN"/>
-  </xsl:template>
+			return "\n(try " + Fleur.Serializer.XQX_renderChildren(node, ["tryClause"]) + Fleur.Serializer.XQX_renderChildren(node, ["catchClause"]) + ")";
 		case "tryClause":
-    <xsl:value-of select="$LBRACE"/>
-    <xsl:value-of select="$SPACE"/>
-    <xsl:apply-templates/>
-    <xsl:value-of select="$SPACE"/>
-    <xsl:value-of select="$RBRACE"/>
-  </xsl:template>
+			return "{ " + Fleur.Serializer.XQX_renderChildren(node) + " }";
 		case "catchClause":
-    <xsl:value-of select="$NEWLINE"/>
-    <xsl:text>  catch </xsl:text>
-    <xsl:apply-templates select="xqx:catchErrorList"/>
-    <xsl:apply-templates select="xqx:catchExpr"/>
-  </xsl:template>
+			return "\n  catch " + Fleur.Serializer.XQX_renderChildren(node, ["catchErrorList"]) + Fleur.Serializer.XQX_renderChildren(node, ["catchExpr"]);
 		case "catchErrorList":
+/*
     <xsl:for-each select="xqx:nameTest | xqx:Wildcard">
       <xsl:if test="(position() mod 5) = 0">
         <xsl:value-of select="$NEWLINE"/>
@@ -820,15 +761,11 @@ Fleur.Serializer._serializeXQXToString = function(node) {
       <xsl:value-of select="$SPACE"/>
     </xsl:for-each>
   </xsl:template>
+  */
 		case "catchExpr":
-    <xsl:value-of select="$NEWLINE"/>
-    <xsl:value-of select="$LBRACE"/>
-    <xsl:value-of select="$SPACE"/>
-    <xsl:apply-templates/>
-    <xsl:value-of select="$SPACE"/>
-    <xsl:value-of select="$RBRACE"/>
-  </xsl:template>
+			return "\n{ " + Fleur.Serializer.XQX_renderChildren(node) + " }";
 		case "validateExpr":
+/*
     <xsl:value-of select="$LPAREN"/>
     <xsl:text> validate </xsl:text>
     <xsl:if test="xqx:validationMode">
@@ -860,8 +797,8 @@ Fleur.Serializer._serializeXQXToString = function(node) {
 			return s;
 		case "predicate":
 			return "[" + Fleur.Serializer.XQX_renderChildren(node) + "]";
-			/*
 		case "dynamicFunctionInvocationExpr":
+/*
     <xsl:apply-templates select="xqx:functionItem"/>
     <xsl:apply-templates select="xqx:predicates"/>
     <xsl:choose>
@@ -876,9 +813,11 @@ Fleur.Serializer._serializeXQXToString = function(node) {
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
+  */
 		case "functionItem":
 			return Fleur.Serializer.XQX_renderChildren(node);
 		case "mapConstructor":
+/*
      <xsl:text>map { </xsl:text>
      <xsl:apply-templates select="xqx:mapConstructorEntry[1]"/>
      <xsl:if test="xqx:mapConstructorEntry[2]">
@@ -889,7 +828,9 @@ Fleur.Serializer._serializeXQXToString = function(node) {
      </xsl:if>
      <xsl:text> } </xsl:text>
   </xsl:template>
+  */
 		case "mapConstructorEntry":
+	/*
     <xsl:apply-templates select="*[1]"/>
     <xsl:text> : </xsl:text>
     <xsl:apply-templates select="*[2]"/>
@@ -897,8 +838,8 @@ Fleur.Serializer._serializeXQXToString = function(node) {
   */
 		case "arrayConstructor":
 			return Fleur.Serializer.XQX_renderChildren(node);
-			/*
 		case "squareArray":
+/*
     <xsl:text> [ </xsl:text>
     <xsl:apply-templates select="xqx:arrayElem[1]"/>
     <xsl:if test="xqx:arrayElem[2]">
@@ -939,41 +880,27 @@ Fleur.Serializer._serializeXQXToString = function(node) {
 		case "Wildcard[not(*)]":
     <xsl:value-of select="$STAR"/>
   </xsl:template>
-
-
   <xsl:template name="simpleWildcard" match="xqx:simpleWildcard">
     <xsl:apply-templates select="xqx:star"/>
     <xsl:apply-templates select="xqx:QName"/>
   </xsl:template>
-		case "textTest":
-    <xsl:text>text()</xsl:text>
-  </xsl:template>
-		case "commentTest":
-    <xsl:text>comment()</xsl:text>
-  </xsl:template>
-		case "namespaceTest":
-    <xsl:text>namespace-node()</xsl:text>
-  </xsl:template>
-		case "anyKindTest":
-    <xsl:text>node()</xsl:text>
-  </xsl:template>
-		case "piTest":
-    <xsl:text>processing-instruction</xsl:text>
-    <xsl:value-of select="$LPAREN"/>
-    <xsl:value-of select="*"/>
-    <xsl:value-of select="$RPAREN"/>
-  </xsl:template>
-		case "documentTest":
-    <xsl:text>document-node</xsl:text>
-    <xsl:value-of select="$LPAREN"/>
-    <xsl:apply-templates select="*"/>
-    <xsl:value-of select="$RPAREN"/>
-  </xsl:template>
   */
+		case "textTest":
+			return "text()";
+		case "commentTest":
+			return "comment()";
+		case "namespaceTest":
+			return "namespace-node()";
+		case "anyKindTest":
+			return "node()";
+		case "piTest":
+			return "processing-instruction(" + Fleur.Serializer.XQX_renderChildren(node) + ")";
+		case "documentTest":
+			return "document-node(" + Fleur.Serializer.XQX_renderChildren(node) + ")";
 		case "nameTest":
 			return Fleur.Serializer.XQX_renderEQName(node);
-  /*
 		case "attributeTest":
+/*
     <xsl:text>attribute</xsl:text>
     <xsl:value-of select="$LPAREN"/>
     <xsl:for-each select="xqx:attributeName">
@@ -985,7 +912,9 @@ Fleur.Serializer._serializeXQXToString = function(node) {
     </xsl:if>
     <xsl:value-of select="$RPAREN"/>
   </xsl:template>
+  */
 		case "elementTest":
+/*
     <xsl:text>element</xsl:text>
     <xsl:value-of select="$LPAREN"/>
     <xsl:for-each select="xqx:elementName">
@@ -1000,47 +929,26 @@ Fleur.Serializer._serializeXQXToString = function(node) {
     </xsl:if>
     <xsl:value-of select="$RPAREN"/>
   </xsl:template>
+  */
 		case "schemaElementTest":
-    <xsl:text>schema-element</xsl:text>
-    <xsl:value-of select="$LPAREN"/>
-    <xsl:call-template name="renderEQName"/>
-    <xsl:value-of select="$RPAREN"/>
-  </xsl:template>
+			return "schema-element(" + Fleur.Serializer.XQX_renderEQName(node) + ")";
 		case "schemaAttributeTest":
-    <xsl:text>schema-attribute</xsl:text>
-    <xsl:value-of select="$LPAREN"/>
-    <xsl:call-template name="renderEQName"/>
-    <xsl:value-of select="$RPAREN"/>
-  </xsl:template>
+			return "schema-attribute(" + Fleur.Serializer.XQX_renderEQName(node) + ")";
 		case "anyFunctionTest":
-    <xsl:apply-templates select="xqx:annotation"/>
-    <xsl:text> function(*)</xsl:text>
-  </xsl:template>
+			return Fleur.Serializer.XQX_renderChildren(node, ["annotation"]) + " function(*)";
 		case "typedFunctionTest":
-    <xsl:apply-templates select="xqx:annotation"/>
-    <xsl:text> function</xsl:text>
-    <xsl:apply-templates select="xqx:paramTypeList"/>
-    <xsl:text> as </xsl:text>
-    <xsl:apply-templates select="xqx:sequenceType"/>
-  </xsl:template>
+			return Fleur.Serializer.XQX_renderChildren(node, ["annotation"]) + " function" + Fleur.Serializer.XQX_renderChildren(node, ["paramTypeList"]) +
+				" as " + Fleur.Serializer.XQX_renderChildren(node, ["sequenceType"]);
 		case "paramTypeList":
-    <xsl:call-template name="parenthesizedList"/>
-  </xsl:template>
+			return Fleur.Serializer.XQX_parenthesizedList(node);
 		case "anyMapTest":
-    <xsl:text> map(*)</xsl:text>
-  </xsl:template>
+			return " map(*)";
 		case "typedMapTest":
-    <xsl:text> map(</xsl:text>
-    <xsl:apply-templates select="xqx:atomicType"/>
-    <xsl:text>, </xsl:text>
-    <xsl:apply-templates select="xqx:sequenceType"/>
-    <xsl:text>) </xsl:text>
-  </xsl:template>
+			return " map(" + Fleur.Serializer.XQX_renderChildren(node, ["atomicType"]) + ", " + Fleur.Serializer.XQX_renderChildren(node, ["sequenceType"]) + ") ";
 		case "lookup":
-    <xsl:text> ?</xsl:text>
-    <xsl:apply-templates/>
-  </xsl:template>
+			return " ?" + Fleur.Serializer.XQX_renderChildren(node);
 		case "arrowPostfix":
+/*
     <xsl:text> => </xsl:text>
     <xsl:apply-templates select="*[not(self::xqx:arguments)]"/>
     <xsl:if test="xqx:arguments">
@@ -1049,20 +957,13 @@ Fleur.Serializer._serializeXQXToString = function(node) {
       </xsl:for-each>
     </xsl:if>
   </xsl:template>
-		case "anyArrayTest":
-    <xsl:text> array(*)</xsl:text>
-  </xsl:template>
-		case "typedArrayTest":
-    <xsl:text> array(</xsl:text>
-    <xsl:apply-templates select="xqx:sequenceType"/>
-    <xsl:text>) </xsl:text>
-  </xsl:template>
-		case "parenthesizedItemType":
-    <xsl:text> ( </xsl:text>
-    <xsl:apply-templates/>
-    <xsl:text> ) </xsl:text>
-  </xsl:template>
   */
+		case "anyArrayTest":
+			return " array(*)";
+		case "typedArrayTest":
+			return " array(" + Fleur.Serializer.XQX_renderChildren(node, ["sequenceType"]) + ") ";
+		case "parenthesizedItemType":
+			return " ( " + Fleur.Serializer.XQX_renderChildren(node) + " ) ";
 		case "stepExpr":
 			s = "";
 			n = node.previousSibling;
@@ -1074,27 +975,17 @@ Fleur.Serializer._serializeXQXToString = function(node) {
 				n = n.previousSibling;
 			}
 			return s + Fleur.Serializer.XQX_renderChildren(node);
-			/*
 		case "filterExpr":
-    <xsl:apply-templates/>
-  </xsl:template>
+			return Fleur.Serializer.XQX_renderChildren(node);
 		case "namedFunctionRef":
-    <xsl:apply-templates select="xqx:functionName"/>
-    <xsl:text>#</xsl:text>
-    <xsl:apply-templates select="xqx:integerConstantExpr"/>
-  </xsl:template>
+			return Fleur.Serializer.XQX_renderChildren(node, ["functionName"]) + "#" + Fleur.Serializer.XQX_renderChildren(node, ["integerConstantExpr"]);
 		case "inlineFunctionExpr":
-    <xsl:apply-templates select="xqx:annotation"/>
-    <xsl:text> function </xsl:text>
-    <xsl:apply-templates select="xqx:paramList"/>
-    <xsl:apply-templates select="xqx:typeDeclaration"/>
-    <xsl:apply-templates select="xqx:functionBody"/>
-  </xsl:template>
-  */
+			return Fleur.Serializer.XQX_renderChildren(node, ["annotation"]) + " function " + Fleur.Serializer.XQX_renderChildren(node, ["paramList"]) +
+				Fleur.Serializer.XQX_renderChildren(node, ["typeDeclaration"]) +	 Fleur.Serializer.XQX_renderChildren(node, ["functionBody"]);
 		case "pathExpr":
 			return Fleur.Serializer.XQX_renderChildren(node, ["rootExpr", "stepExpr"]);
-			/*
 		case "attributeConstructor":
+/*
     <xsl:value-of select="$SPACE"/>
     <xsl:apply-templates select="xqx:attributeName"/>
     <xsl:value-of select="$EQUAL"/>
@@ -1141,7 +1032,9 @@ Fleur.Serializer._serializeXQXToString = function(node) {
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
+  */
 		case "namespaceDeclaration":
+/*
     <xsl:text> xmlns</xsl:text>
     <xsl:if test="xqx:prefix">
       <xsl:text>:</xsl:text>
@@ -1174,82 +1067,42 @@ Fleur.Serializer._serializeXQXToString = function(node) {
        </xsl:with-param>
     </xsl:call-template>
   </xsl:template>
+  */
 		case "attributeList":
-    <xsl:apply-templates select="*"/>
-  </xsl:template>
+			return Fleur.Serializer.XQX_renderChildren(node);
 		case "elementContent":
-    <xsl:for-each select="*">
-      <xsl:if test="not(self::xqx:elementConstructor)">
-        <xsl:value-of select="$SPACE"/>
-        <xsl:value-of select="$LBRACE"/>
-      </xsl:if>
-      <xsl:apply-templates select="."/>
-      <xsl:if test="not(self::xqx:elementConstructor)">
-        <xsl:value-of select="$SPACE"/>
-        <xsl:value-of select="$RBRACE"/>
-      </xsl:if>
-    </xsl:for-each>
-  </xsl:template>
+			l = node.children.length;
+			s = "";
+			while (i < l) {
+				if (node.children[i].localName !== "elementConstructor" || node.children[i].namespaceURI !== "http://www.w3.org/2005/XQueryX") {
+					s += " {" + Fleur.Serializer._serializeXQXToString(node.children[i]) + " }";
+				} else {
+					s += Fleur.Serializer._serializeXQXToString(node.children[i]);
+				}
+				i++;
+			}
+			return s;
 		case "elementConstructor":
-    <xsl:value-of select="$LESSTHAN"/>
-    <xsl:apply-templates select="xqx:tagName"/>
-    <xsl:apply-templates select="xqx:attributeList"/>
-    <xsl:value-of select="$GREATERTHAN"/>
-    <xsl:apply-templates select="xqx:elementContent"/>
-    <xsl:value-of select="$LESSTHAN"/>
-    <xsl:value-of select="$SLASH"/>
-    <xsl:apply-templates select="xqx:tagName"/>
-    <xsl:value-of select="$GREATERTHAN"/>
-  </xsl:template>
+			return "<" + Fleur.Serializer.XQX_renderChildren(node, ["tagName"]) + Fleur.Serializer.XQX_renderChildren(node, ["xqx:attributeList"]) +
+				">" + Fleur.Serializer.XQX_renderChildren(node, ["elementContent"]) + "</" + Fleur.Serializer.XQX_renderChildren(node, ["tagName"]) + ">";
 		case "tagNameExpr":
-    <xsl:value-of select="$LBRACE"/>
-    <xsl:apply-templates select="*"/>
-    <xsl:value-of select="$RBRACE"/>
-  </xsl:template>
+			return "{" + Fleur.Serializer.XQX_renderChildren(node) + "}";
 		case "computedElementConstructor":
-    <xsl:text> element </xsl:text>
-    <xsl:apply-templates select="xqx:tagName"/>
-    <xsl:apply-templates select="xqx:tagNameExpr"/>
-    <xsl:value-of select="$SPACE"/>
-    <xsl:value-of select="$LBRACE"/>
-    <xsl:value-of select="$SPACE"/>
-    <xsl:apply-templates select="xqx:contentExpr"/>     
-    <xsl:value-of select="$SPACE"/>
-    <xsl:value-of select="$RBRACE"/>
-  </xsl:template>
+			return " element " + Fleur.Serializer.XQX_renderChildren(node, ["tagName"]) + Fleur.Serializer.XQX_renderChildren(node, ["tagNameExpr"]) +
+				" { " + Fleur.Serializer.XQX_renderChildren(node, ["contentExpr"]) + " }";
 		case "contentExpr":
-    <xsl:apply-templates/>
-  </xsl:template>
+			return Fleur.Serializer.XQX_renderChildren(node);
 		case "computedAttributeConstructor":
-    <xsl:text> attribute </xsl:text>
-    <xsl:apply-templates select="xqx:tagName"/>
-    <xsl:apply-templates select="xqx:tagNameExpr"/>
-    <xsl:value-of select="$SPACE"/>
-    <xsl:value-of select="$LBRACE"/>
-    <xsl:apply-templates select="xqx:valueExpr"/>     
-    <xsl:value-of select="$SPACE"/>
-    <xsl:value-of select="$RBRACE"/>
-  </xsl:template>
+			return " attribute " + Fleur.Serializer.XQX_renderChildren(node, ["tagName"]) + Fleur.Serializer.XQX_renderChildren(node, ["tagNameExpr"]) +
+				" { " + Fleur.Serializer.XQX_renderChildren(node, ["valueExpr"]) + " }";
 		case "computedDocumentConstructor":
-    <xsl:text> document {</xsl:text>
-    <xsl:apply-templates select="*"/>
-    <xsl:text> }</xsl:text>
-  </xsl:template>
+			return " document {" + Fleur.Serializer.XQX_renderChildren(node) + " }";
 		case "computedTextConstructor":
-    <xsl:text> text</xsl:text>
-    <xsl:value-of select="$SPACE"/>
-    <xsl:value-of select="$LBRACE"/>
-    <xsl:apply-templates select="*"/>
-    <xsl:value-of select="$SPACE"/>
-    <xsl:value-of select="$RBRACE"/>
-  </xsl:template>
+			return " text {" + Fleur.Serializer.XQX_renderChildren(node) + " }";
 		case "computedCommentConstructor":
-    <xsl:text> comment</xsl:text>
-    <xsl:value-of select="$LBRACE"/>
-    <xsl:apply-templates select="*"/>
-    <xsl:value-of select="$RBRACE"/>
-  </xsl:template>
+			return " comment {" + Fleur.Serializer.XQX_renderChildren(node) + " }";
 		case "computedNamespaceConstructor":
+/*
     <xsl:text> namespace </xsl:text>
     <xsl:choose>
       <xsl:when test="xqx:prefix">
@@ -1266,15 +1119,13 @@ Fleur.Serializer._serializeXQXToString = function(node) {
     <xsl:apply-templates select="xqx:URIExpr"/>
     <xsl:value-of select="$RBRACE"/>
   </xsl:template>
+  */
 		case "piTargetExpr":
-    <xsl:value-of select="$LBRACE"/>
-    <xsl:apply-templates select="*"/>
-    <xsl:value-of select="$RBRACE"/>
-  </xsl:template>
+			return "{" + Fleur.Serializer.XQX_renderChildren(node) + "}";
 		case "piValueExpr":
-    <xsl:apply-templates select="*"/>
-  </xsl:template>
+			return Fleur.Serializer.XQX_renderChildren(node);
 		case "computedPIConstructor":
+/*
     <xsl:text> processing-instruction </xsl:text>
     <xsl:value-of select="xqx:piTarget"/>
     <xsl:apply-templates select="xqx:piTargetExpr"/>
@@ -1282,23 +1133,13 @@ Fleur.Serializer._serializeXQXToString = function(node) {
     <xsl:apply-templates select="xqx:piValueExpr"/>
     <xsl:value-of select="$RBRACE"/>
   </xsl:template>
+  */
 		case "unorderedExpr":
-    <xsl:text> unordered</xsl:text>
-        <xsl:value-of select="$LBRACE"/>
-    <xsl:text> </xsl:text>
-    <xsl:apply-templates select="*"/>
-    <xsl:text> </xsl:text>
-    <xsl:value-of select="$RBRACE"/>
-  </xsl:template>
+			return " unordered{ " + Fleur.Serializer.XQX_renderChildren(node) + " }";
 		case "orderedExpr":
-    <xsl:text> ordered</xsl:text>
-        <xsl:value-of select="$LBRACE"/>
-    <xsl:text> </xsl:text>
-    <xsl:apply-templates select="*"/>
-    <xsl:text> </xsl:text>
-    <xsl:value-of select="$RBRACE"/>
-  </xsl:template>
+			return " ordered{ " + Fleur.Serializer.XQX_renderChildren(node) + " }";
 		case "versionDecl":
+/*
     <xsl:text>xquery </xsl:text>
     <xsl:if test="xqx:version">
       <xsl:text>version </xsl:text>
@@ -1369,8 +1210,8 @@ Fleur.Serializer._serializeXQXToString = function(node) {
 			return "declare ordering " + node.textContent;
 		case "emptyOrderingDecl":
 			return "declare default order " + node.textContent;
-			/*
 		case "copyNamespacesDecl":
+/*
     <xsl:text>declare copy-namespaces </xsl:text>
     <xsl:value-of select="xqx:preserveMode"/>
     <xsl:value-of select="$COMMA"/>
@@ -1388,8 +1229,8 @@ Fleur.Serializer._serializeXQXToString = function(node) {
 				i++;
 			}
 			return s;
-			/*
 		case "decimalFormatDecl":
+/*
     <xsl:text>declare </xsl:text>
     <xsl:if test="not(xqx:decimalFormatName)">
       <xsl:text>default </xsl:text>
@@ -1421,8 +1262,8 @@ Fleur.Serializer._serializeXQXToString = function(node) {
 			return "item()";
 		case "sequenceType":
 			return Fleur.Serializer.XQX_renderChildren(node);
-			/*
 		case "sequenceTypeUnion":
+/*
     <xsl:apply-templates select="xqx:sequenceType[1]"/>
     <xsl:if test="count(xqx:sequenceType) > 1">
       <xsl:for-each select="xqx:sequenceType[position() > 1]">
@@ -1431,7 +1272,9 @@ Fleur.Serializer._serializeXQXToString = function(node) {
       </xsl:for-each>
     </xsl:if>
   </xsl:template>
+*/
 		case "singleType":
+/*
     <xsl:apply-templates select="xqx:atomicType"/>
     <xsl:if test="xqx:optional">
       <xsl:text>?</xsl:text>
@@ -1441,8 +1284,8 @@ Fleur.Serializer._serializeXQXToString = function(node) {
 		case "typeDeclaration":
 		case "contextItemType":
 			return " as " + Fleur.Serializer.XQX_renderChildren(node);
-			/*
 		case "contextItemDecl":
+/*
     <xsl:text>declare context item </xsl:text>
     <xsl:apply-templates select="xqx:contextItemType"/>
     <xsl:if test="xqx:varValue">
@@ -1459,7 +1302,9 @@ Fleur.Serializer._serializeXQXToString = function(node) {
       </xsl:if>
     </xsl:if>
   </xsl:template>
+  */
 		case "annotation":
+/*
     <xsl:value-of select="$SPACE"/>
     <xsl:value-of select="$PERCENT"/>
     <xsl:apply-templates select="xqx:annotationName"/>
@@ -1469,7 +1314,9 @@ Fleur.Serializer._serializeXQXToString = function(node) {
       </xsl:for-each>
     </xsl:if>
   </xsl:template>
+  */
 		case "varDecl":
+/*
     <xsl:text>declare</xsl:text>
     <xsl:apply-templates select="xqx:annotation"/>
     <xsl:text> variable </xsl:text>
@@ -1488,7 +1335,9 @@ Fleur.Serializer._serializeXQXToString = function(node) {
       </xsl:if>
     </xsl:if>
   </xsl:template>
+  */
 		case "targetLocation":
+/*
     <xsl:choose>
       <xsl:when test="position()=1"> at </xsl:when>
       <xsl:otherwise>,&#xD;  </xsl:otherwise>
@@ -1497,7 +1346,9 @@ Fleur.Serializer._serializeXQXToString = function(node) {
       <xsl:with-param name="item" select="."/>
     </xsl:call-template>
   </xsl:template>
+  */
 		case "schemaImport":
+/*
     <xsl:text> import schema </xsl:text>
     <xsl:if test="xqx:defaultElementNamespace">
       <xsl:text> default element namespace </xsl:text>
@@ -1512,7 +1363,9 @@ Fleur.Serializer._serializeXQXToString = function(node) {
     </xsl:call-template>
     <xsl:apply-templates select="xqx:targetLocation"/>
   </xsl:template>
+  */
 		case "moduleImport":
+/*
     <xsl:text> import module </xsl:text>
     <xsl:if test="xqx:namespacePrefix">
       <xsl:text> namespace </xsl:text>

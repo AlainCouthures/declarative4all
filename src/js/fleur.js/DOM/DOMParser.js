@@ -134,7 +134,7 @@ Fleur.DOMParser._appendFromXMLString = function(node, s) {
 				if (index === -1) {
 					index = end;
 				}
-				currnode.appendChild(doc.createTextNode(s.substring(offset, index).replace("\x01","<")));
+				currnode.appendChild(doc.createTextNode(s.substring(offset, index).replace(/\x01/gm,"<")));
 				if (index === end) {
 					break;
 				}
@@ -151,7 +151,7 @@ Fleur.DOMParser._appendFromXMLString = function(node, s) {
 					if (index === -1) {
 						index = end;
 					}
-					currnode.appendChild(doc.createComment(s.substring(offset, index).replace("\x01","<")));
+					currnode.appendChild(doc.createComment(s.substring(offset, index).replace(/\x01/gm,"<")));
 					if (index === end) {
 						break;
 					}
@@ -165,7 +165,7 @@ Fleur.DOMParser._appendFromXMLString = function(node, s) {
 					if (index === -1) {
 						index = end;
 					}
-					currnode.appendChild(doc.createCDATASection(s.substring(offset, index).replace("\x01","<")));
+					currnode.appendChild(doc.createCDATASection(s.substring(offset, index).replace(/\x01/gm,"<")));
 					if (index === end) {
 						break;
 					}
@@ -336,7 +336,7 @@ Fleur.DOMParser._appendFromXMLString = function(node, s) {
 			}
 			if (nodename === "xml") {
 			} else if (nodename !== "") {
-				currnode.appendChild(doc.createProcessingInstruction(nodename, index === offset - 1 ? "" : s.substring(offset, index).replace(/\x01/g,"<")));
+				currnode.appendChild(doc.createProcessingInstruction(nodename, index === offset - 1 ? "" : s.substring(offset, index).replace(/\x01/gm,"<")));
 			}
 			if (index === end) {
 				break;
@@ -449,7 +449,7 @@ Fleur.DOMParser._appendFromXMLString = function(node, s) {
 							if (attrs[prefix].hasOwnProperty(attrname)) {
 								attrnode = doc.createAttributeNS(prefix === "xmlns" || prefix === " " && attrname === "xmlns" ? "http://www.w3.org/2000/xmlns/" : prefix !== " " ? newnamespaces[prefix] : null, prefix !== " " ? prefix + ":" + attrname : attrname);
 								eltnode.setAttributeNodeNS(attrnode);
-								attrnode.appendChild(doc.createTextNode(Fleur.DocumentType.resolveEntities(doc.doctype, attrs[prefix][attrname])));
+								attrnode.appendChild(doc.createTextNode(Fleur.DocumentType.resolveEntities(doc.doctype, attrs[prefix][attrname]).replace(/\x01/gm,"<")));
 							}
 						}
 					}

@@ -127,9 +127,10 @@
 					<xsl:text>/* */</xsl:text>
 				</script>
 			</xsl:if>
-			<xsl:variable name="jsrevision"><xsl:if test="$script/config/properties/jsrevision != ''">?<xsl:value-of select="$script/config/properties/jsrevision"/>=627</xsl:if></xsl:variable>
-			<script type="text/javascript" id="xsltforms-src" src="{$resourcesdirjs}xsltforms.js{$jsrevision}" data-uri="http://www.agencexml.com/xsltforms">
-				<xsl:attribute name="data-version">627</xsl:attribute>
+			<xsl:variable name="jsrevisionname"><xsl:if test="$script/config/properties/jsrevision = 'concat'">-$$$VersionName$$$</xsl:if></xsl:variable>
+			<xsl:variable name="jsrevisionparam"><xsl:if test="$script/config/properties/jsrevision != '' and $script/config/properties/jsrevision != ''">?<xsl:value-of select="$script/config/properties/jsrevision"/>=$$$VersionNumber$$$</xsl:if></xsl:variable>
+			<script type="text/javascript" id="xsltforms-src" src="{$resourcesdirjs}xsltforms{$jsrevisionname}.js{$jsrevisionparam}" data-uri="http://www.agencexml.com/xsltforms">
+				<xsl:attribute name="data-version">$$$VersionNumber$$$</xsl:attribute>
 				<xsl:text>/* */</xsl:text>
 			</script>
 			<xsl:for-each select="$script/config/jsextensions">
@@ -348,7 +349,7 @@
 </xsl:text>
 				<xsl:text>}
 </xsl:text>
-				<xsl:text>alert("XSLTForms\x20Exception\n--------------------------\n\nError\x20initializing\x20:\n\n"+(!e || typeof(e.stack)=="undefined"?"":e.stack)+"\n\n"+(!e || !e.name?e:e.name+(e.message?"\n\n"+e.message:"")));
+				<xsl:text>alert("XSLTForms\x20Exception\n--------------------------\n\nError\x20initializing\x20:"+(e?(e.name?"\n"+e.name:"")+(e.message?"\n"+e.message:""):"")+(!e || typeof(e.stack)=="undefined"?"":"\n\n"+e.stack));
 </xsl:text>
 				<xsl:text>} /* XsltForms_MagicSeparator */ };
 </xsl:text>
