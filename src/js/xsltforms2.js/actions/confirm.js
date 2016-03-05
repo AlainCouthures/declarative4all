@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_abstractAction XsltForms_browser XsltForms_idManager XsltForms_globals*/
+/*globals XsltForms_abstractAction XsltForms_browser XsltForms_idManager XsltForms_engine*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -28,7 +28,7 @@ XsltForms_confirm.prototype.run = function(element, ctx, evt) {
 		}
 	} else {
 		var e = XsltForms_idManager.find(this.id);
-		XsltForms_globals.build(e, ctx);
+		XsltForms_engine.build(e, ctx);
 		text = e.textContent || e.innerText;
 	}
 	if (text) {

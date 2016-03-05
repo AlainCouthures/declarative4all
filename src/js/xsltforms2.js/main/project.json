@@ -3,7 +3,7 @@
 	"Description":"== Main functions and objects ==",
 	"Components":[
 		"constants.js",
-		"globals.js",
+		"engine.js",
 		"browser.js",
 		"subform.js",
 		"Binding.js",

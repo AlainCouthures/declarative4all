@@ -8,6 +8,7 @@
  * @description  === "XsltForms_globals" class ===
  * Global class for XSLTForms Management
  */
+var XsltForms_context;
 var XsltForms_globals = {
 
 	fileVersion: "$$$VersionName$$$",

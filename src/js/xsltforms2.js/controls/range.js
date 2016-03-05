@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals XsltForms_browser Fleur XsltForms_schema XsltForms_control*/
+/*globals XsltForms_engine XsltForms_browser Fleur XsltForms_schema XsltForms_control*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -11,7 +11,7 @@
  */
 		
 function XsltForms_range(subform, id, valoff, binding, incremental, start, end, step, aidButton, clone) {
-	XsltForms_globals.counters.upload++;
+	XsltForms_engine.counters.upload++;
 	this.init(subform, id);
 	this.controlName = "range";
 	this.binding = binding;
@@ -62,9 +62,9 @@ function XsltForms_range(subform, id, valoff, binding, incremental, start, end, 
 				}
 				xf.setValue(value);
 				if (xf.incremental) {
-					XsltForms_globals.openAction("XsltForms_range#1");
+					XsltForms_engine.openAction("XsltForms_range#1");
 					xf.valueChanged(xf.value + "");
-					XsltForms_globals.closeAction("XsltForms_range#1");
+					XsltForms_engine.closeAction("XsltForms_range#1");
 				}
 				if (!document.activeElement || !document.activeElement !== xf.cursor) {
 					xf.cursor.focus();
@@ -107,9 +107,9 @@ function XsltForms_range(subform, id, valoff, binding, incremental, start, end, 
 							}
 							xf.setValue(value);
 							if (xf.incremental) {
-								XsltForms_globals.openAction("XsltForms_range#2");
+								XsltForms_engine.openAction("XsltForms_range#2");
 								xf.valueChanged(xf.value + "");
-								XsltForms_globals.closeAction("XsltForms_range#2");
+								XsltForms_engine.closeAction("XsltForms_range#2");
 							}
 							if (!document.activeElement || !document.activeElement !== xf.cursor) {
 								xf.cursor.focus();
@@ -146,7 +146,7 @@ function XsltForms_range(subform, id, valoff, binding, incremental, start, end, 
 	}
 }
 
-XsltForms_range.prototype = new XsltForms_control();
+//XsltForms_range.prototype = new XsltForms_control();
 
 
 		
@@ -166,7 +166,7 @@ XsltForms_range.prototype.clone = function(id) {
 
 XsltForms_range.prototype.dispose = function() {
 	this.cell = null;
-	XsltForms_globals.counters.range--;
+	XsltForms_engine.counters.range--;
 	XsltForms_control.prototype.dispose.call(this);
 };
 
@@ -197,7 +197,7 @@ XsltForms_range.prototype.setValue = function(value) {
  */
 
 XsltForms_range.prototype.blur = function(target) {
-	XsltForms_globals.focus = null;
+	XsltForms_engine.focus = null;
 	if (!this.incremental) {
 		XsltForms_browser.assert(this.input, this.element.id);
 		this.valueChanged(this.value);

@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals */
+/*globals XsltForms_engine */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -22,8 +22,8 @@ function XsltForms_unionExpr(expr1, expr2) {
  */
 
 XsltForms_unionExpr.prototype.evaluate = function(ctx) {
-	var nodes1 = XsltForms_globals.nodeSetValue(this.expr1.evaluate(ctx));
-	var nodes2 = XsltForms_globals.nodeSetValue(this.expr2.evaluate(ctx));
+	var nodes1 = XsltForms_engine.nodeSetValue(this.expr1.evaluate(ctx));
+	var nodes2 = XsltForms_engine.nodeSetValue(this.expr2.evaluate(ctx));
 	var len1 = nodes1.length;
 	for (var i2 = 0, len = nodes2.length; i2 < len; i2++) {
 		var found = false;

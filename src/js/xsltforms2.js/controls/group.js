@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_element XsltForms_globals XsltForms_browser XsltForms_toggle*/
+/*globals XsltForms_element XsltForms_engine XsltForms_browser XsltForms_toggle*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -11,7 +11,7 @@
  */
 		
 function XsltForms_group(subform, id, binding, casebinding) {
-	XsltForms_globals.counters.group++;
+	XsltForms_engine.counters.group++;
 	this.init(subform, id);
 	this.controlName = "group";
 	if (binding) {
@@ -23,7 +23,7 @@ function XsltForms_group(subform, id, binding, casebinding) {
 	this.casebinding = casebinding;
 }
 
-XsltForms_group.prototype = new XsltForms_element();
+//XsltForms_group.prototype = new XsltForms_element();
 
 
 		
@@ -32,7 +32,7 @@ XsltForms_group.prototype = new XsltForms_element();
  */
 
 XsltForms_group.prototype.dispose = function() {
-	XsltForms_globals.counters.group--;
+	XsltForms_engine.counters.group--;
 	XsltForms_element.prototype.dispose.call(this);
 };
 
@@ -59,7 +59,7 @@ XsltForms_group.prototype.build_ = function(ctx) {
 	if (this.casebinding) {
 		var caseref = this.evaluateBinding(this.casebinding, nodes[0]);
 		if (caseref) {
-			XsltForms_toggle.toggle(XsltForms_globals.stringValue(caseref));
+			XsltForms_toggle.toggle(XsltForms_engine.stringValue(caseref));
 		}
 	}
 };

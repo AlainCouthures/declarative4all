@@ -91,6 +91,7 @@
 					<xsl:copy-of select="@*"/>
 				</meta>
 			</xsl:for-each>
+			<link type="text/css" href="{$resourcesdircss}xsltforms2.css" rel="stylesheet"/>
 			<xsl:apply-templates select="xhtml:head/xhtml:*[local-name() != 'script' and local-name() != 'style' and local-name() != 'link' and local-name() != 'meta'] | xhtml:head/comment() | head/title | head/comment()"/>
 			<xsl:apply-templates select="xhtml:head/xhtml:style | xhtml:head/xhtml:link | head/style | head/link">
 				<xsl:with-param name="config" select="$script/config"/>
@@ -119,7 +120,15 @@
 				</xsl:if>
 			</xsl:variable>
 			<xsl:variable name="xsltengine" select="normalize-space(concat(system-property('xsl:vendor'),' ',system-property('xsl:vendor-url'),' ',$xsltversion))"/>
-			<xforms-engine xsltengine="{$xsltengine}">
+			<xsl:variable name="vsep">
+				<xsl:choose>
+					<xsl:when test="$script/config/properties/valuesseparator != ''">
+						<xsl:value-of select="$script/config/properties/valuesseparator"/>
+					</xsl:when>
+					<xsl:otherwise><xsl:text> </xsl:text></xsl:otherwise>
+				</xsl:choose>
+			</xsl:variable>
+			<xforms-engine xsltengine="{$xsltengine}" loadingmsg="{$script/config/properties/status}" valuesseparator="{$vsep}">
 				<xsl:if test="$configlang != ''">
 					<xsl:attribute name="lang"><xsl:value-of select="$configlang"/></xsl:attribute>
 				</xsl:if>
@@ -128,8 +137,8 @@
 				</xsl:if>
 			</xforms-engine>
 			<xsl:apply-templates select="xhtml:head/xforms:model | body/xforms:model"/>
-			<xforms-model id="xsltforms-model-config">
-				<xforms-instance id="xsltforms-instance-config">
+			<xforms-model id="xsltforms-mainform-model-config">
+				<xforms-instance id="xsltforms-mainform-instance-config">
 					<script type="text/plain">
 						<xsl:choose>
 							<xsl:when test="$xsltforms_config != ''">

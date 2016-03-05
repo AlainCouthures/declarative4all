@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals Fleur XsltForms_globals XsltForms_upload XsltForms_idManager XsltForms_schema XsltForms_xmlevents ActiveXObject XSLTProcessor XsltForms_undefined*/
+/*globals Fleur XsltForms_engine XsltForms_upload XsltForms_idManager XsltForms_schema XsltForms_xmlevents ActiveXObject XSLTProcessor XsltForms_undefined*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,7 +10,7 @@
  */
 
 var XsltForms_browser = {
-	jsFileName : "xsltforms.js",
+	jsFileName : "xsltforms2.js",
 
 		
 /**
@@ -137,12 +137,13 @@ var XsltForms_browser = {
 				}
 				var r = XsltForms_browser.config.ownerDocument.importNode(n, true);
 				XsltForms_browser.config.parentNode.replaceChild(r, XsltForms_browser.config);
-				var inst = document.getElementById(XsltForms_browser.idPf + "instance-config").xfElement;
+				var inst = document.getElementById(XsltForms_browser.idPf + "instance-config");
 				XsltForms_browser.config = inst.doc.documentElement;
 				inst.srcDoc = XsltForms_browser.saveDoc(inst.doc, "application/xml");
 				XsltForms_browser.setDocMeta(inst.doc, "instance", XsltForms_browser.idPf + "instance-config");
 				XsltForms_browser.setDocMeta(inst.doc, "model", XsltForms_browser.idPf + "model-config");
-				XsltForms_globals.language = XsltForms_browser.selectSingleNodeText('language', XsltForms_browser.config);
+				XsltForms_engine.conf.lang = XsltForms_browser.selectSingleNodeText('language', XsltForms_browser.config);
+				XsltForms_browser.setValue(document.getElementById("statusPanel"), XsltForms_browser.i18n.get("status"));
 				//XMLEvents.dispatch(properties.model, "xforms-rebuild");
 				//xforms.refresh();
 			} catch (e) {
@@ -377,7 +378,7 @@ if (XsltForms_browser.isIE || XsltForms_browser.isIE11) {
 			}
 			try {
 				xsltProcessor.setParameter(null, "xsltforms_config", document.getElementById(XsltForms_browser.idPf + "instance-config").xfElement.srcDoc);
-				xsltProcessor.setParameter(null, "xsltforms_lang", XsltForms_globals.language);
+				xsltProcessor.setParameter(null, "xsltforms_lang", XsltForms_engine.language);
 			} catch (e) {
 			}
 			for (var i = 3, len = arguments.length-1; i < len ; i += 2) {
@@ -682,9 +683,9 @@ XsltForms_browser.setAttributeNS = function(node, ns, attrname, value) {
 XsltForms_browser.selectSingleNode = function(xpath, node) {
 	try {
 		if (node.evaluate) {
-			return node.evaluate(xpath, node, node.createNSResolver(node.documentElement), XPathResult.ANY_TYPE, null).iterateNext();
+			return node.evaluate(xpath, node, node.createNSResolver(node.documentElement), XPathResult.ORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
 		} else {
-			return node.ownerDocument.evaluate(xpath, node, node.ownerDocument.createNSResolver(node), XPathResult.ANY_TYPE, null).iterateNext();
+			return node.ownerDocument.evaluate(xpath, node, node.ownerDocument.createNSResolver(node), XPathResult.ORDERED_NODE_ITERATOR_TYPE, null).iterateNext();
 		}
 	} catch (e) {
 		return null;
@@ -692,19 +693,12 @@ XsltForms_browser.selectSingleNode = function(xpath, node) {
 };
 XsltForms_browser.selectSingleNodeText = function(xpath, node, defvalue) {
 	try {
-		if (node.evaluate) {
-			return node.evaluate(xpath, node, node.createNSResolver(node.documentElement), XPathResult.ANY_TYPE, null).iterateNext().textContent;
-		} else {
-			return node.ownerDocument.evaluate(xpath, node, node.ownerDocument.createNSResolver(node), XPathResult.ANY_TYPE, null).iterateNext().textContent;
-		}
+		var res =  node.evaluate ?
+			node.evaluate(xpath, node, node.createNSResolver(node.documentElement), XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue :
+			node.ownerDocument.evaluate(xpath, node, node.ownerDocument.createNSResolver(node), XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+		return res || defvalue || "";
 	} catch (e) {
-		if (node.nodeName === "properties") {
-			for (var i = 0, l = node.childNodes.length; i < l; i++ ) {
-				if (node.childNodes[i].nodeName === xpath) {
-					return node.childNodes[i].textContent;
-				}
-			}
-		}
+		XsltForms_browser.debugConsole.write("ERROR: Could not select \"" + xpath + "\" on " + XsltForms_browser.name2string(node));
 		return defvalue || "";
 	}
 };
@@ -796,7 +790,7 @@ XsltForms_browser.loadNode = function(dest, srcNode, mediatype) {
 				break;
 		}
 	} catch(e) {
-		XsltForms_globals.error(document.getElementById(XsltForms_browser.getDocMeta(dest.ownerDocument, "model")).xfElement, "xforms-link-exception", "Unable to parse source");
+		XsltForms_engine.error(document.getElementById(XsltForms_browser.getDocMeta(dest.ownerDocument, "model")).xfElement, "xforms-link-exception", "Unable to parse source");
 	}
 };
 XsltForms_browser.loadDoc = XsltForms_browser.loadNode;
@@ -1173,7 +1167,7 @@ XsltForms_browser.debugConsole = {
 				XsltForms_browser.createElement("br", this.element_);
 				this.time_ = time;
 			}
-			if (XsltForms_globals.debugMode) {
+			if (XsltForms_engine.debugMode) {
 				if (!this.doc_) {
 					this.doc_ = XsltForms_browser.createXMLDocument('<tracelog xmlns=""/>');
 				}
@@ -1486,8 +1480,11 @@ XsltForms_browser.i18n = {
  */
 
 	asyncinit : function(f) {
-		if (XsltForms_globals.language === "navigator" || XsltForms_globals.language !== XsltForms_browser.selectSingleNodeText('language', XsltForms_browser.config)) {
-			var lan = XsltForms_globals.language === "navigator" ? (navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage || "undefined")) : XsltForms_browser.selectSingleNodeText('language', XsltForms_browser.config);
+		if (XsltForms_engine.conf.lang === "navigator" || XsltForms_engine.conf.lang !== XsltForms_browser.selectSingleNodeText('language', XsltForms_browser.config)) {
+			var lan = XsltForms_engine.conf.lang === "navigator" ? (navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage || "undefined")) : XsltForms_browser.selectSingleNodeText('language', XsltForms_browser.config);
+			if (lan === "") {
+				lan = XsltForms_engine.conf.lang;
+			}
 			lan = lan.replace("-", "_").toLowerCase();
 			var found = XsltForms_browser.inArray(lan, XsltForms_browser.i18n.langs);
 			if (!found) {
@@ -1497,7 +1494,7 @@ XsltForms_browser.i18n = {
 				}
 				found = XsltForms_browser.inArray(lan, XsltForms_browser.i18n.langs);
 			}
-			XsltForms_globals.language = "default";
+			XsltForms_engine.conf.lang = "default";
 			if (found) {
 				XsltForms_browser.loadProperties("config_" + lan + ".xsl", f);
 				return;
@@ -1515,8 +1512,8 @@ XsltForms_browser.i18n = {
 		if (!XsltForms_browser.config || XsltForms_browser.config.nodeName === "dummy") {
 			return "Initializing";
 		}
-		if (XsltForms_globals.language === "navigator" || XsltForms_globals.language !== XsltForms_browser.selectSingleNodeText('language', XsltForms_browser.config)) {
-			var lan = XsltForms_globals.language === "navigator" ? (navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage || "undefined")) : XsltForms_browser.selectSingleNodeText('language', XsltForms_browser.config);
+		if (XsltForms_engine.conf.lang === "navigator" || XsltForms_engine.conf.lang !== XsltForms_browser.selectSingleNodeText('language', XsltForms_browser.config)) {
+			var lan = XsltForms_engine.conf.lang === "navigator" ? (navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage || "undefined")) : XsltForms_browser.selectSingleNodeText('language', XsltForms_browser.config);
 			lan = lan.replace("-", "_").toLowerCase();
 			var found = XsltForms_browser.inArray(lan, XsltForms_browser.i18n.langs);
 			if (!found) {
@@ -1528,9 +1525,9 @@ XsltForms_browser.i18n = {
 			}
 			if (found) {
 				XsltForms_browser.loadProperties("config_" + lan + ".xsl");
-				XsltForms_globals.language = XsltForms_browser.selectSingleNodeText('language', XsltForms_browser.config);
+				XsltForms_engine.conf.lang = XsltForms_browser.selectSingleNodeText('language', XsltForms_browser.config);
 			} else {
-				XsltForms_globals.language = "default";
+				XsltForms_engine.conf.lang = "default";
 			}
 		}
 		return XsltForms_browser.selectSingleNodeText(key, XsltForms_browser.config, defvalue);
@@ -1816,9 +1813,9 @@ XsltForms_browser.forEach = function(object, block) {
 
 XsltForms_browser.assert = function(condition, message) {
 	if (!condition && XsltForms_browser.debugConsole.isOpen()) {
-		if (!XsltForms_globals.debugMode) {
-			XsltForms_globals.debugMode = true;
-			XsltForms_globals.debugging();
+		if (!XsltForms_engine.debugMode) {
+			XsltForms_engine.debugMode = true;
+			XsltForms_engine.debugging();
 		}
 		XsltForms_browser.debugConsole.write("Assertion failed: " + message);
 		if (XsltForms_browser.isIE) { // Internet Explorer
@@ -1994,21 +1991,21 @@ XsltForms_browser.run = function(action, element, evt, synch, propagate) {
 	if (synch) {
 		XsltForms_browser.dialog.show("statusPanel", null, false);
 		setTimeout(function() { 
-			XsltForms_globals.openAction("XsltForms_browser.run#1");
+			XsltForms_engine.openAction("XsltForms_browser.run#1");
 			action.execute(XsltForms_idManager.find(element), null, evt);
 			XsltForms_browser.dialog.hide("statusPanel", false);
 			if (!propagate) {
 				evt.stopPropagation();
 			}
-			XsltForms_globals.closeAction("XsltForms_browser.run#1");
+			XsltForms_engine.closeAction("XsltForms_browser.run#1");
 		}, 1 );
 	} else {
-		XsltForms_globals.openAction("XsltForms_browser.run#2");
+		XsltForms_engine.openAction("XsltForms_browser.run#2");
 		action.execute(XsltForms_idManager.find(element), null, evt);
 		if (!propagate) {
 			evt.stopPropagation();
 		}
-		XsltForms_globals.closeAction("XsltForms_browser.run#2");
+		XsltForms_engine.closeAction("XsltForms_browser.run#2");
 	}
 };
 

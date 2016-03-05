@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_coreElement XsltForms_globals XsltForms_xmlevents*/
+/*globals XsltForms_coreElement XsltForms_engine XsltForms_xmlevents*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -31,9 +31,9 @@ XsltForms_timer.prototype.stop = function() {
 XsltForms_timer.prototype.run = function() {
 	if (this.running) {
 		var timer = this;
-		XsltForms_globals.openAction();
+		XsltForms_engine.openAction();
 		XsltForms_xmlevents.dispatch(timer.element, "ajx-time");
-		XsltForms_globals.closeAction();
+		XsltForms_engine.closeAction();
 		setTimeout(function() { timer.run(); }, this.time);
 	}
 };

@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_xpath XsltForms_abstractAction XsltForms_idManager XsltForms_globals XsltForms_browser XsltForms_xmlevents*/
+/*globals XsltForms_xpath XsltForms_abstractAction XsltForms_idManager XsltForms_engine XsltForms_browser XsltForms_xmlevents*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -28,7 +28,7 @@ XsltForms_setindex.prototype = new XsltForms_abstractAction();
 
 XsltForms_setindex.prototype.run = function(element, ctx) {
 	var repeat = XsltForms_idManager.find(this.repeat);
-	var index = XsltForms_globals.numberValue(this.index.xpath_evaluate(ctx));
+	var index = XsltForms_engine.numberValue(this.index.xpath_evaluate(ctx));
 	XsltForms_browser.debugConsole.write("setIndex " + index);
 	if (!isNaN(index)) {
 		if (index < 1) {

@@ -201,7 +201,7 @@ Fleur.Document.prototype.createTextNode = function(data) {
 	var node = new Fleur.Text();
 	node._setOwnerDocument(this);
 	node.appendData(data);
-	node.schemaTypeInfo = Fleur.Type_string;
+	node.schemaTypeInfo = Fleur.Type_untypedAtomic;
 	return node;
 };
 Fleur.Document.prototype.createTypedValueNode = function(typeNamespace, typeName, data) {
@@ -329,15 +329,15 @@ Fleur.Document.prototype._serializeToString = function(indent) {
 Fleur.Document.prototype.compileXslt = function() {
 	return this.documentElement.compileXslt();
 };
-Fleur.Document.prototype.evaluate = function(expression, contextNode, nsResolver, type, result) {
+Fleur.Document.prototype.evaluate = function(expression, contextNode, nsResolver, type, xpresult) {
 	var compiled = eval(Fleur.XPathEvaluator._xp2js(expression, "", ""));
 	var ctx = {_curr: contextNode || this, nsresolver: nsResolver};
 	Fleur.XQueryEngine[compiled[0]](ctx, compiled[1]);
-	if (!result) {
-		result = new Fleur.XPathResult(type);
+	if (!xpresult) {
+		xpresult = new Fleur.XPathResult(type);
 	}
-	result._result = ctx._result;
-	return result;
+	xpresult._result = ctx._result;
+	return xpresult;
 };
 Fleur.Document.prototype.createExpression = function(expression) {
 	expression = expression || "";

@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_abstractAction XsltForms_globals XsltForms_idManager XsltForms_browser XsltForms_xmlevents*/
+/*globals XsltForms_abstractAction XsltForms_engine XsltForms_idManager XsltForms_browser XsltForms_xmlevents*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -36,12 +36,12 @@ XsltForms_toggle.prototype.run = function(element, ctx) {
  */
 
 XsltForms_toggle.toggle = function(caseId, ctx) {
-	XsltForms_globals.openAction("XsltForms_toggle.toggle");
+	XsltForms_engine.openAction("XsltForms_toggle.toggle");
 	if (typeof caseId === 'object') {
 		if (!ctx) {
-			ctx = XsltForms_globals.defaultModel.getInstanceDocument() ? XsltForms_globals.defaultModel.getInstanceDocument().documentElement : null;
+			ctx = XsltForms_engine.defaultModel.getInstanceDocument() ? XsltForms_engine.defaultModel.getInstanceDocument().documentElement : null;
 		}
-		caseId = XsltForms_globals.stringValue(caseId.xpath.xpath_evaluate(ctx));
+		caseId = XsltForms_engine.stringValue(caseId.xpath.xpath_evaluate(ctx));
 	}
 	var element = XsltForms_idManager.find(caseId);
 	var childs = element ? element.parentNode.childNodes : [];
@@ -73,5 +73,5 @@ XsltForms_toggle.toggle = function(caseId, ctx) {
 	if (element) {
 		XsltForms_xmlevents.dispatch(element, "xforms-select");
 	}
-	XsltForms_globals.closeAction("XsltForms_toggle.toggle");
+	XsltForms_engine.closeAction("XsltForms_toggle.toggle");
 };

@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals */
+/*globals XsltForms_engine */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -36,14 +36,14 @@ XsltForms_binaryExpr.prototype.evaluate = function(ctx) {
 			v2 = [v2];
 		}
 		for (var i = 0, len = v1.length; i < len; i++) {
-			n1 = XsltForms_globals.numberValue([v1[i]]);
+			n1 = XsltForms_engine.numberValue([v1[i]]);
 			if (isNaN(n1)) {
-				n1 = XsltForms_globals.stringValue([v1[i]]);
+				n1 = XsltForms_engine.stringValue([v1[i]]);
 			}
 			for (var j = 0, len1 = v2.length; j < len1; j++) {
-				n2 = XsltForms_globals.numberValue([v2[j]]);
+				n2 = XsltForms_engine.numberValue([v2[j]]);
 				if (isNaN(n2)) {
-					n2 = XsltForms_globals.stringValue([v2[j]]);
+					n2 = XsltForms_engine.stringValue([v2[j]]);
 				}
 				/*eslint eqeqeq:0 */
 				switch (this.op) {
@@ -83,16 +83,16 @@ XsltForms_binaryExpr.prototype.evaluate = function(ctx) {
 		}
 		return false;
 	}
-	n1 = XsltForms_globals.numberValue(v1);
-	n2 = XsltForms_globals.numberValue(v2);
+	n1 = XsltForms_engine.numberValue(v1);
+	n2 = XsltForms_engine.numberValue(v2);
 	if (isNaN(n1) || isNaN(n2)) {
-		n1 = XsltForms_globals.stringValue(v1);
-		n2 = XsltForms_globals.stringValue(v2);
+		n1 = XsltForms_engine.stringValue(v1);
+		n2 = XsltForms_engine.stringValue(v2);
 	}
 	var res = 0;
 	switch (this.op) {
-		case 'or'  : res = XsltForms_globals.booleanValue(v1) || XsltForms_globals.booleanValue(v2); break;
-		case 'and' : res = XsltForms_globals.booleanValue(v1) && XsltForms_globals.booleanValue(v2); break;
+		case 'or'  : res = XsltForms_engine.booleanValue(v1) || XsltForms_engine.booleanValue(v2); break;
+		case 'and' : res = XsltForms_engine.booleanValue(v1) && XsltForms_engine.booleanValue(v2); break;
 		case '+'   : res = n1 + n2; break;
 		case '-'   : res = n1 - n2; break;
 		case '*'   : res = n1 * n2; break;

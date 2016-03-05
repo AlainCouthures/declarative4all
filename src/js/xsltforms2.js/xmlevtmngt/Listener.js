@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals XsltForms_browser*/
+/*globals XsltForms_engine XsltForms_browser*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -16,7 +16,7 @@ function XsltForms_listener(subform, observer, evtTarget, evtname, phase, handle
 	}
 	phase = phase || "default";
 	if (phase !== "default" && phase !== "capture") {
-		XsltForms_globals.error(XsltForms_globals.defaultModel, "xforms-compute-exception", 
+		XsltForms_engine.error(XsltForms_engine.defaultModel, "xforms-compute-exception", 
 			"Unknown event-phase(" + phase +") for event(" + evtname + ")"+(observer ? " on element(" + observer.id + ")":"") + "!");
 		return;
 	}

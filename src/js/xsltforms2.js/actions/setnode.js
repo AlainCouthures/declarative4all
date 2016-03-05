@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_xpath XsltForms_abstractAction XsltForms_globals XsltForms_browser XsltForms_xmlevents*/
+/*globals XsltForms_xpath XsltForms_abstractAction XsltForms_engine XsltForms_browser XsltForms_xmlevents*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -34,10 +34,10 @@ XsltForms_setnode.prototype.run = function(element, ctx) {
 		if (this.context) {
 			ctx = this.context.xpath_evaluate(ctx)[0];
 		}
-		var value = this.value? XsltForms_globals.stringValue(this.context ? this.value.xpath_evaluate(ctx, ctx) : this.value.xpath_evaluate(node, ctx)) : this.literal;
+		var value = this.value? XsltForms_engine.stringValue(this.context ? this.value.xpath_evaluate(ctx, ctx) : this.value.xpath_evaluate(node, ctx)) : this.literal;
 		var modelid = XsltForms_browser.getDocMeta(node.ownerDocument, "model");
 		var instanceid = XsltForms_browser.getDocMeta(node.ownerDocument, "instance");
-		XsltForms_globals.openAction("XsltForms_setnode.prototype.run");
+		XsltForms_engine.openAction("XsltForms_setnode.prototype.run");
 		if (this.inout) {
 			while (node.firstChild) {
 				node.removeChild(node.firstChild);
@@ -51,10 +51,10 @@ XsltForms_setnode.prototype.run = function(element, ctx) {
 			XsltForms_browser.setDocMeta(node.ownerDocument, "instance", instanceid);
 		}
 		var model = document.getElementById(modelid).xfElement;
-		XsltForms_globals.addChange(model);
+		XsltForms_engine.addChange(model);
 		XsltForms_browser.debugConsole.write("Setnode " + node.nodeName + (this.inout ? " inner" : " outer") + " = " + value); 
 		XsltForms_xmlevents.dispatch(model, "xforms-rebuild");
-		XsltForms_globals.refresh();
-		XsltForms_globals.closeAction("XsltForms_setnode.prototype.run");
+		XsltForms_engine.refresh();
+		XsltForms_engine.closeAction("XsltForms_setnode.prototype.run");
 	}
 };

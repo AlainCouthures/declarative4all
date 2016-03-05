@@ -1143,6 +1143,22 @@ XsltForms_typeDefs.XForms = {
 	"HTMLFragment" : {
 		"nsuri" : "http://www.w3.org/2002/xforms",
 		"base" : "xsd_:string"
+	},
+
+		
+/**
+ * ** '''xforms:trimmed'''
+ */
+
+	"trimmed" : {
+		"nsuri" : "http://www.w3.org/2002/xforms",
+		"base" : "xsd_:string",
+		"format" : function(value) {
+			return value.replace(/^\s+|\s+$/gm, "");
+		},
+		"parse" : function(value) {
+			return value.replace(/^\s+|\s+$/gm, "");
+		}
 	}
 };
 

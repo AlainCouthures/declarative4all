@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_abstractAction XsltForms_schema XsltForms_browser XsltForms_globals XsltForms_idManager XsltForms_submission XsltForms_xmlevents Fleur XsltForms_repeat*/
+/*globals XsltForms_abstractAction XsltForms_schema XsltForms_browser XsltForms_engine XsltForms_idManager XsltForms_submission XsltForms_xmlevents Fleur XsltForms_repeat*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -42,7 +42,7 @@ XsltForms_load.prototype.run = function(element, ctx) {
 		}
 	} else {
 		if (href && typeof href === 'object') {
-			href = XsltForms_globals.stringValue(this.resource.xpath.xpath_evaluate(ctx));
+			href = XsltForms_engine.stringValue(this.resource.xpath.xpath_evaluate(ctx));
 		} else {
 			if (typeof href === 'string') {
 				href = XsltForms_browser.unescape(href); 
@@ -59,11 +59,11 @@ XsltForms_load.prototype.run = function(element, ctx) {
 		} else if (this.show === "new" || this.targetid === "_blank") {
 			window.open(href);
 		} else if (this.show === "embed" || (this.targetid !== "" && this.targetid !== "_blank" && this.targetid !== "_self")) {
-			XsltForms_globals.openAction("XsltForms_load.prototype.run");
+			XsltForms_engine.openAction("XsltForms_load.prototype.run");
 			var req = null;
 			var method = "get";
 			var evcontext = {"method": method, "resource-uri": href};
-			var subformidx = XsltForms_globals.nbsubforms++;
+			var subformidx = XsltForms_engine.nbsubforms++;
 			try {
 				req = XsltForms_browser.openRequest(method, href, false);
 				XsltForms_browser.debugConsole.write("Load " + href);
@@ -71,11 +71,11 @@ XsltForms_load.prototype.run = function(element, ctx) {
 				if (req.status !== 0 && (req.status < 200 || req.status >= 300)) {
 					evcontext["error-type"] = "resource-error";
 					this.issueLoadException_(evcontext, req, null);
-					XsltForms_globals.closeAction("XsltForms_load.prototype.run");
+					XsltForms_engine.closeAction("XsltForms_load.prototype.run");
 					return;
 				}
 				XsltForms_submission.requesteventlog(evcontext, req);
-				XsltForms_globals.closeAction("XsltForms_load.prototype.run");
+				XsltForms_engine.closeAction("XsltForms_load.prototype.run");
 				var resp = req.responseText;
 				var piindex = resp.indexOf("<?xml-stylesheet", 0);
 				while ( piindex !== -1) {
@@ -84,7 +84,7 @@ XsltForms_load.prototype.run = function(element, ctx) {
 					piindex = resp.indexOf("<?xml-stylesheet", 0);
 				}
 				XsltForms_browser.dialog.hide("statusPanel", false);
-				var sp = XsltForms_globals.stringSplit(resp, "XsltForms_MagicSeparator");
+				var sp = XsltForms_engine.stringSplit(resp, "XsltForms_MagicSeparator");
 				var subbody, subjs;
 				var targetelt = XsltForms_idManager.find(this.targetid);
 				if (sp.length === 1) {
@@ -138,7 +138,7 @@ XsltForms_load.prototype.run = function(element, ctx) {
 				XsltForms_browser.debugConsole.write(e2.message || e2);
 				evcontext["error-type"] = "resource-error";
 				this.issueLoadException_(evcontext, req, e2);
-				XsltForms_globals.closeAction("XsltForms_load.prototype.run");
+				XsltForms_engine.closeAction("XsltForms_load.prototype.run");
 			}
 		} else {
 			location.href = href;

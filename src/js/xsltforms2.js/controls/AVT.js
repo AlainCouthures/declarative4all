@@ -21,7 +21,7 @@ function XsltForms_avt(subform, id, attrname, binding) {
 	}
 }
 
-XsltForms_avt.prototype = new XsltForms_control();
+//XsltForms_avt.prototype = new XsltForms_control();
 
 
 		

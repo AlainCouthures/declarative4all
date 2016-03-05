@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_element XsltForms_browser XsltForms_globals Fleur XsltForms_xmlevents XsltForms_repeat XsltForms_schema*/
+/*globals XsltForms_element XsltForms_browser XsltForms_engine Fleur XsltForms_xmlevents XsltForms_repeat XsltForms_schema*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,11 +10,10 @@
  * * constructor function : just sets this element as a control
  */
 		
-function XsltForms_control() {
-	this.isControl = true;
-}
-
-XsltForms_control.prototype = new XsltForms_element();
+var XsltForms_control = {
+	isControl : true
+};
+Object.assign(XsltForms_control, XsltForms_element);
 
 
 		
@@ -22,7 +21,7 @@ XsltForms_control.prototype = new XsltForms_element();
  * * '''initFocus''' method : attaches event handlers for "focus" and "blur"
  */
 
-XsltForms_control.prototype.initFocus = function(element, principal) {
+XsltForms_control.initFocus = function(element, principal) {
 	if (principal) {
 		this.focusControl = element;
 	}
@@ -38,9 +37,9 @@ XsltForms_control.prototype.initFocus = function(element, principal) {
  * * '''dispose''' method : calls the parent "dispose()" method
  */
 
-XsltForms_control.prototype.dispose = function() {
+XsltForms_control.dispose = function() {
 	this.focusControl = null;
-	XsltForms_element.prototype.dispose.call(this);
+	XsltForms_element.dispose.call(this);
 };
 
 
@@ -49,31 +48,31 @@ XsltForms_control.prototype.dispose = function() {
  * * '''focus''' method : manages focus and dispatches the "DOMFocusIn" event
  */
 
-XsltForms_control.prototype.focus = function(focusEvent, evcontext) {
+XsltForms_control.focus = function(focusEvent, evcontext) {
 	if (this.isOutput) {
 		return;
 	}
-	if (XsltForms_globals.focus !== this) {
-		XsltForms_globals.openAction("XsltForms_control.prototype.focus");
-		XsltForms_globals.blur(true);
-		XsltForms_globals.focus = this;
-		XsltForms_browser.setClass(this.element, "xforms-focus", true);
-		XsltForms_browser.setClass(this.element, "xforms-disabled", false);
-		var parentNode = this.element.parentNode;
+	if (XsltForms_engine.focus !== this) {
+		XsltForms_engine.openAction("XsltForms_control.prototype.focus");
+		XsltForms_engine.blur(true);
+		XsltForms_engine.focus = this;
+		XsltForms_browser.setClass(this, "xforms-focus", true);
+		XsltForms_browser.setClass(this, "xforms-disabled", false);
+		var parentNode = this.parentNode;
 		while (parentNode.nodeType === Fleur.Node.ELEMENT_NODE) {
 			if (typeof parentNode.node !== "undefined" && XsltForms_browser.hasClass(parentNode, "xforms-repeat-item")) {
 				XsltForms_repeat.selectItem(parentNode);
 			}
 			parentNode = parentNode.parentNode;
 		}
-		XsltForms_xmlevents.dispatch(XsltForms_globals.focus, "DOMFocusIn", null, null, null, null, evcontext);
-		XsltForms_globals.closeAction("XsltForms_control.prototype.focus");
+		XsltForms_xmlevents.dispatch(XsltForms_engine.focus, "DOMFocusIn", null, null, null, null, evcontext);
+		XsltForms_engine.closeAction("XsltForms_control.prototype.focus");
 		if (this.full && !focusEvent) { // select full
 			this.focusFirst();
 		}
 	}
 	var fcontrol = this.focusControl;
-	XsltForms_globals.posibleBlur = false;
+	XsltForms_engine.posibleBlur = false;
 	if (fcontrol && !focusEvent) {
 		var control = this.focusControl;
 		var cname = control.nodeName.toLowerCase();
@@ -98,14 +97,13 @@ XsltForms_control.prototype.focus = function(focusEvent, evcontext) {
  * * '''build_''' method : specific build method updating dependencies
  */
 
-XsltForms_control.prototype.build_ = function(ctx, varresolver) {
+XsltForms_control.build_ = function(ctx, varresolver) {
 	var result = this.evaluateBinding(this.binding, ctx, varresolver);
 	if (typeof result === "object") {
 		var node = result[0];
-		var element = this.element;
-		var old = element.node;
-		if (old !== node || !XsltForms_globals.ready) {
-			element.node = node;
+		var old = this.node;
+		if (old !== node || !XsltForms_engine.ready) {
+			this.node = node;
 			this.nodeChanged = true;
 		}
 		if (node) {
@@ -122,12 +120,12 @@ XsltForms_control.prototype.build_ = function(ctx, varresolver) {
  * * '''refresh''' method : refreshes this control according to the value of the corresponding node and dispatches according events
  */
 
-XsltForms_control.prototype.refresh = function() {
+XsltForms_control.refresh = function() {
 	if (this.controlName === "var") {
 		return;
 	}
-	var element = this.element;
-	var node = element.node;
+	var element = this.nextSibling;
+	var node = this.node;
 	if (this.outputValue !== undefined) {
 		this.setValue(this.outputValue);
 		if (this.controlName !== "var") {
@@ -135,7 +133,7 @@ XsltForms_control.prototype.refresh = function() {
 		}
 	} else if (node) {
 		var value = this.value instanceof Array ? XsltForms_browser.getValueItemsetCopy(node) : XsltForms_browser.getValue(node, true, this.complex);
-		XsltForms_globals.openAction("XsltForms_control.prototype.refresh");
+		XsltForms_engine.openAction("XsltForms_control.prototype.refresh");
 		var changed;
 		if (this.currentValue instanceof Array) {
 			changed = false;
@@ -167,7 +165,7 @@ XsltForms_control.prototype.refresh = function() {
 				XsltForms_xmlevents.dispatch(element, "xforms-value-changed");
 			}
 		}
-		XsltForms_globals.closeAction("XsltForms_control.prototype.refresh");
+		XsltForms_engine.closeAction("XsltForms_control.prototype.refresh");
 	} else {
 		this.eventDispatch("xforms-disabled", "xforms-enabled", !this.hasValue);
 	}
@@ -180,12 +178,12 @@ XsltForms_control.prototype.refresh = function() {
  * * '''eventdispatch''' method : dispatches corresponding event
  */
 
-XsltForms_control.prototype.eventDispatch = function(onTrue, onFalse, value) {
-	if ((!this.nodeChanged || XsltForms_globals.ready) && !this.isTrigger) {
-		XsltForms_xmlevents.dispatch(this.element, (value? onTrue : onFalse));
+XsltForms_control.eventDispatch = function(onTrue, onFalse, value) {
+	if ((!this.nodeChanged || XsltForms_engine.ready) && !this.isTrigger) {
+		XsltForms_xmlevents.dispatch(this, (value? onTrue : onFalse));
 	}
-	XsltForms_browser.setClass(this.element, onTrue, value);
-	XsltForms_browser.setClass(this.element, onFalse, !value);
+	XsltForms_browser.setClass(this.nextSibling, onTrue, value);
+	XsltForms_browser.setClass(this.nextSibling, onFalse, !value);
 };
 
 
@@ -194,8 +192,8 @@ XsltForms_control.prototype.eventDispatch = function(onTrue, onFalse, value) {
  * * '''changeProp''' method : changes a property, such as '''required''', '''relevant''', '''readonly''' and '''valid''', of this control
  */
 
-XsltForms_control.prototype.changeProp = function(node, prop, onTrue, onFalse, changed, nvalue) {
-	var value = (prop === "notvalid" && nvalue === "" && !XsltForms_globals.validationError) ? false : XsltForms_browser.getBoolMeta(node, prop);
+XsltForms_control.changeProp = function(node, prop, onTrue, onFalse, changed, nvalue) {
+	var value = (prop === "notvalid" && nvalue === "" && !XsltForms_engine.validationError) ? false : XsltForms_browser.getBoolMeta(node, prop);
 	if (changed || value !== this[prop]) {
 		this.eventDispatch(onTrue, onFalse, value);
 		this[prop] = value;
@@ -211,9 +209,9 @@ XsltForms_control.prototype.changeProp = function(node, prop, onTrue, onFalse, c
  * * '''valueChanged''' method : changes the value of this control and dispatches the "xforms-recalculate" event
  */
 
-XsltForms_control.prototype.valueChanged = function(value, force) {
-	var node = this.element.node;
-	var model = document.getElementById(XsltForms_browser.getDocMeta(node.ownerDocument, "model")).xfElement;
+XsltForms_control.valueChanged = function(value, force) {
+	var node = this.node;
+	var model = document.getElementById(XsltForms_browser.getDocMeta(node.ownerDocument, "model"));
 	var schtyp = XsltForms_schema.getType(XsltForms_browser.getType(node) || "xsd_:string");
 	if (value && !(value instanceof Array) && value.length > 0 && schtyp.parse) {
 		try { value = schtyp.parse(value); } catch(e) { }
@@ -239,15 +237,15 @@ XsltForms_control.prototype.valueChanged = function(value, force) {
 		if (value instanceof Array || this.currentValue instanceof Array) {
 			XsltForms_browser.setValue(node, value);
 			model.addChange(node);
-			XsltForms_globals.addChange(model);
+			XsltForms_engine.addChange(model);
 			model.setRebuilded(true);
 		} else {
-			XsltForms_globals.openAction("XsltForms_control.prototype.valueChanged");
+			XsltForms_engine.openAction("XsltForms_control.prototype.valueChanged");
 			XsltForms_browser.setValue(node, value);
 			model.addChange(node);
 			XsltForms_xmlevents.dispatch(model, "xforms-recalculate");
-			XsltForms_globals.refresh();
-			XsltForms_globals.closeAction("XsltForms_control.prototype.valueChanged");
+			XsltForms_engine.refresh();
+			XsltForms_engine.closeAction("XsltForms_control.prototype.valueChanged");
 		}
 	}
 };
@@ -278,10 +276,10 @@ XsltForms_control.getXFElement = function(element) {
 
 XsltForms_control.focusHandler = function() {
 	var xf = XsltForms_control.getXFElement(this);
-	if (XsltForms_globals.focus !== xf) {
+	if (XsltForms_engine.focus !== xf) {
 		xf.focus(true);
 	} else {
-		XsltForms_globals.posibleBlur = false;
+		XsltForms_engine.posibleBlur = false;
 	}
 };
 
@@ -292,9 +290,9 @@ XsltForms_control.focusHandler = function() {
  */
 
 XsltForms_control.blurHandler = function() {
-	if (XsltForms_control.getXFElement(this) === XsltForms_globals.focus) {
-		XsltForms_globals.posibleBlur = true;
-		//setTimeout(function(){XsltForms_globals.blur();}, 200);
-		XsltForms_globals.blur();
+	if (XsltForms_control.getXFElement(this) === XsltForms_engine.focus) {
+		XsltForms_engine.posibleBlur = true;
+		//setTimeout(function(){XsltForms_engine.blur();}, 200);
+		XsltForms_engine.blur();
 	}
 };

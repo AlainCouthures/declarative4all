@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals XsltForms_browser XsltForms_element Fleur XsltForms_idManager*/
+/*globals XsltForms_engine XsltForms_browser XsltForms_element Fleur XsltForms_idManager*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -11,7 +11,7 @@
  */
 		
 function XsltForms_repeat(subform, id, nbsiblings, binding) {
-	XsltForms_globals.counters.repeat++;
+	XsltForms_engine.counters.repeat++;
 	this.init(subform, id);
 	this.controlName = "repeat";
 	this.nbsiblings = nbsiblings;
@@ -24,7 +24,7 @@ function XsltForms_repeat(subform, id, nbsiblings, binding) {
 	this.isItemset = XsltForms_browser.hasClass(el, "xforms-itemset");
 }
 
-XsltForms_repeat.prototype = new XsltForms_element();
+//XsltForms_repeat.prototype = new XsltForms_element();
 
 
 		
@@ -34,7 +34,7 @@ XsltForms_repeat.prototype = new XsltForms_element();
 
 XsltForms_repeat.prototype.dispose = function() {
 	this.root = null;
-	XsltForms_globals.counters.repeat--;
+	XsltForms_engine.counters.repeat--;
 	XsltForms_element.prototype.dispose.call(this);
 };
 
@@ -50,12 +50,12 @@ XsltForms_repeat.prototype.setIndex = function(index) {
 	} else if (this.index !== index) {
 		var node = this.nodes[index - 1];
 		if (node) {    
-			XsltForms_globals.openAction("XsltForms_repeat.prototype.setIndex");
+			XsltForms_engine.openAction("XsltForms_repeat.prototype.setIndex");
 			this.index = index;
 			this.element.node = node;
-			XsltForms_globals.addChange(this);
-			XsltForms_globals.addChange(document.getElementById(XsltForms_browser.getDocMeta(node.ownerDocument, "model")).xfElement);
-			XsltForms_globals.closeAction("XsltForms_repeat.prototype.setIndex");
+			XsltForms_engine.addChange(this);
+			XsltForms_engine.addChange(document.getElementById(XsltForms_browser.getDocMeta(node.ownerDocument, "model")).xfElement);
+			XsltForms_engine.closeAction("XsltForms_repeat.prototype.setIndex");
 		}
 	}
 };
@@ -136,7 +136,7 @@ XsltForms_repeat.prototype.build_ = function(ctx) {
 			XsltForms_repeat.initClone(child, inputids);
 		}
 		for (var j = n; j < l && r.childNodes.length > 1; j++) {
-			XsltForms_globals.dispose(r.lastChild);
+			XsltForms_engine.dispose(r.lastChild);
 			r.removeChild(r.lastChild);
 		}
 		for (var k = 0; k < n; k++) {
@@ -184,7 +184,7 @@ XsltForms_repeat.prototype.build_ = function(ctx) {
 				break;
 			}
 			for (var jsb = 0; jsb < this.nbsiblings; jsb++) {
-				XsltForms_globals.dispose(r.children[i0 + n*this.nbsiblings]);
+				XsltForms_engine.dispose(r.children[i0 + n*this.nbsiblings]);
 				r.removeChild(r.children[i0 + n*this.nbsiblings]);
 			}
 		}
@@ -201,8 +201,8 @@ XsltForms_repeat.prototype.build_ = function(ctx) {
 		if (this.element.node === nodes[ii]) {
 			if (this.index !== ii + 1) {
 				this.index = ii + 1;
-				XsltForms_globals.addChange(this);
-				XsltForms_globals.addChange(this.element.node.ownerDocument.model);
+				XsltForms_engine.addChange(this);
+				XsltForms_engine.addChange(this.element.node.ownerDocument.model);
 			}
 			return;
 		}
@@ -211,13 +211,13 @@ XsltForms_repeat.prototype.build_ = function(ctx) {
 	if (this.element.node) {
 		if (this.index !== 1) {
 			this.index = 1;
-			XsltForms_globals.addChange(this);
-			XsltForms_globals.addChange(this.element.node.ownerDocument.model);
+			XsltForms_engine.addChange(this);
+			XsltForms_engine.addChange(this.element.node.ownerDocument.model);
 		}
 	} else {
 		this.index = 0;
-		if (XsltForms_globals.ready) {
-			XsltForms_globals.addChange(this);
+		if (XsltForms_engine.ready) {
+			XsltForms_engine.addChange(this);
 		}
 	}
 };

@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals XsltForms_browser XsltForms_control XsltForms_schema XsltForms_xmlevents*/
+/*globals XsltForms_engine XsltForms_browser XsltForms_control XsltForms_schema XsltForms_xmlevents*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -11,7 +11,7 @@
  */
 		
 function XsltForms_select(subform, id, min, max, full, binding, incremental, clone) {
-	XsltForms_globals.counters.select++;
+	XsltForms_engine.counters.select++;
 	this.init(subform, id);
 	this.controlName = max === 1 ? "select1": "select";
 	this.binding = binding;
@@ -34,7 +34,7 @@ function XsltForms_select(subform, id, min, max, full, binding, incremental, clo
 	}
 }
 
-XsltForms_select.prototype = new XsltForms_control();
+//XsltForms_select.prototype = new XsltForms_control();
 
 
 		
@@ -55,7 +55,7 @@ XsltForms_select.prototype.clone = function(id) {
 XsltForms_select.prototype.dispose = function() {
 	this.select = null;
 	this.selectedOptions = null;
-	XsltForms_globals.counters.select--;
+	XsltForms_engine.counters.select--;
 	XsltForms_control.prototype.dispose.call(this);
 };
 
@@ -100,7 +100,7 @@ XsltForms_select.prototype.setValue = function(value) {
 			//this.select.removeChild(this.select.firstChild);
 			this.select.remove(0);
 		}
-		var vals = value ? value instanceof Array ? value : (this.max !== 1? value.split(XsltForms_globals.valuesSeparator) : [value]) : [""];
+		var vals = value ? value instanceof Array ? value : (this.max !== 1? value.split(XsltForms_engine.valuesSeparator) : [value]) : [""];
 		var list = this.full ? (XsltForms_browser.isXhtml ? this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "input") : this.element.getElementsByTagName("input")) : this.select.options;
 		var well = true;
 		var schtyp = XsltForms_schema.getType(XsltForms_browser.getType(this.element.node) || "xsd_:string");
@@ -183,7 +183,7 @@ XsltForms_select.prototype.changeReadonly = function() {
 XsltForms_select.prototype.itemClick = function(value) {
 	var inputs = XsltForms_browser.isXhtml ? this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "input") : this.element.getElementsByTagName("input");
 	var input;
-	XsltForms_globals.openAction("XsltForms_select.prototype.itemClick");
+	XsltForms_engine.openAction("XsltForms_select.prototype.itemClick");
 	if (this.max !== 1) {
 		var newValue = null;
 		for (var i = 0, len = inputs.length; i < len; i++) {
@@ -192,7 +192,7 @@ XsltForms_select.prototype.itemClick = function(value) {
 				XsltForms_xmlevents.dispatch(input.parentNode, input.checked? "xforms-select" : "xforms-deselect");
 			}
 			if (input.checked) {
-				newValue = (newValue ? newValue + XsltForms_globals.valuesSeparator : "") + input.value;
+				newValue = (newValue ? newValue + XsltForms_engine.valuesSeparator : "") + input.value;
 			}
 		}
 		value = newValue;
@@ -207,7 +207,7 @@ XsltForms_select.prototype.itemClick = function(value) {
 		}
 		var inputSelected = null;
 		if (old === value && this.min !== 0) {
-			XsltForms_globals.closeAction("XsltForms_select.prototype.itemClick");
+			XsltForms_engine.closeAction("XsltForms_select.prototype.itemClick");
 			return;
 		}
 		for (var j = 0, len1 = inputs.length; j < len1; j++) {
@@ -236,7 +236,7 @@ XsltForms_select.prototype.itemClick = function(value) {
 	} else {
 		this.value = value || "";
 	}
-	XsltForms_globals.closeAction("XsltForms_select.prototype.itemClick");
+	XsltForms_engine.closeAction("XsltForms_select.prototype.itemClick");
 };
 
 
@@ -248,9 +248,9 @@ XsltForms_select.prototype.itemClick = function(value) {
 
 XsltForms_select.prototype.blur = function(evt) {
 	if (this.value) {
-		XsltForms_globals.openAction("XsltForms_select.prototype.blur");
+		XsltForms_engine.openAction("XsltForms_select.prototype.blur");
 		this.valueChanged(this.value);
-		XsltForms_globals.closeAction("XsltForms_select.prototype.blur");
+		XsltForms_engine.closeAction("XsltForms_select.prototype.blur");
 		this.value = null;
 	}
 };
@@ -269,7 +269,7 @@ XsltForms_select.normalChange = function(evt) {
 	var copy = [];
 	var old = xf.getSelected();
 	var opts = this.options;
-	XsltForms_globals.openAction("XsltForms_select.normalChange");
+	XsltForms_engine.openAction("XsltForms_select.normalChange");
 	for (var i = 0, len = old.length; i < len; i++) {
 		if (old[i].selected) {
 			news.push(old[i]);
@@ -284,7 +284,7 @@ XsltForms_select.normalChange = function(evt) {
 			if (opt.copy) {
 				copy.push(opt.copy);
 			} else if (opt.value !== "\xA0") {
-				value = value? value + XsltForms_globals.valuesSeparator + opt.value : opt.value;
+				value = value? value + XsltForms_engine.valuesSeparator + opt.value : opt.value;
 			}
 		}
 	}
@@ -307,7 +307,7 @@ XsltForms_select.normalChange = function(evt) {
 		xf.value = copy;
 	}
 	xf.selectedOptions = news;
-	XsltForms_globals.closeAction("XsltForms_select.normalChange");
+	XsltForms_engine.closeAction("XsltForms_select.normalChange");
 };
 
 
@@ -318,10 +318,10 @@ XsltForms_select.normalChange = function(evt) {
 
 XsltForms_select.incrementalChange = function(evt) {
 	var xf = XsltForms_control.getXFElement(this);
-	XsltForms_globals.openAction("XsltForms_select.incrementalChange");
+	XsltForms_engine.openAction("XsltForms_select.incrementalChange");
 	XsltForms_select.normalChange.call(this, evt);
 	xf.valueChanged(xf.value);
-	XsltForms_globals.closeAction("XsltForms_select.incrementalChange");
+	XsltForms_engine.closeAction("XsltForms_select.incrementalChange");
 };
 
 
@@ -333,10 +333,10 @@ XsltForms_select.incrementalChange = function(evt) {
 XsltForms_select.incrementalChangeKeyup = function(evt) {
 	if (evt.keyCode !== 9 && evt.keyCode !== 17) {
 		var xf = XsltForms_control.getXFElement(this);
-		XsltForms_globals.openAction("XsltForms_select.incrementalChangeKeyup");
+		XsltForms_engine.openAction("XsltForms_select.incrementalChangeKeyup");
 		XsltForms_select.normalChange.call(this, evt);
 		xf.valueChanged(xf.value);
-		XsltForms_globals.closeAction("XsltForms_select.incrementalChangeKeyup");
+		XsltForms_engine.closeAction("XsltForms_select.incrementalChangeKeyup");
 	}
 };
 

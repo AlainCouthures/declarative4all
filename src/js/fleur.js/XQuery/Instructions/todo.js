@@ -7,7 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XQueryEngine = [];
 Fleur.XQueryEngine[Fleur.XQueryX.NCName] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.QName] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.URIExpr] = function(ctx, children) {};
@@ -74,7 +73,6 @@ Fleur.XQueryEngine[Fleur.XQueryX.expr] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.extensionExpr] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.external] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.externalDefinition] = function(ctx, children) {};
-Fleur.XQueryEngine[Fleur.XQueryX.filterExpr] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.firstOperand] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.flworExpr] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.forClause] = function(ctx, children) {};
@@ -137,7 +135,6 @@ Fleur.XQueryEngine[Fleur.XQueryX.pragma] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.pragmaContents] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.pragmaName] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.predicateExpr] = function(ctx, children) {};
-Fleur.XQueryEngine[Fleur.XQueryX.predicates] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.prefix] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.prefixExpr] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.preserveMode] = function(ctx, children) {};
@@ -149,7 +146,6 @@ Fleur.XQueryEngine[Fleur.XQueryX.quantifiedExpr] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.quantifiedExprInClause] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.quantifier] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.queryBody] = function(ctx, children) {};
-Fleur.XQueryEngine[Fleur.XQueryX.rangeSequenceExpr] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.resultExpr] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.returnClause] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.schemaAttributeTest] = function(ctx, children) {};

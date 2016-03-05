@@ -18,14 +18,12 @@ function XsltForms_coreElement() {
  * * '''init''' method : creates a "span" element under the "head" element to store this object
  */
 
-XsltForms_coreElement.prototype.init = function(subform, id, parentElt, className) {
+XsltForms_coreElement.prototype.init = function(subform, id) {
 	this.subforms = [];
 	this.subforms[subform] = true;
 	this.nbsubforms = 1;
 	this.subform = subform;
-	parentElt = parentElt? parentElt.element : XsltForms_browser.isXhtml ? document.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "head")[0]: document.getElementsByTagName("head")[0];
-	this.element = XsltForms_browser.createElement("span", parentElt, null, className);
-	this.element.id = id;
+	this.element = document.getElementById(id);
 	this.element.xfElement = this;
 };
 

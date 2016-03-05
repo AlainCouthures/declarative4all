@@ -9,6 +9,7 @@
 		"../fleur.js/XQuery/project.json",
 		"../fleur.js/XSLT/project.json",
 		["\n})(typeof exports === 'undefined'? this.Fleur = {}: exports);"],
+		"../fleur.js/polyfills.js",
 		"main/project.json",
 		"xmlevtmngt/project.json",
 		"xpathexpr/project.json",
@@ -19,9 +20,9 @@
 		"main/in_script.js"
 	],
 	"VersionYear":"2016",
-	"VersionDate":"2016-01-18",
-	"VersionDescription":"1.0 pre-release",
-	"VersionName":"rev.630",
-	"VersionNumber":"630",
+	"VersionDate":"2016-01-21",
+	"VersionDescription":"2.0 Alpha",
+	"VersionName":"rev.2.0.1",
+	"VersionNumber":"1000",
 	"Licence":"XSLTForms $$$VersionName$$$ ($$$VersionNumber$$$)\n$$$VersionDescription$$$\n\nCopyright (C) $$$VersionYear$$$ agenceXML - Alain COUTHURES\nContact at : xsltforms@agencexml.com\n\nThis library is free software; you can redistribute it and/or\nmodify it under the terms of the GNU Lesser General Public\nLicense as published by the Free Software Foundation; either\nversion 2.1 of the License, or (at your option) any later version.\n\nThis library is distributed in the hope that it will be useful,\nbut WITHOUT ANY WARRANTY; without even the implied warranty of\nMERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU\nLesser General Public License for more details.\n\nYou should have received a copy of the GNU Lesser General Public\nLicense along with this library; if not, write to the Free Software\nFoundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA"
 }

@@ -9,6 +9,10 @@
  */
 Fleur.XPathFunctions_fn["QName"] = function(ctx, children) {
 	var namespaceURI, qualifiedName;
+	if (children.length !== 2) {
+		Fleur.error(ctx, "XPST0017");
+		return;
+	}
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1]);
 	namespaceURI = ctx._result.data;
 	Fleur.XQueryEngine[children[1][0]](ctx, children[1][1]);

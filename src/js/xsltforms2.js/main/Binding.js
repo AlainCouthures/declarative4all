@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_xpath XsltForms_browser XsltForms_globals XsltForms_exprContext XsltForms_xmlevents*/
+/*globals XsltForms_xpath XsltForms_browser XsltForms_engine XsltForms_exprContext XsltForms_xmlevents*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -52,17 +52,17 @@ XsltForms_binding.prototype.bind_evaluate = function(subform, ctx, varresolver, 
 		XsltForms_browser.copyArray(this.bind.depsNodes, depsNodes);
 		XsltForms_browser.copyArray(this.bind.depsElements, depsElements);
 	} else {
-		var exprCtx = new XsltForms_exprContext(subform, !ctx || (this.model && this.model !== document.getElementById(XsltForms_browser.getDocMeta(ctx.ownerDocument, "model")).xfElement) ? this.model ? this.model.getInstanceDocument().documentElement : XsltForms_globals.defaultModel.getInstanceDocument().documentElement : ctx,
+		var exprCtx = new XsltForms_exprContext(subform, !ctx || (this.model && this.model !== document.getElementById(XsltForms_browser.getDocMeta(ctx.ownerDocument, "model")).xfElement) ? this.model ? this.model.getInstanceDocument().documentElement : XsltForms_engine.defaultModel.getInstanceDocument().documentElement : ctx,
 			null, null, null, null, ctx, varresolver, depsNodes, depsId, depsElements, this.model);
 		result = this.xpath.xpath_evaluate(exprCtx);
 	}
 	XsltForms_browser.assert(this.type || !result || typeof result === "object", "Binding evaluation didn't returned a nodeset but '"+(typeof result === "object" ? "" : result)+"' for " + (this.bind ? "bind: " + this.bind : "XPath expression: " + this.xpath.expression));
 	switch (this.type) {
 		case "xsd:string": 
-			result = XsltForms_globals.stringValue(result);
+			result = XsltForms_engine.stringValue(result);
 			break;
 		case "xsd:boolean":
-			result = XsltForms_globals.booleanValue(result);
+			result = XsltForms_engine.booleanValue(result);
 			break;
 	}
 	this.result = result;

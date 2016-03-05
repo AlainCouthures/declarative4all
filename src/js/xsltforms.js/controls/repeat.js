@@ -290,6 +290,9 @@ XsltForms_repeat.initClone = function(element, inputids) {
 		element.xfElement = null;
 		var oldid = element.getAttribute("oldid");
 		var original = document.getElementById(oldid);
+		if (!original) {
+			original = XsltForms_globals.idalt[oldid];
+		}
 		var xf = original.xfElement;
 		if (xf) {
 			if (xf instanceof Array) {

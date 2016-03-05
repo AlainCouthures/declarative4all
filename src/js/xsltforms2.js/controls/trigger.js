@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals XsltForms_browser XsltForms_control XsltForms_element XsltForms_xmlevents*/
+/*globals XsltForms_engine XsltForms_browser XsltForms_control XsltForms_element XsltForms_xmlevents*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -11,7 +11,7 @@
  */
 		
 function XsltForms_trigger(subform, id, binding) {
-	XsltForms_globals.counters.trigger++;
+	XsltForms_engine.counters.trigger++;
 	this.init(subform, id);
 	this.controlName = "trigger";
 	this.binding = binding;
@@ -31,7 +31,7 @@ function XsltForms_trigger(subform, id, binding) {
 	this.initFocus(button);
 }
 
-XsltForms_trigger.prototype = new XsltForms_control();
+//XsltForms_trigger.prototype = new XsltForms_control();
 
 
 		
@@ -68,7 +68,7 @@ XsltForms_trigger.prototype.clone = function (id) {
  */
 
 XsltForms_trigger.prototype.dispose = function() {
-	XsltForms_globals.counters.trigger--;
+	XsltForms_engine.counters.trigger--;
 	XsltForms_element.prototype.dispose.call(this);
 };
 
@@ -80,9 +80,9 @@ XsltForms_trigger.prototype.dispose = function() {
  */
 
 XsltForms_trigger.prototype.click = function (target, evcontext) {
-	XsltForms_globals.openAction("XsltForms_trigger.prototype.click");
+	XsltForms_engine.openAction("XsltForms_trigger.prototype.click");
 	XsltForms_xmlevents.dispatch(this, "DOMActivate", null, null, null, null, evcontext);
-	XsltForms_globals.closeAction("XsltForms_trigger.prototype.click");
+	XsltForms_engine.closeAction("XsltForms_trigger.prototype.click");
 };
 
 

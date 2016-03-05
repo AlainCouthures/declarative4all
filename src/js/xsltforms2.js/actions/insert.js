@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_binding XsltForms_xpath XsltForms_abstractAction XsltForms_browser Fleur XsltForms_globals XsltForms_xmlevents XsltForms_exprContext*/
+/*globals XsltForms_binding XsltForms_xpath XsltForms_abstractAction XsltForms_browser Fleur XsltForms_engine XsltForms_xmlevents XsltForms_exprContext*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -62,7 +62,7 @@ XsltForms_insert.prototype.run = function(element, ctx) {
 		} else {
 			parentNode = nodes[0].nodeType === Fleur.Node.DOCUMENT_NODE? nodes[0] : nodes[0].nodeType === Fleur.Node.ATTRIBUTE_NODE? nodes[0].ownerDocument ? nodes[0].ownerDocument : nodes[0].selectSingleNode("..") : nodes[0].parentNode;
 			if (parentNode.nodeType !== Fleur.Node.DOCUMENT_NODE && node.nodeType !== Fleur.Node.ATTRIBUTE_NODE) {
-				res = this.at ? Math.round(XsltForms_globals.numberValue(this.at.xpath_evaluate(new XsltForms_exprContext(this.subform, ctx, 1, nodes, null, null, null, varresolver)))) + i - 1: nodes.length - 1;
+				res = this.at ? Math.round(XsltForms_engine.numberValue(this.at.xpath_evaluate(new XsltForms_exprContext(this.subform, ctx, 1, nodes, null, null, null, varresolver)))) + i - 1: nodes.length - 1;
 				index = isNaN(res)? nodes.length : res + pos;
 			}
 		}
@@ -104,7 +104,7 @@ XsltForms_insert.prototype.run = function(element, ctx) {
 		}
 	}
 	var model = document.getElementById(XsltForms_browser.getDocMeta(parentNode.nodeType === Fleur.Node.DOCUMENT_NODE ? parentNode : parentNode.ownerDocument, "model")).xfElement;
-	XsltForms_globals.addChange(model);
+	XsltForms_engine.addChange(model);
 	model.setRebuilded(true);
 	var evcontext = {"inserted-nodes": [clone], "origin-nodes": originNodes, "insert-location-node": index, position: this.position};
 	XsltForms_xmlevents.dispatch(model.findInstance(parentNode), "xforms-insert", null, null, null, null, evcontext);

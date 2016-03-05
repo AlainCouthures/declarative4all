@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals */
+/*globals XsltForms_engine */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -22,11 +22,11 @@ function XsltForms_pathExpr(filter, rel) {
  */
 
 XsltForms_pathExpr.prototype.evaluate = function(ctx) {
-	var nodes = XsltForms_globals.nodeSetValue(this.filter.evaluate(ctx));
+	var nodes = XsltForms_engine.nodeSetValue(this.filter.evaluate(ctx));
 	var nodes1 = [];
 	for (var i = 0, len = nodes.length; i < len; i++) {
 		var newCtx = ctx.clone(nodes[i], i, nodes);
-		var nodes0 = XsltForms_globals.nodeSetValue(this.rel.evaluate(newCtx));
+		var nodes0 = XsltForms_engine.nodeSetValue(this.rel.evaluate(newCtx));
 		for (var j = 0, len1 = nodes0.length; j < len1; j++) {
 			nodes1.push(nodes0[j]);
 		}

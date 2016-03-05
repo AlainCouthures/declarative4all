@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_abstractAction XsltForms_globals XsltForms_browser XsltForms_xmlevents*/
+/*globals XsltForms_abstractAction XsltForms_engine XsltForms_browser XsltForms_xmlevents*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -31,11 +31,11 @@ XsltForms_dispatch.prototype = new XsltForms_abstractAction();
 XsltForms_dispatch.prototype.run = function(element, ctx, evt) {
 	var evname = this.name;
 	if (evname.bind_evaluate) {
-		evname = XsltForms_globals.stringValue(evname.bind_evaluate(this.subform));
+		evname = XsltForms_engine.stringValue(evname.bind_evaluate(this.subform));
 	}
 	var target = this.target;
 	if (target && target.bind_evaluate) {
-		target = XsltForms_globals.stringValue(target.bind_evaluate(this.subform));
+		target = XsltForms_engine.stringValue(target.bind_evaluate(this.subform));
 	}
 	if (!target) {
 		switch (evname) {
@@ -66,9 +66,9 @@ XsltForms_dispatch.prototype.run = function(element, ctx, evt) {
 	var delay = 0;
 	if (this.delay) {
 		if (this.delay.bind_evaluate) {
-			delay = XsltForms_globals.numberValue(this.delay.bind_evaluate(this.subform));
+			delay = XsltForms_engine.numberValue(this.delay.bind_evaluate(this.subform));
 		} else {
-			delay = XsltForms_globals.numberValue(this.delay);
+			delay = XsltForms_engine.numberValue(this.delay);
 		}
 	}
 	if (delay > 0 ) {

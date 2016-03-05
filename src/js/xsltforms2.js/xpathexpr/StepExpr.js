@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_xpathAxis Fleur XsltForms_globals XsltForms_browser*/
+/*globals XsltForms_xpathAxis Fleur XsltForms_engine XsltForms_browser*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -126,7 +126,7 @@ XsltForms_stepExpr.prototype.evaluate = function(ctx) {
 		for (var j = 0, len1 = list.length; j < len1; j++) {
 			var x = list[j];
 			var newCtx = ctx.clone(x, j + 1, list);
-			if (XsltForms_globals.booleanValue(pred.evaluate(newCtx))) {
+			if (XsltForms_engine.booleanValue(pred.evaluate(newCtx))) {
 				newList.push(x);
 			}
 		}

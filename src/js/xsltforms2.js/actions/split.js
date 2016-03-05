@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_xpath XsltForms_abstractAction XsltForms_globals XsltForms_browser*/
+/*globals XsltForms_xpath XsltForms_abstractAction XsltForms_engine XsltForms_browser*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -36,7 +36,7 @@ XsltForms_split.prototype.run = function(element, ctx) {
 		if (this.context) {
 			ctx = this.context.xpath_evaluate(element.xfElement.subform, ctx, null, varresolver)[0];
 		}
-		XsltForms_globals.openAction("XsltForms_split.prototype.run");
+		XsltForms_engine.openAction("XsltForms_split.prototype.run");
 		try {
 			for (var i = 0, l = nodes.length; i < l; i++) {
 				node = nodes[i];
@@ -47,6 +47,6 @@ XsltForms_split.prototype.run = function(element, ctx) {
 		} catch (e) {
 			XsltForms_browser.debugConsole.write("ERROR: cannot split on " + XsltForms_browser.name2string(node) + " with " + this.separator + "(context " + XsltForms_browser.name2string(ctx) + ")");
 		}
-		XsltForms_globals.closeAction("XsltForms_split.prototype.run");
+		XsltForms_engine.closeAction("XsltForms_split.prototype.run");
 	}
 };

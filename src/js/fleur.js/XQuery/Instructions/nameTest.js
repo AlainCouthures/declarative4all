@@ -23,7 +23,8 @@ Fleur.XQueryEngine[Fleur.XQueryX.nameTest] = function(ctx, children) {
 	} else {
 		nsURI = children[1][1][0];
 	}
-	if (ctx._stepctx.curr.namespaceURI !== ctx.nsresolver.lookupNamespaceURI(nsURI)) {
+	var currURI = ctx._stepctx.curr.namespaceURI || null;
+	if (currURI !== ctx.nsresolver.lookupNamespaceURI(nsURI)) {
 		if (ctx._stepctx.curr.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
 			ctx._stepctx.curr = ctx._stepctx.curr.ownerElement.getAttributeNode(children[0]);
 			ctx._stepctx.continue = null;

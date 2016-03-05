@@ -287,8 +287,14 @@ XsltForms_input.prototype.setValue = function(value) {
 		if (this.input.value !== XsltForms_browser.getValue(node).substr(0, 15)) {
 			this.input.value = XsltForms_browser.getValue(node).substr(0, 15);
 		}
-	} else if (this.input.value !== value) { // && this !== XsltForms_globals.focus) {
-		this.input.value = value || "";
+	} else {
+		var inputvalue = this.input.value;
+		if (inputvalue && inputvalue.length > 0 && type.parse) {
+			try { inputvalue = type.parse(inputvalue); } catch(e) { }
+		}
+		if (inputvalue !== value) { // && this !== XsltForms_globals.focus) {
+			this.input.value = value || "";
+		}
 	}
 };
 

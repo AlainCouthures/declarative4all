@@ -15,7 +15,7 @@ Fleur.toJSNumber = function(ctx) {
 			return [1, parseFloat(ctx._result.data)];
 		} else if (ctx._result.schemaTypeInfo === Fleur.Type_float) {
 			return [2, parseFloat(ctx._result.data)];
-		} else if (ctx._result.schemaTypeInfo === Fleur.Type_double) {
+		} else if (ctx._result.schemaTypeInfo === Fleur.Type_double || ctx._result.schemaTypeInfo === Fleur.Type_untypedAtomic) {
 			return [3, parseFloat(ctx._result.data)];
 		} else if (ctx._result.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
 			return [0, parseInt(ctx._result.data, 10)];
@@ -38,6 +38,9 @@ Fleur.toJSNumber = function(ctx) {
 	return [-1];
 };
 Fleur.toJSString = function(ctx) {
+	if (!ctx._result) {
+		return [0];
+	}
 	if (ctx._result.schemaTypeInfo === Fleur.Type_string || ctx._result.schemaTypeInfo === Fleur.Type_anyURI || ctx._result.schemaTypeInfo === Fleur.Type_untypedAtomic) {
 		return [0, ctx._result.data];
 	} else if (ctx._result.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || ctx._result.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION) || ctx._result.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {

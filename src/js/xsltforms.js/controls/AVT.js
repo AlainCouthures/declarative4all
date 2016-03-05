@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_control */
+/*globals XsltForms_control Fleur XsltForms_globals*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -12,11 +12,28 @@
 		
 function XsltForms_avt(subform, id, attrname, binding) {
 	this.init(subform, id);
+	this.controlName = "avt";
 	this.attrname = attrname;
 	this.binding = binding;
 	this.hasBinding = true;
 	this.isOutput = true;
-	if (this.binding && this.binding.type) {
+	if (attrname.toLowerCase() === "id") {
+		var calcid = "xsltforms-id-";
+		var elt = this.element;
+		var prev = 1;
+		while (elt.nodeType === Fleur.Node.ELEMENT_NODE) {
+			while (elt.previousSibling) {
+				if (elt.nodeType === Fleur.Node.ELEMENT_NODE) {
+					prev++;
+				}
+				elt = elt.previousSibling;
+			}
+			calcid += prev + "_";
+			elt = elt.parentNode;
+			prev = 1;
+		}
+		this.element.setAttribute("id", calcid);
+	} else if (this.binding && this.binding.type) {
 		this.element.setAttribute(this.attrname, "");
 	}
 }
@@ -50,6 +67,12 @@ XsltForms_avt.prototype.dispose = function() {
  */
 
 XsltForms_avt.prototype.setValue = function(value) {
+	if (this.attrname === "id" && this.element.id === this.element.getAttribute("oldid")) {
+		if (!XsltForms_globals.idalt) {
+			XsltForms_globals.idalt = {};
+		}
+		XsltForms_globals.idalt[this.element.id] = this.element;
+	}
 	this.element.setAttribute(this.attrname, value);
 };
 

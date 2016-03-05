@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals XsltForms_element XsltForms_idManager XsltForms_browser Fleur*/
+/*globals XsltForms_engine XsltForms_element XsltForms_idManager XsltForms_browser Fleur*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -11,7 +11,7 @@
  */
 		
 function XsltForms_itemset(subform, id, nodesetBinding, labelBinding, valueBinding, copyBinding) {
-	XsltForms_globals.counters.itemset++;
+	XsltForms_engine.counters.itemset++;
 	this.init(subform, id);
 	this.controlName = "itemset";
 	this.nodesetBinding = nodesetBinding;
@@ -21,7 +21,7 @@ function XsltForms_itemset(subform, id, nodesetBinding, labelBinding, valueBindi
 	this.hasBinding = true;
 }
 
-XsltForms_itemset.prototype = new XsltForms_element();
+//XsltForms_itemset.prototype = new XsltForms_element();
 
 
 		
@@ -120,7 +120,7 @@ XsltForms_itemset.prototype.clone = function(id) {
  */
 
 XsltForms_itemset.prototype.dispose = function() {
-	XsltForms_globals.counters.itemset--;
+	XsltForms_engine.counters.itemset--;
 	XsltForms_element.prototype.dispose.call(this);
 };
 

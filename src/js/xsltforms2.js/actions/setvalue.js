@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_xpath XsltForms_abstractAction XsltForms_globals XsltForms_browser*/
+/*globals XsltForms_xpath XsltForms_abstractAction XsltForms_engine XsltForms_browser*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -34,8 +34,8 @@ XsltForms_setvalue.prototype.run = function(element, ctx) {
 		if (this.context) {
 			ctx = this.context.xpath_evaluate(element.xfElement.subform, ctx, null, varresolver)[0];
 		}
-		var value = this.value? XsltForms_globals.stringValue(this.context ? this.value.xpath_evaluate(ctx, ctx, element.xfElement.subform, varresolver) : this.value.xpath_evaluate(node, ctx, element.xfElement.subform, varresolver)) : this.literal;
-		XsltForms_globals.openAction("XsltForms_setvalue.prototype.run");
+		var value = this.value? XsltForms_engine.stringValue(this.context ? this.value.xpath_evaluate(ctx, ctx, element.xfElement.subform, varresolver) : this.value.xpath_evaluate(node, ctx, element.xfElement.subform, varresolver)) : this.literal;
+		XsltForms_engine.openAction("XsltForms_setvalue.prototype.run");
 		try {
 			XsltForms_browser.setValue(node, value || "");
 			document.getElementById(XsltForms_browser.getDocMeta(node.ownerDocument, "model")).xfElement.addChange(node);
@@ -43,6 +43,6 @@ XsltForms_setvalue.prototype.run = function(element, ctx) {
 		} catch (e) {
 			XsltForms_browser.debugConsole.write("ERROR: cannot setvalue on " + XsltForms_browser.name2string(node) + " = " + value + "(context " + XsltForms_browser.name2string(ctx) + ")");
 		}
-		XsltForms_globals.closeAction("XsltForms_setvalue.prototype.run");
+		XsltForms_engine.closeAction("XsltForms_setvalue.prototype.run");
 	}
 };

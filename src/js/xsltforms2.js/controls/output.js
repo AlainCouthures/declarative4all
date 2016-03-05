@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals XsltForms_browser XsltForms_control XDocument*/
+/*globals XsltForms_engine XsltForms_browser XsltForms_control XDocument*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -11,7 +11,7 @@
  */
 		
 function XsltForms_output(subform, id, valoff, binding, mediatype) {
-	XsltForms_globals.counters.output++;
+	XsltForms_engine.counters.output++;
 	this.init(subform, id);
 	this.controlName = "output";
 	this.valoff = valoff;
@@ -36,7 +36,7 @@ function XsltForms_output(subform, id, valoff, binding, mediatype) {
 	}
 }
 
-XsltForms_output.prototype = new XsltForms_control();
+//XsltForms_output.prototype = new XsltForms_control();
 
 
 		
@@ -56,7 +56,7 @@ XsltForms_output.prototype.clone = function(id) {
 
 XsltForms_output.prototype.dispose = function() {
 	this.valueElement = null;
-	XsltForms_globals.counters.output--;
+	XsltForms_engine.counters.output--;
 	XsltForms_control.prototype.dispose.call(this);
 };
 
@@ -71,7 +71,7 @@ XsltForms_output.prototype.setValue = function(value) {
 	var mediatype = this.mediatype;
 	var i, li;
 	if (mediatype && mediatype.bind_evaluate) {
-		mediatype = XsltForms_globals.stringValue(mediatype.bind_evaluate(this.subform, this.boundnodes[0]));
+		mediatype = XsltForms_engine.stringValue(mediatype.bind_evaluate(this.subform, this.boundnodes[0]));
 	}
 	if (!mediatype || mediatype.indexOf("image/") !== 0 || mediatype === "image/svg+xml") {
 		if (element.nodeName.toLowerCase() === "img") {

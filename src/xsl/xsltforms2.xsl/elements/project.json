@@ -3,6 +3,7 @@
 	"Components":[
 		"document.xml",
 		"html.xml",
+		"script.xml",
 		"node.xml"
 	]
 }

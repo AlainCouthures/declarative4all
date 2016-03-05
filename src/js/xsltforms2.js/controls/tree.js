@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_browser XsltForms_element XsltForms_globals XsltForms_repeat Fleur*/
+/*globals XsltForms_browser XsltForms_element XsltForms_engine XsltForms_repeat Fleur*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -15,7 +15,7 @@ function XsltForms_tree(subform, id, binding) {
 	this.label = this.root.firstChild.cloneNode(true);
 }
 
-XsltForms_tree.prototype = new XsltForms_element();
+//XsltForms_tree.prototype = new XsltForms_element();
 
 XsltForms_tree.prototype.dispose = function() {
 	this.root = null;
@@ -50,10 +50,10 @@ XsltForms_tree.prototype.select = function(item) {
 		this.selected = item;
 		XsltForms_browser.setClass(item, "xforms-tree-item-selected", true);
 		XsltForms_browser.setClass(item.childNodes[1], "xforms-tree-item-label-selected", true);
-		XsltForms_globals.openAction();
-		XsltForms_globals.addChange(this);
-		XsltForms_globals.addChange(document.getElementById(XsltForms_browser.getDocMeta(item.node.ownerDocument, "model")).xfElement);
-		XsltForms_globals.closeAction();
+		XsltForms_engine.openAction();
+		XsltForms_engine.addChange(this);
+		XsltForms_engine.addChange(document.getElementById(XsltForms_browser.getDocMeta(item.node.ownerDocument, "model")).xfElement);
+		XsltForms_engine.closeAction();
 	}
 };
 
@@ -84,7 +84,7 @@ XsltForms_tree.prototype.buildTree = function(parentNode, index, node, nodes) {
 		if (last.nodeName.toLowerCase() === "ul") {
 			ul = last;
 			if (nochild) {
-				XsltForms_globals.dispose(ul);
+				XsltForms_engine.dispose(ul);
 				li.removeChild(ul);
 			}
 		}
@@ -103,7 +103,7 @@ XsltForms_tree.prototype.buildTree = function(parentNode, index, node, nodes) {
 	}
 	if (ul) {
 		for (var j = ul.childNodes.length, len1 = childs.length; j > len1; j--) {
-			XsltForms_globals.dispose(ul.lastChild);
+			XsltForms_engine.dispose(ul.lastChild);
 			ul.removeChild(ul.lastChild);
 		}
 	}

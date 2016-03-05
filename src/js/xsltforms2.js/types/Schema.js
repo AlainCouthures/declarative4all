@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals */
+/*globals XsltForms_engine */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -12,7 +12,7 @@
 		
 function XsltForms_schema(subform, ns, sname, prefixes) {
 	if (XsltForms_schema.all[ns]) {
-		XsltForms_globals.error(XsltForms_globals.defaultModel, "xforms-link-exception", "More than one schema with the same namespace declaration");
+		XsltForms_engine.error(XsltForms_engine.defaultModel, "xforms-link-exception", "More than one schema with the same namespace declaration");
 		return;
 	}
 	if (ns === "") {
@@ -103,7 +103,7 @@ XsltForms_schema.getTypeNS = function(ns, tname) {
 	}
 	var type = schema.types[tname];	
 	if (!type) {
-		if (XsltForms_globals.debugMode) {
+		if (XsltForms_engine.debugMode) {
 			alert("Type " + tname + " not defined in namespace " + ns);
 		}
 		type = XsltForms_schema.getTypeNS("http://www.w3.org/2001/XMLSchema", "string");

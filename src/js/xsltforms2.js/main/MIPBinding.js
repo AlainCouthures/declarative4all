@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_binding XsltForms_globals XsltForms_browser Fleur*/
+/*globals XsltForms_binding XsltForms_engine XsltForms_browser Fleur*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -39,8 +39,8 @@ XsltForms_mipbinding.prototype.evaluate = function(ctx, node) {
 		this.nodes.push({node: node, deps: [], depsN: []});
 		deps = depsN = [];
 	}
-	var build = !XsltForms_globals.ready || (deps.length === 0);
-	var changes = XsltForms_globals.changes;
+	var build = !XsltForms_engine.ready || (deps.length === 0);
+	var changes = XsltForms_engine.changes;
 	for (var i1 = 0, len1 = depsN.length; !build && i1 < len1; i1++) {
 		build = depsN[i1].nodeName === "";
 	}

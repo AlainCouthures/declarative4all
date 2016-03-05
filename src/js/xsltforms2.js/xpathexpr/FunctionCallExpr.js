@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_xpathCoreFunctions XsltForms_globals*/
+/*globals XsltForms_xpathCoreFunctions XsltForms_engine*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -23,7 +23,7 @@ function XsltForms_functionCallExpr(fname) {
 		}
 	}
 	if (!this.func) {
-		XsltForms_globals.error(this, "xforms-compute-exception", "Function " + this.name + "() not found");
+		XsltForms_engine.error(this, "xforms-compute-exception", "Function " + this.name + "() not found");
 	}
 	for (var i = 1, len = arguments.length; i < len; i++) {
 		this.args.push(arguments[i]);
@@ -45,7 +45,7 @@ XsltForms_functionCallExpr.prototype.evaluate = function(ctx) {
 		return this.func.call(ctx, arguments_);
 	} else {
 		for (var i2 = 0, len2 = this.args.length; i2 < len2; i2++) {
-			arguments_[i2] = XsltForms_globals.stringValue(this.args[i2].evaluate(ctx));
+			arguments_[i2] = XsltForms_engine.stringValue(this.args[i2].evaluate(ctx));
 		}
 		return this.func.apply(null,arguments_);
 	}

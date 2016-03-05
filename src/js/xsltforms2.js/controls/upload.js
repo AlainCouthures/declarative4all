@@ -1,5 +1,5 @@
 /*eslint-env browser, jquery*/
-/*globals XsltForms_globals XsltForms_browser XsltForms_control XsltForms_schema plupload XsltForms_xmlevents*/
+/*globals XsltForms_engine XsltForms_browser XsltForms_control XsltForms_schema plupload XsltForms_xmlevents*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -11,7 +11,7 @@
  */
 		
 function XsltForms_upload(subform, id, valoff, binding, incremental, filename, mediatype, aidButton, clone) {
-	XsltForms_globals.counters.upload++;
+	XsltForms_engine.counters.upload++;
 	this.init(subform, id);
 	this.controlName = "upload";
 	this.binding = binding;
@@ -40,7 +40,7 @@ function XsltForms_upload(subform, id, valoff, binding, incremental, filename, m
 	}
 }
 
-XsltForms_upload.prototype = new XsltForms_control();
+//XsltForms_upload.prototype = new XsltForms_control();
 
 XsltForms_upload.contents = {};
 
@@ -82,7 +82,7 @@ XsltForms_upload.prototype.clone = function(id) {
 
 XsltForms_upload.prototype.dispose = function() {
 	this.cell = null;
-	XsltForms_globals.counters.upload--;
+	XsltForms_engine.counters.upload--;
 	XsltForms_control.prototype.dispose.call(this);
 };
 
@@ -138,7 +138,7 @@ XsltForms_upload.prototype.setValue = function(value) {
 					var uploadctl = XsltForms_control.getXFElement(up.getOption("browse_button")[0]);
 					var resource;
 					if (uploadctl.resource.bind_evaluate) {
-						resource = XsltForms_globals.stringValue(uploadctl.resource.bind_evaluate(uploadctl.subform, uploadctl.boundnodes[0]));
+						resource = XsltForms_engine.stringValue(uploadctl.resource.bind_evaluate(uploadctl.subform, uploadctl.boundnodes[0]));
 					} else {
 						resource = uploadctl.resource;
 					}
@@ -156,7 +156,7 @@ XsltForms_upload.prototype.setValue = function(value) {
 							var hname;
 							for (var n = 0, lenn = nodes.length; n < lenn; n++) {
 								if (uploadctl.headers[i].name.bind_evaluate) {
-									hname = XsltForms_globals.stringValue(uploadctl.headers[i].name.bind_evaluate(uploadctl.subform, nodes[n]));
+									hname = XsltForms_engine.stringValue(uploadctl.headers[i].name.bind_evaluate(uploadctl.subform, nodes[n]));
 								} else {
 									hname = uploadctl.headers[i].name;
 								}
@@ -168,7 +168,7 @@ XsltForms_upload.prototype.setValue = function(value) {
 										var hv = uploadctl.headers[i].values[j];
 										var hv2;
 										if (hv.bind_evaluate) {
-											hv2 = XsltForms_globals.stringValue(hv.bind_evaluate(uploadctl.subform, nodes[n]));
+											hv2 = XsltForms_engine.stringValue(hv.bind_evaluate(uploadctl.subform, nodes[n]));
 										} else {
 											hv2 = hv;
 										}
@@ -209,7 +209,7 @@ XsltForms_upload.prototype.setValue = function(value) {
 					XsltForms_xmlevents.dispatch(uploadctl, "xforms-upload-error", null, null, null, null, evcontext);
 				}
 			};
-			if (XsltForms_globals.jslibraries["http://www.plupload.com/jquery.ui.plupload"]) {
+			if (XsltForms_engine.jslibraries["http://www.plupload.com/jquery.ui.plupload"]) {
 				var $jQuery = jQuery.noConflict();
 				$jQuery(this.element.children[this.valoff].firstChild).plupload(upsettings);
 			} else {
@@ -230,7 +230,7 @@ XsltForms_upload.prototype.setValue = function(value) {
  */
 
 XsltForms_upload.prototype.blur = function(target) {
-	XsltForms_globals.focus = null;
+	XsltForms_engine.focus = null;
 	if (!this.incremental) {
 		XsltForms_browser.assert(this.input, this.element.id);
 		this.valueChanged(this.value);
@@ -274,13 +274,13 @@ XsltForms_upload.prototype.directclick = function() {
 		if(this.filename && this.filename.bind_evaluate) {
 			var filenameref = this.filename.bind_evaluate(this.element.node)[0];
 			if (filenameref) {
-				XsltForms_globals.openAction("XsltForms_upload.prototype.directclick");
+				XsltForms_engine.openAction("XsltForms_upload.prototype.directclick");
 				XsltForms_browser.setValue(filenameref, filename || "");
 				var model = document.getElementById(XsltForms_browser.getDocMeta(filenameref.ownerDocument, "model")).xfElement;
 				model.addChange(filenameref);
 				XsltForms_xmlevents.dispatch(model, "xforms-recalculate");
-				XsltForms_globals.refresh();
-				XsltForms_globals.closeAction("XsltForms_upload.prototype.directclick");
+				XsltForms_engine.refresh();
+				XsltForms_engine.closeAction("XsltForms_upload.prototype.directclick");
 			}
 		}
 	}
@@ -384,13 +384,13 @@ XsltForms_upload.prototype.change = function() {
 		if(this.filename && this.filename.bind_evaluate) {
 			var filenameref = this.filename.bind_evaluate(this.element.node)[0];
 			if (filenameref) {
-				XsltForms_globals.openAction("XsltForms_upload.prototype.change");
+				XsltForms_engine.openAction("XsltForms_upload.prototype.change");
 				XsltForms_browser.setValue(filenameref, filename || "");
 				var model = document.getElementById(XsltForms_browser.getDocMeta(filenameref.ownerDocument, "model")).xfElement;
 				model.addChange(filenameref);
 				XsltForms_xmlevents.dispatch(model, "xforms-recalculate");
-				XsltForms_globals.refresh();
-				XsltForms_globals.closeAction("XsltForms_upload.prototype.change");
+				XsltForms_engine.refresh();
+				XsltForms_engine.closeAction("XsltForms_upload.prototype.change");
 			}
 		}
 	}

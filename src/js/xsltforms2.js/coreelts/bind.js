@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals XsltForms_schema XsltForms_binding XsltForms_element XsltForms_coreElement XsltForms_browser XsltForms_exprContext*/
+/*globals XsltForms_engine XsltForms_schema XsltForms_binding XsltForms_element XsltForms_coreElement XsltForms_browser XsltForms_exprContext*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -16,7 +16,7 @@ function XsltForms_bind(subform, id, parentBind, nodeset, type, readonly, requir
 	}
 	var model = parentBind.model || parentBind;
 	if (type === "xsd:ID") {
-		XsltForms_globals.IDstr = nodeset.split('/').pop();
+		XsltForms_engine.IDstr = nodeset.split('/').pop();
 	}
 	this.init(subform, id, parentBind, "xforms-bind");
 	this.model = model;
@@ -79,7 +79,7 @@ XsltForms_bind.prototype.refresh = function(ctx, index) {
 		}
 		if (this.type) {
 			if (XsltForms_browser.getMeta(node, "schemaType")) {
-				XsltForms_globals.error(el, "xforms-binding-exception", "Type especified in xsi:type attribute");
+				XsltForms_engine.error(el, "xforms-binding-exception", "Type especified in xsi:type attribute");
 			} else {
 				var typename = this.type.name;
 				var ns = this.type.nsuri;
@@ -112,7 +112,7 @@ XsltForms_bind.prototype.recalculate = function() {
 		for (var i = 0, len = this.nodes.length; i < len; i++) {
 			var node = this.nodes[i];
 			var ctx = new XsltForms_exprContext(this.subform, node, i + 1, this.nodes);
-			var value = XsltForms_globals.stringValue(this.calculate.evaluate(ctx, node));
+			var value = XsltForms_engine.stringValue(this.calculate.evaluate(ctx, node));
 			value = XsltForms_schema.getType(XsltForms_browser.getType(node) || "xsd_:string").normalize(value);
 			XsltForms_browser.setValue(node, value);
 			this.model.addChange(node);
@@ -135,7 +135,7 @@ XsltForms_bind.prototype.propagate = function() {
 		for (var i = 0, len = this.nodes.length; i < len; i++) {
 			var node = this.nodes[i];
 			var ctx = new XsltForms_exprContext(this.subform, node, i + 1, this.nodes);
-			var value = XsltForms_globals.stringValue(this.changed.evaluate(ctx, node));
+			var value = XsltForms_engine.stringValue(this.changed.evaluate(ctx, node));
 			value = XsltForms_schema.getType(XsltForms_browser.getType(node) || "xsd_:string").normalize(value);
 			XsltForms_browser.setValue(node, value);
 			//this.model.addChange(node);

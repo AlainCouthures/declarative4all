@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_browser XsltForms_globals XsltForms_xmlevents*/
+/*globals XsltForms_browser XsltForms_engine XsltForms_xmlevents*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -10,34 +10,23 @@
  * * constructor function : empty
  */
 		
-function XsltForms_element() {
-}
-
+var XsltForms_element = {
+	depsId: 0,
+	depsElements: [],
+	depsNodesBuild: [],
+	depsNodesRefresh: []
+};
 
 		
 /**
  * * '''init''' method : initializes properties 
  */
 
-XsltForms_element.depsId = 0;
-
-XsltForms_element.prototype.init = function(subform, id) {
+XsltForms_element.init = function(subform) {
 	this.subform = subform;
-	this.element = document.getElementById(id);
-	if (this.element.xfElement) {
-		if (!(this.element.xfElement instanceof Array)) {
-			this.element.xfElement = [this.element.xfElement];
-		}
-		this.element.xfElement.push(this);
-	} else {
-		this.element.xfElement = this;
-	}
-	this.depsElements = [];
-	this.depsNodesBuild = [];
-	this.depsNodesRefresh = [];
 	this.depsIdB = XsltForms_element.depsId++;
 	this.depsIdR = XsltForms_element.depsId++;
-	var p = this.element.parentNode;
+	var p = this.parentNode;
 	while (p) {
 		if (p.varScope) {
 			for (var v in p.varScope) {
@@ -57,12 +46,7 @@ XsltForms_element.prototype.init = function(subform, id) {
  * * '''dispose''' method : clears properties of this element
  */
 
-XsltForms_element.prototype.dispose = function() {
-	if(this.element) {
-		this.element.xfElement = null;
-		this.element.hasXFElement = null;
-		this.element = null;
-	}
+XsltForms_element.dispose = function() {
 	this.depsElements = null;
 	if (this.depsNodesBuild) {
 		for (var i = 0, len = this.depsNodesBuild.length; i < len; i++) {
@@ -90,31 +74,33 @@ XsltForms_element.prototype.dispose = function() {
  * * '''build''' method : abstractly builds this element from dependencies
  */
 
-XsltForms_element.prototype.build = function(ctx, varresolver) {
+XsltForms_element.build = function(ctx, varresolver) {
 	if (this.hasBinding) {
 		var deps = this.depsElements;
 		var depsN = this.depsNodesBuild;
 		var depsR = this.depsNodesRefresh;
-		var build = !XsltForms_globals.ready || (deps.length === 0) || ctx !== this.ctx;
+		var build = !XsltForms_engine.ready || (deps.length === 0) || ctx !== this.ctx;
 		var refresh = false;
-		var changes = XsltForms_globals.changes;
-		for (var i0 = 0, len0 = depsN.length; !build && i0 < len0; i0++) {
-			build = depsN[i0].nodeName === "";
+		var changes = XsltForms_engine.changes;
+		if (!build) {
+			build = depsN.some(function(d) {
+				return d.nodeName === "";
+			});
 		}
 		for (var i = 0, len = deps.length; !build && i < len; i++) {
 			var el = deps[i];
 			for (var j = 0, len1 = changes.length; !build && j < len1; j++) {
 				if (el === changes[j]) {
-					if (el.instances) { //model
+					if (el.instances) {
 						if (el.rebuilded || el.newRebuilded) {
 							build = true;
 						} else {
 							for (var k = 0, len2 = depsN.length; !build && k < len2; k++) {
-								build = XsltForms_browser.inArray(depsN[k], el.nodesChanged);
+								build = el.nodesChanged.indexOf(depsN[k]) !== -1;
 							}
 							if (!build) {
 								for (var n = 0, len3 = depsR.length; n < len3; n++) {
-									refresh = XsltForms_browser.inArray(depsR[n], el.nodesChanged);
+									refresh = el.nodesChanged.indexOf(depsR[n]) !== -1;
 								}
 							}
 						}
@@ -126,20 +112,20 @@ XsltForms_element.prototype.build = function(ctx, varresolver) {
 		}
 		this.changed = build || refresh;
 		if (build) {
-			for (var i4 = 0, len4 = depsN.length; i4 < len4; i4++) {
-				XsltForms_browser.rmValueMeta(depsN[i4], "depfor", this.depsIdB);
-			}
-			depsN.length = 0;
-			for (var i5 = 0, len5 = depsR.length; i5 < len5; i5++) {
-				XsltForms_browser.rmValueMeta(depsR[i5], "depfor", this.depsIdR);
-			}
-			depsR.length = 0;
-			deps.length = 0;
+			depsN.forEach(function(d) {
+				XsltForms_browser.rmValueMeta(d, "depfor", this.depsIdB);
+			});
+			depsN = [];
+			depsR.forEach(function(d) {
+				XsltForms_browser.rmValueMeta(d, "depfor", this.depsIdR);
+			});
+			depsR = [];
+			deps = [];
 			this.ctx = ctx;
 			this.build_(ctx, varresolver);
 		}
 	} else {
-		this.element.node = ctx;
+		this.node = ctx;
 	}
 };
 
@@ -148,7 +134,7 @@ XsltForms_element.prototype.build = function(ctx, varresolver) {
  * * '''evaluateBinding''' method : evaluates the spec'ed binding and gathers any errors
  */
 
-XsltForms_element.prototype.evaluateBinding = function(binding, ctx, varresolver) {
+XsltForms_element.evaluateBinding = function(binding, ctx, varresolver) {
 	this.boundnodes = null;
 	var errmsg = null;
 	if (binding) {
@@ -165,19 +151,19 @@ XsltForms_element.prototype.evaluateBinding = function(binding, ctx, varresolver
 			return this.boundnodes;
 		}
 		// A 'null' binding means bind-ID was not found.
-		errmsg = "non-existent bind-ID("+ binding.bind + ") on element(" + this.element.id + ")!";
+		errmsg = "non-existent bind-ID("+ binding.bind + ") on element(" + this.id + ")!";
 	} else {
-		errmsg = "no binding defined for element("+ this.element.id + ")!";
+		errmsg = "no binding defined for element("+ this.id + ")!";
 	}
 	XsltForms_browser.assert(errmsg);
-	if (XsltForms_globals.building && XsltForms_globals.debugMode) {
+	if (XsltForms_engine.building && XsltForms_engine.debugMode) {
 		//
 		// Do not fail here, to keep on searching for more errors.
-		XsltForms_globals.bindErrMsgs.push(errmsg);
-		XsltForms_xmlevents.dispatch(this.element, "xforms-binding-exception");
+		XsltForms_engine.bindErrMsgs.push(errmsg);
+		XsltForms_xmlevents.dispatch(this, "xforms-binding-exception");
 		this.nodes = [];
 	} else {
-		XsltForms_globals.error(this.element, "xforms-binding-exception", errmsg);
+		XsltForms_engine.error(this, "xforms-binding-exception", errmsg);
 	}
 	return this.boundnodes;
 };

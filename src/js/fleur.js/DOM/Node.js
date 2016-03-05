@@ -91,28 +91,30 @@ Fleur.Node.prototype.appendChild = function(newChild) {
 	} else if (newChild.nodeType === Fleur.Node.ATTRIBUTE_NODE || (this.nodeType === Fleur.Node.ATTRIBUTE_NODE && newChild.nodeType !== Fleur.Node.TEXT_NODE)) {
 		throw new Fleur.DOMException(Fleur.DOMException.HIERARCHY_REQUEST_ERR);
 	} else {
-		while (n) {
-			if (n === newChild) {
-				throw new Fleur.DOMException(Fleur.DOMException.HIERARCHY_REQUEST_ERR);
+		if (this.nodeType !== Fleur.Node.SEQUENCE_NODE || this.ownerDocument) {
+			while (n) {
+				if (n === newChild) {
+					throw new Fleur.DOMException(Fleur.DOMException.HIERARCHY_REQUEST_ERR);
+				}
+				n = n.parentNode || n.ownerElement;
 			}
-			n = n.parentNode || n.ownerElement;
+			if (newChild.ownerDocument && (this.ownerDocument || this) !== newChild.ownerDocument) {
+				throw new Fleur.DOMException(Fleur.DOMException.WRONG_DOCUMENT_ERR);
+			}
+			if (newChild.parentNode) {
+				newChild.parentNode.removeChild(newChild);
+			}
+			if (this.childNodes.length === 0) {
+				this.firstChild = newChild;
+			}
+			newChild.previousSibling = this.lastChild;
+			newChild.nextSibling = null;
+			if (this.lastChild) {
+				this.lastChild.nextSibling = newChild;
+			}
+			newChild.parentNode = this;
+			this.lastChild = newChild;
 		}
-		if (newChild.ownerDocument && (this.ownerDocument || this) !== newChild.ownerDocument) {
-			throw new Fleur.DOMException(Fleur.DOMException.WRONG_DOCUMENT_ERR);
-		}
-		if (newChild.parentNode) {
-			newChild.parentNode.removeChild(newChild);
-		}
-		if (this.childNodes.length === 0) {
-			this.firstChild = newChild;
-		}
-		newChild.previousSibling = this.lastChild;
-		newChild.nextSibling = null;
-		if (this.lastChild) {
-			this.lastChild.nextSibling = newChild;
-		}
-		newChild.parentNode = this;
-		this.lastChild = newChild;
 		this.childNodes.push(newChild);
 		if (newChild.nodeType === Fleur.Node.ELEMENT_NODE || newChild.nodeType === Fleur.Node.SEQUENCE_NODE || newChild.nodeType === Fleur.Node.ARRAY_NODE || newChild.nodeType === Fleur.Node.MAP_NODE || newChild.nodeType === Fleur.Node.ENTRY_NODE) {
 			this.children.push(newChild);

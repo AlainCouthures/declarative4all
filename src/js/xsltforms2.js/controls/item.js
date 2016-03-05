@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals XsltForms_browser XsltForms_control XsltForms_element*/
+/*globals XsltForms_engine XsltForms_browser XsltForms_control XsltForms_element*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -11,7 +11,7 @@
  */
 		
 function XsltForms_item(subform, id, bindingL, bindingV) {
-	XsltForms_globals.counters.item++;
+	XsltForms_engine.counters.item++;
 	this.init(subform, id);
 	this.controlName = "item";
 	if (bindingL || bindingV) {
@@ -31,7 +31,7 @@ function XsltForms_item(subform, id, bindingL, bindingV) {
 	}
 }
 
-XsltForms_item.prototype = new XsltForms_element();
+//XsltForms_item.prototype = new XsltForms_element();
 
 
 		
@@ -52,7 +52,7 @@ XsltForms_item.prototype.clone = function(id) {
 XsltForms_item.prototype.dispose = function() {
 	this.input = null;
 	this.label = null;
-	XsltForms_globals.counters.item--;
+	XsltForms_engine.counters.item--;
 	XsltForms_element.prototype.dispose.call(this);
 };
 

@@ -1,57 +1,25 @@
 /*eslint-env browser*/
-/*globals XsltForms_browser unescape XsltForms_coreElement XsltForms_globals XsltForms_browser_BinaryToArray_ByteStr_Last XsltForms_browser_BinaryToArray_ByteStr Fleur XsltForms_schema XsltForms_exprContext XsltForms_xmlevents zip_inflate zip_deflate*/
+/*globals XsltForms_browser unescape XsltForms_coreElement XsltForms_engine XsltForms_browser_BinaryToArray_ByteStr_Last XsltForms_browser_BinaryToArray_ByteStr Fleur XsltForms_schema XsltForms_exprContext XsltForms_xmlevents zip_inflate zip_deflate*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
  * @licence LGPL - See file 'LICENSE.md' in this project.
  * @module instance
- * @description  === "XFInstance" class ===
+ * @description  === "XsltForms_instance" ===
  * Instance Class
- * * constructor function : stores the properties of this instance and attaches it to a model
- */
-		
-function XsltForms_instance(subform, id, model, readonly, mediatype, src, srcDoc) {
-	this.init(subform, id, model, "xforms-instance");
-	this.readonly = readonly;
-	this.mediatype = mediatype;
-	this.src = XsltForms_browser.unescape(src);
-	this.srcDoc = XsltForms_browser.unescape(srcDoc).replace(/^\s+|\s+$/gm,'');
-	this.model = model;
-	this.doc = XsltForms_browser.createXMLDocument("<dummy/>");
-	XsltForms_browser.setDocMeta(this.doc, "instance", id);
-	XsltForms_browser.setDocMeta(this.doc, "model", model.element.id);
-	model.addInstance(this);
-	subform.instances.push(this);
-}
-
-XsltForms_instance.prototype = new XsltForms_coreElement();
- 
-
-		
-/**
- * * '''create''' method : checks if this instance has not already been created
+ * * constructor function
  */
 
-XsltForms_instance.create = function(subform, id, model, readonly, mediatype, src, srcDoc) {
-	var instelt = document.getElementById(id);
-	if (instelt && instelt.xfElement) {
-		instelt.xfElement.subforms[subform] = true;
-		instelt.xfElement.nbsubforms++;
-		subform.instances.push(instelt.xfElement);
-		return instelt.xfElement;
-	} else {
-		return new XsltForms_instance(subform, id, model, readonly, mediatype, src, srcDoc);
-	}
-};
+var XsltForms_instance = {};
 
 		
 /**
  * * '''dispose''' method : clears the properties and recycles the associated nodes
  */
 
-XsltForms_instance.prototype.dispose = function(subform) {
+XsltForms_instance.dispose = function(subform) {
 	if (subform && this.nbsubforms !== 1) {
-		this.subforms[subform] = null;
+		this.subforms[subform.id] = null;
 		this.nbsubforms--;
 		return;
 	}
@@ -64,9 +32,9 @@ XsltForms_instance.prototype.dispose = function(subform) {
  * * '''construct''' method : loads the source of this instance locally or remotely
  */
 
-XsltForms_instance.prototype.construct = function(subform) {
+XsltForms_instance.construct = function(subform) {
 	var ser;
-	if (!XsltForms_globals.ready || (subform && !subform.ready && this.nbsubforms === 1)) {
+	if (!XsltForms_engine.ready || (subform && !subform.ready && this.nbsubforms === 1)) {
 		if (this.src) {
 			if (this.src.substring(0, 8) === "local://") {
 				try {
@@ -75,14 +43,14 @@ XsltForms_instance.prototype.construct = function(subform) {
 					}
 					this.setDoc(window.localStorage.getItem(this.src.substr(8)));
 				} catch(e) {
-					XsltForms_globals.error(this.element, "xforms-link-exception", "Fatal error loading " + this.src, e.toString());
+					XsltForms_engine.error(this.element, "xforms-link-exception", "Fatal error loading " + this.src, e.toString());
 				}
 			} else if (this.src.substr(0, 9) === "opener://") {
 				try {
-					ser = window.opener.XsltForms_globals.xmlrequest('get', this.src.substr(9));
+					ser = window.opener.XsltForms_engine.xmlrequest('get', this.src.substr(9));
 					this.setDoc(ser);
 				} catch (e) {
-					XsltForms_globals.error(this.element, "xforms-link-exception", "Fatal error loading " + this.src, e.toString());
+					XsltForms_engine.error(this.element, "xforms-link-exception", "Fatal error loading " + this.src, e.toString());
 				} 
 			} else {
 				if (this.src.substr(0, 11) === "javascript:") {
@@ -90,7 +58,7 @@ XsltForms_instance.prototype.construct = function(subform) {
 						eval("ser = (" + this.src.substr(11) + ");");
 						this.setDoc(ser);
 					} catch (e) {
-						XsltForms_globals.error(this.element, "xforms-link-exception", "Error evaluating the following Javascript expression: "+this.src.substr(11));
+						XsltForms_engine.error(this.element, "xforms-link-exception", "Error evaluating the following Javascript expression: "+this.src.substr(11));
 					}
 				} else {
 					var cross = false;
@@ -126,7 +94,7 @@ XsltForms_instance.prototype.construct = function(subform) {
 							}
 							this.setDocFromReq(req);
 						} catch(e) {
-							XsltForms_globals.error(this.element, "xforms-link-exception", "Fatal error loading " + this.src, e.toString());
+							XsltForms_engine.error(this.element, "xforms-link-exception", "Fatal error loading " + this.src, e.toString());
 						}
 					}
 				}
@@ -143,7 +111,7 @@ XsltForms_instance.prototype.construct = function(subform) {
  * * '''reset''' method : simply restores the initial copy of this instance
  */
 
-XsltForms_instance.prototype.reset = function() {
+XsltForms_instance.reset = function() {
 	this.setDoc(this.oldDoc, true);
 };
  
@@ -153,7 +121,7 @@ XsltForms_instance.prototype.reset = function() {
  * * '''store''' method : clones the document of this instance
  */
 
-XsltForms_instance.prototype.store = function(isReset) {
+XsltForms_instance.store = function(isReset) {
 	if (this.oldDoc && !isReset) {
 		this.oldDoc = null;
 	}
@@ -166,7 +134,7 @@ XsltForms_instance.prototype.store = function(isReset) {
  * * '''setDoc''' method : sets a document for this instance
  */
 
-XsltForms_instance.prototype.setDoc = function(srcDoc, isReset, preserveOld) {
+XsltForms_instance.setDoc = function(srcDoc, isReset, preserveOld) {
 	var instid = XsltForms_browser.getDocMeta(this.doc, "instance");
 	var modid = XsltForms_browser.getDocMeta(this.doc, "model");
 	XsltForms_browser.loadDoc(this.doc, srcDoc, this.mediatype);
@@ -177,7 +145,7 @@ XsltForms_instance.prototype.setDoc = function(srcDoc, isReset, preserveOld) {
 	}
 	if (instid === XsltForms_browser.idPf + "instance-config") {
 		XsltForms_browser.config = this.doc.documentElement;
-		XsltForms_globals.htmlversion = XsltForms_browser.i18n.get("html");
+		XsltForms_engine.htmlversion = XsltForms_browser.i18n.get("html");
 	}
 };
 		
@@ -185,7 +153,7 @@ XsltForms_instance.prototype.setDoc = function(srcDoc, isReset, preserveOld) {
  * * '''setDocFromReq''' method : sets a document for this instance from a request
  */
 
-XsltForms_instance.prototype.setDocFromReq = function(req, isReset, preserveOld) {
+XsltForms_instance.setDocFromReq = function(req, isReset, preserveOld) {
 	var srcDoc = req.responseText;
 	if (XsltForms_browser.isChrome && this.mediatype === "text/plain") {
 		switch(this.src.substr(this.src.indexOf("."))) {
@@ -209,13 +177,13 @@ XsltForms_instance.prototype.setDocFromReq = function(req, isReset, preserveOld)
  * * '''revalidate''' method : recursively revalidates each node of this instance according to readonly and relevant attributes
  */
 
-XsltForms_instance.prototype.revalidate = function() {
+XsltForms_instance.revalidate = function() {
 	if (!this.readonly && this.doc.documentElement) {
 		this.validation_(this.doc.documentElement);
 	}
 };
 
-XsltForms_instance.prototype.validation_ = function(node, readonly, notrelevant) {
+XsltForms_instance.validation_ = function(node, readonly, notrelevant) {
 	if (!readonly) {
 		readonly = false;
 	}
@@ -247,9 +215,9 @@ XsltForms_instance.prototype.validation_ = function(node, readonly, notrelevant)
 	}
 };
 
-XsltForms_instance.prototype.validate_ = function(node, readonly, notrelevant) {
+XsltForms_instance.validate_ = function(node, readonly, notrelevant) {
 	var bindids = XsltForms_browser.getMeta(node, "bind");
-	var value = XsltForms_globals.xmlValue(node);
+	var value = XsltForms_engine.xmlValue(node);
 	var schtyp = XsltForms_schema.getType(XsltForms_browser.getType(node) || "xsd_:string");
 	if (bindids) {
 		var binds = bindids.split(" ");
@@ -293,7 +261,7 @@ XsltForms_instance.prototype.validate_ = function(node, readonly, notrelevant) {
 	}
 };
 
-XsltForms_instance.prototype.setProperty_ = function (node, property, value) {
+XsltForms_instance.setProperty_ = function (node, property, value) {
 	if (XsltForms_browser.getBoolMeta(node, property) !== value) {
 		XsltForms_browser.setBoolMeta(node, property, value);
 		this.model.addChange(node);   
@@ -457,9 +425,9 @@ var jsoninst = function(json) {
 	XsltForms_browser.jsoninstobj.submission.pending = false;
 	XsltForms_browser.dialog.hide("statusPanel", false);
 	XsltForms_browser.jsoninstobj.instance.setDoc(XsltForms_browser.json2xml("", json, true, false));
-	XsltForms_globals.addChange(XsltForms_browser.jsoninstobj.instance.model);
+	XsltForms_engine.addChange(XsltForms_browser.jsoninstobj.instance.model);
 	XsltForms_xmlevents.dispatch(XsltForms_browser.jsoninstobj.instance.model, "xforms-rebuild");
-	XsltForms_globals.refresh();
+	XsltForms_engine.refresh();
 	document.body.removeChild(document.getElementById("jsoninst"));
 };
     
@@ -880,3 +848,41 @@ XsltForms_browser.xml2zip = function(arch, mediatype) {
 		return XsltForms_browser.StringToBinary(z);
 	}
 };
+
+/**
+ * * '''createInstance''' method : checks if this instance has not already been created
+ */
+
+		
+XsltForms_engine.create.instance = function(subform, instance) {
+	//this.init(subform, id, model, "xforms-instance");
+	/*
+	if (instelt && instelt.xfElement) {
+		instelt.xfElement.subforms[subform] = true;
+		instelt.xfElement.nbsubforms++;
+		subform.instances.push(instelt.xfElement);
+		return instelt.xfElement;
+	}
+	*/
+	instance.readonly = instance.getAttribute("readonly") || "";
+	instance.readonly = instance.readonly.toLowerCase();
+	instance.readonly = instance.readonly !== "false" && instance.readonly !== "0";
+	instance.mediatype = instance.getAttribute("mediatype");
+	if (!instance.mediatype || instance.mediatype === "") {
+		instance.mediatype = "application/xml";
+	}
+	instance.src = XsltForms_browser.unescape(instance.getAttribute("src"));
+	var scriptelt = instance.getElementsByTagName("script");
+	if (scriptelt.length > 0) {
+		instance.srcDoc = XsltForms_browser.unescape(scriptelt[0].textContent).replace(/^\s+|\s+$/gm,'');
+	}
+	instance.model = instance.parentNode;
+	instance.doc = XsltForms_browser.createXMLDocument("<dummy/>");
+	XsltForms_browser.setDocMeta(instance.doc, "instance", instance.id);
+	XsltForms_browser.setDocMeta(instance.doc, "model", instance.parentNode.id);
+	instance.parentNode.addInstance(instance);
+	subform.counters.instance++;
+	subform.instances.push(instance);
+	Object.assign(instance, XsltForms_instance);
+};
+

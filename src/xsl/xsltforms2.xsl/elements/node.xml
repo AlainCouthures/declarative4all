@@ -3,7 +3,7 @@
  * @licence LGPL - See file 'LICENSE.md' in this project.
  * @module node
 -->
-<xsl:template match="*" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:template match="*" priority="-1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:choose>
 		<xsl:when test="local-name() = 'instance' and namespace-uri() = 'http://www.w3.org/2002/xforms'">
 			<xsl:element name="xforms-{local-name()}">
@@ -38,12 +38,12 @@
 		</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>
-<xsl:template match="@*" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:template match="@*" priority="-1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:attribute name="{local-name()}"><xsl:value-of select="."/></xsl:attribute>
 </xsl:template>
-<xsl:template match="processing-instruction()" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
-<xsl:template match="text()[normalize-space(.)='']" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
-<xsl:template match="node()" priority="-1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:template match="processing-instruction()" priority="-1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
+<xsl:template match="text()[normalize-space(.)='']" priority="-1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
+<xsl:template match="node()" priority="-2" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:copy>
 		<xsl:apply-templates select="node()"/>
 	</xsl:copy>

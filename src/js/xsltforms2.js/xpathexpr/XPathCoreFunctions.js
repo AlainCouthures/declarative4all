@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_xpathFunction Fleur XsltForms_globals XsltForms_browser XsltForms_idManager XsltForms_typeDefs zip_inflate XsltForms_schema XsltForms_xmlevents*/
+/*globals XsltForms_xpathFunction Fleur XsltForms_engine XsltForms_browser XsltForms_idManager XsltForms_typeDefs zip_inflate XsltForms_schema XsltForms_xmlevents*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -580,8 +580,8 @@ var XsltForms_xpathCoreFunctions = {
 					}
 				}
 			} else if (context.node) {
-				var ids = XsltForms_globals.stringValue(object).split(/\s+/);
-				var idattr = XsltForms_globals.IDstr ? XsltForms_globals.IDstr : "@xml:id";
+				var ids = XsltForms_engine.stringValue(object).split(/\s+/);
+				var idattr = XsltForms_engine.IDstr ? XsltForms_engine.IDstr : "@xml:id";
 				for (var k = 0, len2 = ids.length; k < len2; k++) {
 					var n = XsltForms_browser.selectSingleNode("descendant-or-self::*[" + idattr + "='" + ids[k] + "']", ref[0]);
 					if (n) {
@@ -657,7 +657,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length > 1) {
 				throw XsltForms_xpathFunctionExceptions.stringInvalidArgumentsNumber;
 			}
-			return XsltForms_globals.stringValue(object);
+			return XsltForms_engine.stringValue(object);
 		} ),
 
 		
@@ -672,7 +672,7 @@ var XsltForms_xpathCoreFunctions = {
 			}
 			var string = "";
 			for (var i = 0, len = arguments.length; i < len; ++i) {
-				string += XsltForms_globals.stringValue(arguments[i]);
+				string += XsltForms_engine.stringValue(arguments[i]);
 			}
 			return string;
 		} ),
@@ -687,7 +687,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 2) {
 				throw XsltForms_xpathFunctionExceptions.startsWithInvalidArgumentsNumber;
 			}
-			return XsltForms_globals.stringValue(string).indexOf(XsltForms_globals.stringValue(prefix)) === 0;
+			return XsltForms_engine.stringValue(string).indexOf(XsltForms_engine.stringValue(prefix)) === 0;
 		} ),
 
 		
@@ -700,8 +700,8 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 2) {
 				throw XsltForms_xpathFunctionExceptions.endsWithInvalidArgumentsNumber;
 			}
-			var s = XsltForms_globals.stringValue(string);
-			var p = XsltForms_globals.stringValue(postfix);
+			var s = XsltForms_engine.stringValue(string);
+			var p = XsltForms_engine.stringValue(postfix);
 			return s.substr(s.length - p.length, p.length) === p;
 		} ),
 
@@ -715,7 +715,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 2) {
 				throw XsltForms_xpathFunctionExceptions.containsInvalidArgumentsNumber;
 			}
-			return XsltForms_globals.stringValue(string).indexOf(XsltForms_globals.stringValue(substring)) !== -1;
+			return XsltForms_engine.stringValue(string).indexOf(XsltForms_engine.stringValue(substring)) !== -1;
 		} ),
 
 		
@@ -728,8 +728,8 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 2) {
 				throw XsltForms_xpathFunctionExceptions.substringBeforeInvalidArgumentsNumber;
 			}
-			string = XsltForms_globals.stringValue(string);
-			return string.substring(0, string.indexOf(XsltForms_globals.stringValue(substring)));
+			string = XsltForms_engine.stringValue(string);
+			return string.substring(0, string.indexOf(XsltForms_engine.stringValue(substring)));
 		} ),
 
 		
@@ -742,8 +742,8 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 2) {
 				throw XsltForms_xpathFunctionExceptions.substringAfterInvalidArgumentsNumber;
 			}
-			string = XsltForms_globals.stringValue(string);
-			substring = XsltForms_globals.stringValue(substring);
+			string = XsltForms_engine.stringValue(string);
+			substring = XsltForms_engine.stringValue(substring);
 			var index = string.indexOf(substring);
 			return index === -1 ? "" : string.substring(index + substring.length);
 		} ),
@@ -758,13 +758,13 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 2 && arguments.length !== 3) {
 				throw XsltForms_xpathFunctionExceptions.substringInvalidArgumentsNumber;
 			}
-			string = XsltForms_globals.stringValue(string);
-			index  = Math.round(XsltForms_globals.numberValue(index));
+			string = XsltForms_engine.stringValue(string);
+			index  = Math.round(XsltForms_engine.numberValue(index));
 			if (isNaN(index)) {
 				return "";
 			}
 			if (len) {
-				len = Math.round(XsltForms_globals.numberValue(len));
+				len = Math.round(XsltForms_engine.numberValue(len));
 				if (index <= 0) {
 					return string.substr(0, index + len - 1);
 				}
@@ -783,8 +783,8 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 2) {
 				throw XsltForms_xpathFunctionExceptions.compareInvalidArgumentsNumber;
 			}
-			string1 = XsltForms_globals.stringValue(string1);
-			string2 = XsltForms_globals.stringValue(string2);
+			string1 = XsltForms_engine.stringValue(string1);
+			string2 = XsltForms_engine.stringValue(string2);
 			return (string1 === string2 ? 0 : (string1 > string2 ? 1 : -1));
 		} ),
 
@@ -798,7 +798,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length > 1) {
 				throw XsltForms_xpathFunctionExceptions.stringLengthInvalidArgumentsNumber;
 			}
-			return XsltForms_globals.stringValue(string).length;
+			return XsltForms_engine.stringValue(string).length;
 		} ),
 
 		
@@ -811,7 +811,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length > 1) {
 				throw XsltForms_xpathFunctionExceptions.normalizeSpaceLengthInvalidArgumentsNumber;
 			}
-			return XsltForms_globals.stringValue(string).replace(/^\s+|\s+$/g, "")
+			return XsltForms_engine.stringValue(string).replace(/^\s+|\s+$/g, "")
 				.replace(/\s+/, " ");
 		} ),
 
@@ -825,9 +825,9 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 3) {
 				throw XsltForms_xpathFunctionExceptions.translateInvalidArgumentsNumber;
 			}
-			string =  XsltForms_globals.stringValue(string);
-			from = XsltForms_globals.stringValue(from);
-			to = XsltForms_globals.stringValue(to);
+			string =  XsltForms_engine.stringValue(string);
+			from = XsltForms_engine.stringValue(from);
+			to = XsltForms_engine.stringValue(to);
 			var result = "";
 			for (var i = 0, len = string.length; i < len; ++i) {
 				var index = from.indexOf(string.charAt(i));
@@ -846,8 +846,8 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 3) {
 				throw XsltForms_xpathFunctionExceptions.replaceInvalidArgumentsNumber;
 			}
-			string = XsltForms_globals.stringValue(string);
-			return string.replace(new RegExp(XsltForms_globals.stringValue(pattern), "g"), XsltForms_globals.stringValue(replacement));
+			string = XsltForms_engine.stringValue(string);
+			return string.replace(new RegExp(XsltForms_engine.stringValue(pattern), "g"), XsltForms_engine.stringValue(replacement));
 		} ),
 
 		
@@ -860,7 +860,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.booleanInvalidArgumentsNumber;
 			}
-			return XsltForms_globals.booleanValue(object);
+			return XsltForms_engine.booleanValue(object);
 		} ),
 
 		
@@ -873,7 +873,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.notInvalidArgumentsNumber;
 			}
-			return !XsltForms_globals.booleanValue(condition);
+			return !XsltForms_engine.booleanValue(condition);
 		} ),
 
 		
@@ -912,7 +912,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 2) {
 				throw XsltForms_xpathFunctionExceptions.langInvalidArgumentsNumber;
 			}
-			language = XsltForms_globals.stringValue(language);
+			language = XsltForms_engine.stringValue(language);
 			for (var node = context.node; node; node = node.parentNode) {
 				if (typeof(node.attributes) === "undefined") {
 					continue;
@@ -937,7 +937,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.numberInvalidArgumentsNumber;
 			}
-			return XsltForms_globals.numberValue(object);
+			return XsltForms_engine.numberValue(object);
 		} ),
 
 		
@@ -955,7 +955,7 @@ var XsltForms_xpathCoreFunctions = {
 			}
 			var sum = 0;
 			for (var i = 0, len = nodeSet.length; i < len; ++i) {
-				sum += XsltForms_globals.numberValue(XsltForms_globals.xmlValue(nodeSet[i]));
+				sum += XsltForms_engine.numberValue(XsltForms_engine.xmlValue(nodeSet[i]));
 			}
 			return sum;
 		} ),
@@ -970,7 +970,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.floorInvalidArgumentsNumber;
 			}
-			return Math.floor(XsltForms_globals.numberValue(number));
+			return Math.floor(XsltForms_engine.numberValue(number));
 		} ),
 
 		
@@ -983,7 +983,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.ceilingInvalidArgumentsNumber;
 			}
-			return Math.ceil(XsltForms_globals.numberValue(number));
+			return Math.ceil(XsltForms_engine.numberValue(number));
 		} ),
 
 		
@@ -996,7 +996,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.roundInvalidArgumentsNumber;
 			}
-			return Math.round(XsltForms_globals.numberValue(number));
+			return Math.round(XsltForms_engine.numberValue(number));
 		} ),
 
 		
@@ -1009,7 +1009,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 2) {
 				throw XsltForms_xpathFunctionExceptions.powerInvalidArgumentsNumber;
 			}
-			return Math.pow(XsltForms_globals.numberValue(x), XsltForms_globals.numberValue(y));
+			return Math.pow(XsltForms_engine.numberValue(x), XsltForms_engine.numberValue(y));
 		} ),
 
 		
@@ -1035,7 +1035,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.booleanFromStringInvalidArgumentsNumber;
 			}
-			string = XsltForms_globals.stringValue(string);
+			string = XsltForms_engine.stringValue(string);
 			switch (string.toLowerCase()) {
 				case "true":  case "1": return true;
 				case "false": case "0": return false;
@@ -1053,7 +1053,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 3) {
 				throw XsltForms_xpathFunctionExceptions.ifInvalidArgumentsNumber;
 			}
-			return XsltForms_globals.booleanValue(condition)? onTrue : onFalse;
+			return XsltForms_engine.booleanValue(condition)? onTrue : onFalse;
 		} ),
 
 		
@@ -1066,7 +1066,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 3) {
 				throw XsltForms_xpathFunctionExceptions.chooseInvalidArgumentsNumber;
 			}
-			return XsltForms_globals.booleanValue(condition)? onTrue : onFalse;
+			return XsltForms_engine.booleanValue(condition)? onTrue : onFalse;
 		} ),
 
 		
@@ -1103,9 +1103,9 @@ var XsltForms_xpathCoreFunctions = {
 			if (nodeSet.length === 0) {
 				return NaN;
 			}
-			var minimum = XsltForms_globals.numberValue(XsltForms_globals.xmlValue(nodeSet[0]));
+			var minimum = XsltForms_engine.numberValue(XsltForms_engine.xmlValue(nodeSet[0]));
 			for (var i = 1, len = nodeSet.length; i < len; ++i) {
-				var value = XsltForms_globals.numberValue(XsltForms_globals.xmlValue(nodeSet[i]));
+				var value = XsltForms_engine.numberValue(XsltForms_engine.xmlValue(nodeSet[i]));
 				if (isNaN(value)) {
 					return NaN;
 				}
@@ -1132,9 +1132,9 @@ var XsltForms_xpathCoreFunctions = {
 			if (nodeSet.length === 0) {
 				return NaN;
 			}
-			var maximum = XsltForms_globals.numberValue(XsltForms_globals.xmlValue(nodeSet[0]));
+			var maximum = XsltForms_engine.numberValue(XsltForms_engine.xmlValue(nodeSet[0]));
 			for (var i = 1, len = nodeSet.length; i < len; ++i) {
-				var value = XsltForms_globals.numberValue(XsltForms_globals.xmlValue(nodeSet[i]));
+				var value = XsltForms_engine.numberValue(XsltForms_engine.xmlValue(nodeSet[i]));
 				if (isNaN(value)) {
 					return NaN;
 				}
@@ -1160,7 +1160,7 @@ var XsltForms_xpathCoreFunctions = {
 			}
 			var count = 0;
 			for (var i = 0, len = nodeSet.length; i < len; ++i) {
-				if (XsltForms_globals.xmlValue(nodeSet[i]).length > 0) {
+				if (XsltForms_engine.xmlValue(nodeSet[i]).length > 0) {
 					count++;
 				}
 			}
@@ -1177,7 +1177,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 2) {
 				throw XsltForms_xpathFunctionExceptions.indexInvalidArgumentsNumber;
 			}
-			var elt = XsltForms_idManager.find(XsltForms_globals.stringValue(id));
+			var elt = XsltForms_idManager.find(XsltForms_engine.stringValue(id));
 			if (!elt) {
 				return NaN;
 			}
@@ -1196,7 +1196,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 2) {
 				throw XsltForms_xpathFunctionExceptions.nodeIndexInvalidArgumentsNumber;
 			}
-			var control = XsltForms_idManager.find(XsltForms_globals.stringValue(id));
+			var control = XsltForms_idManager.find(XsltForms_engine.stringValue(id));
 			var node = control.node;
 			ctx.addDepElement(control.xfElement);
 			if (node) {
@@ -1216,13 +1216,13 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.propertyInvalidArgumentsNumber;
 			}
-			pname = XsltForms_globals.stringValue(pname);
+			pname = XsltForms_engine.stringValue(pname);
 			switch (pname) {
 				case "version": return "1.1";
 				case "conformance-level": return "full";
-				case "xsltforms:debug-mode": return XsltForms_globals.debugMode ? "on" : "off";
-				case "xsltforms:version": return XsltForms_globals.fileVersion;
-				case "xsltforms:version-number": return ""+XsltForms_globals.fileVersionNumber;
+				case "xsltforms:debug-mode": return XsltForms_engine.debugMode ? "on" : "off";
+				case "xsltforms:version": return XsltForms_engine.fileVersion;
+				case "xsltforms:version-number": return ""+XsltForms_engine.fileVersionNumber;
 				default:
 					if (pname.substring(0,4) === "xsl:") {
 						var xslname = pname.substring(4);
@@ -1247,7 +1247,7 @@ var XsltForms_xpathCoreFunctions = {
 						}
 					}
 					if (pname.match("^[" + XsltForms_typeDefs.ctes.i + "][" + XsltForms_typeDefs.ctes.c + "]*$")) {
-						XsltForms_globals.error(XsltForms_globals.defaultModel, "xforms-binding-exception", "Invalid NCNAME");
+						XsltForms_engine.error(XsltForms_engine.defaultModel, "xforms-binding-exception", "Invalid NCNAME");
 					}
 			}
 			return "";
@@ -1263,7 +1263,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.secondsInvalidArgumentsNumber;
 			}
-			duration = XsltForms_globals.stringValue(duration);
+			duration = XsltForms_engine.stringValue(duration);
 			var durarr = duration.match("^-?P(?!$)([0-9]+Y)?([0-9]+M)?([0-9]+D)?(T(?!$)([0-9]+H)?([0-9]+M)?([0-9]+(\\.[0-9]+)?S)?)?$");
 			if (durarr) {
 				return (duration.charAt(0) === '-'? -1: 1)*(((parseFloat(durarr[3] || 0)*24 + parseFloat(durarr[5] || 0))*60 + parseFloat(durarr[6] || 0))*60 + parseFloat(durarr[7] || 0));
@@ -1281,7 +1281,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.monthsInvalidArgumentsNumber;
 			}
-			duration = XsltForms_globals.stringValue(duration);
+			duration = XsltForms_engine.stringValue(duration);
 			var durarr = duration.match("^-?P(?!$)([0-9]+Y)?([0-9]+M)?([0-9]+D)?(T(?!$)([0-9]+H)?([0-9]+M)?([0-9]+(\\.[0-9]+)?S)?)?$");
 			if (durarr) {
 				return (duration.charAt(0) === '-'? -1: 1)*(parseFloat(durarr[1] || 0)*12 + parseFloat(durarr[2] || 0));
@@ -1299,7 +1299,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length > 4) {
 				throw XsltForms_xpathFunctionExceptions.instanceInvalidArgumentsNumber;
 			}
-			var iname = idRef ? XsltForms_globals.stringValue(idRef) : "";
+			var iname = idRef ? XsltForms_engine.stringValue(idRef) : "";
 			var res;
 			if (iname !== "") {
 				var instance = document.getElementById(iname);
@@ -1307,7 +1307,7 @@ var XsltForms_xpathCoreFunctions = {
 					throw new Error({name: "instance " + iname + " not found"});
 				}
 				if (filename && instance.xfElement.archive) {
-					filename = XsltForms_globals.stringValue(filename);
+					filename = XsltForms_engine.stringValue(filename);
 					var f = instance.xfElement.archive[filename];
 					if (!f) {
 						throw new Error({name: "file " + filename + " not found in instance " + iname});
@@ -1408,7 +1408,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.adjustDateTimeToTimezoneInvalidArgumentsNumber;
 			}
-			string = XsltForms_globals.stringValue(string);
+			string = XsltForms_engine.stringValue(string);
 			if( !XsltForms_schema.getType("xsd_:date").validate(string) && !XsltForms_schema.getType("xsd_:dateTime").validate(string)) {
 				return "";
 			}
@@ -1436,7 +1436,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.daysFromDateInvalidArgumentsNumber;
 			}
-			string = XsltForms_globals.stringValue(string);
+			string = XsltForms_engine.stringValue(string);
 			if( !XsltForms_schema.getType("xsd_:date").validate(string) && !XsltForms_schema.getType("xsd_:dateTime").validate(string)) {
 				return "NaN";
 			}
@@ -1456,7 +1456,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.daysToDateInvalidArgumentsNumber;
 			}
-			number = XsltForms_globals.numberValue(number);
+			number = XsltForms_engine.numberValue(number);
 			if( isNaN(number) ) {
 				return "";
 			}
@@ -1475,7 +1475,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.secondsFromDateTimeInvalidArgumentsNumber;
 			}
-			string = XsltForms_globals.stringValue(string);
+			string = XsltForms_engine.stringValue(string);
 			if( !XsltForms_schema.getType("xsd_:dateTime").validate(string)) {
 				return "NaN";
 			}
@@ -1498,7 +1498,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.secondsToDateTimeInvalidArgumentsNumber;
 			}
-			number = XsltForms_globals.numberValue(number);
+			number = XsltForms_engine.numberValue(number);
 			if( isNaN(number) ) {
 				return "";
 			}
@@ -1537,7 +1537,7 @@ var XsltForms_xpathCoreFunctions = {
 			}
 			var valid = true;
 			for (var i = 0, len = nodeSet.length; valid && i < len; i++) {
-				valid = valid && XsltForms_globals.validate_(nodeSet[i]);
+				valid = valid && XsltForms_engine.validate_(nodeSet[i]);
 			}
 			return valid;
 		} ),
@@ -1552,7 +1552,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.isCardNumberInvalidArgumentsNumber;
 			}
-			string = XsltForms_globals.stringValue(string).trim();
+			string = XsltForms_engine.stringValue(string).trim();
 			var sum = 0;
 			var tab = new Array(string.length);
 			for (var i = 0, l = string.length; i < l; i++) {
@@ -1583,18 +1583,18 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 2 && arguments.length !== 3) {
 				throw XsltForms_xpathFunctionExceptions.digestInvalidArgumentsNumber;
 			}
-			algo = XsltForms_globals.stringValue(algo);
+			algo = XsltForms_engine.stringValue(algo);
 			if (algo !== "SHA-1" && algo !== "MD5" && algo !== "SHA-256" && algo !== "BASE64") {
-				XsltForms_globals.error(XsltForms_globals.defaultModel, "xforms-compute-exception", "Invalid crypting method");
+				XsltForms_engine.error(XsltForms_engine.defaultModel, "xforms-compute-exception", "Invalid crypting method");
 				return "unsupported";
 			}
-			enco = enco ? XsltForms_globals.stringValue(enco) : "base64";
+			enco = enco ? XsltForms_engine.stringValue(enco) : "base64";
 			if (enco !== "hex" && enco !== "base64") {
-				XsltForms_globals.error(XsltForms_globals.defaultModel, "xforms-compute-exception", "Invalid encoding method");
+				XsltForms_engine.error(XsltForms_engine.defaultModel, "xforms-compute-exception", "Invalid encoding method");
 				return "unsupported";
 			}
-			str = XsltForms_globals.stringValue(str);
-			return XsltForms_globals.encode(XsltForms_globals.crypto(XsltForms_globals.str2msg(str), algo), enco);
+			str = XsltForms_engine.stringValue(str);
+			return XsltForms_engine.encode(XsltForms_engine.crypto(XsltForms_engine.str2msg(str), algo), enco);
 		} ),
 
 		
@@ -1608,22 +1608,22 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 3 && arguments.length !== 4) {
 				throw XsltForms_xpathFunctionExceptions.hmacInvalidArgumentsNumber;
 			}
-			algo = XsltForms_globals.stringValue(algo);
+			algo = XsltForms_engine.stringValue(algo);
 			if (algo !== "SHA-1" && algo !== "MD5" && algo !== "SHA-256" && algo !== "BASE64") {
-				XsltForms_globals.error(XsltForms_globals.defaultModel, "xforms-compute-exception", "Invalid crypting method");
+				XsltForms_engine.error(XsltForms_engine.defaultModel, "xforms-compute-exception", "Invalid crypting method");
 				return "unsupported";
 			}
-			enco = enco ? XsltForms_globals.stringValue(enco) : "base64";
+			enco = enco ? XsltForms_engine.stringValue(enco) : "base64";
 			if (enco !== "hex" && enco !== "base64") {
-				XsltForms_globals.error(XsltForms_globals.defaultModel, "xforms-compute-exception", "Invalid encoding method");
+				XsltForms_engine.error(XsltForms_engine.defaultModel, "xforms-compute-exception", "Invalid encoding method");
 				return "unsupported";
 			}
-			key = XsltForms_globals.stringValue(key);
-			str = XsltForms_globals.stringValue(str);
+			key = XsltForms_engine.stringValue(key);
+			str = XsltForms_engine.stringValue(str);
 			var i, ik = [], ok = [];
-			var k = XsltForms_globals.str2msg(key);
+			var k = XsltForms_engine.str2msg(key);
 			if (k.length > 64) {
-				k = XsltForms_globals.crypto(k, algo);
+				k = XsltForms_engine.crypto(k, algo);
 			}
 			for (i = (k.length + 3) >> 2; i < 16; i++) {
 				k.arr[i] = 0;
@@ -1632,13 +1632,13 @@ var XsltForms_xpathCoreFunctions = {
 				ik[i] = k.arr[i] ^ 0x36363636;
 				ok[i] = k.arr[i] ^ 0x5c5c5c5c;
 			}
-			var a1 = XsltForms_globals.str2msg(str);
+			var a1 = XsltForms_engine.str2msg(str);
 			a1.length += 64;
 			a1.arr = ik.concat(a1.arr);
-			var a2 = XsltForms_globals.crypto(a1, algo);
+			var a2 = XsltForms_engine.crypto(a1, algo);
 			a2.length += 64;
 			a2.arr = ok.concat(a2.arr);
-			return XsltForms_globals.encode(XsltForms_globals.crypto(a2, algo), enco);
+			return XsltForms_engine.encode(XsltForms_engine.crypto(a2, algo), enco);
 		} ),
 /*eslint bitwise:true */
 
@@ -1652,7 +1652,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.upperCaseInvalidArgumentsNumber;
 			}
-			str = XsltForms_globals.stringValue(str);
+			str = XsltForms_engine.stringValue(str);
 			return str.toUpperCase();
 		} ),
 
@@ -1666,7 +1666,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.lowerCaseInvalidArgumentsNumber;
 			}
-			str = XsltForms_globals.stringValue(str);
+			str = XsltForms_engine.stringValue(str);
 			return str.toLowerCase();
 		} ),
 
@@ -1683,7 +1683,7 @@ var XsltForms_xpathCoreFunctions = {
 			var nodeSet2 = [];
 			var values = {};
 			for (var i = 0, len = nodeSet.length; i < len; ++i) {
-				var xvalue = XsltForms_globals.xmlValue(nodeSet[i]);
+				var xvalue = XsltForms_engine.xmlValue(nodeSet[i]);
 				if (!values[xvalue]) {
 					nodeSet2.push(nodeSet[i]);
 					values[xvalue] = true;
@@ -1703,7 +1703,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 2) {
 				throw XsltForms_xpathFunctionExceptions.formatNumberInvalidArgumentsNumber;
 			}
-			value = XsltForms_globals.numberValue(value);
+			value = XsltForms_engine.numberValue(value);
 			if( isNaN(value) ) {
 				return XsltForms_browser.i18n.get("format-number.NaN", "NaN");
 			}
@@ -1927,10 +1927,10 @@ var XsltForms_xpathCoreFunctions = {
 			}
 			var args = [];
 			args.push(XsltForms_browser.saveNode(nodeSet[0], "application/xml"));
-			args.push(XsltForms_globals.stringValue(xslhref));
-			args.push(XsltForms_globals.booleanValue(inline));
+			args.push(XsltForms_engine.stringValue(xslhref));
+			args.push(XsltForms_engine.booleanValue(inline));
 			for (var i = 3, len = arguments.length; i < len; i++) {
-				args.push(XsltForms_globals.stringValue(arguments[i]));
+				args.push(XsltForms_engine.stringValue(arguments[i]));
 			}
 			return XsltForms_browser.transformText.apply(null, args);
 		} ),
@@ -1948,7 +1948,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length === 0) {
 				throw XsltForms_xpathFunctionExceptions.serializeNoContext;
 			}
-			return nodeSet.length === 0 ? "" : XsltForms_browser.saveNode(nodeSet[0], mediatype ? XsltForms_globals.stringValue(mediatype) : "application/exml+xml", null, indent === "yes" ? indent : null);
+			return nodeSet.length === 0 ? "" : XsltForms_browser.saveNode(nodeSet[0], mediatype ? XsltForms_engine.stringValue(mediatype) : "application/exml+xml", null, indent === "yes" ? indent : null);
 		} ),
 
 		
@@ -1996,7 +1996,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.math1InvalidArgumentsNumber;
 			}
-			return Math.abs(XsltForms_globals.numberValue(number));
+			return Math.abs(XsltForms_engine.numberValue(number));
 		} ),
 
 		
@@ -2009,7 +2009,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.math1InvalidArgumentsNumber;
 			}
-			return Math.acos(XsltForms_globals.numberValue(number));
+			return Math.acos(XsltForms_engine.numberValue(number));
 		} ),
 
 		
@@ -2022,7 +2022,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.math1InvalidArgumentsNumber;
 			}
-			return Math.asin(XsltForms_globals.numberValue(number));
+			return Math.asin(XsltForms_engine.numberValue(number));
 		} ),
 
 		
@@ -2035,7 +2035,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.math1InvalidArgumentsNumber;
 			}
-			return Math.atan(XsltForms_globals.numberValue(number));
+			return Math.atan(XsltForms_engine.numberValue(number));
 		} ),
 
 		
@@ -2048,7 +2048,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 2) {
 				throw XsltForms_xpathFunctionExceptions.math2InvalidArgumentsNumber;
 			}
-			return Math.atan2(XsltForms_globals.numberValue(number1), XsltForms_globals.numberValue(number2));
+			return Math.atan2(XsltForms_engine.numberValue(number1), XsltForms_engine.numberValue(number2));
 		} ),
 
 		
@@ -2061,8 +2061,8 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 2) {
 				throw XsltForms_xpathFunctionExceptions.math2InvalidArgumentsNumber;
 			}
-			var val = XsltForms_mathConstants[XsltForms_globals.stringValue(string)] || "0";
-			return parseFloat(val.substr(0, XsltForms_globals.numberValue(number)+2));
+			var val = XsltForms_mathConstants[XsltForms_engine.stringValue(string)] || "0";
+			return parseFloat(val.substr(0, XsltForms_engine.numberValue(number)+2));
 		} ),
 
 		
@@ -2075,7 +2075,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.math1InvalidArgumentsNumber;
 			}
-			return Math.cos(XsltForms_globals.numberValue(number));
+			return Math.cos(XsltForms_engine.numberValue(number));
 		} ),
 
 		
@@ -2088,7 +2088,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.math1InvalidArgumentsNumber;
 			}
-			return Math.exp(XsltForms_globals.numberValue(number));
+			return Math.exp(XsltForms_engine.numberValue(number));
 		} ),
 
 		
@@ -2101,7 +2101,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.math1InvalidArgumentsNumber;
 			}
-			return Math.log(XsltForms_globals.numberValue(number));
+			return Math.log(XsltForms_engine.numberValue(number));
 		} ),
 
 		
@@ -2114,7 +2114,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 2) {
 				throw XsltForms_xpathFunctionExceptions.math2InvalidArgumentsNumber;
 			}
-			return Math.pow(XsltForms_globals.numberValue(number1), XsltForms_globals.numberValue(number2));
+			return Math.pow(XsltForms_engine.numberValue(number1), XsltForms_engine.numberValue(number2));
 		} ),
 
 		
@@ -2127,7 +2127,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.math1InvalidArgumentsNumber;
 			}
-			return Math.sin(XsltForms_globals.numberValue(number));
+			return Math.sin(XsltForms_engine.numberValue(number));
 		} ),
 
 		
@@ -2140,7 +2140,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.math1InvalidArgumentsNumber;
 			}
-			return Math.sqrt(XsltForms_globals.numberValue(number));
+			return Math.sqrt(XsltForms_engine.numberValue(number));
 		} ),
 
 		
@@ -2153,7 +2153,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.math1InvalidArgumentsNumber;
 			}
-			return Math.tan(XsltForms_globals.numberValue(number));
+			return Math.tan(XsltForms_engine.numberValue(number));
 		} ),
 
 		
@@ -2166,7 +2166,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.alertInvalidArgumentsNumber;
 			}
-			alert(XsltForms_globals.stringValue(arg));
+			alert(XsltForms_engine.stringValue(arg));
 			return arg;
 		} ),
 
@@ -2181,7 +2181,7 @@ var XsltForms_xpathCoreFunctions = {
 				throw XsltForms_xpathFunctionExceptions.itextInvalidArgumentsNumber;
 			}
 			var itext = document.getElementById(XsltForms_browser.getDocMeta(ctx.node.ownerDocument, "model")).xfElement.itext;
-			var translation = itext[XsltForms_globals.language] || itext[itext.defaultlang];
+			var translation = itext[XsltForms_engine.language] || itext[itext.defaultlang];
 			return translation[id];
 		} ),
 
@@ -2195,7 +2195,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.jsevalInvalidArgumentsNumber;
 			}
-			return eval(XsltForms_globals.stringValue(arg));
+			return eval(XsltForms_engine.stringValue(arg));
 		} ),
 
 		
@@ -2214,7 +2214,7 @@ var XsltForms_xpathCoreFunctions = {
 			var strings = [];
 			joinString = joinString || "";
 			for (var i = 0, len = nodeSet.length; i < len; i++) {
-				strings.push(XsltForms_globals.xmlValue(nodeSet[i]));
+				strings.push(XsltForms_engine.xmlValue(nodeSet[i]));
 			}
 			return strings.join(joinString);
 		} ),
@@ -2229,7 +2229,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length !== 1) {
 				throw XsltForms_xpathFunctionExceptions.encodeForUriInvalidArgumentsNumber;
 			}
-			return encodeURIComponent(XsltForms_globals.stringValue(rawString));
+			return encodeURIComponent(XsltForms_engine.stringValue(rawString));
 		} ),
 
 		
@@ -2254,8 +2254,8 @@ var XsltForms_xpathCoreFunctions = {
 	"http://www.w3.org/2005/xpath-functions tokenize" : new XsltForms_xpathFunction(false, XsltForms_xpathFunction.DEFAULT_NONE, false,
 		function(input, pattern) {
 			var tokens = [];
-			input = XsltForms_globals.stringValue(input);
-			pattern = new RegExp(XsltForms_globals.stringValue(pattern.replace(/\\/g, "\\")));
+			input = XsltForms_engine.stringValue(input);
+			pattern = new RegExp(XsltForms_engine.stringValue(pattern.replace(/\\/g, "\\")));
 			var res = input.split(pattern);
 			for (var i = 0, l = res.length; i < l; i++) {
 				tokens.push({localName:"#text",text:res[i],documentElement:"dummy"});
@@ -2270,11 +2270,11 @@ var XsltForms_xpathCoreFunctions = {
 
 	"http://www.w3.org/2005/xpath-functions invalid-id" : new XsltForms_xpathFunction(false, XsltForms_xpathFunction.DEFAULT_NONE, false,
 		function() {
-			return XsltForms_globals.invalid_id_(XsltForms_globals.body);
+			return XsltForms_engine.invalid_id_(XsltForms_engine.body);
 		} )
 };
 
-XsltForms_globals.invalid_id_ = function(element) {
+XsltForms_engine.invalid_id_ = function(element) {
 	if (element.nodeType !== Fleur.Node.ELEMENT_NODE || element.id === "xsltforms_console" || element.hasXFElement === false) {
 		return "";
 	}
@@ -2284,26 +2284,26 @@ XsltForms_globals.invalid_id_ = function(element) {
 	}
 	var childs = element.children || element.childNodes;
 	for (var i = 0, l = childs.length; i < l; i++) {
-		var id = XsltForms_globals.invalid_id_(childs[i]);
+		var id = XsltForms_engine.invalid_id_(childs[i]);
 		if (id !== "") {
 			return id;
 		}
 	}
 	return "";
 };
-XsltForms_globals.validate_ = function(node) {
+XsltForms_engine.validate_ = function(node) {
 	if (XsltForms_browser.getBoolMeta(node, "notvalid") || XsltForms_browser.getBoolMeta(node, "unsafe")) {
 		return false;
 	}
 	var atts = node.attributes || [];
 	for (var i = 0, len = atts.length; i < len; i++) {
-		if (atts[i].nodeName.substr(0,10) !== "xsltforms_" && atts[i].nodeName.substr(0,5) !== "xmlns" && !XsltForms_globals.validate_(atts[i])) {
+		if (atts[i].nodeName.substr(0,10) !== "xsltforms_" && atts[i].nodeName.substr(0,5) !== "xmlns" && !XsltForms_engine.validate_(atts[i])) {
 			return false;
 		}
 	}
 	var childs = node.childNodes || [];
 	for (var j = 0, len2 = childs.length; j < len2; j++) {
-		if (!XsltForms_globals.validate_(childs[j])) {
+		if (!XsltForms_engine.validate_(childs[j])) {
 			return false;
 		}
 	}

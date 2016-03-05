@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_binding XsltForms_xpath XsltForms_abstractAction XsltForms_browser XsltForms_globals XsltForms_exprContext Fleur XsltForms_mipbinding XsltForms_xmlevents*/
+/*globals XsltForms_binding XsltForms_xpath XsltForms_abstractAction XsltForms_browser XsltForms_engine XsltForms_exprContext Fleur XsltForms_mipbinding XsltForms_xmlevents*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -44,7 +44,7 @@ XsltForms_delete.prototype.run = function(element, ctx) {
 		}
 	}
 	if(this.at) {
-		var index = XsltForms_globals.numberValue(this.at.xpath_evaluate(new XsltForms_exprContext(this.subform, ctx, 1, nodes, null, null, null, varresolver)));
+		var index = XsltForms_engine.numberValue(this.at.xpath_evaluate(new XsltForms_exprContext(this.subform, ctx, 1, nodes, null, null, null, varresolver)));
 		if(!nodes[index - 1]) {
 			return;
 		}
@@ -81,7 +81,7 @@ XsltForms_delete.prototype.run = function(element, ctx) {
 		deletedNodes.push(node);
 	}
 	if (deletedNodes.length > 0) {
-		XsltForms_globals.addChange(model);
+		XsltForms_engine.addChange(model);
 		model.setRebuilded(true);
 		var evcontext = {"deleted-nodes": deletedNodes, "delete-location": index};
 		XsltForms_xmlevents.dispatch(instance, "xforms-delete", null, null, null, null, evcontext);

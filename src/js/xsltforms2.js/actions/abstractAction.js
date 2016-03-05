@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_xpath XsltForms_globals*/
+/*globals XsltForms_xpath XsltForms_engine*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -33,19 +33,19 @@ XsltForms_abstractAction.prototype.init = function(ifexpr, whileexpr, iterateexp
 XsltForms_abstractAction.prototype.execute = function(element, ctx, evt) {
 	if (evt.stopped) { return; }
 	if (!ctx) {
-		ctx = element.node || (XsltForms_globals.defaultModel.getInstanceDocument() ? XsltForms_globals.defaultModel.getInstanceDocument().documentElement : null);
+		ctx = element.node || (XsltForms_engine.defaultModel.getInstanceDocument() ? XsltForms_engine.defaultModel.getInstanceDocument().documentElement : null);
 	}
 	// for now, iterate overrides while.
 	if (this.iterateexpr) {
 		if (this.whileexpr) {
-			XsltForms_globals.error(this.element, "xforms-compute-exception", "@iterate cannot be used with @while");
+			XsltForms_engine.error(this.element, "xforms-compute-exception", "@iterate cannot be used with @while");
 		}
 		var nodes = this.iterateexpr.xpath_evaluate(ctx);
 		for (var i = 0, len = nodes.length; i < len; i++) {
 			this.exec_(element, nodes[i], evt);
 		}
 	} else if (this.whileexpr) {
-		while (XsltForms_globals.booleanValue(this.whileexpr.xpath_evaluate(ctx))) {
+		while (XsltForms_engine.booleanValue(this.whileexpr.xpath_evaluate(ctx))) {
 			if (!this.exec_(element, ctx, evt)) {
 				break;
 			}
@@ -63,7 +63,7 @@ XsltForms_abstractAction.prototype.execute = function(element, ctx, evt) {
 
 XsltForms_abstractAction.prototype.exec_ = function(element, ctx, evt) {
 	if (this.ifexpr) {
-		if (XsltForms_globals.booleanValue(this.ifexpr.xpath_evaluate(ctx))) {
+		if (XsltForms_engine.booleanValue(this.ifexpr.xpath_evaluate(ctx))) {
 			this.run(element, ctx, evt);
 		} else {
 			return false;

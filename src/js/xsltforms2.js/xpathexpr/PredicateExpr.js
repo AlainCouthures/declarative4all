@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals */
+/*globals XsltForms_engine */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -22,5 +22,5 @@ function XsltForms_predicateExpr(expr) {
 
 XsltForms_predicateExpr.prototype.evaluate = function(ctx) {
 	var v = this.expr.evaluate(ctx);
-	return typeof v === "number" ? ctx.position === v : XsltForms_globals.booleanValue(v);
+	return typeof v === "number" ? ctx.position === v : XsltForms_engine.booleanValue(v);
 };

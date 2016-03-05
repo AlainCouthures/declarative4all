@@ -87,7 +87,7 @@ function XsltForms_listener(subform, observer, evtTarget, evtname, phase, handle
 			effectiveTarget = false;
 		}
 		XsltForms_browser.debugConsole.write("effectiveTarget:"+effectiveTarget);
-		if (effectiveTarget && !(typeof UIEvent !== 'undefined' && evt instanceof UIEvent)) {
+		if (effectiveTarget) { // && !(typeof UIEvent !== 'undefined' && evt instanceof UIEvent)) {
 			XsltForms_browser.debugConsole.write("Captured event " + evtname + " on <" + evt.target.nodeName +
 				(evt.target.className? " class=\"" + (typeof evt.target.className === "string" ? evt.target.className : evt.target.className.baseVal) + "\"" : "") +
 				(evt.target.id? " id=\"" + evt.target.id + "\"" : "") + "/>");

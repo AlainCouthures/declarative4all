@@ -10,7 +10,10 @@
 Fleur.XPathNSResolver = function(node) {
 	this.pf2uri = {
 		"xml": "http://www.w3.org/XML/1998/namespace",
-		"xmlns": "http://www.w3.org/2000/xmlns/"
+		"xmlns": "http://www.w3.org/2000/xmlns/",
+		"xs": "http://www.w3.org/2001/XMLSchema",
+		"fn": "http://www.w3.org/2005/xpath-functions",
+		"err": "http://www.w3.org/2005/xqt-errors"
 	};
 	this.node = node;
 };

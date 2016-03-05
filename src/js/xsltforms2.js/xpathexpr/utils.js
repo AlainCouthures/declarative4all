@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals XsltForms_browser XsltForms_schema*/
+/*globals XsltForms_engine XsltForms_browser XsltForms_schema*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -9,8 +9,8 @@
  * * '''stringValue''' function : string cast
  */
 		
-XsltForms_globals.stringValue = function(value) {
-	return typeof value !== "object"? "" + value : (!value || value.length === 0 ? "" : XsltForms_globals.xmlValue(value[0]));
+XsltForms_engine.stringValue = function(value) {
+	return typeof value !== "object"? "" + value : (!value || value.length === 0 ? "" : XsltForms_engine.xmlValue(value[0]));
 };
 
 
@@ -19,7 +19,7 @@ XsltForms_globals.stringValue = function(value) {
  * * '''booleanValue''' function : boolean cast
  */
 
-XsltForms_globals.booleanValue = function(value) {
+XsltForms_engine.booleanValue = function(value) {
 	return typeof value === "undefined" || !value ? false : (typeof value.length !== "undefined"? value.length > 0 : !!value);
 };
 
@@ -30,11 +30,11 @@ XsltForms_globals.booleanValue = function(value) {
  */
 
 //var nbvalcount = 0;
-XsltForms_globals.numberValue = function(value) {
+XsltForms_engine.numberValue = function(value) {
 	if (typeof value === "boolean") {
 		return 'A' - 0;
 	} else {
-		var v = typeof value === "object"?  XsltForms_globals.stringValue(value) : value;
+		var v = typeof value === "object"?  XsltForms_engine.stringValue(value) : value;
 		return v === '' ? NaN : v - 0;
 	}
 };
@@ -45,7 +45,7 @@ XsltForms_globals.numberValue = function(value) {
  * * '''booleanValue''' function : number cast
  */
 
-XsltForms_globals.nodeSetValue = function(value) {
+XsltForms_engine.nodeSetValue = function(value) {
 //	if (typeof value !== "object") {
 //		throw {name: this, message: Error().stack};
 //	}
@@ -59,7 +59,7 @@ XsltForms_globals.nodeSetValue = function(value) {
  */
 
 if (XsltForms_browser.isIE) {
-	XsltForms_globals.xmlValue = function(node) {
+	XsltForms_engine.xmlValue = function(node) {
 		if (typeof node !== "object") {
 			return node;
 		}
@@ -73,7 +73,7 @@ if (XsltForms_browser.isIE) {
 		return ret;
 	};
 } else {
-	XsltForms_globals.xmlValue = function(node) {
+	XsltForms_engine.xmlValue = function(node) {
 		if (typeof node !== "object") {
 			return node;
 		}
@@ -94,8 +94,8 @@ if (XsltForms_browser.isIE) {
  * * '''xmlResolveEntities''' function : resolves every HTML entities in a given string into corresponding characters
  */
 
-XsltForms_globals.xmlResolveEntities = function(s) {
-	var parts = XsltForms_globals.stringSplit(s, '&');
+XsltForms_engine.xmlResolveEntities = function(s) {
+	var parts = XsltForms_engine.stringSplit(s, '&');
 	var ret = parts[0];
 	for (var i = 1, len = parts.length; i < len; ++i) {
 		var p = parts[i];
@@ -129,7 +129,7 @@ XsltForms_globals.xmlResolveEntities = function(s) {
  * * '''stringSplit''' function : splits a string according to a character
  */
 
-XsltForms_globals.stringSplit = function(s, c) {
+XsltForms_engine.stringSplit = function(s, c) {
 	var a = s.indexOf(c);
 	if (a === -1) {
 		return [s];

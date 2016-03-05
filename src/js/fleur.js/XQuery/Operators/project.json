@@ -3,11 +3,20 @@
 		"addOp.js",
 		"andOp.js",
 		"divOp.js",
+		"eqOp.js",
+		"geOp.js",
+		"gtOp.js",
 		"idivOp.js",
+		"leOp.js",
+		"ltOp.js",
 		"modOp.js",
 		"multiplyOp.js",
+		"neOp.js",
 		"orOp.js",
+		"stringConcatenateOp.js",
 		"subtractOp.js",
-		"todo.js"
+		"todo.js",
+		"unaryMinusOp.js",
+		"unaryPlusOp.js"
 	]
 }

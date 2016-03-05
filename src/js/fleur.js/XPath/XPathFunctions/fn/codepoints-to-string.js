@@ -9,6 +9,10 @@
  */
 Fleur.XPathFunctions_fn["codepoints-to-string"] = function(ctx, children) {
 	var s = "";
+	if (children.length !== 1) {
+		Fleur.error(ctx, "XPST0017");
+		return;
+	}
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1]);
 	if (ctx._result.nodeType === Fleur.Node.SEQUENCE_NODE) {
 	} else {

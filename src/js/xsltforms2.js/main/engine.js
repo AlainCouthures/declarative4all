@@ -4,15 +4,21 @@
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
  * @licence LGPL - See file 'LICENSE.md' in this project.
- * @module globals
- * @description  === "XsltForms_globals" class ===
+ * @module engine
+ * @description  === "XsltForms_engine" class ===
  * Global class for XSLTForms Management
  */
-var XsltForms_globals = {
+var XsltForms_engine = {
 
 	fileVersion: "$$$VersionName$$$",
 	fileVersionNumber: $$$VersionNumber$$$,
-	language: "navigator",
+	conf: {
+		debug: "false",
+		xsltengine: "",
+		lang: "navigator",
+		loadingmsg: "... Loading ...",
+		valuesseparator: " "
+	},
 	debugMode: false,
 	debugButtons: [
 		{label: "Profiler", name: "profiler"}
@@ -105,7 +111,7 @@ var XsltForms_globals = {
 				spn3.appendChild(txt3);
 				dbg.appendChild(spn3);
 				var a3 = XsltForms_browser.isXhtml ? document.createElementNS("http://www.w3.org/1999/xhtml", "a") : document.createElement("a");
-				a3.setAttribute("onClick", "XsltForms_globals.debugMode=false;XsltForms_globals.debugging();return false;");
+				a3.setAttribute("onClick", "XsltForms_engine.debugMode=false;XsltForms_engine.debugModeging();return false;");
 				a3.setAttribute("style", "text-decoration:none;");
 				a3.setAttribute("href", "#");
 				var img4 = XsltForms_browser.isXhtml ? document.createElementNS("http://www.w3.org/1999/xhtml", "img") : document.createElement("img");
@@ -122,12 +128,12 @@ var XsltForms_globals = {
 				dbg.appendChild(br);
 				var txt5 = document.createTextNode(" \xA0\xA0\xA0\xA0\xA0\xA0");
 				dbg.appendChild(txt5);
-				for (var i = 0, len = XsltForms_globals.debugButtons.length; i < len; i++) {
-					if (XsltForms_globals.debugButtons[i].name) {
+				for (var i = 0, len = XsltForms_engine.debugButtons.length; i < len; i++) {
+					if (XsltForms_engine.debugButtons[i].name) {
 						var btn = XsltForms_browser.isXhtml ? document.createElementNS("http://www.w3.org/1999/xhtml", "button") : document.createElement("button");
 						btn.setAttribute("type", "button");
-						btn.setAttribute("onClick", "XsltForms_globals.opentab('" + XsltForms_globals.debugButtons[i].name + "');");
-						var txt6 = document.createTextNode(" "+XsltForms_globals.debugButtons[i].label+" ");
+						btn.setAttribute("onClick", "XsltForms_engine.opentab('" + XsltForms_engine.debugButtons[i].name + "');");
+						var txt6 = document.createTextNode(" "+XsltForms_engine.debugButtons[i].label+" ");
 						btn.appendChild(txt6);
 						dbg.appendChild(btn);
 					} else {
@@ -172,7 +178,7 @@ var XsltForms_globals = {
 				if (!document.getElementById("xsltforms_console")) {
 					var conselt = document.createElement("div");
 					conselt.setAttribute("id", "xsltforms_console");
-					document.getElementsByTagName("body")[0].appendChild(conselt);
+					document.body.appendChild(conselt);
 				}
 				document.getElementById("xsltforms_console").style.display = "block";
 			} else {
@@ -197,7 +203,7 @@ var XsltForms_globals = {
 			case "get":
 				switch (resource) {
 					case "xsltforms-profiler":
-						return XsltForms_globals.profiling_data();
+						return XsltForms_engine.profiling_data();
 					case "xsltforms-tracelog":
 						try  {
 							return XsltForms_browser.saveDoc(XsltForms_browser.debugConsole.doc_, "application/xml", true);
@@ -242,8 +248,8 @@ var XsltForms_globals = {
 				}
 				instance.xfElement.setDoc(ser, false, true);
 				modid = XsltForms_browser.getDocMeta(instance.xfElement.doc, "model");
-				XsltForms_globals.addChange(modid);
-				XsltForms_globals.closeChanges();
+				XsltForms_engine.addChange(modid);
+				XsltForms_engine.closeChanges();
 				return '<ok xmlns=""/>';
 			default:
 				return '<error xmlns="">Unknown method "'+method+'"</error>';
@@ -282,22 +288,22 @@ var XsltForms_globals = {
 		s += '<xsltforms:version>' + this.fileVersion + '</xsltforms:version>';
 		s += '<xsltforms:instances>';
 		var pos = 0;
-		for (var m = 0, mlen = XsltForms_globals.models.length; m < mlen; m++) {
-			if (XsltForms_globals.models[m].element.id !== XsltForms_browser.idPf + "model-config") {
-				for (var id in XsltForms_globals.models[m].instances) {
-					if (XsltForms_globals.models[m].instances.hasOwnProperty(id)) {
-						var count = XsltForms_browser.selectNodesLength("descendant::node() | descendant::*/@*[not(starts-with(local-name(),'xsltforms_'))]", XsltForms_globals.models[m].instances[id].doc);
+		for (var m = 0, mlen = XsltForms_engine.models.length; m < mlen; m++) {
+			if (XsltForms_engine.models[m].element.id !== XsltForms_browser.idPf + "model-config") {
+				for (var id in XsltForms_engine.models[m].instances) {
+					if (XsltForms_engine.models[m].instances.hasOwnProperty(id)) {
+						var count = XsltForms_browser.selectNodesLength("descendant::node() | descendant::*/@*[not(starts-with(local-name(),'xsltforms_'))]", XsltForms_engine.models[m].instances[id].doc);
 						s += '<xsltforms:instance id="' + id + '">' + count + '</xsltforms:instance>';
-						if (XsltForms_globals.models[m].instances[id].archive) {
-							for (var fn in XsltForms_globals.models[m].instances[id].archive) {
-								if (XsltForms_globals.models[m].instances[id].archive.hasOwnProperty(fn)) {
-									if (!XsltForms_globals.models[m].instances[id].archive[fn].doc) {
-										XsltForms_globals.models[m].instances[id].archive[fn].doc = XsltForms_browser.createXMLDocument("<dummy/>");
-										XsltForms_browser.loadDoc(XsltForms_globals.models[m].instances[id].archive[fn].doc, XsltForms_browser.utf8decode(zip_inflate(XsltForms_globals.models[m].instances[id].archive[fn].compressedFileData)));
-										XsltForms_browser.setDocMeta(XsltForms_globals.models[m].instances[id].archive[fn].doc, "instance", id);
-										XsltForms_browser.setDocMeta(XsltForms_globals.models[m].instances[id].archive[fn].doc, "model", m);
+						if (XsltForms_engine.models[m].instances[id].archive) {
+							for (var fn in XsltForms_engine.models[m].instances[id].archive) {
+								if (XsltForms_engine.models[m].instances[id].archive.hasOwnProperty(fn)) {
+									if (!XsltForms_engine.models[m].instances[id].archive[fn].doc) {
+										XsltForms_engine.models[m].instances[id].archive[fn].doc = XsltForms_browser.createXMLDocument("<dummy/>");
+										XsltForms_browser.loadDoc(XsltForms_engine.models[m].instances[id].archive[fn].doc, XsltForms_browser.utf8decode(zip_inflate(XsltForms_engine.models[m].instances[id].archive[fn].compressedFileData)));
+										XsltForms_browser.setDocMeta(XsltForms_engine.models[m].instances[id].archive[fn].doc, "instance", id);
+										XsltForms_browser.setDocMeta(XsltForms_engine.models[m].instances[id].archive[fn].doc, "model", m);
 									}
-									count = XsltForms_browser.selectNodesLength("descendant::node() | descendant::*/@*[not(starts-with(local-name(),'xsltforms_'))]", XsltForms_globals.models[m].instances[id].archive[fn].doc);
+									count = XsltForms_browser.selectNodesLength("descendant::node() | descendant::*/@*[not(starts-with(local-name(),'xsltforms_'))]", XsltForms_engine.models[m].instances[id].archive[fn].doc);
 									s += '<xsltforms:instance id="' + id + '/' + fn + '">' + count + '</xsltforms:instance>';
 								}
 							}
@@ -309,14 +315,14 @@ var XsltForms_globals = {
 		}
 		s += '</xsltforms:instances>';
 		s += '<xsltforms:controls>';
-		s += '<xsltforms:control type="group">' + XsltForms_globals.counters.group + '</xsltforms:control>';
-		s += '<xsltforms:control type="input">' + XsltForms_globals.counters.input + '</xsltforms:control>';
-		s += '<xsltforms:control type="item">' + XsltForms_globals.counters.item + '</xsltforms:control>';
-		s += '<xsltforms:control type="itemset">' + XsltForms_globals.counters.itemset + '</xsltforms:control>';
-		s += '<xsltforms:control type="output">' + XsltForms_globals.counters.output + '</xsltforms:control>';
-		s += '<xsltforms:control type="repeat">' + XsltForms_globals.counters.repeat + '</xsltforms:control>';
-		s += '<xsltforms:control type="select">' + XsltForms_globals.counters.select + '</xsltforms:control>';
-		s += '<xsltforms:control type="trigger">' + XsltForms_globals.counters.trigger + '</xsltforms:control>';
+		s += '<xsltforms:control type="group">' + XsltForms_engine.counters.group + '</xsltforms:control>';
+		s += '<xsltforms:control type="input">' + XsltForms_engine.counters.input + '</xsltforms:control>';
+		s += '<xsltforms:control type="item">' + XsltForms_engine.counters.item + '</xsltforms:control>';
+		s += '<xsltforms:control type="itemset">' + XsltForms_engine.counters.itemset + '</xsltforms:control>';
+		s += '<xsltforms:control type="output">' + XsltForms_engine.counters.output + '</xsltforms:control>';
+		s += '<xsltforms:control type="repeat">' + XsltForms_engine.counters.repeat + '</xsltforms:control>';
+		s += '<xsltforms:control type="select">' + XsltForms_engine.counters.select + '</xsltforms:control>';
+		s += '<xsltforms:control type="trigger">' + XsltForms_engine.counters.trigger + '</xsltforms:control>';
 		s += '</xsltforms:controls>';
 		var re = /<\w/g;
 		var hc = 0;
@@ -366,14 +372,14 @@ var XsltForms_globals = {
  */
 
 	opentab : function(tabname) {
-		var req = XsltForms_browser.openRequest("GET", XsltForms_browser.debugROOT + "xsltforms_" + tabname + (XsltForms_browser.debugROOT === XsltForms_browser.ROOT ? ".xhtml" : ".xml"), false);
+		var req = XsltForms_browser.openRequest("GET", XsltForms_browser.debugModeROOT + "xsltforms_" + tabname + (XsltForms_browser.debugModeROOT === XsltForms_browser.ROOT ? ".xhtml" : ".xml"), false);
 		if (req.overrideMimeType) {
 			req.overrideMimeType("application/xml");
 		}
 		try {        
 			req.send(null);
 		} catch(e) {
-			alert("File not found: " + XsltForms_browser.debugROOT + "xsltforms_" + tabname + (XsltForms_browser.debugROOT === XsltForms_browser.ROOT ? ".xhtml" : ".xml"));
+			alert("File not found: " + XsltForms_browser.debugModeROOT + "xsltforms_" + tabname + (XsltForms_browser.debugModeROOT === XsltForms_browser.ROOT ? ".xhtml" : ".xml"));
 		}
 		if (req.status === 200 || req.status === 0) {
 			var s = "";
@@ -400,15 +406,15 @@ var XsltForms_globals = {
 
 	init: function() {
 		XsltForms_browser.setValue(document.getElementById("statusPanel"), XsltForms_browser.i18n.get("status"));
-		XsltForms_globals.htmlversion = XsltForms_browser.i18n.get("html");
-		var b = XsltForms_browser.isXhtml ? document.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "body")[0] : document.getElementsByTagName("body")[0];
-		XsltForms_globals.body = b;
+		XsltForms_engine.htmlversion = XsltForms_browser.i18n.get("html");
+		var b = document.body;
+		XsltForms_engine.body = b;
 		document.onhelp = function(){return false;};
 		window.onhelp = function(){return false;};
 		XsltForms_browser.events.attach(document, "keydown", function(evt) {
 			if (evt.keyCode === 112) {
-				XsltForms_globals.debugMode = !XsltForms_globals.debugMode;
-				XsltForms_globals.debugging();
+				XsltForms_engine.debugMode = !XsltForms_engine.debugMode;
+				XsltForms_engine.debugModeging();
 				if (evt.stopPropagation) {
 					evt.stopPropagation();
 					evt.preventDefault();
@@ -444,16 +450,18 @@ var XsltForms_globals = {
 			}
 		}, false);
 		XsltForms_browser.events.onunload = function() {
-			XsltForms_globals.close();
+			XsltForms_engine.close();
 		};
-		XsltForms_globals.openAction("XsltForms_globals.init");
-		XsltForms_xmlevents.dispatchList(XsltForms_globals.models, "xforms-model-construct");
-		for (var i = 0, l = XsltForms_globals.componentLoads.length; i < l; i++) {
-			eval(XsltForms_globals.componentLoads[i]);
-		}
-		XsltForms_globals.refresh();
-		XsltForms_globals.closeAction("XsltForms_globals.init");
-		XsltForms_globals.ready = true;
+		XsltForms_engine.openAction("XsltForms_engine.init");
+		XsltForms_engine.models.forEach(function(m) {
+			XsltForms_xmlevents.dispatch(m, "xforms-model-construct");
+		});
+		XsltForms_engine.componentLoads.forEach(function(cl) {
+			eval(cl);
+		});
+		XsltForms_engine.refresh();
+		XsltForms_engine.closeAction("XsltForms_engine.init");
+		XsltForms_engine.ready = true;
 		XsltForms_browser.dialog.hide("statusPanel", false);
 	},
 
@@ -463,13 +471,13 @@ var XsltForms_globals = {
  */
 
 	close : function() {
-		if (XsltForms_globals.body) {
-			this.openAction("XsltForms_globals.close");
-			//XsltForms_xmlevents.dispatchList(XsltForms_globals.models, "xforms-model-destruct");
+		if (XsltForms_engine.body) {
+			this.openAction("XsltForms_engine.close");
+			//XsltForms_xmlevents.dispatchList(XsltForms_engine.models, "xforms-model-destruct");
 			for (var i = 0, len = XsltForms_listener.destructs.length; i < len; i++) {
 				XsltForms_listener.destructs[i].callback({target: XsltForms_listener.destructs[i].observer});
 			}
-			this.closeAction("XsltForms_globals.close");
+			this.closeAction("XsltForms_engine.close");
 			XsltForms_idManager.clear();
 			this.defaultModel = null;
 			this.changes = [];
@@ -483,7 +491,7 @@ var XsltForms_globals = {
 			XsltForms_calendar.INSTANCE = null;
 			this.ready = false;
 			this.building = false;
-			XsltForms_globals.posibleBlur = false;
+			XsltForms_engine.posibleBlur = false;
 		}
 	},
 
@@ -572,15 +580,14 @@ var XsltForms_globals = {
 	refresh : function() {
 		var d1 = new Date();
 		this.building = true;
-		this.build(this.body, (this.defaultModel.getInstanceDocument() ? this.defaultModel.getInstanceDocument().documentElement : null), true);
+		this.build(this.mainform, this.body, (this.defaultModel.getInstanceDocument() ? this.defaultModel.getInstanceDocument().documentElement : null), true);
 		if (this.newChanges.length > 0) {
 			this.changes = this.newChanges;
 			this.newChanges = [];
 		} else {
 			this.changes.length = 0;
 		}
-		for (var i = 0, len = this.models.length; i < len; i++) {
-			var model = this.models[i];
+		this.models.forEach(function(model) {
 			if (model.newNodesChanged.length > 0 || model.newRebuilded) {
 				model.nodesChanged = model.newNodesChanged;
 				model.newNodesChanged = [];
@@ -590,7 +597,7 @@ var XsltForms_globals = {
 				model.nodesChanged.length = 0;
 				model.rebuilded = false;
 			}
-		}
+		});
 		this.building = false;
 		// Throw any gathered binding-errors.
 		//
@@ -608,9 +615,19 @@ var XsltForms_globals = {
  * * '''build''' method : XForms build management
  */
 
-	build : function(element, ctx, selected, varresolver) {
+	build : function(subform, element, ctxnode, selected, varresolver) {
 		if (element.nodeType !== Fleur.Node.ELEMENT_NODE || element.id === "xsltforms_console" || element.hasXFElement === false) {
-			return {ctx: ctx, hasXFElement: false};
+			return {ctxnode: ctxnode, hasXFElement: false};
+		}
+		var nodeName = element.nodeName.toLowerCase();
+		if (nodeName.startsWith("xforms-")) {
+			if (!element.nextSibling || element.nextSibling.xfElement !== element) {
+				var eltName = nodeName.split("-", 2)[1];
+				var createfunc = XsltForms_engine.create[eltName];
+				if (createfunc) {
+					createfunc(subform, element);
+				}
+			}
 		}
 		var xf = element.xfElement;
 		var hasXFElement = !!xf;
@@ -621,16 +638,16 @@ var XsltForms_globals = {
 		if (xf) {
 			if (xf instanceof Array) {
 				for (var ixf = 0, lenxf = xf.length; ixf < lenxf; ixf++) {
-					xf[ixf].build(ctx, varresolver);
+					xf[ixf].build(subform, ctxnode, varresolver);
 				}
 			} else {
-				xf.build(ctx, varresolver);
+				xf.build(subform, ctxnode, varresolver);
 				if (xf.isRepeat) {
 					xf.refresh(selected);
 				}
 			}
 		}
-		var newctx = element.node || ctx;
+		var newctxnode = element.node || ctxnode;
 		var childs = element.children || element.childNodes;
 		var sel = element.selected;
 		if (typeof sel !== "undefined") {
@@ -641,21 +658,21 @@ var XsltForms_globals = {
 			var nodes = [], nbnodes = 0, inodes = 0;
 			for (var i = 0; i < childs.length && this.building; i++) {
 				if (childs[i].nodeType !== Fleur.Node.TEXT_NODE) {
-					var curctx;
+					var curctxnode;
 					if (isiblings !== 1) {
-						curctx = nodes[inodes];
+						curctxnode = nodes[inodes];
 						isiblings--;
 					} else if (nbnodes !== 0) {
 						nbnodes--;
 						inodes++;
-						curctx = nodes[inodes];
+						curctxnode = nodes[inodes];
 						isiblings = nbsiblings;
 					} else {
-						curctx = newctx;
+						curctxnode = newctxnode;
 					}
 					if (!childs[i].getAttribute("cloned")) {
 						var samechild = childs[i];
-						var br = this.build(childs[i], curctx, selected, varresolver);
+						var br = this.build(subform, childs[i], curctxnode, selected, varresolver);
 						if (childs[i] !== samechild) {
 							i--;
 						} else {
@@ -691,7 +708,7 @@ var XsltForms_globals = {
 				element.hasXFElement = hasXFElement;
 			}
 		}
-		return {ctx: newctx, hasXFElement: hasXFElement};
+		return {ctxnode: newctxnode, hasXFElement: hasXFElement};
 	},
 
 		
@@ -736,14 +753,14 @@ var XsltForms_globals = {
 	blur : function(direct) {
 		if ((direct || this.posibleBlur) && this.focus) {
 			if (this.focus.element) {
-				this.openAction("XsltForms_globals.blur");
+				this.openAction("XsltForms_engine.blur");
 				XsltForms_xmlevents.dispatch(this.focus, "DOMFocusOut");
 				XsltForms_browser.setClass(this.focus.element, "xforms-focus", false);
 				try {
 					this.focus.blur();
 				} catch (e){
 				}
-				this.closeAction("XsltForms_globals.blur");
+				this.closeAction("XsltForms_engine.blur");
 			}
 			this.posibleBlur = false;
 			this.focus = null;
@@ -768,7 +785,7 @@ var XsltForms_globals = {
 		return msg;
 	},
 	crypto : function(msg, algo) {
-		var res, i, t, add32 = XsltForms_globals.add32;
+		var res, i, t, add32 = XsltForms_engine.add32;
 		var a, b, c, d, e, f, g, h, T, l, bl, W;
 		switch (algo) {
 			case "SHA-1":
@@ -1044,11 +1061,17 @@ var XsltForms_globals = {
 		}
 		str = "";
 		for (i = 0, l = msg.length >> 2; i < l; i++) {
-			str += XsltForms_globals.hex32(msg.arr[i]);
+			str += XsltForms_engine.hex32(msg.arr[i]);
 		}
 		if (msg.length % 4 !== 0) {
 			str += (msg.arr[msg.length >> 2] >>> (8 * (4 - msg.length % 4))).toString(16);
 		}
 		return str;
-	}
+	},
+
+/**
+ * * '''create''' object : set of functions to add properties and methods to XForms elements
+ */
+	create : {}
+
 };

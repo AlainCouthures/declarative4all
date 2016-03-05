@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals */
+/*globals XsltForms_engine */
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -22,14 +22,14 @@ function XsltForms_filterExpr(expr, predicate) {
  */
 
 XsltForms_filterExpr.prototype.evaluate = function(ctx) {
-	var nodes = XsltForms_globals.nodeSetValue(this.expr.evaluate(ctx));
+	var nodes = XsltForms_engine.nodeSetValue(this.expr.evaluate(ctx));
 	for (var i = 0, len = this.predicate.length; i < len; ++i) {
 		var nodes0 = nodes;
 		nodes = [];
 		for (var j = 0, len1 = nodes0.length; j < len1; ++j) {
 			var n = nodes0[j];
 			var newCtx = ctx.clone(n, j, nodes0);
-			if (XsltForms_globals.booleanValue(this.predicate[i].evaluate(newCtx))) {
+			if (XsltForms_engine.booleanValue(this.predicate[i].evaluate(newCtx))) {
 				nodes.push(n);
 			}
 		}

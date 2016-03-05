@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_globals XsltForms_browser*/
+/*globals XsltForms_engine XsltForms_browser*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -21,7 +21,7 @@ function XsltForms_tokenExpr(m) {
  */
 
 XsltForms_tokenExpr.prototype.evaluate = function() {
-	return XsltForms_globals.stringValue(this.value);
+	return XsltForms_engine.stringValue(this.value);
 };
 
 
@@ -43,7 +43,7 @@ function XsltForms_unaryMinusExpr(expr) {
  */
 
 XsltForms_unaryMinusExpr.prototype.evaluate = function(ctx) {
-	return -XsltForms_globals.numberValue(this.expr.evaluate(ctx));
+	return -XsltForms_engine.numberValue(this.expr.evaluate(ctx));
 };
 
 

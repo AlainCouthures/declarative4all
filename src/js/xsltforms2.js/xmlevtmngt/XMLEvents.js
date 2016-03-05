@@ -64,19 +64,6 @@ var XsltForms_xmlevents = {
 	}
 };
 
-
-		
-/**
- * * '''dispatchList''' function : dispatches the same event at every target in a given list
- */
-
-XsltForms_xmlevents.dispatchList = function(list, evtname) {
-	for (var id = 0, len = list.length; id < len; id++) {
-		XsltForms_xmlevents.dispatch(list[id], evtname);
-	}
-};
-
-
 		
 /**
  * * '''dispatch''' function : dispatches the given event at a given target with possibly different properties
@@ -90,7 +77,7 @@ XsltForms_xmlevents.dispatch = function(target, evtname, type, bubbles, cancelab
 	}
 	target = target.element || target;
 	XsltForms_browser.assert(target && typeof(target.nodeName) !== "undefined");
-	XsltForms_browser.debugConsole.write("Dispatching event " + evtname + " on <" + target.nodeName +
+	XsltForms_browser.debugConsole.write("Dispatching event " + evtname + " on <" + target.nodeName.toLowerCase() +
 		(target.className? " class=\"" + (typeof target.className === "string" ? target.className : target.className.baseVal) + "\"" : "") +
 		(target.id? " id=\"" + target.id + "\"" : "") + "/>");
 	var reg = XsltForms_xmlevents.REGISTRY[evtname];
@@ -111,7 +98,7 @@ XsltForms_xmlevents.dispatch = function(target, evtname, type, bubbles, cancelab
 			evt.initEvent(evtname, bubbles, cancelable);
 			res = target.dispatchEvent(evt);
 			if ((res && !evt.stopped) || !cancelable) {
-				defaultAction.call(target.xfElement, evt);
+				defaultAction.call(target, evt);
 			}
 		} else {
 			var canceler = null;
@@ -145,7 +132,7 @@ XsltForms_xmlevents.dispatch = function(target, evtname, type, bubbles, cancelab
 			res = target.fireEvent("onerrorupdate", evt);
 			try {
 				if ((res && !evt.stopped) || !cancelable) {
-					defaultAction.call(target.xfElement, evt);
+					defaultAction.call(target, evt);
 				}
 				if (!bubbles) {
 					canceler.detach();
