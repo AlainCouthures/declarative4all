@@ -1,0 +1,1738 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<test-set xmlns="http://www.w3.org/2010/09/qt-fots-catalog" name="fn-matches.re">
+   <description>Test regular expression syntax in the fn:matches() function.
+            These tests are created from the XSLT test suite, which in turn are derived
+            from the Microsoft regular expression tests submitted to W3C as part of the
+            XML Schema test suite, with expected results added based on actual Saxon results.
+            
+            Because the tests have been generated to use non-capturing groups, they require
+            support for XPath 3.0 regular expressions.</description>
+   <link type="spec" document="http://www.w3.org/TR/xpath-functions-30/"
+         idref="func-matches"/>
+         
+   <dependency type="spec" value="XP30+ XQ30+"/>      
+         
+   <test-case name="re00001">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize(',', ',') satisfies matches($s, '^(?:)$')) and (every $s in tokenize('a,#x20;,#xD;,#x9;,#xA;', ',') satisfies not(matches($s, '^(?:)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00002">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('a', ',') satisfies matches($s, '^(?:a)$')) and (every $s in tokenize('aa,b,', ',') satisfies not(matches($s, '^(?:a)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00003">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('a', ',') satisfies matches($s, '^(?:a|a)$')) and (every $s in tokenize('aa,b,', ',') satisfies not(matches($s, '^(?:a|a)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00004">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('a,b', ',') satisfies matches($s, '^(?:a|b)$')) and (every $s in tokenize('aa,bb,ab,', ',') satisfies not(matches($s, '^(?:a|b)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00005">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('ab', ',') satisfies matches($s, '^(?:ab)$')) and (every $s in tokenize('a,b,aa,bb,', ',') satisfies not(matches($s, '^(?:ab)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00006">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('a,b,c,d', ',') satisfies matches($s, '^(?:a|b|a|c|b|d|a)$')) and (every $s in tokenize('aa,ac,e', ',') satisfies not(matches($s, '^(?:a|b|a|c|b|d|a)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00007">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <modified by="Michael Kay" on="2012-01-05" change="test some strings against the regex to force it to be compiled"/>
+      <test>(every $s in tokenize('       a', ',') satisfies matches($s, '^(?:       a|b      )$')) and (every $s in tokenize('abc', ',') satisfies not(matches($s, '^(?:       a|b      )$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00008">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('ac,abc', ',') satisfies matches($s, '^(?:ab?c)$')) and (every $s in tokenize('a,ab,bc,', ',') satisfies not(matches($s, '^(?:ab?c)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00009">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('ab,abc', ',') satisfies matches($s, '^(?:abc?)$')) and (every $s in tokenize('a,bc,abcc,', ',') satisfies not(matches($s, '^(?:abc?)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00010">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('abc,abbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbc', ',') satisfies matches($s, '^(?:ab+c)$')) and (every $s in tokenize('ac,bbbc,abbb,', ',') satisfies not(matches($s, '^(?:ab+c)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00011">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('abc,abccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc', ',') satisfies matches($s, '^(?:abc+)$')) and (every $s in tokenize('a,ab,abcd', ',') satisfies not(matches($s, '^(?:abc+)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00012">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('abc,abbbbbbbc,ac', ',') satisfies matches($s, '^(?:ab*c)$')) and (every $s in tokenize('a,ab,bc,c,abcb,', ',') satisfies not(matches($s, '^(?:ab*c)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00013">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('abc,ab,abccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc', ',') satisfies matches($s, '^(?:abc*)$')) and (every $s in tokenize('a,abcd,abbc,', ',') satisfies not(matches($s, '^(?:abc*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00014">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('b,ab,bcccccc,abc,abbbc', ',') satisfies matches($s, '^(?:a?b+c*)$')) and (every $s in tokenize('aabc,a,c,ac,', ',') satisfies not(matches($s, '^(?:a?b+c*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00015">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('abc?,abbbc??,abca??,abbbbca?', ',') satisfies matches($s, '^(?:(ab+c)a?\?\??)$')) and (every $s in tokenize('ac??,bc??,abc,abc???', ',') satisfies not(matches($s, '^(?:(ab+c)a?\?\??)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00016">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','?a')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00017">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','+a')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00018">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','*a')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00019">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','{1}a')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00020">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize(',', ',') satisfies matches($s, '^(?:a{0})$')) and (every $s in tokenize('a', ',') satisfies not(matches($s, '^(?:a{0})$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00021">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','a{2,1}')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00022">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','a{1,0}')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00023">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('abab,', ',') satisfies matches($s, '^(?:((ab){2})?)$')) and (every $s in tokenize('a,ab,ababa,abababab', ',') satisfies not(matches($s, '^(?:((ab){2})?)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00024">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('aa,aaaa,aaaaaaaaaaaaaaaaaaaa', ',') satisfies matches($s, '^(?:(a{2})+)$')) and (every $s in tokenize(',a,a2,aaa', ',') satisfies not(matches($s, '^(?:(a{2})+)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00025">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize(',aa,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', ',') satisfies matches($s, '^(?:(a{2})*)$')) and (every $s in tokenize('a,aaa,aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa', ',') satisfies not(matches($s, '^(?:(a{2})*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00026">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('abbc', ',') satisfies matches($s, '^(?:ab{2}c)$')) and (every $s in tokenize('ac,abc,abbbc,a,', ',') satisfies not(matches($s, '^(?:ab{2}c)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00027">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('abcc', ',') satisfies matches($s, '^(?:abc{2})$')) and (every $s in tokenize('abc,abccc,', ',') satisfies not(matches($s, '^(?:abc{2})$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00028">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('aaabbb,bb,bbb,bbbb', ',') satisfies matches($s, '^(?:a*b{2,4}c{0})$')) and (every $s in tokenize('ab,abbc,bbc,abbbbb,', ',') satisfies not(matches($s, '^(?:a*b{2,4}c{0})$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00029">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('ab,abac,abacac', ',') satisfies matches($s, '^(?:((ab)(ac){0,2})?)$')) and (every $s in tokenize('ac,abacacac,abaca,abab,abacabac', ',') satisfies not(matches($s, '^(?:((ab)(ac){0,2})?)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00030">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize(',a b,a ba b', ',') satisfies matches($s, '^(?:(a\sb){0,2})$')) and (every $s in tokenize('a ba ba b,ab,a b a b,a  b', ',') satisfies not(matches($s, '^(?:(a\sb){0,2})$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00031">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('abab,ababab,ababababababababababababababababababababababababababababababababab', ',') satisfies matches($s, '^(?:(ab){2,})$')) and (every $s in tokenize('ab,ababa,ababaa,ababababa,abab abab,', ',') satisfies not(matches($s, '^(?:(ab){2,})$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00032">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','a{,2}')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00033">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','(ab){2,0}')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00034">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:(ab){0,0})$')) and (every $s in tokenize('a,ab', ',') satisfies not(matches($s, '^(?:(ab){0,0})$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00035">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('abcc,abccc,abbcc,abbccc,bbcc,bbccc', ',') satisfies matches($s, '^(?:a{0,1}b{1,2}c{2,3})$')) and (every $s in tokenize('aabcc,bbbcc,acc,aabcc,abbc,abbcccc', ',') satisfies not(matches($s, '^(?:a{0,1}b{1,2}c{2,3})$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00036">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize(',boy0xx,woman1y,girl1xymany,boy0xxwoman1ygirl1xymany,boy0xxwoman1ygirl1xymanyboy0xxwoman1ygirl1xymany', ',') satisfies matches($s, '^(?:(((((boy)|(girl))[0-1][x-z]{2})?)|(man|woman)[0-1]?[y|n])*)$')) and (every $s in tokenize('boy0xxwoman1ygirl1xyman,boyxx', ',') satisfies not(matches($s, '^(?:(((((boy)|(girl))[0-1][x-z]{2})?)|(man|woman)[0-1]?[y|n])*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00037">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','((a)')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00038">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','(a))')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00039">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','ab|(d))')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00040">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','((a*(b*)((a))*(a))))')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00041">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','\')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00042">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','?')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00043">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','*')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00044">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','+')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00045">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','(')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00046">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty',')')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00047">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:|)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:|)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00048">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','[')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00049">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('.\?*+{}[]()|', ',') satisfies matches($s, '^(?:\.\\\?\*\+\{\}\[\]\(\)\|)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:\.\\\?\*\+\{\}\[\]\(\)\|)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00050">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('.\?*+{}[]()|.\?*+{}[]()|.\?*+{}[]()|', ',') satisfies matches($s, '^(?:(([\.\\\?\*\+\{\}\[\]\(\)\|]?)*)+)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:(([\.\\\?\*\+\{\}\[\]\(\)\|]?)*)+)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00051">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('1z', ',') satisfies matches($s, '^(?:[^2-9a-x]{2})$')) and (every $s in tokenize('1x', ',') satisfies not(matches($s, '^(?:[^2-9a-x]{2})$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00052">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('abc', ',') satisfies matches($s, '^(?:[^\s]{3})$')) and (every $s in tokenize('a c', ',') satisfies not(matches($s, '^(?:[^\s]{3})$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00053">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize(',a,ab, a', ',') satisfies matches($s, '^(?:[^@]{0,2})$')) and (every $s in tokenize('@', ',') satisfies not(matches($s, '^(?:[^@]{0,2})$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00054">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:[^-z]+)$')) and (every $s in tokenize('aaz,a-z', ',') satisfies not(matches($s, '^(?:[^-z]+)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00055">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:[a-d-[b-c]])$')) and (every $s in tokenize('b,c', ',') satisfies not(matches($s, '^(?:[a-d-[b-c]])$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00056">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <modified by="Michael Kay" on="2013-05-01" change="split into XSD 1.0 and XSD 1.1 tests as per bug 21425"/>
+      <dependency type="xsd-version" value="1.0"/> 
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:[^a-d-b-c])$')) and (every $s in tokenize('a-b,c-c,ab,cc', ',') satisfies not(matches($s, '^(?:[^a-d-b-c])$')))</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00056a">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <modified by="Michael Kay" on="2013-05-01" change="split into XSD 1.0 and XSD 1.1 tests as per bug 21425"/>
+      <dependency type="xsd-version" value="1.1"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:[^a-d-b-c])$')) and (every $s in tokenize('a-b,c-c,ab,cc', ',') satisfies not(matches($s, '^(?:[^a-d-b-c])$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00057">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('abcxyz}', ',') satisfies matches($s, '^(?:[a-\}]+)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:[a-\}]+)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00058">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:[a-b-[0-9]]+)$')) and (every $s in tokenize('a1', ',') satisfies not(matches($s, '^(?:[a-b-[0-9]]+)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00059">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:[a-c-[^a-c]])$')) and (every $s in tokenize('d', ',') satisfies not(matches($s, '^(?:[a-c-[^a-c]])$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00060">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:[a-z-[^a]])$')) and (every $s in tokenize('b', ',') satisfies not(matches($s, '^(?:[a-z-[^a]])$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00061">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#256;', ',') satisfies matches($s, '^(?:[^\p{IsBasicLatin}]+)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:[^\p{IsBasicLatin}]+)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00062">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:[^\p{IsBasicLatin}]*)$')) and (every $s in tokenize('a', ',') satisfies not(matches($s, '^(?:[^\p{IsBasicLatin}]*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00063">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('a', ',') satisfies matches($s, '^(?:[^\P{IsBasicLatin}])$')) and (every $s in tokenize('&#256;', ',') satisfies not(matches($s, '^(?:[^\P{IsBasicLatin}])$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00064">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:[^\?])$')) and (every $s in tokenize('?', ',') satisfies not(matches($s, '^(?:[^\?])$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00065">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('a+*abc', ',') satisfies matches($s, '^(?:([^\?])*)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:([^\?])*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00066">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('a*a', ',') satisfies matches($s, '^(?:\c[^\d]\c)$')) and (every $s in tokenize('aa', ',') satisfies not(matches($s, '^(?:\c[^\d]\c)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00067">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:\c[^\s]\c)$')) and (every $s in tokenize('a c,a&#xD;z,a
+c,a	r', ',') satisfies not(matches($s, '^(?:\c[^\s]\c)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00068">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:[^\^a])$')) and (every $s in tokenize('^,a', ',') satisfies not(matches($s, '^(?:[^\^a])$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00069">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('abc', ',') satisfies matches($s, '^(?:[a-abc]{3})$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:[a-abc]{3})$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00070">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('}-', ',') satisfies matches($s, '^(?:[a-\}-]+)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:[a-\}-]+)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00071">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','[a--b]')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00072">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','[^[a-b]]')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00073">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:[a])$')) and (every $s in tokenize('b,', ',') satisfies not(matches($s, '^(?:[a])$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00074">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('123', ',') satisfies matches($s, '^(?:[1-3]{1,4})$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:[1-3]{1,4})$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00075">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('a', ',') satisfies matches($s, '^(?:[a-a])$')) and (every $s in tokenize('b', ',') satisfies not(matches($s, '^(?:[a-a])$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00076">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('1234567890:;&lt;=&gt;?@Azaz', ',') satisfies matches($s, '^(?:[0-z]*)$')) and (every $s in tokenize('{,/', ',') satisfies not(matches($s, '^(?:[0-z]*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00077">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('
+', ',') satisfies matches($s, '^(?:[\n])$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:[\n])$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00078">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('	', ',') satisfies matches($s, '^(?:[\t])$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:[\t])$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00079">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('\|.?*+(){}-[]^', ',') satisfies matches($s, '^(?:[\\\|\.\?\*\+\(\)\{\}\-\[\]\^]*)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:[\\\|\.\?\*\+\(\)\{\}\-\[\]\^]*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00080">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:[^a-z^])$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:[^a-z^])$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00081">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:[\\-\{^])$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:[\\-\{^])$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00082">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('?a?,?b?,?c?', ',') satisfies matches($s, '^(?:[\C\?a-c\?]+)$')) and (every $s in tokenize('?d?', ',') satisfies not(matches($s, '^(?:[\C\?a-c\?]+)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00083">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('?', ',') satisfies matches($s, '^(?:[\c\?a-c\?]+)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:[\c\?a-c\?]+)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00084">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:[\D\?a-c\?]+)$')) and (every $s in tokenize('?1?', ',') satisfies not(matches($s, '^(?:[\D\?a-c\?]+)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00085">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:[\S\?a-c\?]+)$')) and (every $s in tokenize('? ?,?	?', ',') satisfies not(matches($s, '^(?:[\S\?a-c\?]+)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00086">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <modified by="Michael Kay" on="2013-05-01" change="split into XSD 1.0 and XSD 1.1 tests as per bug 21425"/>
+      <dependency type="xsd-version" value="1.0"/>
+      <test>(every $s in tokenize(',a-1x-7,c-4z-9,a-1z-8a-1z-9,a1z-9,a-1z8,a-1,z-9', ',') satisfies matches($s, '^(?:[a-c-1-4x-z-7-9]*)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:[a-c-1-4x-z-7-9]*)$')))</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00086a">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <modified by="Michael Kay" on="2013-05-01" change="split into XSD 1.0 and XSD 1.1 tests as per bug 21425"/>
+      <dependency type="xsd-version" value="1.1"/>
+      <test>(every $s in tokenize(',a-1x-7,c-4z-9,a-1z-8a-1z-9,a1z-9,a-1z8,a-1,z-9', ',') satisfies matches($s, '^(?:[a-c-1-4x-z-7-9]*)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:[a-c-1-4x-z-7-9]*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00087">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','[a-\\]')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00088">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','[a-\[]')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00089">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('a*a****aaaaa*', ',') satisfies matches($s, '^(?:[\*a]*)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:[\*a]*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00090">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','[a-;]')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00091">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('1]', ',') satisfies matches($s, '^(?:[1-\]]+)$')) and (every $s in tokenize('0,^', ',') satisfies not(matches($s, '^(?:[1-\]]+)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00092">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('=,&gt;', ',') satisfies matches($s, '^(?:[=-&gt;])$')) and (every $s in tokenize('\?', ',') satisfies not(matches($s, '^(?:[=-&gt;])$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00093">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','[&gt;-=]')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00094">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('@', ',') satisfies matches($s, '^(?:[@])$')) and (every $s in tokenize('a', ',') satisfies not(matches($s, '^(?:[@])$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00095">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#4095;', ',') satisfies matches($s, '^(?:[&#4095;])$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:[&#4095;])$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00096">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#65536;', ',') satisfies matches($s, '^(?:[&#65536;])$')) and (every $s in tokenize('&#65537;', ',') satisfies not(matches($s, '^(?:[&#65536;])$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00097">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>matches('qwerty','[\]')</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00098">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('\,[,],\[,\[],[],[\\,\]\,[][', ',') satisfies matches($s, '^(?:[\\\[\]]{0,3})$')) and (every $s in tokenize('\[][,\]\],[][]', ',') satisfies not(matches($s, '^(?:[\\\[\]]{0,3})$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00099">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('-', ',') satisfies matches($s, '^(?:[-])$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:[-])$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00100">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('a--aa---', ',') satisfies matches($s, '^(?:[-a]+)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:[-a]+)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00101">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('a--aa---', ',') satisfies matches($s, '^(?:[a-]*)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:[a-]*)$')))</test>
+      <result>
+         <any-of>
+           <!-- rules for hyphens between [] are clarified in XSD 1.1 -->
+           <assert-true/>
+           <error code="FORX0002"/>
+         </any-of>
+      </result>
+   </test-case>
+   <test-case name="re00102">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <modified by="Michael Kay" on="2013-06-13" change="add XSD 1.1 dependency as per bug 21425"/>
+      <dependency type="xsd-version" value="1.1"/>
+      <test>(every $s in tokenize('a-x', ',') satisfies matches($s, '^(?:[a-a-x-x]+)$')) and (every $s in tokenize('j,a-b', ',') satisfies not(matches($s, '^(?:[a-a-x-x]+)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00102a">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2013-06-13"/>
+      <dependency type="xsd-version" value="1.0"/>
+      <test>(every $s in tokenize('a-x', ',') satisfies matches($s, '^(?:[a-a-x-x]+)$')) and (every $s in tokenize('j,a-b', ',') satisfies not(matches($s, '^(?:[a-a-x-x]+)$')))</test>
+      <result>
+         <error code="FORX0002"/>
+      </result>
+   </test-case>
+   <test-case name="re00103">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('\|.-^?*+[]{}()*[[]{}}))
+&#xD;		
+
+&#xD;*()', ',') satisfies matches($s, '^(?:[\n\r\t\\\|\.\-\^\?\*\+\{\}\[\]\(\)]*)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:[\n\r\t\\\|\.\-\^\?\*\+\{\}\[\]\(\)]*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00104">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('a**,aa*,a', ',') satisfies matches($s, '^(?:[a\*]*)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:[a\*]*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00105">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('a?,a?a?a?,a,a??,aa?', ',') satisfies matches($s, '^(?:[(a\?)?]+)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:[(a\?)?]+)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00106">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('\t', ',') satisfies matches($s, '^(?:\\t)$')) and (every $s in tokenize('t,\\t,	', ',') satisfies not(matches($s, '^(?:\\t)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00107">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('\n', ',') satisfies matches($s, '^(?:\\n)$')) and (every $s in tokenize('n,\\n,
+', ',') satisfies not(matches($s, '^(?:\\n)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00108">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('\r', ',') satisfies matches($s, '^(?:\\r)$')) and (every $s in tokenize('r,\\r,&#xD;', ',') satisfies not(matches($s, '^(?:\\r)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00109">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('
+', ',') satisfies matches($s, '^(?:\n)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:\n)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00110">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('	', ',') satisfies matches($s, '^(?:\t)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:\t)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00111">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('\', ',') satisfies matches($s, '^(?:\\)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:\\)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00112">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('|', ',') satisfies matches($s, '^(?:\|)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:\|)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00113">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('.', ',') satisfies matches($s, '^(?:\.)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:\.)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00114">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('-', ',') satisfies matches($s, '^(?:\-)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:\-)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00115">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('^', ',') satisfies matches($s, '^(?:\^)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:\^)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00116">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('?', ',') satisfies matches($s, '^(?:\?)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:\?)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00117">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('*', ',') satisfies matches($s, '^(?:\*)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:\*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00118">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('+', ',') satisfies matches($s, '^(?:\+)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:\+)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00119">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('{', ',') satisfies matches($s, '^(?:\{)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:\{)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00120">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('}', ',') satisfies matches($s, '^(?:\})$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:\})$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00121">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('(', ',') satisfies matches($s, '^(?:\()$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:\()$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00122">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize(')', ',') satisfies matches($s, '^(?:\))$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:\))$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00123">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('[', ',') satisfies matches($s, '^(?:\[)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:\[)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00124">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize(']', ',') satisfies matches($s, '^(?:\])$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:\])$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00125">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:\n\\\r\|\t\.\-\^\?\*\+\{\}\(\)\[\])$')) and (every $s in tokenize('
+\&#xD;|	.-^?*+{}()[,\&#xD;|	.-^?*+{}()[],
+\&#xD;|	-^?*+{}()[]', ',') satisfies not(matches($s, '^(?:\n\\\r\|\t\.\-\^\?\*\+\{\}\(\)\[\])$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00126">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <modified by="O'Neil Delpratt" on="2011-10-05" change="Applied the not function to the first matches, as it returns false. See bug #14398"/>
+      <test>not(matches('', '^(?:\n\na\n\nb\n\n)$')) and
+         (every $s in tokenize('&#xa;&#xa;a&#xa;&#xa;b;&#xa;,&#xa;a&#xa;&#xa;b;&#xa;&#xa;,&#xa;&#xa;a&#xa;&#xa;b;&#xa;&#xd;', ',') 
+                satisfies not(matches($s, '^(?:\n\na\n\nb\n\n)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00127">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <modified by="Michael Kay" on="2011-08-10" change="clarify use of whitespace chars"/>
+      <modified by="O'Neil Delpratt" on="2011-10-05" change="changed dependency to XP30+ only. See bug #14398"/>
+      <modified by="Michael Kay" on="2011-11-24" change="allow possibility of line-ending normalization in XPath. See bug #14917.
+      The effect of this bug/feature is that the only way of getting a x0D into an XPath string literal is using codepoints-to-string()"/>
+      <dependency type="spec" value="XP30+"/>
+      <test>
+        let $d := codepoints-to-string(13) return (
+        matches($d||$d||'a'||$d||$d||'b'||$d||$d,          '^\r\ra\r\rb\r\r$'),
+        matches($d||$d||'a'||$d||$d||'b'||$d||$d,          '^\r+a\r+b\r+$'),
+        matches($d||$d||'b'||$d||$d||'a'||$d||$d,          '^\r\ra\r\rb\r\r$'),
+        matches($d||$d||'a'||$d||$d||'b'||$d||'&#xa;',     '^\r\ra\r\rb\r\r$'))
+      </test>
+      <result>
+         <assert-deep-eq>true(), true(), false(), false()</assert-deep-eq>
+      </result>
+   </test-case>
+    <test-case name="re00127a">
+      <description>Test regex syntax</description>
+      <created by="O'Neil Delpratt" on="2011-10-05"/>
+      <dependency type="spec" value="XQ30+"/>
+      <test><![CDATA[
+        matches('&#xD;&#xD;a&#xD;&#xD;b&#xD;&#xD;',         '^\r\ra\r\rb\r\r$'),
+        matches('&#xD;&#xD;a&#xD;&#xD;b&#xD;&#xD;',         '^\r\ra\r\rb\r\r$'),
+        matches('&#xD;&#xD;a&#xD;&#xD;b&#xD;',              '^(?:\r\ra\r\rb\r\r)$'),
+        matches('&#xD;a&#xD;&#xD;b&#xD;&#xD;',              '^(?:\r\ra\r\rb\r\r)$'),
+        matches('&#xD;&#xD;a&#xD;&#xD;&#xD;&#xD;',          '^(?:\r\ra\r\rb\r\r)$'),
+        matches('&#xD;&#xD;a&#xD;&#xA;&#xD;b&#xD;&#xD;',    '^(?:\r\ra\r\rb\r\r)$')]]>
+      </test>
+      <result>
+         <assert-deep-eq>true(), true(), false(), false(), false(), false()</assert-deep-eq>
+      </result>
+   </test-case>
+   <test-case name="re00128">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:\t\ta\t\tb\t\t)$')) and (every $s in tokenize('		a		b	,	a		b		,		a				,		a			b		', ',') satisfies not(matches($s, '^(?:\t\ta\t\tb\t\t)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00129">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <modified by="Michael Kay" on="2011-10-05" change="simplify test for failure diagnostics"/>
+      <modified by="O'Neil Delpratt" on="2011-10-05" change="changed dependency to XP30+ only. Related to bug #14398"/>
+      <modified by="Michael Kay" on="2011-11-24" change="allow possibility of line-ending normalization in XPath. See bug #14917.
+      The effect of this bug/feature is that the only way of getting a x0D into an XPath string literal is using codepoints-to-string()"/>      
+      <dependency type="spec" value="XP30+"/>
+      <test>
+        let $d := codepoints-to-string(13) return (
+        matches('a'||$d||'&#xA;b', '^(?:a\r\nb)$'), matches('ab', '^(?:a\r\nb)$'))</test>
+      <result>
+         <assert-deep-eq>true(), false()</assert-deep-eq>
+      </result>
+   </test-case>
+    <test-case name="re00129a">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <modified by="Michael Kay" on="2011-10-05" change="simplify test for failure diagnostics"/>
+       <modified by="O'Neil Delpratt" on="2011-10-05" change="changed dependency to XP30+ only. Related to bug #14398"/>
+       <dependency type="spec" value="XQ30+"/>
+      <test><![CDATA[matches('a&#xD;&#xA;b', '^(?:a\r\nb)$'), matches('ab', '^(?:a\r\nb)$')]]></test>
+      <result>
+         <assert-deep-eq>true(), false()</assert-deep-eq>
+      </result>
+   </test-case>
+   <test-case name="re00130">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <modified by="O'Neil Delpratt" on="2011-10-05" change="Incorrect pattern in first matches function. Changed dependency to XP30+ only. Related to bug #14398"/>
+      <modified by="Michael Kay" on="2011-11-24" change="allow possibility of line-ending normalization in XPath. See bug #14917.
+      The effect of this bug/feature is that the only way of getting a x0D into an XPath string literal is using codepoints-to-string()"/>
+       <modified by="O'Neil Delpratt" on="2012-05-22" change="Bug fix related to bug #14398"/>
+      <dependency type="spec" value="XP30+"/>
+      <test>
+        let $d := codepoints-to-string(13) return (
+         (every $s in tokenize('&#xA;'||$d||'a&#xA;'||$d||'b', ',') satisfies (matches($s, '^(?:\n\ra\n\rb)$'))) and
+         (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:\n\ra\n\rb)$'))))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+     <test-case name="re00130a">
+      <description>Test regex syntax</description>
+      <created by="O'Neil Delpratt" on="2011-10-06"/>
+       <dependency type="spec" value="XQ30+"/>
+      <test><![CDATA[(every $s in tokenize('&#xA;&#xD;a&#xA;&#xD;b', ',') satisfies (matches($s, '^(?:\n\ra\n\rb)$'))) and
+         (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:\n\ra\n\rb)$')))]]></test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00131">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('	a	b	c	', ',') satisfies matches($s, '^(?:\ta\tb\tc\t)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:\ta\tb\tc\t)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00132">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('
+a
+b
+c
+', ',') satisfies matches($s, '^(?:\na\nb\nc\n)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:\na\nb\nc\n)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00133">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('	a 
+&#xD;
+ &#xD;	b, a  b, a  b ,	a 
+&#xD;
+ &#xD;b', ',') satisfies matches($s, '^(?:(\t|\s)a(\r\n|\r|\n|\s)+(\s|\t)b(\s|\r\n|\r|\n)*)$')) and (every $s in tokenize(' a b, a b ', ',') satisfies not(matches($s, '^(?:(\t|\s)a(\r\n|\r|\n|\s)+(\s|\t)b(\s|\r\n|\r|\n)*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00134">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('\c', ',') satisfies matches($s, '^(?:\\c)$')) and (every $s in tokenize('\p{_xmlC},\\c,\\', ',') satisfies not(matches($s, '^(?:\\c)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00135">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('\.,\s,\S,\i,\I,\c,\C,\d,\D,\w,\W', ';') satisfies matches($s, '^(?:\\.,\\s,\\S,\\i,\\I,\\c,\\C,\\d,\\D,\\w,\\W)$')) and (every $s in tokenize('', ';') satisfies not(matches($s, '^(?:\\.,\\s,\\S,\\i,\\I,\\c,\\C,\\d,\\D,\\w,\\W)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00136">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('\.abcd,\sssss,\SSSSSS,\iiiiiii,\,\c,\CCCCCC,\ddd,\D,\wwwwwww,\WWW', ';') satisfies matches($s, '^(?:\\.*,\\s*,\\S*,\\i*,\\I?,\\c+,\\C+,\\d{0,3},\\D{1,1000},\\w*,\\W+)$')) and (every $s in tokenize('', ';') satisfies not(matches($s, '^(?:\\.*,\\s*,\\S*,\\i*,\\I?,\\c+,\\C+,\\d{0,3},\\D{1,1000},\\w*,\\W+)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00137">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('aX', ',') satisfies matches($s, '^(?:[\p{L}*]{0,2})$')) and (every $s in tokenize('aBC', ',') satisfies not(matches($s, '^(?:[\p{L}*]{0,2})$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00138">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:(\p{Ll}\p{Cc}\p{Nd})*)$')) and (every $s in tokenize('&#5760;', ',') satisfies not(matches($s, '^(?:(\p{Ll}\p{Cc}\p{Nd})*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00139">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:\p{L}*)$')) and (every $s in tokenize('&#8413;', ',') satisfies not(matches($s, '^(?:\p{L}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00140">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('A&#120744;', ',') satisfies matches($s, '^(?:\p{Lu}*)$')) and (every $s in tokenize('a', ',') satisfies not(matches($s, '^(?:\p{Lu}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00141">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('a&#120777;', ',') satisfies matches($s, '^(?:\p{Ll}*)$')) and (every $s in tokenize('&#453;', ',') satisfies not(matches($s, '^(?:\p{Ll}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00142">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#453;&#8188;', ',') satisfies matches($s, '^(?:\p{Lt}*)$')) and (every $s in tokenize('&#688;', ',') satisfies not(matches($s, '^(?:\p{Lt}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00143">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#688;&#65439;', ',') satisfies matches($s, '^(?:\p{Lm}*)$')) and (every $s in tokenize('&#1488;', ',') satisfies not(matches($s, '^(?:\p{Lm}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00144">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#1488;&#195101;', ',') satisfies matches($s, '^(?:\p{Lo}*)$')) and (every $s in tokenize('&#1611;', ',') satisfies not(matches($s, '^(?:\p{Lo}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00145">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#1611;&#119213;&#2307;&#119154;&#2307;&#119154;&#8413;&#8413;&#8416;', ',') satisfies matches($s, '^(?:\p{M}*)$')) and (every $s in tokenize('&#453;', ',') satisfies not(matches($s, '^(?:\p{M}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00146">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#1611;&#119213;', ',') satisfies matches($s, '^(?:\p{Mn}*)$')) and (every $s in tokenize('&#2307;', ',') satisfies not(matches($s, '^(?:\p{Mn}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00147">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#2307;&#119154;', ',') satisfies matches($s, '^(?:\p{Mc}*)$')) and (every $s in tokenize('&#8413;', ',') satisfies not(matches($s, '^(?:\p{Mc}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00148">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#8413;&#8416;', ',') satisfies matches($s, '^(?:\p{Me}*)$')) and (every $s in tokenize('&#65296;', ',') satisfies not(matches($s, '^(?:\p{Me}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00149">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#65296;&#120831;&#66378;&#66378;&#12325;&#178;&#178;&#66339;', ',') satisfies matches($s, '^(?:\p{N}*)$')) and (every $s in tokenize('&#2307;', ',') satisfies not(matches($s, '^(?:\p{N}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00150">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#65296;&#120831;', ',') satisfies matches($s, '^(?:\p{Nd}*)$')) and (every $s in tokenize('&#66378;', ',') satisfies not(matches($s, '^(?:\p{Nd}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00151">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#66378;&#12325;', ',') satisfies matches($s, '^(?:\p{Nl}*)$')) and (every $s in tokenize('&#178;', ',') satisfies not(matches($s, '^(?:\p{Nl}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00152">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#178;&#66339;', ',') satisfies matches($s, '^(?:\p{No}*)$')) and (every $s in tokenize('&#8255;', ',') satisfies not(matches($s, '^(?:\p{No}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00153">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#8255;&#65381;&#12316;&#12316;&#65293;&#12317;&#12317;&#65378;&#12318;&#12318;&#65379;&#171;&#171;&#8249;&#187;&#187;&#8250;&#191;&#191;&#65380;', ',') satisfies matches($s, '^(?:\p{P}*)$')) and (every $s in tokenize('&#178;', ',') satisfies not(matches($s, '^(?:\p{P}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00154">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:\p{Pc}*)$')) and (every $s in tokenize('&#12316;', ',') satisfies not(matches($s, '^(?:\p{Pc}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00155">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#12316;&#65293;', ',') satisfies matches($s, '^(?:\p{Pd}*)$')) and (every $s in tokenize('&#12317;', ',') satisfies not(matches($s, '^(?:\p{Pd}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00156">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#12317;&#65378;', ',') satisfies matches($s, '^(?:\p{Ps}*)$')) and (every $s in tokenize('&#12318;', ',') satisfies not(matches($s, '^(?:\p{Ps}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00157">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#12318;&#65379;', ',') satisfies matches($s, '^(?:\p{Pe}*)$')) and (every $s in tokenize('&#171;', ',') satisfies not(matches($s, '^(?:\p{Pe}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00158">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#171;&#8249;', ',') satisfies matches($s, '^(?:\p{Pi}*)$')) and (every $s in tokenize('&#187;', ',') satisfies not(matches($s, '^(?:\p{Pi}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00159">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#187;&#8250;', ',') satisfies matches($s, '^(?:\p{Pf}*)$')) and (every $s in tokenize('&#191;', ',') satisfies not(matches($s, '^(?:\p{Pf}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00160">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#191;&#65380;', ',') satisfies matches($s, '^(?:\p{Po}*)$')) and (every $s in tokenize('&#5760;', ',') satisfies not(matches($s, '^(?:\p{Po}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00161">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#5760;&#12288;&#8232;&#8232;&#8233;&#8233;', ',') satisfies matches($s, '^(?:\p{Z}*)$')) and (every $s in tokenize('&#191;', ',') satisfies not(matches($s, '^(?:\p{Z}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00162">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#5760;&#12288;', ',') satisfies matches($s, '^(?:\p{Zs}*)$')) and (every $s in tokenize('&#8232;', ',') satisfies not(matches($s, '^(?:\p{Zs}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00163">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#8232;', ',') satisfies matches($s, '^(?:\p{Zl}*)$')) and (every $s in tokenize('&#8233;', ',') satisfies not(matches($s, '^(?:\p{Zl}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00164">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#8233;', ',') satisfies matches($s, '^(?:\p{Zp}*)$')) and (every $s in tokenize('&#8260;', ',') satisfies not(matches($s, '^(?:\p{Zp}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00165">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#8260;&#65506;&#8352;&#8352;&#65510;&#12443;&#12443;&#65507;&#12688;&#12688;&#119261;', ',') satisfies matches($s, '^(?:\p{S}*)$')) and (every $s in tokenize('&#5760;', ',') satisfies not(matches($s, '^(?:\p{S}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00166">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#8260;&#65506;', ',') satisfies matches($s, '^(?:\p{Sm}*)$')) and (every $s in tokenize('&#8352;', ',') satisfies not(matches($s, '^(?:\p{Sm}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00167">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#8352;&#65510;', ',') satisfies matches($s, '^(?:\p{Sc}*)$')) and (every $s in tokenize('&#12443;', ',') satisfies not(matches($s, '^(?:\p{Sc}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00168">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#12443;&#65507;', ',') satisfies matches($s, '^(?:\p{Sk}*)$')) and (every $s in tokenize('&#12688;', ',') satisfies not(matches($s, '^(?:\p{Sk}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00169">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#12688;&#119261;', ',') satisfies matches($s, '^(?:\p{So}*)$')) and (every $s in tokenize('	', ',') satisfies not(matches($s, '^(?:\p{So}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00170">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:\p{C}*)$')) and (every $s in tokenize('&#8352;', ',') satisfies not(matches($s, '^(?:\p{C}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00171">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('	', ',') satisfies matches($s, '^(?:\p{Cc}*)$')) and (every $s in tokenize('&#1807;', ',') satisfies not(matches($s, '^(?:\p{Cc}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00172">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#1807;&#917624;', ',') satisfies matches($s, '^(?:\p{Cf}*)$')) and (every $s in tokenize('&#57344;', ',') satisfies not(matches($s, '^(?:\p{Cf}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00173">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#57344;&#1048576;&#983040;&#1048573;&#1114109;', ',') satisfies matches($s, '^(?:(\p{Co})*)$')) and (every $s in tokenize('', ',') satisfies not(matches($s, '^(?:(\p{Co})*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00174">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:\p{Co}*)$')) and (every $s in tokenize('&#8260;', ',') satisfies not(matches($s, '^(?:\p{Co}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00175">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('', ',') satisfies matches($s, '^(?:\p{Cn}*)$')) and (every $s in tokenize('	', ',') satisfies not(matches($s, '^(?:\p{Cn}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00176">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('_,&#8413;', ',') satisfies matches($s, '^(?:\P{L}*)$')) and (every $s in tokenize('aAbB,A&#120744;aa&#120777;&#453;&#453;&#8188;&#688;&#688;&#65439;&#1488;&#1488;&#195101;', ',') satisfies not(matches($s, '^(?:\P{L}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00177">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize(',#$', ',') satisfies matches($s, '^(?:[\P{L}*]{0,2})$')) and (every $s in tokenize('!$#,A', ',') satisfies not(matches($s, '^(?:[\P{L}*]{0,2})$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00178">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('a', ',') satisfies matches($s, '^(?:\P{Lu}*)$')) and (every $s in tokenize('A&#120744;', ',') satisfies not(matches($s, '^(?:\P{Lu}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00179">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#453;', ',') satisfies matches($s, '^(?:\P{Ll}*)$')) and (every $s in tokenize('a&#120777;', ',') satisfies not(matches($s, '^(?:\P{Ll}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00180">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#688;', ',') satisfies matches($s, '^(?:\P{Lt}*)$')) and (every $s in tokenize('&#453;&#8188;', ',') satisfies not(matches($s, '^(?:\P{Lt}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00181">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#1488;', ',') satisfies matches($s, '^(?:\P{Lm}*)$')) and (every $s in tokenize('&#688;&#65439;', ',') satisfies not(matches($s, '^(?:\P{Lm}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00182">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#1611;', ',') satisfies matches($s, '^(?:\P{Lo}*)$')) and (every $s in tokenize('&#1488;&#195101;', ',') satisfies not(matches($s, '^(?:\P{Lo}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00183">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#453;', ',') satisfies matches($s, '^(?:\P{M}*)$')) and (every $s in tokenize('&#1611;&#119213;&#2307;&#119154;&#2307;&#119154;&#8413;&#8413;&#8416;', ',') satisfies not(matches($s, '^(?:\P{M}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00184">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#2307;&#119154;', ',') satisfies matches($s, '^(?:\P{Mn}*)$')) and (every $s in tokenize('&#1611;&#119213;', ',') satisfies not(matches($s, '^(?:\P{Mn}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00185">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#8413;', ',') satisfies matches($s, '^(?:\P{Mc}*)$')) and (every $s in tokenize('&#2307;&#119154;', ',') satisfies not(matches($s, '^(?:\P{Mc}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00186">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#65296;', ',') satisfies matches($s, '^(?:\P{Me}*)$')) and (every $s in tokenize('&#8413;&#8416;', ',') satisfies not(matches($s, '^(?:\P{Me}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00187">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#2307;', ',') satisfies matches($s, '^(?:\P{N}*)$')) and (every $s in tokenize('&#65296;&#120831;&#66378;&#66378;&#12325;&#178;&#178;&#66339;', ',') satisfies not(matches($s, '^(?:\P{N}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00188">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#66378;', ',') satisfies matches($s, '^(?:\P{Nd}*)$')) and (every $s in tokenize('&#65296;&#120831;', ',') satisfies not(matches($s, '^(?:\P{Nd}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00189">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#178;', ',') satisfies matches($s, '^(?:\P{Nl}*)$')) and (every $s in tokenize('&#66378;&#12325;', ',') satisfies not(matches($s, '^(?:\P{Nl}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00190">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#8255;', ',') satisfies matches($s, '^(?:\P{No}*)$')) and (every $s in tokenize('&#178;&#66339;', ',') satisfies not(matches($s, '^(?:\P{No}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00191">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#178;', ',') satisfies matches($s, '^(?:\P{P}*)$')) and (every $s in tokenize('&#8255;&#65381;&#12316;&#12316;&#65293;&#12317;&#12317;&#65378;&#12318;&#12318;&#65379;&#171;&#171;&#8249;&#187;&#187;&#8250;&#191;&#191;&#65380;', ',') satisfies not(matches($s, '^(?:\P{P}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00192">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#12316;', ',') satisfies matches($s, '^(?:\P{Pc}*)$')) and (every $s in tokenize('&#8255;&#65381;', ',') satisfies not(matches($s, '^(?:\P{Pc}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00193">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#12317;', ',') satisfies matches($s, '^(?:\P{Pd}*)$')) and (every $s in tokenize('&#12316;&#65293;', ',') satisfies not(matches($s, '^(?:\P{Pd}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00194">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#12318;', ',') satisfies matches($s, '^(?:\P{Ps}*)$')) and (every $s in tokenize('&#12317;&#65378;', ',') satisfies not(matches($s, '^(?:\P{Ps}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00195">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#171;', ',') satisfies matches($s, '^(?:\P{Pe}*)$')) and (every $s in tokenize('&#12318;&#65379;', ',') satisfies not(matches($s, '^(?:\P{Pe}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00196">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#187;', ',') satisfies matches($s, '^(?:\P{Pi}*)$')) and (every $s in tokenize('&#171;&#8249;', ',') satisfies not(matches($s, '^(?:\P{Pi}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00197">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#191;', ',') satisfies matches($s, '^(?:\P{Pf}*)$')) and (every $s in tokenize('&#187;&#8250;', ',') satisfies not(matches($s, '^(?:\P{Pf}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00198">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#5760;', ',') satisfies matches($s, '^(?:\P{Po}*)$')) and (every $s in tokenize('&#191;&#65380;', ',') satisfies not(matches($s, '^(?:\P{Po}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00199">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#191;', ',') satisfies matches($s, '^(?:\P{Z}*)$')) and (every $s in tokenize('&#5760;&#12288;&#8232;&#8232;&#8233;&#8233;', ',') satisfies not(matches($s, '^(?:\P{Z}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+   <test-case name="re00200">
+      <description>Test regex syntax</description>
+      <created by="Michael Kay" on="2011-07-04"/>
+      <test>(every $s in tokenize('&#8232;', ',') satisfies matches($s, '^(?:\P{Zs}*)$')) and (every $s in tokenize('&#5760;&#12288;', ',') satisfies not(matches($s, '^(?:\P{Zs}*)$')))</test>
+      <result>
+         <assert-true/>
+      </result>
+   </test-case>
+</test-set>

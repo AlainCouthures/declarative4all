@@ -1,0 +1,1452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="op-duration-equal" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the duration-equal operator</description>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-duration-equal" type="spec"/>
+  <link document="FuncOps" idref="func-duration-equal" section-number="10.4.5" type="spec"/>
+  <test-case name="op-duration-equal-1">
+    <description> Evaluation of duration-equal operator as per example 1 for this operator from Functions and Operators specs. </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>xs:duration(&quot;P1Y&quot;) eq xs:duration(&quot;P12M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-2">
+    <description> Evaluation of duration-equal operator as per example 2 for this operator from Functions and Operators specs. </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>xs:duration(&quot;PT24H&quot;) eq xs:duration(&quot;P1D&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-3">
+    <description> Evaluation of duration-equal operator as per example 3 for this operator from Functions and Operators specs. </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>xs:duration(&quot;P1Y&quot;) eq xs:duration(&quot;P365D&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-4">
+    <description> Evaluation of duration-equal operator with both operands set to &quot;P1Y&quot; (uses eq operator) </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>xs:duration(&quot;P1Y&quot;) eq xs:duration(&quot;P1Y&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-5">
+    <description> Evaluation of duration-equal operator with both operands set to &quot;P1Y&quot; (uses ne operator) </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>xs:duration(&quot;P1Y&quot;) ne xs:duration(&quot;P1Y&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-6">
+    <description> Evaluation of duration-equal operator with both operands set to &quot;PT24H&quot; (uses eq operator) </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>xs:duration(&quot;PT24H&quot;) eq xs:duration(&quot;PT24H&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-7">
+    <description> Evaluation of duration-equal operator with both operands set to &quot;PT24H&quot; (uses ne operator) </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>xs:duration(&quot;PT24H&quot;) ne xs:duration(&quot;PT24H&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-8">
+    <description> Evaluation of duration-equal operator with both operands set to &quot;P12M&quot; (uses eq operator) </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>xs:duration(&quot;P12M&quot;) eq xs:duration(&quot;P12M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-9">
+    <description> Evaluation of duration-equal operator with both operands set to &quot;P12M&quot; (uses ne operator) </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>xs:duration(&quot;P12M&quot;) ne xs:duration(&quot;P12M&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-10">
+    <description> Evaluation of duration-equal operator with both operands set to &quot;P365D&quot; (uses eq operator) </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>xs:duration(&quot;P365D&quot;) eq xs:duration(&quot;P365D&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-11">
+    <description> Evaluation of duration-equal operator with both operands set to &quot;P365D&quot; (uses ne operator) </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>xs:duration(&quot;P365D&quot;) ne xs:duration(&quot;P365D&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-12">
+    <description> Evaluation of duration-equal operator with both operands set to &quot;P36D&quot; and &quot;P39D&quot; (uses eq operator) </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>xs:duration(&quot;P36D&quot;) eq xs:duration(&quot;P39D&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-13">
+    <description> Evaluation of duration-equal operator with both operands set to &quot;P36D&quot; and &quot;P39D&quot; (uses ne operator) </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>xs:duration(&quot;P36D&quot;) ne xs:duration(&quot;P39D&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-14">
+    <description> Evaluation of duration-equal operator with both operands set to &quot;P36D&quot; and used as argument to fn:not (uses eq operator) </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>fn:not(xs:duration(&quot;P36D&quot;) eq xs:duration(&quot;P36D&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-15">
+    <description> Evaluation of duration-equal operator with both operands set to &quot;P36D&quot; and used as argument to fn:not (uses ne operator) </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>fn:not(xs:duration(&quot;P36D&quot;) ne xs:duration(&quot;P36D&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-16">
+    <description> Evaluation of duration-equal operator with both operands set to &quot;P36D&quot; and used as argument to xs:boolean (uses eq operator) </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>xs:boolean(xs:duration(&quot;P36D&quot;) eq xs:duration(&quot;P36D&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-17">
+    <description> Evaluation of duration-equal operator with both operands set to &quot;P36D&quot; and used as argument to xs:boolean (uses ne operator) </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>xs:boolean(xs:duration(&quot;P36D&quot;) ne xs:duration(&quot;P36D&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-18">
+    <description> Evaluation of duration-equal operator as part of boolean expression &quot;and&quot; operator and &quot;fn:true&quot; function (uses eq operator) </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>(xs:duration(&quot;P36D&quot;) eq xs:duration(&quot;P36D&quot;)) and fn:true()</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-19">
+    <description> Evaluation of duration-equal operator as part of boolean expression &quot;and&quot; operator and &quot;fn:true&quot; function (uses ne operator) </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>(xs:duration(&quot;P36D&quot;) ne xs:duration(&quot;P36D&quot;)) and fn:true()</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-20">
+    <description> Evaluation of duration-equal operator as part of boolean expression &quot;or&quot; operator and &quot;fn:true&quot; function (uses eq operator) </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>(xs:duration(&quot;P36D&quot;) eq xs:duration(&quot;P36D&quot;)) or fn:true()</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-21">
+    <description> Evaluation of duration-equal operator as part of boolean expression &quot;or&quot; operator and &quot;fn:true&quot; function (uses ne operator) </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>(xs:duration(&quot;P36D&quot;) ne xs:duration(&quot;P36D&quot;)) or fn:true()</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-22">
+    <description> Evaluation of duration-equal operator as part of boolean expression &quot;and&quot; operator and &quot;fn:false&quot; function (uses eq operator) </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>(xs:duration(&quot;P36D&quot;) eq xs:duration(&quot;P36D&quot;)) and fn:false()</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-23">
+    <description> Evaluation of duration-equal operator as part of boolean expression &quot;and&quot; operator and &quot;fn:false&quot; function (uses ne operator) </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>(xs:duration(&quot;P36D&quot;) ne xs:duration(&quot;P36D&quot;)) and fn:false()</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-24">
+    <description> Evaluation of duration-equal operator as part of boolean expression &quot;or&quot; operator and &quot;fn:false&quot; function (uses eq operator) </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>(xs:duration(&quot;P36D&quot;) eq xs:duration(&quot;P36D&quot;)) or fn:false()</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-25">
+    <description> Evaluation of duration-equal operator as part of boolean expression &quot;or&quot; operator and &quot;fn:false&quot; function (uses ne operator) </description>
+    <created by="Carmelo Montanez" on="2005-02-07"/>
+    <test>(xs:duration(&quot;P36D&quot;) ne xs:duration(&quot;P36D&quot;)) or fn:false()</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-26">
+    <description> Evaluation of duration-equal operator as per example 4 for this operator from the F and O specs. </description>
+    <created by="Carmelo Montanez" on="2006-03-14"/>
+    <test>xs:yearMonthDuration('P0Y') eq xs:dayTimeDuration('P0D')</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-duration-equal-27">
+    <description> Evaluation of duration-equal operator as per example 5 for this operator from the F and O specs. </description>
+    <created by="Carmelo Montanez" on="2006-03-14"/>
+    <test>xs:yearMonthDuration('P1Y') eq xs:dayTimeDuration('P365D')</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-equal2args-1">
+    <description> Evaluates The &quot;op:yearMonthDuration-equal&quot; operator with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) eq xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-equal2args-2">
+    <description> Evaluates The &quot;op:yearMonthDuration-equal&quot; operator with the arguments set as follows: $arg1 = xs:yearMonthDuration(mid range) $arg2 = xs:yearMonthDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration(&quot;P1000Y6M&quot;) eq xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-equal2args-3">
+    <description> Evaluates The &quot;op:yearMonthDuration-equal&quot; operator with the arguments set as follows: $arg1 = xs:yearMonthDuration(upper bound) $arg2 = xs:yearMonthDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration(&quot;P2030Y12M&quot;) eq xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-equal2args-4">
+    <description> Evaluates The &quot;op:yearMonthDuration-equal&quot; operator with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) eq xs:yearMonthDuration(&quot;P1000Y6M&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-equal2args-5">
+    <description> Evaluates The &quot;op:yearMonthDuration-equal&quot; operator with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) eq xs:yearMonthDuration(&quot;P2030Y12M&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-equal2args-6">
+    <description> Evaluates The &quot;op:yearMonthDuration-equal&quot; operator with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) ne xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-equal2args-7">
+    <description> Evaluates The &quot;op:yearMonthDuration-equal&quot; operator with the arguments set as follows: $arg1 = xs:yearMonthDuration(mid range) $arg2 = xs:yearMonthDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration(&quot;P1000Y6M&quot;) ne xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-equal2args-8">
+    <description> Evaluates The &quot;op:yearMonthDuration-equal&quot; operator with the arguments set as follows: $arg1 = xs:yearMonthDuration(upper bound) $arg2 = xs:yearMonthDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration(&quot;P2030Y12M&quot;) ne xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-equal2args-9">
+    <description> Evaluates The &quot;op:yearMonthDuration-equal&quot; operator with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) ne xs:yearMonthDuration(&quot;P1000Y6M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-equal2args-10">
+    <description> Evaluates The &quot;op:yearMonthDuration-equal&quot; operator with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) ne xs:yearMonthDuration(&quot;P2030Y12M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-equal2args-11">
+    <description> Evaluates The &quot;op:yearMonthDuration-equal&quot; operator (le) with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-06-03"/>
+    <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) le xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-equal2args-12">
+    <description> Evaluates The &quot;op:yearMonthDuration-equal&quot; operator (le) with the arguments set as follows: $arg1 = xs:yearMonthDuration(mid range) $arg2 = xs:yearMonthDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-06-03"/>
+    <test>xs:yearMonthDuration(&quot;P1000Y6M&quot;) le xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-equal2args-13">
+    <description> Evaluates The &quot;op:yearMonthDuration-equal&quot; operator (le) with the arguments set as follows: $arg1 = xs:yearMonthDuration(upper bound) $arg2 = xs:yearMonthDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-06-03"/>
+    <test>xs:yearMonthDuration(&quot;P2030Y12M&quot;) le xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-equal2args-14">
+    <description> Evaluates The &quot;op:yearMonthDuration-equal&quot; operator (le) with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-06-03"/>
+    <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) le xs:yearMonthDuration(&quot;P1000Y6M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-equal2args-15">
+    <description> Evaluates The &quot;op:yearMonthDuration-equal&quot; operator (le) with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-06-03"/>
+    <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) le xs:yearMonthDuration(&quot;P2030Y12M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-equal2args-16">
+    <description> Evaluates The &quot;op:yearMonthDuration-equal&quot; operator (ge) with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-06-03"/>
+    <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) ge xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-equal2args-17">
+    <description> Evaluates The &quot;op:yearMonthDuration-equal&quot; operator (ge) with the arguments set as follows: $arg1 = xs:yearMonthDuration(mid range) $arg2 = xs:yearMonthDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-06-03"/>
+    <test>xs:yearMonthDuration(&quot;P1000Y6M&quot;) ge xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-equal2args-18">
+    <description> Evaluates The &quot;op:yearMonthDuration-equal&quot; operator (ge) with the arguments set as follows: $arg1 = xs:yearMonthDuration(upper bound) $arg2 = xs:yearMonthDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-06-03"/>
+    <test>xs:yearMonthDuration(&quot;P2030Y12M&quot;) ge xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-equal2args-19">
+    <description> Evaluates The &quot;op:yearMonthDuration-equal&quot; operator (ge) with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-06-03"/>
+    <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) ge xs:yearMonthDuration(&quot;P1000Y6M&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-equal2args-20">
+    <description> Evaluates The &quot;op:yearMonthDuration-equal&quot; operator (ge) with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-06-03"/>
+    <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) ge xs:yearMonthDuration(&quot;P2030Y12M&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-equal2args-1">
+    <description> Evaluates The &quot;op:dayTimeDuration-equal&quot; operator with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;) eq xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-equal2args-2">
+    <description> Evaluates The &quot;op:dayTimeDuration-equal&quot; operator with the arguments set as follows: $arg1 = xs:dayTimeDuration(mid range) $arg2 = xs:dayTimeDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration(&quot;P15DT11H59M59S&quot;) eq xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-equal2args-3">
+    <description> Evaluates The &quot;op:dayTimeDuration-equal&quot; operator with the arguments set as follows: $arg1 = xs:dayTimeDuration(upper bound) $arg2 = xs:dayTimeDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration(&quot;P31DT23H59M59S&quot;) eq xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-equal2args-4">
+    <description> Evaluates The &quot;op:dayTimeDuration-equal&quot; operator with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;) eq xs:dayTimeDuration(&quot;P15DT11H59M59S&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-equal2args-5">
+    <description> Evaluates The &quot;op:dayTimeDuration-equal&quot; operator with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;) eq xs:dayTimeDuration(&quot;P31DT23H59M59S&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-equal2args-6">
+    <description> Evaluates The &quot;op:dayTimeDuration-equal&quot; operator with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;) ne xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-equal2args-7">
+    <description> Evaluates The &quot;op:dayTimeDuration-equal&quot; operator with the arguments set as follows: $arg1 = xs:dayTimeDuration(mid range) $arg2 = xs:dayTimeDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration(&quot;P15DT11H59M59S&quot;) ne xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-equal2args-8">
+    <description> Evaluates The &quot;op:dayTimeDuration-equal&quot; operator with the arguments set as follows: $arg1 = xs:dayTimeDuration(upper bound) $arg2 = xs:dayTimeDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration(&quot;P31DT23H59M59S&quot;) ne xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-equal2args-9">
+    <description> Evaluates The &quot;op:dayTimeDuration-equal&quot; operator with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;) ne xs:dayTimeDuration(&quot;P15DT11H59M59S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-equal2args-10">
+    <description> Evaluates The &quot;op:dayTimeDuration-equal&quot; operator with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;) ne xs:dayTimeDuration(&quot;P31DT23H59M59S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-equal2args-11">
+    <description> Evaluates The &quot;op:dayTimeDuration-equal&quot; operator (le) with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-06-03"/>
+    <test>xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;) le xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-equal2args-12">
+    <description> Evaluates The &quot;op:dayTimeDuration-equal&quot; operator (le) with the arguments set as follows: $arg1 = xs:dayTimeDuration(mid range) $arg2 = xs:dayTimeDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-06-03"/>
+    <test>xs:dayTimeDuration(&quot;P15DT11H59M59S&quot;) le xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-equal2args-13">
+    <description> Evaluates The &quot;op:dayTimeDuration-equal&quot; operator (le) with the arguments set as follows: $arg1 = xs:dayTimeDuration(upper bound) $arg2 = xs:dayTimeDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-06-03"/>
+    <test>xs:dayTimeDuration(&quot;P31DT23H59M59S&quot;) le xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-equal2args-14">
+    <description> Evaluates The &quot;op:dayTimeDuration-equal&quot; operator (le) with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-06-03"/>
+    <test>xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;) le xs:dayTimeDuration(&quot;P15DT11H59M59S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-equal2args-15">
+    <description> Evaluates The &quot;op:dayTimeDuration-equal&quot; operator (le) with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-06-03"/>
+    <test>xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;) le xs:dayTimeDuration(&quot;P31DT23H59M59S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-equal2args-16">
+    <description> Evaluates The &quot;op:dayTimeDuration-equal&quot; operator (ge) with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-06-03"/>
+    <test>xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;) ge xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-equal2args-17">
+    <description> Evaluates The &quot;op:dayTimeDuration-equal&quot; operator (ge) with the arguments set as follows: $arg1 = xs:dayTimeDuration(mid range) $arg2 = xs:dayTimeDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-06-03"/>
+    <test>xs:dayTimeDuration(&quot;P15DT11H59M59S&quot;) ge xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-equal2args-18">
+    <description> Evaluates The &quot;op:dayTimeDuration-equal&quot; operator (ge) with the arguments set as follows: $arg1 = xs:dayTimeDuration(upper bound) $arg2 = xs:dayTimeDuration(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-06-03"/>
+    <test>xs:dayTimeDuration(&quot;P31DT23H59M59S&quot;) ge xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-equal2args-19">
+    <description> Evaluates The &quot;op:dayTimeDuration-equal&quot; operator (ge) with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-06-03"/>
+    <test>xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;) ge xs:dayTimeDuration(&quot;P15DT11H59M59S&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-equal2args-20">
+    <description> Evaluates The &quot;op:dayTimeDuration-equal&quot; operator (ge) with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-06-03"/>
+    <test>xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;) ge xs:dayTimeDuration(&quot;P31DT23H59M59S&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="distinct-duration-equal-1">
+    <description> Evaluates The &quot;yearMonthDuration&quot; and &quot;dayTimeDuration&quot; data types with fn:distinct function given on example. </description>
+    <created by="Carmelo Montanez" on="2006-03-20"/>
+    <test>fn:distinct-values((xs:yearMonthDuration('P0Y'), xs:dayTimeDuration('P0D')))</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-string-value>P0M</assert-string-value>
+        <assert-string-value>PT0S</assert-string-value>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="distinct-duration-equal-2">
+    <description> Evaluates The &quot;yearMonthDuration&quot; and &quot;dayTimeDuration&quot; data types with fn:distinct function given on example. </description>
+    <created by="Carmelo Montanez" on="2006-03-20"/>
+    <test>fn:distinct-values((xs:yearMonthDuration('P1Y'), xs:dayTimeDuration('P365D')))</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-string-value>P1Y P365D</assert-string-value>
+        <assert-string-value>P365D P1Y</assert-string-value>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-1">
+    <description> Simple test of 'eq' for xs:duration, returning positive. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;P1999Y10M3DT08H34M12.143S&quot;) eq xs:duration(&quot;P1999Y10M3DT08H34M12.143S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-2">
+    <description> Testing 'eq' involving xs:duration with two zeroed values. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;PT0S&quot;) eq xs:duration(&quot;PT0S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-3">
+    <description> Simple test of 'eq' for xs:duration. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>not(xs:duration(&quot;P1999Y10M3DT08H34M12.043S&quot;) eq xs:duration(&quot;P1999Y10M3DT08H34M12.143S&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-4">
+    <description> Simple test of 'ne' for xs:duration. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;P1999Y01M3DT08H34M12.143S&quot;) ne xs:duration(&quot;P1999Y10M3DT08H34M12.143S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-5">
+    <description> Simple test of 'ne' for xs:duration. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>not(xs:duration(&quot;P1999Y10M3DT08H34M12.143S&quot;) ne xs:duration(&quot;P1999Y10M3DT08H34M12.143S&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-6">
+    <description> The xs:duration values P365D and P1Y are not equal. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;P1Y&quot;) ne xs:duration(&quot;P365D&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-7">
+    <description> The xs:duration values P12M and P1Y are equal. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;P1Y&quot;) eq xs:duration(&quot;P12M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-8">
+    <description> The xs:duration values P1M and P31D are not equal. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;P1M&quot;) ne xs:duration(&quot;P31D&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-9">
+    <description> The xs:duration values -PT0S and PT0S are equal. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;-PT0S&quot;) eq xs:duration(&quot;PT0S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-10">
+    <description> The xs:duration values -P1Y3M4DT08H4M33S and P1Y3M4DT08H4M33S are not equal. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;-P1Y3M4DT08H4M33S&quot;) ne xs:duration(&quot;P1Y3M4DT08H4M33S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-11">
+    <description> The 'lt' operator is not available between xs:duration and xs:duration. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;P1999Y10M3DT08H34M12.142S&quot;) lt xs:duration(&quot;P1999Y10M3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-12">
+    <description> The 'le' operator is not available between xs:duration and xs:duration. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;P1999Y10M3DT08H34M12.143S&quot;) le xs:duration(&quot;P1999Y10M3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-13">
+    <description> The 'gt' operator is not available between xs:duration and xs:duration. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;P1999Y10M3DT08H34M12.144S&quot;) gt xs:duration(&quot;P1999Y10M3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-14">
+    <description> The 'ge' operator is not available between xs:duration and xs:duration. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;P1999Y10M3DT08H34M12.143S&quot;) ge xs:duration(&quot;P1999Y10M3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-15">
+    <description> Simple test of 'eq' for xs:dayTimeDuration with xs:duration on the left hand. Both values are zero. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;PT0S&quot;) eq xs:dayTimeDuration(&quot;PT0S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-16">
+    <description> Simple test of 'eq' for xs:dayTimeDuration with xs:duration on the right hand. Both values are zero. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:dayTimeDuration(&quot;PT0S&quot;) eq xs:duration(&quot;PT0S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-17">
+    <description> Simple test of 'eq' for xs:yearMonthDuration with xs:duration on the right hand. Both values are zero. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:yearMonthDuration(&quot;P0M&quot;) eq xs:duration(&quot;PT0S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-18">
+    <description> Simple test of 'eq' for xs:dayTimeDuration with xs:duration on the left hand. Both values are zero. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;PT0S&quot;) eq xs:yearMonthDuration(&quot;P0M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-19">
+    <description> Simple test of 'eq' for xs:yearMonthDuration with xs:dayTimeDuration on the right hand. Both values are zero. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:yearMonthDuration(&quot;P0M&quot;) eq xs:dayTimeDuration(&quot;PT0S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-20">
+    <description> Simple test of 'eq' for xs:dayTimeDuration with xs:dayTimeDuration on the left hand. Both values are zero. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:dayTimeDuration(&quot;PT0S&quot;) eq xs:yearMonthDuration(&quot;P0M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-21">
+    <description> Simple test of 'eq' for xs:dayTimeDuration with xs:duration on the left hand. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;P1DT2H&quot;) eq xs:dayTimeDuration(&quot;P1DT2H&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-22">
+    <description> Simple test of 'eq' for xs:dayTimeDuration with xs:duration on the right hand. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:dayTimeDuration(&quot;P1DT2H&quot;) eq xs:duration(&quot;P1DT2H&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-23">
+    <description> Simple test of 'ne' for xs:dayTimeDuration with xs:duration on the left hand. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;P1M1DT2H&quot;) ne xs:dayTimeDuration(&quot;P1DT2H&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-24">
+    <description> Simple test of 'ne' for xs:dayTimeDuration with xs:duration on the left hand. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:dayTimeDuration(&quot;P1DT2H&quot;) ne xs:duration(&quot;P1M1DT2H&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-25">
+    <description> Simple test of 'eq' for xs:yearMonthDuration with xs:dayTimeDuration on the left hand. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:yearMonthDuration(&quot;P0M&quot;) eq xs:dayTimeDuration(&quot;PT0S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-26">
+    <description> Simple test of 'eq' for xs:dayTimeDuration with xs:yearMonthDuration on the right hand. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:dayTimeDuration(&quot;PT0S&quot;) eq xs:yearMonthDuration(&quot;P0M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-27">
+    <description> Simple test of 'eq' for xs:yearMonthDuration with xs:duration on the right hand. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:yearMonthDuration(&quot;P1Y12M&quot;) eq xs:duration(&quot;P1Y12M0D&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-28">
+    <description> Simple test of 'eq' for xs:dayTimeDuration with xs:duration on the left hand. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;P1Y12M0D&quot;) eq xs:yearMonthDuration(&quot;P1Y12M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-29">
+    <description> Test comparing xs:duration and xs:yearMonthDuration stressing value representations are normalized properly. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:yearMonthDuration(&quot;P1M&quot;) ne xs:duration(&quot;P31D&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-30">
+    <description> Test comparing xs:duration and xs:yearMonthDuration stressing value representations are normalized properly(with operand order switched). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;P31D&quot;) ne xs:yearMonthDuration(&quot;P1M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-31">
+    <description> Test comparing xs:dayTimeDuration and xs:yearMonthDuration stressing value representations are normalized properly. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:yearMonthDuration(&quot;P1M&quot;) ne xs:dayTimeDuration(&quot;P31D&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-32">
+    <description> Test comparing xs:dayTimeDuration and xs:yearMonthDuration stressing value representations are normalized properly(with operand order switched). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:dayTimeDuration(&quot;P31D&quot;) ne xs:yearMonthDuration(&quot;P1M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-33">
+    <description> The 'ge' operator is not available between xs:duration and xs:dayTimeDuration. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;P1999Y10M3DT08H34M12.143S&quot;) ge xs:dayTimeDuration(&quot;P3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-34">
+    <description> The 'gt' operator is not available between xs:duration and xs:dayTimeDuration. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;P1999Y10M3DT08H34M12.143S&quot;) gt xs:dayTimeDuration(&quot;P3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-35">
+    <description> The 'lt' operator is not available between xs:duration and xs:dayTimeDuration. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;P1999Y10M3DT08H34M12.143S&quot;) lt xs:dayTimeDuration(&quot;P3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-36">
+    <description> The 'le' operator is not available between xs:duration and xs:dayTimeDuration. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;P1999Y10M3DT08H34M12.143S&quot;) le xs:dayTimeDuration(&quot;P3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-37">
+    <description> The 'ge' operator is not available between xs:duration and xs:dayTimeDuration(reversed operand order). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:dayTimeDuration(&quot;P3DT08H34M12.143S&quot;) ge xs:duration(&quot;P1999Y10M3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-38">
+    <description> The 'gt' operator is not available between xs:duration and xs:dayTimeDuration(reversed operand order). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:dayTimeDuration(&quot;P3DT08H34M12.143S&quot;) gt xs:duration(&quot;P1999Y10M3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-39">
+    <description> The 'lt' operator is not available between xs:duration and xs:dayTimeDuration(reversed operand order). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:dayTimeDuration(&quot;P3DT08H34M12.143S&quot;) lt xs:duration(&quot;P1999Y10M3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-40">
+    <description> The 'le' operator is not available between xs:duration and xs:dayTimeDuration(reversed operand order). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:dayTimeDuration(&quot;P3DT08H34M12.143S&quot;) le xs:duration(&quot;P1999Y10M3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-41">
+    <description> The 'ge' operator is not available between xs:yearMonthDuration and xs:dayTimeDuration. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:yearMonthDuration(&quot;P1999Y10M&quot;) ge xs:dayTimeDuration(&quot;P3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-42">
+    <description> The 'gt' operator is not available between xs:yearMonthDuration and xs:dayTimeDuration. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:yearMonthDuration(&quot;P1999Y10M&quot;) gt xs:dayTimeDuration(&quot;P3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-43">
+    <description> The 'lt' operator is not available between xs:yearMonthDuration and xs:dayTimeDuration. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:yearMonthDuration(&quot;P1999Y10M&quot;) lt xs:dayTimeDuration(&quot;P3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-44">
+    <description> The 'le' operator is not available between xs:yearMonthDuration and xs:dayTimeDuration. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:yearMonthDuration(&quot;P1999Y10M&quot;) le xs:dayTimeDuration(&quot;P3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-45">
+    <description> The 'ge' operator is not available between xs:yearMonthDuration and xs:dayTimeDuration(reversed operand order). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:dayTimeDuration(&quot;P3DT08H34M12.143S&quot;) ge xs:yearMonthDuration(&quot;P1999Y10M&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-46">
+    <description> The 'gt' operator is not available between xs:yearMonthDuration and xs:dayTimeDuration(reversed operand order). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:dayTimeDuration(&quot;P3DT08H34M12.143S&quot;) gt xs:yearMonthDuration(&quot;P1999Y10M&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-47">
+    <description> The 'lt' operator is not available between xs:yearMonthDuration and xs:dayTimeDuration(reversed operand order). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:dayTimeDuration(&quot;P3DT08H34M12.143S&quot;) lt xs:yearMonthDuration(&quot;P1999Y10M&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-48">
+    <description> The 'le' operator is not available between xs:yearMonthDuration and xs:dayTimeDuration(reversed operand order). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:dayTimeDuration(&quot;P3DT08H34M12.143S&quot;) le xs:yearMonthDuration(&quot;P1999Y10M&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-49">
+    <description> The 'ge' operator is not available between xs:yearMonthDuration and xs:duration. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:yearMonthDuration(&quot;P1999Y10M&quot;) ge xs:duration(&quot;P3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-50">
+    <description> The 'gt' operator is not available between xs:yearMonthDuration and xs:duration. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:yearMonthDuration(&quot;P1999Y10M&quot;) gt xs:duration(&quot;P3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-51">
+    <description> The 'lt' operator is not available between xs:yearMonthDuration and xs:duration. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:yearMonthDuration(&quot;P1999Y10M&quot;) lt xs:duration(&quot;P3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-52">
+    <description> The 'le' operator is not available between xs:yearMonthDuration and xs:duration. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:yearMonthDuration(&quot;P1999Y10M&quot;) le xs:duration(&quot;P3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-53">
+    <description> The 'ge' operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:yearMonthDuration(&quot;P1999Y10M&quot;) ge xs:duration(&quot;P3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-54">
+    <description> The 'gt' operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:yearMonthDuration(&quot;P1999Y10M&quot;) gt xs:duration(&quot;P3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-55">
+    <description> The 'lt' operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:yearMonthDuration(&quot;P1999Y10M&quot;) lt xs:duration(&quot;P3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-56">
+    <description> The 'le' operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:yearMonthDuration(&quot;P1999Y10M&quot;) le xs:duration(&quot;P3DT08H34M12.143S&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-57">
+    <description> The 'ge' operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order)(reversed operand order). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;P3DT08H34M12.143S&quot;) ge xs:yearMonthDuration(&quot;P1999Y10M&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-58">
+    <description> The 'gt' operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order)(reversed operand order). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;P3DT08H34M12.143S&quot;) gt xs:yearMonthDuration(&quot;P1999Y10M&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-59">
+    <description> The 'lt' operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order)(reversed operand order). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;P3DT08H34M12.143S&quot;) lt xs:yearMonthDuration(&quot;P1999Y10M&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DurationEQ-60">
+    <description> The 'le' operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order)(reversed operand order). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:duration(&quot;P3DT08H34M12.143S&quot;) le xs:yearMonthDuration(&quot;P1999Y10M&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DayTimeDurationEQ-1">
+    <description>Simple test of 'eq' for xs:dayTimeDuration, returning positive. </description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dayTimeDuration(&quot;P3DT08H34M12.143S&quot;) eq xs:dayTimeDuration(&quot;P3DT08H34M12.143S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DayTimeDurationEQ-2">
+    <description>Testing 'eq' involving xs:dayTimeDuration with two zeroed values. </description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dayTimeDuration(&quot;PT0S&quot;) eq xs:dayTimeDuration(&quot;PT0S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DayTimeDurationEQ-3">
+    <description> Simple test of 'eq' for xs:dayTimeDuration.  </description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>not(xs:dayTimeDuration(&quot;P3DT08H34M12.043S&quot;) eq xs:dayTimeDuration(&quot;P3DT08H34M12.143S&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DayTimeDurationEQ-4">
+    <description>Simple test of 'ne' for xs:dayTimeDuration. </description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dayTimeDuration(&quot;PT08H34M12.143S&quot;) ne xs:dayTimeDuration(&quot;P3DT08H34M12.143S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DayTimeDurationEQ-5">
+    <description> Simple test of 'ne' for xs:dayTimeDuration. </description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>not(xs:dayTimeDuration(&quot;P3DT08H34M12.143S&quot;) ne xs:dayTimeDuration(&quot;P3DT08H34M12.143S&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DayTimeDurationEQ-6">
+    <description>The xs:dayTimeDuration values -PT0S and PT0S are equal. </description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dayTimeDuration(&quot;-PT0S&quot;) eq xs:dayTimeDuration(&quot;PT0S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DayTimeDurationEQ-7">
+    <description> The xs:dayTimeDuration values -P2DT5H and P2DT5H are not equal. </description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dayTimeDuration(&quot;-P2DT5H&quot;) ne xs:dayTimeDuration(&quot;P2DT5H&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DayTimeDurationEQ-8">
+    <description>Test eq operator for xs:dayTimeDuration values with large milli second component. </description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dayTimeDuration(&quot;P6DT16H34M59.613999S&quot;) eq xs:dayTimeDuration(&quot;P6DT16H34M59.613999S&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-YearMonthDurationEQ-1">
+    <description> Simple test of 'eq' for xs:yearMonthDuration, returning positive. </description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:yearMonthDuration(&quot;P1999Y10M&quot;) eq xs:yearMonthDuration(&quot;P1999Y10M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-YearMonthDurationEQ-2">
+    <description>Testing 'eq' involving xs:yearMonthDuration with two zeroed values. </description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:yearMonthDuration(&quot;P0M&quot;) eq xs:yearMonthDuration(&quot;P0M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-YearMonthDurationEQ-3">
+    <description> Simple test of 'eq' for xs:yearMonthDuration. </description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>not(xs:yearMonthDuration(&quot;P1999Y&quot;) eq xs:yearMonthDuration(&quot;P1999Y10M&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-YearMonthDurationEQ-4">
+    <description>Simple test of 'ne' for xs:yearMonthDuration.</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:yearMonthDuration(&quot;P1999Y01M&quot;) ne xs:yearMonthDuration(&quot;P1999Y10M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-YearMonthDurationEQ-5">
+    <description> Simple test of 'ne' for xs:yearMonthDuration. </description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>not(xs:yearMonthDuration(&quot;P1999Y10M&quot;) ne xs:yearMonthDuration(&quot;P1999Y10M&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-YearMonthDurationEQ-6">
+    <description> The xs:yearMonthDuration values -P0M and P0M are equal. </description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:yearMonthDuration(&quot;-P3Y8M&quot;) ne xs:yearMonthDuration(&quot;P3Y8M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-YearMonthDurationEQ-7">
+    <description>The xs:yearMonthDuration values -P3Y8M and +P3Y8M are not equal. </description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:yearMonthDuration(&quot;-P3Y8M&quot;) ne xs:yearMonthDuration(&quot;P3Y8M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dayTimeDuration-equal-001">
+    <description> test comparison of dayTimeDurations </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat('P', $days, 'DT', $hours, 'H')) }; not(local:dayTimeDuration(1, 1) eq xs:dayTimeDuration(&quot;P0D&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dayTimeDuration-equal-002">
+    <description> test comparison of dayTimeDurations </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat('P', $days, 'DT', $hours, 'H')) }; not(local:dayTimeDuration(1, 1) ne xs:dayTimeDuration(&quot;P0D&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dayTimeDuration-equal-003">
+    <description> test comparison of xs:dayTimeDuration </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:dayTimeDuration($dayTimeDuration as xs:dayTimeDuration, $null as xs:boolean) { if ($null) then () else $dayTimeDuration }; exists(local:dayTimeDuration(xs:dayTimeDuration(&quot;P0D&quot;), fn:true()) eq xs:dayTimeDuration(&quot;P0D&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dayTimeDuration-equal-004">
+    <description> test comparison of xs:dayTimeDuration </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:dayTimeDuration($dayTimeDuration as xs:dayTimeDuration, $null as xs:boolean) { if ($null) then () else $dayTimeDuration }; local:dayTimeDuration(xs:dayTimeDuration(&quot;P0D&quot;), fn:false()) eq xs:dayTimeDuration(&quot;P0D&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dayTimeDuration-equal-005">
+    <description> test comparison of xs:dayTimeDuration </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:dayTimeDuration($dayTimeDuration as xs:dayTimeDuration, $null as xs:boolean) { if ($null) then () else $dayTimeDuration }; exists(local:dayTimeDuration(xs:dayTimeDuration(&quot;P0D&quot;), fn:true()) ne xs:dayTimeDuration(&quot;P0D&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dayTimeDuration-equal-006">
+    <description> test comparison of xs:dayTimeDuration </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:dayTimeDuration($dayTimeDuration as xs:dayTimeDuration, $null as xs:boolean) { if ($null) then () else $dayTimeDuration }; local:dayTimeDuration(xs:dayTimeDuration(&quot;P0D&quot;), fn:false()) ne xs:dayTimeDuration(&quot;P0D&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-duration-equal-001">
+    <description> test comparison of dayTimeDurations </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:duration($days as xs:integer, $hours as xs:integer) { xs:duration(concat('P', $days, 'DT', $hours, 'H')) }; not(local:duration(1, 1) eq xs:dayTimeDuration(&quot;P0D&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-duration-equal-002">
+    <description> test comparison of dayTimeDurations </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:duration($days as xs:integer, $hours as xs:integer) { xs:duration(concat('P', $days, 'DT', $hours, 'H')) }; not(local:duration(1, 1) ne xs:dayTimeDuration(&quot;P0D&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-duration-equal-003">
+    <description> test comparison of xs:duration </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:duration($duration as xs:duration, $null as xs:boolean) { if ($null) then () else $duration }; exists(local:duration(xs:duration(&quot;P1DT1H&quot;), fn:true()) eq xs:duration(&quot;P1DT1H&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-duration-equal-004">
+    <description> test comparison of xs:duration </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:duration($duration as xs:duration, $null as xs:boolean) { if ($null) then () else $duration }; local:duration(xs:duration(&quot;P1DT1H&quot;), fn:false()) eq xs:duration(&quot;P1DT1H&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-duration-equal-005">
+    <description> test comparison of xs:duration </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:duration($duration as xs:duration, $null as xs:boolean) { if ($null) then () else $duration }; exists(local:duration(xs:duration(&quot;P1DT1H&quot;), fn:true()) ne xs:duration(&quot;P1DT1H&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-duration-equal-006">
+    <description> test comparison of xs:duration </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:duration($duration as xs:duration, $null as xs:boolean) { if ($null) then () else $duration }; local:duration(xs:duration(&quot;P1DT1H&quot;), fn:false()) ne xs:duration(&quot;P1DT1H&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-yearMonthDuration-equal-001">
+    <description> test equality of xs:yearMonthDuration </description>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+        declare function local:yearMonthDuration($years as xs:integer, $months as xs:integer ) { xs:yearMonthDuration(concat('P', $years, 'Y', $months, 'M')) };
+        not(local:yearMonthDuration(1, 1) eq xs:yearMonthDuration(&quot;P0Y&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-yearMonthDuration-equal-002">
+    <description> test equality of xs:yearMonthDuration </description>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+        declare function local:yearMonthDuration($years as xs:integer, $months as xs:integer ) { xs:yearMonthDuration(concat('P', $years, 'Y', $months, 'M')) };
+        not(local:yearMonthDuration(1, 1) ne xs:yearMonthDuration(&quot;P0Y&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+</test-set>

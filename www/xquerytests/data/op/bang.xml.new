@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set covers="bang-operator" name="op-bang" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the &quot;!&quot; simple mapping operator (new in XPath 3.0).</description>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-concat" type="spec"/>
+  <dependency type="spec" value="XP30+ XQ30+"/>
+  <test-case name="bang-1">
+    <description>Simple  mapping of atomic sequence</description>
+    <created by="Michael Kay" on="2011-06-30"/>
+    <test>(1 to 10)!(.*.)</test>
+    <result-string/>
+    <result>
+      <assert-deep-eq>1, 4, 9, 16, 25, 36, 49, 64, 81, 100</assert-deep-eq>
+    </result>
+  </test-case>
+  <test-case name="bang-2">
+    <description>Simple  mapping of atomic sequence</description>
+    <created by="Michael Kay" on="2011-06-30"/>
+    <test>(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;)!string-length()</test>
+    <result-string/>
+    <result>
+      <assert-deep-eq>3, 4, 5</assert-deep-eq>
+    </result>
+  </test-case>
+  <test-case name="bang-3">
+    <description>Simple  mapping with position() function</description>
+    <created by="Michael Kay" on="2011-06-30"/>
+    <test>(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;)!position()</test>
+    <result-string/>
+    <result>
+      <assert-deep-eq>1, 2, 3</assert-deep-eq>
+    </result>
+  </test-case>
+  <test-case name="bang-4">
+    <description>Simple  mapping with last() function</description>
+    <created by="Michael Kay" on="2011-06-30"/>
+    <test>(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;)!(position() = last())</test>
+    <result-string/>
+    <result>
+      <assert-deep-eq>false(), false(), true()</assert-deep-eq>
+    </result>
+  </test-case>
+  <test-case name="bang-5">
+    <description>Simple mapping path</description>
+    <created by="Michael Kay" on="2011-06-30"/>
+    <test>(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;) ! string-length() ! (.+1)</test>
+    <result-string/>
+    <result>
+      <assert-deep-eq>4, 5, 6</assert-deep-eq>
+    </result>
+  </test-case>
+  <test-case name="bang-6">
+    <description>Simple mapping with nodes: no sorting into document order or deduplication</description>
+    <created by="Michael Kay" on="2011-06-30"/>
+    <environment ref="works-mod"/>
+    <test>(/works/employee[2], /works/employee[1], /works/employee[2]) ! @name ! string()</test>
+    <result-string/>
+    <result>
+      <assert-deep-eq>&quot;John Doe 2&quot;, &quot;Jane Doe 1&quot;, &quot;John Doe 2&quot;</assert-deep-eq>
+    </result>
+  </test-case>
+  <test-case name="bang-7">
+    <description>Precedence of &quot;!&quot; is less than &quot;[]&quot;</description>
+    <created by="Michael Kay" on="2011-06-30"/>
+    <environment ref="works-mod"/>
+    <test>/ works ! employee[2] ! hours[2] ! number()</test>
+    <result-string/>
+    <result>
+      <assert-eq>20</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="bang-8">
+    <description>Precedence of &quot;!&quot; is greater than &quot;+&quot;</description>
+    <created by="Michael Kay" on="2011-06-30"/>
+    <environment ref="works-mod"/>
+    <test>2 + (/ works ! employee[2] ! hours[2]) ! number() ! (-.)</test>
+    <result-string/>
+    <result>
+      <assert-eq>-18</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="bang-9">
+    <description>Precedence of &quot;!&quot; is greater than unary &quot;-&quot;</description>
+    <created by="Michael Kay" on="2011-06-30"/>
+    <test>-2!(.+1)</test>
+    <result-string/>
+    <result>
+      <assert-eq>-3</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="bang-10">
+    <description>rhs of &quot;!&quot; operator returning a sequence</description>
+    <created by="Michael Kay" on="2011-06-30"/>
+    <environment ref="works-mod"/>
+    <test>(1 to 5) ! (1 to .)</test>
+    <result-string/>
+    <result>
+      <assert-deep-eq>1, 1,2, 1,2,3, 1,2,3,4, 1,2,3,4,5</assert-deep-eq>
+    </result>
+  </test-case>
+  <test-case name="bang-11">
+    <description>&quot;!&quot; is not associative when position() is used</description>
+    <created by="Michael Kay" on="2011-06-30"/>
+    <environment ref="works-mod"/>
+    <test>(1 to 5) ! ((1 to .) ! position())</test>
+    <result-string/>
+    <result>
+      <assert-deep-eq>1, 1,2, 1,2,3, 1,2,3,4, 1,2,3,4,5</assert-deep-eq>
+    </result>
+  </test-case>
+  <test-case name="bang-12">
+    <description>&quot;!&quot; is not associative when position() is used</description>
+    <created by="Michael Kay" on="2011-06-30"/>
+    <environment ref="works-mod"/>
+    <test>(1 to 5) ! (1 to .) ! position()</test>
+    <result-string/>
+    <result>
+      <assert-deep-eq>1 to 15</assert-deep-eq>
+    </result>
+  </test-case>
+  <test-case name="bang-13">
+    <description>backwards-axes semantics of [position()] work with &quot;!&quot; operator</description>
+    <created by="Michael Kay" on="2011-06-30"/>
+    <environment ref="works-mod"/>
+    <test>/ works ! employee[4] ! preceding-sibling::*[1] ! string(@name) </test>
+    <result-string/>
+    <result>
+      <assert-eq>&quot;Jane Doe 3&quot;</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="bang-14">
+    <description>Interaction of &quot;!&quot; with &quot;/&quot;</description>
+    <created by="Michael Kay" on="2011-06-30"/>
+    <modified by="John Snelson" change="Revised syntax as per bug 16197" on="2012-06-19"/>
+    <environment ref="works-mod"/>
+    <test>count(/ ! works)</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+</test-set>

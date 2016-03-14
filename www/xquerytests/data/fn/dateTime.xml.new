@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="fn-dateTime" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description/>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-dateTime" type="spec"/>
+  <test-case name="fn-dateTime-1">
+    <description>Evaluation of &quot;fn:dateTime&quot; function as per example 1 of the F  O Specs. for this function. 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:dateTime(xs:date(&quot;1999-12-31&quot;), xs:time(&quot;12:00:00&quot;))</test>
+    <result-string>xs:string('1999-12-31T12:00:00')</result-string>
+    <result>
+      <assert-string-value>1999-12-31T12:00:00</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-2">
+    <description>Evaluation of &quot;fn:dateTime&quot; function as per example 2 of the F  O Specs. for this function. 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:dateTime(xs:date(&quot;1999-12-31&quot;), xs:time(&quot;24:00:00&quot;))</test>
+    <result-string>xs:string('1999-12-31T00:00:00')</result-string>
+    <result>
+      <assert-string-value>1999-12-31T00:00:00</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-3">
+    <description>Evaluation of &quot;fn:dateTime&quot; function, where only the first argument have a timezone. 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:dateTime(xs:date(&quot;1999-12-31Z&quot;), xs:time(&quot;23:00:00&quot;))</test>
+    <result-string>xs:string('1999-12-31T23:00:00Z')</result-string>
+    <result>
+      <assert-string-value>1999-12-31T23:00:00Z</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-4">
+    <description>Evaluation of &quot;fn:dateTime&quot; function, where only the second argument have a timezone. 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:dateTime(xs:date(&quot;1999-12-31&quot;), xs:time(&quot;23:00:00Z&quot;))</test>
+    <result-string>xs:string('1999-12-31T23:00:00Z')</result-string>
+    <result>
+      <assert-string-value>1999-12-31T23:00:00Z</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-5">
+    <description>Evaluation of &quot;fn:dateTime&quot; function, where both arguments have the same timezone (Z). 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:dateTime(xs:date(&quot;1999-12-31Z&quot;), xs:time(&quot;23:00:00Z&quot;))</test>
+    <result-string>xs:string('1999-12-31T23:00:00Z')</result-string>
+    <result>
+      <assert-string-value>1999-12-31T23:00:00Z</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-6">
+    <description>Evaluation of &quot;fn:dateTime&quot; function, where both arguments have the same timezone (+10:00). 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;))</test>
+    <result-string>xs:string('1999-12-31T23:00:00+10:00')</result-string>
+    <result>
+      <assert-string-value>1999-12-31T23:00:00+10:00</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-7">
+    <description>Evaluation of &quot;fn:dateTime&quot; function together together with the  op:dateTime-equal operator(eq). 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) eq fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-8">
+    <description>Evaluation of &quot;fn:dateTime&quot; function together together with the  op:dateTime-equal operator(ne). 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) ne fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-9">
+    <description>Evaluation of &quot;fn:dateTime&quot; function together together with the  op:dateTime-equal operator(le). 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) le fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-10">
+    <description>Evaluation of &quot;fn:dateTime&quot; function together together with the  op:dateTime-equal operator(ge). 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) ge fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-11">
+    <description>Evaluation of &quot;fn:dateTime&quot; function together together with the  op:dateTime-equal operator(lt). 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) lt fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-12">
+    <description>Evaluation of &quot;fn:dateTime&quot; function together together with the  op:dateTime-equal operator(le). 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) le fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-13">
+    <description>Evaluation of &quot;fn:dateTime&quot; function together together with the  op:dateTime-equal operator(gt). 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) gt fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-14">
+    <description>Evaluation of &quot;fn:dateTime&quot; function together together with the  op:dateTime-equal operator(ge). 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) ge fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-15">
+    <description>Evaluation of &quot;fn:dateTime&quot; as an argument to the function &quot;year-from-dateTime&quot;. 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:year-from-dateTime(fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)))</test>
+    <result-string>xs:string('1999')</result-string>
+    <result>
+      <assert-string-value>1999</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-16">
+    <description>Evaluation of &quot;fn:dateTime&quot; as an argument to the function &quot;month-from-dateTime&quot;. 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:month-from-dateTime(fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)))</test>
+    <result-string>xs:string('12')</result-string>
+    <result>
+      <assert-string-value>12</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-17">
+    <description>Evaluation of &quot;fn:dateTime&quot; as an argument to the function &quot;day-from-dateTime&quot;. 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:day-from-dateTime(fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)))</test>
+    <result-string>xs:string('31')</result-string>
+    <result>
+      <assert-string-value>31</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-18">
+    <description>Evaluation of &quot;fn:dateTime&quot; as an argument to the function &quot;hours-from-dateTime&quot;. 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:hours-from-dateTime(fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)))</test>
+    <result-string>xs:string('23')</result-string>
+    <result>
+      <assert-string-value>23</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-19">
+    <description>Evaluation of &quot;fn:dateTime&quot; as an argument to the function &quot;minutes-from-dateTime&quot;. 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:minutes-from-dateTime(fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)))</test>
+    <result-string>xs:string('0')</result-string>
+    <result>
+      <assert-string-value>0</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-20">
+    <description>Evaluation of &quot;fn:dateTime&quot; as an argument to the function &quot;seconds-from-dateTime&quot;. 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:seconds-from-dateTime(fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)))</test>
+    <result-string>xs:string('0')</result-string>
+    <result>
+      <assert-string-value>0</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-21">
+    <description>Evaluation of &quot;fn:dateTime&quot; as an argument to the function &quot;timezone-from-dateTime&quot;. 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:timezone-from-dateTime(fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)))</test>
+    <result-string>xs:string('PT10H')</result-string>
+    <result>
+      <assert-string-value>PT10H</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-22">
+    <description>Evaluation of &quot;fn:dateTime&quot; as an argument to the function &quot;adjust-dateTime-to-timezone&quot;. 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:adjust-dateTime-to-timezone(fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)),xs:dayTimeDuration(&quot;PT10H&quot;))</test>
+    <result-string>xs:string('1999-12-31T23:00:00+10:00')</result-string>
+    <result>
+      <assert-string-value>1999-12-31T23:00:00+10:00</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-23">
+    <description>Evaluation of &quot;fn:dateTime&quot; as part of a subtraction operation. 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test>fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) - fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;22:00:00+10:00&quot;))</test>
+    <result-string>xs:string('PT1H')</result-string>
+    <result>
+      <assert-string-value>PT1H</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-24">
+    <description>Evaluation of &quot;fn:dateTime&quot; used together with the &quot;op:add-yearMonthDuration-to-dateTime&quot; operator 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test> fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) + xs:yearMonthDuration(&quot;P1Y2M&quot;)</test>
+    <result-string>xs:string('2001-02-28T23:00:00+10:00')</result-string>
+    <result>
+      <assert-string-value>2001-02-28T23:00:00+10:00</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-25">
+    <description>Evaluation of &quot;fn:dateTime&quot; used together with the &quot;op:add-dayTimeDuration-to-dateTime&quot; operator 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test> fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) + xs:dayTimeDuration(&quot;P3DT1H15M&quot;)</test>
+    <result-string>xs:string('2000-01-04T00:15:00+10:00')</result-string>
+    <result>
+      <assert-string-value>2000-01-04T00:15:00+10:00</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-26">
+    <description>Evaluation of &quot;fn:dateTime&quot; used together with the &quot;subtract-yearMonthDuration-from-dateTime&quot; operator 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test> fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) - xs:yearMonthDuration(&quot;P1Y2M&quot;)</test>
+    <result-string>xs:string('1998-10-31T23:00:00+10:00')</result-string>
+    <result>
+      <assert-string-value>1998-10-31T23:00:00+10:00</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-27">
+    <description>Evaluation of &quot;fn:dateTime&quot; used together with the &quot;subtract-dayTimeDuration-from-dateTime&quot; operator 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test> fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) - xs:dayTimeDuration(&quot;P3DT1H15M&quot;)</test>
+    <result-string>xs:string('1999-12-28T21:45:00+10:00')</result-string>
+    <result>
+      <assert-string-value>1999-12-28T21:45:00+10:00</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-28">
+    <description>Evaluation of &quot;fn:dateTime&quot; where first argument is empty sequence 
+ </description>
+    <created by="Carmelo Montanez" on="2006-09-22"/>
+    <test> fn:count(fn:dateTime((), xs:time(&quot;23:00:00+10:00&quot;)))</test>
+    <result-string>xs:string('0')</result-string>
+    <result>
+      <assert-string-value>0</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-29">
+    <description>Evaluation of &quot;fn:dateTime&quot; where second argument is empty sequence 
+ </description>
+    <created by="Carmelo Montanez" on="2006-09-22"/>
+    <test> fn:count(fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), ()))</test>
+    <result-string>xs:string('0')</result-string>
+    <result>
+      <assert-string-value>0</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dateTime-30">
+    <description>Evaluation of &quot;fn:dateTime&quot; where both arguments are equal to the empty sequence 
+ </description>
+    <created by="Carmelo Montanez" on="2006-09-22"/>
+    <test> fn:count(fn:dateTime((),()))</test>
+    <result-string>xs:string('0')</result-string>
+    <result>
+      <assert-string-value>0</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="forg0008-1">
+    <description>Evaluation of &quot;fn:dateTime&quot; function, where the two arguments have different timezones. 
+ </description>
+    <created by="Carmelo Montanez" on="2009-09-19"/>
+    <test> fn:dateTime(xs:date(&quot;1999-12-31Z&quot;), xs:time(&quot;12:00:00+10:00&quot;))</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0008&quot;))</result-string>
+    <result>
+      <error code="FORG0008"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeFunc-1">
+    <description>Passing too few parameters(none) to fn:dateTime().</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>dateTime()</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeFunc-2">
+    <description>Passing too few parameters(only one) to fn:dateTime().</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>dateTime(xs:date(&quot;2004-03-04&quot;))</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeFunc-3">
+    <description>Passing too many parameters to fn:dateTime().</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>dateTime(xs:date(&quot;2004-03-04&quot;), xs:time(&quot;08:05:23&quot;), ())</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeFunc-4">
+    <description>Passing the empty sequence as second argument is allowed(recent change in the specification).</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>empty(dateTime(xs:date(&quot;2004-03-04&quot;), ()))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeFunc-5">
+    <description> Passing the empty sequence as first argument is allowed(recent change in the specification). </description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>empty(dateTime((), xs:time(&quot;08:05:23&quot;)))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeFunc-6">
+    <description>Passing different timezones to fn:dateTime() is an error. </description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>dateTime(xs:date(&quot;2004-03-04-00:01&quot;), xs:time(&quot;08:05:23+00:01&quot;))</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0008&quot;))</result-string>
+    <result>
+      <error code="FORG0008"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeFunc-7">
+    <description>Passing different timezones to fn:dateTime() is an error. </description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>dateTime(xs:date(&quot;2004-03-04-00:01&quot;), xs:time(&quot;08:05:23Z&quot;))</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0008&quot;))</result-string>
+    <result>
+      <error code="FORG0008"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeFunc-8">
+    <description> Invoke fn:dateTime() with timezones +00:00 and -00:00.</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>dateTime(xs:date(&quot;2004-03-04-00:00&quot;), xs:time(&quot;08:05:23+00:00&quot;)) eq xs:dateTime(&quot;2004-03-04T08:05:23Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeFunc-9">
+    <description>Invoke fn:dateTime() with identical timezones.</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>dateTime(xs:date(&quot;2004-03-04+11:00&quot;), xs:time(&quot;08:05:23+11:00&quot;)) eq xs:dateTime(&quot;2004-03-04T08:05:23+11:00&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeFunc-10">
+    <description>Invoke fn:dateTime() with the first value having no timezone.</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>dateTime(xs:date(&quot;2004-03-04&quot;), xs:time(&quot;08:05:23-05:00&quot;)) eq xs:dateTime(&quot;2004-03-04T08:05:23-05:00&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeFunc-11">
+    <description>Invoke fn:dateTime() with the second value having no timezone.</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>dateTime(xs:date(&quot;2004-03-04+11:00&quot;), xs:time(&quot;08:05:23&quot;)) eq xs:dateTime(&quot;2004-03-04T08:05:23+11:00&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeFunc-12">
+    <description>Invoke fn:dateTime() with the time value being 24:00:00. </description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:string(dateTime(xs:date(&quot;1999-12-31&quot;), xs:time(&quot;24:00:00&quot;))) eq &quot;1999-12-31T00:00:00&quot;</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeFunc-13">
+    <description> Invoke fn:dateTime() with timezones being canonical UTC('Z').</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>dateTime(xs:date(&quot;2004-03-04Z&quot;), xs:time(&quot;08:05:23Z&quot;)) eq xs:dateTime(&quot;2004-03-04T08:05:23Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeFunc-14">
+    <description>Invoke fn:dateTime() with the first value's timezone being canonical UTC('Z'). </description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>dateTime(xs:date(&quot;2004-03-04Z&quot;), xs:time(&quot;08:05:23&quot;)) eq xs:dateTime(&quot;2004-03-04T08:05:23Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeFunc-15">
+    <description>Invoke fn:dateTime() with the first value's timezone being an arbitrary value.</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>dateTime(xs:date(&quot;2004-03-04+13:07&quot;), xs:time(&quot;08:05:23&quot;)) eq xs:dateTime(&quot;2004-03-04T08:05:23+13:07&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeFunc-16">
+    <description>Invoke fn:dateTime() with the second value's timezone being an arbitrary value.</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>dateTime(xs:date(&quot;2004-03-04&quot;), xs:time(&quot;08:05:23+13:07&quot;)) eq xs:dateTime(&quot;2004-03-04T08:05:23+13:07&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeFunc-17">
+    <description>Invoke fn:dateTime() where none of its values has a timezone. </description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>dateTime(xs:date(&quot;2004-03-04&quot;), xs:time(&quot;08:05:23&quot;)) eq xs:dateTime(&quot;2004-03-04T08:05:23&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeFunc-18">
+    <description>Invoke fn:dateTime() with the first value's timezone being canonical UTC('Z'). </description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>dateTime(xs:date(&quot;2004-03-04&quot;), xs:time(&quot;08:05:23Z&quot;)) eq xs:dateTime(&quot;2004-03-04T08:05:23Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-DateTimeFunc-1">
+    <description>Passing the empty sequence as both arguments is allowed(recent change in the specification). </description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>empty(dateTime((), ()))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dateTime-001">
+    <description> test evaluation of fn:dateTime to exactly one item Author: Tim Mills </description>
+    <created by="Oliver Hallam" on="2008-04-14"/>
+    <test>fn:index-of( ( 'A', fn:current-dateTime(), 'B' ), fn:dateTime(fn:current-date(), fn:current-time()) )</test>
+    <result-string>xs:string('2')</result-string>
+    <result>
+      <assert-string-value>2</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dateTime-002">
+    <description> test evaluation of fn:dateTime to exactly one item with invalid timezones </description>
+    <created by="Oliver Hallam" on="2008-04-14"/>
+    <test>fn:index-of( ( 'A', fn:current-dateTime(), 'B' ), fn:dateTime(adjust-date-to-timezone(fn:current-date(), xs:dayTimeDuration(&quot;PT1H&quot;)), adjust-time-to-timezone(fn:current-time(), xs:dayTimeDuration(&quot;PT2H&quot;))))</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0008&quot;))</result-string>
+    <result>
+      <error code="FORG0008"/>
+    </result>
+  </test-case>
+</test-set>

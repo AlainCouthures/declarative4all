@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="op-yearMonthDuration-less-than" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the yearMonthDuration-less-than() function</description>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-yearMonthDuration-less-than" type="spec"/>
+  <test-case name="op-yearMonthDuration-less-than2args-1">
+    <description>
+*******************************************************
+Test: op-yearMonthDuration-less-than2args-1             
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:06 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:yearMonthDuration-less-than&quot; operator
+ with the arguments set as follows:                    
+$arg1 = xs:yearMonthDuration(lower bound)             
+$arg2 = xs:yearMonthDuration(lower bound)             
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) lt xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-less-than2args-2">
+    <description>
+*******************************************************
+Test: op-yearMonthDuration-less-than2args-2             
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:06 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:yearMonthDuration-less-than&quot; operator
+ with the arguments set as follows:                    
+$arg1 = xs:yearMonthDuration(mid range)               
+$arg2 = xs:yearMonthDuration(lower bound)             
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration(&quot;P1000Y6M&quot;) lt xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-less-than2args-3">
+    <description>
+*******************************************************
+Test: op-yearMonthDuration-less-than2args-3             
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:06 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:yearMonthDuration-less-than&quot; operator
+ with the arguments set as follows:                    
+$arg1 = xs:yearMonthDuration(upper bound)             
+$arg2 = xs:yearMonthDuration(lower bound)             
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration(&quot;P2030Y12M&quot;) lt xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-less-than2args-4">
+    <description>
+*******************************************************
+Test: op-yearMonthDuration-less-than2args-4             
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:06 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:yearMonthDuration-less-than&quot; operator
+ with the arguments set as follows:                    
+$arg1 = xs:yearMonthDuration(lower bound)             
+$arg2 = xs:yearMonthDuration(mid range)               
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) lt xs:yearMonthDuration(&quot;P1000Y6M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-less-than2args-5">
+    <description>
+*******************************************************
+Test: op-yearMonthDuration-less-than2args-5             
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:06 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:yearMonthDuration-less-than&quot; operator
+ with the arguments set as follows:                    
+$arg1 = xs:yearMonthDuration(lower bound)             
+$arg2 = xs:yearMonthDuration(upper bound)             
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) lt xs:yearMonthDuration(&quot;P2030Y12M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-less-than2args-6">
+    <description>
+*******************************************************
+Test: op-yearMonthDuration-less-than2args-6             
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:06 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:yearMonthDuration-less-than&quot; operator
+ with the arguments set as follows:                    
+$arg1 = xs:yearMonthDuration(lower bound)             
+$arg2 = xs:yearMonthDuration(lower bound)             
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) ge xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-less-than2argsNew-7">
+    <description>
+*******************************************************
+Test: op-yearMonthDuration-less-than2args-7             
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:06 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:yearMonthDuration-less-than&quot; operator
+ with the arguments set as follows:                    
+$arg1 = xs:yearMonthDuration(mid range)               
+$arg2 = xs:yearMonthDuration(lower bound)             
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration(&quot;P1000Y6M&quot;) ge xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-less-than2args-8">
+    <description>
+*******************************************************
+Test: op-yearMonthDuration-less-than2args-8             
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:06 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:yearMonthDuration-less-than&quot; operator
+ with the arguments set as follows:                    
+$arg1 = xs:yearMonthDuration(upper bound)             
+$arg2 = xs:yearMonthDuration(lower bound)             
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration(&quot;P2030Y12M&quot;) ge xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-less-than2args-9">
+    <description>
+*******************************************************
+Test: op-yearMonthDuration-less-than2args-9             
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:06 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:yearMonthDuration-less-than&quot; operator
+ with the arguments set as follows:                    
+$arg1 = xs:yearMonthDuration(lower bound)             
+$arg2 = xs:yearMonthDuration(mid range)               
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) ge xs:yearMonthDuration(&quot;P1000Y6M&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-less-than2args-10">
+    <description>
+*******************************************************
+Test: op-yearMonthDuration-less-than2args-10            
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:06 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:yearMonthDuration-less-than&quot; operator
+ with the arguments set as follows:                    
+$arg1 = xs:yearMonthDuration(lower bound)             
+$arg2 = xs:yearMonthDuration(upper bound)             
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) ge xs:yearMonthDuration(&quot;P2030Y12M&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-less-than-3">
+    <description>
+*******************************************************
+Test: op-yearMonthDuration-less-than-3                 
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;yearMonthDuration-less-than&quot; function that  
+return true and used together with fn:not (lt operator)
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>fn:not((xs:yearMonthDuration(&quot;P20Y10M&quot;) lt xs:yearMonthDuration(&quot;P20Y11M&quot;)))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-less-than-4">
+    <description>
+*******************************************************
+Test: op-yearMonthDuration-less-than-4                 
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;yearMonthDuration-less-than&quot; function that  
+return true and used together with fn:not (le operator)
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>fn:not(xs:yearMonthDuration(&quot;P20Y10M&quot;) le xs:yearMonthDuration(&quot;P20Y10M&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-less-than-5">
+    <description>
+*******************************************************
+Test: op-yearMonthDuration-less-than-5                 
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;yearMonthDuration-less-than&quot; function that  
+return false and used together with fn:not (lt operator)
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>fn:not(xs:yearMonthDuration(&quot;P20Y10M&quot;) lt xs:yearMonthDuration(&quot;P20Y09M&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-less-than-6">
+    <description>
+*******************************************************
+Test: op-yearMonthDuration-less-than-6                 
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;yearMonthDuration-less-than&quot; function that  
+return false and used together with fn:not(le operator)
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>fn:not(xs:yearMonthDuration(&quot;P10Y09M&quot;) le xs:yearMonthDuration(&quot;P10Y07M&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-less-thanNew-7">
+    <description>
+*******************************************************
+Test: op-yearMonthDuration-less-than-7                 
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;yearMonthDuration-less-than&quot; function used  
+together with &quot;and&quot; expression (lt operator).          
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:yearMonthDuration(&quot;P10Y09M&quot;) lt xs:yearMonthDuration(&quot;P09Y10M&quot;)) and (xs:yearMonthDuration(&quot;P10Y01M&quot;) lt xs:yearMonthDuration(&quot;P08Y06M&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-less-than-8">
+    <description>
+*******************************************************
+Test: op-yearMonthDuration-less-than-8                 
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;yearMonthDuration-less-than&quot; function used  
+together with &quot;and&quot; expression (le operator).          
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:yearMonthDuration(&quot;P10Y09M&quot;) le xs:yearMonthDuration(&quot;P10Y01M&quot;)) and (xs:yearMonthDuration(&quot;P02Y04M&quot;) le xs:yearMonthDuration(&quot;P09Y07M&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-less-than-9">
+    <description>
+*******************************************************
+Test: op-yearMonthDuration-less-than-9                 
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;yearMonthDuration-less-than&quot; function used
+together with &quot;or&quot; expression (lt operator).           
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:yearMonthDuration(&quot;P10Y08M&quot;) lt xs:yearMonthDuration(&quot;P10Y07M&quot;)) or (xs:yearMonthDuration(&quot;P10Y09M&quot;) lt xs:yearMonthDuration(&quot;P10Y09M&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-less-than-10">
+    <description>
+*******************************************************
+Test: op-yearMonthDuration-less-than-10                
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;yearMonthDuration-less-than&quot; function used  
+together with &quot;or&quot; expression (le operator).           
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:yearMonthDuration(&quot;P10Y01M&quot;) le xs:yearMonthDuration(&quot;P09Y06M&quot;)) or (xs:yearMonthDuration(&quot;P15Y01M&quot;) le xs:yearMonthDuration(&quot;P02Y04M&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-less-than-11">
+    <description>
+*******************************************************
+Test: op-yearMonthDuration-less-than-11                
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;yearMonthDuration-less-than&quot; function used  
+together with &quot;fn:true&quot;/or expression (lt operator).   
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:yearMonthDuration(&quot;P10Y02M&quot;) lt xs:yearMonthDuration(&quot;P01Y10M&quot;)) or (fn:true())</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-less-than-12">
+    <description>
+*******************************************************
+Test: op-yearMonthDuration-less-than-12                
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;yearMonthDuration-less-than&quot; function used  
+together with &quot;fn:true&quot;/or expression (le operator).   
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:yearMonthDuration(&quot;P10Y01M&quot;) le xs:yearMonthDuration(&quot;P09Y05M&quot;)) or (fn:true())</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-less-than-13">
+    <description>
+*******************************************************
+Test: op-yearMonthDuration-less-than-13                
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;yearMonthDuration-less-than&quot; function used  
+together with &quot;fn:false&quot;/or expression (lt operator).  
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:yearMonthDuration(&quot;P30Y10M&quot;) lt xs:yearMonthDuration(&quot;P01Y02M&quot;)) or (fn:false())</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-yearMonthDuration-less-than-14">
+    <description>
+*******************************************************
+Test: op-yearMonthDuration-less-than-14                
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;yearMonthDuration-less-than&quot; function used  
+together with &quot;fn:false&quot;/or expression (le operator).  
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:yearMonthDuration(&quot;P10Y05M&quot;) le xs:yearMonthDuration(&quot;P20Y10M&quot;)) or (fn:false())</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-YearMonthDurationLT-1">
+    <description>
+*******************************************************
+ Test: K-YearMonthDurationLT-1                         
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Simple test of 'lt' for xs:yearMonthDuration. 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:yearMonthDuration(&quot;P1999Y9M&quot;) lt xs:yearMonthDuration(&quot;P1999Y10M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-YearMonthDurationLT-2">
+    <description>
+*******************************************************
+ Test: K-YearMonthDurationLT-2                         
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Simple test of 'lt' for xs:yearMonthDuration, evaluating to false. 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>not(xs:yearMonthDuration(&quot;P1999Y10M&quot;) lt xs:yearMonthDuration(&quot;P1999Y10M&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-YearMonthDurationLT-3">
+    <description>
+*******************************************************
+ Test: K-YearMonthDurationLT-3                         
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Simple test of 'lt' for xs:yearMonthDuration, evaluating to false. 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>not(xs:yearMonthDuration(&quot;P1999Y10M&quot;) lt xs:yearMonthDuration(&quot;P1999Y9M&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-YearMonthDurationLT-4">
+    <description>
+*******************************************************
+ Test: K-YearMonthDurationLT-4                         
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Simple test of 'le' for xs:yearMonthDuration. 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:yearMonthDuration(&quot;P1999Y10M&quot;) le xs:yearMonthDuration(&quot;P1999Y10M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-YearMonthDurationLT-5">
+    <description>
+*******************************************************
+ Test: K-YearMonthDurationLT-5                         
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Simple test of 'le' for xs:yearMonthDuration. 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:yearMonthDuration(&quot;P1999Y9M&quot;) le xs:yearMonthDuration(&quot;P1999Y10M&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-YearMonthDurationLT-6">
+    <description>
+*******************************************************
+ Test: K-YearMonthDurationLT-6                         
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Simple test of 'le' for xs:yearMonthDuration, evaluating to false. 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>not(xs:yearMonthDuration(&quot;P1999Y10M&quot;) le xs:yearMonthDuration(&quot;P1999Y9M&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-yearMonthDuration-less-than-001">
+    <description> test comparison of xs:yearMonthDuration </description>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+        declare function local:yearMonthDuration($years as xs:integer, $months as xs:integer ) { xs:yearMonthDuration(concat('P', $years, 'Y', $months, 'M')) };
+        not(local:yearMonthDuration(1, 1) lt xs:yearMonthDuration(&quot;P0Y&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-yearMonthDuration-less-than-002">
+    <description> test comparison of xs:yearMonthDuration </description>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+        declare function local:yearMonthDuration($years as xs:integer, $months as xs:integer ) { xs:yearMonthDuration(concat('P', $years, 'Y', $months, 'M')) };
+        not(local:yearMonthDuration(1, 1) le xs:yearMonthDuration(&quot;P0Y&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-yearMonthDuration-less-than-003">
+    <description> test comparison of xs:yearMonthDuration </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+        declare function local:yearMonthDuration($yearMonthDuration as xs:yearMonthDuration, $null as xs:boolean) { if ($null) then () else $yearMonthDuration };
+        exists(local:yearMonthDuration(xs:yearMonthDuration(&quot;P0Y&quot;), fn:true()) lt xs:yearMonthDuration(&quot;P0Y&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-yearMonthDuration-less-than-004">
+    <description> test comparison of xs:yearMonthDuration </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+        declare function local:yearMonthDuration($yearMonthDuration as xs:yearMonthDuration, $null as xs:boolean) { if ($null) then () else $yearMonthDuration };
+        local:yearMonthDuration(xs:yearMonthDuration(&quot;P0Y&quot;), fn:false()) lt xs:yearMonthDuration(&quot;P0Y&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-yearMonthDuration-less-than-005">
+    <description> test comparison of xs:yearMonthDuration </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+        declare function local:yearMonthDuration($yearMonthDuration as xs:yearMonthDuration, $null as xs:boolean) { if ($null) then () else $yearMonthDuration };
+        exists(local:yearMonthDuration(xs:yearMonthDuration(&quot;P0Y&quot;), fn:true()) ge xs:yearMonthDuration(&quot;P0Y&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-yearMonthDuration-less-than-006">
+    <description> test comparison of xs:yearMonthDuration </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+        declare function local:yearMonthDuration($yearMonthDuration as xs:yearMonthDuration, $null as xs:boolean) { if ($null) then () else $yearMonthDuration };
+        local:yearMonthDuration(xs:yearMonthDuration(&quot;P0Y&quot;), fn:false()) ge xs:yearMonthDuration(&quot;P0Y&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+</test-set>

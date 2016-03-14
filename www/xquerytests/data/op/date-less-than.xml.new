@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="op-date-less-than" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the date-less-than() function</description>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-date-less-than" type="spec"/>
+  <test-case name="op-date-less-than2args-1">
+    <description>
+*******************************************************
+Test: op-date-less-than2args-1                          
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:07 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:date-less-than&quot; operator    
+ with the arguments set as follows:                    
+$arg1 = xs:date(lower bound)                           
+$arg2 = xs:date(lower bound)                           
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:date(&quot;1970-01-01Z&quot;) lt xs:date(&quot;1970-01-01Z&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than2args-2">
+    <description>
+*******************************************************
+Test: op-date-less-than2args-2                          
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:07 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:date-less-than&quot; operator    
+ with the arguments set as follows:                    
+$arg1 = xs:date(mid range)                             
+$arg2 = xs:date(lower bound)                           
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:date(&quot;1983-11-17Z&quot;) lt xs:date(&quot;1970-01-01Z&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than2args-3">
+    <description>
+*******************************************************
+Test: op-date-less-than2args-3                          
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:07 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:date-less-than&quot; operator    
+ with the arguments set as follows:                    
+$arg1 = xs:date(upper bound)                           
+$arg2 = xs:date(lower bound)                           
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:date(&quot;2030-12-31Z&quot;) lt xs:date(&quot;1970-01-01Z&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than2args-4">
+    <description>
+*******************************************************
+Test: op-date-less-than2args-4                          
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:07 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:date-less-than&quot; operator    
+ with the arguments set as follows:                    
+$arg1 = xs:date(lower bound)                           
+$arg2 = xs:date(mid range)                             
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:date(&quot;1970-01-01Z&quot;) lt xs:date(&quot;1983-11-17Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than2args-5">
+    <description>
+*******************************************************
+Test: op-date-less-than2args-5                          
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:07 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:date-less-than&quot; operator    
+ with the arguments set as follows:                    
+$arg1 = xs:date(lower bound)                           
+$arg2 = xs:date(upper bound)                           
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:date(&quot;1970-01-01Z&quot;) lt xs:date(&quot;2030-12-31Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than2args-6">
+    <description>
+*******************************************************
+Test: op-date-less-than2args-6                          
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:07 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:date-less-than&quot; operator    
+ with the arguments set as follows:                    
+$arg1 = xs:date(lower bound)                           
+$arg2 = xs:date(lower bound)                           
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:date(&quot;1970-01-01Z&quot;) ge xs:date(&quot;1970-01-01Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than2args-7">
+    <description>
+*******************************************************
+Test: op-date-less-than2args-7                          
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:07 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:date-less-than&quot; operator    
+ with the arguments set as follows:                    
+$arg1 = xs:date(mid range)                             
+$arg2 = xs:date(lower bound)                           
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:date(&quot;1983-11-17Z&quot;) ge xs:date(&quot;1970-01-01Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than2args-8">
+    <description>
+*******************************************************
+Test: op-date-less-than2args-8                          
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:07 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:date-less-than&quot; operator    
+ with the arguments set as follows:                    
+$arg1 = xs:date(upper bound)                           
+$arg2 = xs:date(lower bound)                           
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:date(&quot;2030-12-31Z&quot;) ge xs:date(&quot;1970-01-01Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than2args-9">
+    <description>
+*******************************************************
+Test: op-date-less-than2args-9                          
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:07 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:date-less-than&quot; operator    
+ with the arguments set as follows:                    
+$arg1 = xs:date(lower bound)                           
+$arg2 = xs:date(mid range)                             
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:date(&quot;1970-01-01Z&quot;) ge xs:date(&quot;1983-11-17Z&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than2args-10">
+    <description>
+*******************************************************
+Test: op-date-less-than2args-10                         
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:07 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:date-less-than&quot; operator    
+ with the arguments set as follows:                    
+$arg1 = xs:date(lower bound)                           
+$arg2 = xs:date(upper bound)                           
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:date(&quot;1970-01-01Z&quot;) ge xs:date(&quot;2030-12-31Z&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than-1">
+    <description>
+*******************************************************
+Test: op-date-less-than-1                              
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;date-less-than&quot; function       
+As per example 1 (for this function)of the FO specs   
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:date(&quot;2004-12-25Z&quot;) lt xs:date(&quot;2004-12-25-05:00&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than-2">
+    <description>
+*******************************************************
+Test: op-date-less-than-2                              
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;date-less-than&quot; function       
+As per example 2 (for this function) of the FO  specs 
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:date(&quot;2004-12-25-12:00&quot;) le xs:date(&quot;2004-12-26+12:00&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than-3">
+    <description>
+*******************************************************
+Test: op-date-less-than-3                              
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;date-less-than&quot; function that  
+return true and used together with fn:not (lt operator)
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>fn:not((xs:date(&quot;2005-12-25Z&quot;) lt xs:date(&quot;2005-12-26Z&quot;)))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than-4">
+    <description>
+*******************************************************
+Test: op-date-less-than-4                              
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;date-less-than&quot; function that  
+return true and used together with fn:not (le operator)
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>fn:not(xs:date(&quot;2005-04-02Z&quot;) le xs:date(&quot;2005-04-02Z&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than-5">
+    <description>
+*******************************************************
+Test: op-date-less-than-5                              
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;date-less-than&quot; function that  
+return false and used together with fn:not (lt operator)
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>fn:not(xs:date(&quot;2000-12-25Z&quot;) lt xs:date(&quot;2000-11-25Z&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than-6">
+    <description>
+*******************************************************
+Test: op-date-less-than-6                              
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;date-less-than&quot; function that  
+return false and used together with fn:not(le operator)
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>fn:not(xs:date(&quot;2005-10-25Z&quot;) le xs:date(&quot;2005-10-23Z&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than-7">
+    <description>
+*******************************************************
+Test: op-date-less-than-7                              
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;date-less-than&quot; function used  
+together with &quot;and&quot; expression (lt operator).          
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:date(&quot;2000-01-01Z&quot;) lt xs:date(&quot;2000-01-01Z&quot;)) and (xs:date(&quot;2001-02-02Z&quot;) lt xs:date(&quot;2001-03-02Z&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than-8">
+    <description>
+*******************************************************
+Test: op-date-less-than-8                              
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;date-less-than&quot; function used  
+together with &quot;and&quot; expression (le operator).          
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:date(&quot;2000-01-25Z&quot;) le xs:date(&quot;2000-10-26Z&quot;)) and (xs:date(&quot;1975-10-26Z&quot;) le xs:date(&quot;1975-10-28Z&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than-9">
+    <description>
+*******************************************************
+Test: op-date-less-than-9                              
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;date-less-than&quot; function used  
+together with &quot;or&quot; expression (lt operator).           
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:date(&quot;2000-10-26Z&quot;) lt xs:date(&quot;2000-10-28Z&quot;)) or (xs:date(&quot;1976-10-28Z&quot;) lt xs:date(&quot;1976-10-28Z&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than-10">
+    <description>
+*******************************************************
+Test: op-date-less-than-10                             
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;date-less-than&quot; function used  
+together with &quot;or&quot; expression (le operator).           
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:date(&quot;1976-10-25Z&quot;) le xs:date(&quot;1976-10-28Z&quot;)) or (xs:date(&quot;1980-08-11Z&quot;) le xs:date(&quot;1980-08-10Z&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than-11">
+    <description>
+*******************************************************
+Test: op-date-less-than-11                             
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;date-less-than&quot; function used  
+together with &quot;fn:true&quot;/or expression (lt operator).   
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:date(&quot;1980-05-18Z&quot;) lt xs:date(&quot;1980-05-17Z&quot;)) or (fn:true())</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than-12">
+    <description>
+*******************************************************
+Test: op-date-less-than-12                             
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;date-less-than&quot; function used  
+together with &quot;fn:true&quot;/or expression (le operator).   
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:date(&quot;2000-10-25Z&quot;) le xs:date(&quot;2000-10-26Z&quot;)) or (fn:true())</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than-13">
+    <description>
+*******************************************************
+Test: op-date-less-than-13                             
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;date-less-than&quot; function used  
+together with &quot;fn:false&quot;/or expression (lt operator).  
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:date(&quot;1980-01-01Z&quot;) lt xs:date(&quot;1980-10-01Z&quot;)) or (fn:false())</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-date-less-than-14">
+    <description>
+*******************************************************
+Test: op-date-less-than-14                             
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;date-less-than&quot; function used  
+together with &quot;fn:false&quot;/or expression (le operator).  
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:date(&quot;1980-10-25Z&quot;) le xs:date(&quot;1980-10-26Z&quot;)) or (fn:false())</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateLT-1">
+    <description>
+*******************************************************
+ Test: K-DateLT-1                                      
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Simple test of 'lt' for xs:date.             
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:date(&quot;2004-07-12&quot;) lt xs:date(&quot;2004-07-13&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateLT-2">
+    <description>
+*******************************************************
+ Test: K-DateLT-2                                      
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Simple test of 'lt' for xs:date.             
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>not(xs:date(&quot;2004-07-13&quot;) lt xs:date(&quot;2004-07-12&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateLT-3">
+    <description>
+*******************************************************
+ Test: K-DateLT-3                                      
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Simple test of 'lt' for xs:date.             
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>not(xs:date(&quot;2004-07-13&quot;) lt xs:date(&quot;2004-07-13&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateLT-4">
+    <description>
+*******************************************************
+ Test: K-DateLT-4                                      
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Simple test of 'le' for xs:date.             
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:date(&quot;2004-07-12&quot;) le xs:date(&quot;2004-07-12&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateLT-5">
+    <description>
+*******************************************************
+ Test: K-DateLT-5                                      
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Simple test of 'le' for xs:date.             
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:date(&quot;2004-07-12&quot;) le xs:date(&quot;2004-07-12&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateLT-6">
+    <description>
+*******************************************************
+ Test: K-DateLT-6                                      
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Simple test of 'le' for xs:date.             
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>not(xs:date(&quot;2004-07-13&quot;) le xs:date(&quot;2004-07-12&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-date-ge-001">
+    <description> Test that comparing large dates does not overflow. </description>
+    <created by="Oliver Hallam" on="2008-05-14"/>
+    <modified by="Michael Kay" change="allow implementations to reject these dates" on="2012-12-21"/>
+    <test>xs:date(&quot;25252734927766555-07-28&quot;) = xs:date(&quot;-25252734927766555-06-07+02:00&quot;)</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <error code="FODT0001"/>
+        <assert-true/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="cbcl-date-lt-001">
+    <description> Test that comparing large dates does not overflow. </description>
+    <created by="Oliver Hallam" on="2008-05-14"/>
+    <modified by="Michael Kay" change="allow implementations to reject these dates" on="2012-12-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[xs:date("-25252734927766555-06-07+02:00") < xs:date("25252734927766555-07-28")]]>
+    </test>
+    <result-string/>
+    <result>
+      <any-of>
+        <error code="FODT0001"/>
+        <assert-true/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="cbcl-date-less-than-001">
+    <description> test comparison of date </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      	declare function local:two-digit($number as xs:integer) { 
+      		let $string := string($number) return if (string-length($string) lt 2) then concat('0', $string) else $string 
+      	}; 
+      	declare function local:date($year as xs:integer, $month as xs:integer, $day as xs:integer) { 
+      		let $m := local:two-digit($month), $d := local:two-digit($day) return xs:date(concat($year, '-', $m, '-', $d)) 
+      	}; 
+      	not(local:date(2008, 05, 12) lt xs:date(&quot;1972-12-15&quot;))
+      </test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-date-less-than-002">
+    <description> test comparison of date </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <test>xs:date(&quot;2008-01-30&quot;) lt xs:date(&quot;2008-01-31+09:00&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-date-less-than-003">
+    <description> test comparison of date </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <test>xs:date(&quot;2008-01-31+09:00&quot;) lt xs:date(&quot;2008-01-30&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-date-less-than-004">
+    <description> test comparison of date </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <test>xs:date(&quot;2008-01-31&quot;) lt xs:date(&quot;2008-01-31+09:00&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-date-less-than-005">
+    <description> test comparison of date </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <test>xs:date(&quot;2008-01-31+09:00&quot;) lt xs:date(&quot;2008-01-31&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-date-less-than-006">
+    <description> test comparison of date </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      	declare function local:two-digit($number as xs:integer) { let $string := string($number) return if (string-length($string) lt 2) then concat('0', $string) else $string }; 
+      	declare function local:date($year as xs:integer, $month as xs:integer, $day as xs:integer) { let $m := local:two-digit($month), $d := local:two-digit($day) return xs:date(concat($year, '-', $m, '-', $d)) }; 
+      	not(local:date(2008, 05, 12) le xs:date(&quot;1972-12-15&quot;))
+      </test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-date-less-than-007">
+    <description> test comparison of date </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <test>xs:date(&quot;2008-01-30&quot;) le xs:date(&quot;2008-01-31+09:00&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-date-less-than-008">
+    <description> test comparison of date </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <test>xs:date(&quot;2008-01-31+09:00&quot;) le xs:date(&quot;2008-01-30&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-date-less-than-009">
+    <description> test comparison of date </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <test>xs:date(&quot;2008-01-31&quot;) le xs:date(&quot;2008-01-31+09:00&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-date-less-than-010">
+    <description> test comparison of date </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <test>xs:date(&quot;2008-01-31+09:00&quot;) le xs:date(&quot;2008-01-31&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-date-less-than-011">
+    <description> test comparison of date </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      	declare function local:date($date as xs:date, $null as xs:boolean) { if ($null) then () else $date }; 
+      	exists(local:date(xs:date(&quot;1972-12-15&quot;), fn:true()) lt xs:date(&quot;1972-12-15&quot;))
+      </test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-date-less-than-012">
+    <description> test comparison of date </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      	declare function local:date($date as xs:date, $null as xs:boolean) { if ($null) then () else $date }; 
+      	local:date(xs:date(&quot;1972-12-15&quot;), fn:false()) lt xs:date(&quot;1972-12-15&quot;)
+      </test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-date-less-than-013">
+    <description> test comparison of date </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      	declare function local:date($date as xs:date, $null as xs:boolean) { if ($null) then () else $date }; 
+      	exists(local:date(xs:date(&quot;1972-12-15&quot;), fn:true()) ge xs:date(&quot;1972-12-15&quot;))
+      </test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-date-less-than-014">
+    <description> test comparison of date </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      	declare function local:date($date as xs:date, $null as xs:boolean) { if ($null) then () else $date }; 
+      	local:date(xs:date(&quot;1972-12-15&quot;), fn:false()) ge xs:date(&quot;1972-12-15&quot;)
+      </test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-date-less-than-015">
+    <description> test comparison of date </description>
+    <created by="Tim Mills" on="2008-05-23"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      	declare function local:date($date as xs:string, $timezone as xs:string) { xs:date( concat($date, $timezone) ) }; 
+      	adjust-date-to-timezone(local:date(&quot;1972-12-14&quot;, &quot;-12:00&quot;)) lt adjust-date-to-timezone(xs:date(&quot;1972-12-15+12:00&quot;))
+      </test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-date-less-than-016">
+    <description> test comparison of date </description>
+    <created by="Tim Mills" on="2008-05-23"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      	declare function local:date($date as xs:string, $timezone as xs:string) { xs:date( concat($date, $timezone) ) }; 
+      	adjust-date-to-timezone(local:date(&quot;1972-12-14&quot;, &quot;-12:00&quot;)) le adjust-date-to-timezone(xs:date(&quot;1972-12-15+12:00&quot;))
+      </test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+</test-set>

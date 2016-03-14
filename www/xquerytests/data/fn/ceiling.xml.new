@@ -1,0 +1,963 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="fn-ceiling" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description/>
+  <link document="http://www.w3.org/TR/xpath-functions-11/" idref="func-ceiling" type="spec"/>
+  <environment name="emptydoc"/>
+  <environment name="e0">
+    <source file="abs/e0.xml" role=".">
+      <description>A simple file containing         <![CDATA[<e>0</e>]]>
+</description>
+      <created by="Michael Kay" on="2010-12-08"/>
+    </source>
+  </environment>
+  <environment name="e1">
+    <source file="abs/e1.xml" role=".">
+      <description>A simple file containing         <![CDATA[<e>1</e>]]>
+</description>
+      <created by="Michael Kay" on="2010-12-08"/>
+    </source>
+  </environment>
+  <environment name="e-1">
+    <source file="abs/e-1.xml" role=".">
+      <description>A simple file containing         <![CDATA[<e>-1</e>]]>
+</description>
+      <created by="Michael Kay" on="2010-12-08"/>
+    </source>
+  </environment>
+  <test-case name="fn-ceilingint1args-1">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:int(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:int(&quot;-2147483648&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-2147483648</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingint1args-2">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:int(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:int(&quot;-1873914410&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-1873914410</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingint1args-3">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:int(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:int(&quot;2147483647&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>2147483647</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingintg1args-1">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:integer(&quot;-999999999999999999&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingintg1args-2">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:integer(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:integer(&quot;830993497117024304&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>830993497117024304</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingintg1args-3">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:integer(&quot;999999999999999999&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingdec1args-1">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:decimal(&quot;-999999999999999999&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingdec1args-2">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:decimal(&quot;617375191608514839&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>617375191608514839</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingdec1args-3">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:decimal(&quot;999999999999999999&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingdbl1args-1">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:double(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:double(&quot;-1.7976931348623157E308&quot;))</test>
+    <result-string>xs:string('-1.7976931348623157E308')</result-string>
+    <result>
+      <assert-string-value>-1.7976931348623157E308</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingdbl1args-2">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:double(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:double(&quot;0&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingdbl1args-3">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:double(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:double(&quot;1.7976931348623157E308&quot;))</test>
+    <result-string>xs:string('1.7976931348623157E308')</result-string>
+    <result>
+      <assert-string-value>1.7976931348623157E308</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingflt1args-1">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:float(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:float(&quot;-3.4028235E38&quot;))</test>
+    <result-string>xs:string('-3.4028235E38')</result-string>
+    <result>
+      <assert-string-value>-3.4028235E38</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingflt1args-2">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:float(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:float(&quot;0&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingflt1args-3">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:float(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:float(&quot;3.4028235E38&quot;))</test>
+    <result-string>xs:string('3.4028235E38')</result-string>
+    <result>
+      <assert-string-value>3.4028235E38</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilinglng1args-1">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:long(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:long(&quot;-92233720368547758&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-92233720368547758</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilinglng1args-2">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:long(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:long(&quot;-47175562203048468&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-47175562203048468</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilinglng1args-3">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:long(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:long(&quot;92233720368547758&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>92233720368547758</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingusht1args-1">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:unsignedShort(&quot;0&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingusht1args-2">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:unsignedShort(&quot;44633&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>44633</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingusht1args-3">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:unsignedShort(&quot;65535&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>65535</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingnint1args-1">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:negativeInteger(&quot;-999999999999999999&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingnint1args-2">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:negativeInteger(&quot;-297014075999096793&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-297014075999096793</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingnint1args-3">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:negativeInteger(&quot;-1&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingpint1args-1">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:positiveInteger(&quot;1&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingpint1args-2">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:positiveInteger(&quot;52704602390610033&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>52704602390610033</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingpint1args-3">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:positiveInteger(&quot;999999999999999999&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingulng1args-1">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:unsignedLong(&quot;0&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingulng1args-2">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:unsignedLong(&quot;130747108607674654&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>130747108607674654</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingulng1args-3">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:unsignedLong(&quot;184467440737095516&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>184467440737095516</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingnpi1args-1">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:nonPositiveInteger(&quot;-999999999999999999&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingnpi1args-2">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:nonPositiveInteger(&quot;-475688437271870490&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-475688437271870490</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingnpi1args-3">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:nonPositiveInteger(&quot;0&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingnni1args-1">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:nonNegativeInteger(&quot;0&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingnni1args-2">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:nonNegativeInteger(&quot;303884545991464527&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>303884545991464527</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingnni1args-3">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:nonNegativeInteger(&quot;999999999999999999&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingsht1args-1">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:short(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:short(&quot;-32768&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-32768</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingsht1args-2">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:short(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:short(&quot;-5324&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-5324</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceilingsht1args-3">
+    <description> Evaluates The &quot;ceiling&quot; function with the arguments set as follows: $arg = xs:short(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="emptydoc"/>
+    <test>fn:ceiling(xs:short(&quot;32767&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>32767</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="K-CeilingFunc-1">
+    <description> A test whose essence is: `ceiling()`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="emptydoc"/>
+    <test>ceiling()</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="K-CeilingFunc-2">
+    <description> A test whose essence is: `ceiling(1, 2)`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="emptydoc"/>
+    <test>ceiling(1, 2)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="K-CeilingFunc-3">
+    <description> A test whose essence is: `empty(ceiling(()))`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="emptydoc"/>
+    <test>empty(ceiling(()))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-CeilingFunc-4">
+    <description> A test whose essence is: `ceiling(10.5) eq 11`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="emptydoc"/>
+    <test>ceiling(10.5) eq 11</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-CeilingFunc-5">
+    <description> A test whose essence is: `ceiling(-10.5) eq -10`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="emptydoc"/>
+    <test>ceiling(-10.5) eq -10</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-CeilingFunc-6">
+    <description> A test whose essence is: `ceiling(&quot;a string&quot;)`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="emptydoc"/>
+    <test>ceiling(&quot;a string&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K2-CeilingFunc-1">
+    <description> Ensure the return type is properly inferred for unsignedShort. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="e0"/>
+    <test>ceiling(xs:unsignedShort(.)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-CeilingFunc-2">
+    <description> Ensure the return type is properly inferred for unsignedLong. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="e0"/>
+    <test>ceiling(xs:unsignedLong(.)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-CeilingFunc-3">
+    <description> Ensure the return type is properly inferred for unsignedInt. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="e0"/>
+    <test>ceiling(xs:unsignedInt(.)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-CeilingFunc-4">
+    <description> Ensure the return type is properly inferred for unsignedByte. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="e0"/>
+    <test>ceiling(xs:unsignedByte(.)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-CeilingFunc-5">
+    <description> Ensure the return type is properly inferred for positiveInteger. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <modified by="O'Neil Delpratt" change="environement variable from e0 to e1" on="2011-09-06"/>
+    <environment ref="e1"/>
+    <test>ceiling(xs:positiveInteger(.)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-CeilingFunc-6">
+    <description> Ensure the return type is properly inferred for nonPositiveInteger. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="e0"/>
+    <test>ceiling(xs:nonPositiveInteger(.)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-CeilingFunc-7">
+    <description> Ensure the return type is properly inferred for nonNegativeInteger. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="e0"/>
+    <test>ceiling(xs:nonNegativeInteger(.)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-CeilingFunc-8">
+    <description> Ensure the return type is properly inferred for negativeInteger. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="e-1"/>
+    <test>ceiling(xs:negativeInteger(.)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-CeilingFunc-9">
+    <description> Ensure the return type is properly inferred for long. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="e0"/>
+    <test>ceiling(xs:long(.)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-CeilingFunc-10">
+    <description> Ensure the return type is properly inferred for int. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="e0"/>
+    <test>ceiling(xs:int(.)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-CeilingFunc-11">
+    <description> Ensure the return type is properly inferred for short. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="e0"/>
+    <test>ceiling(xs:short(.)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-CeilingFunc-12">
+    <description> Ensure the return type is properly inferred for byte. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="e0"/>
+    <test>ceiling(xs:byte(.)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-1">
+    <description> check dynamic type of fn:ceiling on argument of union of numeric types. </description>
+    <created by="Oliver Hallam" on="2010-03-15"/>
+    <test>for $x in (1, xs:decimal(2), xs:float(3), xs:double(4)) return 
+           if ((ceiling($x)) instance of xs:integer) then &quot;integer&quot; 
+           else if ((ceiling($x)) instance of xs:decimal) then &quot;decimal&quot; 
+           else if ((ceiling($x)) instance of xs:float) then &quot;float&quot;
+           else if ((ceiling($x)) instance of xs:double) then &quot;double&quot; 
+           else error()
+      </test>
+    <result-string/>
+    <result>
+      <assert-deep-eq>&quot;integer&quot;, &quot;decimal&quot;, &quot;float&quot;, &quot;double&quot;</assert-deep-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-decimal-1">
+    <description>Basic test of ceiling(decimal)</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(12.5)</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>13.0</assert-eq>
+        <assert-type>xs:decimal</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-decimal-2">
+    <description>Basic test of ceiling(decimal)</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(12.9)</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>13.0</assert-eq>
+        <assert-type>xs:decimal</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-decimal-3">
+    <description>Basic test of ceiling(decimal)</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(0.000000001)</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>1.0</assert-eq>
+        <assert-type>xs:decimal</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-decimal-4">
+    <description>Basic test of ceiling(decimal)</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(0.0)</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>0.0</assert-eq>
+        <assert-type>xs:decimal</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-decimal-5">
+    <description>Basic test of ceiling(decimal)</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(-0.1)</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>0.0</assert-eq>
+        <assert-type>xs:decimal</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-decimal-6">
+    <description>Basic test of ceiling(decimal)</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(-12345678.567890)</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>-12345678</assert-eq>
+        <assert-type>xs:decimal</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-decimal-7">
+    <description>Basic test of ceiling(decimal)</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(-1234567891234567.2)</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>-1234567891234567.0</assert-eq>
+        <assert-type>xs:decimal</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-double-1">
+    <description>Basic test of ceiling(double)</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(12.5e0)</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>13.0e0</assert-eq>
+        <assert-type>xs:double</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-double-2">
+    <description>Basic test of ceiling(double)</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(12.9e0)</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>13.0e0</assert-eq>
+        <assert-type>xs:double</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-double-3">
+    <description>Basic test of ceiling(double)</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(0.000000001e0)</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>1.0e0</assert-eq>
+        <assert-type>xs:double</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-double-4">
+    <description>Basic test of ceiling(double)</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(0.0e0)</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>0.0e0</assert-eq>
+        <assert-type>xs:double</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-double-5">
+    <description>Basic test of ceiling(double)</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(-0.1e0)</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>-0.0e0</assert-eq>
+        <assert-eq>-0</assert-eq>
+        <assert-type>xs:double</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-double-6">
+    <description>Basic test of ceiling(double)</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(-12345678.567890e0)</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>-12345678e0</assert-eq>
+        <assert-type>xs:double</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-double-7">
+    <description>Basic test of ceiling(double)</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(-1234567891234567.2e0)</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>-1234567891234567.0e0</assert-eq>
+        <assert-type>xs:double</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-double-8">
+    <description>Basic test of ceiling(double)</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(xs:double('NaN'))</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-string-value>NaN</assert-string-value>
+        <assert-type>xs:double</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-double-9">
+    <description>Basic test of ceiling(double)</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(xs:double('INF'))</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-string-value>INF</assert-string-value>
+        <assert-type>xs:double</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-double-10">
+    <description>Basic test of ceiling(double)</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(xs:double('-INF'))</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-string-value>-INF</assert-string-value>
+        <assert-type>xs:double</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-double-11">
+    <description>Basic test of ceiling(double)</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(xs:double('-0'))</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>-0</assert-eq>
+        <assert-type>xs:double</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-float-1">
+    <description>Basic test of ceiling(float))</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(xs:float(12.5e0))</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>13.0e0</assert-eq>
+        <assert-type>xs:float</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-float-2">
+    <description>Basic test of ceiling(float))</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(xs:float(12.9e0))</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>13.0e0</assert-eq>
+        <assert-type>xs:float</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-float-3">
+    <description>Basic test of ceiling(float))</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(xs:float(0.000000001e0))</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>1.0e0</assert-eq>
+        <assert-type>xs:float</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-float-4">
+    <description>Basic test of ceiling(float))</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(xs:float(0.0e0))</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>0.0e0</assert-eq>
+        <assert-type>xs:float</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-float-5">
+    <description>Basic test of ceiling(float))</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(xs:float(-0.1e0))</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>0.0e0</assert-eq>
+        <assert-eq>-0</assert-eq>
+        <assert-type>xs:float</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-float-6">
+    <description>Basic test of ceiling(float))</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(xs:float(-12345678.1e0))</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>-12345678e0</assert-eq>
+        <assert-type>xs:float</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-float-7">
+    <description>Basic test of ceiling(float))</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(xs:float(-1234567.2e0))</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>-1234567e0</assert-eq>
+        <assert-type>xs:float</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-float-8">
+    <description>Basic test of ceiling(float))</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(xs:float(xs:float('NaN')))</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-string-value>NaN</assert-string-value>
+        <assert-type>xs:float</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-float-9">
+    <description>Basic test of ceiling(float))</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(xs:float(xs:float('INF')))</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-string-value>INF</assert-string-value>
+        <assert-type>xs:float</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-float-10">
+    <description>Basic test of ceiling(float))</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(xs:float(xs:float('-INF')))</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-string-value>-INF</assert-string-value>
+        <assert-type>xs:float</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-ceiling-float-11">
+    <description>Basic test of ceiling(float))</description>
+    <created by="Michael Kay" on="2011-06-24"/>
+    <test>ceiling(xs:float(xs:float('-0')))</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>-0</assert-eq>
+        <assert-type>xs:float</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+</test-set>

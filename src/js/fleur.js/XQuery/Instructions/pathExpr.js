@@ -26,22 +26,25 @@ Fleur.XQueryEngine[Fleur.XQueryX.pathExpr] = function(ctx, children) {
 			while (i < l) {
 				ctx._curr = prevstep[i];
 				Fleur.XQueryEngine[Fleur.XQueryX.pathExpr](ctx, children.slice(1));
-				if (!result) {
-					result = ctx._result;
-				} else {
-					if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-						seq = new Fleur.Sequence();
-						seq.childNodes = new Fleur.NodeList();
-						seq.children = new Fleur.NodeList();
-						seq.textContent = "";
-						seq.appendChild(result);
-					}
-					if (ctx._result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-						result.appendChild(ctx._result);
+				if (ctx._result) {
+					if (!result) {
+						result = ctx._result;
 					} else {
-						ctx._result.childNodes.forEach(function(n) {
-							result.appendChild(n);
-						});
+						if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+							seq = new Fleur.Sequence();
+							seq.childNodes = new Fleur.NodeList();
+							seq.children = new Fleur.NodeList();
+							seq.textContent = "";
+							seq.appendChild(result);
+							result = seq;
+						}
+						if (ctx._result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+							result.appendChild(ctx._result);
+						} else {
+							ctx._result.childNodes.forEach(function(n) {
+								result.appendChild(n);
+							});
+						}
 					}
 				}
 				i++;

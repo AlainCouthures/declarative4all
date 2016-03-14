@@ -1,0 +1,1285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="op-numeric-integer-divide" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the numeric-integer-divide() function</description>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-numeric-integer-divide" type="spec"/>
+  <test-case name="op-numeric-integer-divideint2args-1">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:int(&quot;-2147483648&quot;) idiv xs:int(&quot;-2147483648&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-divideint2args-2">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:int(mid range) $arg2 = xs:int(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:int(&quot;-1873914410&quot;) idiv xs:int(&quot;-2147483648&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-divideint2args-3">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:int(upper bound) $arg2 = xs:int(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:int(&quot;2147483647&quot;) idiv xs:int(&quot;-2147483648&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-divideint2args-4">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:int(&quot;-2147483648&quot;) idiv xs:int(&quot;-1873914410&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-divideint2args-5">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:int(&quot;-2147483648&quot;) idiv xs:int(&quot;2147483647&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>-1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-divideintg2args-1">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:integer(&quot;-999999999999999999&quot;) idiv xs:integer(&quot;-999999999999999999&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-divideintg2args-2">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:integer(mid range) $arg2 = xs:integer(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:integer(&quot;830993497117024304&quot;) idiv xs:integer(&quot;-999999999999999999&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-divideintg2args-3">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:integer(upper bound) $arg2 = xs:integer(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:integer(&quot;999999999999999999&quot;) idiv xs:integer(&quot;-999999999999999999&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>-1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-divideintg2args-4">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:integer(&quot;-999999999999999999&quot;) idiv xs:integer(&quot;830993497117024304&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>-1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-divideintg2args-5">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:integer(&quot;-999999999999999999&quot;) idiv xs:integer(&quot;999999999999999999&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>-1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividedec2args-1">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:decimal(&quot;-999999999999999999&quot;) idiv xs:decimal(&quot;-999999999999999999&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividedec2args-2">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:decimal(mid range) $arg2 = xs:decimal(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:decimal(&quot;617375191608514839&quot;) idiv xs:decimal(&quot;-999999999999999999&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividedec2args-3">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:decimal(upper bound) $arg2 = xs:decimal(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:decimal(&quot;999999999999999999&quot;) idiv xs:decimal(&quot;-999999999999999999&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>-1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividedec2args-4">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:decimal(&quot;-999999999999999999&quot;) idiv xs:decimal(&quot;617375191608514839&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>-1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividedec2args-5">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:decimal(&quot;-999999999999999999&quot;) idiv xs:decimal(&quot;999999999999999999&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>-1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividelng2args-1">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:long(&quot;-92233720368547758&quot;) idiv xs:long(&quot;-92233720368547758&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividelng2args-2">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:long(mid range) $arg2 = xs:long(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:long(&quot;-47175562203048468&quot;) idiv xs:long(&quot;-92233720368547758&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividelng2args-3">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:long(upper bound) $arg2 = xs:long(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:long(&quot;92233720368547758&quot;) idiv xs:long(&quot;-92233720368547758&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>-1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividelng2args-4">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:long(&quot;-92233720368547758&quot;) idiv xs:long(&quot;-47175562203048468&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividelng2args-5">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:long(&quot;-92233720368547758&quot;) idiv xs:long(&quot;92233720368547758&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>-1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-divideusht2args-1">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:unsignedShort(&quot;0&quot;) idiv xs:unsignedShort(&quot;44633&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-divideusht2args-2">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:unsignedShort(&quot;0&quot;) idiv xs:unsignedShort(&quot;65535&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividenint2args-1">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:negativeInteger(&quot;-999999999999999999&quot;) idiv xs:negativeInteger(&quot;-999999999999999999&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividenint2args-2">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:negativeInteger(mid range) $arg2 = xs:negativeInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:negativeInteger(&quot;-297014075999096793&quot;) idiv xs:negativeInteger(&quot;-999999999999999999&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividenint2args-3">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:negativeInteger(upper bound) $arg2 = xs:negativeInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:negativeInteger(&quot;-1&quot;) idiv xs:negativeInteger(&quot;-999999999999999999&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividenint2args-4">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:negativeInteger(&quot;-999999999999999999&quot;) idiv xs:negativeInteger(&quot;-297014075999096793&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>3</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividenint2args-5">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:negativeInteger(&quot;-999999999999999999&quot;) idiv xs:negativeInteger(&quot;-1&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividepint2args-1">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:positiveInteger(&quot;1&quot;) idiv xs:positiveInteger(&quot;1&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividepint2args-2">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(mid range) $arg2 = xs:positiveInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:positiveInteger(&quot;52704602390610033&quot;) idiv xs:positiveInteger(&quot;1&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>52704602390610033</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividepint2args-3">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(upper bound) $arg2 = xs:positiveInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:positiveInteger(&quot;999999999999999999&quot;) idiv xs:positiveInteger(&quot;1&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividepint2args-4">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:positiveInteger(&quot;1&quot;) idiv xs:positiveInteger(&quot;52704602390610033&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividepint2args-5">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:positiveInteger(&quot;1&quot;) idiv xs:positiveInteger(&quot;999999999999999999&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-divideulng2args-1">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:unsignedLong(&quot;0&quot;) idiv xs:unsignedLong(&quot;130747108607674654&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-divideulng2args-2">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:unsignedLong(&quot;0&quot;) idiv xs:unsignedLong(&quot;184467440737095516&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividenpi2args-1">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:nonPositiveInteger(&quot;-999999999999999999&quot;) idiv xs:nonPositiveInteger(&quot;-999999999999999999&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividenpi2args-2">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(mid range) $arg2 = xs:nonPositiveInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:nonPositiveInteger(&quot;-475688437271870490&quot;) idiv xs:nonPositiveInteger(&quot;-999999999999999999&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividenpi2args-3">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(upper bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:nonPositiveInteger(&quot;0&quot;) idiv xs:nonPositiveInteger(&quot;-999999999999999999&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividenpi2args-4">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:nonPositiveInteger(&quot;-999999999999999999&quot;) idiv xs:nonPositiveInteger(&quot;-475688437271870490&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>2</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividenni2args-1">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:nonNegativeInteger(&quot;0&quot;) idiv xs:nonNegativeInteger(&quot;303884545991464527&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividenni2args-2">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:nonNegativeInteger(&quot;0&quot;) idiv xs:nonNegativeInteger(&quot;999999999999999999&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividesht2args-1">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:short(&quot;-32768&quot;) idiv xs:short(&quot;-32768&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividesht2args-2">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:short(mid range) $arg2 = xs:short(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:short(&quot;-5324&quot;) idiv xs:short(&quot;-32768&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividesht2args-3">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:short(upper bound) $arg2 = xs:short(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:short(&quot;32767&quot;) idiv xs:short(&quot;-32768&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividesht2args-4">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:short(&quot;-32768&quot;) idiv xs:short(&quot;-5324&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>6</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividesht2args-5">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:short(&quot;-32768&quot;) idiv xs:short(&quot;32767&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>-1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividemix2args-1">
+    <description> Simple integer division test with () as one operand should return null </description>
+    <created by="Ravindranath Chennoju" on="2004-12-13"/>
+    <test>() idiv 1</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-empty/>
+        <error code="XPST0005"/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividemix2args-2">
+    <description> Simple integer division test pass string for second operator </description>
+    <created by="Ravindranath Chennoju" on="2004-12-13"/>
+    <test>1 idiv '1'</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividemix2args-3">
+    <description> Simple integer division test, second operator cast string to integer </description>
+    <created by="Ravindranath Chennoju" on="2004-12-13"/>
+    <test>1 idiv xs:integer('1')</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividemix2args-4">
+    <description> Simple integer division test, second operator is a node, atomization applied </description>
+    <created by="Ravindranath Chennoju" on="2004-12-13"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[3 idiv <a> 2 </a>]]>
+    </test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividemix2args-5">
+    <description> Simple integer division test, second operator is a node, atomization applied </description>
+    <created by="Ravindranath Chennoju" on="2004-12-13"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[1 idiv <a> <b> 2 </b> </a>]]>
+    </test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividemix2args-6">
+    <description> Simple integer division test, second operator node which is not atomizable </description>
+    <created by="Ravindranath Chennoju" on="2004-12-13"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[3 idiv <a> <b> 2</b> <c> 2</c> </a>]]>
+    </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividemix2args-7">
+    <description> Simple integer division test, two operands are nodes </description>
+    <created by="Ravindranath Chennoju" on="2004-12-13"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[<a> 1 </a> idiv <b> 2 </b>]]>
+    </test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividemix2args-8">
+    <description> Simple integer division test, second operator is a node, atomizable but not castable to integer </description>
+    <created by="Ravindranath Chennoju" on="2004-12-13"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[1 idiv <a> x </a>]]>
+    </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividemix2args-9">
+    <description> Simple integer division test pass an empty node for second operator </description>
+    <created by="Ravindranath Chennoju" on="2004-12-13"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[1 idiv <a/>]]>
+    </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividemix2args-10">
+    <description> If the divisor is zer0, then an error is raised </description>
+    <created by="Ravindranath Chennoju" on="2004-12-13"/>
+    <test>1 idiv 0</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0001&quot;))</result-string>
+    <result>
+      <error code="FOAR0001"/>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-divide-1">
+    <description> Evaluates The &quot;op:numeric-integer-divide&quot; operator for error condition. </description>
+    <created by="Carmelo Montanez" on="2006-02-06"/>
+    <test>(0 div 0E0) idiv xs:integer(2)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0002&quot;))</result-string>
+    <result>
+      <error code="FOAR0002"/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-1">
+    <description> A test whose essence is: `(xs:decimal(6) idiv xs:integer(2)) instance of xs:integer`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(xs:decimal(6) idiv xs:integer(2)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-2">
+    <description> A test whose essence is: `(xs:integer(6) idiv xs:decimal(2)) instance of xs:integer`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(xs:integer(6) idiv xs:decimal(2)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-3">
+    <description> A test whose essence is: `(xs:integer(6) idiv xs:integer(2)) instance of xs:integer`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(xs:integer(6) idiv xs:integer(2)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-4">
+    <description> A test whose essence is: `(xs:decimal(6) idiv xs:decimal(2)) instance of xs:integer`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(xs:decimal(6) idiv xs:decimal(2)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-5">
+    <description> A test whose essence is: `(xs:decimal(6) idiv xs:decimal(2)) instance of xs:integer`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(xs:decimal(6) idiv xs:decimal(2)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-6">
+    <description> A test whose essence is: `(xs:float(6) idiv xs:decimal(2)) instance of xs:integer`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(xs:float(6) idiv xs:decimal(2)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-7">
+    <description> A test whose essence is: `(xs:decimal(6) idiv xs:float(2)) instance of xs:integer`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(xs:decimal(6) idiv xs:float(2)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-8">
+    <description> A test whose essence is: `(xs:float(6) idiv xs:integer(2)) instance of xs:integer`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(xs:float(6) idiv xs:integer(2)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-9">
+    <description> A test whose essence is: `(xs:integer(6) idiv xs:float(2)) instance of xs:integer`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(xs:integer(6) idiv xs:float(2)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-10">
+    <description> A test whose essence is: `(xs:float(6) idiv xs:float(2)) instance of xs:integer`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(xs:float(6) idiv xs:float(2)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-11">
+    <description> A test whose essence is: `(xs:decimal(6) idiv xs:double(2)) instance of xs:integer`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(xs:decimal(6) idiv xs:double(2)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-12">
+    <description> A test whose essence is: `(xs:double(6) idiv xs:decimal(2)) instance of xs:integer`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(xs:double(6) idiv xs:decimal(2)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-13">
+    <description> A test whose essence is: `(xs:double(6) idiv xs:float(2)) instance of xs:integer`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(xs:double(6) idiv xs:float(2)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-14">
+    <description> A test whose essence is: `(xs:float(6) idiv xs:double(2)) instance of xs:integer`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(xs:float(6) idiv xs:double(2)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-15">
+    <description> A test whose essence is: `(xs:double(6) idiv xs:integer(2)) instance of xs:integer`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(xs:double(6) idiv xs:integer(2)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-16">
+    <description> A test whose essence is: `(xs:integer(6) idiv xs:double(2)) instance of xs:integer`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(xs:integer(6) idiv xs:double(2)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-17">
+    <description> A test whose essence is: `(xs:double(6) idiv xs:double(2)) instance of xs:integer`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(xs:double(6) idiv xs:double(2)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-18">
+    <description> A test whose essence is: `10 idiv 3 eq 3`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>10 idiv 3 eq 3</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-19">
+    <description> A test whose essence is: `3 idiv -2 eq -1`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>3 idiv -2 eq -1</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-20">
+    <description> A test whose essence is: `-3 idiv 2 eq -1`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>-3 idiv 2 eq -1</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-21">
+    <description> A test whose essence is: `-3 idiv -2 eq 1`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>-3 idiv -2 eq 1</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-22">
+    <description> A test whose essence is: `5.0 idiv 2.0 eq 2`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>5.0 idiv 2.0 eq 2</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-23">
+    <description> A test whose essence is: `9.0 idiv 3 eq 3`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>9.0 idiv 3 eq 3</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-24">
+    <description> A test whose essence is: `-3.5 idiv 3 eq -1`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>-3.5 idiv 3 eq -1</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-25">
+    <description> A test whose essence is: `3.0 idiv 4 eq 0`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>3.0 idiv 4 eq 0</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-26">
+    <description> A test whose essence is: `3.1E1 idiv 6 eq 5`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>3.1E1 idiv 6 eq 5</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-27">
+    <description> A test whose essence is: `3.1E1 idiv 7 eq 4`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>3.1E1 idiv 7 eq 4</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-28">
+    <description> A test whose essence is: `(1.1 idiv 1) instance of xs:integer`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(1.1 idiv 1) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-29">
+    <description> A test whose essence is: `(xs:double(1.1) idiv 1.1) instance of xs:integer`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(xs:double(1.1) idiv 1.1) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-30">
+    <description> A test whose essence is: `3 idiv 1.1 eq 2`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>3 idiv 1.1 eq 2</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-31">
+    <description> A test whose essence is: `1 idiv xs:float(&quot;NaN&quot;)`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>1 idiv xs:float(&quot;NaN&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0002&quot;))</result-string>
+    <result>
+      <error code="FOAR0002"/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-32">
+    <description> A test whose essence is: `xs:float(&quot;NaN&quot;) idiv 1`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:float(&quot;NaN&quot;) idiv 1</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0002&quot;))</result-string>
+    <result>
+      <error code="FOAR0002"/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-33">
+    <description> A test whose essence is: `xs:float(&quot;INF&quot;) idiv xs:float(3)`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:float(&quot;INF&quot;) idiv xs:float(3)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0002&quot;))</result-string>
+    <result>
+      <error code="FOAR0002"/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-34">
+    <description> A test whose essence is: `xs:float(&quot;-INF&quot;) idiv xs:float(3)`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:float(&quot;-INF&quot;) idiv xs:float(3)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0002&quot;))</result-string>
+    <result>
+      <error code="FOAR0002"/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-35">
+    <description> A test whose essence is: `xs:float(&quot;3&quot;) idiv xs:float(&quot;INF&quot;) eq xs:float(0)`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:float(&quot;3&quot;) idiv xs:float(&quot;INF&quot;) eq xs:float(0)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-36">
+    <description> A test whose essence is: `xs:float(&quot;3&quot;) idiv xs:float(&quot;-INF&quot;) eq xs:float(0)`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:float(&quot;3&quot;) idiv xs:float(&quot;-INF&quot;) eq xs:float(0)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-37">
+    <description> A test whose essence is: `1 idiv xs:double(&quot;NaN&quot;)`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>1 idiv xs:double(&quot;NaN&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0002&quot;))</result-string>
+    <result>
+      <error code="FOAR0002"/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-38">
+    <description> A test whose essence is: `xs:double(&quot;NaN&quot;) idiv 1`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:double(&quot;NaN&quot;) idiv 1</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0002&quot;))</result-string>
+    <result>
+      <error code="FOAR0002"/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-39">
+    <description> A test whose essence is: `xs:double(&quot;INF&quot;) idiv xs:double(3)`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:double(&quot;INF&quot;) idiv xs:double(3)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0002&quot;))</result-string>
+    <result>
+      <error code="FOAR0002"/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-40">
+    <description> A test whose essence is: `xs:double(&quot;-INF&quot;) idiv xs:double(3)`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:double(&quot;-INF&quot;) idiv xs:double(3)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0002&quot;))</result-string>
+    <result>
+      <error code="FOAR0002"/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-41">
+    <description> A test whose essence is: `xs:double(&quot;3&quot;) idiv xs:double(&quot;INF&quot;) eq xs:double(0)`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:double(&quot;3&quot;) idiv xs:double(&quot;INF&quot;) eq xs:double(0)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-42">
+    <description> A test whose essence is: `xs:double(&quot;3&quot;) idiv xs:double(&quot;-INF&quot;) eq xs:double(0)`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:double(&quot;3&quot;) idiv xs:double(&quot;-INF&quot;) eq xs:double(0)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-43">
+    <description> Invalid whitespace for the 'idiv' operator. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>10idiv 3</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0003&quot;))</result-string>
+    <result>
+      <error code="XPST0003"/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-44">
+    <description> Invalid whitespace for the 'idiv' operator. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>10 idiv3</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0003&quot;))</result-string>
+    <result>
+      <error code="XPST0003"/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-45">
+    <description> Invalid whitespace for the 'idiv' operator. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>10idiv3</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0003&quot;))</result-string>
+    <result>
+      <error code="XPST0003"/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-46">
+    <description> Invoke the 'idiv operator with invalid operands. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>&quot;3&quot; idiv &quot;3&quot;</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-47">
+    <description> Invoke the 'idiv' operator with invalid operands. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>&quot;3&quot; idiv xs:float(3)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-48">
+    <description> A test whose essence is: `(xs:untypedAtomic(&quot;9&quot;) idiv xs:float(5)) eq 1`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(xs:untypedAtomic(&quot;9&quot;) idiv xs:float(5)) eq 1</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-49">
+    <description> A test whose essence is: `(xs:float(9) idiv xs:untypedAtomic(&quot;5&quot;)) eq 1`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(xs:float(9) idiv xs:untypedAtomic(&quot;5&quot;)) eq 1</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-50">
+    <description> Invoke 'idiv' where an untypedAtomic conversion fails. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(xs:untypedAtomic(&quot;nine&quot;) idiv xs:float(5)) eq 1</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-51">
+    <description> Invoke 'idiv' where an untypedAtomic conversion fails. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(xs:float(9) idiv xs:untypedAtomic(&quot;five&quot;)) eq 1</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-52">
+    <description> Operand(s) which are the empty sequence. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>empty(() idiv ())</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-true/>
+        <error code="XPST0005"/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="K-NumericIntegerDivide-53">
+    <description> Operand(s) which are the empty sequence. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>empty(() idiv xs:decimal(1))</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-true/>
+        <error code="XPST0005"/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="K2-NumericIntegerDivide-1">
+    <description> Integer divide by 0. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>1 idiv 0</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0001&quot;))</result-string>
+    <result>
+      <error code="FOAR0001"/>
+    </result>
+  </test-case>
+  <test-case name="K2-NumericIntegerDivide-2">
+    <description> Integer divide by 0.0. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>1 idiv 0.0</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0001&quot;))</result-string>
+    <result>
+      <error code="FOAR0001"/>
+    </result>
+  </test-case>
+  <test-case name="K2-NumericIntegerDivide-3">
+    <description> Integer divide by +0.0. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>1 idiv +0.0</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0001&quot;))</result-string>
+    <result>
+      <error code="FOAR0001"/>
+    </result>
+  </test-case>
+  <test-case name="K2-NumericIntegerDivide-4">
+    <description> Integer divide by -0.0. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>1 idiv -0.0</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0001&quot;))</result-string>
+    <result>
+      <error code="FOAR0001"/>
+    </result>
+  </test-case>
+  <test-case name="K2-NumericIntegerDivide-5">
+    <description> Integer divide by 0e0. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>1 idiv 0e0</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0001&quot;))</result-string>
+    <result>
+      <error code="FOAR0001"/>
+    </result>
+  </test-case>
+  <test-case name="K2-NumericIntegerDivide-6">
+    <description> Integer divide -1 by 0e0. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>-1 idiv 0e0</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0001&quot;))</result-string>
+    <result>
+      <error code="FOAR0001"/>
+    </result>
+  </test-case>
+  <test-case name="K2-NumericIntegerDivide-7">
+    <description> Integer divide by xs:float(0). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>1 idiv xs:float(0)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0001&quot;))</result-string>
+    <result>
+      <error code="FOAR0001"/>
+    </result>
+  </test-case>
+  <test-case name="K2-NumericIntegerDivide-8">
+    <description> Integer divide -1 by xs:float(0). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>-1 idiv xs:float(0)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0001&quot;))</result-string>
+    <result>
+      <error code="FOAR0001"/>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividefloat2args-1">
+    <description> Integer divide with operands of type xs:float. Raise [err:FOAR0002]. </description>
+    <created by="Sorin Nasoi" on="2009-04-01"/>
+    <test>xs:float(&quot;-INF&quot;) idiv xs:float(&quot;1&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0002&quot;))</result-string>
+    <result>
+      <error code="FOAR0002"/>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividefloat2args-2">
+    <description> Integer divide with operands of type xs:float. Raise [err:FOAR0002]. </description>
+    <created by="Sorin Nasoi" on="2009-04-01"/>
+    <test>xs:float(&quot;1&quot;) idiv xs:float(&quot;NaN&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0002&quot;))</result-string>
+    <result>
+      <error code="FOAR0002"/>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividefloat2args-3">
+    <description> Integer divide with operands of type xs:float. Raise [err:FOAR0001]. </description>
+    <created by="Sorin Nasoi" on="2009-04-01"/>
+    <test>xs:float(&quot;1&quot;) idiv xs:float(&quot;0&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0001&quot;))</result-string>
+    <result>
+      <error code="FOAR0001"/>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividefloat2args-4">
+    <description> Integer divide with operands of type xs:float. Raise [err:FOAR0001]. </description>
+    <created by="Sorin Nasoi" on="2009-04-01"/>
+    <test>xs:float(&quot;INF&quot;) idiv xs:float(&quot;0&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0001&quot;))</result-string>
+    <result>
+      <error code="FOAR0001"/>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividefloat2args-5">
+    <description> &quot;op:numeric-integer-divide&quot; with both arguments of type xs:float. </description>
+    <created by="Sorin Nasoi" on="2009-04-01"/>
+    <test>xs:float(&quot;-3.5&quot;) idiv xs:float(&quot;3&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>-1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividedouble2args-1">
+    <description> &quot;op:numeric-integer-divide&quot; with both arguments of type xs:double. Raise [err:FOAR0002] </description>
+    <created by="Sorin Nasoi" on="2009-04-01"/>
+    <test>xs:double(&quot;-INF&quot;) idiv xs:double(&quot;1&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0002&quot;))</result-string>
+    <result>
+      <error code="FOAR0002"/>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividedouble2args-2">
+    <description> &quot;op:numeric-integer-divide&quot; with both arguments of type xs:double. Raise [err:FOAR0002] </description>
+    <created by="Sorin Nasoi" on="2009-04-01"/>
+    <test>xs:double(&quot;1&quot;) idiv xs:double(&quot;NaN&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0002&quot;))</result-string>
+    <result>
+      <error code="FOAR0002"/>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividedouble2args-3">
+    <description> &quot;op:numeric-integer-divide&quot; with both arguments of type xs:double. Raise [err:FOAR0001] </description>
+    <created by="Sorin Nasoi" on="2009-04-01"/>
+    <test>xs:double(&quot;1&quot;) idiv xs:double(&quot;0.0E0&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0001&quot;))</result-string>
+    <result>
+      <error code="FOAR0001"/>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividedouble2args-4">
+    <description> &quot;op:numeric-integer-divide&quot; with both arguments of type xs:double. Raise [err:FOAR0001] </description>
+    <created by="Sorin Nasoi" on="2009-04-01"/>
+    <test>xs:double(&quot;INF&quot;) idiv xs:double(&quot;0&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0001&quot;))</result-string>
+    <result>
+      <error code="FOAR0001"/>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-integer-dividedouble2args-5">
+    <description> &quot;op:numeric-integer-divide&quot; with both arguments of type xs:double. </description>
+    <created by="Sorin Nasoi" on="2009-04-01"/>
+    <test>xs:double(&quot;12.78e-2&quot;) idiv xs:double(&quot;3&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="cbcl-numeric-idivide-001">
+    <description> test possible overflow of xs:decimal </description>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      	declare function local:square($arg as xs:decimal) as xs:decimal { $arg * $arg }; 
+      	local:square(4294967296.0) idiv 0.0000000000005 gt 0</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-true/>
+        <error code="FOAR0002"/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="cbcl-numeric-idivide-002">
+    <description> test possible overflow of xs:double </description>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <modified by="Michael Kay" change="allow the implemntation to succeed" on="2012-12-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      	declare function local:square($arg as xs:double) as xs:double { $arg * $arg }; 
+      	local:square(1e100) idiv 5e-100</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <error code="FOAR0002"/>
+        <all-of>
+          <assert-type>xs:integer</assert-type>
+          <assert>string-length(string($result)) gt 299</assert>
+        </all-of>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="cbcl-numeric-idivide-003">
+    <description> test possible overflow of xs:float </description>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      	declare function local:square($arg as xs:float) as xs:float { $arg * $arg }; 
+      	local:square(xs:float(1e30)) idiv xs:float(5e-30)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0002&quot;))</result-string>
+    <result>
+      <error code="FOAR0002"/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-numeric-idivide-004">
+    <description> ensure that idividing xs:integers returns an xs:integer </description>
+    <created by="Oliver Hallam" on="2008-05-29"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      	declare function local:integer($x as xs:decimal) { if ($x mod 1 eq 0) then xs:integer($x) else $x };
+      	 (local:integer(2) idiv local:integer(2)) instance of xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-numeric-idivide-005">
+    <description> Test idiv by one on an xs:integer </description>
+    <created by="Oliver Hallam" on="2008-05-30"/>
+    <test>xs:integer(2) idiv xs:decimal(1)</test>
+    <result-string/>
+    <result>
+      <assert-eq>2</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="cbcl-numeric-idivide-006">
+    <description> Test idiv by one on an xs:float </description>
+    <created by="Oliver Hallam" on="2008-05-30"/>
+    <test>xs:float(1.5) idiv xs:decimal(1)</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="cbcl-numeric-idivide-007">
+    <description> Test idiv by one on an xs:double </description>
+    <created by="Oliver Hallam" on="2008-05-30"/>
+    <test>xs:double(1.5) idiv xs:decimal(1)</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="cbcl-numeric-idivide-008">
+    <description> Test idiv by one on an xs:double </description>
+    <created by="Tim Mills" on="2008-06-17"/>
+    <test>xs:float('1e38') idiv xs:float('1e-37')</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOAR0002&quot;))</result-string>
+    <result>
+      <error code="FOAR0002"/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-numeric-idivide-009">
+    <description> Test numeric idiv with a potential type check error </description>
+    <created by="Tim Mills" on="2008-06-17"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      	declare function local:value($number as xs:boolean) { if ($number) then 1 else xs:string('1') }; 
+      	local:value(true()) idiv local:value(true())
+      </test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-eq>1</assert-eq>
+        <error code="XPTY0004"/>
+      </any-of>
+    </result>
+  </test-case>
+</test-set>

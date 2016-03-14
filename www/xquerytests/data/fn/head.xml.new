@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set covers="fn-head" name="fn-head" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the head() function</description>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-head" type="spec"/>
+  <dependency type="spec" value="XP30+ XQ30+"/>
+  <test-case name="head-001">
+    <description> head() of a simple sequence </description>
+    <created by="Michael Kay" on="2010-02-18"/>
+    <test>head(3 to 10)</test>
+    <result-string/>
+    <result>
+      <assert-eq>3</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="head-002">
+    <description> head() of a simple sequence </description>
+    <created by="Michael Kay" on="2010-02-18"/>
+    <test>head((&quot;a&quot;, &quot;b&quot;, current-dateTime()))</test>
+    <result-string/>
+    <result>
+      <assert-eq>&quot;a&quot;</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="head-003">
+    <description> head() of a node sequence </description>
+    <created by="Michael Kay" on="2010-02-18"/>
+    <environment ref="works-mod"/>
+    <test>let $a := /works return head($a/*)/string(@name)</test>
+    <result-string>xs:string('Jane Doe 1')</result-string>
+    <result>
+      <assert-string-value>Jane Doe 1</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="head-004">
+    <description> head() of a singleton sequence </description>
+    <created by="Michael Kay" on="2010-02-18"/>
+    <environment ref="works-mod"/>
+    <test>let $a := /works return name(head($a))</test>
+    <result-string>xs:string('works')</result-string>
+    <result>
+      <assert-string-value>works</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="head-005">
+    <description> head() of an empty sequence </description>
+    <created by="Michael Kay" on="2010-02-18"/>
+    <environment ref="works-mod"/>
+    <test>head(/works/cucumber)</test>
+    <result-string/>
+    <result>
+      <assert-empty/>
+    </result>
+  </test-case>
+  <test-case name="head-006">
+    <description> head() preserves identity </description>
+    <created by="Michael Kay" on="2010-02-18"/>
+    <environment ref="works-mod"/>
+    <test>let $a := /works/* return (head($a) is $a[1])</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+</test-set>

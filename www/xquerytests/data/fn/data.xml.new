@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="fn-data" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the data() function</description>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-data" type="spec"/>
+  <environment name="mixed">
+    <source file="data/mixed.xml" role="." validation="strict">
+      <description>Document containing an element with mixed content but statically could have element only content.</description>
+      <created by="Oliver Hallam" on="2010-03-17"/>
+    </source>
+    <schema file="data/mixedcontent.xsd" uri="http://www.w3.org/XQueryTest/mixedcontent">
+      <description>Document containing an element with mixed content but statically could have element only content.</description>
+      <created by="Oliver Hallam" on="2010-03-17"/>
+    </schema>
+  </environment>
+  <environment name="complexData">
+    <source file="data/complexData.xml" role="." validation="strict">
+      <description>Document containing some nasty cases for fn:data.</description>
+      <created by="Oliver Hallam" on="2009-02-27"/>
+    </source>
+    <schema file="data/complexData.xsd" uri="http://www.cbcl.co.uk/XQueryTest/complexData">
+      <description>Schema containing some nasty cases for fn:data.</description>
+      <created by="Oliver Hallam" on="2009-02-27"/>
+    </schema>
+  </environment>
+  <test-case name="fn-dataint1args-1">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:int(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:int(&quot;-2147483648&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-2147483648</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-dataint1args-2">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:int(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:int(&quot;-1873914410&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-1873914410</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-dataint1args-3">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:int(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:int(&quot;2147483647&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>2147483647</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-dataintg1args-1">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:integer(&quot;-999999999999999999&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-dataintg1args-2">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:integer(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:integer(&quot;830993497117024304&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>830993497117024304</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-dataintg1args-3">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:integer(&quot;999999999999999999&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datadec1args-1">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:decimal(&quot;-999999999999999999&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datadec1args-2">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:decimal(&quot;617375191608514839&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>617375191608514839</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datadec1args-3">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:decimal(&quot;999999999999999999&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datadbl1args-1">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:double(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:double(&quot;-1.7976931348623157E308&quot;)))</test>
+    <result-string>xs:string('-1.7976931348623157E308')</result-string>
+    <result>
+      <assert-string-value>-1.7976931348623157E308</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-datadbl1args-2">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:double(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:double(&quot;0&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datadbl1args-3">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:double(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:double(&quot;1.7976931348623157E308&quot;)))</test>
+    <result-string>xs:string('1.7976931348623157E308')</result-string>
+    <result>
+      <assert-string-value>1.7976931348623157E308</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dataflt1args-1">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:float(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:float(&quot;-3.4028235E38&quot;)))</test>
+    <result-string>xs:string('-3.4028235E38')</result-string>
+    <result>
+      <assert-string-value>-3.4028235E38</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-dataflt1args-2">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:float(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:float(&quot;0&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-dataflt1args-3">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:float(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:float(&quot;3.4028235E38&quot;)))</test>
+    <result-string>xs:string('3.4028235E38')</result-string>
+    <result>
+      <assert-string-value>3.4028235E38</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-datalng1args-1">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:long(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:long(&quot;-92233720368547758&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-92233720368547758</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datalng1args-2">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:long(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:long(&quot;-47175562203048468&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-47175562203048468</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datalng1args-3">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:long(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:long(&quot;92233720368547758&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>92233720368547758</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datausht1args-1">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:unsignedShort(&quot;0&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datausht1args-2">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:unsignedShort(&quot;44633&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>44633</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datausht1args-3">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:unsignedShort(&quot;65535&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>65535</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datanint1args-1">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:negativeInteger(&quot;-999999999999999999&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datanint1args-2">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:negativeInteger(&quot;-297014075999096793&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-297014075999096793</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datanint1args-3">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:negativeInteger(&quot;-1&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datapint1args-1">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:positiveInteger(&quot;1&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datapint1args-2">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:positiveInteger(&quot;52704602390610033&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>52704602390610033</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datapint1args-3">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:positiveInteger(&quot;999999999999999999&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-dataulng1args-1">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:unsignedLong(&quot;0&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-dataulng1args-2">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:unsignedLong(&quot;130747108607674654&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>130747108607674654</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-dataulng1args-3">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:unsignedLong(&quot;184467440737095516&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>184467440737095516</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datanpi1args-1">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:nonPositiveInteger(&quot;-999999999999999999&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datanpi1args-2">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:nonPositiveInteger(&quot;-475688437271870490&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-475688437271870490</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datanpi1args-3">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:nonPositiveInteger(&quot;0&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datanni1args-1">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:nonNegativeInteger(&quot;0&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datanni1args-2">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:nonNegativeInteger(&quot;303884545991464527&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>303884545991464527</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datanni1args-3">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:nonNegativeInteger(&quot;999999999999999999&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datasht1args-1">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:short(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:short(&quot;-32768&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-32768</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datasht1args-2">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:short(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:short(&quot;-5324&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-5324</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-datasht1args-3">
+    <description> Evaluates The &quot;data&quot; function with the arguments set as follows: $arg = xs:short(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:data((xs:short(&quot;32767&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>32767</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="K-DataFunc-1">
+    <description> A test whose essence is: `data()`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <modified by="Michael Kay" change="see bug 16150" on="2012-02-28"/>
+    <dependency type="spec" value="XP20 XQ10"/>
+    <test>data()</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="K-DataFunc-2">
+    <description> A test whose essence is: `data(1, &quot;wrong param&quot;)`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>data(1, &quot;wrong param&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="K-DataFunc-3">
+    <description> A test whose essence is: `count(data((1, 2, 3, 4, 5))) eq 5`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>count(data((1, 2, 3, 4, 5))) eq 5</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DataFunc-4">
+    <description> A test whose essence is: `empty(data( () ))`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>empty(data( () ))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case covers="fn-data" name="K2-DataFunc-1">
+    <description> fn:data() allows zero arguments in XP30/XQ30. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <modified by="Michael Kay" change="see bug 16150" on="2012-02-28"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>1!data()</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="K2-DataFunc-2">
+    <description> fn:data() must be passed at most one argument. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>data(1, 2)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case covers="fn-data" name="K2-DataFunc-3">
+    <description> fn:data() allows zero arguments in XP30/XQ30. </description>
+    <created by="Michael Kay" on="2012-09-27"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+      <![CDATA[
+      	let $x := <e><f>1</f></e>
+      	return $x/data()
+      ]]>
+    </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-string-value>1</assert-string-value>
+        <assert-type>xs:untypedAtomic</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="fn-data" name="K2-DataFunc-4">
+    <description> fn:data() allows zero arguments in XP30/XQ30. No context item</description>
+    <created by="Michael Kay" on="2012-09-27"/>
+    <environment ref="empty"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>
+      <![CDATA[
+      	data()
+      ]]>
+    </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPDY0002&quot;))</result-string>
+    <result>
+      <error code="XPDY0002"/>
+    </result>
+  </test-case>
+  <test-case covers="fn-data" name="K2-DataFunc-5">
+    <description> fn:data() allows zero arguments in XP30/XQ30. Context item is a function item</description>
+    <created by="Michael Kay" on="2012-09-27"/>
+    <environment ref="empty"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <dependency type="feature" value="higherOrderFunctions"/>
+    <test>
+      <![CDATA[
+      	(1, data#0)[data()]
+      ]]>
+    </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOTY0013&quot;))</result-string>
+    <result>
+      <error code="FOTY0013"/>
+    </result>
+  </test-case>
+  <test-case covers="fn-data" name="K2-DataFunc-6">
+    <description> fn:data() allows zero arguments in XP30/XQ30. Context item is an element with no typed value</description>
+    <created by="Michael Kay" on="2012-09-27"/>
+    <environment ref="qname"/>
+    <dependency type="spec" value="XP30+"/>
+    <test>
+      <![CDATA[
+      	/*/data()
+      ]]>
+    </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOTY0012&quot;))</result-string>
+    <result>
+      <error code="FOTY0012"/>
+    </result>
+  </test-case>
+  <test-case name="fn-datacomplextype-1">
+    <description> Evaluates the &quot;data&quot; function with the argument set to a complex element </description>
+    <created by="Nicolae Brinza" on="2009-04-01"/>
+    <modified by="O'Neil Delpratt" change="Added environement of schema" on="2011-09-08"/>
+    <environment ref="mixed"/>
+    <dependency type="spec" value="XQ10+"/>
+    <dependency type="feature" value="schemaImport"/>
+    <test>
+      <![CDATA[
+        import schema namespace mc ="http://www.w3.org/XQueryTest/mixedcontent"; 
+        fn:data( validate { <mc:weather> <mc:temperature>30</mc:temperature> <mc:precipitation>10</mc:precipitation> </mc:weather> } )
+      ]]>
+    </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOTY0012&quot;))</result-string>
+    <result>
+      <error code="FOTY0012"/>
+    </result>
+  </test-case>
+  <test-case name="ST-Data001">
+    <description> Evaluates the &quot;data&quot; function on a node that statically has mixed content and could potentially have element only content. </description>
+    <created by="Oliver Hallam" on="2010-06-08"/>
+    <environment ref="mixed"/>
+    <dependency type="spec" value="XQ10+"/>
+    <dependency type="feature" value="staticTyping"/>
+    <dependency type="feature" value="schemaImport"/>
+    <test>
+        import schema namespace mc =&quot;http://www.w3.org/XQueryTest/mixedcontent&quot;; 
+        let $node as element(*, mc:mixedType) := /* 
+        return data($node)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOTY0012&quot;))</result-string>
+    <result>
+      <error code="FOTY0012"/>
+    </result>
+  </test-case>
+  <test-case name="fn-data-1">
+    <description> Evaluation of the fn:data whose argument is a complex type with element only content. </description>
+    <created by="Carmelo Montanez" on="2006-04-11"/>
+    <environment>
+      <source file="data/examples.xml" role="." validation="strict">
+        <description>Data for fn-data-1 test.</description>
+        <created by="Carmelo Montanez" on="2006-05-19"/>
+      </source>
+      <schema file="data/examples.xsd" uri="http://www.w3.org/XQueryTest/someExamples" xml:id="examples.xsd">
+        <description>A schema for examples.xml.</description>
+        <created by="Carmelo Montanez" on="2006-05-19"/>
+      </schema>
+    </environment>
+    <dependency type="spec" value="XQ10+"/>
+    <dependency type="feature" value="schemaImport"/>
+    <test>
+        import schema namespace examples = &quot;http://www.w3.org/XQueryTest/someExamples&quot;; 
+        fn:data(/examples:E6-Root/examples:E6)</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-string-value>
+  87
+  1.5
+ </assert-string-value>
+        <error code="FOTY0012"/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="cbcl-data-001">
+    <description> test fn:data on fn:error Author: Tim Mills </description>
+    <created by="Oliver Hallam" on="2008-04-11"/>
+    <test>fn:data(fn:error()) instance of xs:integer</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-true/>
+        <error code="FOER0000"/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="cbcl-data-002">
+    <description> fn:data on a complex type with simple content </description>
+    <created by="Oliver Hallam" on="2007-02-27"/>
+    <environment ref="complexData"/>
+    <dependency type="spec" value="XQ10+"/>
+    <dependency type="feature" value="schemaImport"/>
+    <dependency type="feature" value="schemaValidation"/>
+    <test>
+      	import schema namespace cd=&quot;http://www.cbcl.co.uk/XQueryTest/complexData&quot;; 
+      	let $x := validate strict {.} 
+      	return string-length(data($x//cd:complexTypeWithSimpleContent))</test>
+    <result-string>xs:string('3')</result-string>
+    <result>
+      <assert-string-value>3</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="cbcl-data-003">
+    <description> fn:data on a union type </description>
+    <created by="Oliver Hallam" on="2007-02-27"/>
+    <environment ref="complexData"/>
+    <dependency type="spec" value="XQ10+"/>
+    <dependency type="feature" value="schemaImport"/>
+    <dependency type="feature" value="schemaValidation"/>
+    <test>
+      	import schema namespace cd=&quot;http://www.cbcl.co.uk/XQueryTest/complexData&quot;; 
+      	let $x := validate strict {.} 
+      	return data($x//cd:unionType) instance of xs:string</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-data-004">
+    <description> fn:data on a list type </description>
+    <created by="Oliver Hallam" on="2007-02-27"/>
+    <environment ref="complexData"/>
+    <dependency type="spec" value="XQ10+"/>
+    <dependency type="feature" value="schemaImport"/>
+    <dependency type="feature" value="schemaValidation"/>
+    <test>
+      	import schema namespace cd=&quot;http://www.cbcl.co.uk/XQueryTest/complexData&quot;; 
+      	let $x := validate strict {.} 
+      	return sum($x//cd:listType)</test>
+    <result-string>xs:string('6')</result-string>
+    <result>
+      <assert-string-value>6</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="cbcl-data-005">
+    <description> fn:data on a union type possibly containing a list type </description>
+    <created by="Oliver Hallam" on="2007-02-27"/>
+    <environment ref="complexData"/>
+    <dependency type="spec" value="XQ10+"/>
+    <dependency type="feature" value="schemaImport"/>
+    <dependency type="feature" value="schemaValidation"/>
+    <test>
+      	import schema namespace cd=&quot;http://www.cbcl.co.uk/XQueryTest/complexData&quot;; 
+      	let $x := validate strict {.} 
+      	return count(data($x//cd:unionWithList))
+      </test>
+    <result-string>xs:string('3')</result-string>
+    <result>
+      <assert-string-value>3</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="cbcl-data-006">
+    <description> fn:data on a more complicated type heirarchy </description>
+    <created by="Oliver Hallam" on="2007-02-27"/>
+    <environment ref="complexData"/>
+    <dependency type="spec" value="XQ10+"/>
+    <dependency type="feature" value="schemaImport"/>
+    <dependency type="feature" value="schemaValidation"/>
+    <test>
+      	import schema namespace cd=&quot;http://www.cbcl.co.uk/XQueryTest/complexData&quot;;      
+      	let $x := validate strict {.} 
+      	return string-length($x//cd:extendedComplexTypeWithSimpleUnionContent)
+      </test>
+    <result-string>xs:string('3')</result-string>
+    <result>
+      <assert-string-value>3</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="cbcl-data-007">
+    <description> fn:data on list of union type </description>
+    <created by="Oliver Hallam" on="2007-02-27"/>
+    <environment ref="complexData"/>
+    <dependency type="spec" value="XQ10+"/>
+    <dependency type="feature" value="schemaImport"/>
+    <dependency type="feature" value="schemaValidation"/>
+    <test>
+      	import schema namespace cd=&quot;http://www.cbcl.co.uk/XQueryTest/complexData&quot;; 
+      	let $x := validate strict {.} 
+      	return count(data($x//cd:listOfUnion)[. instance of xs:integer])</test>
+    <result-string>xs:string('3')</result-string>
+    <result>
+      <assert-string-value>3</assert-string-value>
+    </result>
+  </test-case>
+</test-set>

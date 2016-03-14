@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="misc-AppendixA4" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the AppendixA4 operator</description>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-AppendixA4" type="spec"/>
+  <link document="XQuery" idref="id-precedence-order" section-number="A.4" type="spec"/>
+  <test-case name="appendix-A4-1">
+    <description> Precedence order for &quot;+&quot; and &quot;*&quot;. </description>
+    <created by="Carmelo Montanez" on="2006-03-24"/>
+    <test>-3 + 5 * 3</test>
+    <result-string/>
+    <result>
+      <assert-eq>12</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="appendix-A4-2">
+    <description> Precedence order for &quot;-&quot; and &quot;*&quot;. </description>
+    <created by="Carmelo Montanez" on="2006-03-24"/>
+    <test>3 - 5 * 3</test>
+    <result-string/>
+    <result>
+      <assert-eq>-12</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="appendix-A4-3">
+    <description> Precedence order for &quot;+&quot; and &quot;div&quot;. </description>
+    <created by="Carmelo Montanez" on="2006-03-24"/>
+    <test>3 + 10 div 2</test>
+    <result-string/>
+    <result>
+      <assert-eq>8</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="appendix-A4-4">
+    <description> Precedence order for &quot;-&quot; and &quot;div&quot;. </description>
+    <created by="Carmelo Montanez" on="2006-03-24"/>
+    <test>5 - 10 div 2</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="appendix-A4-5">
+    <description> Precedence order for &quot;+&quot; and &quot;idiv&quot;. </description>
+    <created by="Carmelo Montanez" on="2006-03-24"/>
+    <test>5 + 10 idiv 4</test>
+    <result-string/>
+    <result>
+      <assert-eq>7</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="appendix-A4-6">
+    <description> Precedence order for &quot;-&quot; and &quot;idiv&quot;. </description>
+    <created by="Carmelo Montanez" on="2006-03-24"/>
+    <test>5 - 10 idiv 4</test>
+    <result-string/>
+    <result>
+      <assert-eq>3</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="appendix-A4-7">
+    <description> Precedence order for &quot;+&quot; and &quot;mod&quot;. </description>
+    <created by="Carmelo Montanez" on="2006-03-27"/>
+    <test>5 + 10 mod 4</test>
+    <result-string/>
+    <result>
+      <assert-eq>7</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="appendix-A4-8">
+    <description> Precedence order for &quot;-&quot; and &quot;mod&quot;. </description>
+    <created by="Carmelo Montanez" on="2006-03-27"/>
+    <test>5 - 10 mod 4</test>
+    <result-string/>
+    <result>
+      <assert-eq>3</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="appendix-A4-9">
+    <description> Precedence order for unary &quot;-&quot; and unary &quot;+&quot;. </description>
+    <created by="Carmelo Montanez" on="2006-03-27"/>
+    <test>-+7</test>
+    <result-string/>
+    <result>
+      <assert-eq>-7</assert-eq>
+    </result>
+  </test-case>
+</test-set>

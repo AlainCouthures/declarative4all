@@ -44,7 +44,7 @@ Fleur._Atomize = function(a, n) {
 			return a;
 		case Fleur.Node.ATTRIBUTE_NODE:
 			a = new Fleur.Text();
-			a.data = n.data.slice(0);
+			a.data = n.value.slice(0);
 			a.schemaTypeInfo = Fleur._schemaTypeInfoLookup(n);
 			return a;
 		case Fleur.Node.SEQUENCE_NODE:

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="fn-day-from-date" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the day-from-date() function</description>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-day-from-date" type="spec"/>
+  <test-case name="fn-day-from-date1args-1">
+    <description> Evaluates The &quot;day-from-date&quot; function with the arguments set as follows: $arg = xs:date(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:day-from-date(xs:date(&quot;1970-01-01Z&quot;))</test>
+    <result-string>xs:string('1')</result-string>
+    <result>
+      <assert-string-value>1</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-day-from-date1args-2">
+    <description> Evaluates The &quot;day-from-date&quot; function with the arguments set as follows: $arg = xs:date(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:day-from-date(xs:date(&quot;1983-11-17Z&quot;))</test>
+    <result-string>xs:string('17')</result-string>
+    <result>
+      <assert-string-value>17</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-day-from-date1args-3">
+    <description> Evaluates The &quot;day-from-date&quot; function with the arguments set as follows: $arg = xs:date(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:day-from-date(xs:date(&quot;2030-12-31Z&quot;))</test>
+    <result-string>xs:string('31')</result-string>
+    <result>
+      <assert-string-value>31</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-day-from-date-1">
+    <description> Evaluates The &quot;day-from-date&quot; function As per example 1 of the FO specs </description>
+    <created by="Carmelo Montanez" on="2005-06-06"/>
+    <test>fn:day-from-date(xs:date(&quot;1999-05-31-05:00&quot;))</test>
+    <result-string>xs:string('31')</result-string>
+    <result>
+      <assert-string-value>31</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-day-from-date-2">
+    <description> Evaluates The &quot;day-from-date&quot; function As per example 2 of the FO specs </description>
+    <created by="Carmelo Montanez" on="2005-06-06"/>
+    <test>fn:day-from-date(xs:date(&quot;2000-01-01+05:00&quot;))</test>
+    <result-string>xs:string('1')</result-string>
+    <result>
+      <assert-string-value>1</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-day-from-date-3">
+    <description> Evaluates The &quot;day-from-date&quot; function involving a &quot;numeric-less-than&quot; operation (lt operator) </description>
+    <created by="Carmelo Montanez" on="2005-06-06"/>
+    <test>fn:day-from-date(xs:date(&quot;1999-12-31Z&quot;)) lt fn:day-from-date(xs:date(&quot;1999-12-31Z&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="fn-day-from-date-4">
+    <description> Evaluates The &quot;day-from-date&quot; function involving a &quot;numeric-less-than&quot; operation (le operator) </description>
+    <created by="Carmelo Montanez" on="2005-06-06"/>
+    <test>fn:day-from-date(xs:date(&quot;1999-12-31Z&quot;)) le fn:day-from-date(xs:date(&quot;1999-12-31Z&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-day-from-date-5">
+    <description> Evaluates The &quot;day-from-date&quot; function using the empty sequence as an argument. Use count function to avoid empty file. </description>
+    <created by="Carmelo Montanez" on="2005-06-06"/>
+    <test>fn:count(fn:day-from-date(()))</test>
+    <result-string>xs:string('0')</result-string>
+    <result>
+      <assert-string-value>0</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-day-from-date-6">
+    <description> Evaluates The &quot;day-from-date&quot; function that returns 31. </description>
+    <created by="Carmelo Montanez" on="2005-06-06"/>
+    <test>fn:day-from-date(xs:date(&quot;1999-05-31Z&quot;))</test>
+    <result-string>xs:string('31')</result-string>
+    <result>
+      <assert-string-value>31</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-day-from-date-7">
+    <description> Evaluates The &quot;day-from-date&quot; function used as arguments to an avg function . </description>
+    <created by="Carmelo Montanez" on="2005-06-06"/>
+    <test>fn:avg((fn:day-from-date(xs:date(&quot;1999-12-31Z&quot;)),fn:day-from-date(xs:date(&quot;1999-12-29Z&quot;))))</test>
+    <result-string>xs:string('30')</result-string>
+    <result>
+      <assert-string-value>30</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-day-from-date-8">
+    <description> Evaluates The &quot;day-from-date&quot; function as part of a &quot;+&quot; expression. </description>
+    <created by="Carmelo Montanez" on="2005-06-06"/>
+    <test>fn:day-from-date(xs:date(&quot;1970-01-01Z&quot;)) + fn:day-from-date(xs:date(&quot;1970-01-01Z&quot;))</test>
+    <result-string>xs:string('2')</result-string>
+    <result>
+      <assert-string-value>2</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-day-from-date-9">
+    <description> Evaluates The &quot;day-from-date&quot; function as part of a &quot;-&quot; expression. </description>
+    <created by="Carmelo Montanez" on="2005-06-06"/>
+    <test>fn:day-from-date(xs:date(&quot;1970-01-01Z&quot;)) - fn:day-from-date(xs:date(&quot;1970-01-01Z&quot;))</test>
+    <result-string>xs:string('0')</result-string>
+    <result>
+      <assert-string-value>0</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-day-from-date-10">
+    <description> Evaluates The &quot;day-from-date&quot; function as part of a &quot;*&quot; expression. </description>
+    <created by="Carmelo Montanez" on="2005-06-06"/>
+    <test>fn:day-from-date(xs:date(&quot;1970-01-03Z&quot;)) * fn:day-from-date(xs:date(&quot;0002-01-01Z&quot;))</test>
+    <result-string>xs:string('3')</result-string>
+    <result>
+      <assert-string-value>3</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-day-from-date-11">
+    <description> Evaluates The &quot;day-from-date&quot; function as part of a &quot;div&quot; expression. </description>
+    <created by="Carmelo Montanez" on="2005-06-06"/>
+    <test>fn:day-from-date(xs:date(&quot;1970-01-02Z&quot;)) div fn:day-from-date(xs:date(&quot;1970-01-01Z&quot;))</test>
+    <result-string>xs:string('2')</result-string>
+    <result>
+      <assert-string-value>2</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-day-from-date-12">
+    <description> Evaluates The &quot;day-from-date&quot; function as part of a &quot;idiv&quot; expression. </description>
+    <created by="Carmelo Montanez" on="2005-06-06"/>
+    <test>fn:day-from-date(xs:date(&quot;1970-01-02Z&quot;)) idiv fn:day-from-date(xs:date(&quot;1970-01-01Z&quot;))</test>
+    <result-string>xs:string('2')</result-string>
+    <result>
+      <assert-string-value>2</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-day-from-date-13">
+    <description> Evaluates The &quot;day-from-date&quot; function as part of a &quot;mod&quot; expression. </description>
+    <created by="Carmelo Montanez" on="2005-06-06"/>
+    <test>fn:day-from-date(xs:date(&quot;1970-01-02Z&quot;)) mod fn:day-from-date(xs:date(&quot;1970-01-01Z&quot;))</test>
+    <result-string>xs:string('0')</result-string>
+    <result>
+      <assert-string-value>0</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-day-from-date-14">
+    <description> Evaluates The &quot;day-from-date&quot; function as part of a &quot;numeric-unary-plus&quot; expression. </description>
+    <created by="Carmelo Montanez" on="2005-06-06"/>
+    <test>+fn:day-from-date(xs:date(&quot;1970-01-01Z&quot;))</test>
+    <result-string>xs:string('1')</result-string>
+    <result>
+      <assert-string-value>1</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-day-from-date-15">
+    <description> Evaluates The &quot;day-from-date&quot; function as part of a &quot;numeric-unary-minus&quot; expression. </description>
+    <created by="Carmelo Montanez" on="2005-06-06"/>
+    <test>-fn:day-from-date(xs:date(&quot;1970-01-01Z&quot;))</test>
+    <result-string>xs:string('-1')</result-string>
+    <result>
+      <assert-string-value>-1</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-day-from-date-16">
+    <description> Evaluates The &quot;day-from-date&quot; function as part of a &quot;numeric-equal&quot; expression (eq operator) </description>
+    <created by="Carmelo Montanez" on="2005-06-06"/>
+    <test>fn:day-from-date(xs:date(&quot;1970-01-02Z&quot;)) eq fn:day-from-date(xs:date(&quot;1970-01-01Z&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="fn-day-from-date-17">
+    <description> Evaluates The &quot;month-from-date&quot; function as part of a &quot;numeric-equal&quot; expression (ne operator) </description>
+    <created by="Carmelo Montanez" on="2005-06-06"/>
+    <test>fn:month-from-date(xs:date(&quot;1970-01-01Z&quot;)) ne fn:month-from-date(xs:date(&quot;1970-01-03Z&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="fn-day-from-date-18">
+    <description> Evaluates The &quot;day-from-date&quot; function as part of a &quot;numeric-equal&quot; expression (le operator) </description>
+    <created by="Carmelo Montanez" on="2005-06-06"/>
+    <test>fn:day-from-date(xs:date(&quot;1970-01-01Z&quot;)) le fn:day-from-date(xs:date(&quot;1970-01-02Z&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-day-from-date-19">
+    <description> Evaluates The &quot;day-from-date&quot; function as part of a &quot;numeric-equal&quot; expression (ge operator) </description>
+    <created by="Carmelo Montanez" on="2005-06-06"/>
+    <test>fn:day-from-date(xs:date(&quot;1970-01-03Z&quot;)) ge fn:day-from-date(xs:date(&quot;1970-01-01Z&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DayFromDateFunc-1">
+    <description> A test whose essence is: `day-from-date()`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>day-from-date()</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="K-DayFromDateFunc-2">
+    <description> A test whose essence is: `day-from-date((), &quot;Wrong param&quot;)`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>day-from-date((), &quot;Wrong param&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="K-DayFromDateFunc-3">
+    <description> A test whose essence is: `empty(day-from-date(()))`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>empty(day-from-date(()))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DayFromDateFunc-4">
+    <description> A test whose essence is: `day-from-date(()) instance of xs:integer?`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>day-from-date(()) instance of xs:integer?</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DayFromDateFunc-5">
+    <description> A test whose essence is: `day-from-date(xs:date(&quot;2000-02-03&quot;)) eq 3`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>day-from-date(xs:date(&quot;2000-02-03&quot;)) eq 3</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+</test-set>

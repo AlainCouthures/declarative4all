@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="prod-OrderingModeDecl" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the EmptyOrderDecl production</description>
+  <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-OrderingModeDecl" type="spec"/>
+  <link document="XQuery" idref="id-default-ordering-decl" section-number="4.7" type="spec"/>
+  <dependency type="spec" value="XQ10+"/>
+  <test-case name="orderDecl-1">
+    <description> Two ordering mode declarations. Should raise static error. </description>
+    <created by="Carmelo Montanez" on="2005-10-12"/>
+    <test>declare ordering unordered; declare ordering ordered; &quot;aa&quot;</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XQST0065&quot;))</result-string>
+    <result>
+      <error code="XQST0065"/>
+    </result>
+  </test-case>
+  <test-case name="orderDecl-2">
+    <description> Simple ordering mode test. Mode set to &quot;ordered&quot;. Use &quot;union&quot; operator. </description>
+    <created by="Carmelo Montanez" on="2005-10-12"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[declare ordering ordered; let $a := <a><b>1</b><c>2</c></a> return $a/b union $a/c]]>
+    </test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<b>1</b><c>2</c>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="orderdecl-3">
+    <description> Simple ordering mode test. Mode set to &quot;unordered&quot;. Use &quot;union&quot; operator. </description>
+    <created by="Carmelo Montanez" on="2005-10-12"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[declare ordering unordered; (<a>1</a>) union (<b>2</b>)]]>
+    </test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-xml>
+          <![CDATA[<a>1</a><b>2</b>]]>
+        </assert-xml>
+        <assert-xml>
+          <![CDATA[<b>2</b><a>1</a>]]>
+        </assert-xml>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="orderDecl-4">
+    <description> Simple ordering mode test. Mode set to &quot;ordered&quot;. Use &quot;intersect&quot; operator. </description>
+    <created by="Carmelo Montanez" on="2005-10-12"/>
+    <environment ref="works-mod"/>
+    <test>declare ordering ordered; (//overtime) intersect (//overtime)</test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<overtime>
+     <day>Monday</day>
+     <day>Tuesday</day>
+   </overtime>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="orderdecl-5">
+    <description> Simple ordering mode test. Mode set to &quot;unordered&quot;. Use &quot;intersect&quot; operator. </description>
+    <created by="Carmelo Montanez" on="2005-10-12"/>
+    <environment ref="works-mod"/>
+    <test>declare ordering unordered; (//overtime) intersect (//overtime)</test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<overtime>
+     <day>Monday</day>
+     <day>Tuesday</day>
+   </overtime>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="orderdecl-6">
+    <description> Simple ordering mode test. Mode set to &quot;ordered&quot;. Use &quot;except&quot; operator. </description>
+    <created by="Carmelo Montanez" on="2005-10-12"/>
+    <environment ref="works-mod"/>
+    <test>declare ordering ordered; (//employee[1]) except (//employee[2])</test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<employee name="Jane Doe 1" gender="female">
+   <empnum>E1</empnum>
+   <pnum>P1</pnum>
+   <hours>40</hours>
+  </employee>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="orderDecl-7">
+    <description> Simple ordering mode test. Mode set to &quot;unordered&quot;. Use &quot;except&quot; operator. </description>
+    <created by="Carmelo Montanez" on="2005-10-12"/>
+    <environment ref="works-mod"/>
+    <test>declare ordering unordered; (//employee[1]) except (//employee[2])</test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<employee name="Jane Doe 1" gender="female">
+   <empnum>E1</empnum>
+   <pnum>P1</pnum>
+   <hours>40</hours>
+  </employee>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="orderDecl-8">
+    <description> Simple ordering mode test. Mode set to &quot;ordered&quot; for a FLOWR expression with no ordering mode. </description>
+    <created by="Carmelo Montanez" on="2005-10-12"/>
+    <environment ref="works-mod"/>
+    <test>declare ordering ordered; for $x in //hours return $x</test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<hours>40</hours><hours>70</hours><hours>20</hours><hours>80</hours><hours>20</hours><hours>40</hours><hours>20</hours><hours>30</hours><hours>12</hours><hours>40</hours><hours>80</hours><hours>20</hours><hours>20</hours><hours>20</hours><hours>40</hours><hours>80</hours>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="orderDecl-9">
+    <description> Simple ordering mode test. Mode set to &quot;ordered&quot; for a FLOWR expression with order modifier (descending). </description>
+    <created by="Carmelo Montanez" on="2005-10-12"/>
+    <environment ref="works-mod"/>
+    <test>declare ordering ordered; for $x in //hours order by $x descending return $x</test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<hours>80</hours><hours>80</hours><hours>80</hours><hours>70</hours><hours>40</hours><hours>40</hours><hours>40</hours><hours>40</hours><hours>30</hours><hours>20</hours><hours>20</hours><hours>20</hours><hours>20</hours><hours>20</hours><hours>20</hours><hours>12</hours>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="orderDecl-10">
+    <description> Simple ordering mode test. Mode set to &quot;ordered&quot; for a FLOWR expression with order modifier (ascending). </description>
+    <created by="Carmelo Montanez" on="2005-10-12"/>
+    <environment ref="works-mod"/>
+    <test>declare ordering ordered; for $x in //hours order by $x ascending return $x</test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<hours>12</hours><hours>20</hours><hours>20</hours><hours>20</hours><hours>20</hours><hours>20</hours><hours>20</hours><hours>30</hours><hours>40</hours><hours>40</hours><hours>40</hours><hours>40</hours><hours>70</hours><hours>80</hours><hours>80</hours><hours>80</hours>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="orderDecl-11">
+    <description> Simple ordering mode test. Mode set to &quot;unordered&quot; for a FLOWR expression with order modifier (descending). </description>
+    <created by="Carmelo Montanez" on="2005-10-12"/>
+    <environment ref="works-mod"/>
+    <test>declare ordering unordered; for $x in //hours order by $x descending return $x</test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<hours>80</hours><hours>80</hours><hours>80</hours><hours>70</hours><hours>40</hours><hours>40</hours><hours>40</hours><hours>40</hours><hours>30</hours><hours>20</hours><hours>20</hours><hours>20</hours><hours>20</hours><hours>20</hours><hours>20</hours><hours>12</hours>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="orderDecl-12">
+    <description> Simple ordering mode test. Mode set to &quot;unordered&quot; for a FLOWR expression with order modifier (ascending). </description>
+    <created by="Carmelo Montanez" on="2005-10-12"/>
+    <environment ref="works-mod"/>
+    <test>declare ordering unordered; for $x in //hours order by $x ascending return $x</test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<hours>12</hours><hours>20</hours><hours>20</hours><hours>20</hours><hours>20</hours><hours>20</hours><hours>20</hours><hours>30</hours><hours>40</hours><hours>40</hours><hours>40</hours><hours>40</hours><hours>70</hours><hours>80</hours><hours>80</hours><hours>80</hours>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="orderDecl-13">
+    <description> Simple ordering mode test. Mode set to &quot;ordered&quot; for an XPATH expression containing &quot;/&quot; </description>
+    <created by="Carmelo Montanez" on="2005-10-12"/>
+    <environment ref="works-mod"/>
+    <test>declare ordering ordered; for $x in (/works/employee/hours) return $x</test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<hours>40</hours><hours>70</hours><hours>20</hours><hours>80</hours><hours>20</hours><hours>40</hours><hours>20</hours><hours>30</hours><hours>12</hours><hours>40</hours><hours>80</hours><hours>20</hours><hours>20</hours><hours>20</hours><hours>40</hours><hours>80</hours>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="orderdecl-14">
+    <description> Simple ordering mode test. Mode set to &quot;unordered&quot; for an XPATH expression containing &quot;/&quot; </description>
+    <created by="Carmelo Montanez" on="2005-10-12"/>
+    <environment ref="works-mod"/>
+    <test>declare ordering unordered; for $x in (/works/employee[4]/hours) return $x</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-xml>
+          <![CDATA[<hours>20</hours><hours>40</hours>]]>
+        </assert-xml>
+        <assert-xml>
+          <![CDATA[<hours>40</hours><hours>20</hours>]]>
+        </assert-xml>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="orderDecl-15">
+    <description> Simple ordering mode test. Mode set to &quot;ordered&quot; for an XPATH expression containing &quot;//&quot; </description>
+    <created by="Carmelo Montanez" on="2005-10-12"/>
+    <environment ref="works-mod"/>
+    <test>declare ordering ordered; for $x in (//day) return $x</test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<day>Monday</day><day>Tuesday</day>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="orderDecl-16">
+    <description> Simple ordering mode test. Mode set to &quot;unordered&quot; for an XPATH expression containing &quot;//&quot; </description>
+    <created by="Carmelo Montanez" on="2005-10-12"/>
+    <environment ref="works-mod"/>
+    <test>declare ordering unordered; for $x in (//day) return $x</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-xml>
+          <![CDATA[<day>Monday</day><day>Tuesday</day>]]>
+        </assert-xml>
+        <assert-xml>
+          <![CDATA[<day>Tuesday</day><day>Monday</day>]]>
+        </assert-xml>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="orderDecl-17">
+    <description> Simple ordering mode test. Mode set to &quot;unordered&quot; in the prolog, but overridden by an &quot;ordered&quot; expression </description>
+    <created by="Carmelo Montanez" on="2005-10-12"/>
+    <environment ref="works-mod"/>
+    <test>declare ordering unordered; ordered { for $x in /works//day return $x }</test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<day>Monday</day><day>Tuesday</day>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="orderDecl-18">
+    <description> Simple ordering mode test. Mode set to &quot;ordered&quot; in the prolog, but overridden by an &quot;unordered&quot; expression </description>
+    <created by="Carmelo Montanez" on="2005-10-12"/>
+    <environment ref="works-mod"/>
+    <test>declare ordering ordered; unordered { for $x in /works//day return $x }</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-xml>
+          <![CDATA[<day>Monday</day><day>Tuesday</day>]]>
+        </assert-xml>
+        <assert-xml>
+          <![CDATA[<day>Tuesday</day><day>Monday</day>]]>
+        </assert-xml>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="orderDecl-20">
+    <description> Simple ordering mode test. Mode set to &quot;ordered&quot; in the prolog, and use of the &quot;child&quot; axis&quot;. </description>
+    <created by="Carmelo Montanez" on="2005-10-13"/>
+    <environment ref="works-mod"/>
+    <test>declare ordering ordered; for $x in /works//overtime return $x/child::day</test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<day>Monday</day><day>Tuesday</day>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="orderDecl-21">
+    <description> Simple ordering mode test. Mode set to &quot;ordered&quot; in the prolog, and use of the &quot;parent&quot; axis&quot;. </description>
+    <created by="Carmelo Montanez" on="2005-10-13"/>
+    <environment ref="works-mod"/>
+    <test>declare ordering ordered; for $x in /works//day[1] return $x/parent::node()</test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<overtime>
+     <day>Monday</day>
+     <day>Tuesday</day>
+   </overtime>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="orderDecl-22">
+    <description> Simple ordering mode test. Mode set to &quot;ordered&quot; in the prolog, and use of the &quot;following&quot; axis&quot;. </description>
+    <created by="Carmelo Montanez" on="2005-10-13"/>
+    <environment ref="works-mod"/>
+    <test>declare ordering ordered; for $x in /works//day[1] return $x/following::day</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-xml>
+          <![CDATA[<day>Tuesday</day>]]>
+        </assert-xml>
+        <error code="XPST0010"/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="orderDecl-23">
+    <description> Simple ordering mode test. Mode set to &quot;ordered&quot; in the prolog, and use of the &quot;descendant&quot; axis&quot;. </description>
+    <created by="Carmelo Montanez" on="2005-10-13"/>
+    <environment ref="works-mod"/>
+    <test>declare ordering ordered; for $x in /works//overtime return $x/descendant::day</test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<day>Monday</day><day>Tuesday</day>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="K-DefaultOrderingProlog-1">
+    <description> A simple 'declare ordering mode' declaration, specifying 'preserve'. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>declare(::)ordering ordered; 1 eq 1</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DefaultOrderingProlog-2">
+    <description> A simple 'declare ordering mode' declaration, specifying 'strip'. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>declare(::)ordering unordered; 1 eq 1</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DefaultOrderingProlog-3">
+    <description> Two 'declare ordering mode' declarations are invalid. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>declare(::)ordering unordered; declare(::)ordering ordered; 1 eq 1</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XQST0065&quot;))</result-string>
+    <result>
+      <error code="XQST0065"/>
+    </result>
+  </test-case>
+  <test-case name="K2-DefaultOrderingProlog-1">
+    <description> Ensure the 'ordering' keyword is parsed correctly. </description>
+    <created by="Frans Englich" on="2008-01-03"/>
+    <test>ordering eq ordering</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPDY0002&quot;))</result-string>
+    <result>
+      <error code="XPDY0002"/>
+    </result>
+  </test-case>
+  <test-case name="K2-DefaultOrderingProlog-2">
+    <description> Ensure the 'order' keyword is parsed correctly. </description>
+    <created by="Frans Englich" on="2008-01-03"/>
+    <test>order eq order</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPDY0002&quot;))</result-string>
+    <result>
+      <error code="XPDY0002"/>
+    </result>
+  </test-case>
+</test-set>

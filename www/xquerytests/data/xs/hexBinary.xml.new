@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="xs-hexBinary" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for conversion to/from hexBinary</description>
+  <test-case name="cbcl-hexbinary-001">
+    <description/>
+    <created by="Oliver Hallam" on="2008-04-14"/>
+    <test>count(xs:hexBinary(()))</test>
+    <result-string>xs:string('0')</result-string>
+    <result>
+      <assert-string-value>0</assert-string-value>
+    </result>
+  </test-case>
+</test-set>

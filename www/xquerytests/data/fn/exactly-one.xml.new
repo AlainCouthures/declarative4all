@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="fn-exactly-one" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the exactly-one() function</description>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-exactly-one" type="spec"/>
+  <test-case name="fn-exactly-oneint1args-1">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:int(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:int(&quot;-2147483648&quot;))</test>
+    <result-string>xs:string('-2147483648')</result-string>
+    <result>
+      <assert-string-value>-2147483648</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-oneint1args-2">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:int(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:int(&quot;-1873914410&quot;))</test>
+    <result-string>xs:string('-1873914410')</result-string>
+    <result>
+      <assert-string-value>-1873914410</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-oneint1args-3">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:int(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:int(&quot;2147483647&quot;))</test>
+    <result-string>xs:string('2147483647')</result-string>
+    <result>
+      <assert-string-value>2147483647</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-oneintg1args-1">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:integer(&quot;-999999999999999999&quot;))</test>
+    <result-string>xs:string('-999999999999999999')</result-string>
+    <result>
+      <assert-string-value>-999999999999999999</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-oneintg1args-2">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:integer(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:integer(&quot;830993497117024304&quot;))</test>
+    <result-string>xs:string('830993497117024304')</result-string>
+    <result>
+      <assert-string-value>830993497117024304</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-oneintg1args-3">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:integer(&quot;999999999999999999&quot;))</test>
+    <result-string>xs:string('999999999999999999')</result-string>
+    <result>
+      <assert-string-value>999999999999999999</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onedec1args-1">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:decimal(&quot;-999999999999999999&quot;))</test>
+    <result-string>xs:string('-999999999999999999')</result-string>
+    <result>
+      <assert-string-value>-999999999999999999</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onedec1args-2">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:decimal(&quot;617375191608514839&quot;))</test>
+    <result-string>xs:string('617375191608514839')</result-string>
+    <result>
+      <assert-string-value>617375191608514839</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onedec1args-3">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:decimal(&quot;999999999999999999&quot;))</test>
+    <result-string>xs:string('999999999999999999')</result-string>
+    <result>
+      <assert-string-value>999999999999999999</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onedbl1args-1">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:double(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:double(&quot;-1.7976931348623157E308&quot;))</test>
+    <result-string>xs:string('-1.7976931348623157E308')</result-string>
+    <result>
+      <assert-string-value>-1.7976931348623157E308</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onedbl1args-2">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:double(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:double(&quot;0&quot;))</test>
+    <result-string>xs:string('0')</result-string>
+    <result>
+      <assert-string-value>0</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onedbl1args-3">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:double(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:double(&quot;1.7976931348623157E308&quot;))</test>
+    <result-string>xs:string('1.7976931348623157E308')</result-string>
+    <result>
+      <assert-string-value>1.7976931348623157E308</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-oneflt1args-1">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:float(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:float(&quot;-3.4028235E38&quot;))</test>
+    <result-string>xs:string('-3.4028235E38')</result-string>
+    <result>
+      <assert-string-value>-3.4028235E38</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-oneflt1args-2">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:float(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:float(&quot;0&quot;))</test>
+    <result-string>xs:string('0')</result-string>
+    <result>
+      <assert-string-value>0</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-oneflt1args-3">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:float(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:float(&quot;3.4028235E38&quot;))</test>
+    <result-string>xs:string('3.4028235E38')</result-string>
+    <result>
+      <assert-string-value>3.4028235E38</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onelng1args-1">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:long(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:long(&quot;-92233720368547758&quot;))</test>
+    <result-string>xs:string('-92233720368547758')</result-string>
+    <result>
+      <assert-string-value>-92233720368547758</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onelng1args-2">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:long(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:long(&quot;-47175562203048468&quot;))</test>
+    <result-string>xs:string('-47175562203048468')</result-string>
+    <result>
+      <assert-string-value>-47175562203048468</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onelng1args-3">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:long(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:long(&quot;92233720368547758&quot;))</test>
+    <result-string>xs:string('92233720368547758')</result-string>
+    <result>
+      <assert-string-value>92233720368547758</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-oneusht1args-1">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:unsignedShort(&quot;0&quot;))</test>
+    <result-string>xs:string('0')</result-string>
+    <result>
+      <assert-string-value>0</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-oneusht1args-2">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:unsignedShort(&quot;44633&quot;))</test>
+    <result-string>xs:string('44633')</result-string>
+    <result>
+      <assert-string-value>44633</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-oneusht1args-3">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:unsignedShort(&quot;65535&quot;))</test>
+    <result-string>xs:string('65535')</result-string>
+    <result>
+      <assert-string-value>65535</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onenint1args-1">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:negativeInteger(&quot;-999999999999999999&quot;))</test>
+    <result-string>xs:string('-999999999999999999')</result-string>
+    <result>
+      <assert-string-value>-999999999999999999</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onenint1args-2">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:negativeInteger(&quot;-297014075999096793&quot;))</test>
+    <result-string>xs:string('-297014075999096793')</result-string>
+    <result>
+      <assert-string-value>-297014075999096793</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onenint1args-3">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:negativeInteger(&quot;-1&quot;))</test>
+    <result-string>xs:string('-1')</result-string>
+    <result>
+      <assert-string-value>-1</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onepint1args-1">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:positiveInteger(&quot;1&quot;))</test>
+    <result-string>xs:string('1')</result-string>
+    <result>
+      <assert-string-value>1</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onepint1args-2">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:positiveInteger(&quot;52704602390610033&quot;))</test>
+    <result-string>xs:string('52704602390610033')</result-string>
+    <result>
+      <assert-string-value>52704602390610033</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onepint1args-3">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:positiveInteger(&quot;999999999999999999&quot;))</test>
+    <result-string>xs:string('999999999999999999')</result-string>
+    <result>
+      <assert-string-value>999999999999999999</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-oneulng1args-1">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:unsignedLong(&quot;0&quot;))</test>
+    <result-string>xs:string('0')</result-string>
+    <result>
+      <assert-string-value>0</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-oneulng1args-2">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:unsignedLong(&quot;130747108607674654&quot;))</test>
+    <result-string>xs:string('130747108607674654')</result-string>
+    <result>
+      <assert-string-value>130747108607674654</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-oneulng1args-3">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:unsignedLong(&quot;184467440737095516&quot;))</test>
+    <result-string>xs:string('184467440737095516')</result-string>
+    <result>
+      <assert-string-value>184467440737095516</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onenpi1args-1">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:nonPositiveInteger(&quot;-999999999999999999&quot;))</test>
+    <result-string>xs:string('-999999999999999999')</result-string>
+    <result>
+      <assert-string-value>-999999999999999999</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onenpi1args-2">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:nonPositiveInteger(&quot;-475688437271870490&quot;))</test>
+    <result-string>xs:string('-475688437271870490')</result-string>
+    <result>
+      <assert-string-value>-475688437271870490</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onenpi1args-3">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:nonPositiveInteger(&quot;0&quot;))</test>
+    <result-string>xs:string('0')</result-string>
+    <result>
+      <assert-string-value>0</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onenni1args-1">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:nonNegativeInteger(&quot;0&quot;))</test>
+    <result-string>xs:string('0')</result-string>
+    <result>
+      <assert-string-value>0</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onenni1args-2">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:nonNegativeInteger(&quot;303884545991464527&quot;))</test>
+    <result-string>xs:string('303884545991464527')</result-string>
+    <result>
+      <assert-string-value>303884545991464527</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onenni1args-3">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:nonNegativeInteger(&quot;999999999999999999&quot;))</test>
+    <result-string>xs:string('999999999999999999')</result-string>
+    <result>
+      <assert-string-value>999999999999999999</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onesht1args-1">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:short(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:short(&quot;-32768&quot;))</test>
+    <result-string>xs:string('-32768')</result-string>
+    <result>
+      <assert-string-value>-32768</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onesht1args-2">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:short(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:short(&quot;-5324&quot;))</test>
+    <result-string>xs:string('-5324')</result-string>
+    <result>
+      <assert-string-value>-5324</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-onesht1args-3">
+    <description> Evaluates The &quot;exactly-one&quot; function with the arguments set as follows: $arg = xs:short(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:exactly-one(xs:short(&quot;32767&quot;))</test>
+    <result-string>xs:string('32767')</result-string>
+    <result>
+      <assert-string-value>32767</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-exactly-one-1">
+    <description> Evaluation of the fn:exactly-one function with argument to sequence with two arguments. </description>
+    <created by="Carmelo Montanez" on="2005-09-20"/>
+    <test>fn:exactly-one((1,2))</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0005&quot;))</result-string>
+    <result>
+      <error code="FORG0005"/>
+    </result>
+  </test-case>
+  <test-case name="K-SeqExactlyOneFunc-1">
+    <description> A test whose essence is: `exactly-one(1, 2)`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>exactly-one(1, 2)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="K-SeqExactlyOneFunc-2">
+    <description> A test whose essence is: `exactly-one()`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>exactly-one()</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="K-SeqExactlyOneFunc-3">
+    <description> A test whose essence is: `exactly-one( (1, 2, 3) )`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>exactly-one( (1, 2, 3) )</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0005&quot;))</result-string>
+    <result>
+      <error code="FORG0005"/>
+    </result>
+  </test-case>
+  <test-case name="K-SeqExactlyOneFunc-4">
+    <description> A test whose essence is: `exactly-one(&quot;one&quot;) eq &quot;one&quot;`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>exactly-one(&quot;one&quot;) eq &quot;one&quot;</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-SeqExactlyOneFunc-5">
+    <description> A test whose essence is: `count(exactly-one( &quot;one&quot; )) eq 1`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>count(exactly-one( &quot;one&quot; )) eq 1</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-SeqExactlyOneFunc-6">
+    <description> A test whose essence is: `exactly-one(error())`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>exactly-one(error())</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOER0000&quot;))</result-string>
+    <result>
+      <error code="FOER0000"/>
+    </result>
+  </test-case>
+  <test-case name="K-SeqExactlyOneFunc-7">
+    <description> A test whose essence is: `exactly-one((true(), error()))`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>exactly-one((true(), error()))</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOER0000&quot;))</result-string>
+    <result>
+      <error code="FOER0000"/>
+    </result>
+  </test-case>
+  <test-case name="K-SeqExactlyOneFunc-8">
+    <description> A test whose essence is: `exactly-one(( error(), true()))`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>exactly-one(( error(), true()))</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOER0000&quot;))</result-string>
+    <result>
+      <error code="FOER0000"/>
+    </result>
+  </test-case>
+  <test-case name="K-SeqExactlyOneFunc-9">
+    <description> A test whose essence is: `exactly-one( () )`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>exactly-one( () )</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0005&quot;))</result-string>
+    <result>
+      <error code="FORG0005"/>
+    </result>
+  </test-case>
+  <test-case name="K-SeqExactlyOneFunc-10">
+    <description> No function by name zero-or-more exists. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>zero-or-more(1)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-exactly-one-001">
+    <description> Test fn:boolean(fn:exactly-one). </description>
+    <created by="Tim Mills" on="2008-04-10"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[boolean( exactly-one( remove( (<a/>, 1), 1 ) ) )]]>
+    </test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-exactly-one-002">
+    <description> test fn:exactly-one on a count-preserving function </description>
+    <created by="Tim Mills" on="2008-04-10"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      	declare function local:generate($arg as xs:integer) { if ($arg = 0) then (1, 2, 3) else $arg }; 
+      	fn:exactly-one(fn:unordered( local:generate(1) ))
+      </test>
+    <result-string>xs:string('1')</result-string>
+    <result>
+      <assert-string-value>1</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="cbcl-exactly-one-003">
+    <description> test fn:exactly-one on a sequence of one-or-more items </description>
+    <created by="Tim Mills" on="2008-04-10"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      	declare function local:generate($arg as xs:integer?) { if ($arg = 0) then () else if ($arg = 1) then $arg else ($arg, $arg) }; 
+      	1 + fn:exactly-one(fn:one-or-more( local:generate( 1 ) ))
+      </test>
+    <result-string>xs:string('2')</result-string>
+    <result>
+      <assert-string-value>2</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="cbcl-exactly-one-004">
+    <description> test fn:exactly-one on a sequence of zero-or-one items </description>
+    <created by="Tim Mills" on="2008-04-10"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      	declare function local:generate($arg as xs:integer?) { if ($arg = 0) then () else if ($arg = 1) then $arg else ($arg, $arg) }; 
+      	1 + fn:exactly-one(fn:zero-or-one( local:generate( 1 ) ))
+      </test>
+    <result-string>xs:string('2')</result-string>
+    <result>
+      <assert-string-value>2</assert-string-value>
+    </result>
+  </test-case>
+</test-set>

@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="op-numeric-unary-plus" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the numeric-unary-plus() function</description>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-numeric-unary-plus" type="spec"/>
+  <test-case name="op-numeric-unary-plusint1args-1">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:int(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:int(&quot;-2147483648&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-2147483648</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusint1args-2">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:int(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:int(&quot;-1873914410&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-1873914410</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusint1args-3">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:int(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:int(&quot;2147483647&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>2147483647</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusintg1args-1">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:integer(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:integer(&quot;-999999999999999999&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusintg1args-2">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:integer(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:integer(&quot;830993497117024304&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>830993497117024304</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusintg1args-3">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:integer(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:integer(&quot;999999999999999999&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusdec1args-1">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:decimal(&quot;-999999999999999999&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusdec1args-2">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:decimal(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:decimal(&quot;617375191608514839&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>617375191608514839</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusdec1args-3">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:decimal(&quot;999999999999999999&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusdbl1args-1">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:double(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:double(&quot;-1.7976931348623157E308&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-1.7976931348623157E308</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusdbl1args-2">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:double(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:double(&quot;0&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusdbl1args-3">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:double(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:double(&quot;1.7976931348623157E308&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>1.7976931348623157E308</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusflt1args-1">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:float(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:float(&quot;-3.4028235E38&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>xs:float(-3.4028235E38)</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusflt1args-2">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:float(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:float(&quot;0&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusflt1args-3">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:float(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:float(&quot;3.4028235E38&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>xs:float(3.4028235E38)</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-pluslng1args-1">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:long(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:long(&quot;-92233720368547758&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-92233720368547758</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-pluslng1args-2">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:long(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:long(&quot;-47175562203048468&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-47175562203048468</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-pluslng1args-3">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:long(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:long(&quot;92233720368547758&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>92233720368547758</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plususht1args-1">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:unsignedShort(&quot;0&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plususht1args-2">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:unsignedShort(&quot;44633&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>44633</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plususht1args-3">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:unsignedShort(&quot;65535&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>65535</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusnint1args-1">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:negativeInteger(&quot;-999999999999999999&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusnint1args-2">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:negativeInteger(&quot;-297014075999096793&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-297014075999096793</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusnint1args-3">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:negativeInteger(&quot;-1&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-pluspint1args-1">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:positiveInteger(&quot;1&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-pluspint1args-2">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:positiveInteger(&quot;52704602390610033&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>52704602390610033</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-pluspint1args-3">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:positiveInteger(&quot;999999999999999999&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusulng1args-1">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:unsignedLong(&quot;0&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusulng1args-2">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:unsignedLong(&quot;130747108607674654&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>130747108607674654</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusulng1args-3">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:unsignedLong(&quot;184467440737095516&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>184467440737095516</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusnpi1args-1">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:nonPositiveInteger(&quot;-999999999999999999&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusnpi1args-2">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:nonPositiveInteger(&quot;-475688437271870490&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-475688437271870490</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusnpi1args-3">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:nonPositiveInteger(&quot;0&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusnni1args-1">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:nonNegativeInteger(&quot;0&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusnni1args-2">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:nonNegativeInteger(&quot;303884545991464527&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>303884545991464527</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plusnni1args-3">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:nonNegativeInteger(&quot;999999999999999999&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plussht1args-1">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:short(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:short(&quot;-32768&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-32768</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plussht1args-2">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:short(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:short(&quot;-5324&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-5324</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plussht1args-3">
+    <description> Evaluates The &quot;op:numeric-unary-plus&quot; operator with the arguments set as follows: $arg = xs:short(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>+(xs:short(&quot;32767&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>32767</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="K-NumericUnaryPlus-1">
+    <description> No unary operator is available for xs:string. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>+&quot;a string&quot;</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericUnaryPlus-2">
+    <description> A test whose essence is: `(+3) eq 3`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(+3) eq 3</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericUnaryPlus-3">
+    <description> A test whose essence is: `(+3) eq +3`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(+3) eq +3</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericUnaryPlus-4">
+    <description> A test whose essence is: `(+3) eq +(3)`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(+3) eq +(3)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericUnaryPlus-5">
+    <description> A test whose essence is: `+(3) eq 3`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>+(3) eq 3</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericUnaryPlus-6">
+    <description> A test whose essence is: `+(3) eq +3`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>+(3) eq +3</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericUnaryPlus-7">
+    <description> A test whose essence is: `-(3) ne 3`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>-(3) ne 3</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericUnaryPlus-8">
+    <description> A test whose essence is: `----------3 eq 3`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>----------3 eq 3</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericUnaryPlus-9">
+    <description> A test whose essence is: `+++++++++++3 eq 3`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>+++++++++++3 eq 3</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericUnaryPlus-10">
+    <description> A test whose essence is: `-+-+-+-+-+-+-+-3 eq 3`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>-+-+-+-+-+-+-+-3 eq 3</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericUnaryPlus-11">
+    <description> A test whose essence is: `-+-+-+-+-+-++-+-++-+-+-+-+++3 eq 3`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>-+-+-+-+-+-++-+-++-+-+-+-+++3 eq 3</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-NumericUnaryPlus-12">
+    <description> A test whose essence is: `+++3 eq ++3`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>+++3 eq ++3</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-NumericUnaryPlus-1">
+    <description> Unary combined with path expressions. </description>
+    <created by="Frans Englich" on="2008-06-03"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>empty(document{()}/(+element()))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-NumericUnaryPlus-2">
+    <description> Unary with an empty sequence. </description>
+    <created by="Frans Englich" on="2008-06-03"/>
+    <test>empty(+())</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-numeric-unary-plus-1">
+    <description> Check dynamic type of unary plus on argument of union of numeric types and untypedAtomic. </description>
+    <created by="Oliver Hallam" on="2010-03-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>for $x in (1, xs:decimal(2), xs:float(3), xs:double(4), xs:untypedAtomic(5)) return typeswitch (+$x) case xs:integer return &quot;integer&quot; case xs:decimal return &quot;decimal&quot; case xs:float return &quot;float&quot; case xs:double return &quot;double&quot; default return error()</test>
+    <result-string>xs:string('integer decimal float double double')</result-string>
+    <result>
+      <assert-string-value>integer decimal float double double</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="cbcl-numeric-unary-plus-001">
+    <description> Test unary plus with a potential type check error </description>
+    <created by="Tim Mills" on="2008-06-17"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      	declare function local:value($number as xs:boolean) { if ($number) then 1 else xs:string('1') }; 
+      	+(local:value(true()))</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-string-value>1</assert-string-value>
+        <error code="XPTY0004"/>
+      </any-of>
+    </result>
+  </test-case>
+</test-set>

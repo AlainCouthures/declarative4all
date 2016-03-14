@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="op-divide-dayTimeDuration-by-dayTimeDuration" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the divide-dayTimeDuration-by-dayTimeDuration() function</description>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-divide-dayTimeDuration-by-dayTimeDuration" type="spec"/>
+  <test-case name="op-divide-dayTimeDuration-by-dayTimeDuration2args-1">
+    <description>
+*******************************************************
+Test: op-divide-dayTimeDuration-by-dayTimeDuration2args-1
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:08 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:divide-dayTimeDuration-by-dayTimeDuration&quot; operator
+ with the arguments set as follows:                    
+$arg1 = xs:dayTimeDuration(lower bound)               
+$arg2 = xs:dayTimeDuration(lower bound)               
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;) div xs:dayTimeDuration(&quot;P0DT0H0M01S&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-divide-dayTimeDuration-by-dayTimeDuration2args-2">
+    <description>
+*******************************************************
+Test: op-divide-dayTimeDuration-by-dayTimeDuration2args-2
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:08 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:divide-dayTimeDuration-by-dayTimeDuration&quot; operator
+ with the arguments set as follows:                    
+$arg1 = xs:dayTimeDuration(mid range)                 
+$arg2 = xs:dayTimeDuration(lower bound)               
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration(&quot;P15DT11H59M59S&quot;) div xs:dayTimeDuration(&quot;P0DT0H0M01S&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>1339199</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-divide-dayTimeDuration-by-dayTimeDuration2args-3">
+    <description>
+*******************************************************
+Test: op-divide-dayTimeDuration-by-dayTimeDuration2args-3
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:08 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:divide-dayTimeDuration-by-dayTimeDuration&quot; operator
+ with the arguments set as follows:                    
+$arg1 = xs:dayTimeDuration(upper bound)               
+$arg2 = xs:dayTimeDuration(lower bound)               
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration(&quot;P31DT23H59M59S&quot;) div xs:dayTimeDuration(&quot;P0DT0H0M01S&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>2764799</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-divide-dayTimeDuration-by-dayTimeDuration2args-4">
+    <description>
+*******************************************************
+Test: op-divide-dayTimeDuration-by-dayTimeDuration2args-4
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:08 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:divide-dayTimeDuration-by-dayTimeDuration&quot; operator
+ with the arguments set as follows:                    
+$arg1 = xs:dayTimeDuration(lower bound)               
+$arg2 = xs:dayTimeDuration(mid range)                 
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;) div xs:dayTimeDuration(&quot;P15DT11H59M59S&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-divide-dayTimeDuration-by-dayTimeDuration2args-5">
+    <description>
+*******************************************************
+Test: op-divide-dayTimeDuration-by-dayTimeDuration2args-5
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:08 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:divide-dayTimeDuration-by-dayTimeDuration&quot; operator
+ with the arguments set as follows:                    
+$arg1 = xs:dayTimeDuration(lower bound)               
+$arg2 = xs:dayTimeDuration(upper bound)               
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;) div xs:dayTimeDuration(&quot;P31DT23H59M59S&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-divide-dayTimeDuration-by-dTD-1">
+    <description>
+*******************************************************
+Test: op-divide-dayTimeDuration-by-dTD-1             
+Written By: Carmelo Montanez                           
+Date: June 30, 2005                                    
+Purpose: Evaluates The &quot;divide-dayTimeDuration-by-DTD&quot; operator 
+As per example 1 (for this function)of the FO specs.  
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>fn:round-half-to-even((xs:dayTimeDuration(&quot;P2DT53M11S&quot;) div xs:dayTimeDuration(&quot;P1DT10H&quot;)),15)</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-eq>1.437834967320261</assert-eq>
+        <assert-eq>1.4378349673</assert-eq>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="op-divide-dayTimeDuration-by-dTD-2">
+    <description>
+*******************************************************
+Test: op-divide-dayTimeDuration-by-dTD-2               
+Written By: Carmelo Montanez                           
+Date: June 30, 2005                                    
+Purpose: Evaluates The &quot;divide-dayTimeDuration-by-dTD&quot; operator 
+used as part of a boolean expression (and operator) and the &quot;fn:false&quot; function. 
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>xs:dayTimeDuration(&quot;P10DT10H11M&quot;) div xs:dayTimeDuration(&quot;P12DT10H07M&quot;) and fn:false()</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-divide-dayTimeDuration-by-dTD-3">
+    <description>
+*******************************************************
+Test: op-divide-dayTimeDuration-by-dTD-3               
+Written By: Carmelo Montanez                           
+Date: June 30, 2005                                    
+Purpose: Evaluates The &quot;divide-dayTimeDuration-by-dTD&quot; operator as 
+part of a boolean expression (or operator) and the &quot;fn:boolean&quot; function. 
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>xs:dayTimeDuration(&quot;P20DT20H10M&quot;) div xs:dayTimeDuration(&quot;P19DT13H10M&quot;) or fn:false()</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-divide-dayTimeDuration-by-dTD-4">
+    <description>
+*******************************************************
+Test: op-divide-dayTimeDuration-by-dTD-4               
+Written By: Carmelo Montanez                           
+Date: June 30, 2005                                    
+Purpose: Evaluates The &quot;divide-dayTimeDuration-by-dTD&quot; operator that  
+return true and used together with fn:not.             
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>fn:not(xs:dayTimeDuration(&quot;P11DT12H04M&quot;) div xs:dayTimeDuration(&quot;P02DT07H01M&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-divide-dayTimeDuration-by-dTD-5">
+    <description>
+*******************************************************
+Test: op-divide-dayTimeDuration-by-dTD-5               
+Written By: Carmelo Montanez                           
+Date: June 30, 2005                                     
+Purpose: Evaluates The &quot;divide-dayTimeDuration-by-dTD&quot; operator that  
+is used as an argument to the fn:boolean function.     
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>fn:boolean(xs:dayTimeDuration(&quot;P05DT09H08M&quot;) div xs:dayTimeDuration(&quot;P03DT08H06M&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-divide-dayTimeDuration-by-dTD-6">
+    <description>
+*******************************************************
+Test: op-divide-dayTimeDuration-by-dTD-6               
+Written By: Carmelo Montanez                           
+Date: June 30, 2005                                    
+Purpose: Evaluates The &quot;divide-dayTimeDuration-by-dTD&quot; operator that 
+is used as an argument to the fn:number function.      
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>fn:number(xs:dayTimeDuration(&quot;P02DT06H09M&quot;) div xs:dayTimeDuration(&quot;P02DT06H09M&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-divide-dayTimeDuration-by-dTD-7">
+    <description>
+*******************************************************
+Test: op-divide-dayTimeDuration-by-dTD-7               
+Written By: Carmelo Montanez                           
+Date: June 30, 2005                                    
+Purpose: Evaluates The &quot;divide-dayTimeDuration-by-dTD&quot; operator used  
+as an argument to the &quot;fn:string&quot; function.            
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>fn:string(xs:dayTimeDuration(&quot;P08DT06H08M&quot;) div xs:dayTimeDuration(&quot;P08DT06H08M&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>&quot;1&quot;</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-divide-dayTimeDuration-by-dTD-8">
+    <description>
+*******************************************************
+Test: op-divide-dayTimeDuration-by-dTD-8               
+Written By: Carmelo Montanez                           
+Date: June 30, 2005                                    
+Purpose: Evaluates The &quot;divide-dayTimeDuration-by-dTD&quot; operator that  
+returns a negative value.                              
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>(xs:dayTimeDuration(&quot;P10DT01H01M&quot;) div xs:dayTimeDuration(&quot;-P10DT01H01M&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-divide-dayTimeDuration-by-dTD-9">
+    <description>
+*******************************************************
+Test: op-divide-dayTimeDuration-by-dTD-9               
+Written By: Carmelo Montanez                           
+Date: June 30, 2005                                    
+Purpose: Evaluates The &quot;divide-dayTimeDuration-by-dTD&quot; duration used 
+together with and &quot;and&quot; expression.                    
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>(xs:dayTimeDuration(&quot;P01DT02H01M&quot;) div xs:dayTimeDuration(&quot;P02DT09H02M&quot;)) and (xs:dayTimeDuration(&quot;P01DT02H01M&quot;) div xs:dayTimeDuration(&quot;P02DT09H02M&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-divide-dayTimeDuration-by-dTD-10">
+    <description>
+*******************************************************
+Test: op-divide-dayTimeDuration-by-dTD-10              
+Written By: Carmelo Montanez                           
+Date: June 30, 2005                                    
+Purpose: Evaluates The &quot;divide-dayTimeDuration-by-dTD&quot; operator used  
+together with an &quot;or&quot; expression.                      
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>(xs:dayTimeDuration(&quot;P05DT09H02M&quot;) div xs:dayTimeDuration(&quot;P03DT01H04M&quot;)) or (xs:dayTimeDuration(&quot;P05DT05H03M&quot;) div xs:dayTimeDuration(&quot;P01DT01H03M&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-divide-dayTimeDuration-by-dTD-11">
+    <description>
+*******************************************************
+Test: op-divide-dayTimeDuration-by-dTD-11              
+Written By: Carmelo Montanez                           
+Date: June 30, 2005                                    
+Purpose: Evaluates The &quot;divide-dayTimeDuration-by-dTD&quot; operator used  
+together with multiple &quot;div&quot; expressions.              
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>fn:round-half-to-even( (xs:dayTimeDuration(&quot;P42DT10H10M&quot;) div xs:dayTimeDuration(&quot;P10DT10H10M&quot;)) div (xs:dayTimeDuration(&quot;P20DT10H10M&quot;) div xs:dayTimeDuration(&quot;P18DT10H10M&quot;)) ,15)</test>
+    <result-string/>
+    <result>
+      <assert-eq>3.671399617754547</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="op-divide-dayTimeDuration-by-dTD-12">
+    <description>
+*******************************************************
+Test: op-divide-dayTimeDuration-by-dTD-12              
+Written By: Carmelo Montanez                           
+Date: June 30, 2005                                    
+Purpose: Evaluates The &quot;divide-dayTimeDuration-by-dTD&quot; operators used 
+with a boolean expression and the &quot;fn:true&quot; function.   
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>(xs:dayTimeDuration(&quot;P10DT08H11M&quot;) div xs:dayTimeDuration(&quot;P05DT08H11M&quot;)) and (fn:true())</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-divide-dayTimeDuration-by-dTD-13">
+    <description>
+*******************************************************
+Test: op-divide-dayTimeDuration-by-dTD-13              
+Written By: Carmelo Montanez                           
+Date: June 30, 2005                                    
+Purpose: Evaluates The &quot;divide-dayTimeDuration-by-dTD&quot; operator used  
+together with the numeric-equal-operator &quot;eq&quot;.         
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>(xs:dayTimeDuration(&quot;P23DT11H11M&quot;) div xs:dayTimeDuration(&quot;P23DT11H11M&quot;)) eq xs:decimal(2.0)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-divide-dayTimeDuration-by-dTD-14">
+    <description>
+*******************************************************
+Test: op-divide-dayTimeDuration-by-dTD-14              
+Written By: Carmelo Montanez                           
+Date: June 30, 2005                                    
+Purpose: Evaluates The &quot;divide-dayTimeDuration-by-dTD&quot; operator used  
+together with the numeric-equal operator &quot;ne&quot;.         
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>(xs:dayTimeDuration(&quot;P21DT08H12M&quot;) div xs:dayTimeDuration(&quot;P08DT08H05M&quot;)) ne xs:decimal(2.0)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-divide-dayTimeDuration-by-dTD-15">
+    <description>
+*******************************************************
+Test: op-divide-dayTimeDuration-by-dTD-15              
+Written By: Carmelo Montanez                           
+Date: June 30, 2005                                    
+Purpose: Evaluates The &quot;divide-dayTimeDuration-by-DTD&quot; function used  
+together with the numeric-equal operator &quot;le&quot;.         
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>(xs:dayTimeDuration(&quot;P10DT10H01M&quot;) div xs:dayTimeDuration(&quot;P17DT10H02M&quot;)) le xs:decimal(2.0)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-divide-dayTimeDuration-by-dTD-16">
+    <description>
+*******************************************************
+Test: op-divide-dayTimeDuration-by-dTD-16              
+Written By: Carmelo Montanez                           
+Date: June 30, 2005                                    
+Purpose: Evaluates The &quot;divide-dayTimeDuration-by-dTD&quot; operator used  
+together with the numeric-equal operator &quot;ge&quot;.         
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>(xs:dayTimeDuration(&quot;P13DT09H09M&quot;) div xs:dayTimeDuration(&quot;P18DT02H02M&quot;)) ge xs:decimal(2.0)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="K-DayTimeDurationDivideDTD-1">
+    <description>
+*******************************************************
+ Test: K-DayTimeDurationDivideDTD-1                    
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Simple test of dividing a xs:dayTimeDuration with xs:dayTimeDuration. 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>(xs:dayTimeDuration(&quot;PT8M&quot;) div xs:dayTimeDuration(&quot;PT2M&quot;)) eq 4</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-divide-dayTimeDuration-by-dayTimeDuration-001">
+    <description> test division of xs:dayTimeDuration by zero </description>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <test>xs:dayTimeDuration(&quot;P9223372036854775807D&quot;) div xs:dayTimeDuration(&quot;P0D&quot;)</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <error code="FOAR0001"/>
+        <error code="FODT0002"/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="cbcl-divide-dayTimeDuration-by-dayTimeDuration-002">
+    <description> test division of xs:dayTimeDuration by a small duration </description>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <test>xs:dayTimeDuration(&quot;P9223372036854775807D&quot;) div xs:dayTimeDuration(&quot;P0DT0H0M0.000000001S&quot;)</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <error code="FOAR0002"/>
+        <error code="FODT0002"/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="cbcl-divide-dayTimeDuration-by-dayTimeDuration-003">
+    <description> test division of xs:dayTimeDuration by a small duration </description>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <modified by="Michael Kay" change="allow implementation to blow its limits" on="2012-12-21"/>
+    <test>xs:dayTimeDuration(&quot;P9223372036854775806D&quot;) div xs:dayTimeDuration(&quot;P4611686018427387903D&quot;)</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-eq>2</assert-eq>
+        <error code="FODT0002"/>
+      </any-of>
+    </result>
+  </test-case>
+</test-set>

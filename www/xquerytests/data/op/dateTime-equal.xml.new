@@ -1,0 +1,1083 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="op-dateTime-equal" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the dateTime-equal() function</description>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-dateTime-equal" type="spec"/>
+  <test-case name="op-dateTime-equal2args-1">
+    <description>
+*******************************************************
+Test: op-dateTime-equal2args-1                          
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:06 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:dateTime-equal&quot; operator    
+ with the arguments set as follows:                    
+$arg1 = xs:dateTime(lower bound)                       
+$arg2 = xs:dateTime(lower bound)                       
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) eq xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dateTime-equal2args-2">
+    <description>
+*******************************************************
+Test: op-dateTime-equal2args-2                          
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:06 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:dateTime-equal&quot; operator    
+ with the arguments set as follows:                    
+$arg1 = xs:dateTime(mid range)                         
+$arg2 = xs:dateTime(lower bound)                       
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dateTime(&quot;1996-04-07T01:40:52Z&quot;) eq xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dateTime-equal2args-3">
+    <description>
+*******************************************************
+Test: op-dateTime-equal2args-3                          
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:06 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:dateTime-equal&quot; operator    
+ with the arguments set as follows:                    
+$arg1 = xs:dateTime(upper bound)                       
+$arg2 = xs:dateTime(lower bound)                       
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dateTime(&quot;2030-12-31T23:59:59Z&quot;) eq xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dateTime-equal2args-4">
+    <description>
+*******************************************************
+Test: op-dateTime-equal2args-4                          
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:06 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:dateTime-equal&quot; operator    
+ with the arguments set as follows:                    
+$arg1 = xs:dateTime(lower bound)                       
+$arg2 = xs:dateTime(mid range)                         
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) eq xs:dateTime(&quot;1996-04-07T01:40:52Z&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dateTime-equal2args-5">
+    <description>
+*******************************************************
+Test: op-dateTime-equal2args-5                          
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:06 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:dateTime-equal&quot; operator    
+ with the arguments set as follows:                    
+$arg1 = xs:dateTime(lower bound)                       
+$arg2 = xs:dateTime(upper bound)                       
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) eq xs:dateTime(&quot;2030-12-31T23:59:59Z&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dateTime-equal2args-6">
+    <description>
+*******************************************************
+Test: op-dateTime-equal2args-6                          
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:06 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:dateTime-equal&quot; operator    
+ with the arguments set as follows:                    
+$arg1 = xs:dateTime(lower bound)                       
+$arg2 = xs:dateTime(lower bound)                       
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) ne xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dateTime-equal2args-7">
+    <description>
+*******************************************************
+Test: op-dateTime-equal2args-7                          
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:06 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:dateTime-equal&quot; operator    
+ with the arguments set as follows:                    
+$arg1 = xs:dateTime(mid range)                         
+$arg2 = xs:dateTime(lower bound)                       
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dateTime(&quot;1996-04-07T01:40:52Z&quot;) ne xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dateTime-equal2args-8">
+    <description>
+*******************************************************
+Test: op-dateTime-equal2args-8                          
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:06 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:dateTime-equal&quot; operator    
+ with the arguments set as follows:                    
+$arg1 = xs:dateTime(upper bound)                       
+$arg2 = xs:dateTime(lower bound)                       
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dateTime(&quot;2030-12-31T23:59:59Z&quot;) ne xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dateTime-equal2args-9">
+    <description>
+*******************************************************
+Test: op-dateTime-equal2args-9                          
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:06 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:dateTime-equal&quot; operator    
+ with the arguments set as follows:                    
+$arg1 = xs:dateTime(lower bound)                       
+$arg2 = xs:dateTime(mid range)                         
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) ne xs:dateTime(&quot;1996-04-07T01:40:52Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dateTime-equal2args-10">
+    <description>
+*******************************************************
+Test: op-dateTime-equal2args-10                         
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:06 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:dateTime-equal&quot; operator    
+ with the arguments set as follows:                    
+$arg1 = xs:dateTime(lower bound)                       
+$arg2 = xs:dateTime(upper bound)                       
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) ne xs:dateTime(&quot;2030-12-31T23:59:59Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dateTime-equal2args-11">
+    <description>
+*******************************************************
+Test: op-dateTime-equal2args-11                        
+Written By: Carmelo Montanez                           
+Date: June 3, 2005                                     
+Purpose: Evaluates The &quot;op:dateTime-equal&quot; operator (le) 
+ with the arguments set as follows:                    
+$arg1 = xs:dateTime(lower bound)                       
+$arg2 = xs:dateTime(lower bound)                       
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-03"/>
+    <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) le xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dateTime-equal2args-12">
+    <description>
+*******************************************************
+Test: op-dateTime-equal2args-12                        
+Written By: Carmelo Montanez                           
+Date: June 3, 2005                                     
+Purpose: Evaluates The &quot;op:dateTime-equal&quot; operator (le)
+ with the arguments set as follows:                    
+$arg1 = xs:dateTime(mid range)                         
+$arg2 = xs:dateTime(lower bound)                       
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-03"/>
+    <test>xs:dateTime(&quot;1996-04-07T01:40:52Z&quot;) le xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dateTime-equal2args-13">
+    <description>
+*******************************************************
+Test: op-dateTime-equal2args-13                        
+Written By: Carmelo Montanez                           
+Date: June 3, 2005                                     
+Purpose: Evaluates The &quot;op:dateTime-equal&quot; operator (le) 
+ with the arguments set as follows:                    
+$arg1 = xs:dateTime(upper bound)                       
+$arg2 = xs:dateTime(lower bound)                       
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-03"/>
+    <test>xs:dateTime(&quot;2030-12-31T23:59:59Z&quot;) le xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dateTime-equal2args-14">
+    <description>
+*******************************************************
+Test: op-dateTime-equal2args-14                        
+Written By: Carmelo Montanez                           
+Date: June 3, 2005                                     
+Purpose: Evaluates The &quot;op:dateTime-equal&quot; operator (le) 
+ with the arguments set as follows:                    
+$arg1 = xs:dateTime(lower bound)                       
+$arg2 = xs:dateTime(mid range)                         
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-03"/>
+    <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) le xs:dateTime(&quot;1996-04-07T01:40:52Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dateTime-equal2args-15">
+    <description>
+*******************************************************
+Test: op-dateTime-equal2args-15                        
+Written By: Carmelo Montanez                           
+Date: June 3, 2005                                     
+Purpose: Evaluates The &quot;op:dateTime-equal&quot; operator (le)
+ with the arguments set as follows:                    
+$arg1 = xs:dateTime(lower bound)                       
+$arg2 = xs:dateTime(upper bound)                       
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-03"/>
+    <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) le xs:dateTime(&quot;2030-12-31T23:59:59Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dateTime-equal2args-16">
+    <description>
+*******************************************************
+Test: op-dateTime-equal2args-16                        
+Written By: Carmelo Montanez                           
+Date: June 3, 2005                                     
+Purpose: Evaluates The &quot;op:dateTime-equal&quot; operator (ge) 
+ with the arguments set as follows:                    
+$arg1 = xs:dateTime(lower bound)                       
+$arg2 = xs:dateTime(lower bound)                       
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-03"/>
+    <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) ge xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dateTime-equal2args-17">
+    <description>
+*******************************************************
+Test: op-dateTime-equal2args-17                        
+Written By: Carmelo Montanez                           
+Date: June 3, 2005                                     
+Purpose: Evaluates The &quot;op:dateTime-equal&quot; operator (ge) 
+ with the arguments set as follows:                    
+$arg1 = xs:dateTime(mid range)                         
+$arg2 = xs:dateTime(lower bound)                       
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-03"/>
+    <test>xs:dateTime(&quot;1996-04-07T01:40:52Z&quot;) ge xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dateTime-equal2args-18">
+    <description>
+*******************************************************
+Test: op-dateTime-equal2args-18                        
+Written By: Carmelo Montanez                           
+Date: June 3, 2005                                     
+Purpose: Evaluates The &quot;op:dateTime-equal&quot; operator (ge) 
+ with the arguments set as follows:                    
+$arg1 = xs:dateTime(upper bound)                       
+$arg2 = xs:dateTime(lower bound)                       
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-03"/>
+    <test>xs:dateTime(&quot;2030-12-31T23:59:59Z&quot;) ge xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dateTime-equal2args-19">
+    <description>
+*******************************************************
+Test: op-dateTime-equal2args-19                        
+Written By: Carmelo Montanez                           
+Date: June 3, 2005                                     
+Purpose: Evaluates The &quot;op:dateTime-equal&quot; operator (ge) 
+ with the arguments set as follows:                    
+$arg1 = xs:dateTime(lower bound)                       
+$arg2 = xs:dateTime(mid range)                         
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-03"/>
+    <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) ge xs:dateTime(&quot;1996-04-07T01:40:52Z&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dateTime-equal2args-20">
+    <description>
+*******************************************************
+Test: op-dateTime-equal2args-20                        
+Written By: Carmelo Montanez                           
+Date: June 3, 2005                                     
+Purpose: Evaluates The &quot;op:dateTime-equal&quot; operator (ge) 
+ with the arguments set as follows:                    
+$arg1 = xs:dateTime(lower bound)                       
+$arg2 = xs:dateTime(upper bound)                       
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-03"/>
+    <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) ge xs:dateTime(&quot;2030-12-31T23:59:59Z&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-1">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-1                                  
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Simple test of 'eq' for xs:dateTime, returning positive. 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dateTime(&quot;2004-08-12T23:01:04.12&quot;) eq xs:dateTime(&quot;2004-08-12T23:01:04.12&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-2">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-2                                  
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Simple test of 'eq' for xs:dateTime.         
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>not(xs:dateTime(&quot;2004-08-12T23:01:04.12&quot;) eq xs:dateTime(&quot;2004-08-12T23:01:04.13&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-3">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-3                                  
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Simple test of 'ne' for xs:dateTime.         
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dateTime(&quot;2004-08-12T23:01:05.12&quot;) ne xs:dateTime(&quot;2004-08-12T23:01:04.12&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-4">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-4                                  
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Simple test of 'ne' for xs:dateTime.         
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>not(xs:dateTime(&quot;2004-07-12T23:01:04.12&quot;) ne xs:dateTime(&quot;2004-07-12T23:01:04.12&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-5">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-5                                  
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Test that zone offset -00:00 is equal to Z, in xs:dateTime. 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dateTime(&quot;1999-12-04T16:00:12.345-00:00&quot;) eq xs:dateTime(&quot;1999-12-04T16:00:12.345Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-6">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-6                                  
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Test that zone offset +00:00 is equal to Z, in xs:dateTime. 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dateTime(&quot;1999-12-04T16:00:12.345+00:00&quot;) eq xs:dateTime(&quot;1999-12-04T16:00:12.345Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-7">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-7                                  
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Test that zone offset Z is equal to Z, in xs:dateTime. 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dateTime(&quot;1999-12-04T16:00:12.345Z&quot;) eq xs:dateTime(&quot;1999-12-04T16:00:12.345Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-8">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-8                                  
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Test that zone offset -00:00 is equal to +00:00, in xs:dateTime. 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dateTime(&quot;1999-12-04T16:00:12.345-00:00&quot;) eq xs:dateTime(&quot;1999-12-04T16:00:12.345+00:00&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-9">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-9                                  
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'eq' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dateTime(&quot;1999-12-04T12:12:23&quot;) eq xs:date(&quot;1999-12-04&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-10">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-10                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'ne' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dateTime(&quot;1999-12-04T12:12:23&quot;) ne xs:date(&quot;1999-12-04&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-11">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-11                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'le' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dateTime(&quot;1999-12-04T12:12:23&quot;) le xs:date(&quot;1999-12-04&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-12">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-12                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'lt' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dateTime(&quot;1999-12-04T12:12:23&quot;) lt xs:date(&quot;1999-12-04&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-13">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-13                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'ge' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dateTime(&quot;1999-12-04T12:12:23&quot;) ge xs:date(&quot;1999-12-04&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-14">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-14                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'gt' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dateTime(&quot;1999-12-04T12:12:23&quot;) gt xs:date(&quot;1999-12-04&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-15">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-15                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'eq' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:date(&quot;1999-12-04&quot;) eq xs:dateTime(&quot;1999-12-04T12:12:23&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-16">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-16                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'ne' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:date(&quot;1999-12-04&quot;) ne xs:dateTime(&quot;1999-12-04T12:12:23&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-17">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-17                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'le' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:date(&quot;1999-12-04&quot;) le xs:dateTime(&quot;1999-12-04T12:12:23&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-18">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-18                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'lt' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:date(&quot;1999-12-04&quot;) lt xs:dateTime(&quot;1999-12-04T12:12:23&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-19">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-19                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'ge' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:date(&quot;1999-12-04&quot;) ge xs:dateTime(&quot;1999-12-04T12:12:23&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-20">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-20                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'gt' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:date(&quot;1999-12-04&quot;) gt xs:dateTime(&quot;1999-12-04T12:12:23&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-21">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-21                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'eq' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dateTime(&quot;1999-12-04T12:12:23&quot;) eq xs:time(&quot;22:12:04&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-22">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-22                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'ne' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dateTime(&quot;1999-12-04T12:12:23&quot;) ne xs:time(&quot;22:12:04&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-23">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-23                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'le' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dateTime(&quot;1999-12-04T12:12:23&quot;) le xs:time(&quot;22:12:04&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-24">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-24                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'lt' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dateTime(&quot;1999-12-04T12:12:23&quot;) lt xs:time(&quot;22:12:04&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-25">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-25                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'ge' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dateTime(&quot;1999-12-04T12:12:23&quot;) ge xs:time(&quot;22:12:04&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-26">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-26                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'gt' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dateTime(&quot;1999-12-04T12:12:23&quot;) gt xs:time(&quot;22:12:04&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-27">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-27                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'eq' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:time(&quot;22:12:04&quot;) eq xs:dateTime(&quot;1999-12-04T12:12:23&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-28">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-28                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'ne' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:time(&quot;22:12:04&quot;) ne xs:dateTime(&quot;1999-12-04T12:12:23&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-29">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-29                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'le' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:time(&quot;22:12:04&quot;) le xs:dateTime(&quot;1999-12-04T12:12:23&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-30">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-30                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'lt' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:time(&quot;22:12:04&quot;) lt xs:dateTime(&quot;1999-12-04T12:12:23&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-31">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-31                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'ge' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:time(&quot;22:12:04&quot;) ge xs:dateTime(&quot;1999-12-04T12:12:23&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K-DateTimeEQ-32">
+    <description>
+*******************************************************
+ Test: K-DateTimeEQ-32                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: The operator 'gt' is not available between xs:dateTime and xs:date . 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:time(&quot;22:12:04&quot;) gt xs:dateTime(&quot;1999-12-04T12:12:23&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K2-DateTimeEQ-1">
+    <description>
+*******************************************************
+ Test: K2-DateTimeEQ-1                                 
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Basic negative equalness test for xs:dateTime. 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dateTime(&quot;2002-03-06T00:00:00Z&quot;) ne xs:dateTime(&quot;2002-03-05T00:00:00+03:00&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dateTime-equal-001">
+    <description> test comparison of dateTime </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:two-digit($number as xs:integer) { let $string := string($number) return if (string-length($string) lt 2) then concat('0', $string) else $string }; declare function local:dateTime($year as xs:integer, $month as xs:integer, $day as xs:integer) { let $m := local:two-digit($month), $d := local:two-digit($day) return xs:dateTime(concat($year, '-', $m, '-', $d, &quot;T12:00:00&quot;)) }; not(local:dateTime(2008, 05, 12) eq xs:dateTime(&quot;1972-12-15T12:00:00&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dateTime-equal-002">
+    <description> test comparison of dateTime </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <test>xs:dateTime(&quot;2008-01-30T00:01:00&quot;) eq xs:dateTime(&quot;2008-01-31T01:00:00+09:00&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dateTime-equal-003">
+    <description> test comparison of dateTime </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <test>xs:dateTime(&quot;2008-01-31T00:01:00+09:00&quot;) eq xs:dateTime(&quot;2008-01-30T00:01:00&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dateTime-equal-004">
+    <description> test comparison of dateTime </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <test>xs:dateTime(&quot;2008-01-31T00:01:00&quot;) eq xs:dateTime(&quot;2008-01-31T00:01:00+09:00&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dateTime-equal-005">
+    <description> test comparison of dateTime </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <test>xs:dateTime(&quot;2008-01-31T00:01:00+09:00&quot;) eq xs:dateTime(&quot;2008-01-31T00:01:00&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dateTime-equal-006">
+    <description> test comparison of dateTime </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:two-digit($number as xs:integer) { let $string := string($number) return if (string-length($string) lt 2) then concat('0', $string) else $string }; declare function local:dateTime($year as xs:integer, $month as xs:integer, $day as xs:integer) { let $m := local:two-digit($month), $d := local:two-digit($day) return xs:dateTime(concat($year, '-', $m, '-', $d, &quot;T12:00:00&quot;)) }; not(local:dateTime(2008, 05, 12) ne xs:dateTime(&quot;1972-12-15T12:00:00&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dateTime-equal-007">
+    <description> test comparison of dateTime </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <test>xs:dateTime(&quot;2008-01-30T00:01:00&quot;) ne xs:dateTime(&quot;2008-01-31T00:01:00+09:00&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dateTime-equal-008">
+    <description> test comparison of dateTime </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <test>xs:dateTime(&quot;2008-01-31T00:01:00+09:00&quot;) ne xs:dateTime(&quot;2008-01-30T00:01:00&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dateTime-equal-009">
+    <description> test comparison of dateTime </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <test>xs:dateTime(&quot;2008-01-31T00:01:00&quot;) ne xs:dateTime(&quot;2008-01-31T00:01:00+09:00&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dateTime-equal-010">
+    <description> test comparison of dateTime </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <test>xs:dateTime(&quot;2008-01-31T00:01:00+09:00&quot;) ne xs:dateTime(&quot;2008-01-31T00:01:00&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dateTime-equal-011">
+    <description> test comparison of dateTime </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:dateTime($dateTime as xs:dateTime, $null as xs:boolean) { if ($null) then () else $dateTime }; exists(local:dateTime(xs:dateTime(&quot;1972-12-15T12:00:00&quot;), fn:true()) eq xs:dateTime(&quot;1972-12-15T12:00:00&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dateTime-equal-012">
+    <description> test comparison of dateTime </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:dateTime($dateTime as xs:dateTime, $null as xs:boolean) { if ($null) then () else $dateTime }; local:dateTime(xs:dateTime(&quot;1972-12-15T12:00:00&quot;), fn:false()) eq xs:dateTime(&quot;1972-12-15T12:00:00&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dateTime-equal-013">
+    <description> test comparison of dateTime </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:dateTime($dateTime as xs:dateTime, $null as xs:boolean) { if ($null) then () else $dateTime }; exists(local:dateTime(xs:dateTime(&quot;1972-12-15T12:00:00&quot;), fn:true()) ne xs:dateTime(&quot;1972-12-15T12:00:00&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dateTime-equal-014">
+    <description> test comparison of dateTime </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:dateTime($dateTime as xs:dateTime, $null as xs:boolean) { if ($null) then () else $dateTime }; local:dateTime(xs:dateTime(&quot;1972-12-15T12:00:00&quot;), fn:false()) ne xs:dateTime(&quot;1972-12-15T12:00:00&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dateTime-equal-015">
+    <description> test comparison of dateTime </description>
+    <created by="Tim Mills" on="2008-05-23"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:dateTime($dateTime as xs:string, $timezone as xs:string) { xs:dateTime( concat($dateTime, $timezone) ) }; adjust-dateTime-to-timezone(local:dateTime(&quot;1972-12-14T00:00:00&quot;, &quot;-12:00&quot;)) eq adjust-dateTime-to-timezone(xs:dateTime(&quot;1972-12-15T00:00:00+12:00&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dateTime-equal-016">
+    <description> test comparison of dateTime </description>
+    <created by="Tim Mills" on="2008-05-23"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:dateTime($dateTime as xs:string, $timezone as xs:string) { xs:dateTime( concat($dateTime, $timezone) ) }; adjust-dateTime-to-timezone(local:dateTime(&quot;1972-12-14T00:00:00&quot;, &quot;-12:00&quot;)) ne adjust-dateTime-to-timezone(xs:dateTime(&quot;1972-12-15T00:00:00+12:00&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dateTime-equal-017">
+    <description> test comparison of dateTime </description>
+    <created by="Tim Mills" on="2008-05-23"/>
+    <test>xs:dateTime(&quot;1972-12-15T00:00:00+12:00&quot;) eq xs:dateTime(&quot;1972-12-15T00:00:01&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dateTime-equal-018">
+    <description> test comparison of dateTime </description>
+    <created by="Tim Mills" on="2008-05-23"/>
+    <test>xs:dateTime(&quot;1972-12-15T00:00:00+12:00&quot;) ne xs:dateTime(&quot;1972-12-15T00:00:01&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+</test-set>

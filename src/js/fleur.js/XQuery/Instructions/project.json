@@ -2,6 +2,7 @@
 	"Components":[
 		"attributeTest.js",
 		"commentTest.js",
+		"contextItemExpr.js",
 		"decimalConstantExpr.js",
 		"documentTest.js",
 		"doubleConstantExpr.js",
@@ -16,6 +17,7 @@
 		"rangeSequenceExpr.js",
 		"rootExpr.js",
 		"sequenceExpr.js",
+		"simpleMapExpr.js",
 		"stepExpr.js",
 		"stringConstantExpr.js",
 		"textTest.js",

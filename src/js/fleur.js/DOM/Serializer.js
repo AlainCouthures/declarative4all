@@ -90,6 +90,71 @@ Fleur.Serializer._serializeXMLToString = function(node, indent, offset) {
 			return s;
 	}
 };
+Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, postfix) {
+	var s, i, l;
+	postfix = postfix || "";
+	switch (node.nodeType) {
+		case Fleur.Node.ELEMENT_NODE:
+			s = (indent ? offset + "<" : "<") + node.nodeName;
+			if (indent) {
+				var names = [];
+				for (i = 0, l = node.attributes.length; i < l; i++) {
+					names.push(node.attributes[i].nodeName);
+				}
+				names.sort();
+				for (i = 0, l = names.length; i < l; i++) {
+					s += " " + names[i] + "=\"" + Fleur.Serializer.escapeXML(node.getAttribute(names[i])) + "\"";
+				}
+			} else {
+				for (i = 0, l = node.attributes.length; i < l; i++) {
+					s += " " + node.attributes[i].nodeName + "=\"" + Fleur.Serializer.escapeXML(node.attributes[i].nodeValue) + "\"";
+				}
+			}
+			if (node.childNodes.length === 0) {
+				return s + (indent ? "/>\n" : "/>");
+			}
+			s += indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? ">\n" : ">";
+			for (i = 0, l = node.childNodes.length; i < l; i++) {
+				s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset + "  ", true);
+			}
+			return s + (indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? offset + "</" : "</") + node.nodeName + ">" + postfix + (indent ? "\n" : "");
+		case Fleur.Node.SEQUENCE_NODE:
+			s = indent ? offset + "(" : "(";
+			if (node.childNodes.length === 0) {
+				return s + (indent ? ")\n" : ")");
+			}
+			s += indent ? "\n" : "";
+			for (i = 0, l = node.childNodes.length; i < l; i++) {
+				s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset + "  ", false, i !== l - 1 ? "," : "");
+			}
+			return s + (indent ? offset + ")\n" : ")");
+		case Fleur.Node.ATTRIBUTE_NODE:
+			return (indent ? offset : "") + "attribute " + node.name + " {\"" + Fleur.Serializer.escapeXML(node.value).replace(/"/gm, "\"\"") + "\"}" + postfix + (indent ? "\n" : "");
+		case Fleur.Node.TEXT_NODE:
+			if (tree) {
+				if (indent && node.data.match(/^[ \t\n\r]*$/) && node.parentNode.childNodes.length !== 1) {
+					return "";
+				}
+				return Fleur.Serializer.escapeXML(node.data);
+			}
+			if (node.schemaTypeInfo === Fleur.Type_error) {
+				return "fn:error(fn:QName(\"" + node.namespaceURI + "\", \"" + node.nodeName + "\"))" + postfix;
+			}
+			return (indent ? offset : "") + "xs:" + node.schemaTypeInfo.typeName + "(\"" + Fleur.Serializer.escapeXML(node.data).replace(/"/gm, "\"\"") + "\")" + postfix + (indent ? "\n" : "");
+		case Fleur.Node.CDATA_NODE:
+			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
+		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
+			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.nodeValue + (indent ? "?>\n" : "?>");
+		case Fleur.Node.COMMENT_NODE:
+			return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
+		case Fleur.Node.DOCUMENT_NODE:
+			s = '<?xml version="1.0" encoding="UTF-8"?>\r\n';
+			for (i = 0, l = node.childNodes.length; i < l; i++) {
+				s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset, true);
+			}
+			return s;
+	}
+};
 Fleur.Serializer._serializeEXMLToString = function(node, indent, offset) {
 	var s, i, l, nodeName, isqname;
 	switch (node.nodeType) {

@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="fn-translate" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description/>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-translate" type="spec"/>
+  <test-case name="fn-translate3args-1">
+    <description>Test simple translate expression </description>
+    <created by="Joanne Tong" on="2005-09-23"/>
+    <test>translate('---abcABCxyz---','-abcABCxyz','1ABCabcXYZ')</test>
+    <result-string>xs:string('111ABCabcXYZ111')</result-string>
+    <result>
+      <assert-string-value>111ABCabcXYZ111</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-translate3args-2">
+    <description>Test translate on space, tab, and newline </description>
+    <created by="Joanne Tong" on="2005-09-23"/>
+    <test>translate('newline
+tab	space ','
+	 ','123')</test>
+    <result-string>xs:string('newline1tab2space3')</result-string>
+    <result>
+      <assert-string-value>newline1tab2space3</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-translate3args-3">
+    <description>Test translate with zero-length string argument </description>
+    <created by="Joanne Tong" on="2005-09-23"/>
+    <test>translate('','-','x')</test>
+    <result-string>xs:string('')</result-string>
+    <result>
+      <assert-string-value/>
+    </result>
+  </test-case>
+  <test-case name="fn-translate3args-4">
+    <description>Test translate with an empty sequence argument </description>
+    <created by="Joanne Tong" on="2005-09-23"/>
+    <test>translate((),'-','x')</test>
+    <result-string>xs:string('')</result-string>
+    <result>
+      <assert-string-value/>
+    </result>
+  </test-case>
+  <test-case name="fn-translate3args-5">
+    <description>Test translate with invalid type in 1st argument </description>
+    <created by="Joanne Tong" on="2005-09-23"/>
+    <test>translate(1,'-','x')</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="fn-translate3args-6">
+    <description>Test translate with invalid type in 2nd argument </description>
+    <created by="Joanne Tong" on="2005-09-23"/>
+    <test>translate('abc',1,'x')</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="fn-translate3args-7">
+    <description>Test translate with invalid type in 3rd argument </description>
+    <created by="Joanne Tong" on="2005-09-23"/>
+    <test>translate('abc','x',1)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="fn-translate3args-8">
+    <description>Test translate with incorrect arity </description>
+    <created by="Joanne Tong" on="2005-09-23"/>
+    <test>translate('abc')</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="fn-translate-1">
+    <description> Simple test of translate function as per example one for this function from the F andO specs. </description>
+    <created by="Carmelo Montanez" on="2005-10-06"/>
+    <test>fn:translate(&quot;bar&quot;,&quot;abc&quot;,&quot;ABC&quot;)</test>
+    <result-string>xs:string('BAr')</result-string>
+    <result>
+      <assert-string-value>BAr</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-translate-2">
+    <description> Simple test of translate function as per example two for this function from the F andO specs. </description>
+    <created by="Carmelo Montanez" on="2005-10-06"/>
+    <test>fn:translate(&quot;--aaa--&quot;,&quot;abc-&quot;,&quot;ABC&quot;)</test>
+    <result-string>xs:string('AAA')</result-string>
+    <result>
+      <assert-string-value>AAA</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-translate-3">
+    <description> Simple test of translate function as per example three for this function from the F andO specs. </description>
+    <created by="Carmelo Montanez" on="2005-10-06"/>
+    <test>fn:translate(&quot;abcdabc&quot;, &quot;abc&quot;, &quot;AB&quot;)</test>
+    <result-string>xs:string('ABdAB')</result-string>
+    <result>
+      <assert-string-value>ABdAB</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-translate-4">
+    <description> Evaluation of translate function. Translate lower case letters to upper case letters. </description>
+    <created by="Carmelo Montanez" on="2005-10-06"/>
+    <test>fn:translate(&quot;acdefghijklmnopqrstuvwxyz&quot;, &quot;abcdefghijklmnopqrstuvwxyz&quot;, &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;)</test>
+    <result-string>xs:string('ACDEFGHIJKLMNOPQRSTUVWXYZ')</result-string>
+    <result>
+      <assert-string-value>ACDEFGHIJKLMNOPQRSTUVWXYZ</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-translate-5">
+    <description> Evaluation of translate function. Translate upper case letters to lower case letters. </description>
+    <created by="Carmelo Montanez" on="2005-10-06"/>
+    <test>fn:translate(&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;,&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;,&quot;abcdefghijklmnopqrstuvwxyz&quot;)</test>
+    <result-string>xs:string('abcdefghijklmnopqrstuvwxyz')</result-string>
+    <result>
+      <assert-string-value>abcdefghijklmnopqrstuvwxyz</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-translate-6">
+    <description> Evaluation of translate function, where all three arguments are the zero length string. Use fn;count to avoid empty file. </description>
+    <created by="Carmelo Montanez" on="2005-10-06"/>
+    <test>fn:count(fn:translate(&quot;&quot;,&quot;&quot;,&quot;&quot;))</test>
+    <result-string>xs:string('1')</result-string>
+    <result>
+      <assert-string-value>1</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-translate-7">
+    <description> Evaluation of translate function, where the first and third arguments are the same (letters). </description>
+    <created by="Carmelo Montanez" on="2005-10-06"/>
+    <test>fn:translate(&quot;ABC&quot;, &quot;ABC&quot;, &quot;ABC&quot;)</test>
+    <result-string>xs:string('ABC')</result-string>
+    <result>
+      <assert-string-value>ABC</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-translate-8">
+    <description> Evaluation of translate function, where all arguments are the same (numbers). </description>
+    <created by="Carmelo Montanez" on="2005-10-06"/>
+    <test>fn:translate(&quot;123&quot;, &quot;123&quot;, &quot;123&quot;)</test>
+    <result-string>xs:string('123')</result-string>
+    <result>
+      <assert-string-value>123</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-translate-9">
+    <description> Evaluation of translate function, there is a mixture of numbers and letters. </description>
+    <created by="Carmelo Montanez" on="2005-10-06"/>
+    <test>fn:translate(&quot;123ABC&quot;, &quot;123ABC&quot;, &quot;123ABC&quot;)</test>
+    <result-string>xs:string('123ABC')</result-string>
+    <result>
+      <assert-string-value>123ABC</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-translate-10">
+    <description> Evaluation of translate function, where all three arguments are an invocation to &quot;fn:string&quot;. </description>
+    <created by="Carmelo Montanez" on="2005-10-06"/>
+    <test>fn:translate(fn:string(&quot;ABC&quot;), fn:string(&quot;ABC&quot;), fn:string(&quot;ABC&quot;))</test>
+    <result-string>xs:string('ABC')</result-string>
+    <result>
+      <assert-string-value>ABC</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-translate-11">
+    <description> Evaluation of translate function as an argument to the &quot;fn:string&quot; function. </description>
+    <created by="Carmelo Montanez" on="2005-10-06"/>
+    <test>fn:string(fn:translate(&quot;ABC&quot;, &quot;ABC&quot;, &quot;ABC&quot;))</test>
+    <result-string>xs:string('ABC')</result-string>
+    <result>
+      <assert-string-value>ABC</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-translate-12">
+    <description> Evaluation of translate function as an argument to the &quot;fn:string-length&quot; function. </description>
+    <created by="Carmelo Montanez" on="2005-10-06"/>
+    <test>fn:string-length(fn:translate(&quot;ABC&quot;,&quot;ABC&quot;,&quot;ABC&quot;))</test>
+    <result-string>xs:string('3')</result-string>
+    <result>
+      <assert-string-value>3</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-translate-13">
+    <description> Evaluation of translate function as an argument to the &quot;xs:decimal&quot; constructor function. </description>
+    <created by="Carmelo Montanez" on="2005-10-06"/>
+    <test>xs:decimal(fn:translate(&quot;123&quot;,&quot;123&quot;,&quot;123&quot;))</test>
+    <result-string>xs:string('123')</result-string>
+    <result>
+      <assert-string-value>123</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-translate-14">
+    <description> Evaluation of translate function as an argument to the &quot;xs:integer&quot; constructor function. </description>
+    <created by="Carmelo Montanez" on="2005-10-06"/>
+    <test>xs:integer(fn:translate(&quot;123&quot;,&quot;123&quot;,&quot;123&quot;))</test>
+    <result-string>xs:string('123')</result-string>
+    <result>
+      <assert-string-value>123</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-translate-15">
+    <description> Evaluation of translate function as an argument to the &quot;xs:float&quot; constructor function. </description>
+    <created by="Carmelo Montanez" on="2005-10-06"/>
+    <test>xs:float(fn:translate(&quot;123&quot;,&quot;123&quot;,&quot;123&quot;))</test>
+    <result-string>xs:string('123')</result-string>
+    <result>
+      <assert-string-value>123</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-translate-16">
+    <description> Evaluation of translate function as an argument to the &quot;xs:double&quot; constructor function. </description>
+    <created by="Carmelo Montanez" on="2005-10-06"/>
+    <test>xs:double(fn:translate(&quot;123&quot;,&quot;123&quot;,&quot;123&quot;))</test>
+    <result-string>xs:string('123')</result-string>
+    <result>
+      <assert-string-value>123</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-translate-17">
+    <description>Evaluation of translate function using non-BMP characters.</description>
+    <created by="Michael Kay" on="2011-06-25"/>
+    <test>translate(&quot;abcd&quot;, &quot;a&quot;, &quot;xy&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>&quot;ybcd&quot;</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-translate-18">
+    <description>Evaluation of translate function using non-BMP characters.</description>
+    <created by="Michael Kay" on="2011-06-25"/>
+    <test>translate(&quot;abcd&quot;, &quot;xa&quot;, &quot;y&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>&quot;ybcd&quot;</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-translate-19">
+    <description>Evaluation of translate function using non-BMP characters.</description>
+    <created by="Michael Kay" on="2011-06-25"/>
+    <test>translate(&quot;abcde&quot;, &quot;ae&quot;, &quot;XYZ&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>&quot;XbcdYZ&quot;</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-translate-20">
+    <description>Evaluation of translate function using non-BMP characters.</description>
+    <created by="Michael Kay" on="2011-06-25"/>
+    <test>translate(&quot;abcde&quot;, &quot;ae&quot;, &quot;YZ&quot;)</test>
+    <result-string/>
+    <result>
+      <assert-eq>&quot;bcdYZ&quot;</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="K-TranslateFunc-1">
+    <description> A test whose essence is: `translate()`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>translate()</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="K-TranslateFunc-2">
+    <description> A test whose essence is: `translate(&quot;string&quot;, &quot;map string&quot;)`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>translate(&quot;string&quot;, &quot;map string&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="K-TranslateFunc-3">
+    <description> A test whose essence is: `translate(&quot;arg&quot;, &quot;map string&quot;, &quot;transString&quot;, &quot;wrong param&quot;)`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>translate(&quot;arg&quot;, &quot;map string&quot;, &quot;transString&quot;, &quot;wrong param&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="K-TranslateFunc-4">
+    <description> A test whose essence is: `translate(&quot;--aaa--&quot;,&quot;-&quot;,&quot;&quot;) eq &quot;aaa&quot;`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>translate(&quot;--aaa--&quot;,&quot;-&quot;,&quot;&quot;) eq &quot;aaa&quot;</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-TranslateFunc-5">
+    <description> A test whose essence is: `translate(&quot;--aaa--&quot;,&quot;bbb++&quot;,&quot;&quot;) eq &quot;--aaa--&quot;`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>translate(&quot;--aaa--&quot;,&quot;bbb++&quot;,&quot;&quot;) eq &quot;--aaa--&quot;</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-TranslateFunc-6">
+    <description> A test whose essence is: `translate(&quot;argstr&quot;, &quot;&quot;, &quot;matrs&quot;) eq &quot;argstr&quot;`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>translate(&quot;argstr&quot;, &quot;&quot;, &quot;matrs&quot;) eq &quot;argstr&quot;</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-TranslateFunc-7">
+    <description> A test whose essence is: `translate((), &quot;map&quot;, &quot;trans&quot;) eq &quot;&quot;`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>translate((), &quot;map&quot;, &quot;trans&quot;) eq &quot;&quot;</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-TranslateFunc-8">
+    <description> A test whose essence is: `translate(&quot;abcdabc&quot;, &quot;abc&quot;, &quot;AB&quot;) eq &quot;ABdAB&quot;`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>translate(&quot;abcdabc&quot;, &quot;abc&quot;, &quot;AB&quot;) eq &quot;ABdAB&quot;</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-TranslateFunc-9">
+    <description> A test whose essence is: `translate(&quot;bar&quot;,&quot;abc&quot;,&quot;ABC&quot;) eq &quot;BAr&quot;`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>translate(&quot;bar&quot;,&quot;abc&quot;,&quot;ABC&quot;) eq &quot;BAr&quot;</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-TranslateFunc-10">
+    <description> A test whose essence is: `translate(&quot;--aaa--&quot;,&quot;abc-&quot;,&quot;ABC&quot;) eq &quot;AAA&quot;`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>translate(&quot;--aaa--&quot;,&quot;abc-&quot;,&quot;ABC&quot;) eq &quot;AAA&quot;</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-TranslateFunc-1">
+    <description> The second argument to fn:translate() cannot be the empty sequence. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>fn:translate(&quot;arg&quot;, (), &quot;transString&quot;)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K2-TranslateFunc-2">
+    <description> The third argument to fn:translate() cannot be the empty sequence. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>fn:translate(&quot;arg&quot;, &quot;mapString&quot;, ())</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-fn-translate-001">
+    <description> Tests EffectiveBooleanValue on fn:translate </description>
+    <created by="Nick Jones" on="2008-06-16"/>
+    <test>
+      boolean(translate(string-join(for $x in 1 to 10 return &quot;blah&quot;,&quot;-&quot;),exactly-one((&quot;--&quot;,&quot;==&quot;)[position() mod 2 = 0]),&quot;__&quot;))
+      </test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-fn-translate-002">
+    <description> Tests with surrogates </description>
+    <created by="Nick Jones" on="2008-06-16"/>
+    <test>
+      translate(codepoints-to-string(65536 to 65537),codepoints-to-string(65536 to 65537),&quot;l&quot;)
+      </test>
+    <result-string>xs:string('l')</result-string>
+    <result>
+      <assert-string-value>l</assert-string-value>
+    </result>
+  </test-case>
+</test-set>

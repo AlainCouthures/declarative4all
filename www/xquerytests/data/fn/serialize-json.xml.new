@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="fn-serialize-json" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>
+      Tests the serialize-json function.
+    </description>
+  <link document="http://www.w3.org/TR/xpath-functions-11/" idref="func-serialize-json" type="spec"/>
+  <dependency type="spec" value="XT30+"/>
+  <test-case name="fn-serialize-json-001">
+    <description>Empty object</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>serialize-json(map{})</test>
+    <result-string/>
+    <result>
+      <assert>translate($result,' ', '') = '{}'</assert>
+      <!-- failing - produces "[]" -->
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-002">
+    <description>Empty object</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>serialize-json((), map{&quot;spec&quot;:=&quot;ECMA-262&quot;})</test>
+    <result-string/>
+    <result>
+      <assert>translate($result,' ', '') = 'null'</assert>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-003">
+    <description>Empty object</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>serialize-json(12.5, map{&quot;spec&quot;:=&quot;ECMA-262&quot;})</test>
+    <result-string/>
+    <result>
+      <assert>number($result) = 12.5</assert>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-004">
+    <description>Boolean value</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>normalize-space(serialize-json(true(), map{&quot;spec&quot;:=&quot;ECMA-262&quot;}))</test>
+    <result-string>xs:string('true')</result-string>
+    <result>
+      <assert-string-value>true</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-005">
+    <description>Boolean value</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>normalize-space(serialize-json(false(), map{&quot;spec&quot;:=&quot;ECMA-262&quot;}))</test>
+    <result-string>xs:string('false')</result-string>
+    <result>
+      <assert-string-value>false</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-006">
+    <description>Singleton object</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>serialize-json(map{'abc':=23})</test>
+    <result-string/>
+    <result>
+      <assert>translate($result,' ', '') = '{&quot;abc&quot;:23}'</assert>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-007">
+    <description>Two-entry object</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>let $r := serialize-json(map{'abc':=23, 'xyz':=49}, map{&quot;spec&quot;:=&quot;RFC4627&quot;})
+            return translate($r,' ', '')</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert>starts-with($result, '{')</assert>
+        <assert>contains($result, '&quot;abc&quot;:23')</assert>
+        <assert>contains($result, '&quot;xyz&quot;:49')</assert>
+        <assert>ends-with($result, '}')</assert>
+        <assert-type>xs:string</assert-type>
+        <assert-count>1</assert-count>
+        <assert>parse-json($result)(&quot;abc&quot;) = 23</assert>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-008">
+    <description>JSON array</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>let $r := serialize-json(parse-json('[1, 2, 3, &quot;four&quot;, true, false, null]'), map{&quot;spec&quot;:=&quot;RFC4627&quot;})
+            return translate($r,' ', '')</test>
+    <result-string>xs:string('[1,2,3,&quot;four&quot;,true,false,null]')</result-string>
+    <result>
+      <assert-string-value>[1,2,3,&quot;four&quot;,true,false,null]</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-009">
+    <description>Serialize XDM sequence</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>let $r := serialize-json((1, 2, 3, &quot;four&quot;, true(), false()), map{&quot;spec&quot;:=&quot;RFC4627&quot;})
+            return translate($r,' ', '')</test>
+    <result-string>xs:string('[1,2,3,&quot;four&quot;,true,false]')</result-string>
+    <result>
+      <assert-string-value>[1,2,3,&quot;four&quot;,true,false]</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-010">
+    <description>Serialize nested arrays</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>let $r := serialize-json(parse-json('[[1, 2], [3, 4], [5, 6], [7], [], [null]]'))
+            return translate($r,' ', '')</test>
+    <result-string>xs:string('[[1,2],[3,4],[5,6],[7],[],[null]]')</result-string>
+    <result>
+      <assert-string-value>[[1,2],[3,4],[5,6],[7],[],[null]]</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-011">
+    <description>Map containing a sequence</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>let $r := serialize-json(map{&quot;abc&quot;:=(1 to 10)}, map{&quot;spec&quot;:=&quot;RFC4627&quot;})
+            return translate($r,' ', '')</test>
+    <result-string>xs:string('{&quot;abc&quot;:[1,2,3,4,5,6,7,8,9,10]}')</result-string>
+    <result>
+      <assert-string-value>{&quot;abc&quot;:[1,2,3,4,5,6,7,8,9,10]}</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-012">
+    <description>Sequence of maps</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>let $r := serialize-json((map{&quot;abc&quot;:=1},map{&quot;def&quot;:=2},map{&quot;ghi&quot;:=3}))
+            return translate($r,' ', '')</test>
+    <result-string>xs:string('[{&quot;abc&quot;:1},{&quot;def&quot;:2},{&quot;ghi&quot;:3}]')</result-string>
+    <result>
+      <assert-string-value>[{&quot;abc&quot;:1},{&quot;def&quot;:2},{&quot;ghi&quot;:3}]</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-013">
+    <description>Nested maps</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>let $r := serialize-json((map{&quot;abc&quot;:=map{&quot;abc&quot;:=1}},map{&quot;def&quot;:=map{&quot;def&quot;:=2}},map{&quot;ghi&quot;:=map{&quot;ghi&quot;:=3}}), map{&quot;spec&quot;:=&quot;RFC4627&quot;})
+            return translate($r,' ', '')</test>
+    <result-string>xs:string('[{&quot;abc&quot;:{&quot;abc&quot;:1}},{&quot;def&quot;:{&quot;def&quot;:2}},{&quot;ghi&quot;:{&quot;ghi&quot;:3}}]')</result-string>
+    <result>
+      <assert-string-value>[{&quot;abc&quot;:{&quot;abc&quot;:1}},{&quot;def&quot;:{&quot;def&quot;:2}},{&quot;ghi&quot;:{&quot;ghi&quot;:3}}]</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-014">
+    <description>Non-BMP string</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>let $r := serialize-json('', map{&quot;spec&quot;:=&quot;ECMA-262&quot;})
+            return translate(normalize-space($r), 'abcdef', 'ABCDEF')</test>
+    <result-string>xs:string('&quot;\uD834\uDD1E&quot;')</result-string>
+    <result>
+      <assert-string-value>&quot;\uD834\uDD1E&quot;</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-015">
+    <description>String with newline</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>let $r := serialize-json('', map{&quot;spec&quot;:=&quot;ECMA-262&quot;})
+            return translate(normalize-space($r), 'abcdef', 'ABCDEF')</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-string-value>&quot;\n&quot;</assert-string-value>
+        <assert-string-value>&quot;\u0010&quot;</assert-string-value>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-016">
+    <description>Nested maps with indent=&quot;no&quot; - require no optional space</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>serialize-json((map{&quot;abc&quot;:=map{&quot;abc&quot;:=1}},map{&quot;def&quot;:=map{&quot;def&quot;:=2}},map{&quot;ghi&quot;:=map{&quot;ghi&quot;:=3}}),
+        map{&quot;indent&quot;:=false()})</test>
+    <result-string>xs:string('[{&quot;abc&quot;:{&quot;abc&quot;:1}},{&quot;def&quot;:{&quot;def&quot;:2}},{&quot;ghi&quot;:{&quot;ghi&quot;:3}}]')</result-string>
+    <result>
+      <assert-string-value>[{&quot;abc&quot;:{&quot;abc&quot;:1}},{&quot;def&quot;:{&quot;def&quot;:2}},{&quot;ghi&quot;:{&quot;ghi&quot;:3}}]</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-017">
+    <description>Nested maps with indent=&quot;yes&quot; - (we can't check that it's actually indented)</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>let $r := serialize-json((map{&quot;abc&quot;:=map{&quot;abc&quot;:=1}},map{&quot;def&quot;:=map{&quot;def&quot;:=2}},map{&quot;ghi&quot;:=map{&quot;ghi&quot;:=3}}),
+              map{&quot;indent&quot;:=true(), &quot;spec&quot;:=&quot;RFC4627&quot;})
+            return translate($r,' ', '')</test>
+    <result-string>xs:string('[{&quot;abc&quot;:{&quot;abc&quot;:1}},{&quot;def&quot;:{&quot;def&quot;:2}},{&quot;ghi&quot;:{&quot;ghi&quot;:3}}]')</result-string>
+    <result>
+      <assert-string-value>[{&quot;abc&quot;:{&quot;abc&quot;:1}},{&quot;def&quot;:{&quot;def&quot;:2}},{&quot;ghi&quot;:{&quot;ghi&quot;:3}}]</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-018">
+    <description>Decimal number</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>parse-json(serialize-json(12.34, map{&quot;spec&quot;:=&quot;ECMA-262&quot;}), map{&quot;spec&quot;:=&quot;ECMA-262&quot;})</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert>$result eq xs:double('12.34')</assert>
+        <assert>$result instance of xs:double</assert>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-019">
+    <description>Exponential number</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>parse-json(serialize-json(12.34e-30, map{&quot;spec&quot;:=&quot;ECMA-262&quot;}), map{&quot;spec&quot;:=&quot;ECMA-262&quot;})</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert>$result eq 12.34e-30</assert>
+        <assert>$result instance of xs:double</assert>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-020">
+    <description>String with escaping</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>serialize-json(&quot;abc&quot;&quot;def&quot;, map{&quot;spec&quot;:=&quot;ECMA-262&quot;,&quot;escape&quot;:=true()})</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert>$result eq '&quot;abc\&quot;def&quot;'</assert>
+        <assert>$result instance of xs:string</assert>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-021">
+    <description>String with no escaping</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>serialize-json(&quot;abc\\def&quot;, map{&quot;spec&quot;:=&quot;ECMA-262&quot;,&quot;escape&quot;:=false()})</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert>$result eq '&quot;abc\\def&quot;'</assert>
+        <assert>$result instance of xs:string</assert>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-022">
+    <description>NaN, INF, -INF</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>let $r := serialize-json((number('NaN'), number('INF'), number('-INF')))
+            return translate($r,' ', '')</test>
+    <result-string>xs:string('[&quot;NaN&quot;,&quot;INF&quot;,&quot;-INF&quot;]')</result-string>
+    <result>
+      <assert-string-value>[&quot;NaN&quot;,&quot;INF&quot;,&quot;-INF&quot;]</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-023">
+    <description>untypedAtomic input</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>let $r := serialize-json((0,0,xs:untypedAtomic(&quot;abcd&quot;)))
+            return translate($r,' ', '')</test>
+    <result-string>xs:string('[0,0,&quot;abcd&quot;]')</result-string>
+    <result>
+      <assert-string-value>[0,0,&quot;abcd&quot;]</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-024">
+    <description>sparse array</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>let $r := serialize-json(map{1:=&quot;a&quot;,2:=&quot;b&quot;,4:=&quot;d&quot;,10:=&quot;j&quot;,7:=&quot;g&quot;})
+            return translate($r,' ', '')</test>
+    <result-string>xs:string('[&quot;a&quot;,&quot;b&quot;,null,&quot;d&quot;,null,null,&quot;g&quot;,null,null,&quot;j&quot;]')</result-string>
+    <result>
+      <assert-string-value>[&quot;a&quot;,&quot;b&quot;,null,&quot;d&quot;,null,null,&quot;g&quot;,null,null,&quot;j&quot;]</assert-string-value>
+    </result>
+  </test-case>
+  <!-- Use of fallback function -->
+  <test-case name="fn-serialize-json-100">
+    <description>Fallback converts date to string</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>let $r := serialize-json((0,0,xs:date('2011-04-06')), map{&quot;fallback&quot;:=function($v){string($v)}})
+        return translate($r,' ', '')</test>
+    <result-string>xs:string('[0,0,&quot;2011-04-06&quot;]')</result-string>
+    <result>
+      <assert-string-value>[0,0,&quot;2011-04-06&quot;]</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-101">
+    <description>Fallback converts date to string</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>let $r := serialize-json(map{&quot;a&quot;:=xs:date('2011-04-06')}, map{&quot;fallback&quot;:=function($v){string($v)}})
+        return translate($r,' ', '')</test>
+    <result-string>xs:string('{&quot;a&quot;:&quot;2011-04-06&quot;}')</result-string>
+    <result>
+      <assert-string-value>{&quot;a&quot;:&quot;2011-04-06&quot;}</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-102">
+    <description>Fallback converts nodes to lexical XML</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <environment>
+      <source file="serialize-json/doc001.xml" uri="http://www.w3.org/fots/serialize-json/doc001.xml"/>
+      <param as="xs:string" name="uri" select="'http://www.w3.org/fots/serialize-json/doc001.xml'"/>
+    </environment>
+    <test>let $r := serialize-json(map{&quot;a&quot;:=doc($uri)}, map{&quot;fallback&quot;:=function($v){serialize($v)}})
+        return translate($r,' ', '')</test>
+    <result-string>xs:string('{&quot;a&quot;:&quot;&lt;?xmlversion=\&quot;1.0\&quot;encoding=\&quot;UTF-8\&quot;?&gt;&lt;a&gt;text&lt;/a&gt;&quot;}')</result-string>
+    <result>
+      <assert-string-value>
+        <![CDATA[{"a":"<?xmlversion=\"1.0\"encoding=\"UTF-8\"?><a>text</a>"}]]>
+      </assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-103">
+    <description>Fallback applied to a map</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>let $r := serialize-json((0,0,map{true():=&quot;gogogo&quot;}), map{&quot;fallback&quot;:=function($v){if ($v instance of map(xs:boolean, item()*)) then &quot;a-boolean-map&quot; else $v}})
+        return translate($r,' ', '')</test>
+    <result-string>xs:string('[0,0,&quot;a-boolean-map&quot;]')</result-string>
+    <result>
+      <assert-string-value>[0,0,&quot;a-boolean-map&quot;]</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-104">
+    <description>Recursive fallback</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>let $r := serialize-json((0,0,map{false():=map{false():=&quot;ok&quot;}}), 
+           map{&quot;fallback&quot;:=function($v){
+                 if ($v instance of map(xs:boolean, item()*)) 
+                 then map:new(for $k in map:keys($v) return map:entry(string($k), map:get($v, $k)))  
+                 else $v}})
+        return translate($r,' ', '')</test>
+    <result-string>xs:string('[0,0,{&quot;false&quot;:{&quot;false&quot;:&quot;ok&quot;}}]')</result-string>
+    <result>
+      <assert-string-value>[0,0,{&quot;false&quot;:{&quot;false&quot;:&quot;ok&quot;}}]</assert-string-value>
+    </result>
+  </test-case>
+  <!-- Error cases -->
+  <test-case name="fn-serialize-json-901">
+    <description>Top level not a map, using RFC spec</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>serialize-json(&quot;abcd&quot;, map{&quot;spec&quot;:=&quot;RFC4627&quot;})</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOJS0002&quot;))</result-string>
+    <result>
+      <error code="FOJS0002"/>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-902">
+    <description>Top level not a map, using RFC spec</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>serialize-json(true(), map{&quot;spec&quot;:=&quot;RFC4627&quot;})</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOJS0002&quot;))</result-string>
+    <result>
+      <error code="FOJS0002"/>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-903">
+    <description>Top level not a map, using RFC spec</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>serialize-json((), map{&quot;spec&quot;:=&quot;RFC4627&quot;})</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOJS0002&quot;))</result-string>
+    <result>
+      <error code="FOJS0002"/>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-904">
+    <description>Cannot serialize a date value</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>serialize-json((0,0,xs:date('2011-04-06')))</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOJS0002&quot;))</result-string>
+    <result>
+      <error code="FOJS0002"/>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-905">
+    <description>Cannot serialize a URI value</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>serialize-json(map{&quot;uri&quot;:=xs:anyURI('http://www.w3.org/')})</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOJS0002&quot;))</result-string>
+    <result>
+      <error code="FOJS0002"/>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-906">
+    <description>Bad indent option</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>serialize-json((1,2,3),map:entry(&quot;indent&quot;,23))</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOJS0002&quot;))</result-string>
+    <result>
+      <error code="FOJS0002"/>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-907">
+    <description>Bad indent option</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>serialize-json((1,2,3),map:entry(&quot;indent&quot;,&quot;true&quot;))</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOJS0002&quot;))</result-string>
+    <result>
+      <error code="FOJS0002"/>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-908">
+    <description>Bad indent option</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>serialize-json((1,2,3),map:entry(&quot;indent&quot;,(true(),false())))</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOJS0002&quot;))</result-string>
+    <result>
+      <error code="FOJS0002"/>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-909">
+    <description>sparse array with negative keys</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>let $r := serialize-json(map{1:=&quot;a&quot;,2:=&quot;b&quot;,4:=&quot;d&quot;,10:=&quot;j&quot;,7:=&quot;g&quot;,-1:=&quot;$$$&quot;})
+            return translate($r,' ', '')</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOJS0002&quot;))</result-string>
+    <result>
+      <error code="FOJS0002"/>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-910">
+    <description>sparse array with zero key</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>let $r := serialize-json(map{1:=&quot;a&quot;,2:=&quot;b&quot;,4:=&quot;d&quot;,10:=&quot;j&quot;,7:=&quot;g&quot;,0:=&quot;$$$&quot;})
+            return translate($r,' ', '')</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOJS0002&quot;))</result-string>
+    <result>
+      <error code="FOJS0002"/>
+    </result>
+  </test-case>
+  <test-case name="fn-serialize-json-911">
+    <description>Bad escape option</description>
+    <created by="Michael Kay, Saxonica" on="2011-04-06"/>
+    <test>serialize-json((1,2,3),map:entry(&quot;escape&quot;,map{}))</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOJS0002&quot;))</result-string>
+    <result>
+      <error code="FOJS0002"/>
+    </result>
+  </test-case>
+</test-set>

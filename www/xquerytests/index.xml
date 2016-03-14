@@ -1,0 +1,39 @@
+<?xml-stylesheet href="xsl/xsltforms.xsl" type="text/xsl"?>
+<?xsltforms-options domengine="name=Fleur;url=js/fleur.js;uri=http://www.agencexml.com/Fleur;version=1.0"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog">
+	<head>
+		<title>XQuery Test Suite</title>
+		<xf:model>
+			<xf:instance>
+				<qt:test-set/>
+			</xf:instance>
+			<xf:instance id="catalog" src="data/catalog.xml"/>
+			<xf:instance id="test-set">
+				<qt:test-set/>
+			</xf:instance>
+			<xf:submission method="get" replace="instance" instance="test-set" serialization="none">
+				<xf:resource value="concat('data/',.)"/>
+			</xf:submission>
+		</xf:model>
+	</head>
+	<body>
+		<xf:select1 ref=".">
+			<xf:label>Test Set: </xf:label>
+			<xf:itemset ref="instance('catalog')/qt:test-set">
+				<xf:label ref="@name"/>
+				<xf:value ref="@file"/>
+			</xf:itemset>
+			<xf:send ev:event="xforms-value-changed"/>
+		</xf:select1>
+		<table border="1">
+			<tbody>
+				<xf:repeat ref="instance('test-set')/qt:test-case">
+					<tr>
+						<td width="30%"><xf:output value="qt:test"/></td>
+						<td><xf:output value="qt:result"/></td>
+					</tr>
+				</xf:repeat>
+			</tbody>
+		</table>
+	</body>
+</html>

@@ -57,34 +57,47 @@ Object.defineProperties(Fleur.XPathResult.prototype, {
 			}
 			Fleur.Atomize(this);
 			var jsString = Fleur.toJSString(this);
-			if (jsString[0] === -1 || (this.resultType !== Fleur.XPathResult.ANY_UNORDERED_NODE_TYPE && this.resultType !== Fleur.XPathResult.FIRST_ORDERED_NODE_TYPE)) {
+			if (jsString[0] === -1 || (this.resultType !== Fleur.XPathResult.ANY_TYPE && this.resultType !== Fleur.XPathResult.ANY_UNORDERED_NODE_TYPE && this.resultType !== Fleur.XPathResult.FIRST_ORDERED_NODE_TYPE)) {
 				throw new Fleur.XPathException(Fleur.XPathException.TYPE_ERR, this._result && this._result.schemaTypeInfo === Fleur.Type_error ? this._result.nodeName : null);
 			}
 			return jsString[1];
 		}
-	},
-	iterateNext: {
-		get: function() {
-			if (this.resultType !== Fleur.XPathResult.UNORDERED_NODE_ITERATOR_TYPE && this.resultType !== Fleur.XPathResult.ORDERED_NODE_ITERATOR_TYPE) {
-				throw new Fleur.XPathException(Fleur.XPathException.TYPE_ERR, this._result && this._result.schemaTypeInfo === Fleur.Type_error ? this._result.nodeName : null);
-			}
-			if (!this._result) {
-				return null;
-			}
-			if (this._result.schemaTypeInfo === Fleur.Type_error) {
-				throw new Fleur.XPathException(Fleur.XPathException.TYPE_ERR, this._result.nodeName);
-			}
-			if (this._result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-				if (this._index === 0) {
-					this._index++;
-					return this._result;
-				}
-				return null;
-			}
-			if (this._index >= this._result.childNodes.length) {
-				return null;
-			}
-			return this._result.childNodes[this._index++];
-		}
 	}
 });
+Fleur.XPathResult.prototype.iterateNext = function() {
+	if (this.resultType !== Fleur.XPathResult.ANY_TYPE && this.resultType !== Fleur.XPathResult.UNORDERED_NODE_ITERATOR_TYPE && this.resultType !== Fleur.XPathResult.ORDERED_NODE_ITERATOR_TYPE) {
+		throw new Fleur.XPathException(Fleur.XPathException.TYPE_ERR, this._result && this._result.schemaTypeInfo === Fleur.Type_error ? this._result.nodeName : null);
+	}
+	if (!this._result) {
+		return null;
+	}
+	if (this._result.schemaTypeInfo === Fleur.Type_error) {
+		throw new Fleur.XPathException(Fleur.XPathException.TYPE_ERR, this._result.nodeName);
+	}
+	if (this._result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+		if (this._index === 0) {
+			this._index++;
+			return this._result;
+		}
+		return null;
+	}
+	if (this._index >= this._result.childNodes.length) {
+		return null;
+	}
+	return this._result.childNodes[this._index++];
+};
+Fleur.XPathResult.prototype.toXQuery = function(indent) {
+	if (!this._result) {
+		return "()";
+	}
+	return Fleur.Serializer._serializeNodeToXQuery(this._result, indent, "");
+};
+Fleur.XPathResult.prototype.toArray = function() {
+	if (!this._result) {
+		return [];
+	}
+	if (this._result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+		return [this._result];
+	}
+	return this._result.childNodes;
+};

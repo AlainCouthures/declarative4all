@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="op-string-greater-than" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the string-greater-than operator (not actually defined as such in F+O)</description>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-compare" type="spec"/>
+  <test-case name="K-StringGT-1">
+    <description> A test whose essence is: `'abc' gt 'a'`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>'abc' gt 'a'</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-StringGT-2">
+    <description> A test whose essence is: `not('abc' gt 'abc')`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>not('abc' gt 'abc')</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-StringGT-3">
+    <description> A test whose essence is: `'abc' ge 'a'`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>'abc' ge 'a'</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-StringGT-4">
+    <description> A test whose essence is: `not('a' ge 'abc')`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>not('a' ge 'abc')</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-StringGT-5">
+    <description> A test whose essence is: `'abc' ge 'abc'`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>'abc' ge 'abc'</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-string-greater-than-001">
+    <description> test string comparison </description>
+    <created by="Tim Mills" on="2008-05-23"/>
+    <test>not(string(current-time()) gt &quot;now&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-string-greater-than-002">
+    <description> test string comparison </description>
+    <created by="Tim Mills" on="2008-05-23"/>
+    <test>not(string(current-time()) le &quot;now&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-string-greater-than-003">
+    <description> test string comparison </description>
+    <created by="Tim Mills" on="2008-05-23"/>
+    <test>
+        not(xs:untypedAtomic(current-time()) gt xs:untypedAtomic(&quot;now&quot;))
+      </test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-string-greater-than-004">
+    <description> test string comparison </description>
+    <created by="Tim Mills" on="2008-05-23"/>
+    <test>
+        not(xs:untypedAtomic(current-time()) le xs:untypedAtomic(&quot;now&quot;))
+      </test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+</test-set>

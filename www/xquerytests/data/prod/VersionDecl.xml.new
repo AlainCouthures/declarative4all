@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="prod-VersionDecl" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the VersionDecl production</description>
+  <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-VersionDecl" type="spec"/>
+  <link document="XQuery" idref="id-version-declaration" section-number="4.1" type="spec"/>
+  <environment name="bib2">
+    <source file="../op/union/bib2.xml" role=".">
+      <description>Bibliography example with extra comments and PIs.</description>
+      <created by="spec-authors" on="2000-01-01"/>
+    </source>
+  </environment>
+  <dependency type="spec" value="XQ10+"/>
+  <!--
+      EBNF:
+
+      XQuery 1.0 & 3.0:
+         [1] Module ::= VersionDecl? (LibraryModule | MainModule)
+
+      XQuery 1.0:
+         [2] VersionDecl ::= "xquery"
+               "version" StringLiteral
+               ("encoding" StringLiteral)?
+               Separator
+
+      XQuery 3.0:
+         [2] VersionDecl ::= "xquery" (
+                  ("encoding" StringLiteral)
+                  |
+                  ("version" StringLiteral ("encoding" StringLiteral)?)
+               )
+               Separator
+   -->
+  <!--
+      The next few <test>s contain violations of the EBNF,
+      and so expect XPST0003.
+   -->
+  <test-case name="version_declaration-009">
+    <description> A VersionDecl cannot appear after a prolog decl. </description>
+    <created by="Pulkita Tyagi" on="2005-10-05"/>
+    <test>declare boundary-space preserve; xquery version &quot;1.0&quot;; 1,2</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0003&quot;))</result-string>
+    <result>
+      <error code="XPST0003"/>
+    </result>
+  </test-case>
+  <test-case name="version_declaration-020">
+    <description> You can't leave out the version string. </description>
+    <created by="Michael Dyck" on="2012-09-04"/>
+    <test>xquery version; 1</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0003&quot;))</result-string>
+    <result>
+      <error code="XPST0003"/>
+    </result>
+  </test-case>
+  <test-case name="K2-VersionProlog-3">
+    <description> Use an invalid keyword as encoding. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <modified by="Michael Dyck" change="Add dependency on XQ10" on="2012-09-10"/>
+    <dependency type="spec" value="XQ10"/>
+    <test>xquery version &quot;1.0&quot; default; 1</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0003&quot;))</result-string>
+    <result>
+      <error code="XPST0003"/>
+    </result>
+  </test-case>
+  <test-case name="K2-VersionProlog-3-v3">
+    <description> Use an invalid keyword as encoding. </description>
+    <created by="Michael Dyck" on="2012-09-10"/>
+    <dependency type="spec" value="XQ30"/>
+    <test>xquery version &quot;3.0&quot; default; 1</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0003&quot;))</result-string>
+    <result>
+      <error code="XPST0003"/>
+    </result>
+  </test-case>
+  <test-case name="version_declaration-022-v1">
+    <description> You can't swap the order of the 'version' and 'encoding' clauses. </description>
+    <created by="Michael Dyck" on="2012-09-10"/>
+    <dependency type="spec" value="XQ10"/>
+    <test>xquery encoding &quot;utf-8&quot; version &quot;1.0&quot;; 1</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0003&quot;))</result-string>
+    <result>
+      <error code="XPST0003"/>
+    </result>
+  </test-case>
+  <test-case name="version_declaration-022-v3">
+    <description> You can't swap the order of the 'version' and 'encoding' clauses. </description>
+    <created by="Michael Dyck" on="2012-09-10"/>
+    <dependency type="spec" value="XQ30"/>
+    <test>xquery encoding &quot;utf-8&quot; version &quot;3.0&quot;; 1</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0003&quot;))</result-string>
+    <result>
+      <error code="XPST0003"/>
+    </result>
+  </test-case>
+  <test-case name="version_declaration-023-v1">
+    <description> In XQuery 1.0, you can't omit the 'version' clause. </description>
+    <created by="Michael Dyck" on="2012-09-10"/>
+    <dependency type="spec" value="XQ10"/>
+    <test>xquery encoding &quot;utf-8&quot;; 1</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0003&quot;))</result-string>
+    <result>
+      <error code="XPST0003"/>
+    </result>
+  </test-case>
+  <!--
+      The following tests involve a Comment before the end of the VersionDecl.
+
+      XQuery 1.0:
+         If a version declaration is present, no Comment may occur before
+         the end of the version declaration. If such a Comment is present,
+         the result is implementation-dependent.
+
+      XQuery 3.0:
+         [will clarify that the processor either raises a static error
+         or treats the Comment as whitespace]
+   -->
+  <test-case name="K-VersionProlog-1">
+    <description> A simple version declaration including encoding. Since it's implementation defined how comments 
+        before the version declaration is handled, any error is allowed. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>(:encoding &quot;UTF-8XX&quot;:)xquery version &quot;1.0&quot; encoding &quot;UTF-8&quot;; 1 eq 1</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-true/>
+        <error code="*"/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="version_declaration-002">
+    <description> A case of Comment-before-VersionDecl, this one without an encoding decl. </description>
+    <created by="Pulkita Tyagi" on="2005-10-05"/>
+    <modified by="O'Neil Delpratt" change="Bug fix related to bug #14955" on="2012-05-23"/>
+    <modified by="Michael Dyck" change="Remove redundant dependency" on="2012-09-10"/>
+    <test>
+      <![CDATA[(:encoding "utf-8xx":)xquery version "1.0"; <bib/>]]>
+    </test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-xml>
+          <![CDATA[<bib/>]]>
+        </assert-xml>
+        <error code="*"/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="version_declaration-001">
+    <description>
+         The production for VersionDecl includes the final Separator.
+         Thus, a Comment occurring after the bulk of a VersionDecl but before the semicolon,
+         still &quot;occurs before the end of the version declaration&quot;.
+      </description>
+    <created by="Pulkita Tyagi" on="2005-10-05"/>
+    <modified by="O'Neil Delpratt" change="Bug fix related to bug #14955" on="2012-05-23"/>
+    <test>xquery version &quot;1.0&quot; (:encoding &quot;utf-8xx&quot;:); 1,2</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-string-value>1 2</assert-string-value>
+        <error code="*"/>
+      </any-of>
+    </result>
+  </test-case>
+  <!-- Static Errors -->
+  <!--
+      Tests designed to elicit XQST0031...
+
+      XQuery 1.0:
+         An XQuery implementation must raise a static error [err:XQST0031]
+         when processing a module labeled with a version that the implementation
+         does not support.
+
+      XQuery 3.0:
+         If an XQuery 3.0 processor processes a module labeled with a version of
+         "1.0", it must either raise a static error [err:XQST0031],
+         or attempt to process the module with an XQuery 1.0 processor.
+         If any version number other than 3.0 or 1.0 is encountered,
+         a static error [err:XQST0031] is raised.
+   -->
+  <test-case name="version_declaration-007">
+    <description> A negative version number. </description>
+    <created by="Pulkita Tyagi" on="2005-10-05"/>
+    <test>xquery version '-1.0'; 2 + 2</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XQST0031&quot;))</result-string>
+    <result>
+      <error code="XQST0031"/>
+    </result>
+  </test-case>
+  <test-case name="version_declaration-008">
+    <description> A non-numeric version string. </description>
+    <created by="Pulkita Tyagi" on="2005-10-05"/>
+    <test>xquery version &quot;abc&quot;; 1,2</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XQST0031&quot;))</result-string>
+    <result>
+      <error code="XQST0031"/>
+    </result>
+  </test-case>
+  <test-case name="version_declaration-021">
+    <description> &quot;2.0&quot; is a plausible version string, but not supported. </description>
+    <created by="Michael Dyck" on="2012-09-10"/>
+    <test>xquery version &quot;2.0&quot;; 1,2</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XQST0031&quot;))</result-string>
+    <result>
+      <error code="XQST0031"/>
+    </result>
+  </test-case>
+  <test-case covers="version-decl-30" name="VersionDecl-v1-processor-and-v3-query">
+    <description> An XQuery 1.0 processor presumably doesn't support version 3.0. </description>
+    <created by="Pulkita Tyagi" on="2005-10-05"/>
+    <modified by="O'Neil Delpratt" change="Bug fix related to bug #14955" on="2012-05-23"/>
+    <modified by="Michael Dyck" change="Rename from version_declaration-006" on="2012-09-10"/>
+    <dependency type="spec" value="XQ10"/>
+    <test>
+      <![CDATA[xquery version "3.0"; <bib/>]]>
+    </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XQST0031&quot;))</result-string>
+    <result>
+      <error code="XQST0031"/>
+    </result>
+  </test-case>
+  <test-case covers="version-decl-30" name="VersionDecl-v3-processor-and-v1-query">
+    <description> An XQuery 3.0 processor might or might not accept version &quot;1.0&quot;. </description>
+    <created by="Michael Dyck" on="2012-09-10"/>
+    <dependency type="spec" value="XQ30"/>
+    <test>
+      <![CDATA[xquery version "1.0"; <bib/>]]>
+    </test>
+    <result-string/>
+    <result>
+      <any-of>
+        <error code="XQST0031"/>
+        <assert-xml>
+          <![CDATA[<bib/>]]>
+        </assert-xml>
+      </any-of>
+    </result>
+  </test-case>
+  <!--
+      Tests designed to elicit XQST0087...
+
+      XQuery 1.0 & 3.0:
+         The value of the string literal following the keyword encoding is
+         an encoding name, and must conform to the definition of EncName
+         specified in [XML 1.0] [err:XQST0087].
+
+      XML 1.0:
+         [81] EncName ::= [A-Za-z] ([A-Za-z0-9._] | '-')*
+            /* Encoding name contains only Latin characters */
+   -->
+  <test-case name="version_declaration-010">
+    <description> Asterisk is not allowed in EncName. </description>
+    <created by="Carmelo Montanez" on="2005-02-06"/>
+    <modified by="Michael Dyck" change="Add dependency on XQ10" on="2012-09-10"/>
+    <dependency type="spec" value="XQ10"/>
+    <test>xquery version &quot;1.0&quot; encoding &quot;999-UTF-8-*&quot;; &quot;ABC&quot;</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XQST0087&quot;))</result-string>
+    <result>
+      <error code="XQST0087"/>
+    </result>
+  </test-case>
+  <test-case name="version_declaration-010-v3">
+    <description> Asterisk is not allowed in EncName. </description>
+    <created by="Michael Dyck" on="2012-09-10"/>
+    <dependency type="spec" value="XQ30"/>
+    <test>xquery version &quot;3.0&quot; encoding &quot;999-UTF-8-*&quot;; &quot;ABC&quot;</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XQST0087&quot;))</result-string>
+    <result>
+      <error code="XQST0087"/>
+    </result>
+  </test-case>
+  <test-case name="K-VersionProlog-3">
+    <description> Whitespace is not allowed in EncName. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <modified by="Michael Dyck" change="Add dependency on XQ10" on="2012-09-10"/>
+    <dependency type="spec" value="XQ10"/>
+    <test>xquery version &quot;1.0&quot; encoding &quot;UTF-8 &quot;; 1</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XQST0087&quot;))</result-string>
+    <result>
+      <error code="XQST0087"/>
+    </result>
+  </test-case>
+  <test-case name="K-VersionProlog-3-v3">
+    <description> Whitespace is not allowed in EncName. </description>
+    <created by="Michael Dyck" on="2012-09-10"/>
+    <dependency type="spec" value="XQ30"/>
+    <test>xquery version &quot;3.0&quot; encoding &quot;UTF-8 &quot;; 1</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XQST0087&quot;))</result-string>
+    <result>
+      <error code="XQST0087"/>
+    </result>
+  </test-case>
+  <test-case name="K-VersionProlog-4">
+    <description> Vertical bar is not allowed in EncName. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <modified by="Michael Dyck" change="Add dependency on XQ10" on="2012-09-10"/>
+    <dependency type="spec" value="XQ10"/>
+    <test>xquery version &quot;1.0&quot; encoding &quot;ISO-8859-1|&quot;; 1</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XQST0087&quot;))</result-string>
+    <result>
+      <error code="XQST0087"/>
+    </result>
+  </test-case>
+  <test-case name="K-VersionProlog-4-v3">
+    <description> Vertical bar is not allowed in EncName. </description>
+    <created by="Michael Dyck" on="2012-09-10"/>
+    <dependency type="spec" value="XQ30"/>
+    <test>xquery version &quot;3.0&quot; encoding &quot;ISO-8859-1|&quot;; 1</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XQST0087&quot;))</result-string>
+    <result>
+      <error code="XQST0087"/>
+    </result>
+  </test-case>
+  <!--
+      Tests that don't raise static errors...
+   -->
+  <!--
+      Tests with a version number but no encoding declaration...
+   -->
+  <test-case name="K-VersionProlog-2">
+    <description> A simple version declaration excluding encoding. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <modified by="Michael Dyck" change="Add dependency on XQ10" on="2012-09-10"/>
+    <dependency type="spec" value="XQ10"/>
+    <test>xquery version &quot;1.0&quot; ; 1 eq 1</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-VersionProlog-2-v3">
+    <description> A simple version declaration excluding encoding. </description>
+    <created by="Michael Dyck" on="2012-09-10"/>
+    <dependency type="spec" value="XQ30"/>
+    <test>xquery version &quot;3.0&quot; ; 1 eq 1</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="prolog-version-4">
+    <description> Simple version decl. </description>
+    <created by="Carmelo Montanez" on="2006-02-15"/>
+    <modified by="Michael Dyck" change="Add dependency on XQ10" on="2012-09-10"/>
+    <dependency type="spec" value="XQ10"/>
+    <test>xquery version &quot;1.0&quot;; 1,2</test>
+    <result-string>xs:string('1 2')</result-string>
+    <result>
+      <assert-string-value>1 2</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="prolog-version-4-v3">
+    <description> Simple version decl. </description>
+    <created by="Michael Dyck" on="2012-09-10"/>
+    <dependency type="spec" value="XQ30"/>
+    <test>xquery version &quot;3.0&quot;; 1,2</test>
+    <result-string>xs:string('1 2')</result-string>
+    <result>
+      <assert-string-value>1 2</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="prolog-version-5">
+    <description> An XQuery 1.0 processor must accept version &quot;1.0&quot;. </description>
+    <created by="Carmelo Montanez" on="2006-02-15"/>
+    <modified by="Michael Dyck" change="Change dependency from XQ10+ to XQ10." on="2012-09-10"/>
+    <dependency type="spec" value="XQ10"/>
+    <test>
+      <![CDATA[xquery version "1.0"; <bib/>]]>
+    </test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<bib/>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case covers="version-decl-30" name="prolog-version-5-v3">
+    <description> An XQuery 3.0 processor must accept version &quot;3.0&quot;. </description>
+    <created by="O'Neil Delpratt" on="2012-05-23"/>
+    <modified by="O'Neil Delpratt" change="Bug fix related to bug #14955: Added dependenct XQ30+" on="2012-05-23"/>
+    <modified by="Michael Dyck" change="Change dependency from XQ30+ to XQ30." on="2012-09-10"/>
+    <modified by="Michael Dyck" change="Rename from version_declaration-006a" on="2012-09-10"/>
+    <dependency type="spec" value="XQ30"/>
+    <test>
+      <![CDATA[xquery version "3.0"; <bib/>]]>
+    </test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<bib/>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="prolog-version-6">
+    <description> A more realistic query with a version decl, no encoding. </description>
+    <created by="Carmelo Montanez" on="2006-02-15"/>
+    <modified by="Michael Dyck" change="Add dependency on XQ10" on="2012-09-10"/>
+    <environment ref="bib2"/>
+    <dependency type="spec" value="XQ10"/>
+    <test>
+        xquery version '1.0'; 
+        declare boundary-space preserve; 
+        declare default order empty greatest; 
+        declare namespace ns = &quot;http://www.example.org/&quot;; 
+        for $b in//book stable order by xs:decimal($b/price[1]) empty greatest 
+        return $b/title</test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<title>Data on the Web</title><title>TCP/IP Illustrated</title><title>Advanced Programming in the Unix environment</title><title>The Economics of Technology and Content for Digital TV</title>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="prolog-version-6-v3">
+    <description> A more realistic query with a version decl, no encoding. </description>
+    <created by="Michael Dyck" on="2012-09-10"/>
+    <environment ref="bib2"/>
+    <dependency type="spec" value="XQ30"/>
+    <test>
+        xquery version '3.0'; 
+        declare boundary-space preserve; 
+        declare default order empty greatest; 
+        declare namespace ns = &quot;http://www.example.org/&quot;; 
+        for $b in//book stable order by xs:decimal($b/price[1]) empty greatest 
+        return $b/title</test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<title>Data on the Web</title><title>TCP/IP Illustrated</title><title>Advanced Programming in the Unix environment</title><title>The Economics of Technology and Content for Digital TV</title>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="prolog-version-7">
+    <description> A more realitic query with a version decl, no encoding. </description>
+    <created by="Carmelo Montanez" on="2006-02-15"/>
+    <modified by="Michael Dyck" change="Add dependency on XQ10" on="2012-09-10"/>
+    <environment ref="bib2"/>
+    <dependency type="spec" value="XQ10"/>
+    <test>
+        xquery version &quot;1.0&quot;; 
+        declare boundary-space preserve; 
+        declare default order empty greatest; 
+        declare namespace ns = &quot;http://www.example.org/&quot;; 
+        for $b in //book stable order by xs:decimal($b/price[1]) empty greatest 
+        return $b/title</test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<title>Data on the Web</title><title>TCP/IP Illustrated</title><title>Advanced Programming in the Unix environment</title><title>The Economics of Technology and Content for Digital TV</title>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="prolog-version-7-v3">
+    <description> A more realitic query with a version decl, no encoding. </description>
+    <created by="Michael Dyck" on="2012-09-10"/>
+    <environment ref="bib2"/>
+    <dependency type="spec" value="XQ30"/>
+    <test>
+        xquery version &quot;3.0&quot;; 
+        declare boundary-space preserve; 
+        declare default order empty greatest; 
+        declare namespace ns = &quot;http://www.example.org/&quot;; 
+        for $b in //book stable order by xs:decimal($b/price[1]) empty greatest 
+        return $b/title</test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<title>Data on the Web</title><title>TCP/IP Illustrated</title><title>Advanced Programming in the Unix environment</title><title>The Economics of Technology and Content for Digital TV</title>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="version_declaration-005">
+    <description> A more realistic query with a version decl, no encoding </description>
+    <created by="Pulkita Tyagi" on="2005-10-05"/>
+    <dependency type="feature" value="schemaImport"/>
+    <test>
+        xquery version &quot;1.0&quot;; 
+        declare boundary-space preserve; 
+        declare default collation &quot;xspanish&quot;; 
+        declare base-uri &quot;http://www.base-uri.com/&quot;; 
+        declare construction strip; declare ordering unordered; 
+        declare default order empty greatest; 
+        import schema default element namespace &quot;http://comment&quot;; 
+        declare namespace foo = &quot;http://foo.org&quot;; 
+        declare default function namespace &quot;http://example.org/math-functions&quot;; 
+        declare namespace bar = &quot;http://bar.org&quot;; 
+        declare variable $x as xs:integer := 7; 
+        declare function local:sumOf1toN($i) as xs:integer { if ($i = 1) then $i else $i + local:sumOf1toN($i - 1) }; 
+        declare option foo:strip-comments &quot;true&quot;; 
+        local:sumOf1toN(5)</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-eq>15</assert-eq>
+        <error code="XQST0038"/>
+        <error code="XQST0059"/>
+        <error code="XQST0031"/>
+      </any-of>
+    </result>
+  </test-case>
+  <!--
+      Tests with a version number and an encoding declaration...
+   -->
+  <test-case name="prolog-version-1">
+    <description> Prolog version declaration with both version and encoding information (set to 1.0 and &quot;utf-8&quot; respectively. </description>
+    <created by="Carmelo Montanez" on="2006-02-15"/>
+    <modified by="Michael Dyck" change="Add dependency on XQ10" on="2012-09-10"/>
+    <dependency type="spec" value="XQ10"/>
+    <test>xquery version &quot;1.0&quot; encoding &quot;utf-8&quot;; 1,2</test>
+    <result-string>xs:string('1 2')</result-string>
+    <result>
+      <assert-string-value>1 2</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="prolog-version-1-v3">
+    <description> Prolog version declaration with both version and encoding information (set to 3.0 and &quot;utf-8&quot; respectively. </description>
+    <created by="Michael Dyck" on="2012-09-10"/>
+    <dependency type="spec" value="XQ30"/>
+    <test>xquery version &quot;3.0&quot; encoding &quot;utf-8&quot;; 1,2</test>
+    <result-string>xs:string('1 2')</result-string>
+    <result>
+      <assert-string-value>1 2</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="prolog-version-3">
+    <description> Prolog version declaration with both version and encoding information (set to 1.0 and &quot;US-ASCII&quot; respectively. </description>
+    <created by="Carmelo Montanez" on="2006-02-15"/>
+    <modified by="Michael Dyck" change="Add dependency on XQ10" on="2012-09-10"/>
+    <dependency type="spec" value="XQ10"/>
+    <test>xquery version &quot;1.0&quot; encoding &quot;US-ASCII&quot;; 1,2</test>
+    <result-string>xs:string('1 2')</result-string>
+    <result>
+      <assert-string-value>1 2</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="prolog-version-3-v3">
+    <description> Prolog version declaration with both version and encoding information (set to 3.0 and &quot;US-ASCII&quot; respectively. </description>
+    <created by="Michael Dyck" on="2012-09-10"/>
+    <dependency type="spec" value="XQ30"/>
+    <test>xquery version &quot;3.0&quot; encoding &quot;US-ASCII&quot;; 1,2</test>
+    <result-string>xs:string('1 2')</result-string>
+    <result>
+      <assert-string-value>1 2</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="K-VersionProlog-5">
+    <description> A prolog containing many different declarations. TODO function declarations missing TODO variable declarations missing </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <modified by="Michael Dyck" change="Add dependency on XQ10" on="2012-09-10"/>
+    <dependency type="spec" value="XQ10"/>
+    <test>
+        xquery version &quot;1.0&quot; encoding &quot;ISO-8859-1&quot;; 
+        declare boundary-space preserve; 
+        declare default collation &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;; 
+        declare base-uri &quot;http://example.com/&quot;; 
+        declare construction strip; 
+        declare ordering ordered; 
+        declare default order empty greatest; 
+        declare copy-namespaces no-preserve, no-inherit; 
+        declare namespace ex = &quot;http://example.com/a/Namespace&quot;; 
+        declare default element namespace &quot;http://example.com/&quot;; 
+        declare default function namespace &quot;http://example.com/&quot;; 
+        declare option fn:x-notRecognized &quot;option content&quot;; 
+        1 eq 1</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-VersionProlog-5-v3">
+    <description> A prolog containing many different declarations. TODO function declarations missing TODO variable declarations missing </description>
+    <created by="Michael Dyck" on="2012-09-10"/>
+    <dependency type="spec" value="XQ30"/>
+    <test>
+        xquery version &quot;3.0&quot; encoding &quot;ISO-8859-1&quot;; 
+        declare boundary-space preserve; 
+        declare default collation &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;; 
+        declare base-uri &quot;http://example.com/&quot;; 
+        declare construction strip; 
+        declare ordering ordered; 
+        declare default order empty greatest; 
+        declare copy-namespaces no-preserve, no-inherit; 
+        declare namespace ex = &quot;http://example.com/a/Namespace&quot;; 
+        declare default element namespace &quot;http://example.com/&quot;; 
+        declare default function namespace &quot;http://example.com/&quot;; 
+        declare option fn:x-notRecognized &quot;option content&quot;; 
+        1 eq 1</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <!--
+      Tests with an encoding declaration and no version number ...
+   -->
+  <test-case covers="version-decl-30" name="version_declaration-023-v3">
+    <description> In XQuery 3.0, you *can* omit the 'version' clause. </description>
+    <created by="Michael Dyck" on="2012-09-10"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>xquery encoding &quot;utf-8&quot;; 1 eq 1</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <!--
+      In the following tests, the query doesn't involve a VersionDecl,
+      but it does contain a string that a faulty processor might take
+      for a bad version decl.
+   -->
+  <test-case name="K2-VersionProlog-1">
+    <description> a string literal reminding of an xquery version declaration. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>'xquery version &quot;1.0&quot; encoding &quot;UTF-8|#%&quot;;' eq 'xquery version &quot;1.0&quot; encoding &quot;UTF-8|#%&quot;;'</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-VersionProlog-2">
+    <description> a string literal reminding of an xquery version declaration. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>&quot;xquery version '1.0' encoding 'UTF-8|#%';&quot; eq &quot;xquery version '1.0' encoding 'UTF-8|#%';&quot;</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <!--
+      These tests don't involve a VersionDecl,
+      and don't appear to be particularly concerned with its absence,
+      and so perhaps don't belong in this test-set.
+   -->
+  <test-case name="K2-VersionProlog-4">
+    <description> Whitespace isn't allowed after a prefix in a QName. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>encoding :localName</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0003&quot;))</result-string>
+    <result>
+      <error code="XPST0003"/>
+    </result>
+  </test-case>
+  <test-case name="K2-VersionProlog-5">
+    <description> Check that the 'xquery' name test is parsed correctly. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xquery gt xquery</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPDY0002&quot;))</result-string>
+    <result>
+      <error code="XPDY0002"/>
+    </result>
+  </test-case>
+</test-set>

@@ -88,7 +88,7 @@ Fleur.Node.prototype.appendChild = function(newChild) {
 			this.appendChild(newChild.childNodes[0]);
 			i++;
 		}
-	} else if (newChild.nodeType === Fleur.Node.ATTRIBUTE_NODE || (this.nodeType === Fleur.Node.ATTRIBUTE_NODE && newChild.nodeType !== Fleur.Node.TEXT_NODE)) {
+	} else if ((this.nodeType !== Fleur.Node.SEQUENCE_NODE || this.ownerDocument) && (newChild.nodeType === Fleur.Node.ATTRIBUTE_NODE || (this.nodeType === Fleur.Node.ATTRIBUTE_NODE && newChild.nodeType !== Fleur.Node.TEXT_NODE))) {
 		throw new Fleur.DOMException(Fleur.DOMException.HIERARCHY_REQUEST_ERR);
 	} else {
 		if (this.nodeType !== Fleur.Node.SEQUENCE_NODE || this.ownerDocument) {

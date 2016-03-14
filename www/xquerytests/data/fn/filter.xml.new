@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set covers="fn-filter" name="fn-filter" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the higher-order fn:filter function</description>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-filter" type="spec"/>
+  <dependency type="spec" value="XP30+ XQ30+"/>
+  <dependency type="feature" value="higherOrderFunctions"/>
+  <test-case covers="partial-function-application" name="filter-001">
+    <description>Basic test using starts-with()</description>
+    <created by="Michael Kay" on="2010-02-10"/>
+    <test>filter((&quot;apple&quot;, &quot;pear&quot;, &quot;apricot&quot;, &quot;advocado&quot;, &quot;orange&quot;),starts-with(?, &quot;a&quot;))</test>
+    <result-string/>
+    <result>
+      <assert-deep-eq>&quot;apple&quot;, &quot;apricot&quot;, &quot;advocado&quot;</assert-deep-eq>
+    </result>
+  </test-case>
+  <test-case name="filter-002">
+    <description>Test using an inline user-defined function</description>
+    <created by="Michael Kay" on="2010-02-10"/>
+    <test>filter((12, 4, 46, 23, -8), function($x){$x gt 10})</test>
+    <result-string/>
+    <result>
+      <assert-deep-eq>12, 46, 23</assert-deep-eq>
+    </result>
+  </test-case>
+  <test-case name="filter-003">
+    <description>Test using an inline user-defined function</description>
+    <created by="Michael Kay" on="2010-02-10"/>
+    <environment>
+      <source file="filter/filter003.xml" role=".">
+        <description/>
+        <created by="Michael Kay" on="2010-02-10"/>
+      </source>
+    </environment>
+    <dependency type="spec" value="XQ30+"/>
+    <test>let $data := (/employees)
+              return filter($data/emp, function($x as element(emp)){xs:int($x/@salary) lt 300})</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-count>3</assert-count>
+        <assert-type>element(emp)*</assert-type>
+        <assert>$result/@name = 'john'</assert>
+        <assert>$result/@name = 'anne'</assert>
+        <assert>$result/@name = 'kumar'</assert>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="filter-004">
+    <description>Test using an inline user-defined function</description>
+    <created by="Michael Kay" on="2010-02-10"/>
+    <test>(1 to 20)[. = filter(1 to position(), function($x){$x idiv 2 * 2 = $x})]</test>
+    <result-string/>
+    <result>
+      <assert-deep-eq>2, 4, 6, 8, 10, 12, 14, 16, 18, 20</assert-deep-eq>
+    </result>
+  </test-case>
+  <test-case name="filter-005">
+    <description>implement eg:index-of-node()</description>
+    <created by="Michael Kay" on="2010-02-10"/>
+    <environment>
+      <source file="filter/filter005.xml" role=".">
+        <description/>
+        <created by="Michael Kay" on="2010-02-10"/>
+      </source>
+    </environment>
+    <test>let $index-of-node := function($seqParam as node()*, $srchParam as node()) as xs:integer* 
+                                    { filter( 1 to count($seqParam), function($this as xs:integer) as xs:boolean
+                                              {$seqParam[$this] is $srchParam} ) },
+            $nodes := /*/*,
+            $perm := ($nodes[1], $nodes[2], $nodes[3], $nodes[1], $nodes[2], $nodes[4], $nodes[2], $nodes[1]) 
+            return $index-of-node($perm, $nodes[2]) </test>
+    <result-string/>
+    <result>
+      <assert-deep-eq>2, 5, 7</assert-deep-eq>
+    </result>
+  </test-case>
+  <test-case name="filter-901">
+    <description>filter function - not a boolean</description>
+    <created by="Michael Kay" on="2010-02-10"/>
+    <test>filter((&quot;apple&quot;, &quot;pear&quot;, &quot;apricot&quot;, &quot;advocado&quot;, &quot;orange&quot;), normalize-space#1)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="filter-902">
+    <description>filter function - returns empty sequence </description>
+    <created by="Michael Kay" on="2010-02-10"/>
+    <test>filter((&quot;apple&quot;, &quot;pear&quot;, &quot;apricot&quot;, &quot;advocado&quot;, &quot;orange&quot;), function($x){if(starts-with($x,'a')) then true() else ()})</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="filter-903">
+    <description>filter function - returns non-singleton sequence</description>
+    <created by="Michael Kay" on="2010-02-10"/>
+    <test>filter( (&quot;apple&quot;, &quot;pear&quot;, &quot;apricot&quot;, &quot;advocado&quot;, &quot;orange&quot;), function($x){if(starts-with($x,'a')) then (true(), true()) else false()})</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case covers="partial-function-application" name="filter-904">
+    <description>filter function - item in sequence is of wrong type</description>
+    <created by="Michael Kay" on="2010-02-10"/>
+    <test>filter((&quot;apple&quot;, &quot;pear&quot;, &quot;apricot&quot;, &quot;advocado&quot;, &quot;orange&quot;, current-date()), ends-with(?, 'e'))</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-001">
+    <description>Attempts to evaluate the &quot;filter&quot; function with no arguments.</description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>fn:filter()</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-002">
+    <description>Attempts to reference the &quot;filter&quot; function with arity zero.</description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>fn:filter#0</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-003">
+    <description>Attempts to evaluate the &quot;filter&quot; function with one argument.</description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>fn:filter( fn:boolean#1 )</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-004">
+    <description>Attempts to reference the &quot;filter&quot; function with arity one.</description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>fn:filter#1</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-005">
+    <description>Attempts to reference the &quot;filter&quot; function with arity two.</description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>fn:exists( fn:filter#2 )</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-006">
+    <description>Tests the type checking of the $f argument.</description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <dependency type="feature" value="staticTyping"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>( fn:filter( (), if ( fn:current-dateTime() eq
+                            fn:dateTime( fn:current-date(),
+                                         fn:current-time() ))
+                         then fn:exists#1
+                         else 1 ),
+              fn:filter( (), if ( fn:current-dateTime() eq
+                            fn:dateTime( fn:current-date(),
+                                         fn:current-time() ))
+                         then 1
+                         else fn:exists#1 ) )</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-007">
+    <description>Tests the type checking of the $f argument.</description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <dependency type="feature" value="staticTyping"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>fn:filter( (), if ( fn:current-dateTime() eq
+                          fn:dateTime( fn:current-date(),
+                                       fn:current-time() ))
+                       then fn:exists#1
+                       else 1 )</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-008">
+    <description>Tests the type checking of the $f argument.</description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <dependency type="feature" value="staticTyping"/>
+    <test>fn:filter( (), fn:true() )</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-009">
+    <description>Tests the type checking of the $f argument.</description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <dependency type="feature" value="staticTyping"/>
+    <test>fn:filter( (), fn:true() )</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-010">
+    <description>Tests the type checking of the $f argument.</description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>fn:filter( (), function($a as item()) as xs:boolean* { fn:boolean($a), fn:boolean($a) } )</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <error code="XPST0005"/>
+        <assert-empty/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-011">
+    <description>Tests the type checking of the $f argument.</description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>fn:filter( (), function($a as item()) as xs:boolean? { () } )</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <error code="XPST0005"/>
+        <assert-empty/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-012">
+    <description>Tests the type checking of the $f argument.</description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <modified by="Tim Mills" change="See bug 17250" on="2012-05-31"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>fn:filter( (), fn:string#1 )</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <error code="XPTY0004"/>
+        <error code="XPST0005"/>
+        <assert-empty/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-013">
+    <description>Evaluates the &quot;filter&quot; function with $seq set to a mix of item types </description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <environment>
+      <source file="filter/fn-filter-012.xml" role=".">
+        <description/>
+        <created by="Tim Mills" on="2012-05-01"/>
+      </source>
+    </environment>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>fn:filter( (//node(), 1, &quot;string&quot;, 3.14, 2.7e0, fn:exists#1), function($arg) { $arg instance of function(*) } )</test>
+    <result-string/>
+    <result>
+      <assert-count>1</assert-count>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-014">
+    <description>Evaluates the &quot;filter&quot; function with $f set to a function which _could_ (but doesn't) return a non-boolean value </description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>fn:filter( 1 to 10, function($arg) { if ($arg eq 100) then () else fn:true()})</test>
+    <result-string/>
+    <result>
+      <assert-count>10</assert-count>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-015">
+    <description>Evaluates the &quot;filter&quot; function with $f set to a function which _could_ (and does) return a non-boolean value </description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>fn:filter( 1 to 10, function($arg) { if ($arg eq 10) then () else fn:true()})</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-016">
+    <description>Evaluates the &quot;filter&quot; function with $f set to a function which _could_ (but doesn't) return a non-boolean value </description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <dependency type="feature" value="staticTyping"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>fn:filter( 1 to 10, function($arg) { if ($arg eq 100) then () else fn:true()})</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-017">
+    <description>Evaluates the &quot;filter&quot; function with $f set to a function which _could_ (but doesn't) return a non-boolean value </description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>fn:filter( 1 to 10, function($arg) { if ($arg eq 100) then 0 else fn:true()})</test>
+    <result-string/>
+    <result>
+      <assert-count>10</assert-count>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-018">
+    <description>Evaluates the &quot;filter&quot; function with $f set to a function which _could_ (and does) return a non-boolean value </description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>fn:filter( 1 to 10, function($arg) { if ($arg eq 10) then 0 else fn:true()})</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-019">
+    <description>Evaluates the &quot;filter&quot; function with $f set to a function which _could_ (but doesn't) return a non-boolean value </description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <dependency type="feature" value="staticTyping"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>fn:filter( 1 to 10, function($arg) { if ($arg eq 100) then 0 else fn:true()})</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-020">
+    <description>Evaluates the &quot;filter&quot; function with $f set to a function which _could_ (but doesn't) return a non-boolean value </description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>fn:filter( 1 to 10, function($arg) { if ($arg eq 100) then (fn:true(), fn:false()) else fn:true()})</test>
+    <result-string/>
+    <result>
+      <assert-count>10</assert-count>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-021">
+    <description>Evaluates the &quot;filter&quot; function with $f set to a function which _could_ (and does) return a non-boolean value </description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>fn:filter( 1 to 10, function($arg) { if ($arg eq 10) then (fn:true(), fn:false()) else fn:true()})</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-022">
+    <description>Evaluates the &quot;filter&quot; function with $f set to a function which _could_ (but doesn't) return a non-boolean value </description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <dependency type="feature" value="staticTyping"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>fn:filter( 1 to 10, function($arg) { if ($arg eq 100) then (fn:true(), fn:false()) else fn:true()})</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="fn-filter-023">
+    <description>Evaluates the &quot;filter&quot; function with $f set to a function which expects integers, but is supplied with strings.</description>
+    <created by="Tim Mills" on="2012-05-01"/>
+    <dependency type="feature" value="staticTyping"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>fn:filter( (&quot;1&quot;, &quot;2&quot;, &quot;3&quot;), function($arg as xs:integer) as xs:boolean { $arg eq 100 } )</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+</test-set>

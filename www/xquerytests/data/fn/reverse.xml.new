@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="fn-reverse" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the reverse() function</description>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-reverse" type="spec"/>
+  <test-case name="fn-reverseint1args-1">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:int(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:int(&quot;-2147483648&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-2147483648</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reverseint1args-2">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:int(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:int(&quot;-1873914410&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-1873914410</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reverseint1args-3">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:int(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:int(&quot;2147483647&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>2147483647</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reverseintg1args-1">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:integer(&quot;-999999999999999999&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reverseintg1args-2">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:integer(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:integer(&quot;830993497117024304&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>830993497117024304</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reverseintg1args-3">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:integer(&quot;999999999999999999&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reversedec1args-1">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:decimal(&quot;-999999999999999999&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reversedec1args-2">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:decimal(&quot;617375191608514839&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>617375191608514839</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reversedec1args-3">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:decimal(&quot;999999999999999999&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reversedbl1args-1">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:double(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:double(&quot;-1.7976931348623157E308&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-1.7976931348623157E308</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reversedbl1args-2">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:double(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:double(&quot;0&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reversedbl1args-3">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:double(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:double(&quot;1.7976931348623157E308&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>1.7976931348623157E308</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reverseflt1args-1">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:float(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:float(&quot;-3.4028235E38&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>xs:float(&quot;-3.4028235E38&quot;)</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reverseflt1args-2">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:float(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:float(&quot;0&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reverseflt1args-3">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:float(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:float(&quot;3.4028235E38&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>xs:float(&quot;3.4028235E38&quot;)</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reverselng1args-1">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:long(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:long(&quot;-92233720368547758&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-92233720368547758</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reverselng1args-2">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:long(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:long(&quot;-47175562203048468&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-47175562203048468</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reverselng1args-3">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:long(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:long(&quot;92233720368547758&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>92233720368547758</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reverseusht1args-1">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:unsignedShort(&quot;0&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reverseusht1args-2">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:unsignedShort(&quot;44633&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>44633</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reverseusht1args-3">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:unsignedShort(&quot;65535&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>65535</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reversenint1args-1">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:negativeInteger(&quot;-999999999999999999&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reversenint1args-2">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:negativeInteger(&quot;-297014075999096793&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-297014075999096793</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reversenint1args-3">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:negativeInteger(&quot;-1&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reversepint1args-1">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:positiveInteger(&quot;1&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reversepint1args-2">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:positiveInteger(&quot;52704602390610033&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>52704602390610033</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reversepint1args-3">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:positiveInteger(&quot;999999999999999999&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reverseulng1args-1">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:unsignedLong(&quot;0&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reverseulng1args-2">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:unsignedLong(&quot;130747108607674654&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>130747108607674654</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reverseulng1args-3">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:unsignedLong(&quot;184467440737095516&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>184467440737095516</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reversenpi1args-1">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:nonPositiveInteger(&quot;-999999999999999999&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reversenpi1args-2">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:nonPositiveInteger(&quot;-475688437271870490&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-475688437271870490</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reversenpi1args-3">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:nonPositiveInteger(&quot;0&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reversenni1args-1">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:nonNegativeInteger(&quot;0&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>0</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reversenni1args-2">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:nonNegativeInteger(&quot;303884545991464527&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>303884545991464527</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reversenni1args-3">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:nonNegativeInteger(&quot;999999999999999999&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>999999999999999999</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reversesht1args-1">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:short(lower bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:short(&quot;-32768&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-32768</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reversesht1args-2">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:short(mid range) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:short(&quot;-5324&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>-5324</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-reversesht1args-3">
+    <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:short(upper bound) </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>fn:reverse((xs:short(&quot;32767&quot;)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>32767</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="reverse-001">
+    <description>Reverse a sequence of several items (for a change...)</description>
+    <created by="Michael Kay" on="2011-06-29"/>
+    <test>fn:reverse(1 to 10)</test>
+    <result-string/>
+    <result>
+      <assert-deep-eq>10, 9, 8, 7, 6, 5, 4, 3, 2, 1</assert-deep-eq>
+    </result>
+  </test-case>
+  <test-case name="reverse-002">
+    <description>Reverse an empty sequence</description>
+    <created by="Michael Kay" on="2011-06-29"/>
+    <test>fn:reverse(())</test>
+    <result-string/>
+    <result>
+      <assert-empty/>
+    </result>
+  </test-case>
+  <test-case name="reverse-003">
+    <description>Reverse sequence of nodes on the ancestor axis</description>
+    <created by="Michael Kay" on="2011-06-29"/>
+    <environment ref="auction"/>
+    <test>string-join(reverse(((//*:Open)[1])/ancestor-or-self::*/local-name()), '~')</test>
+    <result-string/>
+    <result>
+      <assert-eq>&quot;Open~Schedule~Auction~AuctionWatchList&quot;</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="K-SeqReverseFunc-1">
+    <description> A test whose essence is: `reverse()`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>reverse()</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="K-SeqReverseFunc-2">
+    <description> A test whose essence is: `reverse(1, 2)`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>reverse(1, 2)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="K-SeqReverseFunc-3">
+    <description> A test whose essence is: `empty(reverse(()))`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>empty(reverse(()))</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-true/>
+        <error code="XPST0005"/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="K-SeqReverseFunc-4">
+    <description> A test whose essence is: `not(empty(reverse((1))))`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>not(empty(reverse((1))))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-SeqReverseFunc-5">
+    <description> A test whose essence is: `not(reverse(()))`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>not(reverse(()))</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-true/>
+        <error code="XPST0005"/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="K-SeqReverseFunc-6">
+    <description> A test whose essence is: `not(exists(reverse(())))`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>not(exists(reverse(())))</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-true/>
+        <error code="XPST0005"/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="K-SeqReverseFunc-7">
+    <description> A test whose essence is: `exists(reverse((1)))`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>exists(reverse((1)))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-SeqReverseFunc-8">
+    <description> A test whose essence is: `reverse((1, current-time())[1])`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>reverse((1, current-time())[1])</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="K-SeqReverseFunc-9">
+    <description> A test whose essence is: `exists(reverse((1, 2, 3)))`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>exists(reverse((1, 2, 3)))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-SeqReverseFunc-10">
+    <description> A test whose essence is: `count(reverse((1, 2, 3)))`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>count(reverse((1, 2, 3)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>3</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="K-SeqReverseFunc-11">
+    <description> A test whose essence is: `count(reverse((1, 2, 3)))`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>count(reverse((1, 2, 3)))</test>
+    <result-string/>
+    <result>
+      <assert-eq>3</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="K-SeqReverseFunc-12">
+    <description> A test whose essence is: `deep-equal((3, 2, 1), reverse(1 to 3))`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>deep-equal((3, 2, 1), reverse(1 to 3))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-SeqReverseFunc-13">
+    <description> A test whose essence is: `deep-equal((3, 2, 1), reverse((1, 2, 3)))`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>deep-equal((3, 2, 1), reverse((1, 2, 3)))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-SeqReverseFunc-14">
+    <description> A test whose essence is: `deep-equal((11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1), reverse(((), (), 1, 2, (3, 4), (5), (6, (7, 8), 9), 10, (), 11, ())))`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>deep-equal((11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1), reverse(((), (), 1, 2, (3, 4), (5), (6, (7, 8), 9), 10, (), 11, ())))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-SeqReverseFunc-15">
+    <description> A test whose essence is: `reverse(error())`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>reverse(error())</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FOER0000&quot;))</result-string>
+    <result>
+      <error code="FOER0000"/>
+    </result>
+  </test-case>
+  <test-case name="K-SeqReverseFunc-16">
+    <description> Apply a predicate to the result of fn:reverse(). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>reverse((1, 2, 3))[last()] eq 1</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-SeqReverseFunc-17">
+    <description> Apply a predicate to the result of fn:reverse(). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>reverse((1, 2, 3))[last() - 2]</test>
+    <result-string/>
+    <result>
+      <assert-eq>3</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="K-SeqReverseFunc-18">
+    <description> Apply a predicate to the result of fn:reverse(). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>reverse((1, 2, 3))[last() - 1]</test>
+    <result-string/>
+    <result>
+      <assert-eq>2</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="K-SeqReverseFunc-19">
+    <description> Apply a predicate to the result of fn:reverse(). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>deep-equal((3, 2, 1), reverse((1, 2, 3))[true()])</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-SeqReverseFunc-20">
+    <description> Apply a predicate to the result of fn:reverse(). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>reverse((1, 2, current-time(), 3))[last() - 1]</test>
+    <result-string/>
+    <result>
+      <assert-eq>2</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="K-SeqReverseFunc-21">
+    <description> Apply a predicate to the result of fn:reverse(). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>reverse((1, 2, current-time(), 3))[last() - 0]</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="K2-SeqReverseFunc-1">
+    <description> Apply fn:reverse() on a node sequence. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[reverse((<a> <b> <c/> <d/> </b> <e/> </a> , <f/>))]]>
+    </test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<f/><a><b><c/><d/></b><e/></a>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="K2-SeqReverseFunc-2">
+    <description> Apply a confusing amount of ordered/unordered{} expressions. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[declare variable $myVar := unordered{ordered{unordered{fn:reverse((<a/>, <b/>))}}}; deep-equal($myVar, (<a/>, <b/>)) or deep-equal($myVar, (<b/>, <a/>))]]>
+    </test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-SeqReverseFunc-3">
+    <description> Apply fn:unordered() to fn:reverse(). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[declare variable $myVar := unordered(fn:reverse((<a/>, <b/>))); deep-equal($myVar, (<a/>, <b/>)) or deep-equal($myVar, (<b/>, <a/>))]]>
+    </test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-SeqReverseFunc-4">
+    <description> fn:reverse() takes only one argument. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>fn:reverse(1, 2)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="K2-SeqReverseFunc-5">
+    <description> fn:reverse() takes one argument. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>fn:reverse()</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="K2-SeqReverseFunc-6">
+    <description> Combine unordered declaration with fn:reverse(). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare ordering unordered; reverse((1, 2))</test>
+    <result-string/>
+    <result>
+      <assert-deep-eq>2, 1</assert-deep-eq>
+    </result>
+  </test-case>
+  <test-case name="cbcl-reverse-1">
+    <description> Test condition &quot;If $arg is the empty sequence, the empty sequence is returned.&quot; </description>
+    <created by="Tim Mills" on="2008-04-10"/>
+    <test>empty(reverse( () ))</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-true/>
+        <error code="XPST0005"/>
+      </any-of>
+    </result>
+  </test-case>
+</test-set>

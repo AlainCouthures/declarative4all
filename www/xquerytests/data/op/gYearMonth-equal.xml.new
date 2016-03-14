@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="op-gYearMonth-equal" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the gYearMonth-equal() function</description>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-gYearMonth-equal" type="spec"/>
+  <test-case name="op-gYearMonth-equal2args-1">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal2args-1                        
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:07 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:gYearMonth-equal&quot; operator  
+ with the arguments set as follows:                    
+$arg1 = xs:gYearMonth(lower bound)                     
+$arg2 = xs:gYearMonth(lower bound)                     
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:gYearMonth(&quot;1970-01Z&quot;) eq xs:gYearMonth(&quot;1970-01Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equal2args-2">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal2args-2                        
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:07 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:gYearMonth-equal&quot; operator  
+ with the arguments set as follows:                    
+$arg1 = xs:gYearMonth(mid range)                       
+$arg2 = xs:gYearMonth(lower bound)                     
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:gYearMonth(&quot;1984-12Z&quot;) eq xs:gYearMonth(&quot;1970-01Z&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equal2args-3">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal2args-3                        
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:07 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:gYearMonth-equal&quot; operator  
+ with the arguments set as follows:                    
+$arg1 = xs:gYearMonth(upper bound)                     
+$arg2 = xs:gYearMonth(lower bound)                     
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:gYearMonth(&quot;2030-12Z&quot;) eq xs:gYearMonth(&quot;1970-01Z&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equal2args-4">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal2args-4                        
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:07 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:gYearMonth-equal&quot; operator  
+ with the arguments set as follows:                    
+$arg1 = xs:gYearMonth(lower bound)                     
+$arg2 = xs:gYearMonth(mid range)                       
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:gYearMonth(&quot;1970-01Z&quot;) eq xs:gYearMonth(&quot;1984-12Z&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equal2args-5">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal2args-5                        
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:07 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:gYearMonth-equal&quot; operator  
+ with the arguments set as follows:                    
+$arg1 = xs:gYearMonth(lower bound)                     
+$arg2 = xs:gYearMonth(upper bound)                     
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:gYearMonth(&quot;1970-01Z&quot;) eq xs:gYearMonth(&quot;2030-12Z&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equal2args-6">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal2args-6                        
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:07 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:gYearMonth-equal&quot; operator  
+ with the arguments set as follows:                    
+$arg1 = xs:gYearMonth(lower bound)                     
+$arg2 = xs:gYearMonth(lower bound)                     
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:gYearMonth(&quot;1970-01Z&quot;) ne xs:gYearMonth(&quot;1970-01Z&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equal2args-7">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal2args-7                        
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:07 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:gYearMonth-equal&quot; operator  
+ with the arguments set as follows:                    
+$arg1 = xs:gYearMonth(mid range)                       
+$arg2 = xs:gYearMonth(lower bound)                     
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:gYearMonth(&quot;1984-12Z&quot;) ne xs:gYearMonth(&quot;1970-01Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equal2args-8">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal2args-8                        
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:07 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:gYearMonth-equal&quot; operator  
+ with the arguments set as follows:                    
+$arg1 = xs:gYearMonth(upper bound)                     
+$arg2 = xs:gYearMonth(lower bound)                     
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:gYearMonth(&quot;2030-12Z&quot;) ne xs:gYearMonth(&quot;1970-01Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equal2args-9">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal2args-9                        
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:07 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:gYearMonth-equal&quot; operator  
+ with the arguments set as follows:                    
+$arg1 = xs:gYearMonth(lower bound)                     
+$arg2 = xs:gYearMonth(mid range)                       
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:gYearMonth(&quot;1970-01Z&quot;) ne xs:gYearMonth(&quot;1984-12Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equal2args-10">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal2args-10                       
+Written By: Carmelo Montanez                            
+Date: Tue Apr 12 16:29:07 GMT-05:00 2005                
+Purpose: Evaluates The &quot;op:gYearMonth-equal&quot; operator  
+ with the arguments set as follows:                    
+$arg1 = xs:gYearMonth(lower bound)                     
+$arg2 = xs:gYearMonth(upper bound)                     
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:gYearMonth(&quot;1970-01Z&quot;) ne xs:gYearMonth(&quot;2030-12Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equalNew-1">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal-1                            
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;gYearMonth-equal&quot; function     
+As per example 1 (for this function)of the FO specs   
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:gYearMonth(&quot;1976-02-05:00&quot;) eq xs:gYearMonth(&quot;1976-03Z&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equalNew-2">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal-2                            
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;gYearMonth-equal&quot; function     
+As per example 2 (for this function) of the FO  specs 
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:gYearMonth(&quot;1976-03-05:00&quot;) eq xs:gYearMonth(&quot;1976-03Z&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equalNew-3">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal-3                            
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;gYearMonth-equal&quot; function that
+return true and used together with fn:not (eq operator)
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>fn:not((xs:gYearMonth(&quot;1995-02Z&quot;) eq xs:gYearMonth(&quot;1995-02Z&quot;)))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equalNew-4">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal-4                            
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;gYearMonth-equal&quot; function that
+return true and used together with fn:not (le operator)
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>fn:not(xs:gYearMonth(&quot;2005-02Z&quot;) ne xs:gYearMonth(&quot;2006-03Z&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equalNew-5">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal-5                            
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;gYearMonth-equal&quot; function that
+return false and used together with fn:not (eq operator)
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>fn:not(xs:gYearMonth(&quot;2000-01Z&quot;) eq xs:gYearMonth(&quot;2001-04Z&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equalNew-6">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal-6                            
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;gYearMonth-equal&quot; function that
+return false and used together with fn:not(ne operator)
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>fn:not(xs:gYearMonth(&quot;2005-01Z&quot;) ne xs:gYearMonth(&quot;2005-01Z&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equalNew-7">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal-7                            
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;gYearMonth-equal&quot; function used
+together with &quot;and&quot; expression (eq operator).          
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:gYearMonth(&quot;2000-02Z&quot;) eq xs:gYearMonth(&quot;2000-03Z&quot;)) and (xs:gYearMonth(&quot;2001-01Z&quot;) eq xs:gYearMonth(&quot;2001-01Z&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equalNew-8">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal-8                            
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;gYearMonth-equal&quot; function used
+together with &quot;and&quot; expression (ne operator).          
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:gYearMonth(&quot;2000-01Z&quot;) ne xs:gYearMonth(&quot;2000-01Z&quot;)) and (xs:gYearMonth(&quot;1975-01Z&quot;) ne xs:gYearMonth(&quot;1975-03Z&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equalNew-9">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal-9                            
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;gYearMonth-equal&quot; function used
+together with &quot;or&quot; expression (eq operator).           
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:gYearMonth(&quot;2000-01Z&quot;) eq xs:gYearMonth(&quot;2000-03Z&quot;)) or (xs:gYearMonth(&quot;1976-06Z&quot;) eq xs:gYearMonth(&quot;1976-06Z&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equalNew-10">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal-10                           
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;gYearMonth-equal&quot; function used
+together with &quot;or&quot; expression (ne operator).           
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:gYearMonth(&quot;1976-01Z&quot;) ne xs:gYearMonth(&quot;1976-02Z&quot;)) or (xs:gYearMonth(&quot;1980-03Z&quot;) ne xs:gYearMonth(&quot;1980-04Z&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equalNew-11">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal-11                           
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;gYearMonth-equal&quot; function used
+together with &quot;fn:true&quot;/or expression (eq operator).   
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:gYearMonth(&quot;1980-05Z&quot;) eq xs:gYearMonth(&quot;1980-05Z&quot;)) or (fn:true())</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equalNew-12">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal-12                           
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;gYearMonth-equal&quot; function used
+together with &quot;fn:true&quot;/or expression (ne operator).   
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:gYearMonth(&quot;2000-06Z&quot;) ne xs:gYearMonth(&quot;2000-07Z&quot;)) or (fn:true())</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equalNew-13">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal-13                           
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;gYearMonth-equal&quot; function used
+together with &quot;fn:false&quot;/or expression (eq operator).  
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:gYearMonth(&quot;1980-09Z&quot;) eq xs:gYearMonth(&quot;1980-09Z&quot;)) or (fn:false())</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-gYearMonth-equalNew-14">
+    <description>
+*******************************************************
+Test: op-gYearMonth-equal-14                           
+Written By: Carmelo Montanez                           
+Date: June 13, 2005                                    
+Purpose: Evaluates The &quot;gYearMonth-equal&quot; function used
+together with &quot;fn:false&quot;/or expression (ne operator).  
+*******************************************************
+</description>
+    <created by="Carmelo Montanez" on="2005-06-13"/>
+    <test>(xs:gYearMonth(&quot;1980-03Z&quot;) ne xs:gYearMonth(&quot;1980-03Z&quot;)) or (fn:false())</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="K-gYearMonthEQ-1">
+    <description>
+*******************************************************
+ Test: K-gYearMonthEQ-1                                
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Simple test of 'eq' for xs:gYearMonth, returning positive. 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:gYearMonth(&quot;2001-01 &quot;) eq xs:gYearMonth(&quot;2001-01&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-gYearMonthEQ-2">
+    <description>
+*******************************************************
+ Test: K-gYearMonthEQ-2                                
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Simple test of 'eq' for xs:gYearMonth.       
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>not(xs:gYearMonth(&quot;2001-03&quot;) eq xs:gYearMonth(&quot;2000-03&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-gYearMonthEQ-3">
+    <description>
+*******************************************************
+ Test: K-gYearMonthEQ-3                                
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Simple test of 'ne' for xs:gYearMonth.       
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:gYearMonth(&quot;2001-12&quot;) ne xs:gYearMonth(&quot;2001-11&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-gYearMonthEQ-4">
+    <description>
+*******************************************************
+ Test: K-gYearMonthEQ-4                                
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Simple test of 'ne' for xs:gYearMonth.       
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>not(xs:gYearMonth(&quot;1995-11&quot;) ne xs:gYearMonth(&quot;1995-11&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-gYearMonthEQ-5">
+    <description>
+*******************************************************
+ Test: K-gYearMonthEQ-5                                
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Test that zone offset -00:00 is equal to Z, in xs:gYearMonth. 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:gYearMonth(&quot;1999-01-00:00&quot;) eq xs:gYearMonth(&quot;1999-01Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-gYearMonthEQ-6">
+    <description>
+*******************************************************
+ Test: K-gYearMonthEQ-6                                
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Test that zone offset +00:00 is equal to Z, in xs:gYearMonth. 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:gYearMonth(&quot;1999-01+00:00&quot;) eq xs:gYearMonth(&quot;1999-01Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-gYearMonthEQ-7">
+    <description>
+*******************************************************
+ Test: K-gYearMonthEQ-7                                
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Test that zone offset Z is equal to Z, in xs:gYearMonth. 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:gYearMonth(&quot;1999-01Z&quot;) eq xs:gYearMonth(&quot;1999-01Z&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-gYearMonthEQ-8">
+    <description>
+*******************************************************
+ Test: K-gYearMonthEQ-8                                
+ Written by: Frans Englich                             
+ Date: 2007-11-22T11:31:21+01:00                       
+ Purpose: Test that zone offset -00:00 is equal to +00:00, in xs:gYearMonth. 
+*******************************************************
+</description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:gYearMonth(&quot;1999-01-00:00&quot;) eq xs:gYearMonth(&quot;1999-01+00:00&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-gYearMonth-equal-001">
+    <description> test comparison of gYearMonth </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:gYearMonth($year as xs:integer) { xs:gYearMonth(concat(string(2000 + $year), &quot;-01&quot;)) }; not(local:gYearMonth(7) eq xs:gYearMonth(&quot;2008-01&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-gYearMonth-equal-002">
+    <description> test comparison of gYearMonth </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <modified by="Tim Mills" change="Bug 21222" on="2013-03-15"/>
+    <test>if (implicit-timezone() eq xs:dayTimeDuration('PT9M'))
+            then xs:gYearMonth(&quot;2008-01&quot;) eq xs:gYearMonth(&quot;2008-01+09:01&quot;)
+            else xs:gYearMonth(&quot;2008-01&quot;) eq xs:gYearMonth(&quot;2008-01+09:00&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-gYearMonth-equal-003">
+    <description> test comparison of gYearMonth </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <modified by="Tim Mills" change="Bug 21222" on="2013-03-15"/>
+    <test>if (implicit-timezone() eq xs:dayTimeDuration('PT9M'))
+            then xs:gYearMonth(&quot;2008-01+09:01&quot;) eq xs:gYearMonth(&quot;2008-01&quot;)
+            else xs:gYearMonth(&quot;2008-01+09:00&quot;) eq xs:gYearMonth(&quot;2008-01&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-gYearMonth-equal-004">
+    <description> test comparison of gYearMonth </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <modified by="Tim Mills" change="Bug 21222" on="2013-03-15"/>
+    <test>if (implicit-timezone() eq xs:dayTimeDuration('-PT9M'))
+            then xs:gYearMonth(&quot;2008-01&quot;) eq xs:gYearMonth(&quot;2008-01-09:01&quot;)
+            else xs:gYearMonth(&quot;2008-01&quot;) eq xs:gYearMonth(&quot;2008-01-09:00&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-gYearMonth-equal-005">
+    <description> test comparison of gYearMonth </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <modified by="Tim Mills" change="Bug 21222" on="2013-03-15"/>
+    <test>if (implicit-timezone() eq xs:dayTimeDuration('-PT9M'))
+            then xs:gYearMonth(&quot;2008-01-09:01&quot;) eq xs:gYearMonth(&quot;2008-01&quot;)
+            else xs:gYearMonth(&quot;2008-01-09:00&quot;) eq xs:gYearMonth(&quot;2008-01&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-gYearMonth-equal-006">
+    <description> test comparison of gYearMonth </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:gYearMonth($year as xs:integer) { xs:gYearMonth(concat(string(2000 + $year), &quot;-01&quot;)) }; not(local:gYearMonth(7) ne xs:gYearMonth(&quot;2008-01&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-gYearMonth-equal-007">
+    <description> test comparison of gYearMonth </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <modified by="Tim Mills" change="Bug 21222" on="2013-03-15"/>
+    <test>if (implicit-timezone() eq xs:dayTimeDuration('PT9M'))
+            then xs:gYearMonth(&quot;2008-01&quot;) ne xs:gYearMonth(&quot;2008-01+09:01&quot;)
+            else xs:gYearMonth(&quot;2008-01&quot;) ne xs:gYearMonth(&quot;2008-01+09:00&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-gYearMonth-equal-008">
+    <description> test comparison of gYearMonth </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <modified by="Tim Mills" change="Bug 21222" on="2013-03-15"/>
+    <test>if (implicit-timezone() eq xs:dayTimeDuration('PT9M'))
+            then xs:gYearMonth(&quot;2008-01+09:01&quot;) ne xs:gYearMonth(&quot;2008-01&quot;)
+            else xs:gYearMonth(&quot;2008-01+09:00&quot;) ne xs:gYearMonth(&quot;2008-01&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-gYearMonth-equal-009">
+    <description> test comparison of gYearMonth </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <modified by="Tim Mills" change="Bug 21222" on="2013-03-15"/>
+    <test>if (implicit-timezone() eq xs:dayTimeDuration('-PT9M'))
+            then xs:gYearMonth(&quot;2008-01&quot;) ne xs:gYearMonth(&quot;2008-01-09:01&quot;)
+            else xs:gYearMonth(&quot;2008-01&quot;) ne xs:gYearMonth(&quot;2008-01-09:00&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-gYearMonth-equal-010">
+    <description> test comparison of gYearMonth </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <modified by="Tim Mills" change="Bug 21222" on="2013-03-15"/>
+    <test>if (implicit-timezone() eq xs:dayTimeDuration('-PT9M'))
+            then xs:gYearMonth(&quot;2008-01-09:01&quot;) ne xs:gYearMonth(&quot;2008-01&quot;)
+            else xs:gYearMonth(&quot;2008-01-09:00&quot;) ne xs:gYearMonth(&quot;2008-01&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-gYearMonth-equal-011">
+    <description> test comparison of gYearMonth </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:gYearMonth($gYearMonth as xs:gYearMonth, $null as xs:boolean) { if ($null) then () else $gYearMonth }; exists(local:gYearMonth(xs:gYearMonth(&quot;1972-12&quot;), fn:true()) eq xs:gYearMonth(&quot;1972-12&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-gYearMonth-equal-012">
+    <description> test comparison of gYearMonth </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:gYearMonth($gYearMonth as xs:gYearMonth, $null as xs:boolean) { if ($null) then () else $gYearMonth }; local:gYearMonth(xs:gYearMonth(&quot;1972-12&quot;), fn:false()) eq xs:gYearMonth(&quot;1972-12&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-gYearMonth-equal-013">
+    <description> test comparison of gYearMonth </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:gYearMonth($gYearMonth as xs:gYearMonth, $null as xs:boolean) { if ($null) then () else $gYearMonth }; exists(local:gYearMonth(xs:gYearMonth(&quot;1972-12&quot;), fn:true()) ne xs:gYearMonth(&quot;1972-12&quot;))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-gYearMonth-equal-014">
+    <description> test comparison of gYearMonth </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:gYearMonth($gYearMonth as xs:gYearMonth, $null as xs:boolean) { if ($null) then () else $gYearMonth }; local:gYearMonth(xs:gYearMonth(&quot;1972-12&quot;), fn:false()) ne xs:gYearMonth(&quot;1972-12&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+</test-set>

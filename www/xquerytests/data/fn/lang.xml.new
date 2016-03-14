@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="fn-lang" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description/>
+  <link document="http://www.w3.org/TR/xpath-functions-11/" idref="func-lang" type="spec"/>
+  <environment name="emptydoc"/>
+  <environment name="atomicns">
+    <source file="../docs/atomicns.xml" role=".">
+      <description>A non schema validated xml file, that contains values for data types. Can be used by any test.</description>
+      <created by="Carmelo Montanez" on="2006-03-15"/>
+    </source>
+  </environment>
+  <environment name="lang">
+    <source file="lang/lang.xml" role=".">
+      <description>Data for fn:lang tests.</description>
+      <created by="Carmelo Montanez" on="2005-10-19"/>
+    </source>
+  </environment>
+  <test-case name="fn-lang1args-1">
+    <description> Evaluates The &quot;lang&quot; function with the arguments set as follows: $testlang = &quot;en&quot;, node with no &quot;xml:lang&quot; attribute </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="atomicns"/>
+    <test>fn:lang(xs:string(&quot;en&quot;),/root[1]/time[1])</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang1args-2">
+    <description> Evaluates The &quot;lang&quot; function with the arguments set as follows: $testlang = &quot;EN&quot;, node with no &quot;xml:lang&quot; attribute </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="atomicns"/>
+    <test>fn:lang(xs:string(&quot;EN&quot;),./root[1]/time[1])</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang1args-3">
+    <description> Evaluates The &quot;lang&quot; function with the arguments set as follows: $testlang = &quot;eN&quot;, node with no &quot;xml:lang&quot; attribute </description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <environment ref="atomicns"/>
+    <test>fn:lang(xs:string(&quot;eN&quot;),./root[1]/time[1])</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang-1">
+    <description> Evaluation of the fn:lang function with no second argument and no context node. </description>
+    <created by="Carmelo Montanez" on="2005-09-20"/>
+    <environment ref="emptydoc"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+        declare namespace eg = &quot;http://example.org&quot;; 
+        declare function eg:noContextFunction() { fn:lang(&quot;en&quot;) }; 
+        eg:noContextFunction()
+      </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPDY0002&quot;))</result-string>
+    <result>
+      <error code="XPDY0002"/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang-2">
+    <description> Evaluation of the fn:lang function with testlang set to empty sequence Uses fn:count to avoid empty file. </description>
+    <created by="Carmelo Montanez" on="2005-10-19"/>
+    <environment ref="lang"/>
+    <test>fn:count(fn:lang((), ./langs[1]/para[1]))</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="fn-lang-3">
+    <description> Evaluation of the fn:lang function with testlang set to &quot;en&quot; as per example 1 for this function Context node is 'para xml:lang=&quot;en&quot;' </description>
+    <created by="Carmelo Montanez" on="2005-10-19"/>
+    <environment ref="lang"/>
+    <test> for $x in /langs/para[1] return $x/fn:lang(&quot;en&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang-4">
+    <description> Evaluation of the fn:lang function with testlang set to &quot;en&quot; as per example 2 for this function Context node is 'div xml:lang=&quot;en&quot;paraAnd now, and forever!/para/div' </description>
+    <created by="Carmelo Montanez" on="2005-10-19"/>
+    <environment ref="lang"/>
+    <test>for $x in /langs/div[1]/para return $x/fn:lang(&quot;en&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang-5">
+    <description> Evaluation of the fn:lang function with testlang set to &quot;EN&quot;. Context node is 'para xml:lang=&quot;EN&quot;/' </description>
+    <created by="Carmelo Montanez" on="2005-10-19"/>
+    <environment ref="lang"/>
+    <test>for $x in /langs/para[2] return $x/fn:lang(&quot;EN&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang-6">
+    <description> Evaluation of the fn:lang function with testlang set to &quot;En&quot;. Context node is 'para xml:lang=&quot;EN&quot;/' </description>
+    <created by="Carmelo Montanez" on="2005-10-19"/>
+    <environment ref="lang"/>
+    <test> for $x in /langs/para[2] return $x/fn:lang(&quot;En&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang-7">
+    <description> Evaluation of the fn:lang function with testlang set to &quot;eN&quot;. Context node is 'para xml:lang=&quot;EN&quot;/' </description>
+    <created by="Carmelo Montanez" on="2005-10-19"/>
+    <environment ref="lang"/>
+    <test>for $x in /langs/para[2] return $x/fn:lang(&quot;eN&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang-8">
+    <description> Evaluation of the fn:lang function with testlang set to &quot;en&quot;. Context node is 'para xml:lang=&quot;EN&quot;/' </description>
+    <created by="Carmelo Montanez" on="2005-10-19"/>
+    <environment ref="lang"/>
+    <test>for $x in /langs/para[2] return $x/fn:lang(&quot;en&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang-9">
+    <description> Evaluation of the fn:lang function with testlang set to &quot;en&quot;. Context node is 'para xml:lang=&quot;en-us&quot;/' </description>
+    <created by="Carmelo Montanez" on="2005-10-19"/>
+    <environment ref="lang"/>
+    <test>for $x in /langs/para[3] return $x/fn:lang(&quot;en-us&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang-10">
+    <description> Evaluation of the fn:lang function with testlang set to &quot;EN&quot;. Context node is 'para xml:lang=&quot;en-us&quot;/' </description>
+    <created by="Carmelo Montanez" on="2005-10-19"/>
+    <environment ref="lang"/>
+    <test>for $x in /langs/para[3] return $x/fn:lang(&quot;EN&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang-11">
+    <description> Evaluation of the fn:lang function with testlang set to &quot;En&quot;. Context node is 'para xml:lang=&quot;en-us&quot;/' </description>
+    <created by="Carmelo Montanez" on="2005-10-19"/>
+    <environment ref="lang"/>
+    <test>for $x in /langs/para[3] return $x/fn:lang(&quot;En&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang-12">
+    <description> Evaluation of the fn:lang function with testlang set to &quot;eN&quot;. Context node is 'para xml:lang=&quot;en-us&quot;/' </description>
+    <created by="Carmelo Montanez" on="2005-10-19"/>
+    <environment ref="lang"/>
+    <test>for $x in /langs/para[3] return $x/fn:lang(&quot;eN&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang-13">
+    <description> Evaluation of the fn:lang function with testlang set to &quot;en&quot;. Context node is 'para xml:lang=&quot;en-us&quot;/' </description>
+    <created by="Carmelo Montanez" on="2005-10-19"/>
+    <environment ref="lang"/>
+    <test>for $x in /langs/para[3] return $x/fn:lang(&quot;en&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang-14">
+    <description> Evaluation of the fn:lang function with testlang set to &quot;en-us&quot;. Context node is 'para xml:lang=&quot;en-us&quot;/' </description>
+    <created by="Carmelo Montanez" on="2005-10-19"/>
+    <environment ref="lang"/>
+    <test>for $x in /langs/para[3] return $x/fn:lang(&quot;en-us&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang-15">
+    <description> Evaluation of the fn:lang function with testlang set to &quot;en-us&quot; and context node. is not a node. </description>
+    <created by="Carmelo Montanez" on="2005-09-20"/>
+    <environment ref="emptydoc"/>
+    <test>1[fn:lang(&quot;en-us&quot;)]</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang-16">
+    <description> Evaluation of the fn:lang function with testlang set to &quot;us-en&quot; and context node has xml:lang attribute set to &quot;en-us&quot;. </description>
+    <created by="Carmelo Montanez" on="2005-10-19"/>
+    <environment ref="lang"/>
+    <test>for $x in /langs/para[3] return $x/fn:lang(&quot;us-us&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang-17">
+    <description> Evaluation of the fn:lang function with testlang set to &quot;fr&quot; and context node has xml:lang attribute set to &quot;EN&quot;. </description>
+    <created by="Carmelo Montanez" on="2005-10-19"/>
+    <environment ref="lang"/>
+    <test>for $x in /langs/para[2] return $x/fn:lang(&quot;fr&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang-18">
+    <description> Evaluation of the fn:lang function with testlang set to &quot;en&quot; and specified node (second argument) has xml:lang attribute set to &quot;en&quot;. </description>
+    <created by="Carmelo Montanez" on="2005-10-19"/>
+    <environment ref="lang"/>
+    <test>fn:lang(&quot;en&quot;,fn:exactly-one(/langs/para[1]))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang-19">
+    <description> Evaluation of the fn:lang function with testlang set to &quot;fr&quot; and specified node (second argument) has xml:lang attribute set to &quot;en&quot;. </description>
+    <created by="Carmelo Montanez" on="2005-10-19"/>
+    <environment ref="lang"/>
+    <test>fn:lang(&quot;fr&quot;,fn:exactly-one(/langs/para[1]))</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang-20">
+    <description> Evaluation of the fn:lang function with testlang set to &quot;en&quot; and specified node (second argument) has xml:lang attribute set to &quot;en-us&quot;. </description>
+    <created by="Carmelo Montanez" on="2005-10-19"/>
+    <environment ref="lang"/>
+    <test>fn:lang(&quot;en&quot;,fn:exactly-one(/langs/para[3]))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang-21">
+    <description> Evaluation of the fn:lang function with testlang set to &quot;en&quot; and specified node (second argument) has xml:lang attribute set to &quot;EN&quot;. </description>
+    <created by="Carmelo Montanez" on="2005-10-19"/>
+    <environment ref="lang"/>
+    <test>fn:lang(&quot;en&quot;,fn:exactly-one(/langs/para[2]))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="fn-lang-22">
+    <description> Evaluation of the fn:lang function with second argument set to &quot;.&quot; and no context node. (second argument) has xml:lang attribute set to &quot;EN&quot;. </description>
+    <created by="Carmelo Montanez" on="2006-02-07"/>
+    <environment ref="emptydoc"/>
+    <test>fn:lang(&quot;en&quot;,.)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPDY0002&quot;))</result-string>
+    <result>
+      <error code="XPDY0002"/>
+    </result>
+  </test-case>
+  <test-case name="K-NodeLangFunc-1">
+    <description> A test whose essence is: `lang()`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="emptydoc"/>
+    <test>lang()</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0017&quot;))</result-string>
+    <result>
+      <error code="XPST0017"/>
+    </result>
+  </test-case>
+  <test-case name="K-NodeLangFunc-2">
+    <description> A test whose essence is: `if(false()) then lang(&quot;en&quot;, .) else true()`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="emptydoc"/>
+    <test>if(false()) then lang(&quot;en&quot;, .) else true()</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-true/>
+        <error code="XPDY0002"/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="K-NodeLangFunc-3">
+    <description> A test whose essence is: `if(false()) then lang(&quot;en&quot;) else true()`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="emptydoc"/>
+    <test>if(false()) then lang(&quot;en&quot;) else true()</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-true/>
+        <error code="XPDY0002"/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="K-NodeLangFunc-4">
+    <description> A test whose essence is: `lang(&quot;en&quot;, 2)`. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="emptydoc"/>
+    <test>lang(&quot;en&quot;, 2)</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K2-NodeLangFunc-1">
+    <description> Invoke fn:lang from the top and bottom of a tree. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[let $i := <e xml:lang="en"> <b xml:lang="de"/> </e> return (lang("de", $i/b), lang("de", $i))]]>
+    </test>
+    <result-string>xs:string('true false')</result-string>
+    <result>
+      <assert-string-value>true false</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="K2-NodeLangFunc-2">
+    <description> Start navigating from the actual attribute node. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[let $i := <e xml:lang="en"> <b xml:lang="de"/> </e> return lang("de", $i/b/@xml:lang)]]>
+    </test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-NodeLangFunc-3">
+    <description> Navigate a single, empty attribute. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>lang(&quot;de&quot;, attribute xml:lang {()})</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="K2-NodeLangFunc-4">
+    <description> Sub-languages must be separated with dashes. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[lang("en", <e xml:lang="ene"/>)]]>
+    </test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="K2-NodeLangFunc-5">
+    <description> Use a single attribute node as input. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>fn:lang(&quot;fr&quot;, attribute xml:lang {&quot;fr&quot;})</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="K2-NodeLangFunc-6">
+    <description> Use a single attribute node as input. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>fn:lang(&quot;fr&quot;, attribute xml:lang {()})</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-fn-lang-001">
+    <description> Try to force optional item call on fn:lang </description>
+    <created by="Nick Jones" on="2008-06-13"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[
+      	if(current-date() > xs:date("2000-01-01")) then lang("en",<a/>) else ()
+      ]]>
+    </test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+</test-set>

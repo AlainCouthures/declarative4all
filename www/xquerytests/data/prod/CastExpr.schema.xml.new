@@ -1,0 +1,1813 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="prod-CastExpr.schema" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the CastExpr production with user-defined types</description>
+  <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-CastExpr.schema" type="spec"/>
+  <link document="FuncOps" idref="constructor-functions-for-xsd-types" section-number="5.1" type="spec"/>
+  <dependency type="spec" value="XQ10+"/>
+  <dependency type="feature" value="schemaImport"/>
+  <environment name="user-defined-types">
+    <schema file="../docs/userdefined.xsd" uri="http://www.w3.org/XQueryTest/userDefinedTypes">
+      <description>A schema user defined types and constructor tests</description>
+      <created by="Anonymous" on="2006-04-03"/>
+    </schema>
+  </environment>
+  <environment name="union-List-defined-Types">
+    <schema file="SchemaImport/unionListDefined.xsd" uri="http://www.w3.org/XQueryTest/unionListDefined">
+      <description>A Schema of union and list defined types</description>
+      <created by="O'Neil Delpratt" on="2011-10-27"/>
+    </schema>
+  </environment>
+  <test-case name="qname-cast-1">
+    <description> Evaluates casting an xs:QName type to another xs:QName type. </description>
+    <created by="Carmelo Montanez" on="2006-04-13"/>
+    <test>xs:QName(&quot;value1&quot;) cast as xs:QName</test>
+    <result-string>xs:string('value1')</result-string>
+    <result>
+      <assert-string-value>value1</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="qname-cast-2">
+    <description> Evaluates casting a type derived from an xs:QName to an xs:QName type. </description>
+    <created by="Carmelo Montanez" on="2006-04-13"/>
+    <environment ref="user-defined-types"/>
+    <test>
+        import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
+        let $var := myType:QNameBased(&quot;value1&quot;) return $var cast as xs:QName</test>
+    <result-string>xs:string('value1')</result-string>
+    <result>
+      <assert-string-value>value1</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="qname-cast-3">
+    <description> Evaluates casting a type derived from an xs:QName to a type derived from xs:QName. </description>
+    <created by="Carmelo Montanez" on="2006-04-13"/>
+    <environment ref="user-defined-types"/>
+    <test>
+        import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
+        let $var := myType:QNameBased(&quot;value1&quot;) return $var cast as myType:QNameBased</test>
+    <result-string>xs:string('value1')</result-string>
+    <result>
+      <assert-string-value>value1</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="qname-cast-4">
+    <description> Evaluates casting a xs:QName type to a type derived from xs:QName. </description>
+    <created by="Carmelo Montanez" on="2006-04-13"/>
+    <environment ref="user-defined-types"/>
+    <test>
+        import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
+        let $var := xs:QName(&quot;value1&quot;) return $var cast as myType:QNameBased</test>
+    <result-string>xs:string('value1')</result-string>
+    <result>
+      <assert-string-value>value1</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="notation-cast-2">
+    <description> Evaluates casting a type derived from an xs:NOTATION to an xs:NOTATION type. </description>
+    <created by="Carmelo Montanez" on="2006-04-13"/>
+    <environment ref="user-defined-types"/>
+    <test>
+        import schema namespace myType = &quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
+        myType:NOTATIONBased(&quot;myType:value1&quot;) cast as xs:NOTATION</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0080&quot;))</result-string>
+    <result>
+      <error code="XPST0080"/>
+    </result>
+  </test-case>
+  <test-case name="notation-cast-3">
+    <description> Evaluates casting a type derived from an xs:NOTATION to a type derived from xs:NOTATION. </description>
+    <created by="Carmelo Montanez" on="2006-04-13"/>
+    <environment ref="user-defined-types"/>
+    <test>
+        import schema namespace myType = &quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
+        myType:NOTATIONBased(&quot;myType:value1&quot;) cast as myType:NOTATIONBased</test>
+    <result-string>xs:string('myType:value1')</result-string>
+    <result>
+      <assert-string-value>myType:value1</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="casthcds1">
+    <description> Simple test for evaluation of a simple expression casted as xs:integer - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:integer) cast as xs:integer</test>
+    <result-string/>
+    <result>
+      <assert-eq>12678967543233</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="casthcds2">
+    <description> Simple test for evaluation of a simple expression casted as xs:float - xml data source - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; 
+      ((/atomic:root/atomic:integer) cast as xs:float) eq xs:float(12678967543233)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="casthcds3">
+    <description> Simple test for evaluation of a simple expression casted as xs:boolean - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; 
+      (/atomic:root/atomic:integer) cast as xs:boolean</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="casthcds4">
+    <description> Simple test for evaluation of a simple expression casted as xs:double - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:integer) cast as xs:double</test>
+    <result-string>xs:string('1.2678967543233E13')</result-string>
+    <result>
+      <assert-string-value>1.2678967543233E13</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="casthcds5">
+    <description> Simple test for evaluation of a simple expression casted as xs:decimal - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:integer) cast as xs:decimal</test>
+    <result-string/>
+    <result>
+      <assert-eq>12678967543233</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="casthcds6">
+    <description> Simple test for evaluation of a simple expression casted as xs:string - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:integer) cast as xs:string</test>
+    <result-string>xs:string('12678967543233')</result-string>
+    <result>
+      <assert-string-value>12678967543233</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="casthcds7">
+    <description> Simple test for evaluation a string casted as xs:string - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:string) cast as xs:string</test>
+    <result-string>xs:string('A String Function')</result-string>
+    <result>
+      <assert-string-value>A String Function</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="casthcds8">
+    <description> Simple test for casting a float as a float - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; ((/atomic:root/atomic:float) cast as xs:float) eq xs:float(1267.43233E12)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="casthcds9">
+    <description> Simple test for casting a float as a string - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; ((/atomic:root/atomic:float) cast as xs:string)</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-string-value>1.26743233E15</assert-string-value>
+        <assert-string-value>1.2674324E15</assert-string-value>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="casthcds10">
+    <description> Simple test for casting a float as a double </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; xs:float(((/atomic:root/atomic:float) cast as xs:double)) eq xs:float(1267.43233E12)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="casthcds11">
+    <description> Simple test for casting a float as a boolean </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:float) cast as xs:boolean</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="casthcds12">
+    <description> Simple test for casting a double as a double - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:double) cast as xs:double</test>
+    <result-string>xs:string('1.26743233E15')</result-string>
+    <result>
+      <assert-string-value>1.26743233E15</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="casthcds13">
+    <description> Simple test for casting a double as a string - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; ((/atomic:root/atomic:double) cast as xs:string) eq xs:string(&quot;A String Function&quot;)</test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="casthcds14">
+    <description> Simple test for casting a double as a float - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; ((/atomic:root/atomic:double) cast as xs:float) eq xs:float(1267.43233E12)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="casthcds15">
+    <description> Simple test for casting a double as a boolean - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:double) cast as xs:boolean</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="casthcds16">
+    <description> Simple test for casting a decimal as a string - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:decimal) cast as xs:string</test>
+    <result-string>xs:string('12678967.543233')</result-string>
+    <result>
+      <assert-string-value>12678967.543233</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="casthcds17">
+    <description> Simple test for casting a decimal as a float - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:decimal) cast as xs:float</test>
+    <result-string>xs:string('1.2678968E7')</result-string>
+    <result>
+      <assert-string-value>1.2678968E7</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="casthcds18">
+    <description> Simple test for casting a decimal as a double - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:decimal) cast as xs:double</test>
+    <result-string>xs:string('1.2678967543233E7')</result-string>
+    <result>
+      <assert-string-value>1.2678967543233E7</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="casthcds19">
+    <description> Simple test for casting a decimal as a decimal - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:decimal) cast as xs:decimal</test>
+    <result-string>xs:string('12678967.543233')</result-string>
+    <result>
+      <assert-string-value>12678967.543233</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="casthcds20">
+    <description> Simple test for casting a decimal as a integer - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:decimal) cast as xs:integer</test>
+    <result-string/>
+    <result>
+      <any-of>
+        <assert-eq>12678967</assert-eq>
+        <error code="FORG0001"/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="casthcds21">
+    <description> Simple test for casting a decimal as a boolean - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:decimal) cast as xs:boolean</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="casthcds22">
+    <description> Simple test for casting an integer as a string - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:integer) cast as xs:string</test>
+    <result-string>xs:string('12678967543233')</result-string>
+    <result>
+      <assert-string-value>12678967543233</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="casthcds23">
+    <description> Simple test for casting an integer as a float - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; ((/atomic:root/atomic:integer) cast as xs:float) eq xs:float(12678967543233)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="casthcds24">
+    <description> Simple test for casting an integer as a double - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:integer) cast as xs:double</test>
+    <result-string>xs:string('1.2678967543233E13')</result-string>
+    <result>
+      <assert-string-value>1.2678967543233E13</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="casthcds25">
+    <description> Simple test for casting an integer as a decimal - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:integer) cast as xs:decimal</test>
+    <result-string/>
+    <result>
+      <assert-eq>12678967543233</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="casthcds26">
+    <description> Simple test for casting an integer as an integer - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:integer) cast as xs:integer</test>
+    <result-string/>
+    <result>
+      <assert-eq>12678967543233</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="casthcds27">
+    <description> Simple test for casting an integer as a boolean - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:integer) cast as xs:boolean</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="casthcds28">
+    <description> Simple test for casting an dateTime as a string - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:dateTime) cast as xs:string</test>
+    <result-string>xs:string('2002-04-02T12:00:00Z')</result-string>
+    <result>
+      <assert-string-value>2002-04-02T12:00:00Z</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="casthcds29">
+    <description> Simple test for casting an dateTime as a dateTime - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:dateTime) cast as xs:dateTime</test>
+    <result-string>xs:string('2002-04-02T12:00:00Z')</result-string>
+    <result>
+      <assert-string-value>2002-04-02T12:00:00Z</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="casthcds30">
+    <description> Simple test for casting an dateTime as a time - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:dateTime) cast as xs:time</test>
+    <result-string>xs:string('12:00:00Z')</result-string>
+    <result>
+      <assert-string-value>12:00:00Z</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="casthcds31">
+    <description> Simple test for casting an dateTime as a date - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:dateTime) cast as xs:date</test>
+    <result-string>xs:string('2002-04-02Z')</result-string>
+    <result>
+      <assert-string-value>2002-04-02Z</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="casthcds32">
+    <description> Simple test for casting an date as a string - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:date) cast as xs:string</test>
+    <result-string>xs:string('2000-01-01+05:00')</result-string>
+    <result>
+      <assert-string-value>2000-01-01+05:00</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="casthcds33">
+    <description> Simple test for casting an date as a dateTime - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:date) cast as xs:dateTime</test>
+    <result-string>xs:string('2000-01-01T00:00:00+05:00')</result-string>
+    <result>
+      <assert-string-value>2000-01-01T00:00:00+05:00</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="casthcds34">
+    <description> Simple test for casting an date as a date - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:date) cast as xs:date</test>
+    <result-string>xs:string('2000-01-01+05:00')</result-string>
+    <result>
+      <assert-string-value>2000-01-01+05:00</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="casthcds35">
+    <description> Simple test for casting an xs:time as a string - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:time) cast as xs:string</test>
+    <result-string>xs:string('13:20:10.5Z')</result-string>
+    <result>
+      <assert-string-value>13:20:10.5Z</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="casthcds36">
+    <description> Simple test for casting an xs:time as an xs:time - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:time) cast as xs:time</test>
+    <result-string>xs:string('13:20:10.5Z')</result-string>
+    <result>
+      <assert-string-value>13:20:10.5Z</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="casthcds37">
+    <description> Simple test for casting a boolean as string - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>
+        import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; 
+        (/atomic:root/atomic:boolean) cast as xs:string</test>
+    <result-string>xs:string('true')</result-string>
+    <result>
+      <assert-string-value>true</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="casthcds38">
+    <description> Simple test for casting a boolean as float - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:boolean) cast as xs:float</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="casthcds39">
+    <description> Simple test for casting a boolean as double - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:boolean) cast as xs:double</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="casthcds40">
+    <description> Simple test for casting a boolean as decimal - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:boolean) cast as xs:decimal</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="casthcds41">
+    <description> Simple test for casting a boolean as integer - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:boolean) cast as xs:integer</test>
+    <result-string/>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="casthcds42">
+    <description> Simple test for casting a boolean as boolean - XML Data Source </description>
+    <created by="Carmelo Montanez" on="2005-03-08"/>
+    <environment ref="atomic"/>
+    <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:boolean) cast as xs:boolean</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="user-defined-1">
+    <description> Evaluation of simple user defined data type restricted from xs:integer. </description>
+    <created by="Carmelo Montanez" on="2006-04-03"/>
+    <modified by="O'Neil Delpratt" change="Bug #19783 - moved assertion as an eq operation inside the test" on="2012-11-08"/>
+    <environment ref="user-defined-types"/>
+    <test>
+        import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
+        let $value := myType:sizeType(1) return ($value eq 1)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="user-defined-2">
+    <description> Evaluation of constructor function vioalation on user 
+      defined data type restricted from xs:integer. </description>
+    <created by="Carmelo Montanez" on="2006-04-03"/>
+    <environment ref="user-defined-types"/>
+    <test>
+        import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
+        let $value := myType:sizeType(20) return $value</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case name="user-defined-3">
+    <description> Evaluation of constructor function used as part of addition 
+      operation user defined data type restricted from xs:integer. </description>
+    <created by="Carmelo Montanez" on="2006-04-03"/>
+    <environment ref="user-defined-types"/>
+    <test>
+        import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
+        let $value := myType:sizeType(1) + myType:sizeType(2) return $value</test>
+    <result-string/>
+    <result>
+      <assert-eq>3</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="user-defined-4">
+    <description> Evaluation of simple user defined data type restricted from xs:string. </description>
+    <created by="Carmelo Montanez" on="2006-04-03"/>
+    <environment ref="user-defined-types"/>
+    <test>
+        import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
+        let $value := myType:stringBased(&quot;valid value 4&quot;) return $value</test>
+    <result-string>xs:string('valid value 4')</result-string>
+    <result>
+      <assert-string-value>valid value 4</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="user-defined-5">
+    <description> Evaluation of constructor function operation on simple user 
+      defined data type restricted from xs:string. </description>
+    <created by="Carmelo Montanez" on="2006-04-03"/>
+    <environment ref="user-defined-types"/>
+    <test>
+        import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
+        fn:concat(myType:stringBased(&quot;valid value 4&quot;),myType:stringBased(&quot;valid value 1&quot;))</test>
+    <result-string>xs:string('valid value 4valid value 1')</result-string>
+    <result>
+      <assert-string-value>valid value 4valid value 1</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="user-defined-6">
+    <description> use constructor function for user defined type and cast value 
+      to base type (xs:integer) restricted from xs:integer. </description>
+    <created by="Carmelo Montanez" on="2006-04-03"/>
+    <modified by="O'Neil Delpratt" change="Bug #19783 - moved assertion as an eq operation inside the test" on="2012-11-08"/>
+    <environment ref="user-defined-types"/>
+    <test>
+        import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
+        (myType:sizeType(2) cast as xs:integer) eq 2</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="user-defined-7">
+    <description> use constructor function for user defined type and check if it 
+      is castable value to base type (xs:integer) restricted from xs:integer. </description>
+    <created by="Carmelo Montanez" on="2006-04-03"/>
+    <environment ref="user-defined-types"/>
+    <test>
+        import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
+        myType:sizeType(2) castable as xs:integer</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="user-defined-8">
+    <description> Use constructor function to evaluate if two user defined types can be 
+      casted to another. Restricted from xs:integer and xs;float. </description>
+    <created by="Carmelo Montanez" on="2006-04-03"/>
+    <modified by="O'Neil Delpratt" change="Bug #19783 - moved assertion as an eq operation inside the test" on="2012-11-08"/>
+    <environment ref="user-defined-types"/>
+    <test>
+        import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
+        (myType:sizeType(16) cast as myType:floatBased) eq 16</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="user-defined-9">
+    <description> Use constructor function to evaluate if two user defined types are castable to 
+      another restricted from xs:integer and xs:float </description>
+    <created by="Carmelo Montanez" on="2006-04-03"/>
+    <environment ref="user-defined-types"/>
+    <test>
+        import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
+        myType:sizeType(16) castable as myType:floatBased</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="user-defined-10">
+    <description> Use constructor function to use addition operation on two user defined types. 
+      Restricted from xs:integer and xs:float </description>
+    <created by="Carmelo Montanez" on="2006-04-03"/>
+    <environment ref="user-defined-types"/>
+    <test>
+        import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
+        myType:sizeType(16) + myType:floatBased (16)</test>
+    <result-string/>
+    <result>
+      <assert-eq>32</assert-eq>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-1">
+    <description>Test the union type that should return an xs:integer value</description>
+    <created by="O'Neil Delpratt" on="2011-10-27"/>
+    <modified by="Michael Kay" change="add type assertion" on="2012-05-27"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         123 cast as s:myUnionType1
+       </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-string-value>123</assert-string-value>
+        <assert-type>xs:integer</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-2">
+    <description>Test the union type that should return an xs:integer value</description>
+    <created by="O'Neil Delpratt" on="2011-10-27"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         &quot;123&quot; cast as s:myUnionType1
+       </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-string-value>123</assert-string-value>
+        <assert-type>xs:integer</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-3">
+    <description>Test the decimal value cast to the union type. Should return the xs:integer value</description>
+    <created by="O'Neil Delpratt" on="2011-10-27"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         123.12 cast as s:myUnionType1
+       </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-string-value>123</assert-string-value>
+        <assert-type>xs:integer</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-4">
+    <description>Test the string of decimal value cast to union type. Should fail
+       on the grounds that the string value is not in the lexical space of the union type</description>
+    <created by="O'Neil Delpratt" on="2011-10-27"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         &quot;123.12&quot; cast as s:myUnionType1
+       </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-5">
+    <description>Test cast to union type.</description>
+    <created by="O'Neil Delpratt" on="2011-10-27"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+        &quot;IB123456789&quot; cast as s:myUnionType2
+       </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-string-value>IB123456789</assert-string-value>
+        <assert-type>xs:string</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-5a">
+    <description>Test the string of decimal value cast to union type. Should fail
+       on the grounds that the string value is not in the lexical space of the union type</description>
+    <created by="O'Neil Delpratt" on="2011-10-27"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         &quot;AD123456789&quot; cast as s:myUnionType2
+       </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-6">
+    <description>Test decimal value cast to a union type using a constructor function. 
+          Should return an xs:integer value</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         s:myUnionType1(123.12) 
+       </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-string-value>123</assert-string-value>
+        <assert-type>xs:integer</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-7">
+    <description>Test decimal value cast to a union type using a constructor function
+          supplied as a NamedFunctionRef. 
+          Should return an xs:integer value</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="feature" value="higherOrderFunctions"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         let $f := s:myUnionType1#1
+         return $f(123.12) 
+       </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-string-value>123</assert-string-value>
+        <assert-type>xs:integer</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-8">
+    <description>Test decimal value cast to a union type using a constructor function
+          found using function lookup. 
+          Should return an xs:integer value</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="feature" value="higherOrderFunctions"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         let $f := function-lookup(QName(&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;, &quot;myUnionType1&quot;), 1)
+         return $f(123.12) 
+       </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-string-value>123</assert-string-value>
+        <assert-type>xs:integer</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-9">
+    <description>Test decimal value cast to a union type using a constructor function
+          found using partial function application. 
+          Should return an xs:integer value</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         let $f := s:myUnionType1(?)
+         return $f(123.12) 
+       </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-string-value>123</assert-string-value>
+        <assert-type>xs:integer</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-10">
+    <description>Cast to a namespace-sensitive union type</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         namespace-uri-from-QName(&quot;xs:integer&quot; cast as s:sensitiveUnion)
+       </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-string-value>http://www.w3.org/2001/XMLSchema</assert-string-value>
+        <assert-type>xs:anyURI</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-11">
+    <description>Constructor function for a namespace-sensitive union type</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         namespace-uri-from-QName(s:sensitiveUnion('xs:integer'))
+       </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-string-value>http://www.w3.org/2001/XMLSchema</assert-string-value>
+        <assert-type>xs:anyURI</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-12">
+    <description>Constructor function for a namespace-sensitive union type</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         s:sensitiveUnion('xs:integer') instance of s:sensitiveUnion
+       </test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-13">
+    <description>Dynamic use of Constructor function for a namespace-sensitive union type;
+         different namespace contexts. Fails because it's the NS context of
+         function-lookup() that matters.</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <dependency type="feature" value="higherOrderFunctions"/>
+    <test>
+      <![CDATA[
+         xquery version "3.0";
+         import schema namespace s="http://www.w3.org/XQueryTest/unionListDefined";
+         declare function local:f($f as function(*)) as item()* {
+           <a xmlns:pre="http://example.com/ns">{namespace-uri-from-QName($f('pre:local'))}</a>
+         };
+         local:f(function-lookup(xs:QName('s:sensitiveUnion'), 1))
+       ]]>
+    </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-14">
+    <description>Dynamic use of Constructor function for a namespace-sensitive union type;
+         different namespace contexts. Fails because it's the NS context of
+         the NamedFunctionRef that matters.</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <dependency type="feature" value="higherOrderFunctions"/>
+    <test>
+      <![CDATA[
+         xquery version "3.0";
+         import schema namespace s="http://www.w3.org/XQueryTest/unionListDefined";
+         declare function local:f($f as function(*)) as item()* {
+           <a xmlns:pre="http://example.com/ns">{namespace-uri-from-QName($f('pre:local'))}</a>
+         };
+         local:f(s:sensitiveUnion#1)
+       ]]>
+    </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-15">
+    <description>Dynamic use of Constructor function for a namespace-sensitive union type;
+         different namespace contexts. Fails because it's the NS context of
+         the partial function application that matters.</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+      <![CDATA[
+         xquery version "3.0";
+         import schema namespace s="http://www.w3.org/XQueryTest/unionListDefined";
+         declare function local:f($f as function(*)) as item()* {
+           <a xmlns:pre="http://example.com/ns">{namespace-uri-from-QName($f('pre:local'))}</a>
+         };
+         local:f(s:sensitiveUnion(?))
+       ]]>
+    </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-16">
+    <description>Constructor function for union type with facets</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         s:lowercaseName('xs:integer') instance of s:sensitiveUnion
+       </test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-17">
+    <description>Union type with facets cannot be used in SequenceType</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         s:lowercaseName('xs:integer') instance of s:lowercaseName
+       </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0051&quot;))</result-string>
+    <result>
+      <error code="XPST0051"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-18">
+    <description>Type of a constructor function for a &quot;plain&quot; union type</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="feature" value="higherOrderFunctions"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         let $f as function(xs:anyAtomicType?) as s:sensitiveUnion? := s:sensitiveUnion#1
+         return $f('candlewick')
+       </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>'candlewick'</assert-eq>
+        <assert-type>xs:NCName</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-19">
+    <description>Cast to a union type from one of its member type</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+      <![CDATA[
+         xquery version "3.0";
+         import schema namespace s="http://www.w3.org/XQueryTest/unionListDefined";
+         node-name(<a/>) castable as s:sensitiveUnion
+       ]]>
+    </test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-20">
+    <description>Cast to a union type from one of its member type</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+      <![CDATA[
+         xquery version "3.0";
+         import schema namespace s="http://www.w3.org/XQueryTest/unionListDefined";
+         local-name-from-QName(s:sensitiveUnion(node-name(<a/>)))
+       ]]>
+    </test>
+    <result-string>xs:string('a')</result-string>
+    <result>
+      <assert-string-value>a</assert-string-value>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-21">
+    <description>Cast to a union type from a subtype of one of its member type</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+      <![CDATA[
+         xquery version "3.0";
+         import schema namespace s="http://www.w3.org/XQueryTest/unionListDefined";
+         s:sensitiveUnion(xs:ID("zorobastic"))
+       ]]>
+    </test>
+    <result-string>xs:string('zorobastic')</result-string>
+    <result>
+      <assert-string-value>zorobastic</assert-string-value>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-22">
+    <description>Failing cast to a union type with facets</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         s:lowercaseName('xs:QName')
+       </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-23">
+    <description>Failing cast to a union type with facets</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         s:lowercaseName(xs:NCName('ABC123'))
+       </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-24">
+    <description>Failing dynamic cast to a union type with facets</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="feature" value="higherOrderFunctions"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         let $cast := s:lowercaseName#1
+         return $cast(xs:NCName('ABC123'))
+       </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-25">
+    <description>Cast QName to a union type including QName as a member: 
+       prefix does not need to be in scope</description>
+    <created by="Michael Kay" on="2012-05-27"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+      <![CDATA[
+         xquery version "3.0";
+         import schema namespace s="http://www.w3.org/XQueryTest/unionListDefined";
+         let $e := <p:a xmlns:p="http://www.example.com/"/>
+         return node-name($e) castable as s:sensitiveUnion
+       ]]>
+    </test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-26">
+    <description>Type of a constructor function for a &quot;faceted&quot; union type</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="feature" value="higherOrderFunctions"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         let $f as function(xs:anyAtomicType?) as s:sensitiveUnion? := s:lowercaseName#1
+         return $f('candlewick')
+       </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>'candlewick'</assert-eq>
+        <assert-type>xs:NCName</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-27">
+    <description>Cast to a union of list types (namespace sensitive)</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         &quot;a b c&quot; cast as s:unionOfLists
+       </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-deep-eq>'a', 'b', 'c'</assert-deep-eq>
+        <assert-type>xs:IDREF*</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-28">
+    <description>Cast to a union of list types (namespace sensitive)</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         let $result := (&quot;a b xs:integer&quot; cast as s:unionOfLists)
+         return count($result) eq 3 and ($result instance of Q{http://www.w3.org/XQueryTest/unionListDefined}sensitiveUnion*)
+       </test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-29">
+    <description>Constructor function to a union of list types (namespace sensitive)</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         let $result := s:unionOfLists(&quot;a b xs:integer&quot;)
+         return count($result) eq 3 and ($result instance of Q{http://www.w3.org/XQueryTest/unionListDefined}sensitiveUnion*)
+       </test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-30">
+    <description>Function literal for constructor to a union of list types (namespace sensitive)</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="feature" value="higherOrderFunctions"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         let $fn := s:unionOfLists#1
+         let $result := $fn(&quot;a b xs:integer&quot;)
+         return count($result) eq 3 and ($result instance of Q{http://www.w3.org/XQueryTest/unionListDefined}sensitiveUnion*)
+       </test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-31">
+    <description>Function lookup for constructor to a union of list types (namespace sensitive)</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="feature" value="higherOrderFunctions"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         let $fn := function-lookup(QName('http://www.w3.org/XQueryTest/unionListDefined', 'unionOfLists'), 1)
+         let $result := $fn(&quot;a b xs:integer&quot;)
+         return count($result) eq 3 and ($result instance of s:sensitiveUnion*)
+       </test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-32">
+    <description>Type of constructor function to a union of list types (namespace sensitive)</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="feature" value="higherOrderFunctions"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         let $fn as function(xs:string?) as xs:anyAtomicType* := 
+               function-lookup(QName('http://www.w3.org/XQueryTest/unionListDefined', 'unionOfLists'), 1)
+         let $result := $fn(xs:untypedAtomic(&quot;a b xs:integer&quot;))
+         return count($result) eq 3 and ($result instance of s:sensitiveUnion*)
+       </test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-33">
+    <description>Cast to a union type from a node whose typed value is one of its member types</description>
+    <created by="Michael Kay" on="2012-05-25"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+      <![CDATA[
+         xquery version "3.0";
+         import schema namespace s="http://www.w3.org/XQueryTest/unionListDefined";
+         let $element := validate type xs:QName {<a xmlns:p="http://example.com">p:space</a>}
+         return
+           local-name-from-QName(s:sensitiveUnion($element))
+       ]]>
+    </test>
+    <result-string>xs:string('space')</result-string>
+    <result>
+      <assert-string-value>space</assert-string-value>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-34">
+    <description>Cast to a union type derived by restriction</description>
+    <created by="Michael Kay" on="2012-10-08"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+      <![CDATA[
+         xquery version "3.0";
+         import schema namespace s="http://www.w3.org/XQueryTest/unionListDefined";
+         s:restrictedUnion('2012-10-08')
+       ]]>
+    </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-type>xs:date</assert-type>
+        <assert-string-value>2012-10-08</assert-string-value>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-union" name="CastAs-UnionType-35">
+    <description>Failing cast to a union type derived by restriction</description>
+    <created by="Michael Kay" on="2012-10-08"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+      <![CDATA[
+         xquery version "3.0";
+         import schema namespace s="http://www.w3.org/XQueryTest/unionListDefined";
+         s:restrictedUnion('1912-10-08')
+       ]]>
+    </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-1">
+    <description>Cast to a list type.</description>
+    <created by="O'Neil Delpratt" on="2011-10-27"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+      <![CDATA[
+         xquery version "3.0";
+         import schema namespace s="http://www.w3.org/XQueryTest/unionListDefined";
+         s:decimalListType1("2 2.3")
+       ]]>
+    </test>
+    <result-string/>
+    <result>
+      <assert-deep-eq>2, 2.3</assert-deep-eq>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-2">
+    <description>Cast to list type with pattern restriction. Should return sequence of integers</description>
+    <created by="O'Neil Delpratt" on="2011-10-27"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+      <![CDATA[
+       xquery version "3.0";
+       import schema namespace s="http://www.w3.org/XQueryTest/unionListDefined";
+        s:myRestrictedList1("123 987 567 456")]]>
+    </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-deep-eq>123, 987, 567, 456</assert-deep-eq>
+        <assert-type>xs:integer*</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-3">
+    <description>Cast to list type with pattern restriction. Doesn't satisfy the pattern</description>
+    <created by="O'Neil Delpratt" on="2011-10-27"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+      <![CDATA[
+       xquery version "3.0";
+       import schema namespace s="http://www.w3.org/XQueryTest/unionListDefined";
+        s:myRestrictedList1("123 987 567 456 877")]]>
+    </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-4">
+    <description>Cast the expression to the defined list type.</description>
+    <created by="O'Neil Delpratt" on="2011-10-27"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+          &quot;text1 text2 text3&quot; cast as s:strListType1
+       </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-string-value>text1 text2 text3</assert-string-value>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-5">
+    <description>Cast the expression to the defined list type. The test should fail as the base type for the list is decimal</description>
+    <created by="O'Neil Delpratt" on="2011-10-27"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+      <![CDATA[
+       xquery version "3.0";
+       import schema namespace s="http://www.w3.org/XQueryTest/unionListDefined";
+        "1.1 2.1 text3" cast as s:decimalListType1]]>
+    </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-6">
+    <description>Cast the expression to the defined list type. The test should fail as the base type for the list is decimal</description>
+    <created by="O'Neil Delpratt" on="2011-10-27"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+      <![CDATA[
+       xquery version "3.0";
+       import schema namespace s="http://www.w3.org/XQueryTest/unionListDefined";
+        "1.1 2.1 3.1" cast as s:intListType1]]>
+    </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-7">
+    <description>Cast to a built-in list type IDREFS.</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>
+         &quot;a b c&quot; cast as xs:IDREFS
+       </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-deep-eq>'a', 'b', 'c'</assert-deep-eq>
+        <assert-type>xs:IDREF*</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-8">
+    <description>Cast to a built-in list type IDREFS: fails because minLength=1</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>
+         xs:IDREFS(&quot;&quot;)
+       </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-9">
+    <description>Cast to a built-in list type IDREFS: using function literal</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <dependency type="feature" value="higherOrderFunctions"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>
+         let $f := xs:IDREFS#1 return $f(&quot;a b c&quot;)
+       </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-deep-eq>'a', 'b', 'c'</assert-deep-eq>
+        <assert-type>xs:IDREF*</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-10">
+    <description>Cast to a built-in list type IDREFS: using function lookup</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <dependency type="feature" value="higherOrderFunctions"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         let $f := function-lookup(QName('http://www.w3.org/2001/XMLSchema', 'IDREFS'), 1)
+         return $f(&quot;a b c&quot;)
+       </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-deep-eq>'a', 'b', 'c'</assert-deep-eq>
+        <assert-type>xs:IDREF*</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-11">
+    <description>Cast to a built-in list type IDREFS: using partial apply</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         let $f := xs:IDREFS(?)
+         return $f(&quot;a b c&quot;)
+       </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-deep-eq>'a', 'b', 'c'</assert-deep-eq>
+        <assert-type>xs:IDREF*</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-12">
+    <description>Cast to a built-in list type NMTOKENS.</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>
+         &quot;a b c&quot; cast as xs:NMTOKENS
+       </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-deep-eq>'a', 'b', 'c'</assert-deep-eq>
+        <assert-type>xs:NMTOKEN*</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-13">
+    <description>Cast to a built-in list type NMTOKENS: fails because minLength=1</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>
+         xs:NMTOKENS(&quot;&quot;)
+       </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-14">
+    <description>Cast to a built-in list type ENTITIES.</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>
+         &quot;a b c&quot; cast as xs:ENTITIES
+       </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-deep-eq>'a', 'b', 'c'</assert-deep-eq>
+        <assert-type>xs:ENTITY*</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-15">
+    <description>Cast to a built-in list type ENTITIES: fails because minLength=1</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>
+         xs:ENTITIES(&quot;  &quot;)
+       </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-16">
+    <description>Cast to a built-in list type ENTITIES: fails because an item is numeric</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>
+         xs:ENTITIES(&quot; a b c 12 &quot;)
+       </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-17">
+    <description>Cast to a built-in list type ENTITIES: fails because input is not a string</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>
+         xs:ENTITIES(xs:anyURI(&quot;abcd&quot;))
+       </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-18">
+    <description>Dynamic constructor to a built-in list type ENTITIES: fails because input is not a string</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <dependency type="feature" value="higherOrderFunctions"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>
+         let $f := xs:ENTITIES#1
+         return $f(xs:anyURI(&quot;abcd&quot;))
+       </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-19">
+    <description>Cannot cast a sequence of xs:ENTITY values to xs:ENTITIES</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <dependency type="feature" value="higherOrderFunctions"/>
+    <dependency type="spec" value="XP30+ XQ30+"/>
+    <test>
+         let $f := xs:ENTITIES#1
+         return $f(($f(&quot;abcd&quot;), $f(&quot;defg&quot;)))
+       </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPTY0004&quot;))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-20">
+    <description>Cannot use a list type name in a sequence type</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <modified by="O'Neil Delpratt" change="fix bug 17230" on="2012-05-29"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         let $v as xs:NMTOKENS := xs:NMTOKENS(&quot;a b c&quot;)
+         return count($v)
+       </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPST0051&quot;))</result-string>
+    <result>
+      <error code="XPST0051"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-21">
+    <description>Cast to a user-defined list whose member type is namespace-sensitive union.</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         xquery version &quot;3.0&quot;;
+         import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+         let $result := (&quot;a b xs:integer&quot; cast as s:listOfUnions)
+         return count($result) eq 3 and $result[1] eq &quot;a&quot; and $result[1] instance of xs:NCName
+           and $result[1] instance of s:sensitiveUnion
+       </test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-22">
+    <description>Cast to list type with pattern restriction. Should return sequence of integers</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+      <![CDATA[
+       xquery version "3.0";
+       import schema namespace s="http://www.w3.org/XQueryTest/unionListDefined";
+        ("123 987 567 456") cast as s:myRestrictedList1
+        ]]>
+    </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-deep-eq>123, 987, 567, 456</assert-deep-eq>
+        <assert-type>xs:integer*</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-23">
+    <description>Cast to list type with pattern restriction. Doesn't satisfy the pattern</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+      <![CDATA[
+         xquery version "3.0";
+         import schema namespace s="http://www.w3.org/XQueryTest/unionListDefined";
+         ("123 987 567 456 877") cast as s:myRestrictedList1
+       ]]>
+    </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-24">
+    <description>Dynamic Cast to list type with pattern restriction. Should return sequence of integers</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="feature" value="higherOrderFunctions"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+      <![CDATA[
+       xquery version "3.0";
+       import schema namespace s="http://www.w3.org/XQueryTest/unionListDefined";
+       let $f := function-lookup(QName('http://www.w3.org/XQueryTest/unionListDefined', 'myRestrictedList1'), 1)
+       return $f("123 987 567 456")]]>
+    </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-deep-eq>123, 987, 567, 456</assert-deep-eq>
+        <assert-type>xs:integer*</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-25">
+    <description>Dynamic Cast to list type with pattern restriction. Doesn't satisfy the pattern</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+      <![CDATA[
+       xquery version "3.0";
+       import schema namespace s="http://www.w3.org/XQueryTest/unionListDefined";
+        s:myRestrictedList1("123 987 567 456 877")]]>
+    </test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FORG0001&quot;))</result-string>
+    <result>
+      <error code="FORG0001"/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-26">
+    <description>Type of constructor function for casting to list</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="feature" value="higherOrderFunctions"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+      <![CDATA[
+       xquery version "3.0";
+       import schema namespace s="http://www.w3.org/XQueryTest/unionListDefined";
+       let $f as function(xs:string) as xs:integer* := function-lookup(QName('http://www.w3.org/XQueryTest/unionListDefined', 'myRestrictedList1'), 1)
+       return $f("123 987 567 456")]]>
+    </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-deep-eq>123, 987, 567, 456</assert-deep-eq>
+        <assert-type>xs:integer*</assert-type>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-27">
+    <description>Type of constructor function for casting to list</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <dependency type="feature" value="higherOrderFunctions"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         let $f as function(xs:anyAtomicType) as xs:NMTOKEN* := xs:NMTOKENS#1
+         let $v as xs:NMTOKEN* := $f(&quot;a b c&quot;)
+         return count($v)
+       </test>
+    <result-string/>
+    <result>
+      <assert-eq>3</assert-eq>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-28">
+    <description>Castable to list: true</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         &quot;a b c&quot; castable as xs:NMTOKENS
+       </test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-29">
+    <description>Castable to list: false</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         &quot;a b 12&quot; castable as xs:IDREFS
+       </test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-30">
+    <description>Castable to list: false (violates minLength)</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+         &quot; &quot; castable as xs:NMTOKENS
+       </test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-31">
+    <description>Castable to list: false (violates pattern)</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+       xquery version &quot;3.0&quot;;
+       import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+       &quot;123 987 567 456 229&quot; castable as s:myRestrictedList1
+       </test>
+    <result-string>xs:boolean('false')</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case covers="cast-to-list" name="CastAs-ListType-32">
+    <description>Castable to list: true (satisfies pattern after whitespace normalization)</description>
+    <created by="Michael Kay" on="2012-05-28"/>
+    <environment ref="union-List-defined-Types"/>
+    <dependency type="spec" value="XQ30+"/>
+    <test>
+       xquery version &quot;3.0&quot;;
+       import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
+       &quot;  123 987 567 456  &quot; castable as s:myRestrictedList1
+       </test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+</test-set>

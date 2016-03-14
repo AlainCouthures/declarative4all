@@ -5,6 +5,7 @@
 		<script type="text/javascript" src="js/fleur.js"></script>
 	</head>
 	<body>
+		<button onclick="run()">Run</button>
 		<pre id="xexpr"></pre>
 		<pre id="result"></pre>
 		<pre id="doc"></pre>
@@ -13,24 +14,52 @@
 			var req = new XMLHttpRequest();
 			var parser = new Fleur.DOMParser();
 			var ser = new Fleur.XMLSerializer();
+			var parser2 = new DOMParser();
+			//ser = new XMLSerializer();
 			var xml;
 			var xmldoc;
-			var xexpr = "reverse(('A', 'b', 'cd', 'E'))[1]";
-			document.getElementById("xexpr").innerHTML = xexpr;
+			var xmldoc2;
+			//var xexpr = "count(/_:test-set/_:test-case/_:result)";
+			//document.getElementById("xexpr").innerHTML = xexpr;
+//			req.open('GET', '../xquerytests/data/fn/matches.re.xml', true);
 			req.open('GET', 'data/data.xml', true);
 			req.onreadystatechange = function() {
 				if (req.readyState === 4) {
-					if(req.status === 200) {
+					if (req.status === 200) {
 						xml = req.responseText;
-						xmldoc = parser.parseFromString(xml, "application/xml");
-						document.getElementById("doc").innerHTML = ser.serializeToString(xmldoc, true).replace(/</mg, "&lt;");
-						document.getElementById("result").innerHTML = xmldoc.evaluate(xexpr, xmldoc, xmldoc.createNSResolver(xmldoc), Fleur.XPathResult.STRING_TYPE, null).stringValue;
 					} else {
 			      		document.getElementById("doc").innerHTML = "Not loaded!";
 			      	}
 				}
 			};
 			req.send(null);
+			function run() {
+				var d1 = new Date();
+				xmldoc = parser.parseFromString(xml, "application/xml");
+				var d2 = new Date();
+				xmldoc2 = parser2.parseFromString(xml, "application/xml");
+				var d3 = new Date();
+				document.getElementById("result").innerHTML = "<p>Fleur: " + (d2 - d1) + "</p><p>Native: " + (d3 - d2) + "</p><p>*" + ((d2 - d1)/(d3 - d2)) + "</p>" ;
+				//document.getElementById("doc").innerHTML = ser.serializeToString(xmldoc, true).replace(/</mg, "&lt;");
+				/*
+				var nsResolver = {
+					defaultNamespace: xmldoc.documentElement.getAttribute("xmlns"),
+					nsresolver: xmldoc.createNSResolver(xmldoc.documentElement),
+					lookupNamespaceURI: function(prefix) {
+						if (prefix === "_") {
+							return this.defaultNamespace;
+						}
+						return this.nsresolver.lookupNamespaceURI(prefix);
+						}
+				};
+				var res = xmldoc.evaluate(xexpr, xmldoc, nsResolver, Fleur.XPathResult.ANY_TYPE, null).toArray().reduce(
+					function(s, n, index) {
+						return s + (index !== 0 ? " ": "") + n.textContent;
+					}, ""
+				);
+				document.getElementById("result").innerHTML = res;
+				*/
+			}
 		</script>
 	</body>
 </html>

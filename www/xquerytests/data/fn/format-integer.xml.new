@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set covers="fn-format-integer" name="fn-format-integer" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the fn:format-integer function introduced in XPath 3.0</description>
+  <link document="http://www.w3.org/TR/xpath-functions-11/" idref="func-format-integer" type="spec"/>
+  <dependency type="spec" value="XP30+ XQ30+"/>
+  <test-case name="format-integer-001">
+    <description>format-integer with picture=&quot;1&quot;</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-27"/>
+    <test>format-integer(123, '1')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'123'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-002">
+    <description>format-integer with picture=&quot;001&quot;</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-27"/>
+    <test>format-integer(123, '001')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'123'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-003">
+    <description>format-integer with picture=&quot;00001&quot;</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-27"/>
+    <test>format-integer(123, '00001')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'00123'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-004">
+    <description>format-integer negative integer with picture=&quot;9&quot;</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-27"/>
+    <test>format-integer(-123, '9')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'-123'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-005">
+    <description>format-integer negative integer with picture=&quot;999&quot;</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-27"/>
+    <test>format-integer(-123, '999')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'-123'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-006">
+    <description>format-integer negative integer with picture=&quot;99999&quot;</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-27"/>
+    <test>format-integer(-123, '99999')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'-00123'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-007">
+    <description>format-integer zero with picture=&quot;0&quot;</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-27"/>
+    <test>format-integer(0, '0')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'0'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-008">
+    <description>format-integer zero with picture=&quot;000&quot;</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-27"/>
+    <test>format-integer(0, '000')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'000'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-009">
+    <description>format-integer zero with picture=&quot;00000&quot;</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-27"/>
+    <test>format-integer(0, '00000')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'00000'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-010">
+    <description>format-integer with picture=&quot;a&quot;</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-27"/>
+    <test>string-join(for $i in 1 to 4 return format-integer($i, 'a'))</test>
+    <result-string/>
+    <result>
+      <assert-eq>'abcd'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-011">
+    <description>format-integer with picture=&quot;A&quot;</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-27"/>
+    <test>string-join(for $i in 1 to 4 return format-integer($i, 'A'))</test>
+    <result-string/>
+    <result>
+      <assert-eq>'ABCD'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-012">
+    <description>format-integer with picture=&quot;i&quot; (lower-case roman numerals)</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-27"/>
+    <test>string-join(for $i in 1 to 20 return format-integer($i, 'i'), '|')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'i|ii|iii|iv|v|vi|vii|viii|ix|x|xi|xii|xiii|xiv|xv|xvi|xvii|xviii|xix|xx'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-013">
+    <description>format-integer with picture=&quot;I&quot; (upper-case roman numerals)</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-27"/>
+    <test>string-join(for $i in 1 to 20 return format-integer($i, 'I'), '|')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'I|II|III|IV|V|VI|VII|VIII|IX|X|XI|XII|XIII|XIV|XV|XVI|XVII|XVIII|XIX|XX'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-014">
+    <description>format-integer using Arabic digits</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-27"/>
+    <dependency type="format-integer-sequence" value="&#1633;"/>
+    <test>string-join(for $i in 1 to 20 return format-integer($i, ''), '|')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'|||||||||||||||||||'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-015">
+    <description>format-integer using Arabic digits</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-27"/>
+    <dependency type="format-integer-sequence" value="&#1633;"/>
+    <test>string-join(for $i in 1 to 20 return format-integer($i, ''), '|')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'|||||||||||||||||||'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-016">
+    <description>format-integer with title case words</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2010-09-28"/>
+    <dependency type="default-language" value="en"/>
+    <test>string-join(for $i in 1 to 10 return format-integer($i, 'Ww'), '|')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'One|Two|Three|Four|Five|Six|Seven|Eight|Nine|Ten'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-017">
+    <description>format-integer with upper-case words</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2010-09-28"/>
+    <dependency type="default-language" value="en"/>
+    <test>string-join(for $i in 1 to 10 return format-integer($i, 'W'), '|')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'ONE|TWO|THREE|FOUR|FIVE|SIX|SEVEN|EIGHT|NINE|TEN'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-018">
+    <description>format-integer with lower-case words</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2010-09-28"/>
+    <environment ref="empty"/>
+    <dependency type="default-language" value="en"/>
+    <test>string-join(for $i in 1 to 10 return format-integer($i, 'w'), '|')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'one|two|three|four|five|six|seven|eight|nine|ten'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-019">
+    <description>format-integer - Error case</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2010-09-28"/>
+    <environment ref="empty"/>
+    <test>format-integer(a, 'w')</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;XPDY0002&quot;))</result-string>
+    <result>
+      <error code="XPDY0002"/>
+    </result>
+  </test-case>
+  <test-case name="format-integer-020">
+    <description>format-integer - Error case with empty picture</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2010-09-28"/>
+    <modified by="Michael Kay, Saxonica" change="change error code" on="2011-05-29"/>
+    <test>format-integer(1, '')</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FODF1310&quot;))</result-string>
+    <result>
+      <error code="FODF1310"/>
+    </result>
+  </test-case>
+  <test-case name="format-integer-021">
+    <description>format-integer - picture grouping</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2010-09-28"/>
+    <modified by="Michael Kay, Saxonica" change="change error code" on="2011-05-29"/>
+    <test>format-integer(1500000, '0,000')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'1,500,000'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-022">
+    <description>format-integer - picture grouping, with hash symbols at the end</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2010-09-28"/>
+    <modified by="Michael Kay, Saxonica" change="change error code" on="2011-05-29"/>
+    <test>format-integer(1500000, '#,###,000')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'1,500,000'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-023">
+    <description>format-integer - picture grouping</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2010-09-28"/>
+    <modified by="Michael Kay, Saxonica" change="change error code" on="2011-05-29"/>
+    <test>format-integer(1500000, '0,000,')</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FODF1310&quot;))</result-string>
+    <result>
+      <error code="FODF1310"/>
+    </result>
+  </test-case>
+  <test-case name="format-integer-024">
+    <description>format-integer - picture grouping error</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2010-09-28"/>
+    <modified by="Michael Kay, Saxonica" change="change error code" on="2011-05-29"/>
+    <test>format-integer(1500000, '11#0,000')</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FODF1310&quot;))</result-string>
+    <result>
+      <error code="FODF1310"/>
+    </result>
+  </test-case>
+  <test-case name="format-integer-025">
+    <description>format-integer - picture grouping error</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2010-09-28"/>
+    <modified by="Michael Kay, Saxonica" change="change error code" on="2011-05-29"/>
+    <modified by="Michael Kay, Saxonica" change="no longer an error: see bug 19004" on="2013-01-22"/>
+    <test>format-integer(1500000, '#')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'1500000'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-026">
+    <description>format-integer - picture grouping error</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2010-09-28"/>
+    <modified by="Michael Kay, Saxonica" change="change error code" on="2011-05-29"/>
+    <modified by="Michael Kay, Saxonica" change="no longer an error: see bug 19004" on="2013-01-22"/>
+    <test>format-integer(1500000, '#a')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'1500000'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-027">
+    <description>format-integer - picture grouping error</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2010-09-28"/>
+    <modified by="Michael Kay, Saxonica" change="change error code" on="2011-05-29"/>
+    <test>format-integer(1500000, ',123')</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FODF1310&quot;))</result-string>
+    <result>
+      <error code="FODF1310"/>
+    </result>
+  </test-case>
+  <test-case name="format-integer-028">
+    <description>format-integer - picture grouping error</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2010-09-28"/>
+    <modified by="Michael Kay, Saxonica" change="change error code" on="2011-05-29"/>
+    <test>format-integer(1500000, '0,00,,000')</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FODF1310&quot;))</result-string>
+    <result>
+      <error code="FODF1310"/>
+    </result>
+  </test-case>
+  <test-case name="format-integer-029">
+    <description>format-integer - picture grouping, with hash symbols at the end; non-BMP grouping separator</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2010-09-28"/>
+    <environment ref="empty"/>
+    <test>format-integer(1500000, '###0,00')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'15000,00'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-030">
+    <description>format-integer - picture with different separators, which are irregular</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2010-09-28"/>
+    <environment ref="empty"/>
+    <test>format-integer(602347826, '#(000)000-000')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'(602)347-826'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-031">
+    <description>format-integer - Ordinal number output request</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2010-09-28"/>
+    <modified by="Michael Kay, Saxonica" change="semicolon separator, see bug 14858" on="2012-02-28"/>
+    <environment ref="empty"/>
+    <dependency type="default-language" value="en"/>
+    <test>format-integer(2, 'W;o')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'SECOND'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-032">
+    <description>format-integer - Ordinal number output request</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2010-09-28"/>
+    <modified by="Michael Kay, Saxonica" change="semicolon separator, see bug 14858" on="2012-02-28"/>
+    <dependency type="language" value="de"/>
+    <test>format-integer(1, 'Ww;o(-er)', 'de' cast as xs:language)</test>
+    <result-string/>
+    <result>
+      <assert-eq>'Erster'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-033">
+    <description>format-integer - Ordinal number output request</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2010-09-28"/>
+    <modified by="Michael Kay, Saxonica" change="semicolon separator, see bug 14858" on="2012-02-28"/>
+    <dependency type="default-language" value="en"/>
+    <test>format-integer(1, '1;o(-en)')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'1st'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-034">
+    <description>format-integer - ordinal number request format modifier, with invalid picture</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2010-09-28"/>
+    <modified by="Michael Kay, Saxonica" change="semicolon separator, see bug 14858" on="2012-02-28"/>
+    <modified by="Michael Kay, Saxonica" change="change error code, and change picture to make it an error" on="2011-05-29"/>
+    <test>format-integer(1, '1;o(-er)z')</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FODF1310&quot;))</result-string>
+    <result>
+      <error code="FODF1310"/>
+    </result>
+  </test-case>
+  <test-case name="format-integer-035">
+    <description>format-integer - format modifier t</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2010-09-28"/>
+    <modified by="Michael Kay, Saxonica" change="semicolon separator, see bug 14858" on="2012-02-28"/>
+    <modified by="Michael Kay, Saxonica" change="change error code" on="2011-05-29"/>
+    <dependency type="default-language" value="en"/>
+    <test>format-integer(1, 'Ww;t')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'One'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-036">
+    <description>format-integer - empty sequence</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-28"/>
+    <environment ref="empty"/>
+    <test>format-integer((), 'Ww')</test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert-eq>''</assert-eq>
+        <assert-type>xs:string</assert-type>
+        <assert>count($result) = 1</assert>
+      </all-of>
+    </result>
+  </test-case>
+  <test-case name="format-integer-037">
+    <description>format-integer - mismatched parens in picture</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-28"/>
+    <modified by="Michael Kay, Saxonica" change="semicolon separator, see bug 14858" on="2012-02-28"/>
+    <modified by="Michael Kay, Saxonica" change="change error code, and change test to be an error" on="2011-05-29"/>
+    <test>format-integer(1234, 'Ww;o()(')</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FODF1310&quot;))</result-string>
+    <result>
+      <error code="FODF1310"/>
+    </result>
+  </test-case>
+  <test-case name="format-integer-038">
+    <description>format-integer - misplaced parens in picture</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-28"/>
+    <modified by="Michael Kay, Saxonica" change="semicolon separator, see bug 14858" on="2012-02-28"/>
+    <modified by="Michael Kay, Saxonica" change="not an error; assume fallback to picture=1" on="2012-05-29"/>
+    <modified by="Michael Kay, Saxonica" change="see bug 19004 comment 22" on="2013-03-11"/>
+    <test>format-integer(1234, '()Ww;o')</test>
+    <result-string>xs:string('1234th')</result-string>
+    <result>
+      <assert-string-value>1234th</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="format-integer-039">
+    <description>format-integer - disallowed characters in picture</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-28"/>
+    <modified by="Michael Kay, Saxonica" change="not an error; assume fallback to picture=1" on="2011-05-29"/>
+    <test>format-integer(1234, '')</test>
+    <result-string>xs:string('1234')</result-string>
+    <result>
+      <assert-string-value>1234</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="format-integer-040">
+    <description>format-integer - mixed digits in picture</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-28"/>
+    <modified by="Michael Kay, Saxonica" change="change error code" on="2011-05-29"/>
+    <test>format-integer(1234, '123')</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FODF1310&quot;))</result-string>
+    <result>
+      <error code="FODF1310"/>
+    </result>
+  </test-case>
+  <test-case name="format-integer-041">
+    <description>format-integer - non-BMP digits (Osmanya digits)</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-28"/>
+    <environment ref="empty"/>
+    <test>format-integer(1234, '#,')</test>
+    <result-string/>
+    <result>
+      <assert-eq>','</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-042">
+    <description>format-integer - unrecognized numbering sequence - fallback</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-28"/>
+    <environment ref="empty"/>
+    <dependency satisfied="false" type="format-integer-sequence" value="&#64500;"/>
+    <test>format-integer(1234, '')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'1234'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-043">
+    <description>format-integer - negative ordinal</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-28"/>
+    <modified by="Michael Kay, Saxonica" change="semicolon separator, see bug 14858" on="2012-02-28"/>
+    <environment ref="empty"/>
+    <dependency type="default-language" value="en"/>
+    <test>format-integer(-85, '1;o')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'-85th'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-044">
+    <description>format-integer - negative ordinal in words</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-28"/>
+    <modified by="Michael Kay, Saxonica" change="semicolon separator, see bug 14858" on="2012-02-28"/>
+    <environment ref="empty"/>
+    <dependency type="default-language" value="en"/>
+    <test>format-integer(-5, 'Ww;o')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'-Fifth'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-045">
+    <description>format-integer - zero in words</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-28"/>
+    <environment ref="empty"/>
+    <dependency type="default-language" value="en"/>
+    <test>format-integer(0, 'Ww')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'Zero'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-046">
+    <description>format-integer with circled digits</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-27"/>
+    <environment ref="empty"/>
+    <dependency satisfied="true" type="format-integer-sequence" value="&#9312;"/>
+    <test>string-join(for $i in 1 to 5 return format-integer($i, ''), '|')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'||||'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-047">
+    <description>format-integer with parenthesized digits</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-27"/>
+    <environment ref="empty"/>
+    <dependency satisfied="true" type="format-integer-sequence" value="&#9332;"/>
+    <test>string-join(for $i in 1 to 5 return format-integer($i, ''), '|')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'||||'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-048">
+    <description>format-integer with full-stopped digits</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-27"/>
+    <environment ref="empty"/>
+    <dependency satisfied="true" type="format-integer-sequence" value="&#9352;"/>
+    <test>string-join(for $i in 1 to 5 return format-integer($i, ''), '|')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'||||'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-049">
+    <description>
+        	format-integer with greek uppercase
+        	Note: see bug 21449. An implementation that does does not support this numbering
+        	sequence should not run this test.
+        </description>
+    <created by="Michael Kay, Saxonica" on="2010-09-27"/>
+    <environment ref="empty"/>
+    <dependency satisfied="true" type="format-integer-sequence" value="&#913;"/>
+    <test>string-join(for $i in 1 to 5 return format-integer($i, ''), '|')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'||||'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-050">
+    <description>
+        	format-integer with greek lowercase.
+        	Note: see bug 21449. An implementation that does does not support this numbering
+        	sequence should not run this test.
+        </description>
+    <created by="Michael Kay, Saxonica" on="2010-09-27"/>
+    <environment ref="empty"/>
+    <dependency satisfied="true" type="format-integer-sequence" value="&#945;"/>
+    <test>string-join(for $i in 1 to 5 return format-integer($i,''), '|')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'||||'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-051">
+    <description>format-integer with space as separator</description>
+    <created by="Michael Kay, Saxonica" on="2010-09-27"/>
+    <test>format-integer(12345678901,'# 000')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'12 345 678 901'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-052">
+    <description>
+        	format-integer using Kanji sequence (see http://en.wikipedia.org/wiki/Japanese_numerals)
+            Note: see bug 21449. An implementation that does does not support this numbering
+        	sequence should not run this test.
+        </description>
+    <created by="Michael Kay, Saxonica" on="2010-10-12"/>
+    <dependency satisfied="true" type="format-integer-sequence" value="&#19968;"/>
+    <test>string-join(
+                for $i in (1 to 23, 151, 302, 469, 2025) 
+                return concat($i, '=',  format-integer($i, '')), '|')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'1=|2=|3=|4=|5=|6=|7=|8=|9=|10=|11=|12=|13=|14=|15=|16=|17=|18=|19=|20=|21=|22=|23=|151=|302=|469=|2025='</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-053">
+    <description>format-integer with leading optional-digit-sign</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2010-09-27"/>
+    <test>format-integer(123,'#0')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'123'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-054">
+    <description>format-integer - trailing optional-digit-sign error</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2011-03-10"/>
+    <modified by="Michael Kay, Saxonica" change="change error code" on="2011-05-29"/>
+    <test>format-integer(123,'0#')</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FODF1310&quot;))</result-string>
+    <result>
+      <error code="FODF1310"/>
+    </result>
+  </test-case>
+  <test-case name="format-integer-055">
+    <description>format-integer - test case relates to Bug #12280 in bugzilla</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2011-03-16"/>
+    <modified by="Michael Kay" change="see bug 15232" on="2012-05-18"/>
+    <test>format-integer(1,'b;o')</test>
+    <result-string/>
+    <result>
+      <assert-type>xs:string</assert-type>
+    </result>
+  </test-case>
+  <test-case name="format-integer-056">
+    <description>format-integer - test case relates to Bug #12280 in bugzilla</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2011-03-16"/>
+    <modified by="Michael Kay, Saxonica" change="no error, result implementation defined" on="2011-05-29"/>
+    <environment ref="empty"/>
+    <test>format-integer(1,'o;o')</test>
+    <result-string/>
+    <result>
+      <assert-type>xs:string</assert-type>
+    </result>
+  </test-case>
+  <test-case name="format-integer-057">
+    <description>format-integer - test case relates to Bug #12280 in bugzilla</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2011-03-16"/>
+    <modified by="Michael Kay, Saxonica" change="no error, result implementation defined" on="2011-05-29"/>
+    <environment ref="empty"/>
+    <test>format-integer(1,'bo;o')</test>
+    <result-string/>
+    <result>
+      <assert-type>xs:string</assert-type>
+    </result>
+  </test-case>
+  <test-case name="format-integer-058">
+    <description>format-integer - test case relates to Bug #12280 in bugzilla</description>
+    <created by="O'Neil Delpratt, Saxonica" on="2011-03-16"/>
+    <modified by="Michael Kay, Saxonica" change="no error, result implementation defined" on="2011-05-29"/>
+    <test>format-integer(1,'bb')</test>
+    <result-string/>
+    <result>
+      <assert-type>xs:string</assert-type>
+    </result>
+  </test-case>
+  <test-case name="format-integer-059">
+    <description>format-integer - semicolon at end is ignored</description>
+    <created by="Michael Kay, Saxonica" on="2012-02-28"/>
+    <environment ref="empty"/>
+    <test>format-integer(1,'001;')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'001'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-060">
+    <description>format-integer - semicolon as grouping separator</description>
+    <created by="Michael Kay, Saxonica" on="2012-02-28"/>
+    <environment ref="empty"/>
+    <test>format-integer(1234,'#;##1;')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'1;234'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-061">
+    <description>format-integer - Lone semicolon 
+                     (unrecognized format token, defaults to &quot;1&quot;)</description>
+    <created by="Michael Kay, Saxonica" on="2012-02-28"/>
+    <modified by="Michael Kay, Saxonica" change="see bug 16202" on="2012-05-18"/>
+    <modified by="Michael Kay, Saxonica" change="now an error: see bug 19004" on="2013-01-22"/>
+    <environment ref="empty"/>
+    <test>format-integer(1, ';')</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FODF1310&quot;))</result-string>
+    <result>
+      <error code="FODF1310"/>
+    </result>
+  </test-case>
+  <test-case name="format-integer-062">
+    <description>Third argument as a string in the form of a language code</description>
+    <created by="Michael Kay, Saxonica" on="2012-12-07"/>
+    <environment ref="empty"/>
+    <test>format-integer(11, 'Ww', 'en')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'Eleven'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-063">
+    <description>Third argument as a string not in the form of a language code</description>
+    <created by="Michael Kay, Saxonica" on="2012-12-07"/>
+    <modified by="Michael Kay, Saxonica" change="Not an error. See bug 20663" on="2013-01-15"/>
+    <environment ref="empty"/>
+    <dependency type="default-language" value="en"/>
+    <test>format-integer(11, 'Ww', '@*!+%')</test>
+    <result-string/>
+    <result>
+      <assert-eq>'Eleven'</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="format-integer-064">
+    <description>Error case with missing format modifier separator</description>
+    <created by="Tim Mills" on="2013-03-14"/>
+    <environment ref="empty"/>
+    <test>format-integer(-1, '1o')</test>
+    <result-string>fn:error(fn:QName(&quot;http://www.w3.org/2005/xqt-errors&quot;, &quot;FODF1310&quot;))</result-string>
+    <result>
+      <error code="FODF1310"/>
+    </result>
+  </test-case>
+</test-set>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="op-anyURI-less-than" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the anyURI-less-than operator (not actually defined as such in F+O)</description>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-compare" type="spec"/>
+  <test-case name="K2-AnyURILtGt-1">
+    <description> Invoked 'lt' on xs:anyURI values. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:anyURI(&quot;http://example.com/A&quot;) lt xs:anyURI(&quot;http://example.com/B&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-AnyURILtGt-2">
+    <description> Invoked 'lt' on xs:anyURI values. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>not(xs:anyURI(&quot;http://example.com/B&quot;) lt xs:anyURI(&quot;http://example.com/A&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-AnyURILtGt-3">
+    <description> Invoked 'lt' on xs:anyURI values. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:string(&quot;http://example.com/A&quot;) lt xs:anyURI(&quot;http://example.com/B&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-AnyURILtGt-4">
+    <description> Invoked 'lt' on xs:anyURI values. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>not(xs:anyURI(&quot;http://example.com/B&quot;) lt xs:string(&quot;http://example.com/A&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-AnyURILtGt-5">
+    <description> Invoked 'gt' on xs:anyURI values. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>not(xs:anyURI(&quot;http://example.com/A&quot;) gt xs:anyURI(&quot;http://example.com/B&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-AnyURILtGt-6">
+    <description> Invoked 'gt' on xs:anyURI values. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>not(xs:string(&quot;http://example.com/A&quot;) gt xs:anyURI(&quot;http://example.com/B&quot;))</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-AnyURILtGt-7">
+    <description> Invoked 'gt' on xs:anyURI values. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:anyURI(&quot;http://example.com/B&quot;) gt xs:anyURI(&quot;http://example.com/A&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-AnyURILtGt-8">
+    <description> Invoked 'gt' on xs:anyURI values. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>xs:anyURI(&quot;http://example.com/B&quot;) gt xs:string(&quot;http://example.com/A&quot;)</test>
+    <result-string>xs:boolean('true')</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+</test-set>
