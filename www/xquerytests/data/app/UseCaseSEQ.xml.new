@@ -59,7 +59,7 @@
     <test>
       <![CDATA[for $p in //section[section.title = "Procedure"] where not(some $a in $p//anesthesia satisfies $a << ($p//incision)[1] ) return $p]]>
     </test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>

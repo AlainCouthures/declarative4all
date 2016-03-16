@@ -7,7 +7,7 @@
     <description> Evaluation of resolve-uri function with relative argument set to empty sequence Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-11-18"/>
     <test>fn:count(fn:resolve-uri((),&quot;BaseValue&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -17,7 +17,7 @@
     <created by="Carmelo Montanez" on="2005-11-18"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare base-uri &quot;http://www.example/&quot;; fn:string(fn:resolve-uri(&quot;&quot;))</test>
-    <result-string>xs:string('http://www.example/')</result-string>
+    <result-string>xs:string(&quot;http://www.example/&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example/</assert-string-value>
     </result>
@@ -44,7 +44,7 @@
     <description> Evaluation of resolve-uri function with relative argument set to an absolute URI. Use the fn-string function </description>
     <created by="Carmelo Montanez" on="2005-11-21"/>
     <test>fn:string(fn:resolve-uri(&quot;http://www.examples.com&quot;,&quot;&quot;))</test>
-    <result-string>xs:string('http://www.examples.com')</result-string>
+    <result-string>xs:string(&quot;http://www.examples.com&quot;)</result-string>
     <result>
       <assert-string-value>http://www.examples.com</assert-string-value>
     </result>
@@ -53,7 +53,7 @@
     <description> Evaluation of resolve-uri function with base argument set to an absolute URI (Two argument version of function). Use the fn-string function. </description>
     <created by="Carmelo Montanez" on="2005-11-21"/>
     <test>fn:string(fn:resolve-uri(&quot;examples&quot;,&quot;http://www.examples.com/&quot;))</test>
-    <result-string>xs:string('http://www.examples.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.examples.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.examples.com/examples</assert-string-value>
     </result>
@@ -65,7 +65,7 @@
       </description>
     <created by="Carmelo Montanez" on="2005-11-21"/>
     <test>fn:string(fn:resolve-uri(&quot;examples&quot;,xs:string(&quot;http://www.examples.com/&quot;)))</test>
-    <result-string>xs:string('http://www.examples.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.examples.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.examples.com/examples</assert-string-value>
     </result>
@@ -74,7 +74,7 @@
     <description> Evaluation of resolve-uri function with relative argument set to an absolute URI and given as a an argument to fn:string function (Two argument version of function). Use the fn-string function. </description>
     <created by="Carmelo Montanez" on="2005-11-21"/>
     <test>fn:string(fn:resolve-uri(fn:string(&quot;examples&quot;),fn:string(&quot;http://www.examples.com/&quot;)))</test>
-    <result-string>xs:string('http://www.examples.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.examples.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.examples.com/examples</assert-string-value>
     </result>
@@ -83,7 +83,7 @@
     <description> Evaluation of resolve-uri function with relative argument set to an absolute URI and given as a an argument to fn:upper-case function (Two argument version of function). Use the fn-string function. </description>
     <created by="Carmelo Montanez" on="2005-11-21"/>
     <test>fn:string(fn:resolve-uri(fn:upper-case(&quot;examples&quot;),fn:upper-case(&quot;http://www.examples.com/&quot;)))</test>
-    <result-string>xs:string('HTTP://WWW.EXAMPLES.COM/EXAMPLES')</result-string>
+    <result-string>xs:string(&quot;HTTP://WWW.EXAMPLES.COM/EXAMPLES&quot;)</result-string>
     <result>
       <assert-string-value>HTTP://WWW.EXAMPLES.COM/EXAMPLES</assert-string-value>
     </result>
@@ -92,7 +92,7 @@
     <description> Evaluation of resolve-uri function with relative argument set to an absolute URI and given as a an argument to fn:lower-case function (Two argument version of function). Use the fn-string function. </description>
     <created by="Carmelo Montanez" on="2005-11-21"/>
     <test>fn:string(fn:resolve-uri(fn:lower-case(&quot;EXAMPLES&quot;),fn:lower-case(&quot;HTTP://www.examples.com/&quot;)))</test>
-    <result-string>xs:string('http://www.examples.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.examples.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.examples.com/examples</assert-string-value>
     </result>
@@ -101,7 +101,7 @@
     <description> Evaluation of resolve-uri function with relative argument set to an absolute URI and given as a an argument to fn:substring function (Two argument version of function). Use the fn-string function. </description>
     <created by="Carmelo Montanez" on="2005-11-21"/>
     <test>fn:string(fn:resolve-uri(&quot;examples&quot;,fn:substring(&quot;1234http://www.examples.com/&quot;,5)))</test>
-    <result-string>xs:string('http://www.examples.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.examples.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.examples.com/examples</assert-string-value>
     </result>
@@ -110,7 +110,7 @@
     <description> Evaluation of resolve-uri function with relative argument set to an absolute URI and given as a an argument to fn:string-join function (Two argument version of function). Use the fn-string function. </description>
     <created by="Carmelo Montanez" on="2005-11-21"/>
     <test>fn:string(fn:resolve-uri(&quot;examples&quot;,fn:string-join(('http://www.example','.com/'),'')))</test>
-    <result-string>xs:string('http://www.example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/examples</assert-string-value>
     </result>
@@ -119,7 +119,7 @@
     <description> Evaluation of resolve-uri function with relative argument set to an absolute URI and given as a an argument to fn:concat function (Two argument version of function). Use the fn-string function. </description>
     <created by="Carmelo Montanez" on="2005-11-21"/>
     <test>fn:string(fn:resolve-uri(&quot;examples&quot;,fn:concat(&quot;http://www.example&quot;,&quot;.com/&quot;)))</test>
-    <result-string>xs:string('http://www.example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/examples</assert-string-value>
     </result>
@@ -128,7 +128,7 @@
     <description> Evaluation of resolve-uri function with relative argument set to an absolute URI and given as a an argument to fn:substring-before function (Two argument version of function). Use the fn:substring-before function. </description>
     <created by="Carmelo Montanez" on="2005-11-21"/>
     <test>fn:string(fn:resolve-uri(&quot;examples&quot;,fn:substring-before(&quot;http://www.example.com/123&quot;,&quot;123&quot;)))</test>
-    <result-string>xs:string('http://www.example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/examples</assert-string-value>
     </result>
@@ -137,7 +137,7 @@
     <description> Evaluation of resolve-uri function with relative argument set to an absolute URI and given as a an argument to fn:substring-after function (Two argument version of function). Use the fn:substring-after function. </description>
     <created by="Carmelo Montanez" on="2005-11-21"/>
     <test>fn:string(fn:resolve-uri(&quot;examples&quot;,fn:substring-after(&quot;123http://www.example.com/&quot;,&quot;123&quot;)))</test>
-    <result-string>xs:string('http://www.example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/examples</assert-string-value>
     </result>
@@ -146,7 +146,7 @@
     <description> Evaluation of resolve-uri function with relative argument set to an absolute URI and given as an argument to fn:string function (two argument version of function). Use the fn-string function. </description>
     <created by="Carmelo Montanez" on="2005-11-21"/>
     <test>fn:string(fn:resolve-uri(fn:string(&quot;http://www.examples.com/&quot;),&quot;&quot;))</test>
-    <result-string>xs:string('http://www.examples.com/')</result-string>
+    <result-string>xs:string(&quot;http://www.examples.com/&quot;)</result-string>
     <result>
       <assert-string-value>http://www.examples.com/</assert-string-value>
     </result>
@@ -155,7 +155,7 @@
     <description> Evaluation of resolve-uri function with relative argument set to an absolute URI and given as an argument to fn:upper-case function (two argument version of function). Use the fn-string function. </description>
     <created by="Carmelo Montanez" on="2005-11-21"/>
     <test>fn:string(fn:resolve-uri(fn:upper-case(&quot;http://www.examples.com&quot;),&quot;&quot;))</test>
-    <result-string>xs:string('HTTP://WWW.EXAMPLES.COM')</result-string>
+    <result-string>xs:string(&quot;HTTP://WWW.EXAMPLES.COM&quot;)</result-string>
     <result>
       <assert-string-value>HTTP://WWW.EXAMPLES.COM</assert-string-value>
     </result>
@@ -164,7 +164,7 @@
     <description> Evaluation of resolve-uri function with relative argument set to an absolute URI and given as an argument to fn:lower-case function (two argument version of function). Use the fn-string function. </description>
     <created by="Carmelo Montanez" on="2005-11-21"/>
     <test>fn:string(fn:resolve-uri(fn:lower-case(&quot;http://www.examples.com&quot;),&quot;&quot;))</test>
-    <result-string>xs:string('http://www.examples.com')</result-string>
+    <result-string>xs:string(&quot;http://www.examples.com&quot;)</result-string>
     <result>
       <assert-string-value>http://www.examples.com</assert-string-value>
     </result>
@@ -173,7 +173,7 @@
     <description> Evaluation of resolve-uri function with relative argument set to an absolute URI and given as an argument to fn:substring function (two argument version of function). Use the fn-string function. </description>
     <created by="Carmelo Montanez" on="2005-11-21"/>
     <test>fn:string(fn:resolve-uri(fn:substring(&quot;123http://www.examples.com&quot;,4),&quot;&quot;))</test>
-    <result-string>xs:string('http://www.examples.com')</result-string>
+    <result-string>xs:string(&quot;http://www.examples.com&quot;)</result-string>
     <result>
       <assert-string-value>http://www.examples.com</assert-string-value>
     </result>
@@ -182,7 +182,7 @@
     <description> Evaluation of resolve-uri function with relative argument set to an absolute URI and given as an argument to fn:string-join function (two argument version of function). Use the fn-string function. </description>
     <created by="Carmelo Montanez" on="2005-11-21"/>
     <test>fn:string(fn:resolve-uri(fn:string-join((&quot;http://www.examples&quot;,&quot;.com&quot;),''),&quot;&quot;))</test>
-    <result-string>xs:string('http://www.examples.com')</result-string>
+    <result-string>xs:string(&quot;http://www.examples.com&quot;)</result-string>
     <result>
       <assert-string-value>http://www.examples.com</assert-string-value>
     </result>
@@ -191,7 +191,7 @@
     <description> Evaluation of resolve-uri function with relative argument set to an absolute URI and given as an argument to fn:concat function (two argument version of function). Use the fn-string function. </description>
     <created by="Carmelo Montanez" on="2005-11-21"/>
     <test>fn:string(fn:resolve-uri(fn:concat(&quot;http://www.examples&quot;,&quot;.com&quot;),&quot;&quot;))</test>
-    <result-string>xs:string('http://www.examples.com')</result-string>
+    <result-string>xs:string(&quot;http://www.examples.com&quot;)</result-string>
     <result>
       <assert-string-value>http://www.examples.com</assert-string-value>
     </result>
@@ -200,7 +200,7 @@
     <description> Evaluation of resolve-uri function with relative argument set to an absolute URI and given as an argument to fn:substring-before function (two argument version of function). Use the fn-string function. </description>
     <created by="Carmelo Montanez" on="2005-11-21"/>
     <test>fn:string(fn:resolve-uri(fn:substring-before(&quot;http://www.example.com123&quot;,&quot;123&quot;),&quot;&quot;))</test>
-    <result-string>xs:string('http://www.example.com')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com</assert-string-value>
     </result>
@@ -209,7 +209,7 @@
     <description> Evaluation of resolve-uri function with relative argument set to an absolute URI and given as an argument to fn:substring-after function (two argument version of function). Use the fn-string function. </description>
     <created by="Carmelo Montanez" on="2005-11-21"/>
     <test>fn:string(fn:resolve-uri(fn:substring-after(&quot;123http://www.example.com&quot;,&quot;123&quot;),&quot;&quot;))</test>
-    <result-string>xs:string('http://www.example.com')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com</assert-string-value>
     </result>
@@ -227,7 +227,7 @@
     <description> Evaluation of resolve-uri function with an absolute URI for the first argument and a relative URI reference for second argument. Should return first argument unchanged </description>
     <created by="Michael Kay" on="2013-01-07"/>
     <test>string(resolve-uri(&quot;http://www.example.com/a.html&quot;,&quot;b.html&quot;))</test>
-    <result-string>xs:string('http://www.example.com/a.html')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/a.html&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/a.html</assert-string-value>
     </result>
@@ -245,7 +245,7 @@
     <description> Evaluation of resolve-uri function with a query as part of the base URI </description>
     <created by="Michael Kay" on="2013-01-07"/>
     <test>string(resolve-uri(&quot;b.html&quot;, &quot;http://www.example.com/a.html?foo=bar&quot;))</test>
-    <result-string>xs:string('http://www.example.com/b.html')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/b.html&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/b.html</assert-string-value>
     </result>
@@ -263,7 +263,7 @@
     <description> Evaluation of resolve-uri function with a non-hierarchic relative URI </description>
     <created by="Michael Kay" on="2013-01-07"/>
     <test>string(resolve-uri(&quot;urn:isbn:01234567890X&quot;, &quot;http://www.example.com/&quot;))</test>
-    <result-string>xs:string('urn:isbn:01234567890X')</result-string>
+    <result-string>xs:string(&quot;urn:isbn:01234567890X&quot;)</result-string>
     <result>
       <assert-string-value>urn:isbn:01234567890X</assert-string-value>
     </result>
@@ -276,7 +276,7 @@
          resolve-uri(codepoints-to-string(231)||&quot;.html&quot;, &quot;http://www.example.com/&quot;||codepoints-to-string(224)||&quot;.html&quot;)
          = (&quot;http://www.example.com/&quot;||codepoints-to-string(231)||&quot;.html&quot;)
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -288,7 +288,7 @@
          resolve-uri(&quot;%C3%A0.html&quot;, &quot;http://www.example.com/%C3%A7.html&quot;)
          = &quot;http://www.example.com/%C3%A0.html&quot;
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -334,7 +334,7 @@
     <description> A test whose essence is: `resolve-uri(&quot;relative/uri.ext&quot;, &quot;http://www.example.com/&quot;) eq xs:anyURI(&quot;http://www.example.com/relative/uri.ext&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>resolve-uri(&quot;relative/uri.ext&quot;, &quot;http://www.example.com/&quot;) eq xs:anyURI(&quot;http://www.example.com/relative/uri.ext&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -343,7 +343,7 @@
     <description> A test whose essence is: `resolve-uri(&quot;&quot;, &quot;http://www.example.com/&quot;) eq xs:anyURI(&quot;http://www.example.com/&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>resolve-uri(&quot;&quot;, &quot;http://www.example.com/&quot;) eq xs:anyURI(&quot;http://www.example.com/&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -352,7 +352,7 @@
     <description> A test whose essence is: `empty(resolve-uri((), &quot;http://www.example.com/&quot;))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(resolve-uri((), &quot;http://www.example.com/&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -361,7 +361,7 @@
     <description> A test whose essence is: `resolve-uri(&quot;http://www.example.com/absolute&quot;, &quot;http://www.example.com/&quot;) eq xs:anyURI(&quot;http://www.example.com/absolute&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>resolve-uri(&quot;http://www.example.com/absolute&quot;, &quot;http://www.example.com/&quot;) eq xs:anyURI(&quot;http://www.example.com/absolute&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -372,7 +372,7 @@
     <test>
         boolean(resolve-uri(string-join(for $x in 1 to 10 return &quot;blah&quot;,&quot;z&quot;),&quot;http://localhost/&quot;))
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

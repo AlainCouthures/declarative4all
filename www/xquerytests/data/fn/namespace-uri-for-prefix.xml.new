@@ -11,7 +11,7 @@
       <![CDATA[let $var := <anElement xmlns:p1 = "http://www.example.com/examples">some context</anElement> 
       return string(fn:namespace-uri-for-prefix("p1",$var))]]>
     </test>
-    <result-string>xs:string('http://www.example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/examples</assert-string-value>
     </result>
@@ -27,7 +27,7 @@
         return fn:count(fn:namespace-uri-for-prefix("p2",$var))
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -42,7 +42,7 @@
         let $var := <anElement xmlns:p1 = "http://www.example.com/examples">some context</anElement> 
         return fn:string(fn:namespace-uri-for-prefix("",$var))]]>
     </test>
-    <result-string>xs:string('http://www.example.com/defaultspace')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/defaultspace&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/defaultspace</assert-string-value>
     </result>
@@ -58,7 +58,7 @@
         let $var := <anElement xmlns:p1 = "http://www.example.com/examples">some context</anElement> 
         return fn:string(fn:namespace-uri-for-prefix((), $var))]]>
     </test>
-    <result-string>xs:string('http://www.example.com/defaultspace')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/defaultspace&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/defaultspace</assert-string-value>
     </result>
@@ -71,7 +71,7 @@
     <test>
       <![CDATA[fn:string(fn:namespace-uri-for-prefix("p1",<anElement xmlns:p1 = "http://www.example.com/examples">some context</anElement>))]]>
     </test>
-    <result-string>xs:string('http://www.example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/examples</assert-string-value>
     </result>
@@ -84,7 +84,7 @@
     <test>
       <![CDATA[fn:count(fn:namespace-uri-for-prefix("p2",<anElement xmlns:p1 = "http://www.example.com/examples">some context</anElement>))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -97,7 +97,7 @@
     <test>
       <![CDATA[fn:string(fn:namespace-uri-for-prefix(xs:string("p1"),<anElement xmlns:p1 = "http://www.example.com/examples">some context</anElement>))]]>
     </test>
-    <result-string>xs:string('http://www.example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/examples</assert-string-value>
     </result>
@@ -110,7 +110,7 @@
     <test>
       <![CDATA[fn:string(fn:namespace-uri-for-prefix(fn:string("p1"),<anElement xmlns:p1 = "http://www.example.com/examples">some context</anElement>))]]>
     </test>
-    <result-string>xs:string('http://www.example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/examples</assert-string-value>
     </result>
@@ -123,7 +123,7 @@
     <test>
       <![CDATA[fn:string(fn:namespace-uri-for-prefix(fn:upper-case("p1"),<anElement xmlns:P1 = "http://www.example.com/examples">some context</anElement>))]]>
     </test>
-    <result-string>xs:string('http://www.example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/examples</assert-string-value>
     </result>
@@ -136,7 +136,7 @@
     <test>
       <![CDATA[fn:string(fn:namespace-uri-for-prefix(fn:lower-case("P1"),<anElement xmlns:p1 = "http://www.example.com/examples">some context</anElement>))]]>
     </test>
-    <result-string>xs:string('http://www.example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/examples</assert-string-value>
     </result>
@@ -149,7 +149,7 @@
     <test>
       <![CDATA[fn:string(fn:namespace-uri-for-prefix(fn:substring("abcp1",4),<anElement xmlns:p1 = "http://www.example.com/examples">some context</anElement>))]]>
     </test>
-    <result-string>xs:string('http://www.example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/examples</assert-string-value>
     </result>
@@ -162,7 +162,7 @@
     <test>
       <![CDATA[fn:string(fn:namespace-uri-for-prefix(fn:concat("p","1"),<anElement xmlns:p1 = "http://www.example.com/examples">some context</anElement>))]]>
     </test>
-    <result-string>xs:string('http://www.example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/examples</assert-string-value>
     </result>
@@ -175,7 +175,7 @@
     <test>
       <![CDATA[fn:string(fn:namespace-uri-for-prefix(fn:string-join(("p","1"),""),<anElement xmlns:p1 = "http://www.example.com/examples">some context</anElement>))]]>
     </test>
-    <result-string>xs:string('http://www.example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/examples</assert-string-value>
     </result>
@@ -188,7 +188,7 @@
     <test>
       <![CDATA[fn:string(fn:namespace-uri-for-prefix(fn:substring-before("p1abc","abc"),<anElement xmlns:p1 = "http://www.example.com/examples">some context</anElement>))]]>
     </test>
-    <result-string>xs:string('http://www.example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/examples</assert-string-value>
     </result>
@@ -201,7 +201,7 @@
     <test>
       <![CDATA[fn:string(fn:namespace-uri-for-prefix(fn:substring-after("abcp1","abc"),<anElement xmlns:p1 = "http://www.example.com/examples">some context</anElement>))]]>
     </test>
-    <result-string>xs:string('http://www.example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/examples</assert-string-value>
     </result>
@@ -215,7 +215,7 @@
       <![CDATA[declare default element namespace "http://www.example.com/defaultnamespace"; 
         fn:count(fn:namespace-uri-for-prefix("p1",<anElement>some context</anElement>))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -226,7 +226,7 @@
     <dependency type="spec" value="XQ10+"/>
     <test>declare default element namespace &quot;http://www.example.com/defaultnamespace&quot;; 
         fn:count(fn:namespace-uri-for-prefix(&quot;p1&quot;,element anElement {&quot;some content&quot;}))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -238,7 +238,7 @@
     <test>declare default element namespace &quot;http://www.example.com/defaultnamespace&quot;; 
         let $var := element anElement {&quot;some content&quot;} 
         return fn:count(fn:namespace-uri-for-prefix(&quot;p1&quot;,$var))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -251,7 +251,7 @@
     <test>declare default element namespace &quot;http://www.example.com/defaultnamespace&quot;; 
         for $var in (element anElement {&quot;some content&quot;}) 
         return fn:count(fn:namespace-uri-for-prefix(&quot;p1&quot;,$var))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -264,7 +264,7 @@
     <test>declare default element namespace &quot;http://www.example.com/defaultnamespace&quot;; 
         for $var in element anElement {&quot;some content&quot;} 
         return fn:count(fn:namespace-uri-for-prefix(&quot;p1&quot;,$var))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -281,7 +281,7 @@
                   ))
       ]]>
     </test>
-    <result-string>xs:string('http://www.example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/examples</assert-string-value>
     </result>
@@ -296,7 +296,7 @@
     <test>
       <![CDATA[fn:namespace-uri-for-prefix("", <e/>)]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -311,7 +311,7 @@
     <test>
       <![CDATA[fn:namespace-uri-for-prefix((), <e/>)]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -341,7 +341,7 @@
     <test>
       <![CDATA[declare namespace p = "http://www.example.com/B"; namespace-uri-for-prefix("", <e xmlns="http://www.example.com/A" xmlns:A="http://www.example.com/C"> <b xmlns:B="http://www.example.com/C" xmlns="http://www.example.com/B"/> </e>/p:b)]]>
     </test>
-    <result-string>xs:string('http://www.example.com/B')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/B&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/B</assert-string-value>
     </result>
@@ -355,7 +355,7 @@
                       <e xmlns="http://www.example.com/A" xmlns:A="http://www.example.com/C"> <b xmlns:B="http://www.example.com/C" xmlns=""/> </e>/b)
                       )]]>
     </test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -367,7 +367,7 @@
     <test>
       <![CDATA[declare namespace p = "http://www.example.com/A"; namespace-uri-for-prefix("", <e xmlns="http://www.example.com/A" xmlns:A="http://www.example.com/C"> <b xmlns:B="http://www.example.com/C" /> </e>/p:b)]]>
     </test>
-    <result-string>xs:string('http://www.example.com/A')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/A&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/A</assert-string-value>
     </result>
@@ -381,7 +381,7 @@
       	fn:boolean(fn:namespace-uri-for-prefix('', <a />))
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

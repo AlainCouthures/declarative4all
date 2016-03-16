@@ -6,7 +6,7 @@
     <description>Test normalize-unicode with simple text input </description>
     <created by="Joanne Tong" on="2005-09-29"/>
     <test>normalize-unicode('Nothing to normalize.')</test>
-    <result-string>xs:string('Nothing to normalize.')</result-string>
+    <result-string>xs:string(&quot;Nothing to normalize.&quot;)</result-string>
     <result>
       <assert-string-value>Nothing to normalize.</assert-string-value>
     </result>
@@ -15,7 +15,7 @@
     <description>Test normalize-unicode with empty sequence argument </description>
     <created by="Joanne Tong" on="2005-09-29"/>
     <test>normalize-unicode(())</test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -24,7 +24,7 @@
     <description>Test fn:normalize-unicode on combining characters for LATIN CAPITAL LETTER A WITH RING (w/ ACUTE) and ANGSTROM SIGN </description>
     <created by="Joanne Tong" on="2005-09-29"/>
     <test>matches('', normalize-unicode('A'))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -33,7 +33,7 @@
     <description>Test fn:normalize-unicode on combining characters for LATIN CAPITAL LETTER A WITH RING (w/ ACUTE) and ANGSTROM SIGN </description>
     <created by="Joanne Tong" on="2005-09-29"/>
     <test>matches('', normalize-unicode('A'))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -42,7 +42,7 @@
     <description>Test fn:normalize-unicode on combining characters for LATIN CAPITAL LETTER A WITH RING (w/ ACUTE) and ANGSTROM SIGN </description>
     <created by="Joanne Tong" on="2005-09-29"/>
     <test>matches('A', normalize-unicode('A'))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -51,7 +51,7 @@
     <description>Test fn:normalize-unicode on combining characters for LATIN CAPITAL LETTER A WITH RING (w/ ACUTE) and ANGSTROM SIGN </description>
     <created by="Joanne Tong" on="2005-09-29"/>
     <test>(normalize-unicode('') eq normalize-unicode(''))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -78,7 +78,7 @@
     <description>Test normalize-unicode with simple text input and NFC </description>
     <created by="Joanne Tong" on="2005-09-29"/>
     <test>normalize-unicode('Nothing to normalize.', 'NFC')</test>
-    <result-string>xs:string('Nothing to normalize.')</result-string>
+    <result-string>xs:string(&quot;Nothing to normalize.&quot;)</result-string>
     <result>
       <assert-string-value>Nothing to normalize.</assert-string-value>
     </result>
@@ -87,7 +87,7 @@
     <description>Test normalize-unicode with simple text input and NFC spelled differently </description>
     <created by="Joanne Tong" on="2005-09-29"/>
     <test>normalize-unicode('Nothing to normalize.', 'nFc')</test>
-    <result-string>xs:string('Nothing to normalize.')</result-string>
+    <result-string>xs:string(&quot;Nothing to normalize.&quot;)</result-string>
     <result>
       <assert-string-value>Nothing to normalize.</assert-string-value>
     </result>
@@ -96,7 +96,7 @@
     <description>Test normalize-unicode with empty sequence argument and NFC </description>
     <created by="Joanne Tong" on="2005-09-29"/>
     <test>normalize-unicode((), 'NFC')</test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -105,7 +105,7 @@
     <description>Test fn:normalize-unicode where the second argument is the zero-length string, no normalization is performed </description>
     <created by="Joanne Tong" on="2005-09-29"/>
     <test>(normalize-unicode('', '') eq normalize-unicode('', ''))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluation of fn:normalize-unicode to ensure that &quot; NFC &quot; is the same as &quot;NFC&quot;. </description>
     <created by="Carmelo Montanez" on="2005-11-29"/>
     <test>fn:concat(fn:normalize-unicode(&quot;&quot;,&quot; NFC &quot;),fn:normalize-unicode(&quot;&quot;,&quot;NFC&quot;))</test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluation of fn:normalize-unicode with nothing to normalize and used as argument to fn:upper-case </description>
     <created by="Carmelo Montanez" on="2005-11-29"/>
     <test>fn:upper-case(fn:normalize-unicode(&quot;normalizedstring&quot;))</test>
-    <result-string>xs:string('NORMALIZEDSTRING')</result-string>
+    <result-string>xs:string(&quot;NORMALIZEDSTRING&quot;)</result-string>
     <result>
       <assert-string-value>NORMALIZEDSTRING</assert-string-value>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluation of fn:normalize-unicode with nothing to normalize and used as argument to fn:lower-case </description>
     <created by="Carmelo Montanez" on="2005-11-29"/>
     <test>fn:lower-case(fn:normalize-unicode(&quot;NORMALIZEDSTRING&quot;))</test>
-    <result-string>xs:string('normalizedstring')</result-string>
+    <result-string>xs:string(&quot;normalizedstring&quot;)</result-string>
     <result>
       <assert-string-value>normalizedstring</assert-string-value>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluation of fn:normalize-unicode with nothing to normalize and used as argument to fn:string-length </description>
     <created by="Carmelo Montanez" on="2005-11-29"/>
     <test>fn:string-length(fn:normalize-unicode(&quot;NORMALIZEDSTRING&quot;))</test>
-    <result-string>xs:string('16')</result-string>
+    <result-string>xs:string(&quot;16&quot;)</result-string>
     <result>
       <assert-string-value>16</assert-string-value>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluation of fn:normalize-unicode with nothing to normalize and used as argument to fn:concat </description>
     <created by="Carmelo Montanez" on="2005-11-29"/>
     <test>fn:concat(fn:normalize-unicode(&quot;NORMALIZEDSTRING&quot;),&quot;another string&quot;)</test>
-    <result-string>xs:string('NORMALIZEDSTRINGanother string')</result-string>
+    <result-string>xs:string(&quot;NORMALIZEDSTRINGanother string&quot;)</result-string>
     <result>
       <assert-string-value>NORMALIZEDSTRINGanother string</assert-string-value>
     </result>
@@ -186,7 +186,7 @@
     <description> Evaluation of fn:normalize-unicode with nothing to normalize and used as argument to fn:substring </description>
     <created by="Carmelo Montanez" on="2005-11-29"/>
     <test>fn:substring(fn:normalize-unicode(&quot;NORMALIZEDSTRING&quot;),5)</test>
-    <result-string>xs:string('ALIZEDSTRING')</result-string>
+    <result-string>xs:string(&quot;ALIZEDSTRING&quot;)</result-string>
     <result>
       <assert-string-value>ALIZEDSTRING</assert-string-value>
     </result>
@@ -195,7 +195,7 @@
     <description> Evaluation of fn:normalize-unicode with noncharacter argument </description>
     <created by="Oliver Hallam" on="2009-12-08"/>
     <test>string-to-codepoints(normalize-unicode(''))</test>
-    <result-string>xs:string('64976')</result-string>
+    <result-string>xs:string(&quot;64976&quot;)</result-string>
     <result>
       <assert-string-value>64976</assert-string-value>
     </result>
@@ -264,7 +264,7 @@
     <description> A test whose essence is: `normalize-unicode(&quot;foo&quot;) eq &quot;foo&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-unicode(&quot;foo&quot;) eq &quot;foo&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -273,7 +273,7 @@
     <description> A test whose essence is: `normalize-unicode(&quot;foo&quot;, &quot;NFC&quot;) eq &quot;foo&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-unicode(&quot;foo&quot;, &quot;NFC&quot;) eq &quot;foo&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -283,7 +283,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="unicode-normalization-form" value="NFD"/>
     <test>normalize-unicode(&quot;foo&quot;, &quot;NFD&quot;) eq &quot;foo&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -293,7 +293,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="unicode-normalization-form" value="NFKD"/>
     <test>normalize-unicode(&quot;foo&quot;, &quot;NFKD&quot;) eq &quot;foo&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -303,7 +303,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="unicode-normalization-form" value="NFKC"/>
     <test>normalize-unicode(&quot;foo&quot;, &quot;NFKC&quot;) eq &quot;foo&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -312,7 +312,7 @@
     <description> A test whose essence is: `normalize-unicode(&quot;f oo&quot;, &quot;&quot;) eq &quot;f oo&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-unicode(&quot;f oo&quot;, &quot;&quot;) eq &quot;f oo&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -321,7 +321,7 @@
     <description> A test whose essence is: `normalize-unicode(&quot;foo&quot;, &quot;&quot;) eq &quot;foo&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-unicode(&quot;foo&quot;, &quot;&quot;) eq &quot;foo&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -330,7 +330,7 @@
     <description> A test whose essence is: `normalize-unicode(&quot;f oo&quot;) eq &quot;f oo&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-unicode(&quot;f oo&quot;) eq &quot;f oo&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -339,7 +339,7 @@
     <description> A test whose essence is: `normalize-unicode(&quot;f oo&quot;, &quot;NFC&quot;) eq &quot;f oo&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-unicode(&quot;f oo&quot;, &quot;NFC&quot;) eq &quot;f oo&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -362,7 +362,7 @@
     <modified by="Michael Kay" on="2012-10-30"/>
     <dependency type="unicode-normalization-form" value="FULLY-NORMALIZED"/>
     <test>normalize-unicode(&quot;blah&quot;,&quot;FULLY-NORMALIZED&quot;)</test>
-    <result-string>xs:string('blah')</result-string>
+    <result-string>xs:string(&quot;blah&quot;)</result-string>
     <result>
       <assert-string-value>blah</assert-string-value>
     </result>
@@ -383,7 +383,7 @@
     <description> Tests boolean(normalize-unicode(...)) </description>
     <created by="Nick Jones" on="2008-06-13"/>
     <test>boolean(normalize-unicode(&quot;blah&quot;,&quot;NFC&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -401,7 +401,7 @@
     <description> tests normalize-unicode on empty </description>
     <created by="Nick Jones" on="2008-06-13"/>
     <test>normalize-unicode((),&quot;NFC&quot;)</test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -410,7 +410,7 @@
     <description> Tests normalize-unicode on empty </description>
     <created by="Nick Jones" on="2008-06-13"/>
     <test>normalize-unicode(&quot;&quot;,&quot;NFC&quot;)</test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -421,7 +421,7 @@
     <modified by="Michael Kay" on="2012-10-30"/>
     <dependency type="unicode-normalization-form" value="FULLY-NORMALIZED"/>
     <test>normalize-unicode(codepoints-to-string(2494),&quot;FULLY-NORMALIZED&quot;)</test>
-    <result-string>xs:string(' ')</result-string>
+    <result-string>xs:string(&quot; &quot;)</result-string>
     <result>
       <assert-string-value>
        </assert-string-value>

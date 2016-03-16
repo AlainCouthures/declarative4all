@@ -7,7 +7,7 @@
     <description> Simple use case for string literals </description>
     <created by="Mike Rorke" on="2004-11-23"/>
     <test>&quot;test&quot;</test>
-    <result-string>xs:string('test')</result-string>
+    <result-string>xs:string(&quot;test&quot;)</result-string>
     <result>
       <assert-string-value>test</assert-string-value>
     </result>
@@ -16,7 +16,7 @@
     <description> Simple use case for string literals </description>
     <created by="Mike Rorke" on="2004-11-23"/>
     <test>'test'</test>
-    <result-string>xs:string('test')</result-string>
+    <result-string>xs:string(&quot;test&quot;)</result-string>
     <result>
       <assert-string-value>test</assert-string-value>
     </result>
@@ -26,8 +26,8 @@
     <created by="Mike Rorke" on="2004-11-23"/>
     <test>&quot;line1
 line2&quot;</test>
-    <result-string>xs:string('line1
-line2')</result-string>
+    <result-string>xs:string(&quot;line1
+line2&quot;)</result-string>
     <result>
       <assert-string-value>line1
 line2</assert-string-value>
@@ -38,8 +38,8 @@ line2</assert-string-value>
     <created by="Mike Rorke" on="2004-11-23"/>
     <test>'line1
 line2'</test>
-    <result-string>xs:string('line1
-line2')</result-string>
+    <result-string>xs:string(&quot;line1
+line2&quot;)</result-string>
     <result>
       <assert-string-value>line1
 line2</assert-string-value>
@@ -99,7 +99,7 @@ line2</assert-string-value>
     <description> Test for valid integer literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>65535032</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;65535032&quot;)</result-string>
     <result>
       <assert-eq>65535032</assert-eq>
     </result>
@@ -108,7 +108,7 @@ line2</assert-string-value>
     <description> Test for valid integer literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>-65535032</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-65535032&quot;)</result-string>
     <result>
       <assert-eq>-65535032</assert-eq>
     </result>
@@ -117,7 +117,7 @@ line2</assert-string-value>
     <description> Test for valid decimal literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>65535032.0023</test>
-    <result-string>xs:string('65535032.0023')</result-string>
+    <result-string>xs:string(&quot;65535032.0023&quot;)</result-string>
     <result>
       <assert-string-value>65535032.0023</assert-string-value>
     </result>
@@ -126,7 +126,7 @@ line2</assert-string-value>
     <description> Test for valid decimal literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>.65535032</test>
-    <result-string>xs:string('0.65535032')</result-string>
+    <result-string>xs:string(&quot;0.65535032&quot;)</result-string>
     <result>
       <assert-string-value>0.65535032</assert-string-value>
     </result>
@@ -135,7 +135,7 @@ line2</assert-string-value>
     <description> Test for valid decimal literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>-.65535032</test>
-    <result-string>xs:string('-0.65535032')</result-string>
+    <result-string>xs:string(&quot;-0.65535032&quot;)</result-string>
     <result>
       <assert-string-value>-0.65535032</assert-string-value>
     </result>
@@ -144,7 +144,7 @@ line2</assert-string-value>
     <description> Test for valid decimal literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>+.65535032</test>
-    <result-string>xs:string('0.65535032')</result-string>
+    <result-string>xs:string(&quot;0.65535032&quot;)</result-string>
     <result>
       <assert-string-value>0.65535032</assert-string-value>
     </result>
@@ -153,7 +153,7 @@ line2</assert-string-value>
     <description> Test for valid double literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>65535032e2</test>
-    <result-string>xs:string('6.5535032E9')</result-string>
+    <result-string>xs:string(&quot;6.5535032E9&quot;)</result-string>
     <result>
       <assert-string-value>6.5535032E9</assert-string-value>
     </result>
@@ -162,7 +162,7 @@ line2</assert-string-value>
     <description> Test for valid double literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>65535.032e2</test>
-    <result-string>xs:string('6.5535032E6')</result-string>
+    <result-string>xs:string(&quot;6.5535032E6&quot;)</result-string>
     <result>
       <assert-string-value>6.5535032E6</assert-string-value>
     </result>
@@ -171,7 +171,7 @@ line2</assert-string-value>
     <description> Test for valid double literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>.65535032e2</test>
-    <result-string>xs:string('65.535032')</result-string>
+    <result-string>xs:string(&quot;65.535032&quot;)</result-string>
     <result>
       <assert-string-value>65.535032</assert-string-value>
     </result>
@@ -180,7 +180,7 @@ line2</assert-string-value>
     <description> Test for valid double literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>-.65535032e2</test>
-    <result-string>xs:string('-65.535032')</result-string>
+    <result-string>xs:string(&quot;-65.535032&quot;)</result-string>
     <result>
       <assert-string-value>-65.535032</assert-string-value>
     </result>
@@ -189,7 +189,7 @@ line2</assert-string-value>
     <description> Test for valid double literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>+.65535032e2</test>
-    <result-string>xs:string('65.535032')</result-string>
+    <result-string>xs:string(&quot;65.535032&quot;)</result-string>
     <result>
       <assert-string-value>65.535032</assert-string-value>
     </result>
@@ -198,7 +198,7 @@ line2</assert-string-value>
     <description> Test for valid double literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>65535.032e-2</test>
-    <result-string>xs:string('655.35032')</result-string>
+    <result-string>xs:string(&quot;655.35032&quot;)</result-string>
     <result>
       <assert-string-value>655.35032</assert-string-value>
     </result>
@@ -207,7 +207,7 @@ line2</assert-string-value>
     <description> Test for valid double literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>.65535032e-2</test>
-    <result-string>xs:string('0.0065535032')</result-string>
+    <result-string>xs:string(&quot;0.0065535032&quot;)</result-string>
     <result>
       <assert-string-value>0.0065535032</assert-string-value>
     </result>
@@ -216,7 +216,7 @@ line2</assert-string-value>
     <description> Test for valid double literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>-.65535032e-2</test>
-    <result-string>xs:string('-0.0065535032')</result-string>
+    <result-string>xs:string(&quot;-0.0065535032&quot;)</result-string>
     <result>
       <assert-string-value>-0.0065535032</assert-string-value>
     </result>
@@ -225,7 +225,7 @@ line2</assert-string-value>
     <description> Test for valid double literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>+.65535032e-2</test>
-    <result-string>xs:string('0.0065535032')</result-string>
+    <result-string>xs:string(&quot;0.0065535032&quot;)</result-string>
     <result>
       <assert-string-value>0.0065535032</assert-string-value>
     </result>
@@ -234,7 +234,7 @@ line2</assert-string-value>
     <description> Test for valid double literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>-65535.032e2</test>
-    <result-string>xs:string('-6.5535032E6')</result-string>
+    <result-string>xs:string(&quot;-6.5535032E6&quot;)</result-string>
     <result>
       <assert-string-value>-6.5535032E6</assert-string-value>
     </result>
@@ -243,7 +243,7 @@ line2</assert-string-value>
     <description> Test for valid double literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>-65535.032e-2</test>
-    <result-string>xs:string('-655.35032')</result-string>
+    <result-string>xs:string(&quot;-655.35032&quot;)</result-string>
     <result>
       <assert-string-value>-655.35032</assert-string-value>
     </result>
@@ -252,7 +252,7 @@ line2</assert-string-value>
     <description> Test for valid double literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>65535032E2</test>
-    <result-string>xs:string('6.5535032E9')</result-string>
+    <result-string>xs:string(&quot;6.5535032E9&quot;)</result-string>
     <result>
       <assert-string-value>6.5535032E9</assert-string-value>
     </result>
@@ -261,7 +261,7 @@ line2</assert-string-value>
     <description> Test for valid double literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>65535.032E2</test>
-    <result-string>xs:string('6.5535032E6')</result-string>
+    <result-string>xs:string(&quot;6.5535032E6&quot;)</result-string>
     <result>
       <assert-string-value>6.5535032E6</assert-string-value>
     </result>
@@ -270,7 +270,7 @@ line2</assert-string-value>
     <description> Test for valid double literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>.65535032E2</test>
-    <result-string>xs:string('65.535032')</result-string>
+    <result-string>xs:string(&quot;65.535032&quot;)</result-string>
     <result>
       <assert-string-value>65.535032</assert-string-value>
     </result>
@@ -279,7 +279,7 @@ line2</assert-string-value>
     <description> Test for valid double literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>-.65535032E2</test>
-    <result-string>xs:string('-65.535032')</result-string>
+    <result-string>xs:string(&quot;-65.535032&quot;)</result-string>
     <result>
       <assert-string-value>-65.535032</assert-string-value>
     </result>
@@ -288,7 +288,7 @@ line2</assert-string-value>
     <description> Test for valid double literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>+.65535032E2</test>
-    <result-string>xs:string('65.535032')</result-string>
+    <result-string>xs:string(&quot;65.535032&quot;)</result-string>
     <result>
       <assert-string-value>65.535032</assert-string-value>
     </result>
@@ -297,7 +297,7 @@ line2</assert-string-value>
     <description> Test for valid double literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>65535.032E-2</test>
-    <result-string>xs:string('655.35032')</result-string>
+    <result-string>xs:string(&quot;655.35032&quot;)</result-string>
     <result>
       <assert-string-value>655.35032</assert-string-value>
     </result>
@@ -306,7 +306,7 @@ line2</assert-string-value>
     <description> Test for valid double literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>.65535032E-2</test>
-    <result-string>xs:string('0.0065535032')</result-string>
+    <result-string>xs:string(&quot;0.0065535032&quot;)</result-string>
     <result>
       <assert-string-value>0.0065535032</assert-string-value>
     </result>
@@ -315,7 +315,7 @@ line2</assert-string-value>
     <description> Test for valid double literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>-.65535032E-2</test>
-    <result-string>xs:string('-0.0065535032')</result-string>
+    <result-string>xs:string(&quot;-0.0065535032&quot;)</result-string>
     <result>
       <assert-string-value>-0.0065535032</assert-string-value>
     </result>
@@ -324,7 +324,7 @@ line2</assert-string-value>
     <description> Test for valid double literal </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>+.65535032E-2</test>
-    <result-string>xs:string('0.0065535032')</result-string>
+    <result-string>xs:string(&quot;0.0065535032&quot;)</result-string>
     <result>
       <assert-string-value>0.0065535032</assert-string-value>
     </result>
@@ -516,7 +516,7 @@ line2</assert-string-value>
     <test>
       <![CDATA["&amp;"]]>
     </test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -528,7 +528,7 @@ line2</assert-string-value>
     <test>
       <![CDATA["&amp;"]]>
     </test>
-    <result-string>xs:string('amp;')</result-string>
+    <result-string>xs:string(&quot;amp;&quot;)</result-string>
     <result>
       <assert-string-value>amp;</assert-string-value>
     </result>
@@ -540,7 +540,7 @@ line2</assert-string-value>
     <test>
       <![CDATA["&quot;"]]>
     </test>
-    <result-string>xs:string('&quot;')</result-string>
+    <result-string>xs:string(&quot;&quot;&quot;)</result-string>
     <result>
       <assert-string-value>&quot;</assert-string-value>
     </result>
@@ -552,7 +552,7 @@ line2</assert-string-value>
     <test>
       <![CDATA["&quot;"]]>
     </test>
-    <result-string>xs:string('quot;')</result-string>
+    <result-string>xs:string(&quot;quot;&quot;)</result-string>
     <result>
       <assert-string-value>quot;</assert-string-value>
     </result>
@@ -564,7 +564,7 @@ line2</assert-string-value>
     <test>
       <![CDATA["&apos;"]]>
     </test>
-    <result-string>xs:string(''')</result-string>
+    <result-string>xs:string(&quot;'&quot;)</result-string>
     <result>
       <assert-string-value>'</assert-string-value>
     </result>
@@ -576,7 +576,7 @@ line2</assert-string-value>
     <test>
       <![CDATA["&apos;"]]>
     </test>
-    <result-string>xs:string('apos;')</result-string>
+    <result-string>xs:string(&quot;apos;&quot;)</result-string>
     <result>
       <assert-string-value>apos;</assert-string-value>
     </result>
@@ -588,7 +588,7 @@ line2</assert-string-value>
     <test>
       <![CDATA["&lt;"]]>
     </test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -600,7 +600,7 @@ line2</assert-string-value>
     <test>
       <![CDATA["&lt;"]]>
     </test>
-    <result-string>xs:string('lt;')</result-string>
+    <result-string>xs:string(&quot;lt;&quot;)</result-string>
     <result>
       <assert-string-value>lt;</assert-string-value>
     </result>
@@ -612,7 +612,7 @@ line2</assert-string-value>
     <test>
       <![CDATA["&gt;"]]>
     </test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -624,7 +624,7 @@ line2</assert-string-value>
     <test>
       <![CDATA["&gt;"]]>
     </test>
-    <result-string>xs:string('gt;')</result-string>
+    <result-string>xs:string(&quot;gt;&quot;)</result-string>
     <result>
       <assert-string-value>gt;</assert-string-value>
     </result>
@@ -636,7 +636,7 @@ line2</assert-string-value>
     <test>
       <![CDATA["&#8364;"]]>
     </test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -648,7 +648,7 @@ line2</assert-string-value>
     <test>
       <![CDATA["&#8364;"]]>
     </test>
-    <result-string>xs:string('#8364;')</result-string>
+    <result-string>xs:string(&quot;#8364;&quot;)</result-string>
     <result>
       <assert-string-value>#8364;</assert-string-value>
     </result>
@@ -657,7 +657,7 @@ line2</assert-string-value>
     <description> Test the escaping of the &quot; (quotation) character in XPath/XQuery. </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>&quot;&quot;&quot;&quot;</test>
-    <result-string>xs:string('&quot;')</result-string>
+    <result-string>xs:string(&quot;&quot;&quot;)</result-string>
     <result>
       <assert-string-value>&quot;</assert-string-value>
     </result>
@@ -666,7 +666,7 @@ line2</assert-string-value>
     <description> Test the escaping of the ' (quotation) character in XPath/XQuery. </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>''''</test>
-    <result-string>xs:string(''')</result-string>
+    <result-string>xs:string(&quot;'&quot;)</result-string>
     <result>
       <assert-string-value>'</assert-string-value>
     </result>
@@ -675,7 +675,7 @@ line2</assert-string-value>
     <description> Test the escaping of the ' (apostrophe) and &quot; (quotation) characters in XPath/XQuery </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>&quot;He said, &quot;&quot;I don't like it.&quot;&quot;&quot;</test>
-    <result-string>xs:string('He said, &quot;I don't like it.&quot;')</result-string>
+    <result-string>xs:string(&quot;He said, &quot;I don't like it.&quot;&quot;)</result-string>
     <result>
       <assert-string-value>He said, &quot;I don't like it.&quot;</assert-string-value>
     </result>
@@ -684,7 +684,7 @@ line2</assert-string-value>
     <description> Test the escaping of the ' (apostrophe) and &quot; (quotation) characters in XPath/XQuery </description>
     <created by="Mike Rorke" on="2005-02-03"/>
     <test>'He said, &quot;I don''t like it.&quot;'</test>
-    <result-string>xs:string('He said, &quot;I don't like it.&quot;')</result-string>
+    <result-string>xs:string(&quot;He said, &quot;I don't like it.&quot;&quot;)</result-string>
     <result>
       <assert-string-value>He said, &quot;I don't like it.&quot;</assert-string-value>
     </result>
@@ -723,7 +723,7 @@ line2</assert-string-value>
     <created by="Mike Rorke" on="2005-02-03"/>
     <dependency type="spec" value="XQ10+"/>
     <test>text{ 'He said, &quot;I don''t like it.&quot;' }</test>
-    <result-string>xs:string('He said, &quot;I don't like it.&quot;')</result-string>
+    <result-string>xs:string(&quot;He said, &quot;I don't like it.&quot;&quot;)</result-string>
     <result>
       <assert-string-value>He said, &quot;I don't like it.&quot;</assert-string-value>
     </result>
@@ -733,7 +733,7 @@ line2</assert-string-value>
     <created by="Mike Rorke" on="2005-02-03"/>
     <dependency type="spec" value="XQ10+"/>
     <test>text{ &quot;He said, &quot;&quot;I don't like it.&quot;&quot;&quot; }</test>
-    <result-string>xs:string('He said, &quot;I don't like it.&quot;')</result-string>
+    <result-string>xs:string(&quot;He said, &quot;I don't like it.&quot;&quot;)</result-string>
     <result>
       <assert-string-value>He said, &quot;I don't like it.&quot;</assert-string-value>
     </result>
@@ -742,7 +742,7 @@ line2</assert-string-value>
     <description> A test whose essence is: `'fo''o' eq 'fo''o'`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>'fo''o' eq 'fo''o'</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -751,7 +751,7 @@ line2</assert-string-value>
     <description> A test whose essence is: `'foo' eq &quot;foo&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>'foo' eq &quot;foo&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -769,7 +769,7 @@ line2</assert-string-value>
     <description> '&quot;&quot;&quot;&quot;' is a valid string literal. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>&quot;&quot;&quot;&quot; eq '&quot;'</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -778,7 +778,7 @@ line2</assert-string-value>
     <description> '''''' is a valid string literal. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>'''' eq &quot;'&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -787,7 +787,7 @@ line2</assert-string-value>
     <description> '&quot;fo&quot;&quot;&quot;&quot;' is a valid string literal. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>&quot;fo&quot;&quot;o&quot; eq concat(&quot;fo&quot;, &quot;&quot;&quot;&quot;, &quot;o&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -805,7 +805,7 @@ line2</assert-string-value>
     <description> '3.' is a valid number literal. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3. eq 3.</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -814,7 +814,7 @@ line2</assert-string-value>
     <description> '.3' is a valid number literal. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>.3 eq .3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -823,7 +823,7 @@ line2</assert-string-value>
     <description> A test whose essence is: `1.3e-3 instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1.3e-3 instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -832,7 +832,7 @@ line2</assert-string-value>
     <description> A test whose essence is: `1.e+3 instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1.e+3 instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -841,7 +841,7 @@ line2</assert-string-value>
     <description> A test whose essence is: `1.e3 instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1.e3 instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -850,7 +850,7 @@ line2</assert-string-value>
     <description> A test whose essence is: `1231.123e3 instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1231.123e3 instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -859,7 +859,7 @@ line2</assert-string-value>
     <description> A test whose essence is: `1.E3 instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1.E3 instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -868,7 +868,7 @@ line2</assert-string-value>
     <description> A test whose essence is: `-1231.123e3 instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>-1231.123e3 instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -877,7 +877,7 @@ line2</assert-string-value>
     <description> A test whose essence is: `3 instance of xs:integer`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -886,7 +886,7 @@ line2</assert-string-value>
     <description> A test whose essence is: `3.3 instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3.3 instance of xs:decimal</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -895,7 +895,7 @@ line2</assert-string-value>
     <description> A test whose essence is: `3.3e1 instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3.3e1 instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -904,7 +904,7 @@ line2</assert-string-value>
     <description> A test whose essence is: `&quot;a xs:string&quot; instance of xs:string`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>&quot;a xs:string&quot; instance of xs:string</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -913,7 +913,7 @@ line2</assert-string-value>
     <description> A test whose essence is: `not(xs:double(&quot;NaN&quot;))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(xs:double(&quot;NaN&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -922,7 +922,7 @@ line2</assert-string-value>
     <description> A test whose essence is: `not(xs:float(&quot;NaN&quot;))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(xs:float(&quot;NaN&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -931,7 +931,7 @@ line2</assert-string-value>
     <description> A test whose essence is: `xs:float(&quot;NaN&quot;) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;NaN&quot;) instance of xs:float</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -985,7 +985,7 @@ line2</assert-string-value>
     <description> '.3' is a valid literal. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>0.3 eq .3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1028,7 +1028,7 @@ line2</assert-string-value>
     <test>
       <![CDATA["a string &;"]]>
     </test>
-    <result-string>xs:string('a string &amp;;')</result-string>
+    <result-string>xs:string(&quot;a string &amp;;&quot;)</result-string>
     <result>
       <assert-string-value>
         <![CDATA[a string &;]]>
@@ -1099,7 +1099,7 @@ line2</assert-string-value>
     <description> Simple test of a decimal character reference. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>&quot;t&quot; eq &quot;t&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1207,7 +1207,7 @@ line2</assert-string-value>
     <test>
       <![CDATA["&lt; &gt; &amp; &quot; &apos; &#x48; &#48;" eq "< > &amp; "" ' &#x48; &#48;"]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1219,7 +1219,7 @@ line2</assert-string-value>
     <test>
       <![CDATA["t" eq "&#x74;"]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1231,7 +1231,7 @@ line2</assert-string-value>
     <test>
       <![CDATA["t" eq "&#x74;"]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1255,7 +1255,7 @@ line2</assert-string-value>
     <test>
       <![CDATA["I love brownies&amp;cookies." eq "I love brownies&amp;cookies."]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1302,7 +1302,7 @@ line2</assert-string-value>
     <test>
       <![CDATA["&#0000045;"]]>
     </test>
-    <result-string>xs:string('-')</result-string>
+    <result-string>xs:string(&quot;-&quot;)</result-string>
     <result>
       <assert-string-value>-</assert-string-value>
     </result>
@@ -1622,7 +1622,7 @@ line2</assert-string-value>
     <description> Check EBNF 142. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>.5</test>
-    <result-string>xs:string('0.5')</result-string>
+    <result-string>xs:string(&quot;0.5&quot;)</result-string>
     <result>
       <assert-string-value>0.5</assert-string-value>
     </result>
@@ -1640,7 +1640,7 @@ line2</assert-string-value>
     <description> Numeric literals can end with a dot. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>465.</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;465&quot;)</result-string>
     <result>
       <assert-eq>465</assert-eq>
     </result>
@@ -1716,7 +1716,7 @@ line2</assert-string-value>
     <modified by="O'Neil Delpratt" change="Test-case now references the original XQTS test-case. Corrected expected result" on="2011-09-08"/>
     <dependency type="spec" value="XQ10+"/>
     <test file="Literal/K2-Literals-39.xq"/>
-    <result-string>xs:string('a  string literal ')</result-string>
+    <result-string>xs:string(&quot;a  string literal &quot;)</result-string>
     <result>
       <assert-string-value>a  string literal </assert-string-value>
     </result>

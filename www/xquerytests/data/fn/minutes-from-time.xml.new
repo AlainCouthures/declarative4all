@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;minutes-from-time&quot; function with the arguments set as follows: $arg = xs:time(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:minutes-from-time(xs:time(&quot;00:00:00Z&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;minutes-from-time&quot; function with the arguments set as follows: $arg = xs:time(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:minutes-from-time(xs:time(&quot;08:03:35Z&quot;))</test>
-    <result-string>xs:string('3')</result-string>
+    <result-string>xs:string(&quot;3&quot;)</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;minutes-from-time&quot; function with the arguments set as follows: $arg = xs:time(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:minutes-from-time(xs:time(&quot;23:59:59Z&quot;))</test>
-    <result-string>xs:string('59')</result-string>
+    <result-string>xs:string(&quot;59&quot;)</result-string>
     <result>
       <assert-string-value>59</assert-string-value>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluates The &quot;minutes-from-time&quot; function As per example 1 of the FO specs (for this function) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:minutes-from-time(xs:time(&quot;13:00:00Z&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluates The &quot;minutes-from-time&quot; function used as part of a numeric less than expression (lt operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:minutes-from-time(xs:time(&quot;21:23:00Z&quot;)) lt fn:minutes-from-time(xs:time(&quot;21:24:00Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluates The &quot;minutes-from-time&quot; function as part of a numeric greater than operation (gt operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:minutes-from-time(xs:time(&quot;01:23:00Z&quot;)) gt fn:minutes-from-time(xs:time(&quot;01:23:00Z&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluates The &quot;minutes-from-time&quot; function used as an argument to an avg function. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:avg((fn:minutes-from-time(xs:time(&quot;01:10:00Z&quot;)), fn:minutes-from-time(xs:time(&quot;01:20:00Z&quot;))))</test>
-    <result-string>xs:string('15')</result-string>
+    <result-string>xs:string(&quot;15&quot;)</result-string>
     <result>
       <assert-string-value>15</assert-string-value>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluates The &quot;minutes-from-time&quot; function using the empty sequence as an argument. Use count function to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:count(fn:minutes-from-time(()))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluates The &quot;hours-from-time&quot; function that returns 59. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:hours-from-time(xs:time(&quot;00:59:00Z&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluates The &quot;minutes-from-time&quot; function used as part of an abs function. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:abs(fn:minutes-from-time(xs:time(&quot;23:20:00Z&quot;)))</test>
-    <result-string>xs:string('20')</result-string>
+    <result-string>xs:string(&quot;20&quot;)</result-string>
     <result>
       <assert-string-value>20</assert-string-value>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluates The &quot;minutes-from-time&quot; function as part of a &quot;+&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:minutes-from-time(xs:time(&quot;02:00:00Z&quot;)) + fn:minutes-from-time(xs:time(&quot;10:00:00Z&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluates The &quot;minutes-from-time&quot; function as part of a &quot;-&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:minutes-from-time(xs:time(&quot;10:10:00Z&quot;)) - fn:minutes-from-time(xs:time(&quot;09:02:00Z&quot;))</test>
-    <result-string>xs:string('8')</result-string>
+    <result-string>xs:string(&quot;8&quot;)</result-string>
     <result>
       <assert-string-value>8</assert-string-value>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluates The &quot;minutes-from-time&quot; function as part of a &quot;*&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:minutes-from-time(xs:time(&quot;02:02:00Z&quot;)) * fn:minutes-from-time(xs:time(&quot;10:08:00Z&quot;))</test>
-    <result-string>xs:string('16')</result-string>
+    <result-string>xs:string(&quot;16&quot;)</result-string>
     <result>
       <assert-string-value>16</assert-string-value>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluates The &quot;minutes-from-time&quot; function as part of a &quot;div&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:minutes-from-time(xs:time(&quot;22:33:00Z&quot;)) div fn:minutes-from-time(xs:time(&quot;02:11:00Z&quot;))</test>
-    <result-string>xs:string('3')</result-string>
+    <result-string>xs:string(&quot;3&quot;)</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluates The &quot;minutes-from-time&quot; function as part of a &quot;idiv&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:minutes-from-time(xs:time(&quot;10:12:00Z&quot;)) idiv fn:minutes-from-time(xs:time(&quot;02:02:00Z&quot;))</test>
-    <result-string>xs:string('6')</result-string>
+    <result-string>xs:string(&quot;6&quot;)</result-string>
     <result>
       <assert-string-value>6</assert-string-value>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluates The &quot;minutes-from-time&quot; function as part of a &quot;mod&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:minutes-from-time(xs:time(&quot;10:10:00Z&quot;)) mod fn:minutes-from-time(xs:time(&quot;03:03:00Z&quot;))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluates The &quot;minutes-from-time&quot; function as part of a &quot;numeric-unary-plus&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>+fn:minutes-from-time(xs:time(&quot;10:00:00Z&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluates The &quot;minutes-from-time&quot; function as part of a &quot;numeric-unary-minus&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>-fn:minutes-from-time(xs:time(&quot;10:10:00Z&quot;))</test>
-    <result-string>xs:string('-10')</result-string>
+    <result-string>xs:string(&quot;-10&quot;)</result-string>
     <result>
       <assert-string-value>-10</assert-string-value>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluates The &quot;minutes-from-time&quot; function as part of a &quot;numeric-equal&quot; expression (eq operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:minutes-from-time(xs:time(&quot;10:02:00Z&quot;)) eq fn:minutes-from-time(xs:time(&quot;10:02:00Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluates The &quot;minutes-from-time&quot; function as part of a &quot;numeric-equal&quot; expression (ne operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:minutes-from-time(xs:time(&quot;10:00:00Z&quot;)) ne fn:minutes-from-time(xs:time(&quot;01:01:00Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -186,7 +186,7 @@
     <description> Evaluates The &quot;minutes-from-time&quot; function as part of a &quot;numeric-equal&quot; expression (le operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:minutes-from-time(xs:time(&quot;10:00:00Z&quot;)) le fn:minutes-from-time(xs:time(&quot;10:00:00Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -195,7 +195,7 @@
     <description> Evaluates The &quot;minutes-from-time&quot; function as part of a &quot;numeric-equal&quot; expression (ge operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:minutes-from-time(xs:time(&quot;10:03:00Z&quot;)) ge fn:minutes-from-time(xs:time(&quot;10:04:00Z&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -222,7 +222,7 @@
     <description> A test whose essence is: `empty(minutes-from-time(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(minutes-from-time(()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -231,7 +231,7 @@
     <description> A test whose essence is: `minutes-from-time(()) instance of xs:integer?`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>minutes-from-time(()) instance of xs:integer?</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -240,7 +240,7 @@
     <description> A test whose essence is: `minutes-from-time(xs:time(&quot;23:11:12.43&quot;)) eq 11`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>minutes-from-time(xs:time(&quot;23:11:12.43&quot;)) eq 11</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

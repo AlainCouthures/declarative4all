@@ -42,7 +42,7 @@
     <created by="Carmelo Montanez" on="2005-11-27"/>
     <environment ref="id-idref"/>
     <test>import schema namespace ids=&quot;http://www.w3.org/XQueryTest/ididrefs&quot;; fn:count(fn:id(&quot;nomatchingid&quot;, /ids:IDS[1]))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -93,7 +93,7 @@
     <created by="Carmelo Montanez" on="2005-11-27"/>
     <environment ref="id-idref"/>
     <test>import schema namespace ids=&quot;http://www.w3.org/XQueryTest/ididrefs&quot;; fn:count(fn:id(&quot;nomatching1 nomatching2&quot;, /ids:IDS[1]))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -103,7 +103,7 @@
     <created by="Carmelo Montanez" on="2005-11-27"/>
     <environment ref="id-idref"/>
     <test>import schema namespace ids=&quot;http://www.w3.org/XQueryTest/ididrefs&quot;; fn:count(fn:id(&quot;&quot;, /ids:IDS[1]))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -137,7 +137,7 @@
     <created by="Carmelo Montanez" on="2005-11-27"/>
     <environment ref="id-idref"/>
     <test>import schema namespace ids=&quot;http://www.w3.org/XQueryTest/ididrefs&quot;; fn:count(fn:id(&quot;p1:id5&quot;, /ids:IDS[1]))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -255,7 +255,7 @@
     <created by="Carmelo Montanez" on="2006-02-10"/>
     <environment ref="id-idref"/>
     <test>import schema namespace ids=&quot;http://www.w3.org/XQueryTest/ididrefs&quot;; fn:count(fn:idref(&quot;nomatchingid&quot;, /ids:IDS[1]))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -301,7 +301,7 @@
     <created by="Carmelo Montanez" on="2006-02-10"/>
     <environment ref="id-idref"/>
     <test>import schema namespace ids=&quot;http://www.w3.org/XQueryTest/ididrefs&quot;; fn:count(fn:idref(&quot;nomatching1 nomatching2&quot;, /ids:IDS[1]))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -311,7 +311,7 @@
     <created by="Carmelo Montanez" on="2006-02-10"/>
     <environment ref="id-idref"/>
     <test>import schema namespace ids=&quot;http://www.w3.org/XQueryTest/ididrefs&quot;; fn:count(fn:idref(&quot;&quot;, /ids:IDS[1]))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -321,7 +321,7 @@
     <created by="Carmelo Montanez" on="2006-02-10"/>
     <environment ref="id-idref"/>
     <test>import schema namespace ids=&quot;http://www.w3.org/XQueryTest/ididrefs&quot;; fn:node-name(fn:idref(&quot;id2&quot;, /ids:IDS[1]))</test>
-    <result-string>xs:string('elementwithidref-2')</result-string>
+    <result-string>xs:string(&quot;elementwithidref-2&quot;)</result-string>
     <result>
       <assert-string-value>elementwithidref-2</assert-string-value>
     </result>
@@ -331,7 +331,7 @@
     <created by="Carmelo Montanez" on="2006-02-10"/>
     <environment ref="id-idref"/>
     <test>import schema namespace ids=&quot;http://www.w3.org/XQueryTest/ididrefs&quot;; (fn:idref(&quot;id1&quot;, /ids:IDS[1])) is (fn:idref(&quot;id1&quot;, /ids:IDS[1]))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -341,7 +341,7 @@
     <created by="Carmelo Montanez" on="2006-02-10"/>
     <environment ref="id-idref"/>
     <test>import schema namespace ids=&quot;http://www.w3.org/XQueryTest/ididrefs&quot;; (fn:idref(&quot;id1&quot;, /ids:IDS[1])) is (fn:idref(&quot;id2&quot;, /ids:IDS[1]))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

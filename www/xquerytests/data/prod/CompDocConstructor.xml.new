@@ -20,7 +20,7 @@
     <description> merge adjacent atomic values to text node </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <test>count((document {1, 'string', 1,2e3})/text())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -30,7 +30,7 @@
     <created by="Andreas Behm" on="2005-05-26"/>
     <environment ref="DupNode"/>
     <test>count((document {1, //text(), 'string'})/text())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -42,7 +42,7 @@
     <test>
       <![CDATA[count((document {1, 2, <a/>, 3, 4, <b/>, 5, 6})/text())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -51,7 +51,7 @@
     <description> nested computed element constructors </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <test>document {1, document {2, document {document {()}, document {3}}, 4}}</test>
-    <result-string>xs:string('1234')</result-string>
+    <result-string>xs:string(&quot;1234&quot;)</result-string>
     <result>
       <assert-string-value>1234</assert-string-value>
     </result>
@@ -72,7 +72,7 @@
     <description> Check that text nodes are merged in nested document constructors. </description>
     <created by="Oliver Hallam" on="2009-10-05"/>
     <test>count(document {1, document{2}, document { document {()}, document {3}}, 4}/text())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -81,7 +81,7 @@
     <description> Check that empty text nodes are stripped in nested document constructors. </description>
     <created by="Oliver Hallam" on="2009-10-05"/>
     <test>count(document {&quot;&quot;, document{&quot;&quot;}, document { document {()}, document {&quot;&quot;}}, &quot;&quot;}/text())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -90,7 +90,7 @@
     <description> empty computed element content </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <test>document {()}</test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -99,7 +99,7 @@
     <description> atomic values in computed element content </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <test>document {1,'a',3.5,4e2}</test>
-    <result-string>xs:string('1 a 3.5 400')</result-string>
+    <result-string>xs:string(&quot;1 a 3.5 400&quot;)</result-string>
     <result>
       <assert-string-value>1 a 3.5 400</assert-string-value>
     </result>
@@ -120,7 +120,7 @@
     <description> empty string in element content </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <test>document {1, '', 2}</test>
-    <result-string>xs:string('1  2')</result-string>
+    <result-string>xs:string(&quot;1  2&quot;)</result-string>
     <result>
       <assert-string-value>1  2</assert-string-value>
     </result>
@@ -132,7 +132,7 @@
     <test>
       <![CDATA[for $x in <a/>, $y in document {$x} return exactly-one($y/a) is $x]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -144,7 +144,7 @@
     <test>
       <![CDATA[for $x in <!--comment-->, $y in document {$x} return exactly-one($y/comment()) is $x]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -156,7 +156,7 @@
     <test>
       <![CDATA[for $x in <?pi content?>, $y in document {$x} return exactly-one($y/processing-instruction()) is $x]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -168,7 +168,7 @@
     <test>
       <![CDATA[for $x in <a>text</a>, $y in document {$x/text()} return exactly-one($y/text()) is exactly-one($x/text())]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -178,7 +178,7 @@
     <created by="Andreas Behm" on="2005-05-26"/>
     <environment ref="atomic"/>
     <test>declare construction strip; fn:count(fn:data((document {//*:idrefs})/*))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -250,7 +250,7 @@
     <description> string value of element </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <test>fn:string(document {'a', element a {}, 'b'})</test>
-    <result-string>xs:string('ab')</result-string>
+    <result-string>xs:string(&quot;ab&quot;)</result-string>
     <result>
       <assert-string-value>ab</assert-string-value>
     </result>
@@ -259,7 +259,7 @@
     <description> typed value of element </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <test>fn:data(document {'a', element a {}, 'b'})</test>
-    <result-string>xs:string('ab')</result-string>
+    <result-string>xs:string(&quot;ab&quot;)</result-string>
     <result>
       <assert-string-value>ab</assert-string-value>
     </result>
@@ -464,7 +464,7 @@
     <description> Extract the string value from a document node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(document{&quot;abc&quot;})</test>
-    <result-string>xs:string('abc')</result-string>
+    <result-string>xs:string(&quot;abc&quot;)</result-string>
     <result>
       <assert-string-value>abc</assert-string-value>
     </result>
@@ -473,7 +473,7 @@
     <description> Test the atomized type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>data(document {&quot;content&quot;}) instance of xs:untypedAtomic</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -482,7 +482,7 @@
     <description> Test node identity of two document nodes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>document {&quot;content&quot;} is document{&quot;content&quot;}</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -495,7 +495,7 @@
       <![CDATA[string(document{"string", <e>more<a>even more</a><b attr="thisIsIgnored"/>]]>
 ![CDATA[ButNotThis]]      <![CDATA[<?target butThisIs?> content</e>})]]>
     </test>
-    <result-string>xs:string('stringmoreeven moreButNotThis content')</result-string>
+    <result-string>xs:string(&quot;stringmoreeven moreButNotThis content&quot;)</result-string>
     <result>
       <assert-string-value>stringmoreeven moreButNotThis content</assert-string-value>
     </result>
@@ -504,7 +504,7 @@
     <description> Ensure processing instructions and comments are ignored when extracting the string value from a document node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(document{ text {&quot;data&quot;}, processing-instruction name {&quot;data&quot;}, processing-instruction name {&quot;data&quot;}, text {&quot;data&quot;}, processing-instruction name {&quot;data&quot;}, processing-instruction name1 {&quot;data&quot;}, comment {&quot;content&quot;}, comment {&quot;content&quot;}, text {&quot;data&quot;}, processing-instruction name2 {&quot;data&quot;}, comment {&quot;content&quot;}, text {&quot;data&quot;} })</test>
-    <result-string>xs:string('datadatadatadata')</result-string>
+    <result-string>xs:string(&quot;datadatadatadata&quot;)</result-string>
     <result>
       <assert-string-value>datadatadatadata</assert-string-value>
     </result>
@@ -513,7 +513,7 @@
     <description> A recursive construction of document nodes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(document{document{document{document{()}}}}/child::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -522,7 +522,7 @@
     <description> A recursive construction of document nodes, combined with the comma operator. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1, document{document{document{document{()}}}}/child::node(), 1</test>
-    <result-string>xs:string('1 1')</result-string>
+    <result-string>xs:string(&quot;1 1&quot;)</result-string>
     <result>
       <assert-string-value>1 1</assert-string-value>
     </result>
@@ -559,7 +559,7 @@
     <description> Extract the string value from a document node with four computed text nodes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(document{ text {&quot;data&quot;}, text {&quot;data&quot;}, text {&quot;data&quot;}, text {&quot;data&quot;} })</test>
-    <result-string>xs:string('datadatadatadata')</result-string>
+    <result-string>xs:string(&quot;datadatadatadata&quot;)</result-string>
     <result>
       <assert-string-value>datadatadatadata</assert-string-value>
     </result>
@@ -571,7 +571,7 @@
     <test>
       <![CDATA[count(document{ text {"data"}, text {"data"}, <e/>, text {"data"}, text {"data"} }/child::node())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -580,7 +580,7 @@
     <description> Ensure text nodes gets merged(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(document{ text {&quot;data&quot;}, text {&quot;data&quot;}, text {&quot;data&quot;}, text {&quot;data&quot;} }/child::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -640,7 +640,7 @@
     <test>
       <![CDATA[count(<a>{document {text{'a'}}}b</a>/node())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -649,7 +649,7 @@
     <description> Ensure a text node is properly constructed with nested document constructors, when extracting the string-value. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(document {1, document {2, document {document {()}, 3, document {4}}, 5}, 6})</test>
-    <result-string>xs:string('123456')</result-string>
+    <result-string>xs:string(&quot;123456&quot;)</result-string>
     <result>
       <assert-string-value>123456</assert-string-value>
     </result>
@@ -658,7 +658,7 @@
     <description> Ensure a text node is properly constructed with nested document constructors, when serializing. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>document {1, document {2, document {document {()}, 3, document {4}}, 5}, 6}</test>
-    <result-string>xs:string('123456')</result-string>
+    <result-string>xs:string(&quot;123456&quot;)</result-string>
     <result>
       <assert-string-value>123456</assert-string-value>
     </result>

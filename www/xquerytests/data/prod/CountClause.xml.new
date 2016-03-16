@@ -219,7 +219,7 @@
 		    count $index
 		    return $index
       </test>
-    <result-string>xs:string('1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4')</result-string>
+    <result-string>xs:string(&quot;1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3 4 1 2 3 4 1 2 3 4 1 2 3 4</assert-string-value>
     </result>

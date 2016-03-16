@@ -129,7 +129,7 @@
     <description>Deep equal after removing an entry</description>
     <created by="Michael Kay, Saxonica" on="2011-03-27"/>
     <test>deep-equal(map:remove(map{&quot;a&quot;:=1,&quot;b&quot;:=(2,3)}, &quot;a&quot;), map:entry(&quot;b&quot;, (2,3)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -141,7 +141,7 @@
       <collation default="true" uri="http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind"/>
     </environment>
     <test>deep-equal(map:remove(map{&quot;a&quot;:=1,&quot;b&quot;:=(2,3)}, &quot;A&quot;), map:entry(&quot;b&quot;, (2,3)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

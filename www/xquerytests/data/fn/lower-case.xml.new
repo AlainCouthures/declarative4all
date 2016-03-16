@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;lower-case&quot; function with the arguments set as follows: $arg = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:lower-case(xs:string(&quot;This is a characte&quot;))</test>
-    <result-string>xs:string('this is a characte')</result-string>
+    <result-string>xs:string(&quot;this is a characte&quot;)</result-string>
     <result>
       <assert-string-value>this is a characte</assert-string-value>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;lower-case&quot; function with the arguments set as follows: $arg = xs:string(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:lower-case(xs:string(&quot;This is a characte&quot;))</test>
-    <result-string>xs:string('this is a characte')</result-string>
+    <result-string>xs:string(&quot;this is a characte&quot;)</result-string>
     <result>
       <assert-string-value>this is a characte</assert-string-value>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;lower-case&quot; function with the arguments set as follows: $arg = xs:string(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:lower-case(xs:string(&quot;This is a characte&quot;))</test>
-    <result-string>xs:string('this is a characte')</result-string>
+    <result-string>xs:string(&quot;this is a characte&quot;)</result-string>
     <result>
       <assert-string-value>this is a characte</assert-string-value>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluation of lower-case function as per example 1 (for this function) from the FO specs. </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:lower-case(&quot;ABc!D&quot;)</test>
-    <result-string>xs:string('abc!d')</result-string>
+    <result-string>xs:string(&quot;abc!d&quot;)</result-string>
     <result>
       <assert-string-value>abc!d</assert-string-value>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluation of lower-case function using the empty sequence Uses the count function to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:count(fn:lower-case(()))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluation of lower-case function that uses only numbers as part of argument Use of count function to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:lower-case(&quot;12345&quot;)</test>
-    <result-string>xs:string('12345')</result-string>
+    <result-string>xs:string(&quot;12345&quot;)</result-string>
     <result>
       <assert-string-value>12345</assert-string-value>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluation of lower-case function that uses both numbers and letters as part of argument </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:lower-case(&quot;12345abcd&quot;)</test>
-    <result-string>xs:string('12345abcd')</result-string>
+    <result-string>xs:string(&quot;12345abcd&quot;)</result-string>
     <result>
       <assert-string-value>12345abcd</assert-string-value>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluation of lower-case function that uses only upper case letters as part of argument </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:lower-case(&quot;ABCD&quot;)</test>
-    <result-string>xs:string('abcd')</result-string>
+    <result-string>xs:string(&quot;abcd&quot;)</result-string>
     <result>
       <assert-string-value>abcd</assert-string-value>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluation of lower-case function that uses only lower case letters as part of argument </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:lower-case(&quot;abcde&quot;)</test>
-    <result-string>xs:string('abcde')</result-string>
+    <result-string>xs:string(&quot;abcde&quot;)</result-string>
     <result>
       <assert-string-value>abcde</assert-string-value>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluation of lower-case function that uses both upper and lower case letters as part of argument </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:lower-case(&quot;ABCDEabcde&quot;)</test>
-    <result-string>xs:string('abcdeabcde')</result-string>
+    <result-string>xs:string(&quot;abcdeabcde&quot;)</result-string>
     <result>
       <assert-string-value>abcdeabcde</assert-string-value>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluation of lower-case function that uses the empty string as part of argument Uses &quot;fn:count&quot; to avoid the empty file </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:count(fn:lower-case(&quot;&quot;))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluation of lower-case function that uses the &quot;upper-case&quot; as part of argument </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:lower-case(upper-case(&quot;AbcDH&quot;))</test>
-    <result-string>xs:string('abcdh')</result-string>
+    <result-string>xs:string(&quot;abcdh&quot;)</result-string>
     <result>
       <assert-string-value>abcdh</assert-string-value>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluation of lower-case function with argument set to &quot;*****&quot; </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:lower-case(&quot;*****&quot;)</test>
-    <result-string>xs:string('*****')</result-string>
+    <result-string>xs:string(&quot;*****&quot;)</result-string>
     <result>
       <assert-string-value>*****</assert-string-value>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluation of lower-case function with argument set to another lower-case function </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:lower-case(lower-case(&quot;zzzzz&quot;))</test>
-    <result-string>xs:string('zzzzz')</result-string>
+    <result-string>xs:string(&quot;zzzzz&quot;)</result-string>
     <result>
       <assert-string-value>zzzzz</assert-string-value>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluation of lower-case function as an argument to the &quot;fn:boolean&quot; function </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:boolean(fn:lower-case(&quot;abcde&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluation of lower-case function as an argument to the &quot;fn:concat&quot; function </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:concat(fn:lower-case(&quot;abcde&quot;), fn:lower-case(&quot;fghi&quot;))</test>
-    <result-string>xs:string('abcdefghi')</result-string>
+    <result-string>xs:string(&quot;abcdefghi&quot;)</result-string>
     <result>
       <assert-string-value>abcdefghi</assert-string-value>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluation of lower-case function as an argument to the &quot;fn:not&quot; function </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:not(fn:lower-case(&quot;abcde&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluation of lower-case function with argument set to &quot;%$#@!&quot; </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:lower-case(&quot;%$#@!&quot;)</test>
-    <result-string>xs:string('%$#@!')</result-string>
+    <result-string>xs:string(&quot;%$#@!&quot;)</result-string>
     <result>
       <assert-string-value>%$#@!</assert-string-value>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluation of lower-case function with argument set to &quot;lower-case&quot; </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:lower-case(&quot;lower-case&quot;)</test>
-    <result-string>xs:string('lower-case')</result-string>
+    <result-string>xs:string(&quot;lower-case&quot;)</result-string>
     <result>
       <assert-string-value>lower-case</assert-string-value>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluation of lower-case function as part of a boolean expression </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:lower-case(&quot;abc&quot;) and fn:lower-case(&quot;abc&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -204,7 +204,7 @@
     <description> A test whose essence is: `lower-case(()) eq &quot;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>lower-case(()) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -213,7 +213,7 @@
     <description> A test whose essence is: `upper-case(&quot;abCd0&quot;) eq &quot;ABCD0&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>upper-case(&quot;abCd0&quot;) eq &quot;ABCD0&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

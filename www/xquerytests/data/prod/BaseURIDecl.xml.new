@@ -47,7 +47,7 @@
     <test>
       <![CDATA[declare base-uri "http://www.example.com/abc&amp;"; "aaa"]]>
     </test>
-    <result-string>xs:string('aaa')</result-string>
+    <result-string>xs:string(&quot;aaa&quot;)</result-string>
     <result>
       <assert-string-value>aaa</assert-string-value>
     </result>
@@ -72,7 +72,7 @@
     <test>
       <![CDATA[declare base-uri "http://www.example.com/abc&apos;"; "aaa"]]>
     </test>
-    <result-string>xs:string('aaa')</result-string>
+    <result-string>xs:string(&quot;aaa&quot;)</result-string>
     <result>
       <assert-string-value>aaa</assert-string-value>
     </result>
@@ -81,7 +81,7 @@
     <description> Evaluates base-uri with the fn:resolve-uri function. Typical usage </description>
     <created by="Carmelo Montanez" on="2005-11-18"/>
     <test>declare base-uri &quot;http://www.example.com/&quot;; fn:string(fn:resolve-uri(&quot;examples&quot;))</test>
-    <result-string>xs:string('http://www.example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/examples</assert-string-value>
     </result>
@@ -107,7 +107,7 @@
     <description> Evaluates base-uri with the fn:static-base-uri function. Typical usage </description>
     <created by="Carmelo Montanez" on="2005-11-18"/>
     <test>declare base-uri &quot;http://example.org&quot;; fn:string(fn:static-base-uri())</test>
-    <result-string>xs:string('http://example.org')</result-string>
+    <result-string>xs:string(&quot;http://example.org&quot;)</result-string>
     <result>
       <assert-string-value>http://example.org</assert-string-value>
     </result>
@@ -128,7 +128,7 @@
     <description> Evaluates base-uri property can contain numbers. Used with static-base--uri function. </description>
     <created by="Carmelo Montanez" on="2005-11-18"/>
     <test>declare base-uri &quot;http://www.example.com/abc123&quot;; fn:string(fn:static-base-uri())</test>
-    <result-string>xs:string('http://www.example.com/abc123')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/abc123&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/abc123</assert-string-value>
     </result>
@@ -149,7 +149,7 @@
     <description> Evaluates base-uri property can contain an escape apostrophe. Used with static-base--uri function. </description>
     <created by="Carmelo Montanez" on="2005-11-18"/>
     <test>declare base-uri 'http://www.example.com/abc'''; fn:string(fn:static-base-uri())</test>
-    <result-string>xs:string('http://www.example.com/abc'')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/abc'&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/abc'</assert-string-value>
     </result>
@@ -170,7 +170,7 @@
     <description> Evaluates base-uri property can contain a single character (after the &quot;http://&quot;section). Used with static-base-uri function. </description>
     <created by="Carmelo Montanez" on="2005-11-18"/>
     <test>declare base-uri &quot;http://A&quot;; fn:string(fn:static-base-uri())</test>
-    <result-string>xs:string('http://A')</result-string>
+    <result-string>xs:string(&quot;http://A&quot;)</result-string>
     <result>
       <assert-string-value>http://A</assert-string-value>
     </result>
@@ -205,7 +205,7 @@
     <description> Evaluates that base-uri property can contain &quot;base-uri&quot;. Used with static-base--uri function. </description>
     <created by="Carmelo Montanez" on="2005-11-18"/>
     <test>declare base-uri &quot;http://www.base-uri.com&quot;; fn:string(fn:static-base-uri())</test>
-    <result-string>xs:string('http://www.base-uri.com')</result-string>
+    <result-string>xs:string(&quot;http://www.base-uri.com&quot;)</result-string>
     <result>
       <assert-string-value>http://www.base-uri.com</assert-string-value>
     </result>
@@ -214,7 +214,7 @@
     <description> Evaluates that base-uri property can contain &quot;BASE-URI&quot;. Used with static-base-uri function. </description>
     <created by="Carmelo Montanez" on="2005-11-18"/>
     <test>declare base-uri &quot;http://www.BASE-URI.com&quot;; fn:string(fn:static-base-uri())</test>
-    <result-string>xs:string('http://www.BASE-URI.com')</result-string>
+    <result-string>xs:string(&quot;http://www.BASE-URI.com&quot;)</result-string>
     <result>
       <assert-string-value>http://www.BASE-URI.com</assert-string-value>
     </result>
@@ -223,7 +223,7 @@
     <description>Verify normalization of xs:anyURI (leading spaces). Used with static-base--uri function. </description>
     <created by="Carmelo Montanez" on="2006-01-24"/>
     <test>declare base-uri &quot; http://www.example.org/examples&quot;; fn:string(fn:static-base-uri())</test>
-    <result-string>xs:string('http://www.example.org/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.org/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.org/examples</assert-string-value>
     </result>
@@ -232,7 +232,7 @@
     <description>Verify normalization of xs:anyURI (trailing spaces). Used with static-base--uri function. </description>
     <created by="Carmelo Montanez" on="2006-01-24"/>
     <test>declare base-uri &quot;http://www.example.org/examples &quot;; fn:string(fn:static-base-uri())</test>
-    <result-string>xs:string('http://www.example.org/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.org/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.org/examples</assert-string-value>
     </result>
@@ -253,7 +253,7 @@
     <description>Verify normalization of xs:anyURI (encoded whitespaces in the middle). Used with static-base--uri function. </description>
     <created by="Carmelo Montanez" on="2006-03-09"/>
     <test>declare base-uri &quot;http://www.example.org/%20%20examples&quot;; fn:string(fn:static-base-uri())</test>
-    <result-string>xs:string('http://www.example.org/%20%20examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.org/%20%20examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.org/%20%20examples</assert-string-value>
     </result>
@@ -262,7 +262,7 @@
     <description> Evaluation of base-uri set to a relative value. </description>
     <created by="Carmelo Montanez" on="2006-09-25"/>
     <test>declare base-uri &quot;abc&quot;; fn:ends-with(fn:string(fn:static-base-uri()),&quot;abc&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -274,7 +274,7 @@
     <test>
       <![CDATA[declare base-uri "http://www.example.com/"; fn:base-uri(<elem xml:base="fluster"></elem>)]]>
     </test>
-    <result-string>xs:string('http://www.example.com/fluster')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/fluster&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/fluster</assert-string-value>
     </result>
@@ -286,7 +286,7 @@
     <test>
       <![CDATA[declare base-uri "http://www.example.com/"; fn:base-uri(exactly-one((<elem xml:base="fluster"><a/></elem>)/a))]]>
     </test>
-    <result-string>xs:string('http://www.example.com/fluster')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/fluster&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/fluster</assert-string-value>
     </result>
@@ -298,7 +298,7 @@
     <test>
       <![CDATA[declare base-uri "http://www.example.com/"; fn:base-uri(exactly-one((<elem xml:base="fluster/"><a xml:base="now"/></elem>)/a))]]>
     </test>
-    <result-string>xs:string('http://www.example.com/fluster/now')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/fluster/now&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/fluster/now</assert-string-value>
     </result>
@@ -310,7 +310,7 @@
         declare(::)base-uri(::)&quot;http://example.com/declareBaseURITest&quot;; 
         static-base-uri() eq 'http://example.com/declareBaseURITest'
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -432,7 +432,7 @@
           import module namespace m =&quot;http://www.w3.org/TestModules/module-001&quot;;
           static-base-uri() eq m:static-base-uri()
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

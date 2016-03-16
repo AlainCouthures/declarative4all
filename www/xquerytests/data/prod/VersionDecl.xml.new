@@ -324,7 +324,7 @@
     <modified by="Michael Dyck" change="Add dependency on XQ10" on="2012-09-10"/>
     <dependency type="spec" value="XQ10"/>
     <test>xquery version &quot;1.0&quot; ; 1 eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -334,7 +334,7 @@
     <created by="Michael Dyck" on="2012-09-10"/>
     <dependency type="spec" value="XQ30"/>
     <test>xquery version &quot;3.0&quot; ; 1 eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -345,7 +345,7 @@
     <modified by="Michael Dyck" change="Add dependency on XQ10" on="2012-09-10"/>
     <dependency type="spec" value="XQ10"/>
     <test>xquery version &quot;1.0&quot;; 1,2</test>
-    <result-string>xs:string('1 2')</result-string>
+    <result-string>xs:string(&quot;1 2&quot;)</result-string>
     <result>
       <assert-string-value>1 2</assert-string-value>
     </result>
@@ -355,7 +355,7 @@
     <created by="Michael Dyck" on="2012-09-10"/>
     <dependency type="spec" value="XQ30"/>
     <test>xquery version &quot;3.0&quot;; 1,2</test>
-    <result-string>xs:string('1 2')</result-string>
+    <result-string>xs:string(&quot;1 2&quot;)</result-string>
     <result>
       <assert-string-value>1 2</assert-string-value>
     </result>
@@ -508,7 +508,7 @@
     <modified by="Michael Dyck" change="Add dependency on XQ10" on="2012-09-10"/>
     <dependency type="spec" value="XQ10"/>
     <test>xquery version &quot;1.0&quot; encoding &quot;utf-8&quot;; 1,2</test>
-    <result-string>xs:string('1 2')</result-string>
+    <result-string>xs:string(&quot;1 2&quot;)</result-string>
     <result>
       <assert-string-value>1 2</assert-string-value>
     </result>
@@ -518,7 +518,7 @@
     <created by="Michael Dyck" on="2012-09-10"/>
     <dependency type="spec" value="XQ30"/>
     <test>xquery version &quot;3.0&quot; encoding &quot;utf-8&quot;; 1,2</test>
-    <result-string>xs:string('1 2')</result-string>
+    <result-string>xs:string(&quot;1 2&quot;)</result-string>
     <result>
       <assert-string-value>1 2</assert-string-value>
     </result>
@@ -529,7 +529,7 @@
     <modified by="Michael Dyck" change="Add dependency on XQ10" on="2012-09-10"/>
     <dependency type="spec" value="XQ10"/>
     <test>xquery version &quot;1.0&quot; encoding &quot;US-ASCII&quot;; 1,2</test>
-    <result-string>xs:string('1 2')</result-string>
+    <result-string>xs:string(&quot;1 2&quot;)</result-string>
     <result>
       <assert-string-value>1 2</assert-string-value>
     </result>
@@ -539,7 +539,7 @@
     <created by="Michael Dyck" on="2012-09-10"/>
     <dependency type="spec" value="XQ30"/>
     <test>xquery version &quot;3.0&quot; encoding &quot;US-ASCII&quot;; 1,2</test>
-    <result-string>xs:string('1 2')</result-string>
+    <result-string>xs:string(&quot;1 2&quot;)</result-string>
     <result>
       <assert-string-value>1 2</assert-string-value>
     </result>
@@ -563,7 +563,7 @@
         declare default function namespace &quot;http://example.com/&quot;; 
         declare option fn:x-notRecognized &quot;option content&quot;; 
         1 eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -586,7 +586,7 @@
         declare default function namespace &quot;http://example.com/&quot;; 
         declare option fn:x-notRecognized &quot;option content&quot;; 
         1 eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -599,7 +599,7 @@
     <created by="Michael Dyck" on="2012-09-10"/>
     <dependency type="spec" value="XQ30+"/>
     <test>xquery encoding &quot;utf-8&quot;; 1 eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -613,7 +613,7 @@
     <description> a string literal reminding of an xquery version declaration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>'xquery version &quot;1.0&quot; encoding &quot;UTF-8|#%&quot;;' eq 'xquery version &quot;1.0&quot; encoding &quot;UTF-8|#%&quot;;'</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -622,7 +622,7 @@
     <description> a string literal reminding of an xquery version declaration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>&quot;xquery version '1.0' encoding 'UTF-8|#%';&quot; eq &quot;xquery version '1.0' encoding 'UTF-8|#%';&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

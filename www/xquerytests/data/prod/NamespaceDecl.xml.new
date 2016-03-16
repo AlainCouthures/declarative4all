@@ -205,7 +205,7 @@
     <test>
       <![CDATA[declare namespace px = "http://www.example.com/abc"; let $var := <px:someElement>some context</px:someElement> return namespace-uri-from-QName(node-name($var)) eq xs:anyURI("http://www.example.com/abc")]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -245,7 +245,7 @@
     <test>
       <![CDATA[declare namespace xx = "http://www.example.com/abc123"; let $var := <xx:someElement>some content</xx:someElement> return namespace-uri-from-QName(node-name($var)) eq xs:anyURI("http://www.example.com/abc123")]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -257,7 +257,7 @@
     <test>
       <![CDATA[declare namespace abc = "http://www.example.com/abc"; let $var := <abc:someElement>some content</abc:someElement> return namespace-uri-from-QName(node-name($var)) eq xs:anyURI("http://www.example.com/abc")]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -283,7 +283,7 @@
     <test>
       <![CDATA[declare namespace abc = "http://www.example.com/abc&amp;"; let $var := <abc:someElement>some content</abc:someElement> return namespace-uri-from-QName(node-name($var)) eq xs:anyURI("http://www.example.com/abc&amp;")]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -306,7 +306,7 @@
     <description> A 'declare namespace' expression containing many comments, using apostrophes for the URILiteral. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(::)declare(::)namespace(::)ncname(::)=(::)'http://example.com/';(::)1(::)eq(::)1(::)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -315,7 +315,7 @@
     <description> A 'declare namespace' expression containing many comments, using quotes for the URILiteral. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(::)declare(::)namespace(::)ncname(::)=(::)&quot;http://example.com/&quot;(::);(::)1(::)eq(::)1(::)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -369,7 +369,7 @@
     <description> It is ok to undeclare a non-bound namespace. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare namespace thisPrefixIsNotBoundExampleCom = &quot;&quot;; true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

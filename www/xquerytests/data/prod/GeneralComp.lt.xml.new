@@ -9,7 +9,7 @@
     <test>
       <![CDATA[() < ()]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -20,7 +20,7 @@
     <test>
       <![CDATA[() < 10000]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -31,7 +31,7 @@
     <test>
       <![CDATA[() < (50000)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -42,7 +42,7 @@
     <test>
       <![CDATA[() < (10000,50000)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -54,7 +54,7 @@
     <test>
       <![CDATA[() < <a>10000</a>]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -66,7 +66,7 @@
     <test>
       <![CDATA[() < (<a>10000</a>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -78,7 +78,7 @@
     <test>
       <![CDATA[() < (<a>10000</a>,<b>50000</b>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -90,7 +90,7 @@
     <test>
       <![CDATA[() < (/works/employee[1]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -102,7 +102,7 @@
     <test>
       <![CDATA[() < (/works/employee[1]/hours[1],/works/employee[6]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -115,7 +115,7 @@
       <![CDATA[
          () < ($works/works/employee[1]/hours[1],$staff/staff/employee[6]/grade[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -126,7 +126,7 @@
     <test>
       <![CDATA[10000 < ()]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -137,7 +137,7 @@
     <test>
       <![CDATA[10000 < (50000)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -148,7 +148,7 @@
     <test>
       <![CDATA[10000 < (10000,50000)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -160,7 +160,7 @@
     <test>
       <![CDATA[10000 < <a>10000</a>]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -172,7 +172,7 @@
     <test>
       <![CDATA[10000 < (<a>10000</a>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -184,7 +184,7 @@
     <test>
       <![CDATA[10000 < (<a>10000</a>,<b>50000</b>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -196,7 +196,7 @@
     <test>
       <![CDATA[10000 < (/works/employee[1]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -208,7 +208,7 @@
     <test>
       <![CDATA[10000 < (/works/employee[1]/hours[1],/works/employee[6]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -221,7 +221,7 @@
       <![CDATA[
          10000 < ($works/works/employee[1]/hours[1],$staff/staff/employee[6]/grade[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -232,7 +232,7 @@
     <test>
       <![CDATA[(50000) < ()]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -243,7 +243,7 @@
     <test>
       <![CDATA[(50000) < 10000]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -254,7 +254,7 @@
     <test>
       <![CDATA[(50000) < (50000)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -265,7 +265,7 @@
     <test>
       <![CDATA[(50000) < (10000,50000)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -277,7 +277,7 @@
     <test>
       <![CDATA[(50000) < <a>10000</a>]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -289,7 +289,7 @@
     <test>
       <![CDATA[(50000) < (<a>10000</a>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -301,7 +301,7 @@
     <test>
       <![CDATA[(50000) < (<a>10000</a>,<b>50000</b>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -313,7 +313,7 @@
     <test>
       <![CDATA[(50000) < (/works/employee[1]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -325,7 +325,7 @@
     <test>
       <![CDATA[(50000) < (/works/employee[1]/hours[1],/works/employee[6]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -338,7 +338,7 @@
       <![CDATA[
          (50000) < ($works/works/employee[1]/hours[1],$staff/staff/employee[6]/grade[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -349,7 +349,7 @@
     <test>
       <![CDATA[(10000,50000) < ()]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -360,7 +360,7 @@
     <test>
       <![CDATA[(10000,50000) < 10000]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -371,7 +371,7 @@
     <test>
       <![CDATA[(10000,50000) < (50000)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -382,7 +382,7 @@
     <test>
       <![CDATA[(10000,50000) < (10000,50000)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -394,7 +394,7 @@
     <test>
       <![CDATA[(10000,50000) < <a>10000</a>]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -406,7 +406,7 @@
     <test>
       <![CDATA[(10000,50000) < (<a>10000</a>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -418,7 +418,7 @@
     <test>
       <![CDATA[(10000,50000) < (<a>10000</a>,<b>50000</b>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -430,7 +430,7 @@
     <test>
       <![CDATA[(10000,50000) < (/works/employee[1]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -442,7 +442,7 @@
     <test>
       <![CDATA[(10000,50000) < (/works/employee[1]/hours[1],/works/employee[6]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -455,7 +455,7 @@
       <![CDATA[
          (10000,50000) < ($works/works/employee[1]/hours[1],$staff/staff/employee[6]/grade[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -467,7 +467,7 @@
     <test>
       <![CDATA[<a>10000</a> < ()]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -479,7 +479,7 @@
     <test>
       <![CDATA[<a>10000</a> < 10000]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -491,7 +491,7 @@
     <test>
       <![CDATA[<a>10000</a> < (50000)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -503,7 +503,7 @@
     <test>
       <![CDATA[<a>10000</a> < (10000,50000)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -515,7 +515,7 @@
     <test>
       <![CDATA[<a>10000</a> < <a>10000</a>]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -527,7 +527,7 @@
     <test>
       <![CDATA[<a>10000</a> < (<a>10000</a>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -539,7 +539,7 @@
     <test>
       <![CDATA[<a>10000</a> < (<a>10000</a>,<b>50000</b>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -552,7 +552,7 @@
     <test>
       <![CDATA[<a>10000</a> < (/works/employee[1]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -565,7 +565,7 @@
     <test>
       <![CDATA[<a>10000</a> < (/works/employee[1]/hours[1],/works/employee[6]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -579,7 +579,7 @@
       <![CDATA[
          <a>10000</a> < ($works/works/employee[1]/hours[1],$staff/staff/employee[6]/grade[1])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -591,7 +591,7 @@
     <test>
       <![CDATA[(<a>10000</a>) < ()]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -603,7 +603,7 @@
     <test>
       <![CDATA[(<a>10000</a>) < 10000]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -615,7 +615,7 @@
     <test>
       <![CDATA[(<a>10000</a>) < (50000)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -627,7 +627,7 @@
     <test>
       <![CDATA[(<a>10000</a>) < (10000,50000)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -639,7 +639,7 @@
     <test>
       <![CDATA[(<a>10000</a>) < <a>10000</a>]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -651,7 +651,7 @@
     <test>
       <![CDATA[(<a>10000</a>) < (<a>10000</a>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -663,7 +663,7 @@
     <test>
       <![CDATA[(<a>10000</a>) < (<a>10000</a>,<b>50000</b>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -676,7 +676,7 @@
     <test>
       <![CDATA[(<a>10000</a>) < (/works/employee[1]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -689,7 +689,7 @@
     <test>
       <![CDATA[(<a>10000</a>) < (/works/employee[1]/hours[1],/works/employee[6]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -703,7 +703,7 @@
       <![CDATA[
          (<a>10000</a>) < ($works/works/employee[1]/hours[1],$staff/staff/employee[6]/grade[1])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -715,7 +715,7 @@
     <test>
       <![CDATA[(<a>10000</a>,<b>50000</b>) < ()]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -727,7 +727,7 @@
     <test>
       <![CDATA[(<a>10000</a>,<b>50000</b>) < 10000]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -739,7 +739,7 @@
     <test>
       <![CDATA[(<a>10000</a>,<b>50000</b>) < (50000)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -751,7 +751,7 @@
     <test>
       <![CDATA[(<a>10000</a>,<b>50000</b>) < (10000,50000)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -763,7 +763,7 @@
     <test>
       <![CDATA[(<a>10000</a>,<b>50000</b>) < <a>10000</a>]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -775,7 +775,7 @@
     <test>
       <![CDATA[(<a>10000</a>,<b>50000</b>) < (<a>10000</a>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -787,7 +787,7 @@
     <test>
       <![CDATA[(<a>10000</a>,<b>50000</b>) < (<a>10000</a>,<b>50000</b>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -800,7 +800,7 @@
     <test>
       <![CDATA[(<a>10000</a>,<b>50000</b>) < (/works/employee[1]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -813,7 +813,7 @@
     <test>
       <![CDATA[(<a>10000</a>,<b>50000</b>) < (/works/employee[1]/hours[1],/works/employee[6]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -827,7 +827,7 @@
       <![CDATA[(
          <a>10000</a>,<b>50000</b>) < ($works/works/employee[1]/hours[1],$staff/staff/employee[6]/grade[1])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -839,7 +839,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1]) < ()]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -851,7 +851,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1]) < 10000]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -863,7 +863,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1]) < (50000)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -875,7 +875,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1]) < (10000,50000)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -888,7 +888,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1]) < <a>10000</a>]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -901,7 +901,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1]) < (<a>10000</a>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -914,7 +914,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1]) < (<a>10000</a>,<b>50000</b>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -926,7 +926,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1]) < (/works/employee[1]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -938,7 +938,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1]) < (/works/employee[1]/hours[1],/works/employee[6]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -951,7 +951,7 @@
       <![CDATA[
           ($works/works/employee[1]/hours[1]) < ($works/works/employee[1]/hours[1],$staff/staff/employee[6]/grade[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -963,7 +963,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1],/works/employee[6]/hours[1]) < ()]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -975,7 +975,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1],/works/employee[6]/hours[1]) < 10000]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -987,7 +987,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1],/works/employee[6]/hours[1]) < (50000)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -999,7 +999,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1],/works/employee[6]/hours[1]) < (10000,50000)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1012,7 +1012,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1],/works/employee[6]/hours[1]) < <a>10000</a>]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1025,7 +1025,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1],/works/employee[6]/hours[1]) < (<a>10000</a>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1038,7 +1038,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1],/works/employee[6]/hours[1]) < (<a>10000</a>,<b>50000</b>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1050,7 +1050,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1],/works/employee[6]/hours[1]) < (/works/employee[1]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1062,7 +1062,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1],/works/employee[6]/hours[1]) < (/works/employee[1]/hours[1],/works/employee[6]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1075,7 +1075,7 @@
       <![CDATA[
          ($works/works/employee[1]/hours[1],$works/works/employee[6]/hours[1]) < ($works/works/employee[1]/hours[1],$staff/staff/employee[6]/grade[1])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1088,7 +1088,7 @@
       <![CDATA[
          ($works/works/employee[1]/hours[1],$staff/staff/employee[6]/hours[1]) < ()]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1100,7 +1100,7 @@
     <test>
       <![CDATA[($works/works/employee[1]/hours[1],$staff/staff/employee[6]/hours[1]) < 10000]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1112,7 +1112,7 @@
     <test>
       <![CDATA[($works/works/employee[1]/hours[1],$staff/staff/employee[6]/hours[1]) < (50000)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1124,7 +1124,7 @@
     <test>
       <![CDATA[($works/works/employee[1]/hours[1],$staff/staff/employee[6]/hours[1]) < (10000,50000)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1137,7 +1137,7 @@
     <test>
       <![CDATA[($works/works/employee[1]/hours[1],$staff/staff/employee[6]/hours[1]) < <a>10000</a>]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1150,7 +1150,7 @@
     <test>
       <![CDATA[($works/works/employee[1]/hours[1],$staff/staff/employee[6]/hours[1]) < (<a>10000</a>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1163,7 +1163,7 @@
     <test>
       <![CDATA[($works/works/employee[1]/hours[1],$staff/staff/employee[6]/hours[1]) < (<a>10000</a>,<b>50000</b>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1175,7 +1175,7 @@
     <test>
       <![CDATA[($works/works/employee[1]/hours[1],$staff/staff/employee[6]/hours[1]) < ($works/works/employee[1]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1187,7 +1187,7 @@
     <test>
       <![CDATA[($works/works/employee[1]/hours[1],$staff/staff/employee[6]/hours[1]) < ($works/works/employee[1]/hours[1],$works/works/employee[6]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1199,7 +1199,7 @@
     <test>
       <![CDATA[($works/works/employee[1]/hours[1],$staff/staff/employee[6]/hours[1]) < ($works/works/employee[1]/hours[1],$staff/staff/employee[6]/grade[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1210,7 +1210,7 @@
     <test>
       <![CDATA[(xs:anyURI("http://www.example/com")) < (xs:anyURI("http://www.example/com"))]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1221,7 +1221,7 @@
     <test>
       <![CDATA[not(() < () )]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1232,7 +1232,7 @@
     <test>
       <![CDATA[not(1 < () )]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1243,7 +1243,7 @@
     <test>
       <![CDATA[not(() < 1 )]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1265,7 +1265,7 @@
     <test>
       <![CDATA[(1, 2, 3) < 4]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1276,7 +1276,7 @@
     <test>
       <![CDATA[(1, 2, 3) < 2]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1287,7 +1287,7 @@
     <test>
       <![CDATA[(1, 2, 3) < 3]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1298,7 +1298,7 @@
     <test>
       <![CDATA[1 < (1, 2, 3)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1309,7 +1309,7 @@
     <test>
       <![CDATA[2 < (1, 2, 3)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1320,7 +1320,7 @@
     <test>
       <![CDATA[0 < (1, 2, 3)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1331,7 +1331,7 @@
     <test>
       <![CDATA[1 < 2]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1342,7 +1342,7 @@
     <test>
       <![CDATA[xs:untypedAtomic("false") < true()]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1353,7 +1353,7 @@
     <test>
       <![CDATA[false() < xs:untypedAtomic("true")]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1364,7 +1364,7 @@
     <test>
       <![CDATA[not(xs:untypedAtomic("true") < false())]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1375,7 +1375,7 @@
     <test>
       <![CDATA[not(true() < xs:untypedAtomic("false"))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1408,7 +1408,7 @@
     <test>
       <![CDATA[1 <= count((1, 2, 3, timezone-from-time(current-time()), 4))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1419,7 +1419,7 @@
     <test>
       <![CDATA[0 < count((1, 2, 3, timezone-from-time(current-time()), 4))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1431,7 +1431,7 @@
     <test>
       <![CDATA[<e>1.1</e> < 3]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1443,7 +1443,7 @@
     <test>
       <![CDATA[3. < <e>1.1</e>]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1455,7 +1455,7 @@
     <test>
       <![CDATA[<e>1.1</e> < 3.]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1467,7 +1467,7 @@
     <test>
       <![CDATA[3 < <e>1.1</e>]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1479,7 +1479,7 @@
     <test>
       <![CDATA[<e>1.1</e> < 3e3]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1491,7 +1491,7 @@
     <test>
       <![CDATA[3e3 < <e>1.1</e>]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1503,7 +1503,7 @@
     <test>
       <![CDATA[<e>1.1</e> < xs:float(3e3)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1515,7 +1515,7 @@
     <test>
       <![CDATA[xs:float(3e3) < <e>1.1</e>]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

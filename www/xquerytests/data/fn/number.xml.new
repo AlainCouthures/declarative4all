@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:int(&quot;-2147483648&quot;))</test>
-    <result-string>xs:string('-2.147483648E9')</result-string>
+    <result-string>xs:string(&quot;-2.147483648E9&quot;)</result-string>
     <result>
       <assert-string-value>-2.147483648E9</assert-string-value>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:int(&quot;-1873914410&quot;))</test>
-    <result-string>xs:string('-1.87391441E9')</result-string>
+    <result-string>xs:string(&quot;-1.87391441E9&quot;)</result-string>
     <result>
       <assert-string-value>-1.87391441E9</assert-string-value>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:int(&quot;2147483647&quot;))</test>
-    <result-string>xs:string('2.147483647E9')</result-string>
+    <result-string>xs:string(&quot;2.147483647E9&quot;)</result-string>
     <result>
       <assert-string-value>2.147483647E9</assert-string-value>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:integer(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:string('-1.0E18')</result-string>
+    <result-string>xs:string(&quot;-1.0E18&quot;)</result-string>
     <result>
       <assert-string-value>-1.0E18</assert-string-value>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:integer(&quot;830993497117024304&quot;)) eq 830993497117024304</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:integer(&quot;999999999999999999&quot;))</test>
-    <result-string>xs:string('1.0E18')</result-string>
+    <result-string>xs:string(&quot;1.0E18&quot;)</result-string>
     <result>
       <assert-string-value>1.0E18</assert-string-value>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:decimal(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:string('-1.0E18')</result-string>
+    <result-string>xs:string(&quot;-1.0E18&quot;)</result-string>
     <result>
       <assert-string-value>-1.0E18</assert-string-value>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:decimal(&quot;617375191608514839&quot;)) eq 617375191608514839</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:decimal(&quot;999999999999999999&quot;))</test>
-    <result-string>xs:string('1.0E18')</result-string>
+    <result-string>xs:string(&quot;1.0E18&quot;)</result-string>
     <result>
       <assert-string-value>1.0E18</assert-string-value>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:double(&quot;-1.7976931348623157E308&quot;))</test>
-    <result-string>xs:string('-1.7976931348623157E308')</result-string>
+    <result-string>xs:string(&quot;-1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E308</assert-string-value>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:double(&quot;0&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:double(&quot;1.7976931348623157E308&quot;))</test>
-    <result-string>xs:string('1.7976931348623157E308')</result-string>
+    <result-string>xs:string(&quot;1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-string-value>1.7976931348623157E308</assert-string-value>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:float(&quot;-3.4028235E38&quot;)) eq -3.4028234663852885E38</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:float(&quot;0&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -145,7 +145,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:long(&quot;-92233720368547758&quot;))</test>
-    <result-string>xs:string('-9.223372036854776E16')</result-string>
+    <result-string>xs:string(&quot;-9.223372036854776E16&quot;)</result-string>
     <result>
       <assert-string-value>-9.223372036854776E16</assert-string-value>
     </result>
@@ -154,7 +154,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:long(&quot;-47175562203048468&quot;)) eq -47175562203048468</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -163,7 +163,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:long(&quot;92233720368547758&quot;))</test>
-    <result-string>xs:string('9.223372036854776E16')</result-string>
+    <result-string>xs:string(&quot;9.223372036854776E16&quot;)</result-string>
     <result>
       <assert-string-value>9.223372036854776E16</assert-string-value>
     </result>
@@ -172,7 +172,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:unsignedShort(&quot;0&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -181,7 +181,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:unsignedShort(&quot;44633&quot;))</test>
-    <result-string>xs:string('44633')</result-string>
+    <result-string>xs:string(&quot;44633&quot;)</result-string>
     <result>
       <assert-string-value>44633</assert-string-value>
     </result>
@@ -190,7 +190,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:unsignedShort(&quot;65535&quot;))</test>
-    <result-string>xs:string('65535')</result-string>
+    <result-string>xs:string(&quot;65535&quot;)</result-string>
     <result>
       <assert-string-value>65535</assert-string-value>
     </result>
@@ -199,7 +199,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:negativeInteger(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:string('-1.0E18')</result-string>
+    <result-string>xs:string(&quot;-1.0E18&quot;)</result-string>
     <result>
       <assert-string-value>-1.0E18</assert-string-value>
     </result>
@@ -208,7 +208,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:negativeInteger(&quot;-297014075999096793&quot;)) eq -297014075999096793</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -217,7 +217,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:negativeInteger(&quot;-1&quot;))</test>
-    <result-string>xs:string('-1')</result-string>
+    <result-string>xs:string(&quot;-1&quot;)</result-string>
     <result>
       <assert-string-value>-1</assert-string-value>
     </result>
@@ -226,7 +226,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:positiveInteger(&quot;1&quot;))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -235,7 +235,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:positiveInteger(&quot;52704602390610033&quot;)) eq 52704602390610033</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -244,7 +244,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:positiveInteger(&quot;999999999999999999&quot;))</test>
-    <result-string>xs:string('1.0E18')</result-string>
+    <result-string>xs:string(&quot;1.0E18&quot;)</result-string>
     <result>
       <assert-string-value>1.0E18</assert-string-value>
     </result>
@@ -253,7 +253,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:unsignedLong(&quot;0&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -289,7 +289,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:unsignedLong(&quot;184467440737095516&quot;)) eq 1.8446744073709551E17</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -298,7 +298,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:nonPositiveInteger(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:string('-1.0E18')</result-string>
+    <result-string>xs:string(&quot;-1.0E18&quot;)</result-string>
     <result>
       <assert-string-value>-1.0E18</assert-string-value>
     </result>
@@ -320,7 +320,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:nonPositiveInteger(&quot;0&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -329,7 +329,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:nonNegativeInteger(&quot;0&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -338,7 +338,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:nonNegativeInteger(&quot;303884545991464527&quot;)) eq 303884545991464527</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -347,7 +347,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:nonNegativeInteger(&quot;999999999999999999&quot;))</test>
-    <result-string>xs:string('1.0E18')</result-string>
+    <result-string>xs:string(&quot;1.0E18&quot;)</result-string>
     <result>
       <assert-string-value>1.0E18</assert-string-value>
     </result>
@@ -356,7 +356,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:short(&quot;-32768&quot;))</test>
-    <result-string>xs:string('-32768')</result-string>
+    <result-string>xs:string(&quot;-32768&quot;)</result-string>
     <result>
       <assert-string-value>-32768</assert-string-value>
     </result>
@@ -365,7 +365,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:short(&quot;-5324&quot;))</test>
-    <result-string>xs:string('-5324')</result-string>
+    <result-string>xs:string(&quot;-5324&quot;)</result-string>
     <result>
       <assert-string-value>-5324</assert-string-value>
     </result>
@@ -374,7 +374,7 @@
     <description> Evaluates The &quot;number&quot; function with the arguments set as follows: $arg = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:short(&quot;32767&quot;))</test>
-    <result-string>xs:string('32767')</result-string>
+    <result-string>xs:string(&quot;32767&quot;)</result-string>
     <result>
       <assert-string-value>32767</assert-string-value>
     </result>
@@ -383,7 +383,7 @@
     <description> Evaluation of the fn:number function with empty sequence as an argument. </description>
     <created by="Carmelo Montanez" on="2005-09-20"/>
     <test>fn:number(())</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -392,7 +392,7 @@
     <description> Evaluation of the fn:number function with a string set as an argument. </description>
     <created by="Carmelo Montanez" on="2005-09-20"/>
     <test>fn:number(&quot;A String&quot;)</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -502,7 +502,7 @@
     <description> A test whose essence is: `fn:number(1) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:number(1) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -511,7 +511,7 @@
     <description> A test whose essence is: `not(fn:number(&quot;results in NaN&quot;))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(fn:number(&quot;results in NaN&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -520,7 +520,7 @@
     <description> A test whose essence is: `fn:number(&quot;results in NaN&quot;) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:number(&quot;results in NaN&quot;) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -529,7 +529,7 @@
     <description> A test whose essence is: `fn:number(1) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:number(1) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -538,7 +538,7 @@
     <description> A test whose essence is: `fn:number(1.1) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:number(1.1) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -547,7 +547,7 @@
     <description> A test whose essence is: `fn:number(xs:float(3)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:number(xs:float(3)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -556,7 +556,7 @@
     <description> A test whose essence is: `fn:number(xs:double(3)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:number(xs:double(3)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -565,7 +565,7 @@
     <description> A test whose essence is: `fn:number(&quot;NaN&quot;) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:number(&quot;NaN&quot;) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -574,7 +574,7 @@
     <description> A test whose essence is: `fn:number(()) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:number(()) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -583,7 +583,7 @@
     <description> A test whose essence is: `not(fn:number(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(fn:number(()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -592,7 +592,7 @@
     <description> fn:number() applied to a type which a cast regardless of source value never would succeed for. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(number(xs:anyURI(&quot;example.com/&quot;))) eq &quot;NaN&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -601,7 +601,7 @@
     <description> A test whose essence is: `string(number(xs:anyURI(&quot;1&quot;))) eq &quot;NaN&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(number(xs:anyURI(&quot;1&quot;))) eq &quot;NaN&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -610,7 +610,7 @@
     <description> A test whose essence is: `string(number(&quot;1&quot;)) eq &quot;1&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(number(&quot;1&quot;)) eq &quot;1&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -619,7 +619,7 @@
     <description> A test whose essence is: `string(number(xs:gYear(&quot;2005&quot;))) eq &quot;NaN&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(number(xs:gYear(&quot;2005&quot;))) eq &quot;NaN&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -628,7 +628,7 @@
     <description> fn:number() inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 3)[number()], (1, 2, 3))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -637,7 +637,7 @@
     <description> fn:number() inside a predicate(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1)[number()] eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

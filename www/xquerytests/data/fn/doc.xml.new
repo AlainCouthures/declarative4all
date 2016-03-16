@@ -55,7 +55,7 @@
     <description> Evaluation of fn:doc with argument set to empty sequence. </description>
     <created by="Carmelo Montanez" on="2006-01-25"/>
     <test>fn:doc(())</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -65,7 +65,7 @@
     <created by="Carmelo Montanez" on="2006-01-25"/>
     <environment ref="works-mod-uri"/>
     <test>fn:doc($uri) is fn:doc($uri)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -75,7 +75,7 @@
     <created by="Carmelo Montanez" on="2006-01-25"/>
     <environment ref="works-and-staff-uri"/>
     <test>fn:doc($works) is fn:doc($staff)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -95,7 +95,7 @@
     <created by="Carmelo Montanez" on="2006-01-25"/>
     <environment ref="works-mod-uri"/>
     <test>fn:count(fn:nilled(fn:doc($uri)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -105,7 +105,7 @@
     <created by="Carmelo Montanez" on="2006-01-25"/>
     <environment ref="works-mod-uri"/>
     <test>fn:count(fn:node-name(fn:doc($uri)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -127,7 +127,7 @@
     <created by="Carmelo Montanez" on="2006-01-25"/>
     <environment ref="works-mod-uri"/>
     <test>fn:not(fn:doc($uri) is fn:doc($uri))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -137,7 +137,7 @@
     <created by="Carmelo Montanez" on="2006-01-25"/>
     <environment ref="works-mod-uri"/>
     <test>(fn:doc($uri) is fn:doc($uri)) and fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -147,7 +147,7 @@
     <created by="Carmelo Montanez" on="2006-01-25"/>
     <environment ref="works-mod-uri"/>
     <test>(fn:doc($uri) is fn:doc($uri)) and fn:false()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -157,7 +157,7 @@
     <created by="Carmelo Montanez" on="2006-01-25"/>
     <environment ref="works-mod-uri"/>
     <test>(fn:doc($uri) is fn:doc($uri)) or fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -167,7 +167,7 @@
     <created by="Carmelo Montanez" on="2006-01-25"/>
     <environment ref="works-mod-uri"/>
     <test>(fn:doc($uri) is fn:doc($uri)) or fn:false()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -176,7 +176,7 @@
     <description> Invoke fn:doc() on the empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(fn:doc(()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -461,13 +461,13 @@
       <param as="xs:string" name="uri" select="'id/Books2.xml'"/>
     </environment>
     <test>string(fn:doc($uri)), string(exactly-one(fn:doc($uri)/*))</test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
   Everyday Italian
   Giada De Laurentiis
  
   Everyday Italian
   Giada De Laurentiis
-')</result-string>
+&quot;)</result-string>
     <result>
       <assert-string-value>
   Everyday Italian
@@ -544,7 +544,7 @@
       <param as="xs:string" name="uri" select="'id/builtinEntities.xml'"/>
     </environment>
     <test>count(doc($uri)//text())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;9&quot;)</result-string>
     <result>
       <assert-eq>9</assert-eq>
     </result>

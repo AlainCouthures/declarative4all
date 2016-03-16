@@ -77,7 +77,7 @@
     <test>
       <![CDATA[<a>50000</a> is <a>50000</a>]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -90,7 +90,7 @@
     <test>
       <![CDATA[<a>50000</a> is /works[1]/employee[1]/empnum[1]]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -103,7 +103,7 @@
     <test>
       <![CDATA[<a>50000</a> is (/staff[1]/employee[1]/empnum[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -129,7 +129,7 @@
     <test>
       <![CDATA[/works[1]/employee[1]/empnum[1] is <a>50000</a>]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -139,7 +139,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-05-16"/>
     <environment ref="works"/>
     <test>/works[1]/employee[1]/empnum[1] is /works[1]/employee[1]/empnum[1]</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -150,7 +150,7 @@
     <environment ref="works-and-staff"/>
     <test>
          $works/works[1]/employee[1]/empnum[1] is $staff/staff[1]/employee[1]/empnum[1]</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -176,7 +176,7 @@
     <test>
       <![CDATA[(/staff[1]/employee[1]/empnum[1]) is <a>50000</a>]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -187,7 +187,7 @@
     <environment ref="works-and-staff"/>
     <test>
           ($staff/staff[1]/employee[1]/empnum[1]) is $works/works[1]/employee[1]/empnum[1]</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -197,7 +197,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-05-16"/>
     <environment ref="staff"/>
     <test>(/staff[1]/employee[1]/empnum[1]) is (/staff[1]/employee[1]/empnum[1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -207,7 +207,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-07"/>
     <environment ref="staff"/>
     <test>fn:not((/staff[1]/employee[1]/empnum[1]) is (/staff[1]/employee[1]/empnum[1]))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -217,7 +217,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-07"/>
     <environment ref="staff"/>
     <test>((/staff[1]/employee[1]/empnum[1]) is (/staff[1]/employee[1]/empnum[1])) lt ((/staff[1]/employee[1]/empnum[1]) is (/staff[1]/employee[1]/empnum[1]))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -227,7 +227,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-07"/>
     <environment ref="staff"/>
     <test>((/staff[1]/employee[1]/empnum[1]) is (/staff[1]/employee[1]/empnum[1])) ge ((/staff[1]/employee[1]/empnum[1]) is (/staff[1]/employee[1]/empnum[1]))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -237,7 +237,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-07"/>
     <environment ref="staff"/>
     <test>((/staff[1]/employee[1]/empnum[1]) is (/staff[1]/employee[1]/empnum[1])) gt ((/staff[1]/employee[1]/empnum[1]) is (/staff[1]/employee[1]/empnum[1]))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -247,7 +247,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-07"/>
     <environment ref="staff"/>
     <test>((/staff[1]/employee[1]/empnum[1]) is (/staff[1]/employee[1]/empnum[1])) le ((/staff[1]/employee[1]/empnum[1]) is (/staff[1]/employee[1]/empnum[1]))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -337,7 +337,7 @@
     <test>
       <![CDATA[declare variable $var := <elem/>; <a>{$var}</a>/elem[1] is $var]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -349,7 +349,7 @@
     <test>
       <![CDATA[declare variable $var := <elem/>; $var is $var]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -361,7 +361,7 @@
     <test>
       <![CDATA[declare variable $var := <elem/>; not($var is <elem/>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -373,7 +373,7 @@
     <test>
       <![CDATA[declare variable $e := attribute name {()}; $e is $e, <is/> is <is/>]]>
     </test>
-    <result-string>xs:string('true false')</result-string>
+    <result-string>xs:string(&quot;true false&quot;)</result-string>
     <result>
       <assert-string-value>true false</assert-string-value>
     </result>
@@ -400,7 +400,7 @@
     <test>
       <![CDATA[empty(zero-or-one(<e/>/*) is zero-or-one(<e/>/*))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -415,7 +415,7 @@
       	return not(exactly-one($node/b[1]) is exactly-one($node/c[1]))
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -430,7 +430,7 @@
       	return not(not(exactly-one($node/b[1]) is exactly-one($node/c[1])))
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -445,7 +445,7 @@
       	local:f() is local:f()
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

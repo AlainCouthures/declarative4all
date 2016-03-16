@@ -7,7 +7,7 @@
     <description> Test of a General Expression with the operands set as follows operand1 = Empty sequence operator = &gt;= operand2 = Empty sequence </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>() &gt;= ()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -16,7 +16,7 @@
     <description> Test of a General Expression with the operands set as follows operand1 = Empty sequence operator = &gt;= operand2 = Atomic Value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>() &gt;= 10000</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -25,7 +25,7 @@
     <description> Test of a General Expression with the operands set as follows operand1 = Empty sequence operator = &gt;= operand2 = Sequence of single atomic value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>() &gt;= (50000)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -34,7 +34,7 @@
     <description> Test of a General Expression with the operands set as follows operand1 = Empty sequence operator = &gt;= operand2 = Sequence of single atomic values </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>() &gt;= (10000,50000)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -46,7 +46,7 @@
     <test>
       <![CDATA[() >= <a>10000</a>]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -58,7 +58,7 @@
     <test>
       <![CDATA[() >= (<a>10000</a>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -70,7 +70,7 @@
     <test>
       <![CDATA[() >= (<a>10000</a>,<b>50000</b>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -80,7 +80,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
     <test>() &gt;= (/works/employee[1]/hours[1])</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -90,7 +90,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
     <test>() &gt;= (/works/employee[1]/hours[1],/works/employee[6]/hours[1])</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -100,7 +100,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
     <test>() &gt;= ($works/works/employee[1]/hours[1],$staff/staff/employee[6]/grade[1])</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -109,7 +109,7 @@
     <description> Test of a General Expression with the operands set as follows operand1 = Atomic Value operator = &gt;= operand2 = Empty sequence </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>10000 &gt;= ()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -118,7 +118,7 @@
     <description> Test of a General Expression with the operands set as follows operand1 = Atomic Value operator = &gt;= operand2 = Sequence of single atomic value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>10000 &gt;= (50000)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -127,7 +127,7 @@
     <description> Test of a General Expression with the operands set as follows operand1 = Atomic Value operator = &gt;= operand2 = Sequence of single atomic values </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>10000 &gt;= (10000,50000)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -139,7 +139,7 @@
     <test>
       <![CDATA[10000 >= <a>10000</a>]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -151,7 +151,7 @@
     <test>
       <![CDATA[10000 >= (<a>10000</a>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -163,7 +163,7 @@
     <test>
       <![CDATA[10000 >= (<a>10000</a>,<b>50000</b>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -173,7 +173,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
     <test>10000 &gt;= (/works/employee[1]/hours[1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -183,7 +183,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
     <test>10000 &gt;= (/works/employee[1]/hours[1],/works/employee[6]/hours[1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -193,7 +193,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
     <test>10000 &gt;= ($works/works/employee[1]/hours[1],$staff/staff/employee[6]/grade[1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -202,7 +202,7 @@
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic value operator = &gt;= operand2 = Empty sequence </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>(50000) &gt;= ()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -211,7 +211,7 @@
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic value operator = &gt;= operand2 = Atomic Value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>(50000) &gt;= 10000</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -220,7 +220,7 @@
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic value operator = &gt;= operand2 = Sequence of single atomic value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>(50000) &gt;= (50000)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -229,7 +229,7 @@
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic value operator = &gt;= operand2 = Sequence of single atomic values </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>(50000) &gt;= (10000,50000)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -241,7 +241,7 @@
     <test>
       <![CDATA[(50000) >= <a>10000</a>]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -253,7 +253,7 @@
     <test>
       <![CDATA[(50000) >= (<a>10000</a>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -265,7 +265,7 @@
     <test>
       <![CDATA[(50000) >= (<a>10000</a>,<b>50000</b>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -275,7 +275,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
     <test>(50000) &gt;= (/works/employee[1]/hours[1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -285,7 +285,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
     <test>(50000) &gt;= (/works/employee[1]/hours[1],/works/employee[6]/hours[1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -295,7 +295,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
     <test>(50000) &gt;= ($works/works/employee[1]/hours[1],$staff/staff/employee[6]/grade[1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -304,7 +304,7 @@
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic values operator = &gt;= operand2 = Empty sequence </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>(10000,50000) &gt;= ()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -313,7 +313,7 @@
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic values operator = &gt;= operand2 = Atomic Value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>(10000,50000) &gt;= 10000</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -322,7 +322,7 @@
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic values operator = &gt;= operand2 = Sequence of single atomic value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>(10000,50000) &gt;= (50000)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -331,7 +331,7 @@
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic values operator = &gt;= operand2 = Sequence of single atomic values </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>(10000,50000) &gt;= (10000,50000)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -343,7 +343,7 @@
     <test>
       <![CDATA[(10000,50000) >= <a>10000</a>]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -355,7 +355,7 @@
     <test>
       <![CDATA[(10000,50000) >= (<a>10000</a>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -367,7 +367,7 @@
     <test>
       <![CDATA[(10000,50000) >= (<a>10000</a>,<b>50000</b>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -377,7 +377,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
     <test>(10000,50000) &gt;= (/works/employee[1]/hours[1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -387,7 +387,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
     <test>(10000,50000) &gt;= (/works/employee[1]/hours[1],/works/employee[6]/hours[1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -397,7 +397,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
     <test>(10000,50000) &gt;= ($works/works/employee[1]/hours[1],$staff/staff/employee[6]/grade[1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -409,7 +409,7 @@
     <test>
       <![CDATA[<a>10000</a> >= ()]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -421,7 +421,7 @@
     <test>
       <![CDATA[<a>10000</a> >= 10000]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -433,7 +433,7 @@
     <test>
       <![CDATA[<a>10000</a> >= (50000)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -445,7 +445,7 @@
     <test>
       <![CDATA[<a>10000</a> >= (10000,50000)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -457,7 +457,7 @@
     <test>
       <![CDATA[<a>10000</a> >= <a>10000</a>]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -469,7 +469,7 @@
     <test>
       <![CDATA[<a>10000</a> >= (<a>10000</a>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -481,7 +481,7 @@
     <test>
       <![CDATA[<a>10000</a> >= (<a>10000</a>,<b>50000</b>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -494,7 +494,7 @@
     <test>
       <![CDATA[<a>10000</a> >= (/works/employee[1]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -507,7 +507,7 @@
     <test>
       <![CDATA[<a>10000</a> >= (/works/employee[1]/hours[1],/works/employee[6]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -520,7 +520,7 @@
     <test>
       <![CDATA[<a>10000</a> >= ($works/works/employee[1]/hours[1],$staff/staff/employee[6]/grade[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -532,7 +532,7 @@
     <test>
       <![CDATA[(<a>10000</a>) >= ()]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -544,7 +544,7 @@
     <test>
       <![CDATA[(<a>10000</a>) >= 10000]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -556,7 +556,7 @@
     <test>
       <![CDATA[(<a>10000</a>) >= (50000)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -568,7 +568,7 @@
     <test>
       <![CDATA[(<a>10000</a>) >= (10000,50000)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -580,7 +580,7 @@
     <test>
       <![CDATA[(<a>10000</a>) >= <a>10000</a>]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -592,7 +592,7 @@
     <test>
       <![CDATA[(<a>10000</a>) >= (<a>10000</a>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -604,7 +604,7 @@
     <test>
       <![CDATA[(<a>10000</a>) >= (<a>10000</a>,<b>50000</b>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -617,7 +617,7 @@
     <test>
       <![CDATA[(<a>10000</a>) >= (/works/employee[1]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -630,7 +630,7 @@
     <test>
       <![CDATA[(<a>10000</a>) >= (/works/employee[1]/hours[1],/works/employee[6]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -643,7 +643,7 @@
     <test>
       <![CDATA[(<a>10000</a>) >= ($works/works/employee[1]/hours[1],$staff/staff/employee[6]/grade[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -655,7 +655,7 @@
     <test>
       <![CDATA[(<a>10000</a>,<b>50000</b>) >= ()]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -667,7 +667,7 @@
     <test>
       <![CDATA[(<a>10000</a>,<b>50000</b>) >= 10000]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -679,7 +679,7 @@
     <test>
       <![CDATA[(<a>10000</a>,<b>50000</b>) >= (50000)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -691,7 +691,7 @@
     <test>
       <![CDATA[(<a>10000</a>,<b>50000</b>) >= (10000,50000)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -703,7 +703,7 @@
     <test>
       <![CDATA[(<a>10000</a>,<b>50000</b>) >= <a>10000</a>]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -715,7 +715,7 @@
     <test>
       <![CDATA[(<a>10000</a>,<b>50000</b>) >= (<a>10000</a>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -727,7 +727,7 @@
     <test>
       <![CDATA[(<a>10000</a>,<b>50000</b>) >= (<a>10000</a>,<b>50000</b>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -740,7 +740,7 @@
     <test>
       <![CDATA[(<a>10000</a>,<b>50000</b>) >= (/works/employee[1]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -753,7 +753,7 @@
     <test>
       <![CDATA[(<a>10000</a>,<b>50000</b>) >= (/works/employee[1]/hours[1],/works/employee[6]/hours[1])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -766,7 +766,7 @@
     <test>
       <![CDATA[(<a>10000</a>,<b>50000</b>) >= ($works/works/employee[1]/hours[1],$staff/staff/employee[6]/grade[1])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -776,7 +776,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
     <test>(/works/employee[1]/hours[1]) &gt;= ()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -786,7 +786,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
     <test>(/works/employee[1]/hours[1]) &gt;= 10000</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -796,7 +796,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
     <test>(/works/employee[1]/hours[1]) &gt;= (50000)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -806,7 +806,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
     <test>(/works/employee[1]/hours[1]) &gt;= (10000,50000)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -819,7 +819,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1]) >= <a>10000</a>]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -832,7 +832,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1]) >= (<a>10000</a>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -845,7 +845,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1]) >= (<a>10000</a>,<b>50000</b>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -855,7 +855,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
     <test>(/works/employee[1]/hours[1]) &gt;= (/works/employee[1]/hours[1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -865,7 +865,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
     <test>(/works/employee[1]/hours[1]) &gt;= (/works/employee[1]/hours[1],/works/employee[6]/hours[1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -875,7 +875,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
     <test>($works/works/employee[1]/hours[1]) &gt;= ($works/works/employee[1]/hours[1],$staff/staff/employee[6]/grade[1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -885,7 +885,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
     <test>(/works/employee[1]/hours[1],/works/employee[6]/hours[1]) &gt;= ()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -895,7 +895,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
     <test>(/works/employee[1]/hours[1],/works/employee[6]/hours[1]) &gt;= 10000</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -905,7 +905,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
     <test>(/works/employee[1]/hours[1],/works/employee[6]/hours[1]) &gt;= (50000)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -915,7 +915,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
     <test>(/works/employee[1]/hours[1],/works/employee[6]/hours[1]) &gt;= (10000,50000)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -928,7 +928,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1],/works/employee[6]/hours[1]) >= <a>10000</a>]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -941,7 +941,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1],/works/employee[6]/hours[1]) >= (<a>10000</a>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -954,7 +954,7 @@
     <test>
       <![CDATA[(/works/employee[1]/hours[1],/works/employee[6]/hours[1]) >= (<a>10000</a>,<b>50000</b>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -964,7 +964,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
     <test>(/works/employee[1]/hours[1],/works/employee[6]/hours[1]) &gt;= (/works/employee[1]/hours[1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -974,7 +974,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
     <test>(/works/employee[1]/hours[1],/works/employee[6]/hours[1]) &gt;= (/works/employee[1]/hours[1],/works/employee[6]/hours[1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -984,7 +984,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
     <test>($works/works/employee[1]/hours[1],$works/works/employee[6]/hours[1]) &gt;= ($works/works/employee[1]/hours[1],$staff/staff/employee[6]/grade[1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -994,7 +994,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
     <test>($works/works/employee[1]/hours[1],$staff/staff/employee[6]/hours[1]) &gt;= ()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1004,7 +1004,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
     <test>($works/works/employee[1]/hours[1],$staff/staff/employee[6]/hours[1]) &gt;= 10000</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1014,7 +1014,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
     <test>($works/works/employee[1]/hours[1],$staff/staff/employee[6]/hours[1]) &gt;= (50000)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1024,7 +1024,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
     <test>($works/works/employee[1]/hours[1],$staff/staff/employee[6]/hours[1]) &gt;= (10000,50000)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1037,7 +1037,7 @@
     <test>
       <![CDATA[($works/works/employee[1]/hours[1],$staff/staff/employee[6]/hours[1]) >= <a>10000</a>]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1050,7 +1050,7 @@
     <test>
       <![CDATA[($works/works/employee[1]/hours[1],$staff/staff/employee[6]/hours[1]) >= (<a>10000</a>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1063,7 +1063,7 @@
     <test>
       <![CDATA[($works/works/employee[1]/hours[1],$staff/staff/employee[6]/hours[1]) >= (<a>10000</a>,<b>50000</b>)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1073,7 +1073,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
     <test>($works/works/employee[1]/hours[1],$staff/staff/employee[6]/hours[1]) &gt;= ($works/works/employee[1]/hours[1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1083,7 +1083,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
     <test>($works/works/employee[1]/hours[1],$staff/staff/employee[6]/hours[1]) &gt;= ($works/works/employee[1]/hours[1],$works/works/employee[6]/hours[1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1093,7 +1093,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
     <test>($works/works/employee[1]/hours[1],$staff/staff/employee[6]/hours[1]) &gt;= ($works/works/employee[1]/hours[1],$staff/staff/employee[6]/grade[1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1102,7 +1102,7 @@
     <description>Test - greaterthaneqonanyuri-1  Evaluation of &quot;ge&quot; operator on xs:anyURI datatype. </description>
     <created by="Carmelo Montanez" on="2006-09-25"/>
     <test>(xs:anyURI(&quot;http://www.example/com&quot;)) &gt;= (xs:anyURI(&quot;http://www.example/com&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1111,7 +1111,7 @@
     <description> General comparison where one or more operands is the empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(() &gt;= () )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1120,7 +1120,7 @@
     <description> General comparison where one or more operands is the empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(1 &gt;= () )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1129,7 +1129,7 @@
     <description> General comparison where one or more operands is the empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(() &gt;= 1 )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1147,7 +1147,7 @@
     <description> An expression involving the '&gt;=' operator that trigger certain optimization paths in some implementations. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count((0, timezone-from-time(current-time()))) &gt;= 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1156,7 +1156,7 @@
     <description> General comparison causing a xs:untypedAtomic value to be cast to xs:boolean, and then compared. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:untypedAtomic(&quot;false&quot;) &gt;= false()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1165,7 +1165,7 @@
     <description> General comparison causing a xs:untypedAtomic value to be cast to xs:boolean, and then compared. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>true() &gt;= xs:untypedAtomic(&quot;false&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1174,7 +1174,7 @@
     <description> General comparison causing a xs:untypedAtomic value to be cast to xs:boolean, and then compared. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>false() &gt;= xs:untypedAtomic(&quot;false&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1183,7 +1183,7 @@
     <description> General comparison causing a xs:untypedAtomic value to be cast to xs:boolean, and then compared. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:untypedAtomic(&quot;false&quot;) &gt;= false()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1195,7 +1195,7 @@
     <test>
       <![CDATA[1 <= count((1, 2, 3, timezone-from-time(current-time()), 4))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

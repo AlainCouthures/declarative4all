@@ -8,7 +8,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:exp10(())</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -18,7 +18,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:exp10(0)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;1.0e0&quot;)</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
@@ -28,7 +28,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:exp10(1)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;1.0e1&quot;)</result-string>
     <result>
       <assert-eq>1.0e1</assert-eq>
     </result>
@@ -54,7 +54,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:exp10(-1)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;1.0e-1&quot;)</result-string>
     <result>
       <assert-eq>1.0e-1</assert-eq>
     </result>
@@ -64,7 +64,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:exp10(xs:double('NaN'))</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -74,7 +74,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:exp10(xs:double('INF'))</test>
-    <result-string/>
+    <result-string>xs:double('INF')</result-string>
     <result>
       <assert-eq>xs:double('INF')</assert-eq>
     </result>
@@ -84,7 +84,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:exp10(xs:double('-INF'))</test>
-    <result-string/>
+    <result-string>xs:double(&quot;0.0e0&quot;)</result-string>
     <result>
       <assert-eq>0.0e0</assert-eq>
     </result>

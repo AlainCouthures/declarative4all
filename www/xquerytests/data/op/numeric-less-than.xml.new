@@ -16,7 +16,7 @@ $arg2 = xs:int(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;-2147483648&quot;) lt xs:int(&quot;-2147483648&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -35,7 +35,7 @@ $arg2 = xs:int(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;-1873914410&quot;) lt xs:int(&quot;-2147483648&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -54,7 +54,7 @@ $arg2 = xs:int(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;2147483647&quot;) lt xs:int(&quot;-2147483648&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -73,7 +73,7 @@ $arg2 = xs:int(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;-2147483648&quot;) lt xs:int(&quot;-1873914410&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -92,7 +92,7 @@ $arg2 = xs:int(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;-2147483648&quot;) lt xs:int(&quot;2147483647&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -111,7 +111,7 @@ $arg2 = xs:int(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;-2147483648&quot;) ge xs:int(&quot;-2147483648&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -130,7 +130,7 @@ $arg2 = xs:int(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;-1873914410&quot;) ge xs:int(&quot;-2147483648&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -149,7 +149,7 @@ $arg2 = xs:int(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;2147483647&quot;) ge xs:int(&quot;-2147483648&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -168,7 +168,7 @@ $arg2 = xs:int(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;-2147483648&quot;) ge xs:int(&quot;-1873914410&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -187,7 +187,7 @@ $arg2 = xs:int(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;-2147483648&quot;) ge xs:int(&quot;2147483647&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -206,7 +206,7 @@ $arg2 = xs:integer(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;-999999999999999999&quot;) lt xs:integer(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -225,7 +225,7 @@ $arg2 = xs:integer(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;830993497117024304&quot;) lt xs:integer(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -244,7 +244,7 @@ $arg2 = xs:integer(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;999999999999999999&quot;) lt xs:integer(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -263,7 +263,7 @@ $arg2 = xs:integer(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;-999999999999999999&quot;) lt xs:integer(&quot;830993497117024304&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -282,7 +282,7 @@ $arg2 = xs:integer(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;-999999999999999999&quot;) lt xs:integer(&quot;999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -301,7 +301,7 @@ $arg2 = xs:integer(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;-999999999999999999&quot;) ge xs:integer(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -320,7 +320,7 @@ $arg2 = xs:integer(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;830993497117024304&quot;) ge xs:integer(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -339,7 +339,7 @@ $arg2 = xs:integer(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;999999999999999999&quot;) ge xs:integer(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -358,7 +358,7 @@ $arg2 = xs:integer(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;-999999999999999999&quot;) ge xs:integer(&quot;830993497117024304&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -377,7 +377,7 @@ $arg2 = xs:integer(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;-999999999999999999&quot;) ge xs:integer(&quot;999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -396,7 +396,7 @@ $arg2 = xs:decimal(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;-999999999999999999&quot;) lt xs:decimal(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -415,7 +415,7 @@ $arg2 = xs:decimal(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;617375191608514839&quot;) lt xs:decimal(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -434,7 +434,7 @@ $arg2 = xs:decimal(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;999999999999999999&quot;) lt xs:decimal(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -453,7 +453,7 @@ $arg2 = xs:decimal(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;-999999999999999999&quot;) lt xs:decimal(&quot;617375191608514839&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -472,7 +472,7 @@ $arg2 = xs:decimal(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;-999999999999999999&quot;) lt xs:decimal(&quot;999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -491,7 +491,7 @@ $arg2 = xs:decimal(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;-999999999999999999&quot;) ge xs:decimal(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -510,7 +510,7 @@ $arg2 = xs:decimal(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;617375191608514839&quot;) ge xs:decimal(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -529,7 +529,7 @@ $arg2 = xs:decimal(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;999999999999999999&quot;) ge xs:decimal(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -548,7 +548,7 @@ $arg2 = xs:decimal(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;-999999999999999999&quot;) ge xs:decimal(&quot;617375191608514839&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -567,7 +567,7 @@ $arg2 = xs:decimal(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;-999999999999999999&quot;) ge xs:decimal(&quot;999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -586,7 +586,7 @@ $arg2 = xs:double(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;-1.7976931348623157E308&quot;) lt xs:double(&quot;-1.7976931348623157E308&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -605,7 +605,7 @@ $arg2 = xs:double(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;0&quot;) lt xs:double(&quot;-1.7976931348623157E308&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -624,7 +624,7 @@ $arg2 = xs:double(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;1.7976931348623157E308&quot;) lt xs:double(&quot;-1.7976931348623157E308&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -643,7 +643,7 @@ $arg2 = xs:double(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;-1.7976931348623157E308&quot;) lt xs:double(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -662,7 +662,7 @@ $arg2 = xs:double(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;-1.7976931348623157E308&quot;) lt xs:double(&quot;1.7976931348623157E308&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -681,7 +681,7 @@ $arg2 = xs:double(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;-1.7976931348623157E308&quot;) ge xs:double(&quot;-1.7976931348623157E308&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -700,7 +700,7 @@ $arg2 = xs:double(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;0&quot;) ge xs:double(&quot;-1.7976931348623157E308&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -719,7 +719,7 @@ $arg2 = xs:double(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;1.7976931348623157E308&quot;) ge xs:double(&quot;-1.7976931348623157E308&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -738,7 +738,7 @@ $arg2 = xs:double(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;-1.7976931348623157E308&quot;) ge xs:double(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -757,7 +757,7 @@ $arg2 = xs:double(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;-1.7976931348623157E308&quot;) ge xs:double(&quot;1.7976931348623157E308&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -776,7 +776,7 @@ $arg2 = xs:float(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;-3.4028235E38&quot;) lt xs:float(&quot;-3.4028235E38&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -795,7 +795,7 @@ $arg2 = xs:float(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;0&quot;) lt xs:float(&quot;-3.4028235E38&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -814,7 +814,7 @@ $arg2 = xs:float(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;3.4028235E38&quot;) lt xs:float(&quot;-3.4028235E38&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -833,7 +833,7 @@ $arg2 = xs:float(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;-3.4028235E38&quot;) lt xs:float(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -852,7 +852,7 @@ $arg2 = xs:float(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;-3.4028235E38&quot;) lt xs:float(&quot;3.4028235E38&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -871,7 +871,7 @@ $arg2 = xs:float(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;-3.4028235E38&quot;) ge xs:float(&quot;-3.4028235E38&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -890,7 +890,7 @@ $arg2 = xs:float(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;0&quot;) ge xs:float(&quot;-3.4028235E38&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -909,7 +909,7 @@ $arg2 = xs:float(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;3.4028235E38&quot;) ge xs:float(&quot;-3.4028235E38&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -928,7 +928,7 @@ $arg2 = xs:float(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;-3.4028235E38&quot;) ge xs:float(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -947,7 +947,7 @@ $arg2 = xs:float(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;-3.4028235E38&quot;) ge xs:float(&quot;3.4028235E38&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -966,7 +966,7 @@ $arg2 = xs:long(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;-92233720368547758&quot;) lt xs:long(&quot;-92233720368547758&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -985,7 +985,7 @@ $arg2 = xs:long(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;-47175562203048468&quot;) lt xs:long(&quot;-92233720368547758&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1004,7 +1004,7 @@ $arg2 = xs:long(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;92233720368547758&quot;) lt xs:long(&quot;-92233720368547758&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1023,7 +1023,7 @@ $arg2 = xs:long(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;-92233720368547758&quot;) lt xs:long(&quot;-47175562203048468&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1042,7 +1042,7 @@ $arg2 = xs:long(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;-92233720368547758&quot;) lt xs:long(&quot;92233720368547758&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1061,7 +1061,7 @@ $arg2 = xs:long(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;-92233720368547758&quot;) ge xs:long(&quot;-92233720368547758&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1080,7 +1080,7 @@ $arg2 = xs:long(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;-47175562203048468&quot;) ge xs:long(&quot;-92233720368547758&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1099,7 +1099,7 @@ $arg2 = xs:long(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;92233720368547758&quot;) ge xs:long(&quot;-92233720368547758&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1118,7 +1118,7 @@ $arg2 = xs:long(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;-92233720368547758&quot;) ge xs:long(&quot;-47175562203048468&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1137,7 +1137,7 @@ $arg2 = xs:long(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;-92233720368547758&quot;) ge xs:long(&quot;92233720368547758&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1156,7 +1156,7 @@ $arg2 = xs:unsignedShort(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;0&quot;) lt xs:unsignedShort(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1175,7 +1175,7 @@ $arg2 = xs:unsignedShort(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;44633&quot;) lt xs:unsignedShort(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1194,7 +1194,7 @@ $arg2 = xs:unsignedShort(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;65535&quot;) lt xs:unsignedShort(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1213,7 +1213,7 @@ $arg2 = xs:unsignedShort(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;0&quot;) lt xs:unsignedShort(&quot;44633&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1232,7 +1232,7 @@ $arg2 = xs:unsignedShort(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;0&quot;) lt xs:unsignedShort(&quot;65535&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1251,7 +1251,7 @@ $arg2 = xs:unsignedShort(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;0&quot;) ge xs:unsignedShort(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1270,7 +1270,7 @@ $arg2 = xs:unsignedShort(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;44633&quot;) ge xs:unsignedShort(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1289,7 +1289,7 @@ $arg2 = xs:unsignedShort(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;65535&quot;) ge xs:unsignedShort(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1308,7 +1308,7 @@ $arg2 = xs:unsignedShort(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;0&quot;) ge xs:unsignedShort(&quot;44633&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1327,7 +1327,7 @@ $arg2 = xs:unsignedShort(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;0&quot;) ge xs:unsignedShort(&quot;65535&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1346,7 +1346,7 @@ $arg2 = xs:negativeInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-999999999999999999&quot;) lt xs:negativeInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1365,7 +1365,7 @@ $arg2 = xs:negativeInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-297014075999096793&quot;) lt xs:negativeInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1384,7 +1384,7 @@ $arg2 = xs:negativeInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-1&quot;) lt xs:negativeInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1403,7 +1403,7 @@ $arg2 = xs:negativeInteger(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-999999999999999999&quot;) lt xs:negativeInteger(&quot;-297014075999096793&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1422,7 +1422,7 @@ $arg2 = xs:negativeInteger(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-999999999999999999&quot;) lt xs:negativeInteger(&quot;-1&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1441,7 +1441,7 @@ $arg2 = xs:negativeInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-999999999999999999&quot;) ge xs:negativeInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1460,7 +1460,7 @@ $arg2 = xs:negativeInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-297014075999096793&quot;) ge xs:negativeInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1479,7 +1479,7 @@ $arg2 = xs:negativeInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-1&quot;) ge xs:negativeInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1498,7 +1498,7 @@ $arg2 = xs:negativeInteger(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-999999999999999999&quot;) ge xs:negativeInteger(&quot;-297014075999096793&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1517,7 +1517,7 @@ $arg2 = xs:negativeInteger(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-999999999999999999&quot;) ge xs:negativeInteger(&quot;-1&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1536,7 +1536,7 @@ $arg2 = xs:positiveInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;1&quot;) lt xs:positiveInteger(&quot;1&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1555,7 +1555,7 @@ $arg2 = xs:positiveInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;52704602390610033&quot;) lt xs:positiveInteger(&quot;1&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1574,7 +1574,7 @@ $arg2 = xs:positiveInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;999999999999999999&quot;) lt xs:positiveInteger(&quot;1&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1593,7 +1593,7 @@ $arg2 = xs:positiveInteger(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;1&quot;) lt xs:positiveInteger(&quot;52704602390610033&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1612,7 +1612,7 @@ $arg2 = xs:positiveInteger(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;1&quot;) lt xs:positiveInteger(&quot;999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1631,7 +1631,7 @@ $arg2 = xs:positiveInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;1&quot;) ge xs:positiveInteger(&quot;1&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1650,7 +1650,7 @@ $arg2 = xs:positiveInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;52704602390610033&quot;) ge xs:positiveInteger(&quot;1&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1669,7 +1669,7 @@ $arg2 = xs:positiveInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;999999999999999999&quot;) ge xs:positiveInteger(&quot;1&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1688,7 +1688,7 @@ $arg2 = xs:positiveInteger(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;1&quot;) ge xs:positiveInteger(&quot;52704602390610033&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1707,7 +1707,7 @@ $arg2 = xs:positiveInteger(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;1&quot;) ge xs:positiveInteger(&quot;999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1726,7 +1726,7 @@ $arg2 = xs:unsignedLong(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;0&quot;) lt xs:unsignedLong(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1745,7 +1745,7 @@ $arg2 = xs:unsignedLong(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;130747108607674654&quot;) lt xs:unsignedLong(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1764,7 +1764,7 @@ $arg2 = xs:unsignedLong(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;184467440737095516&quot;) lt xs:unsignedLong(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1783,7 +1783,7 @@ $arg2 = xs:unsignedLong(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;0&quot;) lt xs:unsignedLong(&quot;130747108607674654&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1802,7 +1802,7 @@ $arg2 = xs:unsignedLong(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;0&quot;) lt xs:unsignedLong(&quot;184467440737095516&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1821,7 +1821,7 @@ $arg2 = xs:unsignedLong(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;0&quot;) ge xs:unsignedLong(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1840,7 +1840,7 @@ $arg2 = xs:unsignedLong(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;130747108607674654&quot;) ge xs:unsignedLong(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1859,7 +1859,7 @@ $arg2 = xs:unsignedLong(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;184467440737095516&quot;) ge xs:unsignedLong(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1878,7 +1878,7 @@ $arg2 = xs:unsignedLong(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;0&quot;) ge xs:unsignedLong(&quot;130747108607674654&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1897,7 +1897,7 @@ $arg2 = xs:unsignedLong(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;0&quot;) ge xs:unsignedLong(&quot;184467440737095516&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1916,7 +1916,7 @@ $arg2 = xs:nonPositiveInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;-999999999999999999&quot;) lt xs:nonPositiveInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1935,7 +1935,7 @@ $arg2 = xs:nonPositiveInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;-475688437271870490&quot;) lt xs:nonPositiveInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1954,7 +1954,7 @@ $arg2 = xs:nonPositiveInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;0&quot;) lt xs:nonPositiveInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1973,7 +1973,7 @@ $arg2 = xs:nonPositiveInteger(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;-999999999999999999&quot;) lt xs:nonPositiveInteger(&quot;-475688437271870490&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1992,7 +1992,7 @@ $arg2 = xs:nonPositiveInteger(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;-999999999999999999&quot;) lt xs:nonPositiveInteger(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2011,7 +2011,7 @@ $arg2 = xs:nonPositiveInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;-999999999999999999&quot;) ge xs:nonPositiveInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2030,7 +2030,7 @@ $arg2 = xs:nonPositiveInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;-475688437271870490&quot;) ge xs:nonPositiveInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2049,7 +2049,7 @@ $arg2 = xs:nonPositiveInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;0&quot;) ge xs:nonPositiveInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2068,7 +2068,7 @@ $arg2 = xs:nonPositiveInteger(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;-999999999999999999&quot;) ge xs:nonPositiveInteger(&quot;-475688437271870490&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2087,7 +2087,7 @@ $arg2 = xs:nonPositiveInteger(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;-999999999999999999&quot;) ge xs:nonPositiveInteger(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2106,7 +2106,7 @@ $arg2 = xs:nonNegativeInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;0&quot;) lt xs:nonNegativeInteger(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2125,7 +2125,7 @@ $arg2 = xs:nonNegativeInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;303884545991464527&quot;) lt xs:nonNegativeInteger(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2144,7 +2144,7 @@ $arg2 = xs:nonNegativeInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;999999999999999999&quot;) lt xs:nonNegativeInteger(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2163,7 +2163,7 @@ $arg2 = xs:nonNegativeInteger(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;0&quot;) lt xs:nonNegativeInteger(&quot;303884545991464527&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2182,7 +2182,7 @@ $arg2 = xs:nonNegativeInteger(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;0&quot;) lt xs:nonNegativeInteger(&quot;999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2201,7 +2201,7 @@ $arg2 = xs:nonNegativeInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;0&quot;) ge xs:nonNegativeInteger(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2220,7 +2220,7 @@ $arg2 = xs:nonNegativeInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;303884545991464527&quot;) ge xs:nonNegativeInteger(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2239,7 +2239,7 @@ $arg2 = xs:nonNegativeInteger(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;999999999999999999&quot;) ge xs:nonNegativeInteger(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2258,7 +2258,7 @@ $arg2 = xs:nonNegativeInteger(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;0&quot;) ge xs:nonNegativeInteger(&quot;303884545991464527&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2277,7 +2277,7 @@ $arg2 = xs:nonNegativeInteger(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;0&quot;) ge xs:nonNegativeInteger(&quot;999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2296,7 +2296,7 @@ $arg2 = xs:short(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;-32768&quot;) lt xs:short(&quot;-32768&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2315,7 +2315,7 @@ $arg2 = xs:short(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;-5324&quot;) lt xs:short(&quot;-32768&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2334,7 +2334,7 @@ $arg2 = xs:short(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;32767&quot;) lt xs:short(&quot;-32768&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2353,7 +2353,7 @@ $arg2 = xs:short(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;-32768&quot;) lt xs:short(&quot;-5324&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2372,7 +2372,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;-32768&quot;) lt xs:short(&quot;32767&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2391,7 +2391,7 @@ $arg2 = xs:short(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;-32768&quot;) ge xs:short(&quot;-32768&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2410,7 +2410,7 @@ $arg2 = xs:short(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;-5324&quot;) ge xs:short(&quot;-32768&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2429,7 +2429,7 @@ $arg2 = xs:short(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;32767&quot;) ge xs:short(&quot;-32768&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2448,7 +2448,7 @@ $arg2 = xs:short(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;-32768&quot;) ge xs:short(&quot;-5324&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2467,7 +2467,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;-32768&quot;) ge xs:short(&quot;32767&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2483,7 +2483,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:integer(-1) lt xs:integer(1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2499,7 +2499,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:integer(-1) le xs:integer(1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2515,7 +2515,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:decimal(-1) lt xs:decimal(1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2531,7 +2531,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:decimal(-1) le xs:decimal(1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2547,7 +2547,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>0 lt xs:double(&quot;INF&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2563,7 +2563,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:double(&quot;-INF&quot;) lt 0</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2579,7 +2579,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:double(-1) lt xs:double(1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2595,7 +2595,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:double(-1) le xs:double(1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2611,7 +2611,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>0 lt xs:float(&quot;INF&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2627,7 +2627,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:float(&quot;-INF&quot;) lt 0</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2643,7 +2643,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:float(-1) lt xs:float(1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2659,7 +2659,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:float(-1) le xs:float(1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2675,7 +2675,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:double(&quot;NaN&quot;) lt 1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2691,7 +2691,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:float(&quot;NaN&quot;) lt 1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2707,7 +2707,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:double(&quot;NaN&quot;) le 1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2723,7 +2723,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:float(&quot;NaN&quot;) le 1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2739,7 +2739,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(1 lt xs:double(&quot;NaN&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2755,7 +2755,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(1 lt xs:float(&quot;NaN&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2771,7 +2771,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(1 le xs:double(&quot;NaN&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2787,7 +2787,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(1 le xs:float(&quot;NaN&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2803,7 +2803,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>1 le count((1, 2, 3, timezone-from-time(current-time()), 4))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2819,7 +2819,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>0 lt count((1, 2, 3, timezone-from-time(current-time()), 4))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2835,7 +2835,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2008-12-04+01:00"/>
     <test>xs:unsignedLong(&quot;100&quot;) lt xs:unsignedLong(&quot;18446744073709551615&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2851,7 +2851,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Frans Englich" on="2008-12-04+01:00"/>
     <test>xs:unsignedLong(&quot;18446744073709551615&quot;) lt xs:unsignedLong(&quot;100&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2861,7 +2861,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:square($arg as xs:double) as xs:double { $arg * $arg }; not( local:square(1e0) lt local:square(2e0) )</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2871,7 +2871,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:square($arg as xs:float) as xs:float { $arg * $arg }; not( local:square(xs:float(1e0)) lt local:square(xs:float(2e0)) )</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2881,7 +2881,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:square($arg as xs:decimal) as xs:decimal { $arg * $arg }; not( local:square(1.0) lt local:square(2.0) )</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2891,7 +2891,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:square($arg as xs:integer) as xs:integer { $arg * $arg }; not( local:square(1) lt local:square(2) )</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2901,7 +2901,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:square($arg as xs:double) as xs:double { $arg * $arg }; not( local:square(1e0) ge local:square(2e0) )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2911,7 +2911,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:square($arg as xs:float) as xs:float { $arg * $arg }; not( local:square(xs:float(1e0)) ge local:square(xs:float(2e0)) )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2921,7 +2921,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:square($arg as xs:decimal) as xs:decimal { $arg * $arg }; not( local:square(1.0) ge local:square(2.0) )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2931,7 +2931,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:square($arg as xs:integer) as xs:integer { $arg * $arg }; not( local:square(1) ge local:square(2) )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2941,7 +2941,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:square($arg as xs:double) as xs:double { $arg * $arg }; not(not( local:square(1e0) lt local:square(2e0) ))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2951,7 +2951,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:square($arg as xs:float) as xs:float { $arg * $arg }; not(not( local:square(xs:float(1e0)) lt local:square(xs:float(2e0)) ))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2961,7 +2961,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:square($arg as xs:double) as xs:double { $arg * $arg }; not(not( local:square(1e0) ge local:square(2e0) ))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2971,7 +2971,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:square($arg as xs:float) as xs:float { $arg * $arg }; not(not( local:square(xs:float(1e0)) ge local:square(xs:float(2e0)) ))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2981,7 +2981,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:factorial($arg as xs:integer) as xs:integer { if ($arg lt 1) then 1 else $arg * local:factorial($arg - 1) }; let $x := local:factorial(5) return $x + 1 lt 121</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2991,7 +2991,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:factorial($arg as xs:integer) as xs:integer { if ($arg lt 1) then 1 else $arg * local:factorial($arg - 1) }; let $x := local:factorial(5) return $x - 1 lt 121</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -3001,7 +3001,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:factorial($arg as xs:integer) as xs:integer { if ($arg lt 1) then 1 else $arg * local:factorial($arg - 1) }; let $x := local:factorial(5) return 121 lt $x + 1</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -3011,7 +3011,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:factorial($arg as xs:integer) as xs:integer { if ($arg lt 1) then 1 else $arg * local:factorial($arg - 1) }; let $x := local:factorial(5) return 121 lt 1 + $x</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -3021,7 +3021,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:factorial($arg as xs:integer) as xs:integer { if ($arg lt 1) then 1 else $arg * local:factorial($arg - 1) }; let $x := local:factorial(5) return $x + 1 ge 121</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -3031,7 +3031,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:factorial($arg as xs:integer) as xs:integer { if ($arg lt 1) then 1 else $arg * local:factorial($arg - 1) }; let $x := local:factorial(5) return $x - 1 ge 121</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -3041,7 +3041,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:factorial($arg as xs:integer) as xs:integer { if ($arg lt 1) then 1 else $arg * local:factorial($arg - 1) }; let $x := local:factorial(5) return 121 ge $x + 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -3051,7 +3051,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:factorial($arg as xs:integer) as xs:integer { if ($arg lt 1) then 1 else $arg * local:factorial($arg - 1) }; let $x := local:factorial(5) return 121 ge 1 + $x</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -3061,7 +3061,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:factorial($arg as xs:integer) as xs:integer { if ($arg lt 1) then 1 else $arg * local:factorial($arg - 1) }; let $x := local:factorial(5) return $x + 2 lt 121</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -3071,7 +3071,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:factorial($arg as xs:integer) as xs:integer { if ($arg lt 1) then 1 else $arg * local:factorial($arg - 1) }; let $x := local:factorial(5) return $x - 2 lt 12</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -3081,7 +3081,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:factorial($arg as xs:integer) as xs:integer { if ($arg lt 1) then 1 else $arg * local:factorial($arg - 1) }; let $x := local:factorial(5) return 121 lt $x + 2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -3091,7 +3091,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:factorial($arg as xs:integer) as xs:integer { if ($arg lt 1) then 1 else $arg * local:factorial($arg - 1) }; let $x := local:factorial(5) return 121 lt 2 + $x</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -3101,7 +3101,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:factorial($arg as xs:integer) as xs:integer { if ($arg lt 1) then 1 else $arg * local:factorial($arg - 1) }; let $x := local:factorial(5) return $x + 2 ge 121</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -3111,7 +3111,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:factorial($arg as xs:integer) as xs:integer { if ($arg lt 1) then 1 else $arg * local:factorial($arg - 1) }; let $x := local:factorial(5) return $x - 2 ge 12</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -3121,7 +3121,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:factorial($arg as xs:integer) as xs:integer { if ($arg lt 1) then 1 else $arg * local:factorial($arg - 1) }; let $x := local:factorial(5) return 121 ge $x + 2</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -3131,7 +3131,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:factorial($arg as xs:integer) as xs:integer { if ($arg lt 1) then 1 else $arg * local:factorial($arg - 1) }; let $x := local:factorial(5) return 121 ge $x + 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -3141,7 +3141,7 @@ $arg2 = xs:short(upper bound)
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:factorial($arg as xs:integer) as xs:integer { if ($arg lt 1) then 1 else $arg * local:factorial($arg - 1) }; let $x := local:factorial(5) return 121 ge 2 + $x</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

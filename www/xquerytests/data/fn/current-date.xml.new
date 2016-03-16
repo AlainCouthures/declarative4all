@@ -42,7 +42,7 @@
     <description> Evaluates The &quot;current-date&quot; function as part of a &quot;-&quot; operation. </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:current-date() - fn:current-date()</test>
-    <result-string>xs:string('PT0S')</result-string>
+    <result-string>xs:string(&quot;PT0S&quot;)</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluates The &quot;current-date&quot; function as part of of a subtraction expression. Both operands are the equal to &quot;current-time&quot;. </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:current-date() - fn:current-date()</test>
-    <result-string>xs:string('PT0S')</result-string>
+    <result-string>xs:string(&quot;PT0S&quot;)</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluates string value The &quot;current-date&quot; as part of an equal expression (eq operator) </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:string(fn:current-date()) eq fn:string(fn:current-date())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluates The &quot;current-date&quot; function as part of an equal expression (ne operator) </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:string(fn:current-date()) ne fn:string(fn:current-date())</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluates The &quot;current-date&quot; function as part of an equal expression (le operator) </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:string(fn:current-date()) le fn:string(fn:current-date())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluates The &quot;current-date&quot; function as part of an equal expression (ge operator) </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:string(fn:current-date()) ge fn:string(fn:current-date())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluates The &quot;current-date&quot; function as part of a boolean expression (&quot;and&quot; operator and fn:true function. </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:string(fn:current-date()) and fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluates The &quot;current-date&quot; function as part of a boolean expression (&quot;and&quot; operator and fn:false function. </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:string(fn:current-date()) and fn:false()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluates The &quot;current-date&quot; function as part of a boolean expression (&quot;or&quot; operator and fn:true function. </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:string(fn:current-date()) or fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluates The &quot;current-date&quot; function as part of a boolean expression (&quot;or&quot; operator and fn:false function. </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:string(fn:current-date()) or fn:false()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluates The &quot;current-date&quot; function (string value)as an argument to the fn:not function. </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:not(fn:string(fn:current-date()))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -195,7 +195,7 @@
     <description>Test that current date is after 1 Jan 2010</description>
     <created by="Michael Kay" on="2011-06-30"/>
     <test>fn:current-date() gt xs:date('2010-01-01')</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -204,7 +204,7 @@
     <description>Test that current date has a timezone</description>
     <created by="Michael Kay" on="2011-06-30"/>
     <test>exists(timezone-from-date(current-date()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -213,7 +213,7 @@
     <description>Test that the current date is the same as the date part of current dateTime</description>
     <created by="Michael Kay" on="2011-06-30"/>
     <test>current-date() = xs:date(current-dateTime())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -231,7 +231,7 @@
     <description> Test that the Dynamic Context property 'current dateTime' when presented as a xs:date is stable during execution. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>current-date() eq current-date()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

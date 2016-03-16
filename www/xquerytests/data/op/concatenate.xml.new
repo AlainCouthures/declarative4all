@@ -57,7 +57,7 @@
     <description> Constructing Sequences. Simple sequence expression resulting in an empty sequence. Uses count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-02-14"/>
     <test>count((15 to 10))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -270,7 +270,7 @@
     <description> Constructing sequences. Constructing a sequence, where both of its members contains invocation to &quot;xs:date()&quot;. </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (xs:date(&quot;2004-12-25Z&quot;),xs:date(&quot;2004-12-26Z&quot;))</test>
-    <result-string>xs:string('2004-12-25Z 2004-12-26Z')</result-string>
+    <result-string>xs:string(&quot;2004-12-25Z 2004-12-26Z&quot;)</result-string>
     <result>
       <assert-string-value>2004-12-25Z 2004-12-26Z</assert-string-value>
     </result>
@@ -279,7 +279,7 @@
     <description> Constructing sequences. Constructing a sequence, where both of its members contains invocation to &quot;xs:dateTime()&quot;. </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (xs:dateTime(&quot;1999-11-28T09:00:00Z&quot;),xs:dateTime(&quot;1998-11-28T09:00:00Z&quot;))</test>
-    <result-string>xs:string('1999-11-28T09:00:00Z 1998-11-28T09:00:00Z')</result-string>
+    <result-string>xs:string(&quot;1999-11-28T09:00:00Z 1998-11-28T09:00:00Z&quot;)</result-string>
     <result>
       <assert-string-value>1999-11-28T09:00:00Z 1998-11-28T09:00:00Z</assert-string-value>
     </result>
@@ -288,7 +288,7 @@
     <description> Constructing sequences. Constructing a sequence, where both of its members contains invocation to &quot;xs:time()&quot;. </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (xs:time(&quot;08:00:00+09:00&quot;),xs:time(&quot;08:00:00+10:00&quot;))</test>
-    <result-string>xs:string('08:00:00+09:00 08:00:00+10:00')</result-string>
+    <result-string>xs:string(&quot;08:00:00+09:00 08:00:00+10:00&quot;)</result-string>
     <result>
       <assert-string-value>08:00:00+09:00 08:00:00+10:00</assert-string-value>
     </result>
@@ -360,7 +360,7 @@
     <description> arg1  arg2 : float </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>xs:float(&quot;1.01&quot;), xs:float(&quot;NaN&quot;)</test>
-    <result-string>xs:string('1.01 NaN')</result-string>
+    <result-string>xs:string(&quot;1.01 NaN&quot;)</result-string>
     <result>
       <assert-string-value>1.01 NaN</assert-string-value>
     </result>
@@ -369,7 +369,7 @@
     <description> arg1:float, arg2: double </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>xs:float(&quot;INF&quot;) , xs:double(&quot;NaN&quot;)</test>
-    <result-string>xs:string('INF NaN')</result-string>
+    <result-string>xs:string(&quot;INF NaN&quot;)</result-string>
     <result>
       <assert-string-value>INF NaN</assert-string-value>
     </result>
@@ -378,7 +378,7 @@
     <description> arg1: double, arg2: double, arg3:float </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>xs:double(&quot;INF&quot;), xs:double(&quot;-INF&quot;), xs:float(&quot;-INF&quot;)</test>
-    <result-string>xs:string('INF -INF -INF')</result-string>
+    <result-string>xs:string(&quot;INF -INF -INF&quot;)</result-string>
     <result>
       <assert-string-value>INF -INF -INF</assert-string-value>
     </result>
@@ -405,7 +405,7 @@
     <description> arg1:date, arg2: boolean, arg3: string </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>xs:date(&quot;1993-03-31&quot;) , xs:boolean(&quot;true&quot;), xs:string(&quot;abc&quot;)</test>
-    <result-string>xs:string('1993-03-31 true abc')</result-string>
+    <result-string>xs:string(&quot;1993-03-31 true abc&quot;)</result-string>
     <result>
       <assert-string-value>1993-03-31 true abc</assert-string-value>
     </result>
@@ -414,7 +414,7 @@
     <description> arg1:dateTime, arg2: empty sequence </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>xs:dateTime(&quot;1972-12-31T00:00:00Z&quot;) , (())</test>
-    <result-string>xs:string('1972-12-31T00:00:00Z')</result-string>
+    <result-string>xs:string(&quot;1972-12-31T00:00:00Z&quot;)</result-string>
     <result>
       <assert-string-value>1972-12-31T00:00:00Z</assert-string-value>
     </result>
@@ -423,7 +423,7 @@
     <description> arg1:time, arg2: string , arg3: decimal </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>xs:time(&quot;12:30:00Z&quot;) , xs:string(&quot; &quot;) , xs:decimal(&quot;2.000000000000002&quot;)</test>
-    <result-string>xs:string('12:30:00Z   2.000000000000002')</result-string>
+    <result-string>xs:string(&quot;12:30:00Z   2.000000000000002&quot;)</result-string>
     <result>
       <assert-string-value>12:30:00Z   2.000000000000002</assert-string-value>
     </result>
@@ -432,7 +432,7 @@
     <description> arg1:empty seq, arg2: string , arg3: decimal </description>
     <created by="Ravindranath Chennoju" on="2005-05-25"/>
     <test>() , xs:string(&quot; &quot;) , xs:decimal(&quot;2.000000000000002&quot;)</test>
-    <result-string>xs:string('  2.000000000000002')</result-string>
+    <result-string>xs:string(&quot;  2.000000000000002&quot;)</result-string>
     <result>
       <assert-string-value>  2.000000000000002</assert-string-value>
     </result>
@@ -483,7 +483,7 @@
     <description> A heavily nested sequence of expressions with the comma operator. On some implementations this triggers certain optimization paths. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(((1, (2, (3, 4, (5, 6)), 7), 8, (9, 10), 11)), (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -492,7 +492,7 @@
     <description> An expression sequence containing only empty sequences. On some implementations this triggers certain optimization paths. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(((), (), ((), (), ((), (), (())), ()), (), (())))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -501,7 +501,7 @@
     <description> An expression sequence containing many empty sequences and one xs:string. On some implementations this triggers certain optimization paths. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>((), (), ((), (), ((), (), (&quot;str&quot;)), ()), (), (())) eq &quot;str&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

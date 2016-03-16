@@ -13,7 +13,7 @@
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
     <test>fn:local-name-from-QName(fn:QName(&quot;http://www.example.com/QNameXSD&quot;, exactly-one(xs:string((/root/elemQN)[1]))))</test>
-    <result-string>xs:string('bar')</result-string>
+    <result-string>xs:string(&quot;bar&quot;)</result-string>
     <result>
       <assert-string-value>bar</assert-string-value>
     </result>
@@ -23,7 +23,7 @@
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
     <test>fn:local-name-from-QName(fn:QName(&quot;http://www.example.com/QNameXSD&quot;, exactly-one(xs:string(/root[1]/@attrQN))))</test>
-    <result-string>xs:string('bar')</result-string>
+    <result-string>xs:string(&quot;bar&quot;)</result-string>
     <result>
       <assert-string-value>bar</assert-string-value>
     </result>
@@ -33,7 +33,7 @@
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
     <test>fn:local-name-from-QName(fn:QName(&quot;http://www.example.com/QNameXSD&quot;, exactly-one(xs:string((/root/derivQN)[1]))))</test>
-    <result-string>xs:string('barDeriv')</result-string>
+    <result-string>xs:string(&quot;barDeriv&quot;)</result-string>
     <result>
       <assert-string-value>barDeriv</assert-string-value>
     </result>
@@ -43,7 +43,7 @@
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
     <test>fn:local-name-from-QName(fn:QName(&quot;http://www.example.com/QNameXSD&quot;, exactly-one(xs:string(/root[1]/@attrDerivQN))))</test>
-    <result-string>xs:string('barDeriv')</result-string>
+    <result-string>xs:string(&quot;barDeriv&quot;)</result-string>
     <result>
       <assert-string-value>barDeriv</assert-string-value>
     </result>
@@ -53,7 +53,7 @@
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
     <test>fn:local-name-from-QName(fn:QName(&quot;http://www.example.com/QNameXSD&quot;, exactly-one(xs:string(/root[1]/@attrDerivQN)))) instance of xs:NCName ?</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -62,7 +62,7 @@
     <description> Test function fn:local-name-from-QName. Empty sequence literal as input </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <test>fn:local-name-from-QName(())</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -71,7 +71,7 @@
     <description> Test function fn:local-name-from-QName. Empty sequence literal as input </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <test>fn:local-name-from-QName(((),()))</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -180,7 +180,7 @@
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
     <test>fn:local-name-from-QName(fn:QName(&quot;http://www.example.com/QNameXSD&quot;, exactly-one(xs:string(data((/root/elemQN)[1])))))</test>
-    <result-string>xs:string('bar')</result-string>
+    <result-string>xs:string(&quot;bar&quot;)</result-string>
     <result>
       <assert-string-value>bar</assert-string-value>
     </result>
@@ -190,7 +190,7 @@
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
     <test>fn:local-name-from-QName( if( true() ) then fn:QName(&quot;http://www.example.com/QNameXSD&quot;, exactly-one(xs:string((/root/elemQN)[1]))) else fn:QName(&quot;http://www.example.com/QNameXSD&quot;, exactly-one(xs:string((/root/@attrQN)[1]))) )</test>
-    <result-string>xs:string('bar')</result-string>
+    <result-string>xs:string(&quot;bar&quot;)</result-string>
     <result>
       <assert-string-value>bar</assert-string-value>
     </result>
@@ -200,7 +200,7 @@
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
     <test>fn:local-name-from-QName( if( false() ) then fn:QName(&quot;http://www.example.com/QNameXSD&quot;, exactly-one(xs:string((/root/elemQN)[1]))) else fn:QName(&quot;http://www.example.com/QNameXSD&quot;, exactly-one(xs:string((/root/@attrQN)[1]))) )</test>
-    <result-string>xs:string('bar')</result-string>
+    <result-string>xs:string(&quot;bar&quot;)</result-string>
     <result>
       <assert-string-value>bar</assert-string-value>
     </result>
@@ -245,7 +245,7 @@
     <description> A test whose essence is: `empty(local-name-from-QName( () ))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(local-name-from-QName( () ))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -254,7 +254,7 @@
     <description> A test whose essence is: `local-name-from-QName( QName(&quot;example.com/&quot;, &quot;pre:lname&quot;)) eq &quot;lname&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>local-name-from-QName( QName(&quot;example.com/&quot;, &quot;pre:lname&quot;)) eq &quot;lname&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

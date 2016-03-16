@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:int(&quot;-2147483648&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:int(&quot;-1873914410&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:int(&quot;2147483647&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:integer(&quot;-999999999999999999&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:integer(&quot;830993497117024304&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:integer(&quot;999999999999999999&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:decimal(&quot;-999999999999999999&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:decimal(&quot;617375191608514839&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:decimal(&quot;999999999999999999&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:double(&quot;-1.7976931348623157E308&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:double(&quot;0&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:double(&quot;1.7976931348623157E308&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:float(&quot;-3.4028235E38&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:float(&quot;0&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:float(&quot;3.4028235E38&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:long(&quot;-92233720368547758&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:long(&quot;-47175562203048468&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:long(&quot;92233720368547758&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:unsignedShort(&quot;0&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:unsignedShort(&quot;44633&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -186,7 +186,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:unsignedShort(&quot;65535&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -195,7 +195,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:negativeInteger(&quot;-999999999999999999&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -204,7 +204,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:negativeInteger(&quot;-297014075999096793&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -213,7 +213,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:negativeInteger(&quot;-1&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -222,7 +222,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:positiveInteger(&quot;1&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -231,7 +231,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:positiveInteger(&quot;52704602390610033&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -240,7 +240,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:positiveInteger(&quot;999999999999999999&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -249,7 +249,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:unsignedLong(&quot;0&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -258,7 +258,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:unsignedLong(&quot;130747108607674654&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -267,7 +267,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:unsignedLong(&quot;184467440737095516&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -276,7 +276,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:nonPositiveInteger(&quot;-999999999999999999&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -285,7 +285,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:nonPositiveInteger(&quot;-475688437271870490&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -294,7 +294,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:nonPositiveInteger(&quot;0&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -303,7 +303,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:nonNegativeInteger(&quot;0&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -312,7 +312,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:nonNegativeInteger(&quot;303884545991464527&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -321,7 +321,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:nonNegativeInteger(&quot;999999999999999999&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -330,7 +330,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:short(&quot;-32768&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -339,7 +339,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:short(&quot;-5324&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -348,7 +348,7 @@
     <description> Evaluates The &quot;empty&quot; function with the arguments set as follows: $arg = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:empty((xs:short(&quot;32767&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -375,7 +375,7 @@
     <description> A test whose essence is: `not(empty(&quot;string&quot;))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(empty(&quot;string&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -384,7 +384,7 @@
     <description> A test whose essence is: `not(empty((1, (), &quot;string&quot;)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(empty((1, (), &quot;string&quot;)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -393,7 +393,7 @@
     <description> A test whose essence is: `not(empty((1, &quot;string&quot;)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(empty((1, &quot;string&quot;)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -402,7 +402,7 @@
     <description> A test whose essence is: `not(empty( ((), 1, &quot;string&quot;) ))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(empty( ((), 1, &quot;string&quot;) ))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -411,7 +411,7 @@
     <description> A test whose essence is: `empty(())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -420,7 +420,7 @@
     <description> A test whose essence is: `empty( ((), (), ()) )`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty( ((), (), ()) )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -429,7 +429,7 @@
     <description> fn:empty combined with fn:remove and fn:not. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(exists(remove(remove((current-time(), 1), 1), 1)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -442,7 +442,7 @@
       	declare function local:generate($arg as xs:integer?) { if ($arg = 0) then (1, 2, 3) else $arg }; 
       	fn:empty( ((), local:generate( () ), local:generate( 0 ), (1 to 10000000), local:generate( () ), local:generate(1)) )
       </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -451,7 +451,7 @@
     <description> Test empty with foreach </description>
     <created by="Nick Jones" on="2008-06-12"/>
     <test>empty(for $x in (1 to 10)[. mod 2 = 0] return &quot;blah&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -460,7 +460,7 @@
     <description> Test empty with foreach </description>
     <created by="Nick Jones" on="2008-06-12"/>
     <test>boolean(empty(for $x in (1 to 10)[. mod 2 = 0] return &quot;blah&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -470,7 +470,7 @@
     <created by="Nick Jones" on="2008-06-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>empty(text {(1 to 10)[. mod 2 = 0]})</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -479,7 +479,7 @@
     <description> Tests on optimization as aggregate function </description>
     <created by="Nick Jones" on="2008-06-17"/>
     <test>empty(for $x in (1 to 10)[. mod 2 = 0] return true())</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -488,7 +488,7 @@
     <description> Tests empty on a map expression </description>
     <created by="Nick Jones" on="2008-06-17"/>
     <test>empty(for $x in (1 to 10)[. mod 2 = 0] return floor($x))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

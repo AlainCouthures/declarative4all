@@ -17,7 +17,7 @@
     <test>
         declare function local:f($x as xs:integer) as xs:integer { $x + 1 }; 
         let $f := local:f#1 return $f(2)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -31,7 +31,7 @@
       	declare function local:f($x as xs:integer) as xs:integer { $x + 1 }; 
       	let $f := local:f#0 return $f()
       </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;42&quot;)</result-string>
     <result>
       <assert-eq>42</assert-eq>
     </result>
@@ -44,7 +44,7 @@
     <test>
         import module namespace m=&quot;http://example.com/hof-003&quot;; 
         let $f := m:f#1 return $f(17)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;18&quot;)</result-string>
     <result>
       <assert-eq>18</assert-eq>
     </result>
@@ -54,7 +54,7 @@
     <created by="Michael Kay" on="2009-03-01"/>
     <dependency type="spec" value="XQ30+"/>
     <test>let $f := fn:round#1 return $f(1.2345)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -64,7 +64,7 @@
     <created by="Michael Kay" on="2009-03-01"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>let $f := concat#8 return $f('a','b','c','d','e','f','g','h')</test>
-    <result-string>xs:string('abcdefgh')</result-string>
+    <result-string>xs:string(&quot;abcdefgh&quot;)</result-string>
     <result>
       <assert-string-value>abcdefgh</assert-string-value>
     </result>
@@ -78,7 +78,7 @@
       declare function g($x as xs:integer) as xs:integer { $x + 1 }; 
       let $f := g#1 return $f(21)
       </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;22&quot;)</result-string>
     <result>
       <assert-eq>22</assert-eq>
     </result>
@@ -91,7 +91,7 @@
       declare default function namespace &quot;http://www.w3.org/2001/XMLSchema&quot;; 
       let $f := date#1 return $f('2008-01-31')
       </test>
-    <result-string>xs:string('2008-01-31')</result-string>
+    <result-string>xs:string(&quot;2008-01-31&quot;)</result-string>
     <result>
       <assert-string-value>2008-01-31</assert-string-value>
     </result>
@@ -101,7 +101,7 @@
     <created by="Michael Kay" on="2009-03-01"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>let $f := xs:date#1 return $f('2008-01-31')</test>
-    <result-string>xs:string('2008-01-31')</result-string>
+    <result-string>xs:string(&quot;2008-01-31&quot;)</result-string>
     <result>
       <assert-string-value>2008-01-31</assert-string-value>
     </result>
@@ -117,7 +117,7 @@
         let $f := a:hatsize#1 
         return ($f(8) instance of a:hatsize)
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -130,7 +130,7 @@
       declare function local:f($x as xs:integer) as xs:integer { $x + 1 }; 
       let $f as function(*) := local:f#1 return $f(2)
       </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -144,7 +144,7 @@
       let $f as function(xs:integer) as xs:integer := local:f#1 
       return $f(2)
       </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;5&quot;)</result-string>
     <result>
       <assert-eq>5</assert-eq>
     </result>
@@ -158,7 +158,7 @@
       let $f as function(xs:integer, xs:long) as xs:integer := local:f#2 
       return $f(2, xs:long(5))
       </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;7&quot;)</result-string>
     <result>
       <assert-eq>7</assert-eq>
     </result>
@@ -173,7 +173,7 @@
       declare function local:h($x as xs:integer) as xs:integer { $x + 5 }; 
       let $f as (function(xs:integer) as xs:integer)* := (local:f#1, local:g#1, local:h#1) return $f[3](2)[1]
       </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;7&quot;)</result-string>
     <result>
       <assert-eq>7</assert-eq>
     </result>
@@ -187,7 +187,7 @@
       	{ if ($x) then fn:upper-case#1 else fn:lower-case#1 }; 
       local:case(true())(&quot;Mike&quot;), local:case(false())(&quot;Mike&quot;)
       </test>
-    <result-string>xs:string('MIKE mike')</result-string>
+    <result-string>xs:string(&quot;MIKE mike&quot;)</result-string>
     <result>
       <assert-string-value>MIKE mike</assert-string-value>
     </result>
@@ -200,7 +200,7 @@
       declare function local:case($x as xs:boolean) as function(xs:string?) as xs:string 
       	{ if ($x) then fn:upper-case#1 else fn:lower-case#1 }; 
       local:case(true())(&quot;Mike&quot;), local:case(false())(&quot;Mike&quot;)</test>
-    <result-string>xs:string('MIKE mike')</result-string>
+    <result-string>xs:string(&quot;MIKE mike&quot;)</result-string>
     <result>
       <assert-string-value>MIKE mike</assert-string-value>
     </result>
@@ -213,7 +213,7 @@
       declare function local:case($x as function(*), $y as xs:string) as xs:string { $x($y) }; 
       local:case(upper-case#1, &quot;Mike&quot;), local:case(lower-case#1, &quot;Mike&quot;)
       </test>
-    <result-string>xs:string('MIKE mike')</result-string>
+    <result-string>xs:string(&quot;MIKE mike&quot;)</result-string>
     <result>
       <assert-string-value>MIKE mike</assert-string-value>
     </result>
@@ -226,7 +226,7 @@
       declare function local:case($x as function(xs:string?) as xs:string, $y as xs:string) as xs:string { $x($y) }; 
       local:case(upper-case#1, &quot;Mike&quot;), local:case(lower-case#1, &quot;Mike&quot;)
       </test>
-    <result-string>xs:string('MIKE mike')</result-string>
+    <result-string>xs:string(&quot;MIKE mike&quot;)</result-string>
     <result>
       <assert-string-value>MIKE mike</assert-string-value>
     </result>
@@ -242,7 +242,7 @@
       	{ translate($x, &quot;abcdefghijklmnopqrstuvwxyz&quot;, &quot;nopqrstuvwxyzabcdefghijklm&quot;) }; 
       local:scramble(local:rot13#1, &quot;mike&quot;)
       </test>
-    <result-string>xs:string('zvxr')</result-string>
+    <result-string>xs:string(&quot;zvxr&quot;)</result-string>
     <result>
       <assert-string-value>zvxr</assert-string-value>
     </result>
@@ -256,7 +256,7 @@
       declare function local:rot13($x as xs:string) as xs:string { translate($x, &quot;abcdefghijklmnopqrstuvwxyz&quot;, &quot;nopqrstuvwxyzabcdefghijklm&quot;) }; 
       local:scramble(local:rot13#1, &quot;mike&quot;)
       </test>
-    <result-string>xs:string('zvxr')</result-string>
+    <result-string>xs:string(&quot;zvxr&quot;)</result-string>
     <result>
       <assert-string-value>zvxr</assert-string-value>
     </result>
@@ -269,7 +269,7 @@
       declare function local:scramble($x as function(*), $y as xs:string) as xs:string { $x($y) }; 
       local:scramble(function($x){translate($x, &quot;abcdefghijklmnopqrstuvwxyz&quot;, &quot;nopqrstuvwxyzabcdefghijklm&quot;)}, &quot;john&quot;)
       </test>
-    <result-string>xs:string('wbua')</result-string>
+    <result-string>xs:string(&quot;wbua&quot;)</result-string>
     <result>
       <assert-string-value>wbua</assert-string-value>
     </result>
@@ -282,7 +282,7 @@
       declare function local:scramble($x as function(xs:string) as xs:string, $y as xs:string) as xs:string { $x($y) }; 
       local:scramble(function($x){translate($x, &quot;abcdefghijklmnopqrstuvwxyz&quot;, &quot;nopqrstuvwxyzabcdefghijklm&quot;)}, &quot;john&quot;)
       </test>
-    <result-string>xs:string('wbua')</result-string>
+    <result-string>xs:string(&quot;wbua&quot;)</result-string>
     <result>
       <assert-string-value>wbua</assert-string-value>
     </result>
@@ -296,7 +296,7 @@
       let $n := function-name(local:scramble#2) 
       return (local-name-from-QName($n), namespace-uri-from-QName($n), function-arity(local:scramble#2))
       </test>
-    <result-string>xs:string('scramble http://www.w3.org/2005/xquery-local-functions 2')</result-string>
+    <result-string>xs:string(&quot;scramble http://www.w3.org/2005/xquery-local-functions 2&quot;)</result-string>
     <result>
       <assert-string-value>scramble http://www.w3.org/2005/xquery-local-functions 2</assert-string-value>
     </result>
@@ -308,7 +308,7 @@
     <test>
         let $f := fn:function-name#1, $n := function-name($f) 
         return (local-name-from-QName($n), namespace-uri-from-QName($n), function-arity($f))</test>
-    <result-string>xs:string('function-name http://www.w3.org/2005/xpath-functions 1')</result-string>
+    <result-string>xs:string(&quot;function-name http://www.w3.org/2005/xpath-functions 1&quot;)</result-string>
     <result>
       <assert-string-value>function-name http://www.w3.org/2005/xpath-functions 1</assert-string-value>
     </result>
@@ -320,7 +320,7 @@
     <test>
         let $f := xs:dateTime#1, $n := function-name($f) 
         return (local-name-from-QName($n), namespace-uri-from-QName($n), function-arity($f))</test>
-    <result-string>xs:string('dateTime http://www.w3.org/2001/XMLSchema 1')</result-string>
+    <result-string>xs:string(&quot;dateTime http://www.w3.org/2001/XMLSchema 1&quot;)</result-string>
     <result>
       <assert-string-value>dateTime http://www.w3.org/2001/XMLSchema 1</assert-string-value>
     </result>
@@ -331,7 +331,7 @@
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>let $f := concat#123456, $n := function-name($f) 
         return (local-name-from-QName($n), namespace-uri-from-QName($n), function-arity($f))</test>
-    <result-string>xs:string('concat http://www.w3.org/2005/xpath-functions 123456')</result-string>
+    <result-string>xs:string(&quot;concat http://www.w3.org/2005/xpath-functions 123456&quot;)</result-string>
     <result>
       <assert-string-value>concat http://www.w3.org/2005/xpath-functions 123456</assert-string-value>
     </result>
@@ -362,7 +362,7 @@
     <test>
         let $f := fn:contains(?, &quot;e&quot;) 
         return for $s in (&quot;Mike&quot;, &quot;John&quot;, &quot;Dave&quot;, &quot;Mary&quot;, &quot;Jane&quot;) return $f($s)</test>
-    <result-string>xs:string('true false true false true')</result-string>
+    <result-string>xs:string(&quot;true false true false true&quot;)</result-string>
     <result>
       <assert-string-value>true false true false true</assert-string-value>
     </result>
@@ -375,7 +375,7 @@
       declare function local:splitter() as (function(xs:string) as xs:string*) { function($x as xs:string) { tokenize($x, '\s') } }; 
       string-join(local:splitter()(&quot;A nice cup of tea&quot;), '|')
       </test>
-    <result-string>xs:string('A|nice|cup|of|tea')</result-string>
+    <result-string>xs:string(&quot;A|nice|cup|of|tea&quot;)</result-string>
     <result>
       <assert-string-value>A|nice|cup|of|tea</assert-string-value>
     </result>
@@ -389,7 +389,7 @@
       { function($x as xs:string) { for $i in tokenize($x, '\s') return upper-case($i)} }; 
       string-join(local:splitter()(&quot;A nice cup of tea&quot;), '|')
       </test>
-    <result-string>xs:string('A|NICE|CUP|OF|TEA')</result-string>
+    <result-string>xs:string(&quot;A|NICE|CUP|OF|TEA&quot;)</result-string>
     <result>
       <assert-string-value>A|NICE|CUP|OF|TEA</assert-string-value>
     </result>
@@ -404,7 +404,7 @@
       	{ function($x as xs:string) { for $i in tokenize($x, $sep) return upper-case($i)} }; 
       string-join(local:splitter()(&quot;A nice cup of tea&quot;), '|')
       </test>
-    <result-string>xs:string('A|NICE|CUP|OF|TEA')</result-string>
+    <result-string>xs:string(&quot;A|NICE|CUP|OF|TEA&quot;)</result-string>
     <result>
       <assert-string-value>A|NICE|CUP|OF|TEA</assert-string-value>
     </result>
@@ -418,7 +418,7 @@
       	{ function($x as xs:string) { for $i in tokenize($x, $sep) return upper-case($i)} }; 
       string-join(local:splitter(&quot;\s&quot;)(&quot;A nice cup of tea&quot;), '|')
       </test>
-    <result-string>xs:string('A|NICE|CUP|OF|TEA')</result-string>
+    <result-string>xs:string(&quot;A|NICE|CUP|OF|TEA&quot;)</result-string>
     <result>
       <assert-string-value>A|NICE|CUP|OF|TEA</assert-string-value>
     </result>
@@ -428,7 +428,7 @@
     <created by="Michael Kay" on="2009-03-01"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>(if (current-date() gt xs:date('2000-12-31')) then upper-case#1 else lower-case#1)(&quot;Mike&quot;)</test>
-    <result-string>xs:string('MIKE')</result-string>
+    <result-string>xs:string(&quot;MIKE&quot;)</result-string>
     <result>
       <assert-string-value>MIKE</assert-string-value>
     </result>
@@ -438,7 +438,7 @@
     <created by="Michael Kay" on="2009-03-01"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>local-name-from-QName(function-name((upper-case#1, lower-case#1)[.(&quot;Mike&quot;) = &quot;MIKE&quot;]))</test>
-    <result-string>xs:string('upper-case')</result-string>
+    <result-string>xs:string(&quot;upper-case&quot;)</result-string>
     <result>
       <assert-string-value>upper-case</assert-string-value>
     </result>
@@ -448,7 +448,7 @@
     <created by="Michael Kay" on="2009-03-01"/>
     <dependency type="spec" value="XQ30+"/>
     <test>local-name-from-QName(function-name((upper-case#1, lower-case#1)[ordered{.}(&quot;Mike&quot;) = &quot;MIKE&quot;]))</test>
-    <result-string>xs:string('upper-case')</result-string>
+    <result-string>xs:string(&quot;upper-case&quot;)</result-string>
     <result>
       <assert-string-value>upper-case</assert-string-value>
     </result>
@@ -458,7 +458,7 @@
     <created by="Michael Kay" on="2009-03-01"/>
     <dependency type="spec" value="XQ30+"/>
     <test>local-name-from-QName(function-name((upper-case#1, lower-case#1)[ordered{.}(&quot;Mike&quot;) = &quot;MIKE&quot;]))</test>
-    <result-string>xs:string('upper-case')</result-string>
+    <result-string>xs:string(&quot;upper-case&quot;)</result-string>
     <result>
       <assert-string-value>upper-case</assert-string-value>
     </result>
@@ -470,7 +470,7 @@
     <test>
       <![CDATA[(<a b="3"/>/(string(@b), upper-case#1, 17))[. instance of xs:anyAtomicType]]]>
     </test>
-    <result-string>xs:string('3 17')</result-string>
+    <result-string>xs:string(&quot;3 17&quot;)</result-string>
     <result>
       <assert-string-value>3 17</assert-string-value>
     </result>
@@ -490,7 +490,7 @@
         local:f#2 instance of function(item()*, item()*) as element(e)
       ]]>
     </test>
-    <result-string>xs:string('true true false false')</result-string>
+    <result-string>xs:string(&quot;true true false false&quot;)</result-string>
     <result>
       <assert-string-value>true true false false</assert-string-value>
     </result>
@@ -511,7 +511,7 @@
         local:f#2 instance of function(item()+, item()+) as element(e)
       ]]>
     </test>
-    <result-string>xs:string('true false false false false')</result-string>
+    <result-string>xs:string(&quot;true false false false false&quot;)</result-string>
     <result>
       <assert-string-value>true false false false false</assert-string-value>
     </result>
@@ -534,7 +534,7 @@
       	local:f#2 instance of function(xs:long, xs:NCName) as element(*, xs:untyped)?
       ]]>
     </test>
-    <result-string>xs:string('true true true true true false')</result-string>
+    <result-string>xs:string(&quot;true true true true true false&quot;)</result-string>
     <result>
       <assert-string-value>true true true true true false</assert-string-value>
     </result>
@@ -548,7 +548,7 @@
       let $ops := (upper-case#1, lower-case#1, function($x){translate($x, 'e', 'i')}, substring-before(?, ' ')) 
       return string-join(local:apply($ops, 'Michael Kay'), '~')
       </test>
-    <result-string>xs:string('MICHAEL KAY~michael kay~Michail Kay~Michael')</result-string>
+    <result-string>xs:string(&quot;MICHAEL KAY~michael kay~Michail Kay~Michael&quot;)</result-string>
     <result>
       <assert-string-value>MICHAEL KAY~michael kay~Michail Kay~Michael</assert-string-value>
     </result>
@@ -562,7 +562,7 @@
       	{ (upper-case#1, lower-case#1, function($x){translate($x, 'e', 'i')}, substring-before(?, ' ')) }; 
       string-join(for $f in local:ops() return $f('Michael Kay'), '~')
       </test>
-    <result-string>xs:string('MICHAEL KAY~michael kay~Michail Kay~Michael')</result-string>
+    <result-string>xs:string(&quot;MICHAEL KAY~michael kay~Michail Kay~Michael&quot;)</result-string>
     <result>
       <assert-string-value>MICHAEL KAY~michael kay~Michail Kay~Michael</assert-string-value>
     </result>
@@ -579,7 +579,7 @@
         string-join(for $f in local:ops() return $f(<a name="Michael Kay"/>/@name), '~')
       ]]>
     </test>
-    <result-string>xs:string('MICHAEL KAY~'michael kay'~Michail Kay~Michael')</result-string>
+    <result-string>xs:string(&quot;MICHAEL KAY~'michael kay'~Michail Kay~Michael&quot;)</result-string>
     <result>
       <assert-string-value>MICHAEL KAY~'michael kay'~Michail Kay~Michael</assert-string-value>
     </result>
@@ -595,7 +595,7 @@
       	{ (abs#1, local:round#1, function($x){$x+1}, round-half-to-even(?, 2)) }; 
       string-join(for $f in local:ops() return string($f(xs:untypedAtomic('123.456'))), '~')
       </test>
-    <result-string>xs:string('123.456~123~124.456~123.46')</result-string>
+    <result-string>xs:string(&quot;123.456~123~124.456~123.46&quot;)</result-string>
     <result>
       <assert-string-value>123.456~123~124.456~123.46</assert-string-value>
     </result>
@@ -611,7 +611,7 @@
       	{ (abs#1, local:round#1, function($x as xs:double){$x+1}, round-half-to-even(?, 2)) }; 
       string-join(for $f in local:ops() return string(round-half-to-even($f(xs:decimal('123.456')), 4)), '~')
       </test>
-    <result-string>xs:string('123.456~123~124.456~123.46')</result-string>
+    <result-string>xs:string(&quot;123.456~123~124.456~123.46&quot;)</result-string>
     <result>
       <assert-string-value>123.456~123~124.456~123.46</assert-string-value>
     </result>
@@ -623,7 +623,7 @@
     <test>
       declare function local:round($x as xs:double, $algorithm as (function(xs:double) as xs:double)) as xs:double { $algorithm($x) }; 
       declare variable $roundToCeiling := local:round(?, ceiling#1); $roundToCeiling(12.4)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;13&quot;)</result-string>
     <result>
       <assert-eq>13</assert-eq>
     </result>
@@ -687,7 +687,7 @@
         declare function local:do() as xs:integer { (local:f#1)(5) }; 
         declare function local:f($x as xs:integer) as xs:integer { $x + 1 }; 
         local:do()</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;6&quot;)</result-string>
     <result>
       <assert-eq>6</assert-eq>
     </result>
@@ -775,7 +775,7 @@
       	local:f#2 instance of function(xs:long, xs:NCName) as element(*, xs:untyped)?
       ]]>
     </test>
-    <result-string>xs:string('true true true true true true true true true false')</result-string>
+    <result-string>xs:string(&quot;true true true true true true true true true false&quot;)</result-string>
     <result>
       <assert-string-value>true true true true true true true true true false</assert-string-value>
     </result>
@@ -1037,7 +1037,7 @@
     <created by="John Snelson" on="2011-07-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>concat#64 instance of function(*)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1047,7 +1047,7 @@
     <created by="John Snelson" on="2011-07-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>string-join#1((&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;, &quot;h&quot;, &quot;i&quot;, &quot;j&quot;))</test>
-    <result-string>xs:string('abcdefghij')</result-string>
+    <result-string>xs:string(&quot;abcdefghij&quot;)</result-string>
     <result>
       <assert-string-value>abcdefghij</assert-string-value>
     </result>
@@ -1107,7 +1107,7 @@
     <created by="John Snelson" on="2011-07-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>function-name(function-name#1)</test>
-    <result-string/>
+    <result-string>xs:QName(&quot;fn:function-name&quot;)</result-string>
     <result>
       <assert-eq>xs:QName(&quot;fn:function-name&quot;)</assert-eq>
     </result>
@@ -1127,7 +1127,7 @@
     <created by="John Snelson" on="2011-07-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>(let $a := 92, $b := true() return function($c) { $a, $b, $c }) instance of function(item()*) as item()*</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1147,7 +1147,7 @@
     <created by="John Snelson" on="2011-07-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>function($a as item()) as item() { $a } instance of function(*)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1157,7 +1157,7 @@
     <created by="John Snelson" on="2011-07-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>function($a as item()) as xs:integer { $a } instance of function(item()) as item()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1167,7 +1167,7 @@
     <created by="John Snelson" on="2011-07-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>function($a as item()) as item() { $a } instance of function(xs:string) as item()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1177,7 +1177,7 @@
     <created by="John Snelson" on="2011-07-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>function($a as item()) as item() { $a } instance of function() as item()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1187,7 +1187,7 @@
     <created by="John Snelson" on="2011-07-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>function($a as item()) as xs:integer { $a } instance of function(item(), item()) as item()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1197,7 +1197,7 @@
     <created by="John Snelson" on="2011-07-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>function($a as xs:string) as item() { $a } instance of function(item()) as item()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1208,7 +1208,7 @@
     <created by="John Snelson" on="2011-07-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>function() { 5 } instance of function(*)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1228,7 +1228,7 @@
     <created by="John Snelson" on="2011-07-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>function() as xs:integer { 5 }()</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;5&quot;)</result-string>
     <result>
       <assert-eq>5</assert-eq>
     </result>
@@ -1238,7 +1238,7 @@
     <created by="John Snelson" on="2011-07-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>function($a as xs:integer) as xs:integer { $a + 5 }(3)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;8&quot;)</result-string>
     <result>
       <assert-eq>8</assert-eq>
     </result>
@@ -1248,7 +1248,7 @@
     <created by="John Snelson" on="2011-07-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>function($a as xs:integer, $b as xs:double) as xs:double { $a * $b + 5 }(3, 2)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;11&quot;)</result-string>
     <result>
       <assert-eq>11</assert-eq>
     </result>
@@ -1258,7 +1258,7 @@
     <created by="John Snelson" on="2011-07-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>function($a, $b as xs:double) as xs:double { $a * $b + 5 } instance of function(item()*, xs:double) as xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1268,7 +1268,7 @@
     <created by="John Snelson" on="2011-07-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>function($a as node()+, $b) as xs:double { $a * $b + 5 } instance of function(node(), item()*) as xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1278,7 +1278,7 @@
     <created by="John Snelson" on="2011-07-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>function($a as node()+) { $a + 5 } instance of function(node()) as item()*</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1288,7 +1288,7 @@
     <created by="John Snelson" on="2011-07-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>function() { true() } instance of function() as item()*</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1489,7 +1489,12 @@ return (
     string-join(map:value($m), &quot;, &quot;), &quot;)&quot;))
 , &quot;&quot;)
 </test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;osterich
+key: a, value: (antelope)
+key: e, value: (elephant, eagle)
+key: o, value: (osterich)
+key: t, value: (terrapin)
+key: z, value: (zebra)&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;osterich
 key: a, value: (antelope)
@@ -1510,7 +1515,7 @@ key: z, value: (zebra)&quot;</assert-eq>
          let $f := func:curry(concat#5)
          return $f(&quot;foo&quot;)(&quot; bar&quot;)(&quot; baz&quot;)(&quot; what's&quot;)(&quot; next?&quot;)
       </test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;foo bar baz what's next?&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;foo bar baz what's next?&quot;</assert-eq>
     </result>
@@ -1552,7 +1557,106 @@ $enumerate(local:fib2(50))
 return string($a)
 , &quot;&quot;)
       </test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;0
+0
+1
+1
+2
+1
+3
+2
+4
+3
+5
+5
+6
+8
+7
+13
+8
+21
+9
+34
+10
+55
+11
+89
+12
+144
+13
+233
+14
+377
+15
+610
+16
+987
+17
+1597
+18
+2584
+19
+4181
+20
+6765
+21
+10946
+22
+17711
+23
+28657
+24
+46368
+25
+75025
+26
+121393
+27
+196418
+28
+317811
+29
+514229
+30
+832040
+31
+1346269
+32
+2178309
+33
+3524578
+34
+5702887
+35
+9227465
+36
+14930352
+37
+24157817
+38
+39088169
+39
+63245986
+40
+102334155
+41
+165580141
+42
+267914296
+43
+433494437
+44
+701408733
+45
+1134903170
+46
+1836311903
+47
+2971215073
+48
+4807526976
+49
+7778742049&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;0
 0
@@ -1667,7 +1771,7 @@ return string($a)
          
          local:hof(('1', '2'), concat#2)
       </test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;12&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;12&quot;</assert-eq>
     </result>
@@ -1680,7 +1784,7 @@ return string($a)
          let $a := string-join(?, &quot;&quot;)
          return $a((&quot;foo&quot;, &quot;bar&quot;, &quot;baz&quot;))
       </test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;foobarbaz&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;foobarbaz&quot;</assert-eq>
     </result>
@@ -1697,7 +1801,7 @@ return string($a)
          
          local:curry(substring-after#2)(&quot;foobar&quot;)(&quot;foo&quot;)
       </test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;bar&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;bar&quot;</assert-eq>
     </result>
@@ -1805,7 +1909,7 @@ return string($a)
          return <a/>/$f()
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;b&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;b&quot;</assert-eq>
     </result>

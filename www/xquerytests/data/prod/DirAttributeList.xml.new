@@ -136,7 +136,7 @@
     <test>
       <![CDATA[for $x in <elem attr="value"/> return $x is $x/@attr/..]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -147,7 +147,7 @@
     <test>
       <![CDATA[fn:count((<elem xmlns:foo="http://ns.example.com/uri"/>)/@*)]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -158,7 +158,7 @@
     <test>
       <![CDATA[fn:count((<elem xmlns="http://ns.example.com/uri"/>)/@*)]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -432,7 +432,7 @@
     <test>
       <![CDATA[fn:string-length(string((<elem attr="&amp;&lt;&gt;"/>)/@attr))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -636,7 +636,7 @@
     <test>
       <![CDATA[<ncname>content</ncname > = 'content']]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -896,7 +896,7 @@
     <test>
       <![CDATA[string(<foo attr=""""/>/@attr)]]>
     </test>
-    <result-string>xs:string('&quot;')</result-string>
+    <result-string>xs:string(&quot;&quot;&quot;)</result-string>
     <result>
       <assert-string-value>&quot;</assert-string-value>
     </result>
@@ -907,7 +907,7 @@
     <test>
       <![CDATA[string(<foo attr='""'/>/@attr)]]>
     </test>
-    <result-string>xs:string('&quot;&quot;')</result-string>
+    <result-string>xs:string(&quot;&quot;&quot;&quot;)</result-string>
     <result>
       <assert-string-value>&quot;&quot;</assert-string-value>
     </result>
@@ -918,7 +918,7 @@
     <test>
       <![CDATA[string(<foo attr="''"/>/@attr)]]>
     </test>
-    <result-string>xs:string('''')</result-string>
+    <result-string>xs:string(&quot;''&quot;)</result-string>
     <result>
       <assert-string-value>''</assert-string-value>
     </result>
@@ -929,7 +929,7 @@
     <test>
       <![CDATA[string(<foo attr=''''/>/@attr)]]>
     </test>
-    <result-string>xs:string(''')</result-string>
+    <result-string>xs:string(&quot;'&quot;)</result-string>
     <result>
       <assert-string-value>'</assert-string-value>
     </result>
@@ -953,7 +953,7 @@
     <test>
       <![CDATA[string(<elem attr="{comment {" content "}}"/>/@attr)]]>
     </test>
-    <result-string>xs:string(' content ')</result-string>
+    <result-string>xs:string(&quot; content &quot;)</result-string>
     <result>
       <assert-string-value> content </assert-string-value>
     </result>
@@ -964,7 +964,7 @@
     <test>
       <![CDATA[local-name(<elem attr="{comment {" content "}}"/>/@attr)]]>
     </test>
-    <result-string>xs:string('attr')</result-string>
+    <result-string>xs:string(&quot;attr&quot;)</result-string>
     <result>
       <assert-string-value>attr</assert-string-value>
     </result>
@@ -975,7 +975,7 @@
     <test>
       <![CDATA[string(<elem attr="{processing-instruction name {" content "}}"/>/@attr)]]>
     </test>
-    <result-string>xs:string('content ')</result-string>
+    <result-string>xs:string(&quot;content &quot;)</result-string>
     <result>
       <assert-string-value>content </assert-string-value>
     </result>
@@ -986,7 +986,7 @@
     <test>
       <![CDATA[local-name(<elem attr="{processing-instruction name {" content "}}"/>/@attr)]]>
     </test>
-    <result-string>xs:string('attr')</result-string>
+    <result-string>xs:string(&quot;attr&quot;)</result-string>
     <result>
       <assert-string-value>attr</assert-string-value>
     </result>
@@ -997,7 +997,7 @@
     <test>
       <![CDATA[local-name(<elem attr="{attribute name {" content "}}"/>/@attr)]]>
     </test>
-    <result-string>xs:string('attr')</result-string>
+    <result-string>xs:string(&quot;attr&quot;)</result-string>
     <result>
       <assert-string-value>attr</assert-string-value>
     </result>
@@ -1008,7 +1008,7 @@
     <test>
       <![CDATA[string(<elem attr="{attribute name {" content "}}"/>/@attr)]]>
     </test>
-    <result-string>xs:string(' content ')</result-string>
+    <result-string>xs:string(&quot; content &quot;)</result-string>
     <result>
       <assert-string-value> content </assert-string-value>
     </result>
@@ -1110,7 +1110,7 @@
     <test>
       <![CDATA[data(<e foo="content"/>/@*) instance of xs:untypedAtomic]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1369,7 +1369,7 @@
     <test>
       <![CDATA[declare default element namespace "http://typedecl"; namespace-uri-from-QName(node-name(exactly-one(<e attr="foo"/>/@attr))) eq ""]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1380,7 +1380,7 @@
     <test>
       <![CDATA[declare default element namespace "http://typedecl"; namespace-uri-from-QName(node-name(exactly-one(<e>{attribute attr {()} }/</e>/@attr))) eq ""]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1391,7 +1391,7 @@
     <test>
       <![CDATA[namespace-uri-from-QName(node-name(exactly-one(<e xmlns="http://example.com/">{attribute attr {()} }/</e>/@attr))) eq ""]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1400,7 +1400,7 @@
     <description> Ensure that attributes constructed with computed constructors doesn't pick up the default namespace(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare default element namespace &quot;http://example.com/&quot;; namespace-uri-from-QName(node-name(attribute e {()})) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

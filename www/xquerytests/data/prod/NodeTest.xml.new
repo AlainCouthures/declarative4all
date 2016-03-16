@@ -445,7 +445,7 @@
     <test>
       <![CDATA[count(<a/>/node())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -733,7 +733,7 @@
     <test>
       <![CDATA[<e> <a/> <b/> </e>/(if(position() = 10) then (<e/>, .) else 4)]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;4&quot;)</result-string>
     <result>
       <assert-eq>4</assert-eq>
     </result>
@@ -852,7 +852,7 @@
     <description> Use fn:last() with nested predicates(#2). </description>
     <created by="Frans Englich" on="2008-01-03"/>
     <test>(4, 5)[position() = 2][last() = 1]</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;5&quot;)</result-string>
     <result>
       <assert-eq>5</assert-eq>
     </result>
@@ -861,7 +861,7 @@
     <description> Use fn:last() with nested predicates(#3). </description>
     <created by="Frans Englich" on="2008-01-03"/>
     <test>(4, 5)[position() = 2][last() = 1][last() = 1][last()]</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;5&quot;)</result-string>
     <result>
       <assert-eq>5</assert-eq>
     </result>

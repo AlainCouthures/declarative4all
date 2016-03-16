@@ -14,7 +14,7 @@ As per example 1 (for this function)of the FO specs.
 </description>
     <created by="Carmelo Montanez" on="2005-07-06"/>
     <test>xs:date(&quot;2000-10-30&quot;) - xs:date(&quot;1999-11-28&quot;)</test>
-    <result-string>xs:string('P337D')</result-string>
+    <result-string>xs:string(&quot;P337D&quot;)</result-string>
     <result>
       <assert-string-value>P337D</assert-string-value>
     </result>
@@ -31,7 +31,7 @@ as per example 2 (for this operator) from the FO specs.
 </description>
     <created by="Carmelo Montanez" on="2005-07-06"/>
     <test>xs:date(&quot;2000-10-30+05:00&quot;) - xs:date(&quot;1999-11-28Z&quot;)</test>
-    <result-string>xs:string('P336DT19H')</result-string>
+    <result-string>xs:string(&quot;P336DT19H&quot;)</result-string>
     <result>
       <assert-string-value>P336DT19H</assert-string-value>
     </result>
@@ -47,7 +47,7 @@ per example 3 (for this operator) from the FO specs.
 </description>
     <created by="Carmelo Montanez" on="2005-07-06"/>
     <test>xs:date(&quot;2000-10-15-05:00&quot;) - xs:date(&quot;2000-10-10+02:00&quot;)</test>
-    <result-string>xs:string('P5DT7H')</result-string>
+    <result-string>xs:string(&quot;P5DT7H&quot;)</result-string>
     <result>
       <assert-string-value>P5DT7H</assert-string-value>
     </result>
@@ -64,7 +64,7 @@ Purpose: Evaluates The string value of &quot;subtract-dates-yielding-DTD&quot;
 </description>
     <created by="Carmelo Montanez" on="2005-07-06"/>
     <test>fn:not(fn:string(xs:date(&quot;1998-09-12Z&quot;) - xs:date(&quot;1998-09-21Z&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -81,7 +81,7 @@ is used as an argument to the fn:boolean function.
 </description>
     <created by="Carmelo Montanez" on="2005-07-06"/>
     <test>fn:boolean(fn:string(xs:date(&quot;1962-03-12Z&quot;) - xs:date(&quot;1962-03-12Z&quot;)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -98,7 +98,7 @@ is used as an argument to the fn:number function.
 </description>
     <created by="Carmelo Montanez" on="2005-07-06"/>
     <test>fn:number(xs:date(&quot;1988-01-28Z&quot;) - xs:date(&quot;2001-03-02&quot;))</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -115,7 +115,7 @@ as an argument to the &quot;fn:string&quot; function).
 </description>
     <created by="Carmelo Montanez" on="2005-07-06"/>
     <test>fn:string(xs:date(&quot;1989-07-05Z&quot;) - xs:date(&quot;1962-09-04Z&quot;))</test>
-    <result-string>xs:string('P9801D')</result-string>
+    <result-string>xs:string(&quot;P9801D&quot;)</result-string>
     <result>
       <assert-string-value>P9801D</assert-string-value>
     </result>
@@ -132,7 +132,7 @@ returns a negative value.
 </description>
     <created by="Carmelo Montanez" on="2005-07-06"/>
     <test>xs:date(&quot;0001-01-01Z&quot;) - xs:date(&quot;2005-07-06Z&quot;)</test>
-    <result-string>xs:string('-P732132D')</result-string>
+    <result-string>xs:string(&quot;-P732132D&quot;)</result-string>
     <result>
       <assert-string-value>-P732132D</assert-string-value>
     </result>
@@ -149,7 +149,7 @@ together with an &quot;and&quot; expression.
 </description>
     <created by="Carmelo Montanez" on="2005-07-06"/>
     <test>fn:string((xs:date(&quot;1993-12-09Z&quot;) - xs:date(&quot;1992-10-02Z&quot;))) and fn:string((xs:date(&quot;1993-12-09Z&quot;) - xs:date(&quot;1980-10-20Z&quot;)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -166,7 +166,7 @@ together with an &quot;or&quot; expression.
 </description>
     <created by="Carmelo Montanez" on="2005-07-06"/>
     <test>fn:string((xs:date(&quot;1985-07-05Z&quot;) - xs:date(&quot;1977-12-02Z&quot;))) or fn:string((xs:date(&quot;1985-07-05Z&quot;) - xs:date(&quot;1960-11-07Z&quot;)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -183,7 +183,7 @@ as part of a &quot;div&quot; expression.
 </description>
     <created by="Carmelo Montanez" on="2005-07-06"/>
     <test>(xs:date(&quot;1978-12-12Z&quot;) - xs:date(&quot;1978-12-12Z&quot;)) div xs:dayTimeDuration(&quot;P17DT10H02M&quot;)</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -200,7 +200,7 @@ with a boolean expression and the &quot;fn:true&quot; function.
 </description>
     <created by="Carmelo Montanez" on="2005-07-06"/>
     <test>fn:string((xs:date(&quot;1980-03-02Z&quot;) - xs:date(&quot;2001-09-11Z&quot;))) and (fn:true())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -217,7 +217,7 @@ together with the numeric-equal-operator &quot;eq&quot;.
 </description>
     <created by="Carmelo Montanez" on="2005-07-06"/>
     <test>fn:string((xs:date(&quot;1980-05-05Z&quot;) - xs:date(&quot;1981-12-03Z&quot;))) eq xs:string(xs:dayTimeDuration(&quot;P17DT10H02M&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -234,7 +234,7 @@ together with the numeric-equal operator &quot;ne&quot;.
 </description>
     <created by="Carmelo Montanez" on="2005-07-06"/>
     <test>fn:string((xs:date(&quot;1979-12-12Z&quot;) - xs:date(&quot;1979-11-11Z&quot;))) ne xs:string(xs:dayTimeDuration(&quot;P17DT10H02M&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -251,7 +251,7 @@ together with the numeric-equal operator &quot;le&quot;.
 </description>
     <created by="Carmelo Montanez" on="2005-07-06"/>
     <test>fn:string((xs:date(&quot;1978-12-12Z&quot;) - xs:date(&quot;1977-03-12Z&quot;))) le xs:string(xs:dayTimeDuration(&quot;P17DT10H02M&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -268,7 +268,7 @@ together with the numeric-equal operator &quot;ge&quot;.
 </description>
     <created by="Carmelo Montanez" on="2005-07-06"/>
     <test>fn:string((xs:date(&quot;1977-12-12Z&quot;) - xs:date(&quot;1976-12-12Z&quot;))) ge xs:string(xs:dayTimeDuration(&quot;P17DT10H02M&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -285,7 +285,7 @@ used as part of a boolean expression (and operator) and the &quot;fn:false&quot;
 </description>
     <created by="Carmelo Montanez" on="2005-07-06"/>
     <test>fn:string(xs:date(&quot;2000-12-12Z&quot;) - xs:date(&quot;2000-11-11Z&quot;)) and fn:false()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -301,7 +301,7 @@ part of a boolean expression (or operator) and the &quot;fn:false&quot; function
 </description>
     <created by="Carmelo Montanez" on="2005-07-06"/>
     <test>fn:string((xs:date(&quot;1999-10-23Z&quot;) - xs:date(&quot;1998-09-09Z&quot;))) or fn:false()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -317,7 +317,7 @@ part of a multiplication expression
 </description>
     <created by="Carmelo Montanez" on="2005-07-06"/>
     <test>(xs:date(&quot;1999-10-23Z&quot;) - xs:date(&quot;1998-09-09Z&quot;)) * xs:decimal(2.0)</test>
-    <result-string>xs:string('P818D')</result-string>
+    <result-string>xs:string(&quot;P818D&quot;)</result-string>
     <result>
       <assert-string-value>P818D</assert-string-value>
     </result>
@@ -333,7 +333,7 @@ part of a addition expression
 </description>
     <created by="Carmelo Montanez" on="2005-07-06"/>
     <test>(xs:date(&quot;1999-10-23Z&quot;) - xs:date(&quot;1998-09-09Z&quot;)) + xs:dayTimeDuration(&quot;P17DT10H02M&quot;)</test>
-    <result-string>xs:string('P426DT10H2M')</result-string>
+    <result-string>xs:string(&quot;P426DT10H2M&quot;)</result-string>
     <result>
       <assert-string-value>P426DT10H2M</assert-string-value>
     </result>
@@ -349,7 +349,7 @@ part of a addition expression
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:date(&quot;1999-07-19&quot;) - xs:date(&quot;1969-11-30&quot;) eq xs:dayTimeDuration(&quot;P10823D&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -365,7 +365,7 @@ part of a addition expression
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:date(&quot;1999-07-19&quot;) - xs:date(&quot;1999-07-19&quot;) eq xs:dayTimeDuration(&quot;PT0S&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -457,7 +457,7 @@ part of a addition expression
     <created by="Tim Mills" on="2008-05-15"/>
     <modified by="Tim Mills" change="Bug 21222" on="2013-03-15"/>
     <test>xs:date(&quot;2008-12-31&quot;) - xs:date(&quot;2002-12-31+01:00&quot;) + implicit-timezone()</test>
-    <result-string>xs:string('P2192DT1H')</result-string>
+    <result-string>xs:string(&quot;P2192DT1H&quot;)</result-string>
     <result>
       <assert-string-value>P2192DT1H</assert-string-value>
     </result>
@@ -467,7 +467,7 @@ part of a addition expression
     <created by="Tim Mills" on="2008-05-15"/>
     <modified by="Tim Mills" change="Bug 21222" on="2013-03-15"/>
     <test>xs:date(&quot;2002-12-31+01:00&quot;) - xs:date(&quot;2008-12-31&quot;) - implicit-timezone()</test>
-    <result-string>xs:string('-P2192DT1H')</result-string>
+    <result-string>xs:string(&quot;-P2192DT1H&quot;)</result-string>
     <result>
       <assert-string-value>-P2192DT1H</assert-string-value>
     </result>

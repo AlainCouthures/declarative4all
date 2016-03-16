@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;-2147483648&quot;) eq xs:int(&quot;-2147483648&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:int(mid range) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;-1873914410&quot;) eq xs:int(&quot;-2147483648&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:int(upper bound) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;2147483647&quot;) eq xs:int(&quot;-2147483648&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;-2147483648&quot;) eq xs:int(&quot;-1873914410&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;-2147483648&quot;) eq xs:int(&quot;2147483647&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;-2147483648&quot;) ne xs:int(&quot;-2147483648&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:int(mid range) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;-1873914410&quot;) ne xs:int(&quot;-2147483648&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:int(upper bound) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;2147483647&quot;) ne xs:int(&quot;-2147483648&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;-2147483648&quot;) ne xs:int(&quot;-1873914410&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;-2147483648&quot;) ne xs:int(&quot;2147483647&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;-999999999999999999&quot;) eq xs:integer(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:integer(mid range) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;830993497117024304&quot;) eq xs:integer(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:integer(upper bound) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;999999999999999999&quot;) eq xs:integer(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;-999999999999999999&quot;) eq xs:integer(&quot;830993497117024304&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;-999999999999999999&quot;) eq xs:integer(&quot;999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;-999999999999999999&quot;) ne xs:integer(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:integer(mid range) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;830993497117024304&quot;) ne xs:integer(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:integer(upper bound) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;999999999999999999&quot;) ne xs:integer(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;-999999999999999999&quot;) ne xs:integer(&quot;830993497117024304&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;-999999999999999999&quot;) ne xs:integer(&quot;999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -186,7 +186,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;-999999999999999999&quot;) eq xs:decimal(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -195,7 +195,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:decimal(mid range) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;617375191608514839&quot;) eq xs:decimal(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -204,7 +204,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:decimal(upper bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;999999999999999999&quot;) eq xs:decimal(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -213,7 +213,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;-999999999999999999&quot;) eq xs:decimal(&quot;617375191608514839&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -222,7 +222,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;-999999999999999999&quot;) eq xs:decimal(&quot;999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -231,7 +231,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;-999999999999999999&quot;) ne xs:decimal(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -240,7 +240,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:decimal(mid range) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;617375191608514839&quot;) ne xs:decimal(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -249,7 +249,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:decimal(upper bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;999999999999999999&quot;) ne xs:decimal(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -258,7 +258,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;-999999999999999999&quot;) ne xs:decimal(&quot;617375191608514839&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -267,7 +267,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;-999999999999999999&quot;) ne xs:decimal(&quot;999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -276,7 +276,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;-1.7976931348623157E308&quot;) eq xs:double(&quot;-1.7976931348623157E308&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -285,7 +285,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:double(mid range) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;0&quot;) eq xs:double(&quot;-1.7976931348623157E308&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -294,7 +294,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:double(upper bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;1.7976931348623157E308&quot;) eq xs:double(&quot;-1.7976931348623157E308&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -303,7 +303,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;-1.7976931348623157E308&quot;) eq xs:double(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -312,7 +312,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;-1.7976931348623157E308&quot;) eq xs:double(&quot;1.7976931348623157E308&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -321,7 +321,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;-1.7976931348623157E308&quot;) ne xs:double(&quot;-1.7976931348623157E308&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -330,7 +330,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:double(mid range) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;0&quot;) ne xs:double(&quot;-1.7976931348623157E308&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -339,7 +339,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:double(upper bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;1.7976931348623157E308&quot;) ne xs:double(&quot;-1.7976931348623157E308&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -348,7 +348,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;-1.7976931348623157E308&quot;) ne xs:double(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -357,7 +357,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;-1.7976931348623157E308&quot;) ne xs:double(&quot;1.7976931348623157E308&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -366,7 +366,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;-3.4028235E38&quot;) eq xs:float(&quot;-3.4028235E38&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -375,7 +375,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:float(mid range) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;0&quot;) eq xs:float(&quot;-3.4028235E38&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -384,7 +384,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:float(upper bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;3.4028235E38&quot;) eq xs:float(&quot;-3.4028235E38&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -393,7 +393,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;-3.4028235E38&quot;) eq xs:float(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -402,7 +402,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;-3.4028235E38&quot;) eq xs:float(&quot;3.4028235E38&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -411,7 +411,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;-3.4028235E38&quot;) ne xs:float(&quot;-3.4028235E38&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -420,7 +420,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:float(mid range) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;0&quot;) ne xs:float(&quot;-3.4028235E38&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -429,7 +429,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:float(upper bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;3.4028235E38&quot;) ne xs:float(&quot;-3.4028235E38&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -438,7 +438,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;-3.4028235E38&quot;) ne xs:float(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -447,7 +447,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;-3.4028235E38&quot;) ne xs:float(&quot;3.4028235E38&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -456,7 +456,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;-92233720368547758&quot;) eq xs:long(&quot;-92233720368547758&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -465,7 +465,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:long(mid range) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;-47175562203048468&quot;) eq xs:long(&quot;-92233720368547758&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -474,7 +474,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:long(upper bound) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;92233720368547758&quot;) eq xs:long(&quot;-92233720368547758&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -483,7 +483,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;-92233720368547758&quot;) eq xs:long(&quot;-47175562203048468&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -492,7 +492,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;-92233720368547758&quot;) eq xs:long(&quot;92233720368547758&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -501,7 +501,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;-92233720368547758&quot;) ne xs:long(&quot;-92233720368547758&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -510,7 +510,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:long(mid range) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;-47175562203048468&quot;) ne xs:long(&quot;-92233720368547758&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -519,7 +519,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:long(upper bound) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;92233720368547758&quot;) ne xs:long(&quot;-92233720368547758&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -528,7 +528,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;-92233720368547758&quot;) ne xs:long(&quot;-47175562203048468&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -537,7 +537,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;-92233720368547758&quot;) ne xs:long(&quot;92233720368547758&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -546,7 +546,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;0&quot;) eq xs:unsignedShort(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -555,7 +555,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:unsignedShort(mid range) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;44633&quot;) eq xs:unsignedShort(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -564,7 +564,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:unsignedShort(upper bound) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;65535&quot;) eq xs:unsignedShort(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -573,7 +573,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;0&quot;) eq xs:unsignedShort(&quot;44633&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -582,7 +582,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;0&quot;) eq xs:unsignedShort(&quot;65535&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -591,7 +591,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;0&quot;) ne xs:unsignedShort(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -600,7 +600,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:unsignedShort(mid range) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;44633&quot;) ne xs:unsignedShort(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -609,7 +609,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:unsignedShort(upper bound) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;65535&quot;) ne xs:unsignedShort(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -618,7 +618,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;0&quot;) ne xs:unsignedShort(&quot;44633&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -627,7 +627,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;0&quot;) ne xs:unsignedShort(&quot;65535&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -636,7 +636,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-999999999999999999&quot;) eq xs:negativeInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -645,7 +645,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:negativeInteger(mid range) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-297014075999096793&quot;) eq xs:negativeInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -654,7 +654,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:negativeInteger(upper bound) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-1&quot;) eq xs:negativeInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -663,7 +663,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-999999999999999999&quot;) eq xs:negativeInteger(&quot;-297014075999096793&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -672,7 +672,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-999999999999999999&quot;) eq xs:negativeInteger(&quot;-1&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -681,7 +681,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-999999999999999999&quot;) ne xs:negativeInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -690,7 +690,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:negativeInteger(mid range) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-297014075999096793&quot;) ne xs:negativeInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -699,7 +699,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:negativeInteger(upper bound) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-1&quot;) ne xs:negativeInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -708,7 +708,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-999999999999999999&quot;) ne xs:negativeInteger(&quot;-297014075999096793&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -717,7 +717,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-999999999999999999&quot;) ne xs:negativeInteger(&quot;-1&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -726,7 +726,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;1&quot;) eq xs:positiveInteger(&quot;1&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -735,7 +735,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(mid range) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;52704602390610033&quot;) eq xs:positiveInteger(&quot;1&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -744,7 +744,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(upper bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;999999999999999999&quot;) eq xs:positiveInteger(&quot;1&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -753,7 +753,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;1&quot;) eq xs:positiveInteger(&quot;52704602390610033&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -762,7 +762,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;1&quot;) eq xs:positiveInteger(&quot;999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -771,7 +771,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;1&quot;) ne xs:positiveInteger(&quot;1&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -780,7 +780,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(mid range) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;52704602390610033&quot;) ne xs:positiveInteger(&quot;1&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -789,7 +789,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(upper bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;999999999999999999&quot;) ne xs:positiveInteger(&quot;1&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -798,7 +798,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;1&quot;) ne xs:positiveInteger(&quot;52704602390610033&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -807,7 +807,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;1&quot;) ne xs:positiveInteger(&quot;999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -816,7 +816,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;0&quot;) eq xs:unsignedLong(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -825,7 +825,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:unsignedLong(mid range) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;130747108607674654&quot;) eq xs:unsignedLong(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -834,7 +834,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:unsignedLong(upper bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;184467440737095516&quot;) eq xs:unsignedLong(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -843,7 +843,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;0&quot;) eq xs:unsignedLong(&quot;130747108607674654&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -852,7 +852,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;0&quot;) eq xs:unsignedLong(&quot;184467440737095516&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -861,7 +861,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;0&quot;) ne xs:unsignedLong(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -870,7 +870,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:unsignedLong(mid range) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;130747108607674654&quot;) ne xs:unsignedLong(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -879,7 +879,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:unsignedLong(upper bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;184467440737095516&quot;) ne xs:unsignedLong(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -888,7 +888,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;0&quot;) ne xs:unsignedLong(&quot;130747108607674654&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -897,7 +897,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;0&quot;) ne xs:unsignedLong(&quot;184467440737095516&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -906,7 +906,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;-999999999999999999&quot;) eq xs:nonPositiveInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -915,7 +915,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(mid range) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;-475688437271870490&quot;) eq xs:nonPositiveInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -924,7 +924,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(upper bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;0&quot;) eq xs:nonPositiveInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -933,7 +933,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;-999999999999999999&quot;) eq xs:nonPositiveInteger(&quot;-475688437271870490&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -942,7 +942,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;-999999999999999999&quot;) eq xs:nonPositiveInteger(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -951,7 +951,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;-999999999999999999&quot;) ne xs:nonPositiveInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -960,7 +960,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(mid range) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;-475688437271870490&quot;) ne xs:nonPositiveInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -969,7 +969,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(upper bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;0&quot;) ne xs:nonPositiveInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -978,7 +978,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;-999999999999999999&quot;) ne xs:nonPositiveInteger(&quot;-475688437271870490&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -987,7 +987,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;-999999999999999999&quot;) ne xs:nonPositiveInteger(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -996,7 +996,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;0&quot;) eq xs:nonNegativeInteger(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1005,7 +1005,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(mid range) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;303884545991464527&quot;) eq xs:nonNegativeInteger(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1014,7 +1014,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(upper bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;999999999999999999&quot;) eq xs:nonNegativeInteger(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1023,7 +1023,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;0&quot;) eq xs:nonNegativeInteger(&quot;303884545991464527&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1032,7 +1032,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;0&quot;) eq xs:nonNegativeInteger(&quot;999999999999999999&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1041,7 +1041,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;0&quot;) ne xs:nonNegativeInteger(&quot;0&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1050,7 +1050,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(mid range) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;303884545991464527&quot;) ne xs:nonNegativeInteger(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1059,7 +1059,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(upper bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;999999999999999999&quot;) ne xs:nonNegativeInteger(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1068,7 +1068,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;0&quot;) ne xs:nonNegativeInteger(&quot;303884545991464527&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1077,7 +1077,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;0&quot;) ne xs:nonNegativeInteger(&quot;999999999999999999&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1086,7 +1086,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;-32768&quot;) eq xs:short(&quot;-32768&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1095,7 +1095,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:short(mid range) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;-5324&quot;) eq xs:short(&quot;-32768&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1104,7 +1104,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:short(upper bound) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;32767&quot;) eq xs:short(&quot;-32768&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1113,7 +1113,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;-32768&quot;) eq xs:short(&quot;-5324&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1122,7 +1122,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;-32768&quot;) eq xs:short(&quot;32767&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1131,7 +1131,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;-32768&quot;) ne xs:short(&quot;-32768&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1140,7 +1140,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:short(mid range) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;-5324&quot;) ne xs:short(&quot;-32768&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1149,7 +1149,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:short(upper bound) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;32767&quot;) ne xs:short(&quot;-32768&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1158,7 +1158,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;-32768&quot;) ne xs:short(&quot;-5324&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1167,7 +1167,7 @@
     <description> Evaluates The &quot;op:numeric-equal&quot; operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;-32768&quot;) ne xs:short(&quot;32767&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1188,7 +1188,7 @@
     <description> A test whose essence is: `xs:integer(1) eq xs:integer(1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:integer(1) eq xs:integer(1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1197,7 +1197,7 @@
     <description> A test whose essence is: `xs:integer(1) ne xs:integer(2)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:integer(1) ne xs:integer(2)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1206,7 +1206,7 @@
     <description> A test whose essence is: `xs:integer(1) eq xs:integer(1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:integer(1) eq xs:integer(1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1215,7 +1215,7 @@
     <description> A test whose essence is: `xs:integer(-1) eq xs:integer(-1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:integer(-1) eq xs:integer(-1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1224,7 +1224,7 @@
     <description> A test whose essence is: `xs:integer(1) ne xs:integer(2)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:integer(1) ne xs:integer(2)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1233,7 +1233,7 @@
     <description> A test whose essence is: `xs:decimal(1.1) eq xs:decimal(1.1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:decimal(1.1) eq xs:decimal(1.1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1242,7 +1242,7 @@
     <description> A test whose essence is: `xs:decimal(1.1) ne xs:decimal(2.1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:decimal(1.1) ne xs:decimal(2.1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1251,7 +1251,7 @@
     <description> A test whose essence is: `xs:decimal(1.1) eq xs:decimal(1.1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:decimal(1.1) eq xs:decimal(1.1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1260,7 +1260,7 @@
     <description> A test whose essence is: `xs:decimal(-1.1) eq xs:decimal(-1.1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:decimal(-1.1) eq xs:decimal(-1.1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1269,7 +1269,7 @@
     <description> A test whose essence is: `xs:decimal(1.1) ne xs:decimal(2.1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:decimal(1.1) ne xs:decimal(2.1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1278,7 +1278,7 @@
     <description> A test whose essence is: `xs:integer(2) ne xs:decimal(2.6)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:integer(2) ne xs:decimal(2.6)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1287,7 +1287,7 @@
     <description> A test whose essence is: `xs:double(1.1) eq xs:double(1.1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(1.1) eq xs:double(1.1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1296,7 +1296,7 @@
     <description> A test whose essence is: `xs:double(-1.1) eq xs:double(-1.1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(-1.1) eq xs:double(-1.1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1305,7 +1305,7 @@
     <description> A test whose essence is: `xs:double(1.1) ne xs:double(2.1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(1.1) ne xs:double(2.1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1314,7 +1314,7 @@
     <description> A test whose essence is: `xs:double(-1) ne xs:double(1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(-1) ne xs:double(1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1323,7 +1323,7 @@
     <description> A test whose essence is: `xs:double(&quot;NaN&quot;) ne xs:double(&quot;NaN&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;NaN&quot;) ne xs:double(&quot;NaN&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1332,7 +1332,7 @@
     <description> A test whose essence is: `xs:double(&quot;NaN&quot;) ne xs:double(0)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;NaN&quot;) ne xs:double(0)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1341,7 +1341,7 @@
     <description> A test whose essence is: `xs:double(0) ne xs:double(&quot;NaN&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(0) ne xs:double(&quot;NaN&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1350,7 +1350,7 @@
     <description> A test whose essence is: `xs:double(&quot;-INF&quot;) eq xs:double(&quot;-INF&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;-INF&quot;) eq xs:double(&quot;-INF&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1359,7 +1359,7 @@
     <description> A test whose essence is: `xs:double(&quot;INF&quot;) eq xs:double(&quot;INF&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;INF&quot;) eq xs:double(&quot;INF&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1368,7 +1368,7 @@
     <description> A test whose essence is: `xs:double(&quot;-INF&quot;) ne xs:double(&quot;INF&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;-INF&quot;) ne xs:double(&quot;INF&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1377,7 +1377,7 @@
     <description> A test whose essence is: `xs:double(&quot;INF&quot;) ne xs:double(&quot;-INF&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;INF&quot;) ne xs:double(&quot;-INF&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1386,7 +1386,7 @@
     <description> A test whose essence is: `xs:double(&quot;INF&quot;) ne xs:double(&quot;0&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;INF&quot;) ne xs:double(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1395,7 +1395,7 @@
     <description> A test whose essence is: `xs:double(&quot;-INF&quot;) ne xs:double(&quot;0&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;-INF&quot;) ne xs:double(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1404,7 +1404,7 @@
     <description> A test whose essence is: `xs:double(&quot;0&quot;) ne xs:double(&quot;INF&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;0&quot;) ne xs:double(&quot;INF&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1413,7 +1413,7 @@
     <description> A test whose essence is: `xs:double(&quot;0&quot;) ne xs:double(&quot;-INF&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;0&quot;) ne xs:double(&quot;-INF&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1422,7 +1422,7 @@
     <description> A test whose essence is: `xs:float(1.1) eq xs:float(1.1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(1.1) eq xs:float(1.1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1431,7 +1431,7 @@
     <description> A test whose essence is: `xs:float(-1.1) eq xs:float(-1.1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(-1.1) eq xs:float(-1.1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1440,7 +1440,7 @@
     <description> A test whose essence is: `xs:float(1.1) ne xs:float(2.1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(1.1) ne xs:float(2.1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1449,7 +1449,7 @@
     <description> A test whose essence is: `xs:float(&quot;NaN&quot;) ne xs:float(&quot;NaN&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;NaN&quot;) ne xs:float(&quot;NaN&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1458,7 +1458,7 @@
     <description> A test whose essence is: `xs:float(&quot;NaN&quot;) ne xs:float(0)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;NaN&quot;) ne xs:float(0)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1467,7 +1467,7 @@
     <description> A test whose essence is: `xs:float(0) ne xs:float(&quot;NaN&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(0) ne xs:float(&quot;NaN&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1476,7 +1476,7 @@
     <description> A test whose essence is: `xs:float(&quot;-INF&quot;) eq xs:float(&quot;-INF&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;-INF&quot;) eq xs:float(&quot;-INF&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1485,7 +1485,7 @@
     <description> A test whose essence is: `xs:float(&quot;INF&quot;) eq xs:float(&quot;INF&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;INF&quot;) eq xs:float(&quot;INF&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1494,7 +1494,7 @@
     <description> A test whose essence is: `xs:float(&quot;-INF&quot;) ne xs:float(&quot;INF&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;-INF&quot;) ne xs:float(&quot;INF&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1503,7 +1503,7 @@
     <description> A test whose essence is: `xs:float(&quot;INF&quot;) ne xs:float(&quot;-INF&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;INF&quot;) ne xs:float(&quot;-INF&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1512,7 +1512,7 @@
     <description> A test whose essence is: `xs:float(&quot;INF&quot;) ne xs:float(&quot;0&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;INF&quot;) ne xs:float(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1521,7 +1521,7 @@
     <description> A test whose essence is: `xs:float(&quot;-INF&quot;) ne xs:float(&quot;0&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;-INF&quot;) ne xs:float(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1530,7 +1530,7 @@
     <description> A test whose essence is: `xs:float(&quot;0&quot;) ne xs:float(&quot;INF&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;0&quot;) ne xs:float(&quot;INF&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1539,7 +1539,7 @@
     <description> A test whose essence is: `xs:float(&quot;0&quot;) ne xs:float(&quot;-INF&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;0&quot;) ne xs:float(&quot;-INF&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1548,7 +1548,7 @@
     <description> An expression involving the 'eq' operator that trigger certain optimization paths in some implementations. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(remove(remove((current-time(), 1), 1), 1)) eq 0</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1557,7 +1557,7 @@
     <description> Test that fn:count combined with expressions that might disable compile time evaluations(optimization) as well as the 'eq' operator, is conformant. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(0 eq count((1, 2, timezone-from-time(current-time()))))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1566,7 +1566,7 @@
     <description> Test that fn:count combined with expressions that might disable compile time evaluations(optimization) as well as the '=' operator, is conformant. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>0 ne count((1, 2, timezone-from-time(current-time())))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1584,7 +1584,7 @@
     <description> Test automatic xs:untypedAtomic conversion. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(xs:untypedAtomic(&quot;1&quot;) to 3) eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1682,7 +1682,7 @@
     <test>
       	declare function local:square($arg as xs:double) as xs:double { $arg * $arg }; 
       	not( local:square(1e0) eq local:square(2e0) )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1694,7 +1694,7 @@
     <test>
       	declare function local:square($arg as xs:float) as xs:float { $arg * $arg }; 
       	not( local:square(xs:float(1e0)) eq local:square(xs:float(2e0)) )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1706,7 +1706,7 @@
     <test>
       	declare function local:square($arg as xs:decimal) as xs:decimal { $arg * $arg }; 
       	not( local:square(1.0) eq local:square(2.0) )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1718,7 +1718,7 @@
     <test>
       	declare function local:square($arg as xs:integer) as xs:integer { $arg * $arg }; 
       	not( local:square(1) eq local:square(2) )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1730,7 +1730,7 @@
     <test>
       	declare function local:square($arg as xs:double) as xs:double { $arg * $arg }; 
       	not( local:square(1e0) ne local:square(2e0) )</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1742,7 +1742,7 @@
     <test>
       	declare function local:square($arg as xs:float) as xs:float { $arg * $arg }; 
       	not( local:square(xs:float(1e0)) ne local:square(xs:float(2e0)) )</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1754,7 +1754,7 @@
     <test>
       	declare function local:square($arg as xs:decimal) as xs:decimal { $arg * $arg }; 
       	not( local:square(1.0) ne local:square(2.0) )</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1766,7 +1766,7 @@
     <test>
       	declare function local:square($arg as xs:integer) as xs:integer { $arg * $arg }; 
       	not( local:square(1) ne local:square(2) )</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1778,7 +1778,7 @@
     <test>
       	declare function local:square($arg as xs:integer) as xs:integer { $arg * $arg }; 
       	let $x := local:square(4) return 0 eq $x - 1</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1790,7 +1790,7 @@
     <test>
       	declare function local:square($arg as xs:integer) as xs:integer { $arg * $arg }; 
       	let $x := local:square(4) return 0 eq $x + 1</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1802,7 +1802,7 @@
     <test>
       	declare function local:square($arg as xs:integer) as xs:integer { $arg * $arg }; 
       	let $x := local:square(4) return 4 eq $x + 1</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1814,7 +1814,7 @@
     <test>
       	declare function local:square($arg as xs:integer) as xs:integer { $arg * $arg }; 
       	let $x := local:square(4) return 4 eq 1 + $x</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1871,7 +1871,7 @@
     <test>
       	declare function local:square($arg as xs:integer) as xs:integer { $arg * $arg }; 
       	let $x := local:square(4) return 4 eq $x - 1</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

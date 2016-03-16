@@ -20,7 +20,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="atomicns"/>
     <test>fn:lang(xs:string(&quot;en&quot;),/root[1]/time[1])</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -30,7 +30,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="atomicns"/>
     <test>fn:lang(xs:string(&quot;EN&quot;),./root[1]/time[1])</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -40,7 +40,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="atomicns"/>
     <test>fn:lang(xs:string(&quot;eN&quot;),./root[1]/time[1])</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -65,7 +65,7 @@
     <created by="Carmelo Montanez" on="2005-10-19"/>
     <environment ref="lang"/>
     <test>fn:count(fn:lang((), ./langs[1]/para[1]))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -75,7 +75,7 @@
     <created by="Carmelo Montanez" on="2005-10-19"/>
     <environment ref="lang"/>
     <test> for $x in /langs/para[1] return $x/fn:lang(&quot;en&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -85,7 +85,7 @@
     <created by="Carmelo Montanez" on="2005-10-19"/>
     <environment ref="lang"/>
     <test>for $x in /langs/div[1]/para return $x/fn:lang(&quot;en&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -95,7 +95,7 @@
     <created by="Carmelo Montanez" on="2005-10-19"/>
     <environment ref="lang"/>
     <test>for $x in /langs/para[2] return $x/fn:lang(&quot;EN&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -105,7 +105,7 @@
     <created by="Carmelo Montanez" on="2005-10-19"/>
     <environment ref="lang"/>
     <test> for $x in /langs/para[2] return $x/fn:lang(&quot;En&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -115,7 +115,7 @@
     <created by="Carmelo Montanez" on="2005-10-19"/>
     <environment ref="lang"/>
     <test>for $x in /langs/para[2] return $x/fn:lang(&quot;eN&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -125,7 +125,7 @@
     <created by="Carmelo Montanez" on="2005-10-19"/>
     <environment ref="lang"/>
     <test>for $x in /langs/para[2] return $x/fn:lang(&quot;en&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -135,7 +135,7 @@
     <created by="Carmelo Montanez" on="2005-10-19"/>
     <environment ref="lang"/>
     <test>for $x in /langs/para[3] return $x/fn:lang(&quot;en-us&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -145,7 +145,7 @@
     <created by="Carmelo Montanez" on="2005-10-19"/>
     <environment ref="lang"/>
     <test>for $x in /langs/para[3] return $x/fn:lang(&quot;EN&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -155,7 +155,7 @@
     <created by="Carmelo Montanez" on="2005-10-19"/>
     <environment ref="lang"/>
     <test>for $x in /langs/para[3] return $x/fn:lang(&quot;En&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -165,7 +165,7 @@
     <created by="Carmelo Montanez" on="2005-10-19"/>
     <environment ref="lang"/>
     <test>for $x in /langs/para[3] return $x/fn:lang(&quot;eN&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -175,7 +175,7 @@
     <created by="Carmelo Montanez" on="2005-10-19"/>
     <environment ref="lang"/>
     <test>for $x in /langs/para[3] return $x/fn:lang(&quot;en&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -185,7 +185,7 @@
     <created by="Carmelo Montanez" on="2005-10-19"/>
     <environment ref="lang"/>
     <test>for $x in /langs/para[3] return $x/fn:lang(&quot;en-us&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -205,7 +205,7 @@
     <created by="Carmelo Montanez" on="2005-10-19"/>
     <environment ref="lang"/>
     <test>for $x in /langs/para[3] return $x/fn:lang(&quot;us-us&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -215,7 +215,7 @@
     <created by="Carmelo Montanez" on="2005-10-19"/>
     <environment ref="lang"/>
     <test>for $x in /langs/para[2] return $x/fn:lang(&quot;fr&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -225,7 +225,7 @@
     <created by="Carmelo Montanez" on="2005-10-19"/>
     <environment ref="lang"/>
     <test>fn:lang(&quot;en&quot;,fn:exactly-one(/langs/para[1]))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -235,7 +235,7 @@
     <created by="Carmelo Montanez" on="2005-10-19"/>
     <environment ref="lang"/>
     <test>fn:lang(&quot;fr&quot;,fn:exactly-one(/langs/para[1]))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -245,7 +245,7 @@
     <created by="Carmelo Montanez" on="2005-10-19"/>
     <environment ref="lang"/>
     <test>fn:lang(&quot;en&quot;,fn:exactly-one(/langs/para[3]))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -255,7 +255,7 @@
     <created by="Carmelo Montanez" on="2005-10-19"/>
     <environment ref="lang"/>
     <test>fn:lang(&quot;en&quot;,fn:exactly-one(/langs/para[2]))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -323,7 +323,7 @@
     <test>
       <![CDATA[let $i := <e xml:lang="en"> <b xml:lang="de"/> </e> return (lang("de", $i/b), lang("de", $i))]]>
     </test>
-    <result-string>xs:string('true false')</result-string>
+    <result-string>xs:string(&quot;true false&quot;)</result-string>
     <result>
       <assert-string-value>true false</assert-string-value>
     </result>
@@ -335,7 +335,7 @@
     <test>
       <![CDATA[let $i := <e xml:lang="en"> <b xml:lang="de"/> </e> return lang("de", $i/b/@xml:lang)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -345,7 +345,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>lang(&quot;de&quot;, attribute xml:lang {()})</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -357,7 +357,7 @@
     <test>
       <![CDATA[lang("en", <e xml:lang="ene"/>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -367,7 +367,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:lang(&quot;fr&quot;, attribute xml:lang {&quot;fr&quot;})</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -377,7 +377,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:lang(&quot;fr&quot;, attribute xml:lang {()})</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -391,7 +391,7 @@
       	if(current-date() > xs:date("2000-01-01")) then lang("en",<a/>) else ()
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

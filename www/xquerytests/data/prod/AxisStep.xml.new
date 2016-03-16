@@ -91,7 +91,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//center/child::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -101,7 +101,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//center/child::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -111,7 +111,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeRepeat"/>
     <test>fn:count(//center/child::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;6&quot;)</result-string>
     <result>
       <assert-eq>6</assert-eq>
     </result>
@@ -121,7 +121,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//center/child::south-east)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -131,7 +131,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//center/child::south-east)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -141,7 +141,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center/child::south-east)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -151,7 +151,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeRepeat"/>
     <test>fn:count(//center/child::south-east)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -161,7 +161,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//center/child::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -171,7 +171,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Text"/>
     <test>fn:count(//center/child::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -181,7 +181,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//center/child::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -191,7 +191,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeRepeat"/>
     <test>fn:count(//center/child::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;19&quot;)</result-string>
     <result>
       <assert-eq>19</assert-eq>
     </result>
@@ -201,7 +201,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//center/*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -211,7 +211,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//center/*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -221,7 +221,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeRepeat"/>
     <test>fn:count(//center/*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;6&quot;)</result-string>
     <result>
       <assert-eq>6</assert-eq>
     </result>
@@ -231,7 +231,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//center/south-east)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -241,7 +241,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//center/south-east)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -251,7 +251,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center/south-east)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -261,7 +261,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeRepeat"/>
     <test>fn:count(//center/south-east)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -271,7 +271,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//center/node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -281,7 +281,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Text"/>
     <test>fn:count(//center/node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -291,7 +291,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//center/node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -301,7 +301,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeRepeat"/>
     <test>fn:count(//center/node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;19&quot;)</result-string>
     <result>
       <assert-eq>19</assert-eq>
     </result>
@@ -311,7 +311,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//west/attribute::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -321,7 +321,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//west/attribute::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -331,7 +331,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//west/attribute::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;4&quot;)</result-string>
     <result>
       <assert-eq>4</assert-eq>
     </result>
@@ -341,7 +341,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//west/attribute::west-attr-2)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -351,7 +351,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//west/attribute::west-attr-2)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -361,7 +361,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//west/attribute::west-attr-2)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -371,7 +371,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//west/attribute::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -381,7 +381,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//west/attribute::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -391,7 +391,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//west/attribute::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;4&quot;)</result-string>
     <result>
       <assert-eq>4</assert-eq>
     </result>
@@ -401,7 +401,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//west/@*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -411,7 +411,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//west/@*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -421,7 +421,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//west/@*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;4&quot;)</result-string>
     <result>
       <assert-eq>4</assert-eq>
     </result>
@@ -431,7 +431,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//west/@west-attr-2)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -441,7 +441,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//west/@west-attr-2)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -451,7 +451,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//west/@west-attr-2)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -461,7 +461,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count( / )</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -471,7 +471,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center/parent::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -481,7 +481,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(/far-north/parent::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -491,7 +491,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center/parent::near-north)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -501,7 +501,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center/parent::nowhere)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -511,7 +511,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center/parent::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -521,7 +521,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(/far-north/parent::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -531,7 +531,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center/..)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -541,7 +541,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center/self::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -551,7 +551,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center/self::center)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -561,7 +561,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center/self::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -571,7 +571,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center/@center-attr-3/self::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -581,7 +581,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//center/text()/self::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -591,7 +591,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Text"/>
     <test>fn:count(//center/text()/self::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -601,7 +601,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//center/descendant::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -611,7 +611,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Text"/>
     <test>fn:count(//center/descendant::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -621,7 +621,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//center/descendant::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -631,7 +631,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center/descendant::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;5&quot;)</result-string>
     <result>
       <assert-eq>5</assert-eq>
     </result>
@@ -641,7 +641,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//center/descendant::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -651,7 +651,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//center/descendant::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -661,7 +661,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center/descendant::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -671,7 +671,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeStack"/>
     <test>fn:count(//center/descendant::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;8&quot;)</result-string>
     <result>
       <assert-eq>8</assert-eq>
     </result>
@@ -681,7 +681,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//center/descendant::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -691,7 +691,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Text"/>
     <test>fn:count(//center/descendant::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -701,7 +701,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//center/descendant::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -711,7 +711,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center/descendant::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;21&quot;)</result-string>
     <result>
       <assert-eq>21</assert-eq>
     </result>
@@ -721,7 +721,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//center/descendant-or-self::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -731,7 +731,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center/descendant-or-self::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;6&quot;)</result-string>
     <result>
       <assert-eq>6</assert-eq>
     </result>
@@ -741,7 +741,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//center/descendant-or-self::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -751,7 +751,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//center/descendant-or-self::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -761,7 +761,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center/descendant-or-self::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -771,7 +771,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeStack"/>
     <test>fn:count(//center/descendant-or-self::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;8&quot;)</result-string>
     <result>
       <assert-eq>8</assert-eq>
     </result>
@@ -781,7 +781,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center/descendant-or-self::center)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -791,7 +791,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeRepeat"/>
     <test>fn:count(//center/descendant-or-self::center)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;9&quot;)</result-string>
     <result>
       <assert-eq>9</assert-eq>
     </result>
@@ -801,7 +801,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//center/descendant-or-self::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -811,7 +811,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center/descendant-or-self::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;22&quot;)</result-string>
     <result>
       <assert-eq>22</assert-eq>
     </result>
@@ -821,7 +821,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center/@center-attr-3/descendant-or-self::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -831,7 +831,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//center/text()/descendant-or-self::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -841,7 +841,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Text"/>
     <test>fn:count(//center/text()/descendant-or-self::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -851,7 +851,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(/child::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -861,7 +861,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TopMany"/>
     <test>fn:count(/child::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -871,7 +871,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeEmpty"/>
     <test>fn:count(/child::far-north)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -881,7 +881,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(/child::far-north)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -891,7 +891,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(/child::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -901,7 +901,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TopMany"/>
     <test>fn:count(/child::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;7&quot;)</result-string>
     <result>
       <assert-eq>7</assert-eq>
     </result>
@@ -911,7 +911,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(/*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -921,7 +921,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TopMany"/>
     <test>fn:count(/*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -931,7 +931,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeEmpty"/>
     <test>fn:count(/far-north)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -941,7 +941,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(/far-north)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -951,7 +951,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(/node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -961,7 +961,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TopMany"/>
     <test>fn:count(/node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;7&quot;)</result-string>
     <result>
       <assert-eq>7</assert-eq>
     </result>
@@ -971,7 +971,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TopMany"/>
     <test>fn:count(/self::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -981,7 +981,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeEmpty"/>
     <test>fn:count(/descendant::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -991,7 +991,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(/descendant::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;15&quot;)</result-string>
     <result>
       <assert-eq>15</assert-eq>
     </result>
@@ -1001,7 +1001,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TopMany"/>
     <test>fn:count(/descendant::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;16&quot;)</result-string>
     <result>
       <assert-eq>16</assert-eq>
     </result>
@@ -1011,7 +1011,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(/descendant::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1021,7 +1021,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeEmpty"/>
     <test>fn:count(/descendant::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1031,7 +1031,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(/descendant::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1041,7 +1041,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeStack"/>
     <test>fn:count(/descendant::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;8&quot;)</result-string>
     <result>
       <assert-eq>8</assert-eq>
     </result>
@@ -1051,7 +1051,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeEmpty"/>
     <test>fn:count(/descendant::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1061,7 +1061,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(/descendant::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;56&quot;)</result-string>
     <result>
       <assert-eq>56</assert-eq>
     </result>
@@ -1071,7 +1071,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TopMany"/>
     <test>fn:count(/descendant::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;58&quot;)</result-string>
     <result>
       <assert-eq>58</assert-eq>
     </result>
@@ -1081,7 +1081,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeEmpty"/>
     <test>fn:count(/descendant-or-self::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1091,7 +1091,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(/descendant-or-self::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;15&quot;)</result-string>
     <result>
       <assert-eq>15</assert-eq>
     </result>
@@ -1101,7 +1101,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(/descendant-or-self::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1111,7 +1111,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeEmpty"/>
     <test>fn:count(/descendant-or-self::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1121,7 +1121,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(/descendant-or-self::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1131,7 +1131,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeStack"/>
     <test>fn:count(/descendant-or-self::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;8&quot;)</result-string>
     <result>
       <assert-eq>8</assert-eq>
     </result>
@@ -1141,7 +1141,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(/descendant-or-self::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;57&quot;)</result-string>
     <result>
       <assert-eq>57</assert-eq>
     </result>
@@ -1151,7 +1151,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TopMany"/>
     <test>fn:count(/descendant-or-self::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;59&quot;)</result-string>
     <result>
       <assert-eq>59</assert-eq>
     </result>
@@ -1161,7 +1161,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeEmpty"/>
     <test>fn:count(//child::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1171,7 +1171,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//child::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;15&quot;)</result-string>
     <result>
       <assert-eq>15</assert-eq>
     </result>
@@ -1181,7 +1181,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//child::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1191,7 +1191,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeEmpty"/>
     <test>fn:count(//child::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1201,7 +1201,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//child::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1211,7 +1211,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeStack"/>
     <test>fn:count(//child::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;8&quot;)</result-string>
     <result>
       <assert-eq>8</assert-eq>
     </result>
@@ -1221,7 +1221,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeEmpty"/>
     <test>fn:count(//child::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1231,7 +1231,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//child::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;56&quot;)</result-string>
     <result>
       <assert-eq>56</assert-eq>
     </result>
@@ -1241,7 +1241,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TopMany"/>
     <test>fn:count(//child::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;58&quot;)</result-string>
     <result>
       <assert-eq>58</assert-eq>
     </result>
@@ -1251,7 +1251,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeEmpty"/>
     <test>fn:count(//*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1261,7 +1261,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;15&quot;)</result-string>
     <result>
       <assert-eq>15</assert-eq>
     </result>
@@ -1271,7 +1271,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1281,7 +1281,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeEmpty"/>
     <test>fn:count(//south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1291,7 +1291,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1301,7 +1301,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeStack"/>
     <test>fn:count(//south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;8&quot;)</result-string>
     <result>
       <assert-eq>8</assert-eq>
     </result>
@@ -1311,7 +1311,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeEmpty"/>
     <test>fn:count(//node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1321,7 +1321,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;56&quot;)</result-string>
     <result>
       <assert-eq>56</assert-eq>
     </result>
@@ -1331,7 +1331,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TopMany"/>
     <test>fn:count(//node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;58&quot;)</result-string>
     <result>
       <assert-eq>58</assert-eq>
     </result>
@@ -1341,7 +1341,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//attribute::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1351,7 +1351,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeEmpty"/>
     <test>fn:count(//attribute::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1361,7 +1361,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//attribute::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;14&quot;)</result-string>
     <result>
       <assert-eq>14</assert-eq>
     </result>
@@ -1371,7 +1371,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//attribute::mark)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1381,7 +1381,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeEmpty"/>
     <test>fn:count(//attribute::mark)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1391,7 +1391,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//attribute::mark)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;6&quot;)</result-string>
     <result>
       <assert-eq>6</assert-eq>
     </result>
@@ -1401,7 +1401,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//@*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1411,7 +1411,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeEmpty"/>
     <test>fn:count(//@*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1421,7 +1421,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//@*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;14&quot;)</result-string>
     <result>
       <assert-eq>14</assert-eq>
     </result>
@@ -1431,7 +1431,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//@mark)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1441,7 +1441,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeEmpty"/>
     <test>fn:count(//@mark)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1451,7 +1451,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//@mark)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;6&quot;)</result-string>
     <result>
       <assert-eq>6</assert-eq>
     </result>
@@ -1461,7 +1461,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeEmpty"/>
     <test>fn:count(//self::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1471,7 +1471,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//self::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;15&quot;)</result-string>
     <result>
       <assert-eq>15</assert-eq>
     </result>
@@ -1481,7 +1481,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//self::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;57&quot;)</result-string>
     <result>
       <assert-eq>57</assert-eq>
     </result>
@@ -1491,7 +1491,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TopMany"/>
     <test>fn:count(//self::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;59&quot;)</result-string>
     <result>
       <assert-eq>59</assert-eq>
     </result>
@@ -1501,7 +1501,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//center//child::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1511,7 +1511,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Text"/>
     <test>fn:count(//center//child::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1521,7 +1521,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//center//child::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1531,7 +1531,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeRepeat"/>
     <test>fn:count(//center//child::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;12&quot;)</result-string>
     <result>
       <assert-eq>12</assert-eq>
     </result>
@@ -1541,7 +1541,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//center//child::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1551,7 +1551,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//center//child::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1561,7 +1561,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center//child::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1571,7 +1571,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeStack"/>
     <test>fn:count(//center//child::south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;8&quot;)</result-string>
     <result>
       <assert-eq>8</assert-eq>
     </result>
@@ -1581,7 +1581,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//center//child::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1591,7 +1591,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//center//child::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1601,7 +1601,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Text"/>
     <test>fn:count(//center//child::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1611,7 +1611,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeRepeat"/>
     <test>fn:count(//center//child::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;37&quot;)</result-string>
     <result>
       <assert-eq>37</assert-eq>
     </result>
@@ -1621,7 +1621,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//center//*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1631,7 +1631,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//center//*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1641,7 +1641,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeRepeat"/>
     <test>fn:count(//center//*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;12&quot;)</result-string>
     <result>
       <assert-eq>12</assert-eq>
     </result>
@@ -1651,7 +1651,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//center//south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1661,7 +1661,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//center//south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1671,7 +1671,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center//south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1681,7 +1681,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeStack"/>
     <test>fn:count(//center//south)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;8&quot;)</result-string>
     <result>
       <assert-eq>8</assert-eq>
     </result>
@@ -1691,7 +1691,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//center//node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1701,7 +1701,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//center//node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1711,7 +1711,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Text"/>
     <test>fn:count(//center//node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1721,7 +1721,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeRepeat"/>
     <test>fn:count(//center//node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;37&quot;)</result-string>
     <result>
       <assert-eq>37</assert-eq>
     </result>
@@ -1731,7 +1731,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//west//attribute::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1741,7 +1741,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//west//attribute::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1751,7 +1751,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//west//attribute::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;4&quot;)</result-string>
     <result>
       <assert-eq>4</assert-eq>
     </result>
@@ -1761,7 +1761,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//center//attribute::center-attr-2)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1771,7 +1771,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//center//attribute::center-attr-2)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1781,7 +1781,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center//attribute::center-attr-2)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1791,7 +1791,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeRepeat"/>
     <test>fn:count(//center//attribute::center-attr-2)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;4&quot;)</result-string>
     <result>
       <assert-eq>4</assert-eq>
     </result>
@@ -1801,7 +1801,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//west//attribute::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1811,7 +1811,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//west//attribute::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1821,7 +1821,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//west//attribute::node())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;4&quot;)</result-string>
     <result>
       <assert-eq>4</assert-eq>
     </result>
@@ -1831,7 +1831,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//west//@*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1841,7 +1841,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//west//@*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1851,7 +1851,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//west//@*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;4&quot;)</result-string>
     <result>
       <assert-eq>4</assert-eq>
     </result>
@@ -1861,7 +1861,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeTrunc"/>
     <test>fn:count(//center//@center-attr-2)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1871,7 +1871,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="Tree1Child"/>
     <test>fn:count(//center//@center-attr-2)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1881,7 +1881,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeCompass"/>
     <test>fn:count(//center//@center-attr-2)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1891,7 +1891,7 @@
     <created by="David Marston" on="2003-02-25"/>
     <environment ref="TreeRepeat"/>
     <test>fn:count(//center//@center-attr-2)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;4&quot;)</result-string>
     <result>
       <assert-eq>4</assert-eq>
     </result>
@@ -3260,7 +3260,7 @@
         let $element as element(*, xs:untyped) := $element/self::* 
         return count($element)]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -3409,7 +3409,7 @@
         let $attribute as attribute(*, xs:untypedAtomic)* := $element/attribute::* 
         return count($attribute)]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -3547,7 +3547,7 @@
     <dependency type="spec" value="XP20+"/>
     <dependency type="feature" value="namespace-axis"/>
     <test>string(/*/namespace::xlink)</test>
-    <result-string/>
+    <result-string>xs:string(&quot;'http://www.w3.org/1999/xlink'&quot;)</result-string>
     <result>
       <assert-eq>'http://www.w3.org/1999/xlink'</assert-eq>
     </result>
@@ -3559,7 +3559,7 @@
     <dependency type="spec" value="XP20+"/>
     <dependency type="feature" value="namespace-axis"/>
     <test>/*/namespace::xlink is /*/*[1]/namespace::xlink</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -3571,7 +3571,7 @@
     <dependency type="spec" value="XP20+"/>
     <dependency type="feature" value="namespace-axis"/>
     <test>/*/namespace::xlink is /*/namespace::*[. = 'http://www.w3.org/1999/xlink']</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -3610,7 +3610,7 @@
     <dependency type="spec" value="XP20+"/>
     <dependency type="feature" value="namespace-axis"/>
     <test>/*/*/*/namespace::*[not(name())]</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -3672,7 +3672,7 @@
     <test>
       <![CDATA[declare variable $v := <a><b/><b/><b/></a>; deep-equal($v//45, (45, 45, 45, 45))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -3684,7 +3684,7 @@
     <test>
       <![CDATA[declare variable $v := <a><b/><b/><b/></a>; $v//45]]>
     </test>
-    <result-string>xs:string('45 45 45 45')</result-string>
+    <result-string>xs:string(&quot;45 45 45 45&quot;)</result-string>
     <result>
       <assert-string-value>45 45 45 45</assert-string-value>
     </result>
@@ -3811,7 +3811,7 @@
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <dependency type="spec" value="XQ10+"/>
     <test>empty(text {&quot;some text&quot;}/..)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -3821,7 +3821,7 @@
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <dependency type="spec" value="XQ10+"/>
     <test>empty(processing-instruction theName {&quot;some text&quot;}/..)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -3831,7 +3831,7 @@
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <dependency type="spec" value="XQ10+"/>
     <test>empty(attribute theName {&quot;some text&quot;}/..)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -3841,7 +3841,7 @@
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <dependency type="spec" value="XQ10+"/>
     <test>empty(element theName {&quot;some text&quot;}/..)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -3851,7 +3851,7 @@
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <dependency type="spec" value="XQ10+"/>
     <test>empty(comment {&quot;some text&quot;}/..)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -3863,7 +3863,7 @@
     <test>
       <![CDATA[empty(<elem/>/..)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -4102,7 +4102,7 @@
     <test>
       <![CDATA[empty(<e/>[parent::node()])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -4159,7 +4159,7 @@
     <test>
       <![CDATA[declare variable $myVar := <e/>; empty($myVar/descendant-or-self::text())]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -4171,7 +4171,7 @@
     <test>
       <![CDATA[declare variable $myVar := <e/>; $myVar/(<a/>, <b/>, <?d ?>, <!-- e-->, attribute name {}, document {()})/3]]>
     </test>
-    <result-string>xs:string('3 3 3 3 3 3')</result-string>
+    <result-string>xs:string(&quot;3 3 3 3 3 3&quot;)</result-string>
     <result>
       <assert-string-value>3 3 3 3 3 3</assert-string-value>
     </result>
@@ -4183,7 +4183,7 @@
     <test>
       <![CDATA[declare variable $myVar := <e/>; $myVar/(<a/>, <b/>, <?d ?>, <!-- e-->, attribute name {}, document {()})/number()]]>
     </test>
-    <result-string>xs:string('NaN NaN NaN NaN NaN NaN')</result-string>
+    <result-string>xs:string(&quot;NaN NaN NaN NaN NaN NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN NaN NaN NaN NaN NaN</assert-string-value>
     </result>
@@ -4365,7 +4365,7 @@
     <test>
       <![CDATA[1, <b attr="fo"/>/child::node(), 1]]>
     </test>
-    <result-string>xs:string('1 1')</result-string>
+    <result-string>xs:string(&quot;1 1&quot;)</result-string>
     <result>
       <assert-string-value>1 1</assert-string-value>
     </result>
@@ -4419,7 +4419,7 @@
     <test>
       <![CDATA[1, <e/>/descendant::node(), 1]]>
     </test>
-    <result-string>xs:string('1 1')</result-string>
+    <result-string>xs:string(&quot;1 1&quot;)</result-string>
     <result>
       <assert-string-value>1 1</assert-string-value>
     </result>
@@ -4445,7 +4445,7 @@
     <test>
       <![CDATA[1, <e attr=""/>/descendant::node(), 1]]>
     </test>
-    <result-string>xs:string('1 1')</result-string>
+    <result-string>xs:string(&quot;1 1&quot;)</result-string>
     <result>
       <assert-string-value>1 1</assert-string-value>
     </result>
@@ -4471,7 +4471,7 @@
     <test>
       <![CDATA[empty(<e/>/descendant::node())]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -4483,7 +4483,7 @@
     <test>
       <![CDATA[empty(<e/>/descendant-or-self::node())]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -4495,7 +4495,7 @@
     <test>
       <![CDATA[empty(<e attr=""/>/descendant::node())]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -4507,7 +4507,7 @@
     <test>
       <![CDATA[empty(<e attr=""/>/descendant-or-self::node())]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -4556,7 +4556,7 @@
     <test>
       <![CDATA[<a> <b c=""/> <d/> </a>//node()/../count(.)]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -4568,7 +4568,7 @@
     <test>
       <![CDATA[count(<a> <b c=""/> <d/> </a>//node())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -4580,7 +4580,7 @@
     <test>
       <![CDATA[count(<a> <b c=""/> <d/> </a>/descendant-or-self::node())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -4620,7 +4620,7 @@
     <test>
       <![CDATA[empty(<e/>/attribute::attribute())]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -4973,7 +4973,7 @@
     <test>
         declare function local:isComplexType($typeID) { string($typeID) }; 
         &quot;|&quot;, //*/local:isComplexType(@type), &quot;|&quot;</test>
-    <result-string>xs:string('|       _17 _17  _11c _11c _11 _11  _17c _17c _17 _17   _11   _23  _17 _11c  |')</result-string>
+    <result-string>xs:string(&quot;|       _17 _17  _11c _11c _11 _11  _17c _17c _17 _17   _11   _23  _17 _11c  |&quot;)</result-string>
     <result>
       <assert-string-value>|       _17 _17  _11c _11c _11 _11  _17c _17c _17 _17   _11   _23  _17 _11c  |</assert-string-value>
     </result>
@@ -5083,7 +5083,7 @@
     <test>
       <![CDATA[count(<a><b/><b/></a>/b[1]/following-sibling::*)]]>
     </test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -5095,7 +5095,7 @@
     <test>
       <![CDATA[count(<a><b/><b/></a>/b[2]/preceding-sibling::*)]]>
     </test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -5107,7 +5107,7 @@
     <test>
       <![CDATA[count(<a><b/><b/></a>/b[2]/preceding-sibling::b)]]>
     </test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -5119,7 +5119,7 @@
     <test>
       <![CDATA[count(<a><b/><b/></a>/b[1]/preceding-sibling::b)]]>
     </test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -5133,7 +5133,7 @@
       let $x := <a><b/><c/><d/></a> return count(($x/(node() except b) | $x/(node() except b)))
    ]]>
     </test>
-    <result-string>xs:string('2')</result-string>
+    <result-string>xs:string(&quot;2&quot;)</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
@@ -5147,7 +5147,7 @@
         declare namespace foo="test";
         let $x := <a><foo:b/><c/><d/></a> return count($x/foo:* | $x/foo:*)]]>
     </test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>

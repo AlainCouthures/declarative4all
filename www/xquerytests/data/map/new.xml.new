@@ -219,7 +219,7 @@
     <description>Deep equal of empty maps</description>
     <created by="Michael Kay, Saxonica" on="2011-03-27"/>
     <test>deep-equal(map{}, map:new(()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -228,7 +228,7 @@
     <description>Deep equal of singleton maps</description>
     <created by="Michael Kay, Saxonica" on="2011-03-27"/>
     <test>deep-equal(map{&quot;a&quot;:=1}, map:entry(&quot;a&quot;, 1))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -237,7 +237,7 @@
     <description>Deep equal of larger maps</description>
     <created by="Michael Kay, Saxonica" on="2011-03-27"/>
     <test>deep-equal(map{&quot;a&quot;:=1,&quot;b&quot;:=2,&quot;c&quot;:=(3,4,5)}, map{&quot;c&quot;:=(3,4,5),&quot;a&quot;:=1,&quot;b&quot;:=2})</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -246,7 +246,7 @@
     <description>Deep equal of empty maps</description>
     <created by="Michael Kay, Saxonica" on="2011-03-27"/>
     <test>deep-equal(map{&quot;a&quot;:=1}, map:new(()))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -256,7 +256,7 @@
     <created by="Michael Kay, Saxonica" on="2011-03-27"/>
     <test>deep-equal(map:new(for $i in 1 to 1000 return map:entry($i, $i+1)),
                          map:new(for $i in 2 to 1001 return map:entry($i, $i+1)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -266,7 +266,7 @@
     <created by="Michael Kay, Saxonica" on="2011-03-27"/>
     <test>deep-equal(map:new(for $i in 1 to 1000 return map:entry($i, $i+1)),
                          map:new(((for $i in 1 to 1000 return map:entry($i, $i+1)), map:entry(400, 402))))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -276,7 +276,7 @@
     <created by="Michael Kay, Saxonica" on="2011-03-27"/>
     <test>deep-equal(map:new(for $i in 1 to 1000 return map:entry($i, $i+1)),
                          map:new(for $i in 0 to 1000 return map:entry($i, $i+1)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -286,7 +286,7 @@
     <created by="Michael Kay, Saxonica" on="2011-03-27"/>
     <test>deep-equal(map:new(for $i in 1 to 1000 return map:entry($i, $i+1)),
                          map:new(for $i in 2 to 1000 return map:entry($i, $i+1)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -300,7 +300,7 @@
     <test>deep-equal(map:new(for $i in 1 to 1000 return map:entry($i, $i+1)),
                          map:new(for $i in 1 to 1000 return map:entry($i, $i+1),
                          &quot;http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -315,7 +315,7 @@
                             &quot;http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind&quot;),
                          map:new(for $i in 1 to 1000 return map:entry($i, $i+1),
                             &quot;http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -331,7 +331,7 @@
                          map:new(map{&quot;ABC&quot;:=1,&quot;DEF&quot;:=2},
                             &quot;http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind&quot;),
                          &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -348,7 +348,7 @@
                          map:new(map{&quot;abc&quot;:=&quot;X&quot;,&quot;def&quot;:=&quot;Y&quot;},
                             &quot;http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind&quot;),
                          &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -360,7 +360,7 @@
       <collation default="true" uri="http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind"/>
     </environment>
     <test>map:size(map{&quot;abc&quot;:=123, &quot;ABC&quot;:=456}) = 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

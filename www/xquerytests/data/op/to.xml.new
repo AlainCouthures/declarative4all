@@ -6,7 +6,7 @@
     <description> Evaluation of a single range expression using positive integers. </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>(10, 1 to 4)</test>
-    <result-string>xs:string('10 1 2 3 4')</result-string>
+    <result-string>xs:string(&quot;10 1 2 3 4&quot;)</result-string>
     <result>
       <assert-string-value>10 1 2 3 4</assert-string-value>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluation of a range expression of length one containing the single integer 10. </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>10 to 10</test>
-    <result-string>xs:string('10')</result-string>
+    <result-string>xs:string(&quot;10&quot;)</result-string>
     <result>
       <assert-string-value>10</assert-string-value>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluation of a range expression that results in a sequence of length 0. Uses &quot;fn:count&quot; to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>fn:count(15 to 10)</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluation of a range expression that uses the &quot;reverse&quot; function. </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>fn:reverse(10 to 15)</test>
-    <result-string>xs:string('15 14 13 12 11 10')</result-string>
+    <result-string>xs:string(&quot;15 14 13 12 11 10&quot;)</result-string>
     <result>
       <assert-string-value>15 14 13 12 11 10</assert-string-value>
     </result>
@@ -54,7 +54,7 @@
     <description> Evaluation of a range expression, where both operands are addition operations. </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>((1+2) to (2+2))</test>
-    <result-string>xs:string('3 4')</result-string>
+    <result-string>xs:string(&quot;3 4&quot;)</result-string>
     <result>
       <assert-string-value>3 4</assert-string-value>
     </result>
@@ -63,7 +63,7 @@
     <description> Evaluation of a range expression, where the first operand are negative number. </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>(-4,-3 to 2)</test>
-    <result-string>xs:string('-4 -3 -2 -1 0 1 2')</result-string>
+    <result-string>xs:string(&quot;-4 -3 -2 -1 0 1 2&quot;)</result-string>
     <result>
       <assert-string-value>-4 -3 -2 -1 0 1 2</assert-string-value>
     </result>
@@ -72,7 +72,7 @@
     <description> Evaluation of a range expression, where both operands are negative integers. </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>(-4, -3 to -1)</test>
-    <result-string>xs:string('-4 -3 -2 -1')</result-string>
+    <result-string>xs:string(&quot;-4 -3 -2 -1&quot;)</result-string>
     <result>
       <assert-string-value>-4 -3 -2 -1</assert-string-value>
     </result>
@@ -81,7 +81,7 @@
     <description> Evaluation of a range expression, where the first operand is &quot;xs:integer&quot; function. </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>(xs:integer(1) to 5)</test>
-    <result-string>xs:string('1 2 3 4 5')</result-string>
+    <result-string>xs:string(&quot;1 2 3 4 5&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3 4 5</assert-string-value>
     </result>
@@ -90,7 +90,7 @@
     <description> Evaluation of a range expression, where the second operand is &quot;xs:integer&quot; function. </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>(1 to xs:integer(5))</test>
-    <result-string>xs:string('1 2 3 4 5')</result-string>
+    <result-string>xs:string(&quot;1 2 3 4 5&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3 4 5</assert-string-value>
     </result>
@@ -99,7 +99,7 @@
     <description> Evaluation of a range expression, where both operands are &quot;xs:integer&quot; functions. </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>(xs:integer(1) to xs:integer(5))</test>
-    <result-string>xs:string('1 2 3 4 5')</result-string>
+    <result-string>xs:string(&quot;1 2 3 4 5&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3 4 5</assert-string-value>
     </result>
@@ -108,7 +108,7 @@
     <description> Evaluation of a range expression, using the &quot;fn:min&quot; function </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>(fn:min((1,2)) to 5)</test>
-    <result-string>xs:string('1 2 3 4 5')</result-string>
+    <result-string>xs:string(&quot;1 2 3 4 5&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3 4 5</assert-string-value>
     </result>
@@ -117,7 +117,7 @@
     <description> Evaluation of a range expression, using the &quot;fn:max&quot; function </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>(fn:max((1,2)) to 5)</test>
-    <result-string>xs:string('2 3 4 5')</result-string>
+    <result-string>xs:string(&quot;2 3 4 5&quot;)</result-string>
     <result>
       <assert-string-value>2 3 4 5</assert-string-value>
     </result>
@@ -126,7 +126,7 @@
     <description> Evaluation of a range expression, using the &quot;fn:min&quot; and &quot;fn:max&quot; functions </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>(fn:min((1,2)) to fn:max((6,7)))</test>
-    <result-string>xs:string('1 2 3 4 5 6 7')</result-string>
+    <result-string>xs:string(&quot;1 2 3 4 5 6 7&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3 4 5 6 7</assert-string-value>
     </result>
@@ -135,7 +135,7 @@
     <description> Evaluation of a range expression as an argument to a &quot;fn:min&quot; function) </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>fn:min((1 to 5))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -144,7 +144,7 @@
     <description> Evaluation of a range expression as an argument to a &quot;fn:max&quot; function) </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>fn:max((1 to 5))</test>
-    <result-string>xs:string('5')</result-string>
+    <result-string>xs:string(&quot;5&quot;)</result-string>
     <result>
       <assert-string-value>5</assert-string-value>
     </result>
@@ -153,7 +153,7 @@
     <description> Evaluation of a range expression as an argument to an &quot;fn:avg&quot; function) </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>fn:avg((1 to 5))</test>
-    <result-string>xs:string('3')</result-string>
+    <result-string>xs:string(&quot;3&quot;)</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>
@@ -162,7 +162,7 @@
     <description> Evaluation of a range expression as an argument to an &quot;fn:count&quot; function) </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>fn:count((1 to 5))</test>
-    <result-string>xs:string('5')</result-string>
+    <result-string>xs:string(&quot;5&quot;)</result-string>
     <result>
       <assert-string-value>5</assert-string-value>
     </result>
@@ -171,7 +171,7 @@
     <description> Evaluation of a range expression, where the first operand is a multiplication operation. </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>((3*2) to 10)</test>
-    <result-string>xs:string('6 7 8 9 10')</result-string>
+    <result-string>xs:string(&quot;6 7 8 9 10&quot;)</result-string>
     <result>
       <assert-string-value>6 7 8 9 10</assert-string-value>
     </result>
@@ -180,7 +180,7 @@
     <description> Evaluation of a range expression, where the second operand is a multiplication operation. </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>(1 to (3*2))</test>
-    <result-string>xs:string('1 2 3 4 5 6')</result-string>
+    <result-string>xs:string(&quot;1 2 3 4 5 6&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3 4 5 6</assert-string-value>
     </result>
@@ -189,7 +189,7 @@
     <description> Evaluation of a range expression, where both operands are multiplication operations. </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>((1*2) to (3*2))</test>
-    <result-string>xs:string('2 3 4 5 6')</result-string>
+    <result-string>xs:string(&quot;2 3 4 5 6&quot;)</result-string>
     <result>
       <assert-string-value>2 3 4 5 6</assert-string-value>
     </result>
@@ -198,7 +198,7 @@
     <description> Evaluation of a range expression, where the first operand is a subtraction operation. </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>((3 - 2) to 10)</test>
-    <result-string>xs:string('1 2 3 4 5 6 7 8 9 10')</result-string>
+    <result-string>xs:string(&quot;1 2 3 4 5 6 7 8 9 10&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3 4 5 6 7 8 9 10</assert-string-value>
     </result>
@@ -207,7 +207,7 @@
     <description> Evaluation of a range expression, where the second operand is a subtraction operation. </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>(1 to (3 - 2))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -216,7 +216,7 @@
     <description> Evaluation of a range expression, where both operands are subtraction operations. </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>((2 - 1) to (7 - 1))</test>
-    <result-string>xs:string('1 2 3 4 5 6')</result-string>
+    <result-string>xs:string(&quot;1 2 3 4 5 6&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3 4 5 6</assert-string-value>
     </result>
@@ -225,7 +225,7 @@
     <description> Evaluation of a range expression, where the first operand is a division operation. </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>((6 idiv 2) to 10)</test>
-    <result-string>xs:string('3 4 5 6 7 8 9 10')</result-string>
+    <result-string>xs:string(&quot;3 4 5 6 7 8 9 10&quot;)</result-string>
     <result>
       <assert-string-value>3 4 5 6 7 8 9 10</assert-string-value>
     </result>
@@ -234,7 +234,7 @@
     <description> Evaluation of a range expression, where the second operand is a division operation. </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>(1 to (10 idiv 2))</test>
-    <result-string>xs:string('1 2 3 4 5')</result-string>
+    <result-string>xs:string(&quot;1 2 3 4 5&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3 4 5</assert-string-value>
     </result>
@@ -243,7 +243,7 @@
     <description> Evaluation of a range expression, where both operands are division operations. </description>
     <created by="Carmelo Montanez" on="2005-08-16"/>
     <test>((5 idiv 5) to (8 idiv 2))</test>
-    <result-string>xs:string('1 2 3 4')</result-string>
+    <result-string>xs:string(&quot;1 2 3 4&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3 4</assert-string-value>
     </result>
@@ -332,7 +332,7 @@
     <description> A test whose essence is: `empty(30 to 3)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(30 to 3)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -341,7 +341,7 @@
     <description> A test whose essence is: `empty(0 to -3)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(0 to -3)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -374,7 +374,7 @@
     <description> A test whose essence is: `empty(-1 to -3)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(-1 to -3)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -383,7 +383,7 @@
     <description> A test whose essence is: `count(1 to 4) eq 4`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(1 to 4) eq 4</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -392,7 +392,7 @@
     <description> A test whose essence is: `count(0 to 4) eq 5`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(0 to 4) eq 5</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -401,7 +401,7 @@
     <description> A test whose essence is: `count(-5 to -0) eq 6`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(-5 to -0) eq 6</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -410,7 +410,7 @@
     <description> A test whose essence is: `count((10, 1 to 4)) eq 5`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count((10, 1 to 4)) eq 5</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -419,7 +419,7 @@
     <description> A test whose essence is: `subsequence(-3 to -1, 1, 1) eq -3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>subsequence(-3 to -1, 1, 1) eq -3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -428,7 +428,7 @@
     <description> A test whose essence is: `subsequence(-3 to -1, 3, 1) eq -1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>subsequence(-3 to -1, 3, 1) eq -1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -437,7 +437,7 @@
     <description> A test whose essence is: `empty(reverse(4 to 1))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(reverse(4 to 1))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -446,7 +446,7 @@
     <description> A test whose essence is: `subsequence(reverse(1 to 3), 1, 1) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>subsequence(reverse(1 to 3), 1, 1) eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -455,7 +455,7 @@
     <description> A test whose essence is: `subsequence(reverse(1 to 3), 3, 1) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>subsequence(reverse(1 to 3), 3, 1) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -464,7 +464,7 @@
     <description> A test whose essence is: `subsequence(reverse(1 to 4), 2, 1) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>subsequence(reverse(1 to 4), 2, 1) eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -473,7 +473,7 @@
     <description> A test whose essence is: `subsequence(reverse(1 to 4), 3, 1) eq 2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>subsequence(reverse(1 to 4), 3, 1) eq 2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -482,7 +482,7 @@
     <description> A test whose essence is: `subsequence(reverse(-4 to -1), 2, 1) eq -2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>subsequence(reverse(-4 to -1), 2, 1) eq -2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -491,7 +491,7 @@
     <description> A test whose essence is: `deep-equal((-1, -2, -3, -4), reverse(-4 to -1))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((-1, -2, -3, -4), reverse(-4 to -1))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -500,7 +500,7 @@
     <description> A test whose essence is: `deep-equal((), reverse(0 to -5))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((), reverse(0 to -5))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -509,7 +509,7 @@
     <description> A test whose essence is: `deep-equal((0, -1, -2, -3, -4, -5), reverse(-5 to 0))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((0, -1, -2, -3, -4, -5), reverse(-5 to 0))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -518,7 +518,7 @@
     <description> A test whose essence is: `count(reverse(-5 to -2)) eq 4`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(reverse(-5 to -2)) eq 4</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -527,7 +527,7 @@
     <description> A test whose essence is: `count(reverse(-5 to -0)) eq 6`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(reverse(-5 to -0)) eq 6</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -536,7 +536,7 @@
     <description> A test whose essence is: `count(reverse(1 to 4)) eq 4`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(reverse(1 to 4)) eq 4</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -545,7 +545,7 @@
     <description> A test whose essence is: `empty(1 to 0)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(1 to 0)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -554,7 +554,7 @@
     <description> A test whose essence is: `empty(0 to -5)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(0 to -5)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -563,7 +563,7 @@
     <description> A test whose essence is: `empty(-4 to -5)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(-4 to -5)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -572,7 +572,7 @@
     <description> A test whose essence is: `empty(reverse(1 to 0))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(reverse(1 to 0))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -581,7 +581,7 @@
     <description> A test whose essence is: `empty(reverse(0 to -5))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(reverse(0 to -5))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -590,7 +590,7 @@
     <description> A test whose essence is: `empty(reverse(-4 to -5))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(reverse(-4 to -5))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -599,7 +599,7 @@
     <description> A test whose essence is: `(remove((2.e0, 4), 1) treat as xs:integer to 4)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(remove((2.e0, 4), 1) treat as xs:integer to 4)</test>
-    <result-string>xs:string('4')</result-string>
+    <result-string>xs:string(&quot;4&quot;)</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -608,7 +608,7 @@
     <description> A test whose essence is: `(4 to remove((2e0, 4), 1) treat as xs:integer)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(4 to remove((2e0, 4), 1) treat as xs:integer)</test>
-    <result-string>xs:string('4')</result-string>
+    <result-string>xs:string(&quot;4&quot;)</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -671,7 +671,7 @@
     <description> Combine with a for expression. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>for $i in 1 to 3 return $i</test>
-    <result-string>xs:string('1 2 3')</result-string>
+    <result-string>xs:string(&quot;1 2 3&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3</assert-string-value>
     </result>
@@ -683,7 +683,7 @@
     <test>
       <![CDATA[1 to <value>5</value>, 5 to <value>5</value>, <value>1</value> to 5, <value>1</value> to <value>5</value>, let $i := <e>5</e> return $i to $i, count(5 to 10), count(1000 to 2000), count(<e>5</e> to 10), count(3 to <e>10</e>), count(<e>3</e> to <e>10</e>), count(<e>5</e> to 10), count(3 to <e>10</e>), count(<e>3</e> to <e>10</e>), count(4294967295 to 4294967298)]]>
     </test>
-    <result-string>xs:string('1 2 3 4 5 5 1 2 3 4 5 1 2 3 4 5 5 6 1001 6 8 8 6 8 8 4')</result-string>
+    <result-string>xs:string(&quot;1 2 3 4 5 5 1 2 3 4 5 1 2 3 4 5 5 6 1001 6 8 8 6 8 8 4&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3 4 5 5 1 2 3 4 5 1 2 3 4 5 5 6 1001 6 8 8 6 8 8 4</assert-string-value>
     </result>

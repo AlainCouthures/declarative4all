@@ -214,7 +214,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:root(text {&quot;A text Node&quot;})</test>
-    <result-string>xs:string('A text Node')</result-string>
+    <result-string>xs:string(&quot;A text Node&quot;)</result-string>
     <result>
       <assert-string-value>A text Node</assert-string-value>
     </result>
@@ -224,7 +224,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>let $var := text {&quot;a text Node&quot;} return fn:root($var)</test>
-    <result-string>xs:string('a text Node')</result-string>
+    <result-string>xs:string(&quot;a text Node&quot;)</result-string>
     <result>
       <assert-string-value>a text Node</assert-string-value>
     </result>
@@ -234,7 +234,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>let $var := element anElement {&quot;Element Content&quot;} return fn:root($var) is fn:root($var)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -244,7 +244,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>let $var := element anElement {&quot;Element Content&quot;} return fn:root($var) is fn:root($var)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -255,7 +255,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>let $var := element anElement {&quot;Element Content&quot;} return fn:count(fn:namespace-uri(fn:root($var)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -268,7 +268,7 @@
     <test>
       <![CDATA[let $var := <!-- An Element Node --> return fn:count(fn:namespace-uri(fn:root($var)))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -281,7 +281,7 @@
     <test>
       <![CDATA[let $var := <?format role="output" ?> return fn:count(fn:namespace-uri(fn:root($var)))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -291,7 +291,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>let $var := text {&quot;A text node&quot;} return fn:count(fn:namespace-uri(fn:root($var)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -366,7 +366,7 @@
     <test>
       <![CDATA[empty(fn:root(<e/>/..))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -418,7 +418,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:root(text{&quot;text node&quot;})</test>
-    <result-string>xs:string('text node')</result-string>
+    <result-string>xs:string(&quot;text node&quot;)</result-string>
     <result>
       <assert-string-value>text node</assert-string-value>
     </result>
@@ -428,7 +428,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:root(text{&quot;text node&quot;})</test>
-    <result-string>xs:string('text node')</result-string>
+    <result-string>xs:string(&quot;text node&quot;)</result-string>
     <result>
       <assert-string-value>text node</assert-string-value>
     </result>
@@ -438,7 +438,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>root(document {()}) instance of document-node()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

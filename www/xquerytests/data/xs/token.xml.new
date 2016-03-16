@@ -5,7 +5,7 @@
     <description/>
     <created by="Oliver Hallam" on="2008-04-14"/>
     <test>xs:token(xs:token(&quot;test&quot;))</test>
-    <result-string>xs:string('test')</result-string>
+    <result-string>xs:string(&quot;test&quot;)</result-string>
     <result>
       <assert-string-value>test</assert-string-value>
     </result>
@@ -17,7 +17,7 @@
     <test>
       <![CDATA[string-length(xs:token('&#x9;'))]]>
     </test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -27,7 +27,7 @@
     <created by="Oliver Hallam" on="2008-04-14"/>
     <dependency type="spec" value="XP10+"/>
     <test>string-length(xs:token(''))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -36,7 +36,7 @@
     <description/>
     <created by="Oliver Hallam" on="2008-04-14"/>
     <test>xs:token(5)</test>
-    <result-string>xs:string('5')</result-string>
+    <result-string>xs:string(&quot;5&quot;)</result-string>
     <result>
       <assert-string-value>5</assert-string-value>
     </result>
@@ -47,7 +47,7 @@
     <test>
       <![CDATA["&#x9;" castable as xs:token]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -56,7 +56,7 @@
     <description/>
     <created by="Oliver Hallam" on="2008-04-14"/>
     <test>5 castable as xs:token</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -65,7 +65,7 @@
     <description/>
     <created by="Oliver Hallam" on="2008-04-14"/>
     <test>xs:token(&quot;test&quot;) castable as xs:token</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

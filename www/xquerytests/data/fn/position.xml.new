@@ -7,7 +7,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works) return $h/employee[position() = 1]/string(@name)</test>
-    <result-string>xs:string('Jane Doe 1')</result-string>
+    <result-string>xs:string(&quot;Jane Doe 1&quot;)</result-string>
     <result>
       <assert-string-value>Jane Doe 1</assert-string-value>
     </result>
@@ -27,7 +27,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works) return $h/employee[position() = 13]/string(@name)</test>
-    <result-string>xs:string('Jane Doe 13')</result-string>
+    <result-string>xs:string(&quot;Jane Doe 13&quot;)</result-string>
     <result>
       <assert-string-value>Jane Doe 13</assert-string-value>
     </result>
@@ -37,7 +37,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works) return $h/employee[position() = last()]/string(@name)</test>
-    <result-string>xs:string('Jane Doe 13')</result-string>
+    <result-string>xs:string(&quot;Jane Doe 13&quot;)</result-string>
     <result>
       <assert-string-value>Jane Doe 13</assert-string-value>
     </result>
@@ -47,7 +47,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works) return $h/employee[last() = position()]/string(@name)</test>
-    <result-string>xs:string('Jane Doe 13')</result-string>
+    <result-string>xs:string(&quot;Jane Doe 13&quot;)</result-string>
     <result>
       <assert-string-value>Jane Doe 13</assert-string-value>
     </result>
@@ -57,7 +57,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $var in 1 return for $h in (/works) return $h/employee[position() = $var]/string(@name)</test>
-    <result-string>xs:string('Jane Doe 1')</result-string>
+    <result-string>xs:string(&quot;Jane Doe 1&quot;)</result-string>
     <result>
       <assert-string-value>Jane Doe 1</assert-string-value>
     </result>
@@ -67,7 +67,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $var in &quot;1&quot; return for $h in (/works) return $h/employee[position() = xs:integer($var)]/string(@name)</test>
-    <result-string>xs:string('Jane Doe 1')</result-string>
+    <result-string>xs:string(&quot;Jane Doe 1&quot;)</result-string>
     <result>
       <assert-string-value>Jane Doe 1</assert-string-value>
     </result>
@@ -87,7 +87,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works) return $h/employee[@name][position() = 1]/string(@name)</test>
-    <result-string>xs:string('Jane Doe 1')</result-string>
+    <result-string>xs:string(&quot;Jane Doe 1&quot;)</result-string>
     <result>
       <assert-string-value>Jane Doe 1</assert-string-value>
     </result>
@@ -97,7 +97,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works) return $h/employee[position() = 1][@name]/string(@name)</test>
-    <result-string>xs:string('Jane Doe 1')</result-string>
+    <result-string>xs:string(&quot;Jane Doe 1&quot;)</result-string>
     <result>
       <assert-string-value>Jane Doe 1</assert-string-value>
     </result>
@@ -107,7 +107,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works/employee[12]/overtime) return $h/day[not(position() = 1)]/string()</test>
-    <result-string>xs:string('Tuesday')</result-string>
+    <result-string>xs:string(&quot;Tuesday&quot;)</result-string>
     <result>
       <assert-string-value>Tuesday</assert-string-value>
     </result>
@@ -127,7 +127,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works) return $h/employee[position() = (2 + 2)]/string(@name)</test>
-    <result-string>xs:string('John Doe 4')</result-string>
+    <result-string>xs:string(&quot;John Doe 4&quot;)</result-string>
     <result>
       <assert-string-value>John Doe 4</assert-string-value>
     </result>
@@ -137,7 +137,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works) return $h/employee[position() = (5 - 2)]/string(@name)</test>
-    <result-string>xs:string('Jane Doe 3')</result-string>
+    <result-string>xs:string(&quot;Jane Doe 3&quot;)</result-string>
     <result>
       <assert-string-value>Jane Doe 3</assert-string-value>
     </result>
@@ -147,7 +147,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works) return $h/employee[position() = (3 * 2)]/string(@name)</test>
-    <result-string>xs:string('John Doe 6')</result-string>
+    <result-string>xs:string(&quot;John Doe 6&quot;)</result-string>
     <result>
       <assert-string-value>John Doe 6</assert-string-value>
     </result>
@@ -157,7 +157,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works) return $h/employee[position() = (6 div 2)]/string(@name)</test>
-    <result-string>xs:string('Jane Doe 3')</result-string>
+    <result-string>xs:string(&quot;Jane Doe 3&quot;)</result-string>
     <result>
       <assert-string-value>Jane Doe 3</assert-string-value>
     </result>
@@ -167,7 +167,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works) return $h/employee[position() = (6 idiv 2)]/string(@name)</test>
-    <result-string>xs:string('Jane Doe 3')</result-string>
+    <result-string>xs:string(&quot;Jane Doe 3&quot;)</result-string>
     <result>
       <assert-string-value>Jane Doe 3</assert-string-value>
     </result>
@@ -230,7 +230,7 @@
     <created by="Michael Kay" on="2011-07-01"/>
     <environment ref="works-mod"/>
     <test>position()</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -248,7 +248,7 @@
     <description> A test whose essence is: `(1, 2, 3)[if(1) then 1 else position()]`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3)[if(1) then 1 else position()]</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -257,7 +257,7 @@
     <description> fn:position() can never return 0('='). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty((1, 2, 3, current-time(), current-date(), 6, 7, 8) [position() = 0])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -266,7 +266,7 @@
     <description> fn:position() can never return 0('='), #2. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty((1, 2, 3, current-time(), current-date(), 6, 7, 8) [0 = position()])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -275,7 +275,7 @@
     <description> fn:position() can never return 0('eq'). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty((1, 2, 3, current-time(), current-date(), 6, 7, 8) [position() eq 0])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -284,7 +284,7 @@
     <description> fn:position() can never return 0('eq'), #2. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty((1, 2, 3, current-time(), current-date(), 6, 7, 8) [0 eq position()])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -293,7 +293,7 @@
     <description> fn:position() can never return 0('!='). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [position() != 0], (1, 2, 3, 4))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -302,7 +302,7 @@
     <description> fn:position() can never return 0('ne'). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [position() ne 0], (1, 2, 3, 4))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -311,7 +311,7 @@
     <description> fn:position() can never return 0('!='), #2. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [0 != position()], (1, 2, 3, 4))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -320,7 +320,7 @@
     <description> fn:position() can never return 0('ne'), #2. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [0 ne position()], (1, 2, 3, 4))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -329,7 +329,7 @@
     <description> fn:position() can never return anything less than 1(lt). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty((1, 2, 3, current-time(), current-date(), 6, 7, 8) [position() lt 1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -340,7 +340,7 @@
     <test>
       <![CDATA[empty((1, 2, 3, current-time(), current-date(), 6, 7, 8) [position() < 1])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -349,7 +349,7 @@
     <description> fn:position() can never return anything less or equal to 0(le). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty((1, 2, 3, current-time(), current-date(), 6, 7, 8) [position() le 0])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -360,7 +360,7 @@
     <test>
       <![CDATA[empty((1, 2, 3, current-time(), current-date(), 6, 7, 8) [position() <= 0])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -369,7 +369,7 @@
     <description> The return value of fn:position() is always greater than 0('ne'). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [position()  0], (1, 2, 3, 4))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -378,7 +378,7 @@
     <description> The return value of fn:position() is always greater than 0(''). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [position()  0], (1, 2, 3, 4))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -387,7 +387,7 @@
     <description> The return value of fn:position() is always greater than 0('gt'). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [position() gt 0], (1, 2, 3, 4))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -396,7 +396,7 @@
     <description> The return value of fn:position() is always greater or equal to 0('='). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [position() = 1], (1, 2, 3, 4))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -405,7 +405,7 @@
     <description> The return value of fn:position() is always greater or equal to 0('ge'). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [position() ge 1], (1, 2, 3, 4))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -414,7 +414,7 @@
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 eq (0, 1, current-time(), 4)[position() = 2] treat as xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -423,7 +423,7 @@
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 eq (0, 1, current-time(), 4)[position() eq 2] treat as xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -432,7 +432,7 @@
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 eq (0, 1, current-time(), 4)[2 eq position()] treat as xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -441,7 +441,7 @@
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 eq (0, 1, current-time(), 4)[2 = position()] treat as xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -450,7 +450,7 @@
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 4), (1, 2, current-time(), 4)[position() != 3])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -459,7 +459,7 @@
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 4), (1, 2, current-time(), 4)[position() ne 3])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -468,7 +468,7 @@
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 4), (1, 2, current-time(), 4)[3 ne position()])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -477,7 +477,7 @@
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 4), (1, 2, current-time(), 4)[3 != position()])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -486,7 +486,7 @@
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 3), (1, 2, 3, current-time())[position() lt 4])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -497,7 +497,7 @@
     <test>
       <![CDATA[deep-equal((1, 2, 3), (1, 2, 3, current-time())[position() < 4])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -506,7 +506,7 @@
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 3), (1, 2, 3, current-time())[4 gt position()])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -515,7 +515,7 @@
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 3), (1, 2, 3, current-time())[4  position()])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -524,7 +524,7 @@
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 3), (1, 2, 3, current-time())[position() le 3])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -535,7 +535,7 @@
     <test>
       <![CDATA[deep-equal((1, 2, 3), (1, 2, 3, current-time())[position() <= 3])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -544,7 +544,7 @@
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 3), (1, 2, 3, current-time())[3 ge position()])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -553,7 +553,7 @@
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 3), (1, 2, 3, current-time())[3 = position()])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -562,7 +562,7 @@
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((4, 5), (1, 2, current-time(), 4, 5)[3 lt position()])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -573,7 +573,7 @@
     <test>
       <![CDATA[deep-equal((4, 5), (1, 2, current-time(), 4, 5)[3 < position()])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -582,7 +582,7 @@
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((4, 5), (1, 2, current-time(), 4, 5)[position() gt 3])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -591,7 +591,7 @@
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((4, 5), (1, 2, current-time(), 4, 5)[position()  3])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -600,7 +600,7 @@
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((4, 5), (1, 2, current-time(), 4, 5)[4 le position()])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -611,7 +611,7 @@
     <test>
       <![CDATA[deep-equal((4, 5), (1, 2, current-time(), 4, 5)[4 <= position()])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -620,7 +620,7 @@
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((4, 5), (1, 2, current-time(), 4, 5)[position() ge 4])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -629,7 +629,7 @@
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((4, 5), (1, 2, current-time(), 4, 5)[position() = 4])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

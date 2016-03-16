@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;-2147483648&quot;) div xs:int(&quot;-2147483648&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:int(mid range) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even((xs:int(&quot;-1873914410&quot;) div xs:int(&quot;-2147483648&quot;)),10)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0.8726093965&quot;)</result-string>
     <result>
       <assert-eq>0.8726093965</assert-eq>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:int(upper bound) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even((xs:int(&quot;2147483647&quot;) div xs:int(&quot;-2147483648&quot;)),10)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-0.9999999995&quot;)</result-string>
     <result>
       <assert-eq>-0.9999999995</assert-eq>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even((xs:int(&quot;-2147483648&quot;) div xs:int(&quot;-1873914410&quot;)),10)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1.145988118&quot;)</result-string>
     <result>
       <assert-eq>1.145988118</assert-eq>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even((xs:int(&quot;-2147483648&quot;) div xs:int(&quot;2147483647&quot;)),10)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1.0000000005&quot;)</result-string>
     <result>
       <assert-eq>-1.0000000005</assert-eq>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;-999999999999999999&quot;) div xs:integer(&quot;-999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -72,7 +72,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:integer(upper bound) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;999999999999999999&quot;) div xs:integer(&quot;-999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -93,7 +93,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;-999999999999999999&quot;) div xs:integer(&quot;999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -102,7 +102,7 @@
     <description> Evaluates the type of the result of &quot;op:numeric-integer-divide&quot; operator with both arguments of type xs:integer </description>
     <created by="Sorin Nasoi" on="2009-04-01"/>
     <test>(xs:integer(&quot;-999999999999999999&quot;) div xs:integer(&quot;999999999999999999&quot;)) instance of xs:decimal</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -111,7 +111,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;-999999999999999999&quot;) div xs:decimal(&quot;-999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:decimal(upper bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;999999999999999999&quot;) div xs:decimal(&quot;-999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -153,7 +153,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;-999999999999999999&quot;) div xs:decimal(&quot;999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -162,7 +162,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;-1.7976931348623157E308&quot;) div xs:double(&quot;-1.7976931348623157E308&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -171,7 +171,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:double(mid range) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;0&quot;) div xs:double(&quot;-1.7976931348623157E308&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-0&quot;)</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
@@ -180,7 +180,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:double(upper bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;1.7976931348623157E308&quot;) div xs:double(&quot;-1.7976931348623157E308&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -189,7 +189,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;-1.7976931348623157E308&quot;) div xs:double(&quot;1.7976931348623157E308&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -198,7 +198,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;-3.4028235E38&quot;) div xs:float(&quot;-3.4028235E38&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -207,7 +207,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:float(mid range) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;0&quot;) div xs:float(&quot;-3.4028235E38&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-0&quot;)</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
@@ -216,7 +216,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:float(upper bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;3.4028235E38&quot;) div xs:float(&quot;-3.4028235E38&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -225,7 +225,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;-3.4028235E38&quot;) div xs:float(&quot;3.4028235E38&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -234,7 +234,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;-92233720368547758&quot;) div xs:long(&quot;-92233720368547758&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -255,7 +255,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:long(upper bound) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;92233720368547758&quot;) div xs:long(&quot;-92233720368547758&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -276,7 +276,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;-92233720368547758&quot;) div xs:long(&quot;92233720368547758&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -285,7 +285,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;0&quot;) div xs:unsignedShort(&quot;44633&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -294,7 +294,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;0&quot;) div xs:unsignedShort(&quot;65535&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -303,7 +303,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-999999999999999999&quot;) div xs:negativeInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -349,7 +349,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-999999999999999999&quot;) div xs:negativeInteger(&quot;-1&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -358,7 +358,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;1&quot;) div xs:positiveInteger(&quot;1&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -367,7 +367,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(mid range) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;52704602390610033&quot;) div xs:positiveInteger(&quot;1&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;52704602390610033&quot;)</result-string>
     <result>
       <assert-eq>52704602390610033</assert-eq>
     </result>
@@ -376,7 +376,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(upper bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;999999999999999999&quot;) div xs:positiveInteger(&quot;1&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -410,7 +410,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;0&quot;) div xs:unsignedLong(&quot;130747108607674654&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -419,7 +419,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;0&quot;) div xs:unsignedLong(&quot;184467440737095516&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -428,7 +428,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;-999999999999999999&quot;) div xs:nonPositiveInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -449,7 +449,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(upper bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;0&quot;) div xs:nonPositiveInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -470,7 +470,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;0&quot;) div xs:nonNegativeInteger(&quot;303884545991464527&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -479,7 +479,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;0&quot;) div xs:nonNegativeInteger(&quot;999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -488,7 +488,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;-32768&quot;) div xs:short(&quot;-32768&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -497,7 +497,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:short(mid range) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even((xs:short(&quot;-5324&quot;) div xs:short(&quot;-32768&quot;)),5)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0.16248&quot;)</result-string>
     <result>
       <assert-eq>0.16248</assert-eq>
     </result>
@@ -518,7 +518,7 @@
     <description> Evaluates The &quot;op:numeric-divide&quot; operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even((xs:short(&quot;-32768&quot;) div xs:short(&quot;-5324&quot;)),5)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;6.15477&quot;)</result-string>
     <result>
       <assert-eq>6.15477</assert-eq>
     </result>
@@ -559,7 +559,7 @@
     <description> Simple division test, second operator cast string to integer </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <test>1 div xs:integer('1')</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -571,7 +571,7 @@
     <test>
       <![CDATA[1 div <a> 2 </a>]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0.5&quot;)</result-string>
     <result>
       <assert-eq>0.5</assert-eq>
     </result>
@@ -583,7 +583,7 @@
     <test>
       <![CDATA[1 div <a> <b> 2 </b> </a>]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0.5&quot;)</result-string>
     <result>
       <assert-eq>0.5</assert-eq>
     </result>
@@ -607,7 +607,7 @@
     <test>
       <![CDATA[<a> 1 </a> div <b> 2 </b>]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0.5&quot;)</result-string>
     <result>
       <assert-eq>0.5</assert-eq>
     </result>
@@ -640,7 +640,7 @@
     <description> A test whose essence is: `xs:double(6) div xs:double(2) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(6) div xs:double(2) eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -649,7 +649,7 @@
     <description> A test whose essence is: `xs:decimal(6) div xs:decimal(2) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:decimal(6) div xs:decimal(2) eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -658,7 +658,7 @@
     <description> A test whose essence is: `xs:integer(6) div xs:integer(2) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:integer(6) div xs:integer(2) eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -667,7 +667,7 @@
     <description> A test whose essence is: `xs:float(6) div xs:float(2) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(6) div xs:float(2) eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -676,7 +676,7 @@
     <description> A test whose essence is: `xs:double(5) div xs:double(2) eq 2.5`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(5) div xs:double(2) eq 2.5</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -685,7 +685,7 @@
     <description> A test whose essence is: `xs:double(5) div xs:double(2) ne 2.6`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(5) div xs:double(2) ne 2.6</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -694,7 +694,7 @@
     <description> A test whose essence is: `xs:float(5) div xs:float(2) eq 2.5`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(5) div xs:float(2) eq 2.5</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -703,7 +703,7 @@
     <description> A test whose essence is: `xs:float(5) div xs:float(2) ne 2.6`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(5) div xs:float(2) ne 2.6</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -712,7 +712,7 @@
     <description> A test whose essence is: `xs:integer(5) div xs:integer(2) eq 2.5`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:integer(5) div xs:integer(2) eq 2.5</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -721,7 +721,7 @@
     <description> A test whose essence is: `xs:integer(5) div xs:integer(2) ne 2.6`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:integer(5) div xs:integer(2) ne 2.6</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -730,7 +730,7 @@
     <description> A test whose essence is: `xs:decimal(5) div xs:decimal(2) eq 2.5`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:decimal(5) div xs:decimal(2) eq 2.5</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -739,7 +739,7 @@
     <description> A test whose essence is: `xs:decimal(5) div xs:decimal(2) ne 2.6`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:decimal(5) div xs:decimal(2) ne 2.6</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -748,7 +748,7 @@
     <description> A test whose essence is: `5 div 2 ne 2.6`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>5 div 2 ne 2.6</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -757,7 +757,7 @@
     <description> A test whose essence is: `5.0 div 2.0 eq 2.5`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>5.0 div 2.0 eq 2.5</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -766,7 +766,7 @@
     <description> A test whose essence is: `5.0 div 2.0 ne 2.6`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>5.0 div 2.0 ne 2.6</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -775,7 +775,7 @@
     <description> A test whose essence is: `(xs:decimal(6) div xs:integer(2)) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) div xs:integer(2)) instance of xs:decimal</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -784,7 +784,7 @@
     <description> A test whose essence is: `(xs:integer(6) div xs:decimal(2)) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) div xs:decimal(2)) instance of xs:decimal</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -793,7 +793,7 @@
     <description> A test whose essence is: `(xs:integer(6) div xs:integer(2)) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) div xs:integer(2)) instance of xs:decimal</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -802,7 +802,7 @@
     <description> A test whose essence is: `(xs:decimal(6) div xs:decimal(2)) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) div xs:decimal(2)) instance of xs:decimal</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -811,7 +811,7 @@
     <description> A test whose essence is: `(xs:float(6) div xs:decimal(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) div xs:decimal(2)) instance of xs:float</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -820,7 +820,7 @@
     <description> A test whose essence is: `(xs:decimal(6) div xs:float(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) div xs:float(2)) instance of xs:float</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -829,7 +829,7 @@
     <description> A test whose essence is: `(xs:float(6) div xs:integer(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) div xs:integer(2)) instance of xs:float</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -838,7 +838,7 @@
     <description> A test whose essence is: `(xs:integer(6) div xs:float(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) div xs:float(2)) instance of xs:float</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -847,7 +847,7 @@
     <description> A test whose essence is: `(xs:float(6) div xs:float(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) div xs:float(2)) instance of xs:float</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -856,7 +856,7 @@
     <description> A test whose essence is: `(xs:decimal(6) div xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) div xs:double(2)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -865,7 +865,7 @@
     <description> A test whose essence is: `(xs:double(6) div xs:decimal(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) div xs:decimal(2)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -874,7 +874,7 @@
     <description> A test whose essence is: `(xs:double(6) div xs:float(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) div xs:float(2)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -883,7 +883,7 @@
     <description> A test whose essence is: `(xs:float(6) div xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) div xs:double(2)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -892,7 +892,7 @@
     <description> A test whose essence is: `(xs:double(6) div xs:integer(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) div xs:integer(2)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -901,7 +901,7 @@
     <description> A test whose essence is: `(xs:integer(6) div xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) div xs:double(2)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -910,7 +910,7 @@
     <description> A test whose essence is: `(xs:double(6) div xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) div xs:double(2)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -937,7 +937,7 @@
     <description> A test whose essence is: `(xs:double(3) div xs:untypedAtomic(&quot;3&quot;)) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(3) div xs:untypedAtomic(&quot;3&quot;)) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -946,7 +946,7 @@
     <description> A test whose essence is: `(xs:untypedAtomic(&quot;3&quot;) div xs:double(3)) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:untypedAtomic(&quot;3&quot;) div xs:double(3)) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1078,7 +1078,7 @@
     <description> Divide by 0e0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 div 0e0</test>
-    <result-string>xs:string('INF')</result-string>
+    <result-string>xs:string(&quot;INF&quot;)</result-string>
     <result>
       <assert-string-value>INF</assert-string-value>
     </result>
@@ -1087,7 +1087,7 @@
     <description> Divide -1 by 0e0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>-1 div 0e0</test>
-    <result-string>xs:string('-INF')</result-string>
+    <result-string>xs:string(&quot;-INF&quot;)</result-string>
     <result>
       <assert-string-value>-INF</assert-string-value>
     </result>
@@ -1096,7 +1096,7 @@
     <description> Divide by xs:float(0). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 div xs:float(0)</test>
-    <result-string>xs:string('INF')</result-string>
+    <result-string>xs:string(&quot;INF&quot;)</result-string>
     <result>
       <assert-string-value>INF</assert-string-value>
     </result>
@@ -1105,7 +1105,7 @@
     <description> Divide -1 by xs:float(0). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>-1 div xs:float(0)</test>
-    <result-string>xs:string('-INF')</result-string>
+    <result-string>xs:string(&quot;-INF&quot;)</result-string>
     <result>
       <assert-string-value>-INF</assert-string-value>
     </result>
@@ -1114,7 +1114,7 @@
     <description> Divide +0e0 with -0e0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>+0e0 div -0e0</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -1123,7 +1123,7 @@
     <description> Divide +0e0 with +0e0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>+0e0 div +0e0</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -1132,7 +1132,7 @@
     <description> Divide -0e0 with -0e0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>-0e0 div -0e0</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -1141,7 +1141,7 @@
     <description> Divide -0e0 with +0e0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>-0e0 div +0e0</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -1150,7 +1150,7 @@
     <description> Divide +3 with +0e0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>+3 div +0e0</test>
-    <result-string>xs:string('INF')</result-string>
+    <result-string>xs:string(&quot;INF&quot;)</result-string>
     <result>
       <assert-string-value>INF</assert-string-value>
     </result>
@@ -1159,7 +1159,7 @@
     <description> Divide -3 with +0e0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>-3 div +0e0</test>
-    <result-string>xs:string('-INF')</result-string>
+    <result-string>xs:string(&quot;-INF&quot;)</result-string>
     <result>
       <assert-string-value>-INF</assert-string-value>
     </result>
@@ -1168,7 +1168,7 @@
     <description> Divide +3 with -0e0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>+3 div -0e0</test>
-    <result-string>xs:string('-INF')</result-string>
+    <result-string>xs:string(&quot;-INF&quot;)</result-string>
     <result>
       <assert-string-value>-INF</assert-string-value>
     </result>
@@ -1177,7 +1177,7 @@
     <description> Divide -3 with -0e0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>-3 div -0e0</test>
-    <result-string>xs:string('INF')</result-string>
+    <result-string>xs:string(&quot;INF&quot;)</result-string>
     <result>
       <assert-string-value>INF</assert-string-value>
     </result>
@@ -1189,7 +1189,7 @@
     <test>
       <![CDATA[empty(<e/>/(div div div))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1207,7 +1207,7 @@
                 else if ($result instance of xs:float) then &quot;float&quot;
                 else error() 
        </test>
-    <result-string>xs:string('decimal decimal float double double decimal decimal float double double float float float double double double double double double double double double double double double')</result-string>
+    <result-string>xs:string(&quot;decimal decimal float double double decimal decimal float double double float float float double double double double double double double double double double double double&quot;)</result-string>
     <result>
       <assert-string-value>decimal decimal float double double decimal decimal float double double float float float double double double double double double double double double double double double</assert-string-value>
     </result>
@@ -1220,7 +1220,7 @@
       	declare function local:square($arg as xs:double) as xs:double { $arg * $arg }; 
       	xs:double('NaN') div local:square(7)
       </test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -1233,7 +1233,7 @@
       	declare function local:square($arg as xs:double) as xs:double { $arg * $arg }; 
       	local:square(7) div xs:double('NaN')
       </test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -1246,7 +1246,7 @@
       	declare function local:square($arg as xs:double) as xs:double { $arg * $arg }; 
       	local:square(7) div 1e0
       	</test>
-    <result-string>xs:string('49')</result-string>
+    <result-string>xs:string(&quot;49&quot;)</result-string>
     <result>
       <assert-string-value>49</assert-string-value>
     </result>
@@ -1259,7 +1259,7 @@
       	declare function local:square($arg as xs:double) as xs:double { $arg * $arg }; 
       	local:square(7) div -1e0
       </test>
-    <result-string>xs:string('-49')</result-string>
+    <result-string>xs:string(&quot;-49&quot;)</result-string>
     <result>
       <assert-string-value>-49</assert-string-value>
     </result>
@@ -1272,7 +1272,7 @@
       	declare function local:square($arg as xs:float) as xs:float { $arg * $arg }; 
       	xs:float('NaN') div local:square(7)
       </test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -1285,7 +1285,7 @@
       	declare function local:square($arg as xs:float) as xs:float { $arg * $arg }; 
       	local:square(7) div xs:float('NaN')
       </test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -1298,7 +1298,7 @@
       	declare function local:square($arg as xs:float) as xs:float { $arg * $arg }; 
       	local:square(7) div xs:float(1)
       </test>
-    <result-string>xs:string('49')</result-string>
+    <result-string>xs:string(&quot;49&quot;)</result-string>
     <result>
       <assert-string-value>49</assert-string-value>
     </result>
@@ -1311,7 +1311,7 @@
       	declare function local:square($arg as xs:float) as xs:float { $arg * $arg }; 
       	local:square(7) div xs:float(-1)
       </test>
-    <result-string>xs:string('-49')</result-string>
+    <result-string>xs:string(&quot;-49&quot;)</result-string>
     <result>
       <assert-string-value>-49</assert-string-value>
     </result>
@@ -1337,7 +1337,7 @@
       	declare function local:square($arg as xs:decimal) as xs:decimal { $arg * $arg }; 
       	local:square(7.0) div 1.0
       </test>
-    <result-string>xs:string('49')</result-string>
+    <result-string>xs:string(&quot;49&quot;)</result-string>
     <result>
       <assert-string-value>49</assert-string-value>
     </result>
@@ -1350,7 +1350,7 @@
       	declare function local:square($arg as xs:decimal) as xs:decimal { $arg * $arg }; 
       	local:square(7.0) div -1.0
       </test>
-    <result-string>xs:string('-49')</result-string>
+    <result-string>xs:string(&quot;-49&quot;)</result-string>
     <result>
       <assert-string-value>-49</assert-string-value>
     </result>
@@ -1376,7 +1376,7 @@
       	declare function local:square($arg as xs:integer) as xs:integer { $arg * $arg }; 
       	local:square(7) div 1
       </test>
-    <result-string>xs:string('49')</result-string>
+    <result-string>xs:string(&quot;49&quot;)</result-string>
     <result>
       <assert-string-value>49</assert-string-value>
     </result>
@@ -1389,7 +1389,7 @@
       	declare function local:square($arg as xs:integer) as xs:integer { $arg * $arg }; 
       	local:square(7) div -1
       </test>
-    <result-string>xs:string('-49')</result-string>
+    <result-string>xs:string(&quot;-49&quot;)</result-string>
     <result>
       <assert-string-value>-49</assert-string-value>
     </result>

@@ -8,7 +8,7 @@
     <description> Evaluation of a simple prolog option declaration. </description>
     <created by="Carmelo Montanez" on="2006-03-24"/>
     <test>declare namespace exq = &quot;http://example.org/XQueryImplementation&quot;; declare option exq:java-class &quot;math = java.lang.Math&quot;; &quot;aaa&quot;</test>
-    <result-string>xs:string('aaa')</result-string>
+    <result-string>xs:string(&quot;aaa&quot;)</result-string>
     <result>
       <assert-string-value>aaa</assert-string-value>
     </result>
@@ -59,7 +59,7 @@
         declare(::)option(::)local:opt(::)&quot;option value&quot;(::); 
         declare(::)option(::)local:opt(::)&quot;option value&quot;(::); 
         declare(::)option(::)local:opt(::)&quot;option value&quot;;1(::)eq(::)1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -68,7 +68,7 @@
     <description> A simple option using double quotes for the value. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare(::)option(::)local:opt&quot;option value&quot;; 1 eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -77,7 +77,7 @@
     <description> A simple option using single quotes for the value. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare(::)option(::)local:opt'option value'; 1 eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

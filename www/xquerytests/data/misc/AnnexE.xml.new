@@ -11,7 +11,7 @@
     <test>
       <![CDATA[declare namespace eg = "http://example.org"; declare function eg:if-empty ( $node as node()?, $value as xs:anyAtomicType) as xs:anyAtomicType* { if ($node and $node/child::node()) then fn:data($node) else $value }; let $arg1 := <element1>some data</element1> let $arg2 as xs:anyAtomicType := 1 return eg:if-empty($arg1,$arg2)]]>
     </test>
-    <result-string>xs:string('some data')</result-string>
+    <result-string>xs:string(&quot;some data&quot;)</result-string>
     <result>
       <assert-string-value>some data</assert-string-value>
     </result>
@@ -23,7 +23,7 @@
     <test>
       <![CDATA[declare namespace eg = "http://example.org"; declare function eg:if-absent ( $node as node()?, $value as xs:anyAtomicType) as xs:anyAtomicType* { if ($node) then fn:data($node) else $value }; let $arg1 := <element1>some data</element1> let $arg2 as xs:anyAtomicType := 1 return eg:if-absent($arg1,$arg2)]]>
     </test>
-    <result-string>xs:string('some data')</result-string>
+    <result-string>xs:string(&quot;some data&quot;)</result-string>
     <result>
       <assert-string-value>some data</assert-string-value>
     </result>
@@ -32,7 +32,7 @@
     <description> User defined function # 3 from annex E of F O Specs. </description>
     <created by="XML Query Working Group" on="2006-03-12"/>
     <test>declare namespace eg = &quot;http://example.org&quot;; declare function eg:value-union ( $arg1 as xs:anyAtomicType*, $arg2 as xs:anyAtomicType*) as xs:anyAtomicType* { fn:distinct-values(($arg1, $arg2)) }; let $arg1 as xs:anyAtomicType := 1 let $arg2 as xs:anyAtomicType := 2 return eg:value-union($arg1,$arg2)</test>
-    <result-string>xs:string('1 2')</result-string>
+    <result-string>xs:string(&quot;1 2&quot;)</result-string>
     <result>
       <assert-string-value>1 2</assert-string-value>
     </result>
@@ -68,7 +68,7 @@
     <test>
       <![CDATA[declare namespace eg = "http://example.org"; declare function eg:index-of-node($sequence as node()*, $srch as node()) as xs:integer* { for $n at $i in $sequence where ($n is $srch) return $i }; let $arg1 := (<element1>some data 1</element1>,<element2>some data 2</element2>) let $arg2 := $arg1[2] return eg:index-of-node($arg1, exactly-one($arg2))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -77,7 +77,7 @@
     <description> User defined function # 7 from annex E of F O Specs. </description>
     <created by="XML Query Working Group" on="2006-03-12"/>
     <test>declare namespace eg = &quot;http://example.org&quot;; declare function eg:string-pad ( $padString as xs:string?, $padCount as xs:integer) as xs:string { fn:string-join((for $i in 1 to $padCount return $padString), &quot;&quot;) }; let $arg1 as xs:string := &quot;A String&quot; let $arg2 as xs:integer := 3 return eg:string-pad($arg1,$arg2)</test>
-    <result-string>xs:string('A StringA StringA String')</result-string>
+    <result-string>xs:string(&quot;A StringA StringA String&quot;)</result-string>
     <result>
       <assert-string-value>A StringA StringA String</assert-string-value>
     </result>

@@ -7,7 +7,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:dateTime(xs:date(&quot;1999-12-31&quot;), xs:time(&quot;12:00:00&quot;))</test>
-    <result-string>xs:string('1999-12-31T12:00:00')</result-string>
+    <result-string>xs:string(&quot;1999-12-31T12:00:00&quot;)</result-string>
     <result>
       <assert-string-value>1999-12-31T12:00:00</assert-string-value>
     </result>
@@ -17,7 +17,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:dateTime(xs:date(&quot;1999-12-31&quot;), xs:time(&quot;24:00:00&quot;))</test>
-    <result-string>xs:string('1999-12-31T00:00:00')</result-string>
+    <result-string>xs:string(&quot;1999-12-31T00:00:00&quot;)</result-string>
     <result>
       <assert-string-value>1999-12-31T00:00:00</assert-string-value>
     </result>
@@ -27,7 +27,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:dateTime(xs:date(&quot;1999-12-31Z&quot;), xs:time(&quot;23:00:00&quot;))</test>
-    <result-string>xs:string('1999-12-31T23:00:00Z')</result-string>
+    <result-string>xs:string(&quot;1999-12-31T23:00:00Z&quot;)</result-string>
     <result>
       <assert-string-value>1999-12-31T23:00:00Z</assert-string-value>
     </result>
@@ -37,7 +37,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:dateTime(xs:date(&quot;1999-12-31&quot;), xs:time(&quot;23:00:00Z&quot;))</test>
-    <result-string>xs:string('1999-12-31T23:00:00Z')</result-string>
+    <result-string>xs:string(&quot;1999-12-31T23:00:00Z&quot;)</result-string>
     <result>
       <assert-string-value>1999-12-31T23:00:00Z</assert-string-value>
     </result>
@@ -47,7 +47,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:dateTime(xs:date(&quot;1999-12-31Z&quot;), xs:time(&quot;23:00:00Z&quot;))</test>
-    <result-string>xs:string('1999-12-31T23:00:00Z')</result-string>
+    <result-string>xs:string(&quot;1999-12-31T23:00:00Z&quot;)</result-string>
     <result>
       <assert-string-value>1999-12-31T23:00:00Z</assert-string-value>
     </result>
@@ -57,7 +57,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;))</test>
-    <result-string>xs:string('1999-12-31T23:00:00+10:00')</result-string>
+    <result-string>xs:string(&quot;1999-12-31T23:00:00+10:00&quot;)</result-string>
     <result>
       <assert-string-value>1999-12-31T23:00:00+10:00</assert-string-value>
     </result>
@@ -67,7 +67,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) eq fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -77,7 +77,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) ne fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -87,7 +87,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) le fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -97,7 +97,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) ge fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -107,7 +107,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) lt fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -117,7 +117,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) le fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -127,7 +127,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) gt fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -137,7 +137,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) ge fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -147,7 +147,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:year-from-dateTime(fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)))</test>
-    <result-string>xs:string('1999')</result-string>
+    <result-string>xs:string(&quot;1999&quot;)</result-string>
     <result>
       <assert-string-value>1999</assert-string-value>
     </result>
@@ -157,7 +157,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:month-from-dateTime(fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)))</test>
-    <result-string>xs:string('12')</result-string>
+    <result-string>xs:string(&quot;12&quot;)</result-string>
     <result>
       <assert-string-value>12</assert-string-value>
     </result>
@@ -167,7 +167,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:day-from-dateTime(fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)))</test>
-    <result-string>xs:string('31')</result-string>
+    <result-string>xs:string(&quot;31&quot;)</result-string>
     <result>
       <assert-string-value>31</assert-string-value>
     </result>
@@ -177,7 +177,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:hours-from-dateTime(fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)))</test>
-    <result-string>xs:string('23')</result-string>
+    <result-string>xs:string(&quot;23&quot;)</result-string>
     <result>
       <assert-string-value>23</assert-string-value>
     </result>
@@ -187,7 +187,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:minutes-from-dateTime(fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -197,7 +197,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:seconds-from-dateTime(fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -207,7 +207,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:timezone-from-dateTime(fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)))</test>
-    <result-string>xs:string('PT10H')</result-string>
+    <result-string>xs:string(&quot;PT10H&quot;)</result-string>
     <result>
       <assert-string-value>PT10H</assert-string-value>
     </result>
@@ -217,7 +217,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:adjust-dateTime-to-timezone(fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)),xs:dayTimeDuration(&quot;PT10H&quot;))</test>
-    <result-string>xs:string('1999-12-31T23:00:00+10:00')</result-string>
+    <result-string>xs:string(&quot;1999-12-31T23:00:00+10:00&quot;)</result-string>
     <result>
       <assert-string-value>1999-12-31T23:00:00+10:00</assert-string-value>
     </result>
@@ -227,7 +227,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test>fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) - fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;22:00:00+10:00&quot;))</test>
-    <result-string>xs:string('PT1H')</result-string>
+    <result-string>xs:string(&quot;PT1H&quot;)</result-string>
     <result>
       <assert-string-value>PT1H</assert-string-value>
     </result>
@@ -237,7 +237,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test> fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) + xs:yearMonthDuration(&quot;P1Y2M&quot;)</test>
-    <result-string>xs:string('2001-02-28T23:00:00+10:00')</result-string>
+    <result-string>xs:string(&quot;2001-02-28T23:00:00+10:00&quot;)</result-string>
     <result>
       <assert-string-value>2001-02-28T23:00:00+10:00</assert-string-value>
     </result>
@@ -247,7 +247,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test> fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) + xs:dayTimeDuration(&quot;P3DT1H15M&quot;)</test>
-    <result-string>xs:string('2000-01-04T00:15:00+10:00')</result-string>
+    <result-string>xs:string(&quot;2000-01-04T00:15:00+10:00&quot;)</result-string>
     <result>
       <assert-string-value>2000-01-04T00:15:00+10:00</assert-string-value>
     </result>
@@ -257,7 +257,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test> fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) - xs:yearMonthDuration(&quot;P1Y2M&quot;)</test>
-    <result-string>xs:string('1998-10-31T23:00:00+10:00')</result-string>
+    <result-string>xs:string(&quot;1998-10-31T23:00:00+10:00&quot;)</result-string>
     <result>
       <assert-string-value>1998-10-31T23:00:00+10:00</assert-string-value>
     </result>
@@ -267,7 +267,7 @@
  </description>
     <created by="Carmelo Montanez" on="2009-09-19"/>
     <test> fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), xs:time(&quot;23:00:00+10:00&quot;)) - xs:dayTimeDuration(&quot;P3DT1H15M&quot;)</test>
-    <result-string>xs:string('1999-12-28T21:45:00+10:00')</result-string>
+    <result-string>xs:string(&quot;1999-12-28T21:45:00+10:00&quot;)</result-string>
     <result>
       <assert-string-value>1999-12-28T21:45:00+10:00</assert-string-value>
     </result>
@@ -277,7 +277,7 @@
  </description>
     <created by="Carmelo Montanez" on="2006-09-22"/>
     <test> fn:count(fn:dateTime((), xs:time(&quot;23:00:00+10:00&quot;)))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -287,7 +287,7 @@
  </description>
     <created by="Carmelo Montanez" on="2006-09-22"/>
     <test> fn:count(fn:dateTime(xs:date(&quot;1999-12-31+10:00&quot;), ()))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -297,7 +297,7 @@
  </description>
     <created by="Carmelo Montanez" on="2006-09-22"/>
     <test> fn:count(fn:dateTime((),()))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -343,7 +343,7 @@
     <description>Passing the empty sequence as second argument is allowed(recent change in the specification).</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>empty(dateTime(xs:date(&quot;2004-03-04&quot;), ()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -352,7 +352,7 @@
     <description> Passing the empty sequence as first argument is allowed(recent change in the specification). </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>empty(dateTime((), xs:time(&quot;08:05:23&quot;)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -379,7 +379,7 @@
     <description> Invoke fn:dateTime() with timezones +00:00 and -00:00.</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date(&quot;2004-03-04-00:00&quot;), xs:time(&quot;08:05:23+00:00&quot;)) eq xs:dateTime(&quot;2004-03-04T08:05:23Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -388,7 +388,7 @@
     <description>Invoke fn:dateTime() with identical timezones.</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date(&quot;2004-03-04+11:00&quot;), xs:time(&quot;08:05:23+11:00&quot;)) eq xs:dateTime(&quot;2004-03-04T08:05:23+11:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -397,7 +397,7 @@
     <description>Invoke fn:dateTime() with the first value having no timezone.</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date(&quot;2004-03-04&quot;), xs:time(&quot;08:05:23-05:00&quot;)) eq xs:dateTime(&quot;2004-03-04T08:05:23-05:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -406,7 +406,7 @@
     <description>Invoke fn:dateTime() with the second value having no timezone.</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date(&quot;2004-03-04+11:00&quot;), xs:time(&quot;08:05:23&quot;)) eq xs:dateTime(&quot;2004-03-04T08:05:23+11:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -415,7 +415,7 @@
     <description>Invoke fn:dateTime() with the time value being 24:00:00. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:string(dateTime(xs:date(&quot;1999-12-31&quot;), xs:time(&quot;24:00:00&quot;))) eq &quot;1999-12-31T00:00:00&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -424,7 +424,7 @@
     <description> Invoke fn:dateTime() with timezones being canonical UTC('Z').</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date(&quot;2004-03-04Z&quot;), xs:time(&quot;08:05:23Z&quot;)) eq xs:dateTime(&quot;2004-03-04T08:05:23Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -433,7 +433,7 @@
     <description>Invoke fn:dateTime() with the first value's timezone being canonical UTC('Z'). </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date(&quot;2004-03-04Z&quot;), xs:time(&quot;08:05:23&quot;)) eq xs:dateTime(&quot;2004-03-04T08:05:23Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -442,7 +442,7 @@
     <description>Invoke fn:dateTime() with the first value's timezone being an arbitrary value.</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date(&quot;2004-03-04+13:07&quot;), xs:time(&quot;08:05:23&quot;)) eq xs:dateTime(&quot;2004-03-04T08:05:23+13:07&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -451,7 +451,7 @@
     <description>Invoke fn:dateTime() with the second value's timezone being an arbitrary value.</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date(&quot;2004-03-04&quot;), xs:time(&quot;08:05:23+13:07&quot;)) eq xs:dateTime(&quot;2004-03-04T08:05:23+13:07&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -460,7 +460,7 @@
     <description>Invoke fn:dateTime() where none of its values has a timezone. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date(&quot;2004-03-04&quot;), xs:time(&quot;08:05:23&quot;)) eq xs:dateTime(&quot;2004-03-04T08:05:23&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -469,7 +469,7 @@
     <description>Invoke fn:dateTime() with the first value's timezone being canonical UTC('Z'). </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>dateTime(xs:date(&quot;2004-03-04&quot;), xs:time(&quot;08:05:23Z&quot;)) eq xs:dateTime(&quot;2004-03-04T08:05:23Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -478,7 +478,7 @@
     <description>Passing the empty sequence as both arguments is allowed(recent change in the specification). </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>empty(dateTime((), ()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -487,7 +487,7 @@
     <description> test evaluation of fn:dateTime to exactly one item Author: Tim Mills </description>
     <created by="Oliver Hallam" on="2008-04-14"/>
     <test>fn:index-of( ( 'A', fn:current-dateTime(), 'B' ), fn:dateTime(fn:current-date(), fn:current-time()) )</test>
-    <result-string>xs:string('2')</result-string>
+    <result-string>xs:string(&quot;2&quot;)</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>

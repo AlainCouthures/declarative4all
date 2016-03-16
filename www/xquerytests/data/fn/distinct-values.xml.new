@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:int(&quot;-2147483648&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-2147483648&quot;)</result-string>
     <result>
       <assert-eq>-2147483648</assert-eq>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:int(&quot;-1873914410&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1873914410&quot;)</result-string>
     <result>
       <assert-eq>-1873914410</assert-eq>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:int(&quot;2147483647&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2147483647&quot;)</result-string>
     <result>
       <assert-eq>2147483647</assert-eq>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:integer(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:integer(&quot;830993497117024304&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;830993497117024304&quot;)</result-string>
     <result>
       <assert-eq>830993497117024304</assert-eq>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:integer(&quot;999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:decimal(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:decimal(&quot;617375191608514839&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;617375191608514839&quot;)</result-string>
     <result>
       <assert-eq>617375191608514839</assert-eq>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:decimal(&quot;999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:double(&quot;-1.7976931348623157E308&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:double(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:double(&quot;1.7976931348623157E308&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-eq>1.7976931348623157E308</assert-eq>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:float(&quot;-3.4028235E38&quot;)))</test>
-    <result-string/>
+    <result-string>xs:float(&quot;-3.4028235E38&quot;)</result-string>
     <result>
       <assert-eq>xs:float(&quot;-3.4028235E38&quot;)</assert-eq>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:float(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:float(&quot;3.4028235E38&quot;)))</test>
-    <result-string/>
+    <result-string>xs:float(&quot;3.4028235E38&quot;)</result-string>
     <result>
       <assert-eq>xs:float(&quot;3.4028235E38&quot;)</assert-eq>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:long(&quot;-92233720368547758&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-92233720368547758&quot;)</result-string>
     <result>
       <assert-eq>-92233720368547758</assert-eq>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:long(&quot;-47175562203048468&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-47175562203048468&quot;)</result-string>
     <result>
       <assert-eq>-47175562203048468</assert-eq>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:long(&quot;92233720368547758&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;92233720368547758&quot;)</result-string>
     <result>
       <assert-eq>92233720368547758</assert-eq>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:unsignedShort(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:unsignedShort(&quot;44633&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;44633&quot;)</result-string>
     <result>
       <assert-eq>44633</assert-eq>
     </result>
@@ -186,7 +186,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:unsignedShort(&quot;65535&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;65535&quot;)</result-string>
     <result>
       <assert-eq>65535</assert-eq>
     </result>
@@ -195,7 +195,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:negativeInteger(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -204,7 +204,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:negativeInteger(&quot;-297014075999096793&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-297014075999096793&quot;)</result-string>
     <result>
       <assert-eq>-297014075999096793</assert-eq>
     </result>
@@ -213,7 +213,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:negativeInteger(&quot;-1&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -222,7 +222,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:positiveInteger(&quot;1&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -231,7 +231,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:positiveInteger(&quot;52704602390610033&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;52704602390610033&quot;)</result-string>
     <result>
       <assert-eq>52704602390610033</assert-eq>
     </result>
@@ -240,7 +240,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:positiveInteger(&quot;999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -249,7 +249,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:unsignedLong(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -258,7 +258,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:unsignedLong(&quot;130747108607674654&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;130747108607674654&quot;)</result-string>
     <result>
       <assert-eq>130747108607674654</assert-eq>
     </result>
@@ -267,7 +267,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:unsignedLong(&quot;184467440737095516&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;184467440737095516&quot;)</result-string>
     <result>
       <assert-eq>184467440737095516</assert-eq>
     </result>
@@ -276,7 +276,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:nonPositiveInteger(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -285,7 +285,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:nonPositiveInteger(&quot;-475688437271870490&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-475688437271870490&quot;)</result-string>
     <result>
       <assert-eq>-475688437271870490</assert-eq>
     </result>
@@ -294,7 +294,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:nonPositiveInteger(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -303,7 +303,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:nonNegativeInteger(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -312,7 +312,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:nonNegativeInteger(&quot;303884545991464527&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;303884545991464527&quot;)</result-string>
     <result>
       <assert-eq>303884545991464527</assert-eq>
     </result>
@@ -321,7 +321,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:nonNegativeInteger(&quot;999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -330,7 +330,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:short(&quot;-32768&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-32768&quot;)</result-string>
     <result>
       <assert-eq>-32768</assert-eq>
     </result>
@@ -339,7 +339,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:short(&quot;-5324&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-5324&quot;)</result-string>
     <result>
       <assert-eq>-5324</assert-eq>
     </result>
@@ -348,7 +348,7 @@
     <description> Evaluates The &quot;distinct-values&quot; function with the arguments set as follows: $arg = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:short(&quot;32767&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;32767&quot;)</result-string>
     <result>
       <assert-eq>32767</assert-eq>
     </result>
@@ -369,7 +369,7 @@
     <description> arg: sequence of integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values(( 1, (1), ((1)) ))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -394,7 +394,7 @@
     <description> arg: sequence of integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values(( xs:integer(1), 1))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -421,7 +421,7 @@
     <description> arg: sequence of string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values(( xs:string(&quot;hello&quot;), &quot;hello&quot;))</test>
-    <result-string>xs:string('hello')</result-string>
+    <result-string>xs:string(&quot;hello&quot;)</result-string>
     <result>
       <assert-string-value>hello</assert-string-value>
     </result>
@@ -430,7 +430,7 @@
     <description> arg: sequence of string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values(( xs:string(&quot;&quot;), &quot;&quot;, ''))</test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -466,7 +466,7 @@
     <description> arg: sequence of decimal  float </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values((xs:decimal('1.2'), xs:float('1.2')))</test>
-    <result-string>xs:string('1.2')</result-string>
+    <result-string>xs:string(&quot;1.2&quot;)</result-string>
     <result>
       <assert-string-value>1.2</assert-string-value>
     </result>
@@ -475,7 +475,7 @@
     <description> arg: sequence of decimal  double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values((xs:decimal('1.2'), xs:double('1.2')))</test>
-    <result-string>xs:string('1.2')</result-string>
+    <result-string>xs:string(&quot;1.2&quot;)</result-string>
     <result>
       <assert-string-value>1.2</assert-string-value>
     </result>
@@ -484,7 +484,7 @@
     <description> arg: sequence of float  string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values((xs:float('NaN'), 'NaN'))</test>
-    <result-string>xs:string('NaN NaN')</result-string>
+    <result-string>xs:string(&quot;NaN NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN NaN</assert-string-value>
     </result>
@@ -493,7 +493,7 @@
     <description> arg: sequence of float  string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values((xs:float('INF'), 'INF'))</test>
-    <result-string>xs:string('INF INF')</result-string>
+    <result-string>xs:string(&quot;INF INF&quot;)</result-string>
     <result>
       <assert-string-value>INF INF</assert-string-value>
     </result>
@@ -502,7 +502,7 @@
     <description> arg: sequence of float  string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values((xs:float('-INF'), '-INF'))</test>
-    <result-string>xs:string('-INF -INF')</result-string>
+    <result-string>xs:string(&quot;-INF -INF&quot;)</result-string>
     <result>
       <assert-string-value>-INF -INF</assert-string-value>
     </result>
@@ -511,7 +511,7 @@
     <description> arg: sequence of float  float </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values((xs:float('INF'), xs:float('INF')))</test>
-    <result-string>xs:string('INF')</result-string>
+    <result-string>xs:string(&quot;INF&quot;)</result-string>
     <result>
       <assert-string-value>INF</assert-string-value>
     </result>
@@ -529,7 +529,7 @@
     <description> arg: sequence of float  float </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values((xs:float('NaN'), xs:float('NaN')))</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -538,7 +538,7 @@
     <description> arg: sequence of float  float </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values((xs:float('NaN'), xs:float('NaN')))</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -547,7 +547,7 @@
     <description> arg: sequence of float  double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values((xs:float('NaN'), xs:double('NaN')))</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -556,7 +556,7 @@
     <description> arg: sequence of float  double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values((xs:float('INF'), xs:double('INF')))</test>
-    <result-string>xs:string('INF')</result-string>
+    <result-string>xs:string(&quot;INF&quot;)</result-string>
     <result>
       <assert-string-value>INF</assert-string-value>
     </result>
@@ -565,7 +565,7 @@
     <description> arg: sequence of float  double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values((xs:float('-INF'), xs:double('-INF')))</test>
-    <result-string>xs:string('-INF')</result-string>
+    <result-string>xs:string(&quot;-INF&quot;)</result-string>
     <result>
       <assert-string-value>-INF</assert-string-value>
     </result>
@@ -586,7 +586,7 @@
     <description> arg: sequence of double  double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values((xs:double('NaN'), xs:double('NaN')))</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -595,7 +595,7 @@
     <description> arg: sequence of double  double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values((xs:double('NaN'), xs:double('NaN')))</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -628,7 +628,7 @@
     <description> arg: sequence of boolean </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values((xs:boolean('true'), true()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -637,7 +637,7 @@
     <description> arg: sequence of boolean </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values((xs:boolean('true'), xs:boolean('1')))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -646,7 +646,7 @@
     <description> arg: sequence of boolean </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values((xs:boolean('false'), xs:boolean('0')))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -694,7 +694,7 @@
     <description> A test whose essence is: `distinct-values(&quot;a string&quot;, &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;) eq &quot;a string&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>distinct-values(&quot;a string&quot;, &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;) eq &quot;a string&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -728,7 +728,7 @@
                 distinct-values((&quot;1&quot;, 1, 2, 1, 1, 3, 1, 1, 3, xs:anyURI(&quot;example.com/&quot;), xs:anyURI(&quot;example.com/&quot;)))), 
             local:canon((&quot;1&quot;, 1, 2, 3, xs:anyURI(&quot;example.com/&quot;))))
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -761,7 +761,7 @@
     <description> A test whose essence is: `count(distinct-values((1, 2.0, 3, 2))) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(distinct-values((1, 2.0, 3, 2))) eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -770,7 +770,7 @@
     <description> A test whose essence is: `deep-equal(distinct-values((1, 2.0, 3, 2)), (1, 2.0, 3))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(distinct-values((1, 2.0, 3, 2)), (1, 2.0, 3))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -779,7 +779,7 @@
     <description> A test whose essence is: `exists(distinct-values((1, 2, 3, 1)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>exists(distinct-values((1, 2, 3, 1)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -788,7 +788,7 @@
     <description> A test whose essence is: `not(empty(distinct-values((1, 1))))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(empty(distinct-values((1, 1))))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -797,7 +797,7 @@
     <description> A test whose essence is: `count(distinct-values((1, 2, 2, current-time()))) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(distinct-values((1, 2, 2, current-time()))) eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -818,7 +818,7 @@
     <description> fn:distinct-values() applied on an argument of cardinality exactly-one. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(distinct-values(current-time())) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -843,7 +843,7 @@
             $distinct := distinct-values($input) 
         return ( (every $n in $input satisfies $n = $distinct) and 
         (every $bool in (for $d1 at $p in $distinct, $d2 in $distinct [position()  $p] return $d1 eq $d2) satisfies not($bool)) )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -861,7 +861,7 @@
     <description> Test fn:distinct-values on a mixture of numeric types containing several NaN values. </description>
     <created by="Oliver Hallam" on="2008-04-30"/>
     <test>count(distinct-values((xs:integer(&quot;3&quot;), xs:float(&quot;3&quot;), xs:float(&quot;NaN&quot;), xs:double(&quot;3&quot;), xs:double(&quot;NaN&quot;), xs:decimal(&quot;3&quot;), xs:float(&quot;3&quot;))))</test>
-    <result-string>xs:string('2')</result-string>
+    <result-string>xs:string(&quot;2&quot;)</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
@@ -988,7 +988,7 @@
     <created by="Tim Mills" on="2008-06-02"/>
     <dependency type="spec" value="XQ30+"/>
     <test>declare function local:create($arg) as xs:anyAtomicType* { ( if ($arg castable as xs:untypedAtomic) then $arg cast as xs:untypedAtomic else () ), ( if ($arg castable as xs:dateTime) then $arg cast as xs:dateTime else () ), ( if ($arg castable as xs:date) then $arg cast as xs:date else () ), ( if ($arg castable as xs:time) then $arg cast as xs:time else () ), ( if ($arg castable as xs:time) then $arg cast as xs:time else () ), ( if ($arg castable as xs:duration) then $arg cast as xs:duration else () ), ( if ($arg castable as xs:yearMonthDuration) then $arg cast as xs:yearMonthDuration else () ), ( if ($arg castable as xs:dayTimeDuration) then $arg cast as xs:dayTimeDuration else () ), ( if ($arg castable as xs:float) then $arg cast as xs:float else () ), ( if ($arg castable as xs:double) then $arg cast as xs:double else () ), ( if ($arg castable as xs:decimal) then $arg cast as xs:decimal else () ), ( if ($arg castable as xs:integer) then $arg cast as xs:integer else () ), ( if ($arg castable as xs:nonPositiveInteger) then $arg cast as xs:nonPositiveInteger else () ), ( if ($arg castable as xs:negativeInteger) then $arg cast as xs:negativeInteger else () ), ( if ($arg castable as xs:long) then $arg cast as xs:long else () ), ( if ($arg castable as xs:int) then $arg cast as xs:int else () ), ( if ($arg castable as xs:short) then $arg cast as xs:short else () ), ( if ($arg castable as xs:byte) then $arg cast as xs:byte else () ), ( if ($arg castable as xs:byte) then $arg cast as xs:byte else () ), ( if ($arg castable as xs:nonNegativeInteger) then $arg cast as xs:nonNegativeInteger else () ), ( if ($arg castable as xs:unsignedLong) then $arg cast as xs:unsignedLong else () ), ( if ($arg castable as xs:unsignedInt) then $arg cast as xs:unsignedInt else () ), ( if ($arg castable as xs:unsignedShort) then $arg cast as xs:unsignedShort else () ), ( if ($arg castable as xs:unsignedByte) then $arg cast as xs:unsignedByte else () ), ( if ($arg castable as xs:positiveInteger) then $arg cast as xs:positiveInteger else () ), ( if ($arg castable as xs:gYearMonth) then $arg cast as xs:gYearMonth else () ), ( if ($arg castable as xs:gYear) then $arg cast as xs:gYear else () ), ( if ($arg castable as xs:gMonthDay) then $arg cast as xs:gMonthDay else () ), ( if ($arg castable as xs:gDay) then $arg cast as xs:gDay else () ), ( if ($arg castable as xs:gMonth) then $arg cast as xs:gMonth else () ), ( if ($arg castable as xs:string) then $arg cast as xs:string else () ), ( if ($arg castable as xs:normalizedString) then $arg cast as xs:normalizedString else () ), ( if ($arg castable as xs:token) then $arg cast as xs:token else () ), ( if ($arg castable as xs:language) then $arg cast as xs:language else () ), ( if ($arg castable as xs:NMTOKEN) then $arg cast as xs:NMTOKEN else () ), ( if ($arg castable as xs:Name) then $arg cast as xs:Name else () ), ( if ($arg castable as xs:NCName) then $arg cast as xs:NCName else () ), ( if ($arg castable as xs:ID) then $arg cast as xs:ID else () ), ( if ($arg castable as xs:IDREF) then $arg cast as xs:IDREF else () ), ( if ($arg castable as xs:ENTITY) then $arg cast as xs:ENTITY else () ), ( if ($arg castable as xs:boolean) then $arg cast as xs:boolean else () ), ( if ($arg castable as xs:base64Binary) then $arg cast as xs:base64Binary else () ), ( if ($arg castable as xs:hexBinary) then $arg cast as xs:hexBinary else () ), ( if ($arg castable as xs:QName) then $arg cast as xs:QName else () ) }; for $value in fn:distinct-values( ( local:create(0), local:create(-1), local:create(1), local:create(3.141), local:create(3.141e0), local:create(3.333), local:create(3.141e0), local:create(3.333e2), local:create('NaN'), local:create('zero'), local:create('false'), local:create('true'), local:create('http://www.example.com/'), local:create('2008-06-01'), local:create('1972-06-01Z'), local:create('2008-06-01T12:00:00'), local:create('1972-06-01T12:00:00+01:00'), local:create('00:00:00'), local:create('12:00:00'), local:create('2008'), local:create('1972Z'), local:create('--06'), local:create('--12Z'), local:create('2008-06'), local:create('1972-12Z'), local:create('--06-01'), local:create('--12-15Z'), local:create('---01'), local:create('---15Z'), local:create('P20Y15M'), local:create('P10Y15M'), local:create('-P2DT15H0M0S'), local:create('-P1DT15H0M0S'), local:create(fn:QName(&quot;http://www.example.com/example&quot;, &quot;person&quot;)), local:create(fn:QName(&quot;http://www.example.com/example&quot;, &quot;ht:person&quot;)), local:create('-P2DT15H0M0S'), local:create('FFFEFDFC'), local:create('aGVsbG8=') )) order by string($value) return $value</test>
-    <result-string>xs:string('---01 ---01 ---15Z ---15Z --06 --06 --06-01 --06-01 --12-15Z --12-15Z --12Z --12Z -1 -1 -P1DT15H -P1DT15H0M0S -P2DT15H -P2DT15H0M0S 0 0 00:00:00 00:00:00 1 1 12:00:00 12:00:00 1972-06-01T12:00:00+01:00 1972-06-01T12:00:00+01:00 1972-06-01Z 1972-06-01Z 1972-12Z 1972-12Z 1972Z 1972Z 2008 2008 2008 2008 2008 2008-06 2008-06 2008-06-01 2008-06-01 2008-06-01T12:00:00 2008-06-01T12:00:00 3 3.141 3.141 3.141 3.333 3.333 3.333 333 333.3 333.3 333.3 FFFEFDFC FFFEFDFC FFFEFDFC FFFEFDFC NaN NaN NaN P10Y15M P10Y15M P11Y3M P20Y15M P20Y15M P21Y3M aGVsbG8= aGVsbG8= false false false ht:person http://www.example.com/ person person true true true true zero zero zero')</result-string>
+    <result-string>xs:string(&quot;---01 ---01 ---15Z ---15Z --06 --06 --06-01 --06-01 --12-15Z --12-15Z --12Z --12Z -1 -1 -P1DT15H -P1DT15H0M0S -P2DT15H -P2DT15H0M0S 0 0 00:00:00 00:00:00 1 1 12:00:00 12:00:00 1972-06-01T12:00:00+01:00 1972-06-01T12:00:00+01:00 1972-06-01Z 1972-06-01Z 1972-12Z 1972-12Z 1972Z 1972Z 2008 2008 2008 2008 2008 2008-06 2008-06 2008-06-01 2008-06-01 2008-06-01T12:00:00 2008-06-01T12:00:00 3 3.141 3.141 3.141 3.333 3.333 3.333 333 333.3 333.3 333.3 FFFEFDFC FFFEFDFC FFFEFDFC FFFEFDFC NaN NaN NaN P10Y15M P10Y15M P11Y3M P20Y15M P20Y15M P21Y3M aGVsbG8= aGVsbG8= false false false ht:person http://www.example.com/ person person true true true true zero zero zero&quot;)</result-string>
     <result>
       <assert-string-value>---01 ---01 ---15Z ---15Z --06 --06 --06-01 --06-01 --12-15Z --12-15Z --12Z --12Z -1 -1 -P1DT15H -P1DT15H0M0S -P2DT15H -P2DT15H0M0S 0 0 00:00:00 00:00:00 1 1 12:00:00 12:00:00 1972-06-01T12:00:00+01:00 1972-06-01T12:00:00+01:00 1972-06-01Z 1972-06-01Z 1972-12Z 1972-12Z 1972Z 1972Z 2008 2008 2008 2008 2008 2008-06 2008-06 2008-06-01 2008-06-01 2008-06-01T12:00:00 2008-06-01T12:00:00 3 3.141 3.141 3.141 3.333 3.333 3.333 333 333.3 333.3 333.3 FFFEFDFC FFFEFDFC FFFEFDFC FFFEFDFC NaN NaN NaN P10Y15M P10Y15M P11Y3M P20Y15M P20Y15M P21Y3M aGVsbG8= aGVsbG8= false false false ht:person http://www.example.com/ person person true true true true zero zero zero</assert-string-value>
     </result>
@@ -1010,7 +1010,7 @@
     <created by="Tim Mills" on="2008-06-02"/>
     <dependency type="spec" value="XQ10+"/>
     <test>for $value in fn:distinct-values(( xs:date('2008-06-01'), xs:date('2008-06-01'), xs:date('2012-06-01'), xs:date('1918-11-11Z'), xs:date('1972-06-01Z'), xs:date('1972-06-01Z') )) order by $value return $value</test>
-    <result-string>xs:string('1918-11-11Z 1972-06-01Z 2008-06-01 2012-06-01')</result-string>
+    <result-string>xs:string(&quot;1918-11-11Z 1972-06-01Z 2008-06-01 2012-06-01&quot;)</result-string>
     <result>
       <assert-string-value>1918-11-11Z 1972-06-01Z 2008-06-01 2012-06-01</assert-string-value>
     </result>
@@ -1020,7 +1020,7 @@
     <created by="Tim Mills" on="2008-06-02"/>
     <dependency type="spec" value="XQ10+"/>
     <test>for $value in fn:distinct-values(( xs:dateTime('2008-06-01T12:00:00'), xs:dateTime('2008-06-01T12:00:00'), xs:dateTime('2008-06-01T00:00:00'), xs:dateTime('2008-06-02T00:00:00'), xs:dateTime('1918-11-11T11:00:00Z'), xs:dateTime('1972-06-01T13:00:00Z'), xs:dateTime('1972-06-01T13:00:00Z') )) order by $value return $value</test>
-    <result-string>xs:string('1918-11-11T11:00:00Z 1972-06-01T13:00:00Z 2008-06-01T00:00:00 2008-06-01T12:00:00 2008-06-02T00:00:00')</result-string>
+    <result-string>xs:string(&quot;1918-11-11T11:00:00Z 1972-06-01T13:00:00Z 2008-06-01T00:00:00 2008-06-01T12:00:00 2008-06-02T00:00:00&quot;)</result-string>
     <result>
       <assert-string-value>1918-11-11T11:00:00Z 1972-06-01T13:00:00Z 2008-06-01T00:00:00 2008-06-01T12:00:00 2008-06-02T00:00:00</assert-string-value>
     </result>
@@ -1030,7 +1030,7 @@
     <created by="Tim Mills" on="2008-06-02"/>
     <dependency type="spec" value="XQ10+"/>
     <test>for $value in fn:distinct-values(( xs:time('12:00:00'), xs:time('11:00:00'), xs:time('12:00:00'))) order by $value return $value</test>
-    <result-string>xs:string('11:00:00 12:00:00')</result-string>
+    <result-string>xs:string(&quot;11:00:00 12:00:00&quot;)</result-string>
     <result>
       <assert-string-value>11:00:00 12:00:00</assert-string-value>
     </result>
@@ -1040,7 +1040,7 @@
     <created by="Tim Mills" on="2008-06-02"/>
     <dependency type="spec" value="XQ10+"/>
     <test>for $value at $p in ( for $time in fn:distinct-values(( xs:time('12:00:00'), xs:time('12:00:00'), xs:time('20:00:00'), xs:time('01:00:00+12:00'), xs:time('02:00:00+13:00'))) order by $time return $time ) return adjust-time-to-timezone($value, (xs:dayTimeDuration(&quot;PT0S&quot;)[$p]))</test>
-    <result-string>xs:string('13:00:00Z 12:00:00 20:00:00')</result-string>
+    <result-string>xs:string(&quot;13:00:00Z 12:00:00 20:00:00&quot;)</result-string>
     <result>
       <assert-string-value>13:00:00Z 12:00:00 20:00:00</assert-string-value>
     </result>
@@ -1050,7 +1050,7 @@
     <created by="Tim Mills" on="2008-06-13"/>
     <dependency type="spec" value="XQ10+"/>
     <test>for $value in fn:distinct-values(( xs:hexBinary('FFFF'), xs:hexBinary('FFFF'), xs:hexBinary('FFFE'), xs:hexBinary('FF'))) order by string($value) return $value</test>
-    <result-string>xs:string('FF FFFE FFFF')</result-string>
+    <result-string>xs:string(&quot;FF FFFE FFFF&quot;)</result-string>
     <result>
       <assert-string-value>FF FFFE FFFF</assert-string-value>
     </result>
@@ -1060,7 +1060,7 @@
     <created by="Tim Mills" on="2008-06-13"/>
     <dependency type="spec" value="XQ10+"/>
     <test>for $value in fn:distinct-values(( xs:base64Binary('aGVsbG8NCg=='), xs:base64Binary('aGVsbG8NCg=='), xs:base64Binary('aGFsbG8NCg=='), xs:base64Binary('aGkNCg=='))) order by string($value) return $value</test>
-    <result-string>xs:string('aGFsbG8NCg== aGVsbG8NCg== aGkNCg==')</result-string>
+    <result-string>xs:string(&quot;aGFsbG8NCg== aGVsbG8NCg== aGkNCg==&quot;)</result-string>
     <result>
       <assert-string-value>aGFsbG8NCg== aGVsbG8NCg== aGkNCg==</assert-string-value>
     </result>
@@ -1070,7 +1070,7 @@
     <created by="Tim Mills" on="2008-06-13"/>
     <dependency type="spec" value="XQ10+"/>
     <test>for $value in fn:distinct-values(( xs:untypedAtomic('a'), xs:untypedAtomic('a'), xs:untypedAtomic('b'), xs:untypedAtomic(''))) order by string($value) return $value</test>
-    <result-string>xs:string(' a b')</result-string>
+    <result-string>xs:string(&quot; a b&quot;)</result-string>
     <result>
       <assert-string-value> a b</assert-string-value>
     </result>
@@ -1080,7 +1080,7 @@
     <created by="Tim Mills" on="2008-06-13"/>
     <dependency type="spec" value="XQ10+"/>
     <test>for $value in fn:distinct-values(( xs:string('a'), xs:string('a'), xs:string('b'), xs:string(''))) order by string($value) return $value</test>
-    <result-string>xs:string(' a b')</result-string>
+    <result-string>xs:string(&quot; a b&quot;)</result-string>
     <result>
       <assert-string-value> a b</assert-string-value>
     </result>
@@ -1090,7 +1090,7 @@
     <created by="Tim Mills" on="2008-06-13"/>
     <dependency type="spec" value="XQ10+"/>
     <test>for $value in fn:distinct-values(( xs:gYear('2008'), xs:gYear('2008'), xs:gYear('1972'))) order by string($value) return $value</test>
-    <result-string>xs:string('1972 2008')</result-string>
+    <result-string>xs:string(&quot;1972 2008&quot;)</result-string>
     <result>
       <assert-string-value>1972 2008</assert-string-value>
     </result>
@@ -1100,7 +1100,7 @@
     <created by="Tim Mills" on="2008-06-13"/>
     <dependency type="spec" value="XQ10+"/>
     <test>for $value in fn:distinct-values(( xs:dayTimeDuration('P0D'), xs:yearMonthDuration('P0Y'), xs:duration('P0Y'), xs:duration('P0Y'), xs:yearMonthDuration('P0Y'), xs:dayTimeDuration('P0D'), xs:dayTimeDuration('P1D'), xs:yearMonthDuration('P1Y'), xs:duration('P1Y'))) order by string($value) return $value</test>
-    <result-string>xs:string('P1D P1Y PT0S')</result-string>
+    <result-string>xs:string(&quot;P1D P1Y PT0S&quot;)</result-string>
     <result>
       <assert-string-value>P1D P1Y PT0S</assert-string-value>
     </result>
@@ -1110,7 +1110,7 @@
     <created by="Tim Mills" on="2008-06-13"/>
     <dependency type="spec" value="XQ10+"/>
     <test>for $value in fn:distinct-values(( xs:gMonthDay('--06-16'), xs:gMonthDay('--06-16'), xs:gMonthDay('--12-15'))) order by string($value) return $value</test>
-    <result-string>xs:string('--06-16 --12-15')</result-string>
+    <result-string>xs:string(&quot;--06-16 --12-15&quot;)</result-string>
     <result>
       <assert-string-value>--06-16 --12-15</assert-string-value>
     </result>

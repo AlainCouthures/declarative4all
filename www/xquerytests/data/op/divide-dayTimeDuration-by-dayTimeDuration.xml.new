@@ -16,7 +16,7 @@ $arg2 = xs:dayTimeDuration(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;) div xs:dayTimeDuration(&quot;P0DT0H0M01S&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -35,7 +35,7 @@ $arg2 = xs:dayTimeDuration(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration(&quot;P15DT11H59M59S&quot;) div xs:dayTimeDuration(&quot;P0DT0H0M01S&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1339199&quot;)</result-string>
     <result>
       <assert-eq>1339199</assert-eq>
     </result>
@@ -54,7 +54,7 @@ $arg2 = xs:dayTimeDuration(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration(&quot;P31DT23H59M59S&quot;) div xs:dayTimeDuration(&quot;P0DT0H0M01S&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2764799&quot;)</result-string>
     <result>
       <assert-eq>2764799</assert-eq>
     </result>
@@ -73,7 +73,7 @@ $arg2 = xs:dayTimeDuration(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;) div xs:dayTimeDuration(&quot;P15DT11H59M59S&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -92,7 +92,7 @@ $arg2 = xs:dayTimeDuration(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;) div xs:dayTimeDuration(&quot;P31DT23H59M59S&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -129,7 +129,7 @@ used as part of a boolean expression (and operator) and the &quot;fn:false&quot;
 </description>
     <created by="Carmelo Montanez" on="2005-06-30"/>
     <test>xs:dayTimeDuration(&quot;P10DT10H11M&quot;) div xs:dayTimeDuration(&quot;P12DT10H07M&quot;) and fn:false()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -146,7 +146,7 @@ part of a boolean expression (or operator) and the &quot;fn:boolean&quot; functi
 </description>
     <created by="Carmelo Montanez" on="2005-06-30"/>
     <test>xs:dayTimeDuration(&quot;P20DT20H10M&quot;) div xs:dayTimeDuration(&quot;P19DT13H10M&quot;) or fn:false()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -163,7 +163,7 @@ return true and used together with fn:not.
 </description>
     <created by="Carmelo Montanez" on="2005-06-30"/>
     <test>fn:not(xs:dayTimeDuration(&quot;P11DT12H04M&quot;) div xs:dayTimeDuration(&quot;P02DT07H01M&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -180,7 +180,7 @@ is used as an argument to the fn:boolean function.
 </description>
     <created by="Carmelo Montanez" on="2005-06-30"/>
     <test>fn:boolean(xs:dayTimeDuration(&quot;P05DT09H08M&quot;) div xs:dayTimeDuration(&quot;P03DT08H06M&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -197,7 +197,7 @@ is used as an argument to the fn:number function.
 </description>
     <created by="Carmelo Montanez" on="2005-06-30"/>
     <test>fn:number(xs:dayTimeDuration(&quot;P02DT06H09M&quot;) div xs:dayTimeDuration(&quot;P02DT06H09M&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -214,7 +214,7 @@ as an argument to the &quot;fn:string&quot; function.
 </description>
     <created by="Carmelo Montanez" on="2005-06-30"/>
     <test>fn:string(xs:dayTimeDuration(&quot;P08DT06H08M&quot;) div xs:dayTimeDuration(&quot;P08DT06H08M&quot;))</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;1&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;1&quot;</assert-eq>
     </result>
@@ -231,7 +231,7 @@ returns a negative value.
 </description>
     <created by="Carmelo Montanez" on="2005-06-30"/>
     <test>(xs:dayTimeDuration(&quot;P10DT01H01M&quot;) div xs:dayTimeDuration(&quot;-P10DT01H01M&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -248,7 +248,7 @@ together with and &quot;and&quot; expression.
 </description>
     <created by="Carmelo Montanez" on="2005-06-30"/>
     <test>(xs:dayTimeDuration(&quot;P01DT02H01M&quot;) div xs:dayTimeDuration(&quot;P02DT09H02M&quot;)) and (xs:dayTimeDuration(&quot;P01DT02H01M&quot;) div xs:dayTimeDuration(&quot;P02DT09H02M&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -265,7 +265,7 @@ together with an &quot;or&quot; expression.
 </description>
     <created by="Carmelo Montanez" on="2005-06-30"/>
     <test>(xs:dayTimeDuration(&quot;P05DT09H02M&quot;) div xs:dayTimeDuration(&quot;P03DT01H04M&quot;)) or (xs:dayTimeDuration(&quot;P05DT05H03M&quot;) div xs:dayTimeDuration(&quot;P01DT01H03M&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -282,7 +282,7 @@ together with multiple &quot;div&quot; expressions.
 </description>
     <created by="Carmelo Montanez" on="2005-06-30"/>
     <test>fn:round-half-to-even( (xs:dayTimeDuration(&quot;P42DT10H10M&quot;) div xs:dayTimeDuration(&quot;P10DT10H10M&quot;)) div (xs:dayTimeDuration(&quot;P20DT10H10M&quot;) div xs:dayTimeDuration(&quot;P18DT10H10M&quot;)) ,15)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3.671399617754547&quot;)</result-string>
     <result>
       <assert-eq>3.671399617754547</assert-eq>
     </result>
@@ -299,7 +299,7 @@ with a boolean expression and the &quot;fn:true&quot; function.
 </description>
     <created by="Carmelo Montanez" on="2005-06-30"/>
     <test>(xs:dayTimeDuration(&quot;P10DT08H11M&quot;) div xs:dayTimeDuration(&quot;P05DT08H11M&quot;)) and (fn:true())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -316,7 +316,7 @@ together with the numeric-equal-operator &quot;eq&quot;.
 </description>
     <created by="Carmelo Montanez" on="2005-06-30"/>
     <test>(xs:dayTimeDuration(&quot;P23DT11H11M&quot;) div xs:dayTimeDuration(&quot;P23DT11H11M&quot;)) eq xs:decimal(2.0)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -333,7 +333,7 @@ together with the numeric-equal operator &quot;ne&quot;.
 </description>
     <created by="Carmelo Montanez" on="2005-06-30"/>
     <test>(xs:dayTimeDuration(&quot;P21DT08H12M&quot;) div xs:dayTimeDuration(&quot;P08DT08H05M&quot;)) ne xs:decimal(2.0)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -350,7 +350,7 @@ together with the numeric-equal operator &quot;le&quot;.
 </description>
     <created by="Carmelo Montanez" on="2005-06-30"/>
     <test>(xs:dayTimeDuration(&quot;P10DT10H01M&quot;) div xs:dayTimeDuration(&quot;P17DT10H02M&quot;)) le xs:decimal(2.0)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -367,7 +367,7 @@ together with the numeric-equal operator &quot;ge&quot;.
 </description>
     <created by="Carmelo Montanez" on="2005-06-30"/>
     <test>(xs:dayTimeDuration(&quot;P13DT09H09M&quot;) div xs:dayTimeDuration(&quot;P18DT02H02M&quot;)) ge xs:decimal(2.0)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -383,7 +383,7 @@ together with the numeric-equal operator &quot;ge&quot;.
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>(xs:dayTimeDuration(&quot;PT8M&quot;) div xs:dayTimeDuration(&quot;PT2M&quot;)) eq 4</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

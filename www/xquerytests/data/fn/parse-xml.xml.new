@@ -88,7 +88,7 @@
     <test>
       <![CDATA[base-uri(parse-xml("<a>foo</a>")) eq static-base-uri()]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -145,7 +145,7 @@
     <test>
       <![CDATA[document-uri(parse-xml("<a>foo</a>"))]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>

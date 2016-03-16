@@ -16,7 +16,7 @@
     <dependency type="feature" value="higherOrderFunctions"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:exists( fn:has-children#0 )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -28,7 +28,7 @@
     <dependency type="feature" value="higherOrderFunctions"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:exists( fn:has-children#1 )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -225,7 +225,7 @@
     <environment ref="has-children"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>/root/@attribute/fn:has-children()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -236,7 +236,7 @@
     <environment ref="has-children"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:has-children( /root/@attribute )</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -248,7 +248,7 @@
     <dependency type="spec" value="XP30+"/>
     <dependency type="feature" value="namespace-axis"/>
     <test>/root/namespace::fots/fn:has-children()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -260,7 +260,7 @@
     <dependency type="spec" value="XP30+"/>
     <dependency type="feature" value="namespace-axis"/>
     <test>fn:has-children( /root/namespace::fots )</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -271,7 +271,7 @@
     <environment ref="has-children"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>/root/comment()/fn:has-children()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -282,7 +282,7 @@
     <environment ref="has-children"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:has-children( /root/comment() )</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -293,7 +293,7 @@
     <environment ref="has-children"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>/root/processing-instruction()/fn:has-children()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -304,7 +304,7 @@
     <environment ref="has-children"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:has-children( /root/processing-instruction() )</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -315,7 +315,7 @@
     <environment ref="has-children"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>/root/text()/fn:has-children()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -326,7 +326,7 @@
     <environment ref="has-children"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:has-children( /root/text() )</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -337,7 +337,7 @@
     <environment ref="has-children"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>/root/empty/fn:has-children()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -348,7 +348,7 @@
     <environment ref="has-children"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:has-children( /root/empty )</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -359,7 +359,7 @@
     <environment ref="has-children"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>/root/fn:has-children()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -370,7 +370,7 @@
     <environment ref="has-children"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:has-children( /root )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -381,7 +381,7 @@
     <environment ref="has-children"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>/root/non-empty/fn:has-children()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -392,7 +392,7 @@
     <environment ref="has-children"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:has-children( /root/non-empty )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -403,7 +403,7 @@
     <environment ref="has-children"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>/fn:has-children()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -414,7 +414,7 @@
     <environment ref="has-children"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:has-children( / )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -425,7 +425,7 @@
     <environment ref="has-children"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>/root/node()/fn:has-children()</test>
-    <result-string>xs:string('false false false false true')</result-string>
+    <result-string>xs:string(&quot;false false false false true&quot;)</result-string>
     <result>
       <assert-string-value>false false false false true</assert-string-value>
     </result>
@@ -436,7 +436,7 @@
     <environment ref="has-children"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>/root/node()/fn:has-children(.)</test>
-    <result-string>xs:string('false false false false true')</result-string>
+    <result-string>xs:string(&quot;false false false false true&quot;)</result-string>
     <result>
       <assert-string-value>false false false false true</assert-string-value>
     </result>

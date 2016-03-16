@@ -551,7 +551,7 @@
          declare %local:x variable $foo := &quot;bar&quot;;
          $foo
       </test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;bar&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;bar&quot;</assert-eq>
     </result>
@@ -636,7 +636,7 @@
          () instance of %eg:x function(*)
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -654,7 +654,7 @@
          () instance of %eg:x("foo") function(*)
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -672,7 +672,7 @@
          () instance of %eg:x(1234) function(*)
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -690,7 +690,7 @@
          () instance of %eg:x(12.34) function(*)
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -708,7 +708,7 @@
          () instance of %eg:x(12e34) function(*)
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -726,7 +726,7 @@
          () instance of %eg:x("abc", 12e34, 567) function(*)
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -744,7 +744,7 @@
          () instance of %Q{http://example.com}x function(*)
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -762,7 +762,7 @@
          () instance of %Q{http://example.com}x function(*)
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -780,7 +780,7 @@
          () instance of %eg:x %eg:y%eg:z %eg:w(1) function(*)
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -798,7 +798,7 @@
          () instance of %eg:x function(xs:integer) as xs:string
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

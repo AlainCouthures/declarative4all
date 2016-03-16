@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;upper-case&quot; function with the arguments set as follows: $arg = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:upper-case(xs:string(&quot;This is a characte&quot;))</test>
-    <result-string>xs:string('THIS IS A CHARACTE')</result-string>
+    <result-string>xs:string(&quot;THIS IS A CHARACTE&quot;)</result-string>
     <result>
       <assert-string-value>THIS IS A CHARACTE</assert-string-value>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;upper-case&quot; function with the arguments set as follows: $arg = xs:string(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:upper-case(xs:string(&quot;This is a characte&quot;))</test>
-    <result-string>xs:string('THIS IS A CHARACTE')</result-string>
+    <result-string>xs:string(&quot;THIS IS A CHARACTE&quot;)</result-string>
     <result>
       <assert-string-value>THIS IS A CHARACTE</assert-string-value>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;upper-case&quot; function with the arguments set as follows: $arg = xs:string(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:upper-case(xs:string(&quot;This is a characte&quot;))</test>
-    <result-string>xs:string('THIS IS A CHARACTE')</result-string>
+    <result-string>xs:string(&quot;THIS IS A CHARACTE&quot;)</result-string>
     <result>
       <assert-string-value>THIS IS A CHARACTE</assert-string-value>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluation of upper-case function as per example 1 (for this function) from the FO specs. </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:upper-case(&quot;ABc!D&quot;)</test>
-    <result-string>xs:string('ABC!D')</result-string>
+    <result-string>xs:string(&quot;ABC!D&quot;)</result-string>
     <result>
       <assert-string-value>ABC!D</assert-string-value>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluation of upper-case function using the empty sequence Uses the count function to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:count(fn:upper-case(()))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluation of upper-case function that uses only numbers as part of argument Use of count function to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:upper-case(&quot;12345&quot;)</test>
-    <result-string>xs:string('12345')</result-string>
+    <result-string>xs:string(&quot;12345&quot;)</result-string>
     <result>
       <assert-string-value>12345</assert-string-value>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluation of upper-case function that uses both numbers and letters as part of argument </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:upper-case(&quot;12345abcd&quot;)</test>
-    <result-string>xs:string('12345ABCD')</result-string>
+    <result-string>xs:string(&quot;12345ABCD&quot;)</result-string>
     <result>
       <assert-string-value>12345ABCD</assert-string-value>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluation of upper-case function that uses only upper case letters as part of argument </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:upper-case(&quot;ABCD&quot;)</test>
-    <result-string>xs:string('ABCD')</result-string>
+    <result-string>xs:string(&quot;ABCD&quot;)</result-string>
     <result>
       <assert-string-value>ABCD</assert-string-value>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluation of upper-case function that uses only lower case letters as part of argument </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:upper-case(&quot;abcde&quot;)</test>
-    <result-string>xs:string('ABCDE')</result-string>
+    <result-string>xs:string(&quot;ABCDE&quot;)</result-string>
     <result>
       <assert-string-value>ABCDE</assert-string-value>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluation of upper-case function that uses both upper and lower case letters as part of argument </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:upper-case(&quot;ABCDEabcde&quot;)</test>
-    <result-string>xs:string('ABCDEABCDE')</result-string>
+    <result-string>xs:string(&quot;ABCDEABCDE&quot;)</result-string>
     <result>
       <assert-string-value>ABCDEABCDE</assert-string-value>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluation of upper-case function that uses the empty string as part of argument Uses &quot;fn:count&quot; to avoid the empty file </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:count(fn:upper-case(&quot;&quot;))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluation of upper-case function that uses the &quot;lower-case&quot; as part of argument </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:upper-case(lower-case(&quot;AbcDH&quot;))</test>
-    <result-string>xs:string('ABCDH')</result-string>
+    <result-string>xs:string(&quot;ABCDH&quot;)</result-string>
     <result>
       <assert-string-value>ABCDH</assert-string-value>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluation of upper-case function with argument set to &quot;*****&quot; </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:upper-case(&quot;*****&quot;)</test>
-    <result-string>xs:string('*****')</result-string>
+    <result-string>xs:string(&quot;*****&quot;)</result-string>
     <result>
       <assert-string-value>*****</assert-string-value>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluation of upper-case function with argument set to another upper case function </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:upper-case(upper-case(&quot;zzzzz&quot;))</test>
-    <result-string>xs:string('ZZZZZ')</result-string>
+    <result-string>xs:string(&quot;ZZZZZ&quot;)</result-string>
     <result>
       <assert-string-value>ZZZZZ</assert-string-value>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluation of upper-case function as an argument to the &quot;fn:boolean&quot; function </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:boolean(fn:upper-case(&quot;abcde&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluation of upper-case function as an argument to the &quot;fn:concat&quot; function </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:concat(fn:upper-case(&quot;abcde&quot;), fn:upper-case(&quot;fghi&quot;))</test>
-    <result-string>xs:string('ABCDEFGHI')</result-string>
+    <result-string>xs:string(&quot;ABCDEFGHI&quot;)</result-string>
     <result>
       <assert-string-value>ABCDEFGHI</assert-string-value>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluation of upper-case function as an argument to the &quot;fn:not&quot; function </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:not(fn:upper-case(&quot;abcde&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluation of upper-case function with argument set to &quot;%$#@!&quot; </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:upper-case(&quot;%$#@!&quot;)</test>
-    <result-string>xs:string('%$#@!')</result-string>
+    <result-string>xs:string(&quot;%$#@!&quot;)</result-string>
     <result>
       <assert-string-value>%$#@!</assert-string-value>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluation of upper-case function with argument set to &quot;upper-case&quot; </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:upper-case(&quot;upper-case&quot;)</test>
-    <result-string>xs:string('UPPER-CASE')</result-string>
+    <result-string>xs:string(&quot;UPPER-CASE&quot;)</result-string>
     <result>
       <assert-string-value>UPPER-CASE</assert-string-value>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluation of upper-case function as part of a boolean expression </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:upper-case(&quot;abc&quot;) and fn:upper-case(&quot;abc&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -204,7 +204,7 @@
     <description> A test whose essence is: `upper-case(()) eq &quot;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>upper-case(()) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -213,7 +213,7 @@
     <description> A test whose essence is: `lower-case(&quot;ABc!D&quot;) eq &quot;abc!d&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>lower-case(&quot;ABc!D&quot;) eq &quot;abc!d&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

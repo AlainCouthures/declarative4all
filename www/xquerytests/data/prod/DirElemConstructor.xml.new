@@ -39,7 +39,7 @@
     <test>
       <![CDATA[fn:count((<elem/>)/node())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -184,7 +184,7 @@
     <test>
       <![CDATA[string(<pi>{<?pi x?>}</pi>) eq ""]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -196,7 +196,7 @@
     <test>
       <![CDATA[string(<a attr="content"><!-- NOTINC -->1<b>2<c><!-- NOTINC -->34</c><!-- NOTINC --><d/>56</b>7</a>) eq "1234567"]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -724,7 +724,7 @@
     <test>
       <![CDATA[string(<e>text</e>)]]>
     </test>
-    <result-string>xs:string('text')</result-string>
+    <result-string>xs:string(&quot;text&quot;)</result-string>
     <result>
       <assert-string-value>text</assert-string-value>
     </result>
@@ -736,7 +736,7 @@
     <test>
       <![CDATA[data(<e>text</e>)]]>
     </test>
-    <result-string>xs:string('text')</result-string>
+    <result-string>xs:string(&quot;text&quot;)</result-string>
     <result>
       <assert-string-value>text</assert-string-value>
     </result>
@@ -778,7 +778,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>e&gt;]]/e</test>
-    <result-string>xs:string(']]')</result-string>
+    <result-string>xs:string(&quot;]]&quot;)</result-string>
     <result>
       <assert-string-value>]]</assert-string-value>
     </result>

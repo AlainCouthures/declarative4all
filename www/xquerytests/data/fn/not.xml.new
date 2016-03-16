@@ -6,7 +6,7 @@
     <description>notint1args-1 The &quot;not&quot; function with the arguments set as follows: $arg = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:int(&quot;-2147483648&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -15,7 +15,7 @@
     <description>notint1args-2 The &quot;not&quot; function with the arguments set as follows: $arg = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:int(&quot;-1873914410&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -24,7 +24,7 @@
     <description>notint1args-3 The &quot;not&quot; function with the arguments set as follows: $arg = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:int(&quot;2147483647&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -33,7 +33,7 @@
     <description>notintg1args-1 The &quot;not&quot; function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:integer(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -42,7 +42,7 @@
     <description>notintg1args-2 The &quot;not&quot; function with the arguments set as follows: $arg = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:integer(&quot;830993497117024304&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -51,7 +51,7 @@
     <description>notintg1args-3 The &quot;not&quot; function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:integer(&quot;999999999999999999&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -60,7 +60,7 @@
     <description>notdec1args-1 The &quot;not&quot; function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:decimal(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -69,7 +69,7 @@
     <description>notdec1args-2 The &quot;not&quot; function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:decimal(&quot;617375191608514839&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -78,7 +78,7 @@
     <description>notdec1args-3 The &quot;not&quot; function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:decimal(&quot;999999999999999999&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -87,7 +87,7 @@
     <description>notdbl1args-1 The &quot;not&quot; function with the arguments set as follows: $arg = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:double(&quot;-1.7976931348623157E308&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -96,7 +96,7 @@
     <description>notdbl1args-2 The &quot;not&quot; function with the arguments set as follows: $arg = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:double(&quot;0&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -105,7 +105,7 @@
     <description>notdbl1args-3 The &quot;not&quot; function with the arguments set as follows: $arg = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:double(&quot;1.7976931348623157E308&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -114,7 +114,7 @@
     <description>notflt1args-1 The &quot;not&quot; function with the arguments set as follows: $arg = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:float(&quot;-3.4028235E38&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -123,7 +123,7 @@
     <description>notflt1args-2 The &quot;not&quot; function with the arguments set as follows: $arg = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:float(&quot;0&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -132,7 +132,7 @@
     <description>notflt1args-3 The &quot;not&quot; function with the arguments set as follows: $arg = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:float(&quot;3.4028235E38&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -141,7 +141,7 @@
     <description>notlng1args-1 The &quot;not&quot; function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:long(&quot;-92233720368547758&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -150,7 +150,7 @@
     <description>notlng1args-2 The &quot;not&quot; function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:long(&quot;-47175562203048468&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -159,7 +159,7 @@
     <description>notlng1args-3 The &quot;not&quot; function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:long(&quot;92233720368547758&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -168,7 +168,7 @@
     <description>notusht1args-1 The &quot;not&quot; function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:unsignedShort(&quot;0&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -177,7 +177,7 @@
     <description>notusht1args-2 The &quot;not&quot; function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:unsignedShort(&quot;44633&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -186,7 +186,7 @@
     <description>notusht1args-3 The &quot;not&quot; function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:unsignedShort(&quot;65535&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -195,7 +195,7 @@
     <description>notnint1args-1 The &quot;not&quot; function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:negativeInteger(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -204,7 +204,7 @@
     <description>notnint1args-2 The &quot;not&quot; function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:negativeInteger(&quot;-297014075999096793&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -213,7 +213,7 @@
     <description>notnint1args-3 The &quot;not&quot; function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:negativeInteger(&quot;-1&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -222,7 +222,7 @@
     <description>notpint1args-1 The &quot;not&quot; function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:positiveInteger(&quot;1&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -231,7 +231,7 @@
     <description>notpint1args-2 The &quot;not&quot; function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:positiveInteger(&quot;52704602390610033&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -240,7 +240,7 @@
     <description>notpint1args-3 The &quot;not&quot; function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:positiveInteger(&quot;999999999999999999&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -249,7 +249,7 @@
     <description>notulng1args-1 The &quot;not&quot; function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:unsignedLong(&quot;0&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -258,7 +258,7 @@
     <description>notulng1args-2 The &quot;not&quot; function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:unsignedLong(&quot;130747108607674654&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -267,7 +267,7 @@
     <description>notulng1args-3 The &quot;not&quot; function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:unsignedLong(&quot;184467440737095516&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -276,7 +276,7 @@
     <description>notnpi1args-1 The &quot;not&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:nonPositiveInteger(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -285,7 +285,7 @@
     <description>notnpi1args-2 The &quot;not&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:nonPositiveInteger(&quot;-475688437271870490&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -294,7 +294,7 @@
     <description>notnpi1args-3 The &quot;not&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:nonPositiveInteger(&quot;0&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -303,7 +303,7 @@
     <description>notnni1args-1 The &quot;not&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:nonNegativeInteger(&quot;0&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -312,7 +312,7 @@
     <description>notnni1args-2 The &quot;not&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:nonNegativeInteger(&quot;303884545991464527&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -321,7 +321,7 @@
     <description>notnni1args-3 The &quot;not&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:nonNegativeInteger(&quot;999999999999999999&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -330,7 +330,7 @@
     <description>notsht1args-1 The &quot;not&quot; function with the arguments set as follows: $arg = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:short(&quot;-32768&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -339,7 +339,7 @@
     <description>notsht1args-2 The &quot;not&quot; function with the arguments set as follows: $arg = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:short(&quot;-5324&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -348,7 +348,7 @@
     <description>notsht1args-3 The &quot;not&quot; function with the arguments set as follows: $arg = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:not(xs:short(&quot;32767&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -357,7 +357,7 @@
     <description/>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:not(&quot;true&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -366,7 +366,7 @@
     <description>fn:not function.</description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:not(&quot;fn:not()&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -375,7 +375,7 @@
     <description>expression involving the &quot;and&quot; operator.</description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:not(&quot;true&quot;) and fn:not(&quot;true&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -384,7 +384,7 @@
     <description>expression involving the &quot;or&quot; operator.</description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:not(&quot;true&quot;) or fn:not(&quot;true&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -393,7 +393,7 @@
     <description>expression involving the &quot;eq&quot; operator.</description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:not(&quot;true&quot;) eq fn:not(&quot;true&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -402,7 +402,7 @@
     <description>expression involving the &quot;ne&quot; operator.</description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:not(&quot;true&quot;) ne fn:not(&quot;true&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -411,7 +411,7 @@
     <description>expression involving the &quot;lt&quot; operator.</description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:not(&quot;true&quot;) lt fn:not(&quot;true&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -420,7 +420,7 @@
     <description>expression involving the &quot;le&quot; operator.</description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:not(&quot;true&quot;) le fn:not(&quot;true&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -429,7 +429,7 @@
     <description>expression involving the &quot;gt&quot; operator.</description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:not(&quot;true&quot;) gt fn:not(&quot;true&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -438,7 +438,7 @@
     <description>comparison expression involving the &quot;ge&quot; operator.</description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:not(&quot;true&quot;) ge fn:not(&quot;true&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -447,7 +447,7 @@
     <description>comparison expression involving the &quot;=&quot; operator.</description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:not(&quot;true&quot;) = fn:not(&quot;true&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -456,7 +456,7 @@
     <description>comparison expression involving the &quot;!=&quot; operator.</description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:not(&quot;true&quot;) != fn:not(&quot;true&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -467,7 +467,7 @@
     <test>
       <![CDATA[fn:not("true") < fn:not("true")]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -478,7 +478,7 @@
     <test>
       <![CDATA[fn:not("true") <= fn:not("true")]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -487,7 +487,7 @@
     <description>comparison expression involving the &quot;&quot; operator.</description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:not(&quot;true&quot;)  fn:not(&quot;true&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -496,7 +496,7 @@
     <description>comparison expression involving the &quot;=&quot; operator.</description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:not(&quot;true&quot;) = fn:not(&quot;true&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -505,7 +505,7 @@
     <description>to an &quot;xs:boolean&quot; function.</description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>xs:boolean(fn:not(&quot;true&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -514,7 +514,7 @@
     <description>to an &quot;fn:string&quot; function.</description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:string(fn:not(&quot;true&quot;))</test>
-    <result-string/>
+    <result-string>xs:string(&quot;'false'&quot;)</result-string>
     <result>
       <assert-eq>'false'</assert-eq>
     </result>
@@ -523,7 +523,7 @@
     <description>an &quot;fn:concat&quot; function.</description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:concat(xs:string(fn:not(&quot;true&quot;)),xs:string(fn:not(&quot;true&quot;)))</test>
-    <result-string/>
+    <result-string>xs:string(&quot;'falsefalse'&quot;)</result-string>
     <result>
       <assert-eq>'falsefalse'</assert-eq>
     </result>
@@ -532,7 +532,7 @@
     <description>an &quot;fn:contains&quot; function.</description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:contains(xs:string(fn:not(&quot;true&quot;)),xs:string(fn:not(&quot;true&quot;)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -541,7 +541,7 @@
     <description>to an &quot;fn:string-length&quot; function.</description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:string-length(xs:string(fn:not(&quot;true&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;5&quot;)</result-string>
     <result>
       <assert-eq>5</assert-eq>
     </result>
@@ -551,7 +551,7 @@
     <created by="Michael Kay" on="2010-12-13"/>
     <environment ref="atomic"/>
     <test>not(//banana)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -561,7 +561,7 @@
     <created by="Michael Kay" on="2010-12-13"/>
     <environment ref="atomic"/>
     <test>not(//*)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -571,7 +571,7 @@
     <created by="Michael Kay" on="2010-12-13"/>
     <environment ref="empty"/>
     <test>not(xs:double('NaN'))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -580,7 +580,7 @@
     <description/>
     <created by="Michael Kay" on="2010-12-13"/>
     <test>not(xs:float('NaN'))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -589,7 +589,7 @@
     <description/>
     <created by="Michael Kay" on="2010-12-13"/>
     <test>not(&quot;&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -618,7 +618,7 @@
     <created by="Michael Kay" on="2010-12-13"/>
     <environment ref="atomic"/>
     <test>not((/, 23))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -645,7 +645,7 @@
     <description>K-NotFunc-3  A test whose essence is: `not(false() and false())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(false() and false())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -654,7 +654,7 @@
     <description>K-NotFunc-4  A test whose essence is: `not(not(true()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(not(true()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -663,7 +663,7 @@
     <description>K-NotFunc-5  A test whose essence is: `not(false())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(false())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -672,7 +672,7 @@
     <description>K-NotFunc-6  A test whose essence is: `not(0)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(0)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -681,7 +681,7 @@
     <description>K-NotFunc-7  A test whose essence is: `not(())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -690,7 +690,7 @@
     <description>K-NotFunc-8  A test whose essence is: `not(xs:anyURI(&quot;&quot;))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(xs:anyURI(&quot;&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -699,7 +699,7 @@
     <description>K-NotFunc-9  A test whose essence is: `not(not(xs:anyURI(&quot;example.com/&quot;)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(not(xs:anyURI(&quot;example.com/&quot;)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -708,7 +708,7 @@
     <description>K-NotFunc-10  fn:not() combined with fn:boolean(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(fn:boolean((1, 2, 3, current-time())[1] treat as xs:integer)) eq false()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -720,7 +720,7 @@
     <test>
       <![CDATA[fn:not(for $x in 1 to 10 return <e>{$x}</e>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -729,7 +729,7 @@
     <description> test fn:not on the empty sequence </description>
     <created by="Oliver Hallam" on="2008-04-22"/>
     <test>fn:not(())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -738,7 +738,7 @@
     <description> test fn:not on a context-sensitive comparison </description>
     <created by="Oliver Hallam" on="2008-04-22"/>
     <test>fn:not(current-date()  xs:date(&quot;1997-01-01Z&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -751,7 +751,7 @@
       	declare function local:f($x as xs:integer) as xs:integer { $x }; 
       	not(not(local:f(1)))
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -764,7 +764,7 @@
       	declare function local:f($x as xs:integer) as xs:integer* { 1 to $x }; 
       	not(exists(local:f(0)))
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

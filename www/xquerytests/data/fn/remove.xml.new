@@ -69,7 +69,7 @@
     <description> arg1:sequence of string,integer,arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove( (xs:integer(&quot;100&quot;), xs:string(&quot;abc&quot;)), 1)</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;abc&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;abc&quot;</assert-eq>
     </result>
@@ -87,7 +87,7 @@
     <description> arg1: sequence of string,float ,arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove( (xs:float(&quot;1.01&quot;), xs:string(&quot;a&quot;)), 2)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1.01&quot;)</result-string>
     <result>
       <assert-eq>1.01</assert-eq>
     </result>
@@ -150,7 +150,7 @@
     <description> arg1: sequence of boolean ,arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove( (xs:boolean(&quot;0&quot;)), 2 )</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -204,7 +204,7 @@
     <description> A test whose essence is: `count(remove((1, 2, 3), 0)) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(remove((1, 2, 3), 0)) eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -213,7 +213,7 @@
     <description> A test whose essence is: `count(remove((1, 2, 3), -4)) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(remove((1, 2, 3), -4)) eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -234,7 +234,7 @@
     <description> A test whose essence is: `remove((&quot;one&quot;, 2, 3), 1) instance of xs:integer+`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>remove((&quot;one&quot;, 2, 3), 1) instance of xs:integer+</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -243,7 +243,7 @@
     <description> A test whose essence is: `remove((1, &quot;two&quot;, 3), 2) instance of xs:integer+`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>remove((1, &quot;two&quot;, 3), 2) instance of xs:integer+</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -252,7 +252,7 @@
     <description> A test whose essence is: `remove((1, 2, &quot;three&quot;), 3) instance of xs:integer+`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>remove((1, 2, &quot;three&quot;), 3) instance of xs:integer+</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -261,7 +261,7 @@
     <description> A test whose essence is: `count(remove((&quot;one&quot;, 2, 3), 1)) eq 2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(remove((&quot;one&quot;, 2, 3), 1)) eq 2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -270,7 +270,7 @@
     <description> A test whose essence is: `count(remove((1, &quot;two&quot;, 3), 2)) eq 2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(remove((1, &quot;two&quot;, 3), 2)) eq 2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -279,7 +279,7 @@
     <description> A test whose essence is: `count(remove((1, 2, &quot;three&quot;), 3)) eq 2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(remove((1, 2, &quot;three&quot;), 3)) eq 2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -288,7 +288,7 @@
     <description> A test whose essence is: `remove((3.1, &quot;four&quot;), 1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>remove((3.1, &quot;four&quot;), 1)</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;four&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;four&quot;</assert-eq>
     </result>
@@ -360,7 +360,7 @@
     <description> An expression involving the eq operator that trigger certain optimization paths in some implementations. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(remove(current-time(), 1)) eq 0</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -369,7 +369,7 @@
     <description> An expression involving the eq operator that trigger certain optimization paths in some implementations. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(remove(current-time(), 1))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -378,7 +378,7 @@
     <description> Apply a predicate to the result of fn:remove(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>remove((1, 2, 3, current-time()), 4)[last()]</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -387,7 +387,7 @@
     <description> Apply a predicate to the result of fn:remove(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>remove((1, 2, 3, current-time()), 4)[last() - 1]</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -396,7 +396,7 @@
     <description> Apply a predicate to the result of fn:remove(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>remove((1, 2, 3, current-time()), 9)[last() - 1]</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -405,7 +405,7 @@
     <description> Apply a predicate to the result of fn:remove(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(remove((1, 2, 3, current-time()), 9)[last() - 10])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -414,7 +414,7 @@
     <description> Tests with non-value position </description>
     <created by="Nick Jones" on="2008-06-16"/>
     <test>remove(1 to 10,exactly-one((1 to 10)[. div 2 = 2]))</test>
-    <result-string>xs:string('1 2 3 5 6 7 8 9 10')</result-string>
+    <result-string>xs:string(&quot;1 2 3 5 6 7 8 9 10&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3 5 6 7 8 9 10</assert-string-value>
     </result>
@@ -423,7 +423,7 @@
     <description> Tests removal from range value </description>
     <created by="Nick Jones" on="2008-06-16"/>
     <test>remove(1 to 10,4)</test>
-    <result-string>xs:string('1 2 3 5 6 7 8 9 10')</result-string>
+    <result-string>xs:string(&quot;1 2 3 5 6 7 8 9 10&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3 5 6 7 8 9 10</assert-string-value>
     </result>
@@ -432,7 +432,7 @@
     <description> Tests removal from non-range value </description>
     <created by="Nick Jones" on="2008-06-16"/>
     <test>remove((1 to 10)[. mod 2 = 0],4)</test>
-    <result-string>xs:string('2 4 6 10')</result-string>
+    <result-string>xs:string(&quot;2 4 6 10&quot;)</result-string>
     <result>
       <assert-string-value>2 4 6 10</assert-string-value>
     </result>
@@ -443,7 +443,7 @@
     <test>
         remove(((1 to 10)[. mod 2 = 0],&quot;blah&quot;,(1 to 10)[. mod 2 = 0]),4)
       </test>
-    <result-string>xs:string('2 4 6 10 blah 2 4 6 8 10')</result-string>
+    <result-string>xs:string(&quot;2 4 6 10 blah 2 4 6 8 10&quot;)</result-string>
     <result>
       <assert-string-value>2 4 6 10 blah 2 4 6 8 10</assert-string-value>
     </result>

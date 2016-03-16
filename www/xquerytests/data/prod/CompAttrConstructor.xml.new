@@ -252,7 +252,7 @@
     <description> empty parent </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <test>count((attribute attr {})/..)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -261,7 +261,7 @@
     <description> string value of attribute </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <test>fn:string(attribute attr {'a', element a {}, 'b'})</test>
-    <result-string>xs:string('a  b')</result-string>
+    <result-string>xs:string(&quot;a  b&quot;)</result-string>
     <result>
       <assert-string-value>a  b</assert-string-value>
     </result>
@@ -270,7 +270,7 @@
     <description> typed value of element </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <test>fn:data(attribute attr {'a', element a {}, 'b'})</test>
-    <result-string>xs:string('a  b')</result-string>
+    <result-string>xs:string(&quot;a  b&quot;)</result-string>
     <result>
       <assert-string-value>a  b</assert-string-value>
     </result>
@@ -801,7 +801,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>count(elem&gt;![CDATA[]]/elem&gt;/text())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -914,7 +914,7 @@
     <description> Ensure the typed value of computed, constructed attributes has the correct type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>data(attribute foo {&quot;content&quot;}) instance of xs:untypedAtomic</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -997,7 +997,7 @@
     <description> Ensure that a valid prefix has been constructed for a QName which the implementation is supposed to create a prefix for. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string-length(xs:NCName(prefix-from-QName(node-name(attribute {QName(&quot;http://example.com/&quot;, &quot;attr&quot;)} {()}))))  0</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1006,7 +1006,7 @@
     <description> Ensure that the 'xml' prefix has been constructed for a QName which has the XML namespace. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>prefix-from-QName(node-name(attribute {QName(&quot;http://www.w3.org/XML/1998/namespace&quot;, &quot;attr&quot;)} {()}))</test>
-    <result-string>xs:string('xml')</result-string>
+    <result-string>xs:string(&quot;xml&quot;)</result-string>
     <result>
       <assert-string-value>xml</assert-string-value>
     </result>

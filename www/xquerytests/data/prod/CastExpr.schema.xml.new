@@ -21,7 +21,7 @@
     <description> Evaluates casting an xs:QName type to another xs:QName type. </description>
     <created by="Carmelo Montanez" on="2006-04-13"/>
     <test>xs:QName(&quot;value1&quot;) cast as xs:QName</test>
-    <result-string>xs:string('value1')</result-string>
+    <result-string>xs:string(&quot;value1&quot;)</result-string>
     <result>
       <assert-string-value>value1</assert-string-value>
     </result>
@@ -33,7 +33,7 @@
     <test>
         import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
         let $var := myType:QNameBased(&quot;value1&quot;) return $var cast as xs:QName</test>
-    <result-string>xs:string('value1')</result-string>
+    <result-string>xs:string(&quot;value1&quot;)</result-string>
     <result>
       <assert-string-value>value1</assert-string-value>
     </result>
@@ -45,7 +45,7 @@
     <test>
         import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
         let $var := myType:QNameBased(&quot;value1&quot;) return $var cast as myType:QNameBased</test>
-    <result-string>xs:string('value1')</result-string>
+    <result-string>xs:string(&quot;value1&quot;)</result-string>
     <result>
       <assert-string-value>value1</assert-string-value>
     </result>
@@ -57,7 +57,7 @@
     <test>
         import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
         let $var := xs:QName(&quot;value1&quot;) return $var cast as myType:QNameBased</test>
-    <result-string>xs:string('value1')</result-string>
+    <result-string>xs:string(&quot;value1&quot;)</result-string>
     <result>
       <assert-string-value>value1</assert-string-value>
     </result>
@@ -81,7 +81,7 @@
     <test>
         import schema namespace myType = &quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
         myType:NOTATIONBased(&quot;myType:value1&quot;) cast as myType:NOTATIONBased</test>
-    <result-string>xs:string('myType:value1')</result-string>
+    <result-string>xs:string(&quot;myType:value1&quot;)</result-string>
     <result>
       <assert-string-value>myType:value1</assert-string-value>
     </result>
@@ -91,7 +91,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:integer) cast as xs:integer</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;12678967543233&quot;)</result-string>
     <result>
       <assert-eq>12678967543233</assert-eq>
     </result>
@@ -102,7 +102,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; 
       ((/atomic:root/atomic:integer) cast as xs:float) eq xs:float(12678967543233)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -113,7 +113,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; 
       (/atomic:root/atomic:integer) cast as xs:boolean</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -123,7 +123,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:integer) cast as xs:double</test>
-    <result-string>xs:string('1.2678967543233E13')</result-string>
+    <result-string>xs:string(&quot;1.2678967543233E13&quot;)</result-string>
     <result>
       <assert-string-value>1.2678967543233E13</assert-string-value>
     </result>
@@ -133,7 +133,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:integer) cast as xs:decimal</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;12678967543233&quot;)</result-string>
     <result>
       <assert-eq>12678967543233</assert-eq>
     </result>
@@ -143,7 +143,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:integer) cast as xs:string</test>
-    <result-string>xs:string('12678967543233')</result-string>
+    <result-string>xs:string(&quot;12678967543233&quot;)</result-string>
     <result>
       <assert-string-value>12678967543233</assert-string-value>
     </result>
@@ -153,7 +153,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:string) cast as xs:string</test>
-    <result-string>xs:string('A String Function')</result-string>
+    <result-string>xs:string(&quot;A String Function&quot;)</result-string>
     <result>
       <assert-string-value>A String Function</assert-string-value>
     </result>
@@ -163,7 +163,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; ((/atomic:root/atomic:float) cast as xs:float) eq xs:float(1267.43233E12)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -186,7 +186,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; xs:float(((/atomic:root/atomic:float) cast as xs:double)) eq xs:float(1267.43233E12)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -196,7 +196,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:float) cast as xs:boolean</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -206,7 +206,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:double) cast as xs:double</test>
-    <result-string>xs:string('1.26743233E15')</result-string>
+    <result-string>xs:string(&quot;1.26743233E15&quot;)</result-string>
     <result>
       <assert-string-value>1.26743233E15</assert-string-value>
     </result>
@@ -216,7 +216,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; ((/atomic:root/atomic:double) cast as xs:string) eq xs:string(&quot;A String Function&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -226,7 +226,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; ((/atomic:root/atomic:double) cast as xs:float) eq xs:float(1267.43233E12)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -236,7 +236,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:double) cast as xs:boolean</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -246,7 +246,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:decimal) cast as xs:string</test>
-    <result-string>xs:string('12678967.543233')</result-string>
+    <result-string>xs:string(&quot;12678967.543233&quot;)</result-string>
     <result>
       <assert-string-value>12678967.543233</assert-string-value>
     </result>
@@ -256,7 +256,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:decimal) cast as xs:float</test>
-    <result-string>xs:string('1.2678968E7')</result-string>
+    <result-string>xs:string(&quot;1.2678968E7&quot;)</result-string>
     <result>
       <assert-string-value>1.2678968E7</assert-string-value>
     </result>
@@ -266,7 +266,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:decimal) cast as xs:double</test>
-    <result-string>xs:string('1.2678967543233E7')</result-string>
+    <result-string>xs:string(&quot;1.2678967543233E7&quot;)</result-string>
     <result>
       <assert-string-value>1.2678967543233E7</assert-string-value>
     </result>
@@ -276,7 +276,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:decimal) cast as xs:decimal</test>
-    <result-string>xs:string('12678967.543233')</result-string>
+    <result-string>xs:string(&quot;12678967.543233&quot;)</result-string>
     <result>
       <assert-string-value>12678967.543233</assert-string-value>
     </result>
@@ -299,7 +299,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:decimal) cast as xs:boolean</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -309,7 +309,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:integer) cast as xs:string</test>
-    <result-string>xs:string('12678967543233')</result-string>
+    <result-string>xs:string(&quot;12678967543233&quot;)</result-string>
     <result>
       <assert-string-value>12678967543233</assert-string-value>
     </result>
@@ -319,7 +319,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; ((/atomic:root/atomic:integer) cast as xs:float) eq xs:float(12678967543233)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -329,7 +329,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:integer) cast as xs:double</test>
-    <result-string>xs:string('1.2678967543233E13')</result-string>
+    <result-string>xs:string(&quot;1.2678967543233E13&quot;)</result-string>
     <result>
       <assert-string-value>1.2678967543233E13</assert-string-value>
     </result>
@@ -339,7 +339,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:integer) cast as xs:decimal</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;12678967543233&quot;)</result-string>
     <result>
       <assert-eq>12678967543233</assert-eq>
     </result>
@@ -349,7 +349,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:integer) cast as xs:integer</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;12678967543233&quot;)</result-string>
     <result>
       <assert-eq>12678967543233</assert-eq>
     </result>
@@ -359,7 +359,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:integer) cast as xs:boolean</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -369,7 +369,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:dateTime) cast as xs:string</test>
-    <result-string>xs:string('2002-04-02T12:00:00Z')</result-string>
+    <result-string>xs:string(&quot;2002-04-02T12:00:00Z&quot;)</result-string>
     <result>
       <assert-string-value>2002-04-02T12:00:00Z</assert-string-value>
     </result>
@@ -379,7 +379,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:dateTime) cast as xs:dateTime</test>
-    <result-string>xs:string('2002-04-02T12:00:00Z')</result-string>
+    <result-string>xs:string(&quot;2002-04-02T12:00:00Z&quot;)</result-string>
     <result>
       <assert-string-value>2002-04-02T12:00:00Z</assert-string-value>
     </result>
@@ -389,7 +389,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:dateTime) cast as xs:time</test>
-    <result-string>xs:string('12:00:00Z')</result-string>
+    <result-string>xs:string(&quot;12:00:00Z&quot;)</result-string>
     <result>
       <assert-string-value>12:00:00Z</assert-string-value>
     </result>
@@ -399,7 +399,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:dateTime) cast as xs:date</test>
-    <result-string>xs:string('2002-04-02Z')</result-string>
+    <result-string>xs:string(&quot;2002-04-02Z&quot;)</result-string>
     <result>
       <assert-string-value>2002-04-02Z</assert-string-value>
     </result>
@@ -409,7 +409,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:date) cast as xs:string</test>
-    <result-string>xs:string('2000-01-01+05:00')</result-string>
+    <result-string>xs:string(&quot;2000-01-01+05:00&quot;)</result-string>
     <result>
       <assert-string-value>2000-01-01+05:00</assert-string-value>
     </result>
@@ -419,7 +419,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:date) cast as xs:dateTime</test>
-    <result-string>xs:string('2000-01-01T00:00:00+05:00')</result-string>
+    <result-string>xs:string(&quot;2000-01-01T00:00:00+05:00&quot;)</result-string>
     <result>
       <assert-string-value>2000-01-01T00:00:00+05:00</assert-string-value>
     </result>
@@ -429,7 +429,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:date) cast as xs:date</test>
-    <result-string>xs:string('2000-01-01+05:00')</result-string>
+    <result-string>xs:string(&quot;2000-01-01+05:00&quot;)</result-string>
     <result>
       <assert-string-value>2000-01-01+05:00</assert-string-value>
     </result>
@@ -439,7 +439,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:time) cast as xs:string</test>
-    <result-string>xs:string('13:20:10.5Z')</result-string>
+    <result-string>xs:string(&quot;13:20:10.5Z&quot;)</result-string>
     <result>
       <assert-string-value>13:20:10.5Z</assert-string-value>
     </result>
@@ -449,7 +449,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:time) cast as xs:time</test>
-    <result-string>xs:string('13:20:10.5Z')</result-string>
+    <result-string>xs:string(&quot;13:20:10.5Z&quot;)</result-string>
     <result>
       <assert-string-value>13:20:10.5Z</assert-string-value>
     </result>
@@ -461,7 +461,7 @@
     <test>
         import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; 
         (/atomic:root/atomic:boolean) cast as xs:string</test>
-    <result-string>xs:string('true')</result-string>
+    <result-string>xs:string(&quot;true&quot;)</result-string>
     <result>
       <assert-string-value>true</assert-string-value>
     </result>
@@ -471,7 +471,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:boolean) cast as xs:float</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -481,7 +481,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:boolean) cast as xs:double</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -491,7 +491,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:boolean) cast as xs:decimal</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -501,7 +501,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:boolean) cast as xs:integer</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -511,7 +511,7 @@
     <created by="Carmelo Montanez" on="2005-03-08"/>
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; (/atomic:root/atomic:boolean) cast as xs:boolean</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -524,7 +524,7 @@
     <test>
         import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
         let $value := myType:sizeType(1) return ($value eq 1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -550,7 +550,7 @@
     <test>
         import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
         let $value := myType:sizeType(1) + myType:sizeType(2) return $value</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -562,7 +562,7 @@
     <test>
         import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
         let $value := myType:stringBased(&quot;valid value 4&quot;) return $value</test>
-    <result-string>xs:string('valid value 4')</result-string>
+    <result-string>xs:string(&quot;valid value 4&quot;)</result-string>
     <result>
       <assert-string-value>valid value 4</assert-string-value>
     </result>
@@ -575,7 +575,7 @@
     <test>
         import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
         fn:concat(myType:stringBased(&quot;valid value 4&quot;),myType:stringBased(&quot;valid value 1&quot;))</test>
-    <result-string>xs:string('valid value 4valid value 1')</result-string>
+    <result-string>xs:string(&quot;valid value 4valid value 1&quot;)</result-string>
     <result>
       <assert-string-value>valid value 4valid value 1</assert-string-value>
     </result>
@@ -589,7 +589,7 @@
     <test>
         import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
         (myType:sizeType(2) cast as xs:integer) eq 2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -602,7 +602,7 @@
     <test>
         import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
         myType:sizeType(2) castable as xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -616,7 +616,7 @@
     <test>
         import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
         (myType:sizeType(16) cast as myType:floatBased) eq 16</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -629,7 +629,7 @@
     <test>
         import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
         myType:sizeType(16) castable as myType:floatBased</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -642,7 +642,7 @@
     <test>
         import schema namespace myType=&quot;http://www.w3.org/XQueryTest/userDefinedTypes&quot;; 
         myType:sizeType(16) + myType:floatBased (16)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;32&quot;)</result-string>
     <result>
       <assert-eq>32</assert-eq>
     </result>
@@ -884,7 +884,7 @@
          import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
          s:sensitiveUnion('xs:integer') instance of s:sensitiveUnion
        </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -969,7 +969,7 @@
          import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
          s:lowercaseName('xs:integer') instance of s:sensitiveUnion
        </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1022,7 +1022,7 @@
          node-name(<a/>) castable as s:sensitiveUnion
        ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1039,7 +1039,7 @@
          local-name-from-QName(s:sensitiveUnion(node-name(<a/>)))
        ]]>
     </test>
-    <result-string>xs:string('a')</result-string>
+    <result-string>xs:string(&quot;a&quot;)</result-string>
     <result>
       <assert-string-value>a</assert-string-value>
     </result>
@@ -1056,7 +1056,7 @@
          s:sensitiveUnion(xs:ID("zorobastic"))
        ]]>
     </test>
-    <result-string>xs:string('zorobastic')</result-string>
+    <result-string>xs:string(&quot;zorobastic&quot;)</result-string>
     <result>
       <assert-string-value>zorobastic</assert-string-value>
     </result>
@@ -1123,7 +1123,7 @@
          return node-name($e) castable as s:sensitiveUnion
        ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1178,7 +1178,7 @@
          let $result := (&quot;a b xs:integer&quot; cast as s:unionOfLists)
          return count($result) eq 3 and ($result instance of Q{http://www.w3.org/XQueryTest/unionListDefined}sensitiveUnion*)
        </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1194,7 +1194,7 @@
          let $result := s:unionOfLists(&quot;a b xs:integer&quot;)
          return count($result) eq 3 and ($result instance of Q{http://www.w3.org/XQueryTest/unionListDefined}sensitiveUnion*)
        </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1213,7 +1213,7 @@
          let $result := $fn(&quot;a b xs:integer&quot;)
          return count($result) eq 3 and ($result instance of Q{http://www.w3.org/XQueryTest/unionListDefined}sensitiveUnion*)
        </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1232,7 +1232,7 @@
          let $result := $fn(&quot;a b xs:integer&quot;)
          return count($result) eq 3 and ($result instance of s:sensitiveUnion*)
        </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1252,7 +1252,7 @@
          let $result := $fn(xs:untypedAtomic(&quot;a b xs:integer&quot;))
          return count($result) eq 3 and ($result instance of s:sensitiveUnion*)
        </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1271,7 +1271,7 @@
            local-name-from-QName(s:sensitiveUnion($element))
        ]]>
     </test>
-    <result-string>xs:string('space')</result-string>
+    <result-string>xs:string(&quot;space&quot;)</result-string>
     <result>
       <assert-string-value>space</assert-string-value>
     </result>
@@ -1626,7 +1626,7 @@
          return count($result) eq 3 and $result[1] eq &quot;a&quot; and $result[1] instance of xs:NCName
            and $result[1] instance of s:sensitiveUnion
        </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1739,7 +1739,7 @@
          let $v as xs:NMTOKEN* := $f(&quot;a b c&quot;)
          return count($v)
        </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -1751,7 +1751,7 @@
     <test>
          &quot;a b c&quot; castable as xs:NMTOKENS
        </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1763,7 +1763,7 @@
     <test>
          &quot;a b 12&quot; castable as xs:IDREFS
        </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1775,7 +1775,7 @@
     <test>
          &quot; &quot; castable as xs:NMTOKENS
        </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1790,7 +1790,7 @@
        import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
        &quot;123 987 567 456 229&quot; castable as s:myRestrictedList1
        </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1805,7 +1805,7 @@
        import schema namespace s=&quot;http://www.w3.org/XQueryTest/unionListDefined&quot;;
        &quot;  123 987 567 456  &quot; castable as s:myRestrictedList1
        </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

@@ -48,7 +48,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>exists(fn:function-name#1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -164,7 +164,8 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:function-name( dateTime#2 )</test>
-    <result-string/>
+    <result-string>xs:string(&quot;fn:QName(&quot;http://www.w3.org/2005/xpath-functions&quot;, 
+                              &quot;fn:dateTime&quot;)&quot;)</result-string>
     <result>
       <assert-eq>fn:QName(&quot;http://www.w3.org/2005/xpath-functions&quot;, 
                               &quot;fn:dateTime&quot;)</assert-eq>
@@ -176,7 +177,8 @@
     <environment ref="math"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:function-name( math:pow#2 )</test>
-    <result-string/>
+    <result-string>xs:string(&quot;fn:QName(&quot;http://www.w3.org/2005/xpath-functions/math&quot;, 
+                              &quot;math:pow&quot;)&quot;)</result-string>
     <result>
       <assert-eq>fn:QName(&quot;http://www.w3.org/2005/xpath-functions/math&quot;, 
                               &quot;math:pow&quot;)</assert-eq>
@@ -187,7 +189,8 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:function-name( concat#99 )</test>
-    <result-string/>
+    <result-string>xs:string(&quot;fn:QName(&quot;http://www.w3.org/2005/xpath-functions&quot;, 
+                              &quot;fn:concat&quot;)&quot;)</result-string>
     <result>
       <assert-eq>fn:QName(&quot;http://www.w3.org/2005/xpath-functions&quot;, 
                               &quot;fn:concat&quot;)</assert-eq>
@@ -212,7 +215,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:function-name( function($node){name($node)} )</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -223,7 +226,7 @@
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:function-name( function($arg1, $arg2)
                                { subsequence($arg1, $arg2, 1) } )</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -234,7 +237,7 @@
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>let $initial := fn:substring(?, 1, 1) 
             return fn:function-name( $initial )</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -251,7 +254,8 @@
 
 	fn:function-name( local:add#3 )
       </test>
-    <result-string/>
+    <result-string>xs:string(&quot;fn:QName(&quot;http://www.w3.org/2005/xquery-local-functions&quot;,
+                              &quot;local:add&quot;)&quot;)</result-string>
     <result>
       <assert-eq>fn:QName(&quot;http://www.w3.org/2005/xquery-local-functions&quot;,
                               &quot;local:add&quot;)</assert-eq>
@@ -269,7 +273,7 @@
 
 	fn:function-name( local:add(1, 2, ?) )
       </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -290,7 +294,8 @@
                then fn:function-name( local:coerce(fn:abs#1) )
                else &quot;error&quot;
       </test>
-    <result-string/>
+    <result-string>xs:string(&quot;fn:QName(&quot;http://www.w3.org/2005/xpath-functions&quot;, 
+                              &quot;fn:abs&quot;)&quot;)</result-string>
     <result>
       <assert-eq>fn:QName(&quot;http://www.w3.org/2005/xpath-functions&quot;, 
                               &quot;fn:abs&quot;)</assert-eq>

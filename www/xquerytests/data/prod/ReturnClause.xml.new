@@ -88,7 +88,7 @@
     <created by="Mike Rorke" on="2005-06-24"/>
     <environment ref="fsx"/>
     <test>for $file in (//Folder)[1]/File return data( $file/FileName )</test>
-    <result-string>xs:string('File00000000000 File00000000001 File00000000002 File00000000003 File00000000004 File00000000005 File00000000006 File00000000007 File00000000008 File00000000009 File00000000010 File00000000011 File00000000012 File00000000013 File00000000014 File00000000015 File00000000016 File00000000017 File00000000018 File00000000019 File00000000020 File00000000021 File00000000022 File00000000023 File00000000024 File00000000025 File00000000026 File00000000027 File00000000028 File00000000029 File00000000030')</result-string>
+    <result-string>xs:string(&quot;File00000000000 File00000000001 File00000000002 File00000000003 File00000000004 File00000000005 File00000000006 File00000000007 File00000000008 File00000000009 File00000000010 File00000000011 File00000000012 File00000000013 File00000000014 File00000000015 File00000000016 File00000000017 File00000000018 File00000000019 File00000000020 File00000000021 File00000000022 File00000000023 File00000000024 File00000000025 File00000000026 File00000000027 File00000000028 File00000000029 File00000000030&quot;)</result-string>
     <result>
       <assert-string-value>File00000000000 File00000000001 File00000000002 File00000000003 File00000000004 File00000000005 File00000000006 File00000000007 File00000000008 File00000000009 File00000000010 File00000000011 File00000000012 File00000000013 File00000000014 File00000000015 File00000000016 File00000000017 File00000000018 File00000000019 File00000000020 File00000000021 File00000000022 File00000000023 File00000000024 File00000000025 File00000000026 File00000000027 File00000000028 File00000000029 File00000000030</assert-string-value>
     </result>
@@ -110,7 +110,7 @@
     <created by="Mike Rorke" on="2005-06-24"/>
     <environment ref="fsx"/>
     <test>for $file in (//Folder)[1]/File return 1</test>
-    <result-string>xs:string('1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1')</result-string>
+    <result-string>xs:string(&quot;1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1&quot;)</result-string>
     <result>
       <assert-string-value>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</assert-string-value>
     </result>
@@ -219,7 +219,7 @@
     <created by="Mike Rorke" on="2005-06-24"/>
     <environment ref="fsx"/>
     <test>for $file in (//Folder)[1]/File return ($file/Stream/StreamSize)[1] + 1</test>
-    <result-string>xs:string('1002.33 1003.33 1004.33 1005.33 1006.33 1007.33 1008.33 1009.33 1010.33 1011.33 1012.33 1013.33 1014.33 1015.33 1016.33 1017.33 1018.33 1019.33 1020.33 1021.33 1022.33 1023.33 1024.33 1025.33 1026.33 1027.33 1028.33 1029.33 1030.33 1031.33 1032.33')</result-string>
+    <result-string>xs:string(&quot;1002.33 1003.33 1004.33 1005.33 1006.33 1007.33 1008.33 1009.33 1010.33 1011.33 1012.33 1013.33 1014.33 1015.33 1016.33 1017.33 1018.33 1019.33 1020.33 1021.33 1022.33 1023.33 1024.33 1025.33 1026.33 1027.33 1028.33 1029.33 1030.33 1031.33 1032.33&quot;)</result-string>
     <result>
       <assert-string-value>1002.33 1003.33 1004.33 1005.33 1006.33 1007.33 1008.33 1009.33 1010.33 1011.33 1012.33 1013.33 1014.33 1015.33 1016.33 1017.33 1018.33 1019.33 1020.33 1021.33 1022.33 1023.33 1024.33 1025.33 1026.33 1027.33 1028.33 1029.33 1030.33 1031.33 1032.33</assert-string-value>
     </result>
@@ -229,7 +229,7 @@
     <created by="Mike Rorke" on="2005-06-24"/>
     <environment ref="fsx"/>
     <test>for $file in (//Folder)[1]/File return ($file/Stream/StreamSize)[1]  1004</test>
-    <result-string>xs:string('false false false true true true true true true true true true true true true true true true true true true true true true true true true true true true true')</result-string>
+    <result-string>xs:string(&quot;false false false true true true true true true true true true true true true true true true true true true true true true true true true true true true true&quot;)</result-string>
     <result>
       <assert-string-value>false false false true true true true true true true true true true true true true true true true true true true true true true true true true true true true</assert-string-value>
     </result>
@@ -249,7 +249,7 @@
     <created by="Mike Rorke" on="2005-06-24"/>
     <environment ref="fsx"/>
     <test>for $file in (//Folder)[1]/File return xs:string( data( $file/FileName[1] ))</test>
-    <result-string>xs:string('File00000000000 File00000000001 File00000000002 File00000000003 File00000000004 File00000000005 File00000000006 File00000000007 File00000000008 File00000000009 File00000000010 File00000000011 File00000000012 File00000000013 File00000000014 File00000000015 File00000000016 File00000000017 File00000000018 File00000000019 File00000000020 File00000000021 File00000000022 File00000000023 File00000000024 File00000000025 File00000000026 File00000000027 File00000000028 File00000000029 File00000000030')</result-string>
+    <result-string>xs:string(&quot;File00000000000 File00000000001 File00000000002 File00000000003 File00000000004 File00000000005 File00000000006 File00000000007 File00000000008 File00000000009 File00000000010 File00000000011 File00000000012 File00000000013 File00000000014 File00000000015 File00000000016 File00000000017 File00000000018 File00000000019 File00000000020 File00000000021 File00000000022 File00000000023 File00000000024 File00000000025 File00000000026 File00000000027 File00000000028 File00000000029 File00000000030&quot;)</result-string>
     <result>
       <assert-string-value>File00000000000 File00000000001 File00000000002 File00000000003 File00000000004 File00000000005 File00000000006 File00000000007 File00000000008 File00000000009 File00000000010 File00000000011 File00000000012 File00000000013 File00000000014 File00000000015 File00000000016 File00000000017 File00000000018 File00000000019 File00000000020 File00000000021 File00000000022 File00000000023 File00000000024 File00000000025 File00000000026 File00000000027 File00000000028 File00000000029 File00000000030</assert-string-value>
     </result>

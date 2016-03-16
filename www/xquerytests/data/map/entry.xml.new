@@ -106,7 +106,7 @@
     <description>collation of a singleton map</description>
     <created by="Michael Kay, Saxonica" on="2011-03-27"/>
     <test>map:collation(map:entry(0,1))</test>
-    <result-string>xs:string('http://www.w3.org/2005/xpath-functions/collation/codepoint')</result-string>
+    <result-string>xs:string(&quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;)</result-string>
     <result>
       <assert-string-value>http://www.w3.org/2005/xpath-functions/collation/codepoint</assert-string-value>
     </result>

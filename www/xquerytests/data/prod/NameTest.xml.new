@@ -14,7 +14,7 @@
     <created by="Asad Jawahar" on="2003-03-07"/>
     <environment ref="nw_Customers"/>
     <test>/*/*[1]/name()</test>
-    <result-string>xs:string('Customers')</result-string>
+    <result-string>xs:string(&quot;Customers&quot;)</result-string>
     <result>
       <assert-string-value>Customers</assert-string-value>
     </result>
@@ -146,7 +146,7 @@
     <test>
       <![CDATA[let $var := <a attr1 = "abc1"><b attr2 = "abc2">context2</b></a> return fn:node-name(exactly-one($var/b))]]>
     </test>
-    <result-string>xs:string('b')</result-string>
+    <result-string>xs:string(&quot;b&quot;)</result-string>
     <result>
       <assert-string-value>b</assert-string-value>
     </result>
@@ -158,7 +158,7 @@
     <test>
       <![CDATA[let $var := <a attr1 = "abc1"><b attr2 = "abc2">context2</b></a> return fn:count(($var/empty-node-list)[1])]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -170,7 +170,7 @@
     <test>
       <![CDATA[declare default element namespace "http://www.example.org/examples"; let $var := <a attr1 = "abc1"><b attr2 = "abc2">context2</b></a> return fn:namespace-uri(exactly-one($var/child::b))]]>
     </test>
-    <result-string>xs:string('http://www.example.org/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.org/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.org/examples</assert-string-value>
     </result>
@@ -182,7 +182,7 @@
     <test>
       <![CDATA[let $var := <a attr1 = "abc1"><b attr2 = "abc2">context2</b></a> return fn:count(fn:namespace-uri(exactly-one($var/child::b)))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -219,7 +219,7 @@
     <environment ref="works-mod"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
     <test>let $var := /works[1]/child::employee[12]/overtime return fn:count($var/child::* except $var/child::day)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -230,7 +230,7 @@
     <environment ref="works-mod"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
     <test>let $var := /works return fn:count($var/child::*)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;13&quot;)</result-string>
     <result>
       <assert-eq>13</assert-eq>
     </result>
@@ -241,7 +241,7 @@
     <environment ref="works-mod"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
     <test>let $var := /works return fn:count($var/child::employee)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;13&quot;)</result-string>
     <result>
       <assert-eq>13</assert-eq>
     </result>
@@ -252,7 +252,7 @@
     <environment ref="works-mod"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
     <test>let $var := /works return fn:count($var/child::*:employee)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;13&quot;)</result-string>
     <result>
       <assert-eq>13</assert-eq>
     </result>
@@ -482,7 +482,7 @@
     <test>
       <![CDATA[declare variable $var := <elem xml:space="default"/>; $var/@xml:space eq "default"]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -494,7 +494,7 @@
     <test>
       <![CDATA[declare variable $var := <elem xml:space="preserve"/>; string(($var/@xml:*)[1])]]>
     </test>
-    <result-string>xs:string('preserve')</result-string>
+    <result-string>xs:string(&quot;preserve&quot;)</result-string>
     <result>
       <assert-string-value>preserve</assert-string-value>
     </result>
@@ -616,7 +616,7 @@
     <test>
       <![CDATA[empty(let $e := <a b ="content"><?b asd?><b/></a> return $e/processing-instruction("b "))]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -896,7 +896,7 @@
     <test>
       <![CDATA[declare variable $i := <e xmlns="http://example.com/"/>; empty($i/@xmlns)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

@@ -266,7 +266,7 @@
     <description> A test whose essence is: `QName(&quot;http://www.w3.org/2005/xpath-functions&quot;, &quot;prefix:local&quot;) eq xs:QName(&quot;fn:local&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>QName(&quot;http://www.w3.org/2005/xpath-functions&quot;, &quot;prefix:local&quot;) eq xs:QName(&quot;fn:local&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -311,7 +311,7 @@
     <description> A test whose essence is: `QName(&quot;&quot;, &quot;local&quot;) eq xs:QName(&quot;local&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>QName(&quot;&quot;, &quot;local&quot;) eq xs:QName(&quot;local&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -320,7 +320,7 @@
     <description> A test whose essence is: `QName((), &quot;local&quot;) eq xs:QName(&quot;local&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>QName((), &quot;local&quot;) eq xs:QName(&quot;local&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

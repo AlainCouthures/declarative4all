@@ -14,7 +14,7 @@
     <created by="Michael Kay" on="2011-06-08"/>
     <environment ref="pathdata"/>
     <test>fn:path(())</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -207,7 +207,7 @@
         import module namespace copy=&quot;http://www.w3.org/QT3/copy&quot;;
         fn:path(copy:copy((//employee)[1])/pnum)
       </test>
-    <result-string>xs:string('Q{http://www.w3.org/2005/xpath-functions}root()/Q{}pnum[1]')</result-string>
+    <result-string>xs:string(&quot;Q{http://www.w3.org/2005/xpath-functions}root()/Q{}pnum[1]&quot;)</result-string>
     <result>
       <assert-string-value>Q{http://www.w3.org/2005/xpath-functions}root()/Q{}pnum[1]</assert-string-value>
     </result>

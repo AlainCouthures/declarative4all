@@ -48,7 +48,7 @@
     <test>
       <![CDATA[fn:in-scope-prefixes(<anElement>some content</anElement>)]]>
     </test>
-    <result-string>xs:string('xml')</result-string>
+    <result-string>xs:string(&quot;xml&quot;)</result-string>
     <result>
       <assert-string-value>xml</assert-string-value>
     </result>
@@ -73,7 +73,7 @@
     <created by="Carmelo Montanez" on="2005-11-29"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:in-scope-prefixes(element anElement {&quot;Some content&quot;})</test>
-    <result-string>xs:string('xml')</result-string>
+    <result-string>xs:string(&quot;xml&quot;)</result-string>
     <result>
       <assert-string-value>xml</assert-string-value>
     </result>
@@ -83,7 +83,7 @@
     <created by="Carmelo Montanez" on="2005-11-29"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare default element namespace &quot;http://www.example.com&quot;; let $seq := fn:in-scope-prefixes(element anElement {&quot;Some content&quot;}) return (count($seq),$seq=(&quot;xml&quot;,&quot;&quot;))</test>
-    <result-string>xs:string('2 true')</result-string>
+    <result-string>xs:string(&quot;2 true&quot;)</result-string>
     <result>
       <assert-string-value>2 true</assert-string-value>
     </result>
@@ -95,7 +95,7 @@
     <test>
       <![CDATA[declare default element namespace "http://www.example.com"; let $seq := fn:in-scope-prefixes(<anElement>Some content</anElement>) return (count($seq),$seq=("xml",""))]]>
     </test>
-    <result-string>xs:string('2 true')</result-string>
+    <result-string>xs:string(&quot;2 true&quot;)</result-string>
     <result>
       <assert-string-value>2 true</assert-string-value>
     </result>
@@ -122,7 +122,7 @@
     <test>
       <![CDATA[declare namespace p1 = "http://www.example.com"; fn:in-scope-prefixes(<anElement>Some content</anElement>)]]>
     </test>
-    <result-string>xs:string('xml')</result-string>
+    <result-string>xs:string(&quot;xml&quot;)</result-string>
     <result>
       <assert-string-value>xml</assert-string-value>
     </result>
@@ -134,7 +134,7 @@
     <test>
       <![CDATA[fn:string-length(fn:in-scope-prefixes(<anElement>Some content</anElement>)[1])]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -146,7 +146,7 @@
     <test>
       <![CDATA[fn:upper-case(fn:in-scope-prefixes(<anElement>Some content</anElement>)[1])]]>
     </test>
-    <result-string>xs:string('XML')</result-string>
+    <result-string>xs:string(&quot;XML&quot;)</result-string>
     <result>
       <assert-string-value>XML</assert-string-value>
     </result>
@@ -158,7 +158,7 @@
     <test>
       <![CDATA[fn:lower-case(fn:in-scope-prefixes(<anElement>Some content</anElement>)[1])]]>
     </test>
-    <result-string>xs:string('xml')</result-string>
+    <result-string>xs:string(&quot;xml&quot;)</result-string>
     <result>
       <assert-string-value>xml</assert-string-value>
     </result>
@@ -170,7 +170,7 @@
     <test>
       <![CDATA[fn:string-to-codepoints(fn:in-scope-prefixes(<anElement>Some content</anElement>)[1])]]>
     </test>
-    <result-string>xs:string('120 109 108')</result-string>
+    <result-string>xs:string(&quot;120 109 108&quot;)</result-string>
     <result>
       <assert-string-value>120 109 108</assert-string-value>
     </result>
@@ -182,7 +182,7 @@
     <test>
       <![CDATA[xs:string(fn:in-scope-prefixes(<anElement>Some content</anElement>)[1])]]>
     </test>
-    <result-string>xs:string('xml')</result-string>
+    <result-string>xs:string(&quot;xml&quot;)</result-string>
     <result>
       <assert-string-value>xml</assert-string-value>
     </result>
@@ -194,7 +194,7 @@
     <test>
       <![CDATA[fn:substring-before(fn:in-scope-prefixes(<anElement>Some content</anElement>)[1],"m")]]>
     </test>
-    <result-string>xs:string('x')</result-string>
+    <result-string>xs:string(&quot;x&quot;)</result-string>
     <result>
       <assert-string-value>x</assert-string-value>
     </result>
@@ -206,7 +206,7 @@
     <test>
       <![CDATA[fn:substring-after(fn:in-scope-prefixes(<anElement>Some content</anElement>)[1],"m")]]>
     </test>
-    <result-string>xs:string('l')</result-string>
+    <result-string>xs:string(&quot;l&quot;)</result-string>
     <result>
       <assert-string-value>l</assert-string-value>
     </result>
@@ -218,7 +218,7 @@
     <test>
       <![CDATA[fn:concat(fn:in-scope-prefixes(<anElement>Some content</anElement>),"m")]]>
     </test>
-    <result-string>xs:string('xmlm')</result-string>
+    <result-string>xs:string(&quot;xmlm&quot;)</result-string>
     <result>
       <assert-string-value>xmlm</assert-string-value>
     </result>
@@ -230,7 +230,7 @@
     <test>
       <![CDATA[fn:string-join((fn:in-scope-prefixes(<anElement>Some content</anElement>),"xml"),"")]]>
     </test>
-    <result-string>xs:string('xmlxml')</result-string>
+    <result-string>xs:string(&quot;xmlxml&quot;)</result-string>
     <result>
       <assert-string-value>xmlxml</assert-string-value>
     </result>
@@ -242,7 +242,7 @@
     <test>
       <![CDATA[fn:substring(fn:in-scope-prefixes(<anElement>Some content</anElement>)[1],2)]]>
     </test>
-    <result-string>xs:string('ml')</result-string>
+    <result-string>xs:string(&quot;ml&quot;)</result-string>
     <result>
       <assert-string-value>ml</assert-string-value>
     </result>
@@ -254,7 +254,7 @@
     <test>
       <![CDATA[fn:contains(fn:in-scope-prefixes(<anElement>Some content</anElement>)[1],"l")]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -314,7 +314,7 @@
     <created by="Michael Kay" on="2011-07-05"/>
     <environment ref="pathdata"/>
     <test>in-scope-prefixes(/*/p)</test>
-    <result-string>xs:string('xml')</result-string>
+    <result-string>xs:string(&quot;xml&quot;)</result-string>
     <result>
       <assert-string-value>xml</assert-string-value>
     </result>
@@ -388,7 +388,7 @@
     <test>
       <![CDATA[count(in-scope-prefixes(<e/>))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -398,7 +398,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>count(in-scope-prefixes(element name {7}))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -442,7 +442,7 @@
     <test>
       <![CDATA[count(in-scope-prefixes(<a xmlns="http://www.example.com" xmlns:p="http://ns.example.com/asd" xmlns:b="http://ns.example.com/asd"/>))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;4&quot;)</result-string>
     <result>
       <assert-eq>4</assert-eq>
     </result>
@@ -454,7 +454,7 @@
     <test>
       <![CDATA[count(in-scope-prefixes(<a xmlns=""/>))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -466,7 +466,7 @@
     <test>
       <![CDATA[declare default element namespace "http://www.example.com/A"; count(in-scope-prefixes(<anElement xmlns="http://www.example.com/B"/>))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -478,7 +478,7 @@
     <test>
       <![CDATA[for $i in fn:in-scope-prefixes(<e xmlns:p="http://example.com" xmlns:a="http://example.com"> <b/> </e>/b) order by $i return $i]]>
     </test>
-    <result-string>xs:string('a p xml')</result-string>
+    <result-string>xs:string(&quot;a p xml&quot;)</result-string>
     <result>
       <assert-string-value>a p xml</assert-string-value>
     </result>
@@ -490,7 +490,7 @@
     <test>
       <![CDATA[declare default element namespace "http://www.example.com"; count(fn:in-scope-prefixes(<e/>))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -526,7 +526,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare default element namespace &quot;http://www.example.com/&quot;; let $i := element e { element b {()} } return (count(in-scope-prefixes($i/b)), count(in-scope-prefixes($i)))</test>
-    <result-string>xs:string('2 2')</result-string>
+    <result-string>xs:string(&quot;2 2&quot;)</result-string>
     <result>
       <assert-string-value>2 2</assert-string-value>
     </result>
@@ -536,7 +536,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>count(in-scope-prefixes(element e{()}))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -546,7 +546,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>let $i := element e { element b {()} } return (count(in-scope-prefixes($i/b)), count(in-scope-prefixes($i)))</test>
-    <result-string>xs:string('1 1')</result-string>
+    <result-string>xs:string(&quot;1 1&quot;)</result-string>
     <result>
       <assert-string-value>1 1</assert-string-value>
     </result>
@@ -563,7 +563,7 @@
                   </e> 
         return (count(in-scope-prefixes($i)), count(in-scope-prefixes(exactly-one($i/*))))]]>
     </test>
-    <result-string>xs:string('2 2')</result-string>
+    <result-string>xs:string(&quot;2 2&quot;)</result-string>
     <result>
       <assert-string-value>2 2</assert-string-value>
     </result>
@@ -575,7 +575,7 @@
     <test>
       <![CDATA[declare namespace p = "http://example.com/"; count(in-scope-prefixes(<p:e/>)), count(in-scope-prefixes(element p:e {()}))]]>
     </test>
-    <result-string>xs:string('2 2')</result-string>
+    <result-string>xs:string(&quot;2 2&quot;)</result-string>
     <result>
       <assert-string-value>2 2</assert-string-value>
     </result>
@@ -599,7 +599,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>count(in-scope-prefixes(element xml:space {()}))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -609,7 +609,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>count(in-scope-prefixes(element fn:space {()}))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -619,7 +619,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>count(in-scope-prefixes(element xs:space {()}))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -631,7 +631,7 @@
     <test>
       <![CDATA[count(in-scope-prefixes(<fn:space/>))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -643,7 +643,7 @@
     <test>
       <![CDATA[count(in-scope-prefixes(<xs:space/>))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -655,7 +655,7 @@
     <test>
       <![CDATA[declare namespace p = "http://example.com/"; count(in-scope-prefixes(<element/>))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -677,7 +677,7 @@
              for $i in a:n1/in-scope-prefixes(.) order by $i return $i)
       ]]>
     </test>
-    <result-string>xs:string('a b xml | a b xml')</result-string>
+    <result-string>xs:string(&quot;a b xml | a b xml&quot;)</result-string>
     <result>
       <assert-string-value>a b xml | a b xml</assert-string-value>
     </result>
@@ -703,7 +703,7 @@
     <test>
       <![CDATA[declare namespace a = "http://example.com/1"; declare namespace b = "http://example.com/2"; <e a:n1="content" b:n1="content"/>/(for $i in in-scope-prefixes(.) order by $i return $i)]]>
     </test>
-    <result-string>xs:string('a b xml')</result-string>
+    <result-string>xs:string(&quot;a b xml&quot;)</result-string>
     <result>
       <assert-string-value>a b xml</assert-string-value>
     </result>

@@ -459,7 +459,7 @@
     <test>
       <![CDATA[count(in-scope-prefixes(<e/>)[. eq "xml"])]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -469,7 +469,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>count(in-scope-prefixes(element e{})[. eq &quot;xml&quot;])</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -922,7 +922,7 @@
     <test>
       <![CDATA[declare namespace p = "http://www.example.com/A"; "START", for $i in in-scope-prefixes(<e xmlns="http://www.example.com/A" xmlns:A="http://www.example.com/C"> <b xmlns:B="http://www.example.com/C" /> </e>/p:b) order by $i return $i, "END"]]>
     </test>
-    <result-string>xs:string('START  A B xml END')</result-string>
+    <result-string>xs:string(&quot;START  A B xml END&quot;)</result-string>
     <result>
       <assert-string-value>START  A B xml END</assert-string-value>
     </result>
@@ -1094,7 +1094,7 @@
     <test>
       <![CDATA[count(in-scope-prefixes(<a xmlns="http://example.com/"> <e xmlns=""/> </a>/e))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1106,7 +1106,7 @@
     <test>
       <![CDATA[count(<e xmlns="http://example.com/"><a xmlns=""/></e>/namespace-uri(exactly-one(*)))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1468,7 +1468,7 @@
     <test>
       <![CDATA[namespace-uri(<p:e xmlns:p='http://ns.example.com/ns?val=''''''asd'/>)]]>
     </test>
-    <result-string>xs:string('http://ns.example.com/ns?val='''asd')</result-string>
+    <result-string>xs:string(&quot;http://ns.example.com/ns?val='''asd&quot;)</result-string>
     <result>
       <assert-string-value>http://ns.example.com/ns?val='''asd</assert-string-value>
     </result>
@@ -1480,7 +1480,7 @@
     <test>
       <![CDATA[namespace-uri(<e xmlns='http://ns.example.com/ns?val=''asd'/>)]]>
     </test>
-    <result-string>xs:string('http://ns.example.com/ns?val='asd')</result-string>
+    <result-string>xs:string(&quot;http://ns.example.com/ns?val='asd&quot;)</result-string>
     <result>
       <assert-string-value>http://ns.example.com/ns?val='asd</assert-string-value>
     </result>
@@ -1815,7 +1815,7 @@
     <test>
       <![CDATA[let $i := document{<e1/>, <e2/>, <e3/>, <e4/>} return (in-scope-prefixes($i/e1), in-scope-prefixes($i/e2), in-scope-prefixes($i/e3), in-scope-prefixes($i/e4))]]>
     </test>
-    <result-string>xs:string('xml xml xml xml')</result-string>
+    <result-string>xs:string(&quot;xml xml xml xml&quot;)</result-string>
     <result>
       <assert-string-value>xml xml xml xml</assert-string-value>
     </result>

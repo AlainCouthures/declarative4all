@@ -17,7 +17,7 @@
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
     <test>fn:count(/works/employee[1]/ancestor::noSuchNode)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -27,7 +27,7 @@
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
     <test>exactly-one(/works/employee[1]/ancestor::works) is exactly-one(/works)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -37,7 +37,7 @@
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
     <test>exactly-one(/works/employee[1]/ancestor::works) is exactly-one(/works/employee[1])</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -49,7 +49,7 @@
     <test>
       <![CDATA[exactly-one(/works/employee[1]/ancestor::works) << exactly-one(/works/employee[1])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -61,7 +61,7 @@
     <test>
       <![CDATA[exactly-one(/works/employee[1]/ancestor::works) << exactly-one(/works/employee[1]/ancestor::works)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -73,7 +73,7 @@
     <test>
       <![CDATA[exactly-one(/works/employee[1]/ancestor::works) << exactly-one(/works/employee[1])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -83,7 +83,7 @@
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
     <test>exactly-one(/works/employee[1]) &gt;&gt; exactly-one(/works/employee[1]/ancestor::works)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -93,7 +93,7 @@
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
     <test>exactly-one(/works/employee[1]/ancestor::works) &gt;&gt; exactly-one(/works/employee[1]/ancestor::works)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -103,7 +103,7 @@
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
     <test>exactly-one(/works/employee[1]/ancestor::works) &gt;&gt; exactly-one(/works/employee[1]/hours)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -163,7 +163,7 @@
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
     <test>fn:count((/works/employee[12]/overtime/day[ancestor::overtime]) except (/works/employee[12]/overtime/day[ancestor::overtime]))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -173,7 +173,7 @@
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
     <test>(/works/employee[12]/overtime/day[ancestor::overtime]) except (/works/employee[12]/overtime/day[1])</test>
-    <result-string>xs:string('Tuesday')</result-string>
+    <result-string>xs:string(&quot;Tuesday&quot;)</result-string>
     <result>
       <assert-string-value>Tuesday</assert-string-value>
     </result>
@@ -183,7 +183,7 @@
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
     <test>(/works/employee[12]/overtime/day[ancestor::overtime]) and fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -193,7 +193,7 @@
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
     <test>(/works/employee[12]/overtime/day[ancestor::overtime]) and fn:false()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -203,7 +203,7 @@
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
     <test>(/works/employee[12]/overtime/day[ancestor::overtime]) or fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -213,7 +213,7 @@
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
     <test>(/works/employee[12]/overtime/day[ancestor::overtime]) or fn:false()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -223,7 +223,7 @@
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
     <test>fn:deep-equal(/works/employee[12]/overtime/ancestor::works,/works/employee[12]/overtime/ancestor::works)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -235,7 +235,7 @@
     <test>
       <![CDATA[let $var := <anElement>Some Content</anElement> return fn:count($var/ancestor::*)]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -391,7 +391,7 @@
     <test>
       <![CDATA[empty(<element/>/ancestor::node())]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -431,7 +431,7 @@
     <test>
       <![CDATA[1, <element/>/ancestor::node(), 1]]>
     </test>
-    <result-string>xs:string('1 1')</result-string>
+    <result-string>xs:string(&quot;1 1&quot;)</result-string>
     <result>
       <assert-string-value>1 1</assert-string-value>
     </result>
@@ -443,7 +443,7 @@
     <test>
       <![CDATA[1, <?target data?>/ancestor::node(), 1]]>
     </test>
-    <result-string>xs:string('1 1')</result-string>
+    <result-string>xs:string(&quot;1 1&quot;)</result-string>
     <result>
       <assert-string-value>1 1</assert-string-value>
     </result>
@@ -453,7 +453,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>1, attribute name {&quot;content&quot;}/ancestor::node(), 1</test>
-    <result-string>xs:string('1 1')</result-string>
+    <result-string>xs:string(&quot;1 1&quot;)</result-string>
     <result>
       <assert-string-value>1 1</assert-string-value>
     </result>
@@ -465,7 +465,7 @@
     <test>
       <![CDATA[1, <!-- content -->/ancestor::node(), 1]]>
     </test>
-    <result-string>xs:string('1 1')</result-string>
+    <result-string>xs:string(&quot;1 1&quot;)</result-string>
     <result>
       <assert-string-value>1 1</assert-string-value>
     </result>
@@ -488,7 +488,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>1, text {&quot;&quot;}/ancestor::node(), 1</test>
-    <result-string>xs:string('1 1')</result-string>
+    <result-string>xs:string(&quot;1 1&quot;)</result-string>
     <result>
       <assert-string-value>1 1</assert-string-value>
     </result>
@@ -500,7 +500,7 @@
     <test>
       <![CDATA[count(<a> <b c=""> <c/> </b> <d/> </a>/b/c/(ancestor::*))]]>
     </test>
-    <result-string>xs:string('2')</result-string>
+    <result-string>xs:string(&quot;2&quot;)</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
@@ -512,7 +512,7 @@
     <test>
       <![CDATA[<a> <b c=""> <c/> </b> <d/> </a>//count(ancestor::*)]]>
     </test>
-    <result-string>xs:string('0 1 2 1')</result-string>
+    <result-string>xs:string(&quot;0 1 2 1&quot;)</result-string>
     <result>
       <assert-string-value>0 1 2 1</assert-string-value>
     </result>

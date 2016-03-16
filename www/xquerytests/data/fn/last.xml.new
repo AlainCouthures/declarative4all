@@ -7,7 +7,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works) return $h//employee[last()]/string(@name)</test>
-    <result-string>xs:string('Jane Doe 13')</result-string>
+    <result-string>xs:string(&quot;Jane Doe 13&quot;)</result-string>
     <result>
       <assert-string-value>Jane Doe 13</assert-string-value>
     </result>
@@ -37,7 +37,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works) return $h/employee[position() = last()]/string(@name)</test>
-    <result-string>xs:string('Jane Doe 13')</result-string>
+    <result-string>xs:string(&quot;Jane Doe 13&quot;)</result-string>
     <result>
       <assert-string-value>Jane Doe 13</assert-string-value>
     </result>
@@ -47,7 +47,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works) return $h/employee[last() = position()]/string(@name)</test>
-    <result-string>xs:string('Jane Doe 13')</result-string>
+    <result-string>xs:string(&quot;Jane Doe 13&quot;)</result-string>
     <result>
       <assert-string-value>Jane Doe 13</assert-string-value>
     </result>
@@ -59,7 +59,7 @@
     <test>
       <![CDATA[for $h in (/works) return $h/employee[last()] << $h/employee[last()]]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -69,7 +69,7 @@
     <created by="Carmelo Montanez" on="2005-11-29"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works) return $h/employee[last()] is $h/employee[last()]</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -89,7 +89,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works) return $h//employee[@name=&quot;Jane Doe 13&quot;][last() = 1]/string(@name)</test>
-    <result-string>xs:string('Jane Doe 13')</result-string>
+    <result-string>xs:string(&quot;Jane Doe 13&quot;)</result-string>
     <result>
       <assert-string-value>Jane Doe 13</assert-string-value>
     </result>
@@ -99,7 +99,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works) return $h//employee[last() = 13][@name = &quot;Jane Doe 13&quot;]/string(@name)</test>
-    <result-string>xs:string('Jane Doe 13')</result-string>
+    <result-string>xs:string(&quot;Jane Doe 13&quot;)</result-string>
     <result>
       <assert-string-value>Jane Doe 13</assert-string-value>
     </result>
@@ -109,7 +109,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works/employee[12]/overtime) return $h/day[not(position() = 1)]</test>
-    <result-string>xs:string('Tuesday')</result-string>
+    <result-string>xs:string(&quot;Tuesday&quot;)</result-string>
     <result>
       <assert-string-value>Tuesday</assert-string-value>
     </result>
@@ -129,7 +129,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works) return $h/employee[position() = (2 + 2)]/string(@name)</test>
-    <result-string>xs:string('John Doe 4')</result-string>
+    <result-string>xs:string(&quot;John Doe 4&quot;)</result-string>
     <result>
       <assert-string-value>John Doe 4</assert-string-value>
     </result>
@@ -139,7 +139,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works) return $h/employee[position() = (5 - 2)]/string(@name)</test>
-    <result-string>xs:string('Jane Doe 3')</result-string>
+    <result-string>xs:string(&quot;Jane Doe 3&quot;)</result-string>
     <result>
       <assert-string-value>Jane Doe 3</assert-string-value>
     </result>
@@ -149,7 +149,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works) return $h/employee[position() = (3 * 2)]/string(@name)</test>
-    <result-string>xs:string('John Doe 6')</result-string>
+    <result-string>xs:string(&quot;John Doe 6&quot;)</result-string>
     <result>
       <assert-string-value>John Doe 6</assert-string-value>
     </result>
@@ -159,7 +159,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works) return $h/employee[position() = (6 div 2)]/string(@name)</test>
-    <result-string>xs:string('Jane Doe 3')</result-string>
+    <result-string>xs:string(&quot;Jane Doe 3&quot;)</result-string>
     <result>
       <assert-string-value>Jane Doe 3</assert-string-value>
     </result>
@@ -169,7 +169,7 @@
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works) return $h/employee[position() = (6 idiv 2)]/string(@name)</test>
-    <result-string>xs:string('Jane Doe 3')</result-string>
+    <result-string>xs:string(&quot;Jane Doe 3&quot;)</result-string>
     <result>
       <assert-string-value>Jane Doe 3</assert-string-value>
     </result>
@@ -243,7 +243,7 @@
     <created by="Michael Kay" on="2011-07-01"/>
     <environment ref="works-mod"/>
     <test>last()</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -261,7 +261,7 @@
     <description> A test whose essence is: `(1, 2, 3)[if(1) then 1 else last()]`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3)[if(1) then 1 else last()]</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -270,7 +270,7 @@
     <description> A test whose essence is: `deep-equal((1, 2, 3)[count((last(), last())) eq 2], (1, 2, 3))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 3)[count((last(), last())) eq 2], (1, 2, 3))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -279,7 +279,7 @@
     <description> A test whose essence is: `deep-equal((1, 2, 3)[last() eq last()], (1, 2, 3))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 3)[last() eq last()], (1, 2, 3))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -288,7 +288,7 @@
     <description> A test whose essence is: `(1, 2, 3, current-time())[last() - 1] treat as xs:integer eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3, current-time())[last() - 1] treat as xs:integer eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -297,7 +297,7 @@
     <description> A test whose essence is: `empty((1, 2, 3, current-time())[last() + 1])`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty((1, 2, 3, current-time())[last() + 1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -354,7 +354,7 @@
     <description> fn:last() can never return 0('!='). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [last() != 0], (1, 2, 3, 4))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -363,7 +363,7 @@
     <description> fn:last() can never return 0('ne'). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [last() ne 0], (1, 2, 3, 4))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -372,7 +372,7 @@
     <description> fn:last() can never return 0('!='). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [0 != last()], (1, 2, 3, 4))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -381,7 +381,7 @@
     <description> fn:last() can never return 0('ne'), #2. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [0 ne last()], (1, 2, 3, 4))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -442,7 +442,7 @@
     <description> The return value of fn:last() is always greater than 0('ne'). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [last()  0], (1, 2, 3, 4))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -451,7 +451,7 @@
     <description> The return value of fn:last() is always greater than 0(''). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [last()  0], (1, 2, 3, 4))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -460,7 +460,7 @@
     <description> The return value of fn:last() is always greater than 0('gt'). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [last() gt 0], (1, 2, 3, 4))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -469,7 +469,7 @@
     <description> The return value of fn:last() is always greater or equal to 0('='). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [last() = 1], (1, 2, 3, 4))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -478,7 +478,7 @@
     <description> The return value of fn:last() is always greater or equal to 0('ge'). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [last() ge 1], (1, 2, 3, 4))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -487,7 +487,7 @@
     <description> fn:last() inside a predicate combined with a offset. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3, 4, current-time(), 4, 5, 6)[last() - 2] treat as xs:integer eq 4</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -496,7 +496,7 @@
     <description> fn:last() inside a predicate combined with a offset. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3, 4, current-time(), 4, 5, 6)[last() - 1] treat as xs:integer eq 5</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -505,7 +505,7 @@
     <description> fn:last() inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3, 4, current-time(), 4, 5, 6)[last()] treat as xs:integer eq 6</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -514,7 +514,7 @@
     <description> fn:last() inside a predicate and an insignificant offset. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3, 4, current-time(), 4, 5, 6)[last() - 0] treat as xs:integer eq 6</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -523,7 +523,7 @@
     <description> fn:last() inside a predicate combined with a range expression. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1 to 6)[last()] eq 6</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -532,7 +532,7 @@
     <description> fn:last() inside a predicate combined with a range expression and offset. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(-20 to -5)[last() - 3]</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-8&quot;)</result-string>
     <result>
       <assert-eq>-8</assert-eq>
     </result>
@@ -545,7 +545,7 @@
       	declare function local:generate($arg as xs:integer?) { if ($arg = 0) then (1, 2, 3) else () }; 
       	( local:generate(0), 1, local:generate(0) )[last()]
       </test>
-    <result-string>xs:string('3')</result-string>
+    <result-string>xs:string(&quot;3&quot;)</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>
@@ -558,7 +558,7 @@
       	declare function local:generate($arg as xs:integer?) as xs:integer* { if ($arg = 0) then (1, 2, 3) else $arg }; 
       	( local:generate(()), for $x in local:generate(0) return $x + 2 )[last()]
       </test>
-    <result-string>xs:string('5')</result-string>
+    <result-string>xs:string(&quot;5&quot;)</result-string>
     <result>
       <assert-string-value>5</assert-string-value>
     </result>
@@ -571,7 +571,7 @@
       	declare function local:generate($arg as xs:integer?) as xs:integer? { if ($arg = 0) then 0 else () }; 
       	( local:generate(()), for $x in local:generate(0) return $x + 2 )[last()]
       </test>
-    <result-string>xs:string('2')</result-string>
+    <result-string>xs:string(&quot;2&quot;)</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
@@ -584,7 +584,7 @@
       	declare function local:generate($arg as xs:integer?) as xs:integer* { if ($arg = 0) then ( 1, 2, 3 ) else ( $arg ) }; 
       	( local:generate(()), for $x at $p in local:generate(0) return $p + $x)[last()]
       </test>
-    <result-string>xs:string('6')</result-string>
+    <result-string>xs:string(&quot;6&quot;)</result-string>
     <result>
       <assert-string-value>6</assert-string-value>
     </result>
@@ -597,7 +597,7 @@
       	declare function local:generate($arg as xs:integer?) as xs:integer? { if ($arg = 0) then 1 else $arg }; 
       	( local:generate(()), for $x at $p in local:generate(0) return $p + $x)[last()]
       </test>
-    <result-string>xs:string('2')</result-string>
+    <result-string>xs:string(&quot;2&quot;)</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
@@ -610,7 +610,7 @@
       	declare function local:generate($arg as xs:integer?) as xs:string* { if ($arg = 0) then ('a', 'b', 'c') else ('d' ) }; 
       	( if (local:generate(1) = 'd') then () else 1, for $x in local:generate(0) return fn:lower-case($x))[last()]
       </test>
-    <result-string>xs:string('c')</result-string>
+    <result-string>xs:string(&quot;c&quot;)</result-string>
     <result>
       <assert-string-value>c</assert-string-value>
     </result>
@@ -623,7 +623,7 @@
       	declare function local:generate($arg as xs:integer?) as xs:integer? { $arg }; 
       	( if (local:generate(0) = 0) then () else 1, for $x in local:generate(0) return -$x)[last()]
       </test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -648,7 +648,7 @@
       	declare function local:generate($arg as xs:integer?) as xs:string* { if ($arg = 0) then ('a', 'b', 'c') else () }; 
       	( local:generate(()), for $x in local:generate(0) return 3)[last()]
       </test>
-    <result-string>xs:string('3')</result-string>
+    <result-string>xs:string(&quot;3&quot;)</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>
@@ -661,7 +661,7 @@
       	declare function local:generate($arg as xs:integer?) as xs:string* { if ($arg = 0) then ('a', 'b', 'c') else () }; 
       	boolean(local:generate(0)[last()])
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -671,7 +671,7 @@
     <created by="Oliver Hallam" on="2008-04-22"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:generate($arg as xs:integer?) as xs:string* { if ($arg = 0) then ('a', 'b', 'c') else () }; boolean(local:generate(1)[last()])</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -681,7 +681,7 @@
     <created by="Oliver Hallam" on="2008-04-22"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:generate($arg as xs:boolean) as xs:string+ { if ($arg) then ('a', 'b', 'c') else ('A', 'B', 'C') }; ( for $x in local:generate(true()) return 3)[last()]</test>
-    <result-string>xs:string('3')</result-string>
+    <result-string>xs:string(&quot;3&quot;)</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>

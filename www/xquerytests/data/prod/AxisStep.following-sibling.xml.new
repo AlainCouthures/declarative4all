@@ -17,7 +17,7 @@
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
     <test>fn:count(/works/employee[1]/following-sibling::noSuchNode)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -27,7 +27,7 @@
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
     <test>exactly-one(/works/employee[12]/following-sibling::employee) is exactly-one(/works/employee[13])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -37,7 +37,7 @@
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
     <test>exactly-one(/works[1]/employee[12]/following-sibling::employee) is exactly-one(/works[1]/employee[12])</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -49,7 +49,7 @@
     <test>
       <![CDATA[exactly-one(/works[1]/employee[12]/overtime/day[1]/following-sibling::day) << exactly-one(/works[1]/employee[13])]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -61,7 +61,7 @@
     <test>
       <![CDATA[exactly-one(/works[1]/employee[12]/following-sibling::employee) << exactly-one(/works[1]/employee[12]/following-sibling::employee)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -73,7 +73,7 @@
     <test>
       <![CDATA[exactly-one(/works[1]/employee[12]/following-sibling::employee) << exactly-one(/works[1]/employee[12]/overtime[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -83,7 +83,7 @@
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
     <test>exactly-one(/works[1]/employee[13]) &gt;&gt; exactly-one(/works[1]/employee[12]/overtime[1]/day[1]/following-sibling::day)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -93,7 +93,7 @@
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
     <test>exactly-one(/works[1]/employee[12]/following-sibling::employee) &gt;&gt; exactly-one(/works[1]/employee[12]/following-sibling::employee)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -103,7 +103,7 @@
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
     <test>exactly-one(/works[1]/employee[12]) &gt;&gt; exactly-one(/works[1]/employee[12]/following-sibling::employee)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -149,7 +149,7 @@
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
     <test>fn:count((/works[1]/employee[12]/following-sibling::employee) except (/works[1]/employee[12]/following-sibling::employee))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -171,7 +171,7 @@
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
     <test>(/works[1]/employee[12]/following-sibling::employee) and fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -181,7 +181,7 @@
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
     <test>(/works[1]/employee[12]/following-sibling::employee) and fn:false()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -191,7 +191,7 @@
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
     <test>(/works[1]/employee[12]/following-sibling::employee) or fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -201,7 +201,7 @@
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
     <test>(/works[1]/employee[12]/following-sibling::employee) or fn:false()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -211,7 +211,7 @@
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
     <test>fn:deep-equal(/works[1]/employee[12]/following-sibling::employee,/works[1]/employee[12]/following-sibling::employee)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -223,7 +223,7 @@
     <test>
       <![CDATA[let $var := <anElement>Some Content</anElement> return fn:count($var/following::*)]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -279,7 +279,7 @@
     <test>
       <![CDATA[count(<root> <child/> <child/> <child attr="foo" attr2="foo"/> </root>/child[1]/following-sibling::node())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -294,7 +294,7 @@
         root($i)//count(following-sibling::node())
       ]]>
     </test>
-    <result-string>xs:string('0 2 1 0 0 0 0')</result-string>
+    <result-string>xs:string(&quot;0 2 1 0 0 0 0&quot;)</result-string>
     <result>
       <assert-string-value>0 2 1 0 0 0 0</assert-string-value>
     </result>
@@ -338,7 +338,7 @@
     <test>
       <![CDATA[count(<root> <child/> </root>/following-sibling::node())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -350,7 +350,7 @@
     <test>
       <![CDATA[1, <root> <child/> </root>/following-sibling::node(), 1]]>
     </test>
-    <result-string>xs:string('1 1')</result-string>
+    <result-string>xs:string(&quot;1 1&quot;)</result-string>
     <result>
       <assert-string-value>1 1</assert-string-value>
     </result>
@@ -362,7 +362,7 @@
     <test>
       <![CDATA[1, <root/>/following-sibling::node(), 1]]>
     </test>
-    <result-string>xs:string('1 1')</result-string>
+    <result-string>xs:string(&quot;1 1&quot;)</result-string>
     <result>
       <assert-string-value>1 1</assert-string-value>
     </result>
@@ -388,7 +388,7 @@
     <test>
       <![CDATA[<foo a='1' b='2' c='3'> <bar>4</bar> <bar>5</bar> <bar>6</bar> </foo>/@a/following-sibling::node()]]>
     </test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>

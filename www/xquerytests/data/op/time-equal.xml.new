@@ -16,7 +16,7 @@ $arg2 = xs:time(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:time(&quot;00:00:00Z&quot;) eq xs:time(&quot;00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -35,7 +35,7 @@ $arg2 = xs:time(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:time(&quot;08:03:35Z&quot;) eq xs:time(&quot;00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -54,7 +54,7 @@ $arg2 = xs:time(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:time(&quot;23:59:59Z&quot;) eq xs:time(&quot;00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -73,7 +73,7 @@ $arg2 = xs:time(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:time(&quot;00:00:00Z&quot;) eq xs:time(&quot;08:03:35Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -92,7 +92,7 @@ $arg2 = xs:time(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:time(&quot;00:00:00Z&quot;) eq xs:time(&quot;23:59:59Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -111,7 +111,7 @@ $arg2 = xs:time(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:time(&quot;00:00:00Z&quot;) ne xs:time(&quot;00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -130,7 +130,7 @@ $arg2 = xs:time(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:time(&quot;08:03:35Z&quot;) ne xs:time(&quot;00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -149,7 +149,7 @@ $arg2 = xs:time(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:time(&quot;23:59:59Z&quot;) ne xs:time(&quot;00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -168,7 +168,7 @@ $arg2 = xs:time(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:time(&quot;00:00:00Z&quot;) ne xs:time(&quot;08:03:35Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -187,7 +187,7 @@ $arg2 = xs:time(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:time(&quot;00:00:00Z&quot;) ne xs:time(&quot;23:59:59Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -206,7 +206,7 @@ $arg2 = xs:time(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2005-06-03"/>
     <test>xs:time(&quot;00:00:00Z&quot;) le xs:time(&quot;00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -225,7 +225,7 @@ $arg2 = xs:time(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2005-06-03"/>
     <test>xs:time(&quot;08:03:35Z&quot;) le xs:time(&quot;00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -244,7 +244,7 @@ $arg2 = xs:time(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2005-06-03"/>
     <test>xs:time(&quot;23:59:59Z&quot;) le xs:time(&quot;00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -263,7 +263,7 @@ $arg2 = xs:time(mid range)
 </description>
     <created by="Carmelo Montanez" on="2005-06-03"/>
     <test>xs:time(&quot;00:00:00Z&quot;) le xs:time(&quot;08:03:35Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -282,7 +282,7 @@ $arg2 = xs:time(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2005-06-03"/>
     <test>xs:time(&quot;00:00:00Z&quot;) le xs:time(&quot;23:59:59Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -301,7 +301,7 @@ $arg2 = xs:time(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2005-06-03"/>
     <test>xs:time(&quot;00:00:00Z&quot;) ge xs:time(&quot;00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -320,7 +320,7 @@ $arg2 = xs:time(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2005-06-03"/>
     <test>xs:time(&quot;08:03:35Z&quot;) ge xs:time(&quot;00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -339,7 +339,7 @@ $arg2 = xs:time(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2005-06-03"/>
     <test>xs:time(&quot;23:59:59Z&quot;) ge xs:time(&quot;00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -358,7 +358,7 @@ $arg2 = xs:time(mid range)
 </description>
     <created by="Carmelo Montanez" on="2005-06-03"/>
     <test>xs:time(&quot;00:00:00Z&quot;) ge xs:time(&quot;08:03:35Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -377,7 +377,7 @@ $arg2 = xs:time(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2005-06-03"/>
     <test>xs:time(&quot;00:00:00Z&quot;) ge xs:time(&quot;23:59:59Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -393,7 +393,7 @@ $arg2 = xs:time(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:time(&quot;23:01:04.12&quot;) eq xs:time(&quot;23:01:04.12&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -409,7 +409,7 @@ $arg2 = xs:time(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:time(&quot;23:01:04.12&quot;) eq xs:time(&quot;23:01:04.13&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -425,7 +425,7 @@ $arg2 = xs:time(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:time(&quot;23:01:05.12&quot;) ne xs:time(&quot;23:01:04.12&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -441,7 +441,7 @@ $arg2 = xs:time(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:time(&quot;23:01:04.12&quot;) ne xs:time(&quot;23:01:04.12&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -457,7 +457,7 @@ $arg2 = xs:time(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:time(&quot;16:00:12.345-00:00&quot;) eq xs:time(&quot;16:00:12.345Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -473,7 +473,7 @@ $arg2 = xs:time(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:time(&quot;16:00:12.345+00:00&quot;) eq xs:time(&quot;16:00:12.345Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -489,7 +489,7 @@ $arg2 = xs:time(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:time(&quot;16:00:12.345Z&quot;) eq xs:time(&quot;16:00:12.345Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -505,7 +505,7 @@ $arg2 = xs:time(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:time(&quot;16:00:12.345-00:00&quot;) eq xs:time(&quot;16:00:12.345+00:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -713,7 +713,7 @@ $arg2 = xs:time(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:time(&quot;01:01:01-03:00&quot;) ne xs:time(&quot;01:01:01+03:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -726,7 +726,7 @@ $arg2 = xs:time(upper bound)
         declare function local:two-digit($number as xs:integer) { let $string := string($number) return if (string-length($string) lt 2) then concat('0', $string) else $string };
         declare function local:time($hours as xs:integer, $mins as xs:integer, $seconds as xs:decimal) { let $h := local:two-digit($hours), $m := local:two-digit($mins) return xs:time(concat($h, ':', $m, ':', $seconds)) };
         not(local:time(12, 59, 30) eq xs:time(&quot;12:32:05&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -735,7 +735,7 @@ $arg2 = xs:time(upper bound)
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:time(&quot;14:00:00-12:00&quot;) eq xs:time(&quot;02:00:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -744,7 +744,7 @@ $arg2 = xs:time(upper bound)
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:time(&quot;02:00:00&quot;) eq xs:time(&quot;14:00:00-12:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -753,7 +753,7 @@ $arg2 = xs:time(upper bound)
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:time(&quot;00:00:01+01:00&quot;) eq xs:time(&quot;00:00:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -762,7 +762,7 @@ $arg2 = xs:time(upper bound)
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:time(&quot;00:00:00&quot;) eq xs:time(&quot;00:00:01+01:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -775,7 +775,7 @@ $arg2 = xs:time(upper bound)
         declare function local:two-digit($number as xs:integer) { let $string := string($number) return if (string-length($string) lt 2) then concat('0', $string) else $string };
         declare function local:time($hours as xs:integer, $mins as xs:integer, $seconds as xs:decimal) { let $h := local:two-digit($hours), $m := local:two-digit($mins) return xs:time(concat($h, ':', $m, ':', $seconds)) };
         not(local:time(12, 59, 30) ne xs:time(&quot;12:32:05&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -784,7 +784,7 @@ $arg2 = xs:time(upper bound)
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:time(&quot;14:00:00-12:00&quot;) ne xs:time(&quot;02:00:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -793,7 +793,7 @@ $arg2 = xs:time(upper bound)
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:time(&quot;02:00:00&quot;) ne xs:time(&quot;14:00:00-12:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -802,7 +802,7 @@ $arg2 = xs:time(upper bound)
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:time(&quot;00:00:01+01:00&quot;) ne xs:time(&quot;00:00:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -811,7 +811,7 @@ $arg2 = xs:time(upper bound)
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:time(&quot;00:00:00&quot;) ne xs:time(&quot;00:00:01+01:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -823,7 +823,7 @@ $arg2 = xs:time(upper bound)
     <test>
         declare function local:time($time as xs:time, $null as xs:boolean) { if ($null) then () else $time };
         exists(local:time(xs:time(&quot;23:58:00&quot;), fn:true()) eq xs:time(&quot;23:58:00&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -835,7 +835,7 @@ $arg2 = xs:time(upper bound)
     <test>
         declare function local:time($time as xs:time, $null as xs:boolean) { if ($null) then () else $time };
         local:time(xs:time(&quot;23:58:00&quot;), fn:false()) eq xs:time(&quot;23:58:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -847,7 +847,7 @@ $arg2 = xs:time(upper bound)
     <test>
         declare function local:time($time as xs:time, $null as xs:boolean) { if ($null) then () else $time };
         exists(local:time(xs:time(&quot;23:58:00&quot;), fn:true()) ne xs:time(&quot;23:58:00&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -859,7 +859,7 @@ $arg2 = xs:time(upper bound)
     <test>
         declare function local:time($time as xs:time, $null as xs:boolean) { if ($null) then () else $time };
         local:time(xs:time(&quot;23:58:00&quot;), fn:false()) ne xs:time(&quot;23:58:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -868,7 +868,7 @@ $arg2 = xs:time(upper bound)
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-23"/>
     <test>xs:time(&quot;00:00:00+12:00&quot;) eq xs:time(&quot;00:00:01&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -877,7 +877,7 @@ $arg2 = xs:time(upper bound)
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-23"/>
     <test>xs:time(&quot;00:00:00+12:00&quot;) ne xs:time(&quot;00:00:01&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -889,7 +889,7 @@ $arg2 = xs:time(upper bound)
     <test>if (implicit-timezone() eq xs:dayTimeDuration('PT1H'))
             then xs:time(&quot;12:00:00+02:00&quot;) eq xs:time(&quot;12:00:00&quot;)
             else xs:time(&quot;12:00:00+01:00&quot;) eq xs:time(&quot;12:00:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

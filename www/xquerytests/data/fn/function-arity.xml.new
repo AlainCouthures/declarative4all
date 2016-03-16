@@ -48,7 +48,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>exists(fn:function-arity#1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -168,7 +168,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:function-arity( fn:dateTime#2 )</test>
-    <result-string>xs:string('2')</result-string>
+    <result-string>xs:string(&quot;2&quot;)</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
@@ -178,7 +178,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:function-arity( fn:concat#99 )</test>
-    <result-string>xs:string('99')</result-string>
+    <result-string>xs:string(&quot;99&quot;)</result-string>
     <result>
       <assert-string-value>99</assert-string-value>
     </result>
@@ -201,7 +201,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:function-arity( function($node){name($node)} )</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -212,7 +212,7 @@
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:function-arity( function($arg1, $arg2)
                                { subsequence($arg1, $arg2, 1) } )</test>
-    <result-string>xs:string('2')</result-string>
+    <result-string>xs:string(&quot;2&quot;)</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
@@ -223,7 +223,7 @@
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>let $initial := fn:substring(?, 1, 1) 
             return fn:function-arity( $initial )</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -234,7 +234,7 @@
     <environment ref="math"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:function-arity( math:pow(?, 10) )</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -251,7 +251,7 @@
 
 	fn:function-arity( local:add#3 )
       </test>
-    <result-string>xs:string('3')</result-string>
+    <result-string>xs:string(&quot;3&quot;)</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>
@@ -268,7 +268,7 @@
 
 	fn:function-arity( local:add(1, 2, ?) )
       </test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>

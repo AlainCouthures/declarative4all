@@ -5,7 +5,7 @@
     <description/>
     <created by="Oliver Hallam" on="2008-04-14"/>
     <test>count(xs:hexBinary(()))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>

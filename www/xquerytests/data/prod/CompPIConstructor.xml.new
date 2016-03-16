@@ -224,7 +224,7 @@
     <description> empty parent </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <test>count((processing-instruction pi {()})/..)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -233,7 +233,7 @@
     <description> string value of PI </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <test>fn:string(processing-instruction pi {'a', element a {}, 'b'})</test>
-    <result-string>xs:string('a  b')</result-string>
+    <result-string>xs:string(&quot;a  b&quot;)</result-string>
     <result>
       <assert-string-value>a  b</assert-string-value>
     </result>
@@ -242,7 +242,7 @@
     <description> typed value of PI </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <test>fn:data(processing-instruction pi {'a', element a {}, 'b'})</test>
-    <result-string>xs:string('a  b')</result-string>
+    <result-string>xs:string(&quot;a  b&quot;)</result-string>
     <result>
       <assert-string-value>a  b</assert-string-value>
     </result>
@@ -400,7 +400,7 @@
     <description> leading whitespace in PI content </description>
     <created by="Andreas Behm" on="2005-08-17"/>
     <test>string-to-codepoints(processing-instruction pi {' text'})</test>
-    <result-string>xs:string('116 101 120 116')</result-string>
+    <result-string>xs:string(&quot;116 101 120 116&quot;)</result-string>
     <result>
       <assert-string-value>116 101 120 116</assert-string-value>
     </result>
@@ -411,7 +411,7 @@
     <test>
       <![CDATA[string-to-codepoints(processing-instruction pi {'&#x20;&#x0A;&#x0D;&#x09;text'})]]>
     </test>
-    <result-string>xs:string('116 101 120 116')</result-string>
+    <result-string>xs:string(&quot;116 101 120 116&quot;)</result-string>
     <result>
       <assert-string-value>116 101 120 116</assert-string-value>
     </result>
@@ -469,7 +469,7 @@
     <description> Extract the name from a computed PI. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>local-name(processing-instruction {&quot; name &quot;} {&quot;content&quot;})</test>
-    <result-string>xs:string('name')</result-string>
+    <result-string>xs:string(&quot;name&quot;)</result-string>
     <result>
       <assert-string-value>name</assert-string-value>
     </result>
@@ -478,7 +478,7 @@
     <description> Extract the name from a computed PI. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>local-name(processing-instruction {&quot; XmLnaMe &quot;} {&quot;content&quot;})</test>
-    <result-string>xs:string('XmLnaMe')</result-string>
+    <result-string>xs:string(&quot;XmLnaMe&quot;)</result-string>
     <result>
       <assert-string-value>XmLnaMe</assert-string-value>
     </result>
@@ -505,7 +505,7 @@
     <description> Extract the data from a computed PI. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(processing-instruction {&quot;thename&quot;} {&quot;asdas? &quot;})</test>
-    <result-string>xs:string('asdas? ')</result-string>
+    <result-string>xs:string(&quot;asdas? &quot;)</result-string>
     <result>
       <assert-string-value>asdas? </assert-string-value>
     </result>
@@ -514,7 +514,7 @@
     <description> Extract (possible parser-confusing) PI data. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(processing-instruction {&quot;thename&quot;} {&quot;content {1+ } {&quot;})</test>
-    <result-string>xs:string('content {1+ } {')</result-string>
+    <result-string>xs:string(&quot;content {1+ } {&quot;)</result-string>
     <result>
       <assert-string-value>content {1+ } {</assert-string-value>
     </result>
@@ -523,7 +523,7 @@
     <description> Data that only is whitespace. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>processing-instruction name {&quot; &quot;} eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -532,7 +532,7 @@
     <description> Test the atomized type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>data(processing-instruction name {&quot;content&quot;}) instance of xs:string</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

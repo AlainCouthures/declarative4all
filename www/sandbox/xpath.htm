@@ -20,7 +20,8 @@
 			var xmldoc;
 			var xmldoc2;
 			//var xexpr = "count(/_:test-set/_:test-case/_:result)";
-			//document.getElementById("xexpr").innerHTML = xexpr;
+			var xexpr = "translate('AAAA', 'A', 'B')";
+			document.getElementById("xexpr").innerHTML = xexpr;
 //			req.open('GET', '../xquerytests/data/fn/matches.re.xml', true);
 			req.open('GET', 'data/data.xml', true);
 			req.onreadystatechange = function() {
@@ -41,10 +42,9 @@
 				var d3 = new Date();
 				document.getElementById("result").innerHTML = "<p>Fleur: " + (d2 - d1) + "</p><p>Native: " + (d3 - d2) + "</p><p>*" + ((d2 - d1)/(d3 - d2)) + "</p>" ;
 				//document.getElementById("doc").innerHTML = ser.serializeToString(xmldoc, true).replace(/</mg, "&lt;");
-				/*
 				var nsResolver = {
-					defaultNamespace: xmldoc.documentElement.getAttribute("xmlns"),
-					nsresolver: xmldoc.createNSResolver(xmldoc.documentElement),
+					defaultNamespace: xmldoc2.documentElement.getAttribute("xmlns"),
+					nsresolver: xmldoc2.createNSResolver(xmldoc2.documentElement),
 					lookupNamespaceURI: function(prefix) {
 						if (prefix === "_") {
 							return this.defaultNamespace;
@@ -52,13 +52,15 @@
 						return this.nsresolver.lookupNamespaceURI(prefix);
 						}
 				};
+				/*
 				var res = xmldoc.evaluate(xexpr, xmldoc, nsResolver, Fleur.XPathResult.ANY_TYPE, null).toArray().reduce(
 					function(s, n, index) {
 						return s + (index !== 0 ? " ": "") + n.textContent;
 					}, ""
 				);
-				document.getElementById("result").innerHTML = res;
 				*/
+				var res = xmldoc2.evaluate(xexpr, xmldoc2, nsResolver, Fleur.XPathResult.ANY_TYPE, null).stringValue;
+				document.getElementById("result").innerHTML = res;
 			}
 		</script>
 	</body>

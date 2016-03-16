@@ -26,7 +26,7 @@
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="OneTopElement"/>
     <test>fn:count(.[5 * /])</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -36,7 +36,7 @@
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="OneTopElement"/>
     <test>fn:count(.[(/) * 5])</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -58,7 +58,7 @@
     <test>
       <![CDATA[fn:count(.[(/) < 5])]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -84,7 +84,7 @@
     <test>
       <![CDATA[fn:count(.[/ < 5])]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -96,7 +96,7 @@
     <test>
       <![CDATA[fn:count(.[5</])]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -122,7 +122,7 @@
     <test>
       <![CDATA[fn:count(.[/ < a])]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -148,7 +148,7 @@
     <test>
       <![CDATA[fn:count(.[/ < /b])]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -174,7 +174,7 @@
     <test>
       <![CDATA[fn:count(.[/<a div 3])]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -232,7 +232,7 @@
     <test>
       <![CDATA[fn:count(.[/<a/>])]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -242,7 +242,7 @@
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="OneTopElement"/>
     <test>fn:count(.[/-5])</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -253,7 +253,7 @@
     <environment ref="OneTopElement"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
     <test>let $a := . return fn:count(.[/=$a])</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>

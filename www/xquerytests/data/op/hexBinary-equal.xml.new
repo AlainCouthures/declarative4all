@@ -16,7 +16,7 @@ $value2 = xs:hexBinary(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:hexBinary(&quot;767479716c6a647663&quot;) eq xs:hexBinary(&quot;767479716c6a647663&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -35,7 +35,7 @@ $value2 = xs:hexBinary(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:hexBinary(&quot;6e7875626264756366&quot;) eq xs:hexBinary(&quot;767479716c6a647663&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -54,7 +54,7 @@ $value2 = xs:hexBinary(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:hexBinary(&quot;786174616d61616772&quot;) eq xs:hexBinary(&quot;767479716c6a647663&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -73,7 +73,7 @@ $value2 = xs:hexBinary(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:hexBinary(&quot;767479716c6a647663&quot;) eq xs:hexBinary(&quot;6e7875626264756366&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -92,7 +92,7 @@ $value2 = xs:hexBinary(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:hexBinary(&quot;767479716c6a647663&quot;) eq xs:hexBinary(&quot;786174616d61616772&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -111,7 +111,7 @@ $value2 = xs:hexBinary(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:hexBinary(&quot;767479716c6a647663&quot;) ne xs:hexBinary(&quot;767479716c6a647663&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -130,7 +130,7 @@ $value2 = xs:hexBinary(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:hexBinary(&quot;6e7875626264756366&quot;) ne xs:hexBinary(&quot;767479716c6a647663&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -149,7 +149,7 @@ $value2 = xs:hexBinary(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:hexBinary(&quot;786174616d61616772&quot;) ne xs:hexBinary(&quot;767479716c6a647663&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -168,7 +168,7 @@ $value2 = xs:hexBinary(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:hexBinary(&quot;767479716c6a647663&quot;) ne xs:hexBinary(&quot;6e7875626264756366&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -187,7 +187,7 @@ $value2 = xs:hexBinary(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:hexBinary(&quot;767479716c6a647663&quot;) ne xs:hexBinary(&quot;786174616d61616772&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -200,7 +200,7 @@ logical expression.  Use &quot;and&quot; and &quot;eq&quot; operators.
 </description>
     <created by="Carmelo Montanez" on="2005-09-02"/>
     <test>(xs:hexBinary(&quot;786174616d61616772&quot;) eq xs:hexBinary(&quot;767479716c6a647663&quot;)) and (xs:hexBinary(&quot;786174616d61616772&quot;) eq xs:hexBinary(&quot;767479716c6a647663&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -213,7 +213,7 @@ logical expression.  Use &quot;and&quot; and &quot;eq&quot; operators.
 </description>
     <created by="Carmelo Montanez" on="2005-09-02"/>
     <test>(xs:hexBinary(&quot;786174616d61616772&quot;) eq xs:hexBinary(&quot;767479716c6a647663&quot;)) or (xs:hexBinary(&quot;786174616d61616772&quot;) eq xs:hexBinary(&quot;767479716c6a647663&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -225,7 +225,7 @@ Description: Simple Binary hex opeartion as part of argument to fn:not function.
 </description>
     <created by="Carmelo Montanez" on="2005-09-02"/>
     <test>fn:not((xs:hexBinary(&quot;786174616d61616772&quot;) eq xs:hexBinary(&quot;786174616d61616772&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -238,7 +238,7 @@ logical expression.  Use &quot;and&quot; and &quot;eq&quot; operators with &quot
 </description>
     <created by="Carmelo Montanez" on="2005-09-06"/>
     <test>(xs:hexBinary(&quot;786174616d61616772&quot;) eq xs:hexBinary(&quot;767479716c6a647663&quot;)) and fn:true()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -251,7 +251,7 @@ logical expression.  Use &quot;and&quot; and &quot;eq&quot; operators with &quot
 </description>
     <created by="Carmelo Montanez" on="2005-09-06"/>
     <test>(xs:hexBinary(&quot;786174616d61616772&quot;) eq xs:hexBinary(&quot;767479716c6a647663&quot;)) and fn:false()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -264,7 +264,7 @@ logical expression.  Use &quot;or&quot; and &quot;eq&quot; operators and &quot;f
 </description>
     <created by="Carmelo Montanez" on="2005-09-06"/>
     <test>(xs:hexBinary(&quot;786174616d61616772&quot;) eq xs:hexBinary(&quot;767479716c6a647663&quot;)) or fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -277,7 +277,7 @@ logical expression.  Use &quot;or&quot; and &quot;eq&quot; operators and &quot;f
 </description>
     <created by="Carmelo Montanez" on="2005-09-06"/>
     <test>(xs:hexBinary(&quot;786174616d61616772&quot;) eq xs:hexBinary(&quot;767479716c6a647663&quot;)) or fn:false()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -290,7 +290,7 @@ logical expression.  Use &quot;and&quot; and &quot;ne&quot; operators.
 </description>
     <created by="Carmelo Montanez" on="2005-09-02"/>
     <test>(xs:hexBinary(&quot;786174616d61616772&quot;) ne xs:hexBinary(&quot;767479716c6a647663&quot;)) and (xs:hexBinary(&quot;786174616d61616772&quot;) ne xs:hexBinary(&quot;767479716c6a647663&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -303,7 +303,7 @@ logical expression.  Use &quot;and&quot; and &quot;eq&quot; operators.
 </description>
     <created by="Carmelo Montanez" on="2005-09-02"/>
     <test>(xs:hexBinary(&quot;786174616d61616772&quot;) ne xs:hexBinary(&quot;767479716c6a647663&quot;)) or (xs:hexBinary(&quot;786174616d61616772&quot;) ne xs:hexBinary(&quot;767479716c6a647663&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -315,7 +315,7 @@ Description: Simple Binary hex opeartion as part of argument to fn:not function.
 </description>
     <created by="Carmelo Montanez" on="2005-09-02"/>
     <test>fn:not((xs:hexBinary(&quot;786174616d61616772&quot;) ne xs:hexBinary(&quot;786174616d61616772&quot;)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -328,7 +328,7 @@ logical expression.  Use &quot;and&quot; and &quot;ne&quot; operators with &quot
 </description>
     <created by="Carmelo Montanez" on="2005-09-06"/>
     <test>(xs:hexBinary(&quot;786174616d61616772&quot;) ne xs:hexBinary(&quot;767479716c6a647663&quot;)) and fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -341,7 +341,7 @@ logical expression.  Use &quot;and&quot; and &quot;ne&quot; operators with &quot
 </description>
     <created by="Carmelo Montanez" on="2005-09-06"/>
     <test>(xs:hexBinary(&quot;786174616d61616772&quot;) ne xs:hexBinary(&quot;767479716c6a647663&quot;)) and fn:false()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -354,7 +354,7 @@ logical expression.  Use &quot;or&quot; and &quot;ne&quot; operators and &quot;f
 </description>
     <created by="Carmelo Montanez" on="2005-09-06"/>
     <test>(xs:hexBinary(&quot;786174616d61616772&quot;) ne xs:hexBinary(&quot;767479716c6a647663&quot;)) or fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -367,7 +367,7 @@ logical expression.  Use &quot;or&quot; and &quot;ne&quot; operators and &quot;f
 </description>
     <created by="Carmelo Montanez" on="2005-09-06"/>
     <test>(xs:hexBinary(&quot;786174616d61616772&quot;) ne xs:hexBinary(&quot;767479716c6a647663&quot;)) or fn:false()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -383,7 +383,7 @@ logical expression.  Use &quot;or&quot; and &quot;ne&quot; operators and &quot;f
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:hexBinary(&quot;FF&quot;) eq xs:hexBinary(&quot;ff&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -399,7 +399,7 @@ logical expression.  Use &quot;or&quot; and &quot;ne&quot; operators and &quot;f
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:hexBinary(&quot;FF&quot;) ne xs:hexBinary(&quot;aa&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -415,7 +415,7 @@ logical expression.  Use &quot;or&quot; and &quot;ne&quot; operators and &quot;f
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:hexBinary(&quot;FF&quot;) eq xs:hexBinary(&quot;aa&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -431,7 +431,7 @@ logical expression.  Use &quot;or&quot; and &quot;ne&quot; operators and &quot;f
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:hexBinary(xs:base64Binary(xs:hexBinary(&quot;03&quot;))) eq xs:hexBinary(&quot;03&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -447,7 +447,7 @@ logical expression.  Use &quot;or&quot; and &quot;ne&quot; operators and &quot;f
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:hexBinary(xs:base64Binary(xs:hexBinary(&quot;03&quot;))) ne xs:hexBinary(&quot;13&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -457,7 +457,7 @@ logical expression.  Use &quot;or&quot; and &quot;ne&quot; operators and &quot;f
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:hexBinary-value($arg as xs:boolean) as xs:hexBinary { if ($arg) then xs:hexBinary('68656c6c6f') else xs:hexBinary('676f6f64627965') }; local:hexBinary-value(true()) eq local:hexBinary-value(false())</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -467,7 +467,7 @@ logical expression.  Use &quot;or&quot; and &quot;ne&quot; operators and &quot;f
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:hexBinary-value($arg as xs:boolean) as xs:hexBinary { if ($arg) then xs:hexBinary('68656c6c6f') else xs:hexBinary('676f6f64627965') }; not(local:hexBinary-value(true()) eq local:hexBinary-value(false()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -477,7 +477,7 @@ logical expression.  Use &quot;or&quot; and &quot;ne&quot; operators and &quot;f
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:hexBinary-value($arg as xs:boolean) as xs:hexBinary { if ($arg) then xs:hexBinary('68656c6c6f') else xs:hexBinary('676f6f64627965') }; not(local:hexBinary-value(true()) ne local:hexBinary-value(false()))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

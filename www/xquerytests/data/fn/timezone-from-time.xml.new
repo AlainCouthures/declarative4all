@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;timezone-from-time&quot; function As per example 1 of the FO specs (for this function) </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-time(xs:time(&quot;13:20:00-05:00&quot;))</test>
-    <result-string>xs:string('-PT5H')</result-string>
+    <result-string>xs:string(&quot;-PT5H&quot;)</result-string>
     <result>
       <assert-string-value>-PT5H</assert-string-value>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;timezone-from-time&quot; function as per example 2 (for this function) from the FO. specs. Use fn:count to aoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:count(fn:timezone-from-time(xs:time(&quot;13:20:00&quot;)))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;timezone-from-time&quot; function as part of a numeric greater than operation (gt operator) </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-time(xs:time(&quot;01:23:02Z&quot;)) gt fn:timezone-from-time(xs:time(&quot;01:23:03Z&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluates The &quot;timezone-from-time&quot; function as part of a numeric-less-than expression (le operator) </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-time(xs:time(&quot;01:10:20Z&quot;)) le fn:timezone-from-time(xs:time(&quot;01:20:30Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluates The &quot;timezone-from-time&quot; function using the empty sequence as an argument. Use count function to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:count(fn:timezone-from-time(()))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluates The &quot;timezone-from-time&quot; function that returns a dayTimeDuration of 0. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-time(xs:time(&quot;00:59:00+00:00&quot;))</test>
-    <result-string>xs:string('PT0S')</result-string>
+    <result-string>xs:string(&quot;PT0S&quot;)</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluates The &quot;timezone-from-time&quot; function with a timezone component of &quot;-00:00&quot;. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-time(xs:time(&quot;23:20:59-00:00&quot;))</test>
-    <result-string>xs:string('PT0S')</result-string>
+    <result-string>xs:string(&quot;PT0S&quot;)</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluates The &quot;timezone-from-time&quot; function as part of a &quot;+&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-time(xs:time(&quot;02:00:00Z&quot;)) + fn:timezone-from-time(xs:time(&quot;10:00:10Z&quot;))</test>
-    <result-string>xs:string('PT0S')</result-string>
+    <result-string>xs:string(&quot;PT0S&quot;)</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluates The &quot;timezone-from-time&quot; function as part of a &quot;-&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-time(xs:time(&quot;10:10:10Z&quot;)) - fn:timezone-from-time(xs:time(&quot;09:02:07Z&quot;))</test>
-    <result-string>xs:string('PT0S')</result-string>
+    <result-string>xs:string(&quot;PT0S&quot;)</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluates The &quot;timezone-from-time&quot; function as an argument to the &quot;fn:not&quot; function. Uses the &quot;fn:string&quot; function to account for new EBV rules. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:not(fn:string(fn:timezone-from-time(xs:time(&quot;02:02:03Z&quot;))))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluates The &quot;timezone-from-time&quot; function as part of a &quot;div&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-time(xs:time(&quot;22:33:10+10:00&quot;)) div fn:timezone-from-time(xs:time(&quot;02:11:02+05:00&quot;))</test>
-    <result-string>xs:string('2')</result-string>
+    <result-string>xs:string(&quot;2&quot;)</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluates The &quot;timezone-from-time&quot; function as an argument to the &quot;fn:number&quot; function. Return NaN. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:number(fn:timezone-from-time(xs:time(&quot;10:12:15Z&quot;)))</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluates The &quot;timezone-from-time&quot; function as an argument to the &quot;fn:boolean&quot; function. Uses the &quot;fn:string&quot; function to account for new EBV rules. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:boolean(fn:string(fn:timezone-from-time(xs:time(&quot;10:10:20Z&quot;))))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluates The &quot;timezone-from-time&quot; function as an argument to the &quot;fn:string&quot; function. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:string(fn:timezone-from-time(xs:time(&quot;10:00:01Z&quot;)))</test>
-    <result-string>xs:string('PT0S')</result-string>
+    <result-string>xs:string(&quot;PT0S&quot;)</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluates The &quot;timezone-from-time&quot; function as part of an &quot;and&quot; expression. Uses the &quot;fn:string&quot; function to account for new EBV rules. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:string(fn:timezone-from-time(xs:time(&quot;10:10:01Z&quot;))) and fn:string(fn:timezone-from-time(xs:time(&quot;10:10:01Z&quot;)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluates The &quot;timezone-from-time&quot; function as part of a &quot;numeric-equal&quot; expression (eq operator) </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-time(xs:time(&quot;10:02:01Z&quot;)) eq fn:timezone-from-time(xs:time(&quot;10:02:00Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluates The &quot;timezone-from-time&quot; function as part of a &quot;numeric-equal&quot; expression (ne operator) </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-time(xs:time(&quot;10:00:01Z&quot;)) ne fn:timezone-from-time(xs:time(&quot;01:01:00Z&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluates The &quot;timezone-from-time&quot; function as part of a &quot;numeric-equal&quot; expression (le operator) </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-time(xs:time(&quot;10:00:00Z&quot;)) le fn:timezone-from-time(xs:time(&quot;10:00:00Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluates The &quot;timezone-from-time&quot; function as part of a &quot;numeric-equal&quot; expression (ge operator) </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-time(xs:time(&quot;10:03:01Z&quot;)) ge fn:timezone-from-time(xs:time(&quot;10:04:02Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluates The &quot;timezone-from-time&quot; function as part of an &quot;or&quot; expression. Uses the &quot;fn:string&quot; function to account for new EBV rules. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:string(fn:timezone-from-time(xs:time(&quot;10:03:01Z&quot;))) or fn:string(fn:timezone-from-time(xs:time(&quot;10:04:02Z&quot;)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -204,7 +204,7 @@
     <description> A test whose essence is: `empty(timezone-from-time(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(timezone-from-time(()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -213,7 +213,7 @@
     <description> A test whose essence is: `timezone-from-time(()) instance of xs:dayTimeDuration?`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>timezone-from-time(()) instance of xs:dayTimeDuration?</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -222,7 +222,7 @@
     <description> A test whose essence is: `timezone-from-time(xs:time(&quot;23:43:12.765Z&quot;)) eq xs:dayTimeDuration(&quot;PT0S&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>timezone-from-time(xs:time(&quot;23:43:12.765Z&quot;)) eq xs:dayTimeDuration(&quot;PT0S&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -231,7 +231,7 @@
     <description> A test whose essence is: `timezone-from-time(xs:time(&quot;23:43:12.765-08:23&quot;)) eq xs:dayTimeDuration(&quot;-PT8H23M&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>timezone-from-time(xs:time(&quot;23:43:12.765-08:23&quot;)) eq xs:dayTimeDuration(&quot;-PT8H23M&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -240,7 +240,7 @@
     <description> A test whose essence is: `empty(timezone-from-time(xs:time(&quot;23:43:12.765&quot;)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(timezone-from-time(xs:time(&quot;23:43:12.765&quot;)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

@@ -14,7 +14,7 @@
     <description> enclosed expression in text node - atomic values </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <test>text {1,'string',3.14,xs:float('1.2345e-2'),xs:dateTime('2002-04-02T12:00:00-01:00')}</test>
-    <result-string>xs:string('1 string 3.14 0.012345 2002-04-02T12:00:00-01:00')</result-string>
+    <result-string>xs:string(&quot;1 string 3.14 0.012345 2002-04-02T12:00:00-01:00&quot;)</result-string>
     <result>
       <assert-string-value>1 string 3.14 0.012345 2002-04-02T12:00:00-01:00</assert-string-value>
     </result>
@@ -26,7 +26,7 @@
     <test>
       <![CDATA[text {<elem>123</elem>, (<elem attr='456'/>)/@attr, (<elem>789</elem>)/text()}]]>
     </test>
-    <result-string>xs:string('123 456 789')</result-string>
+    <result-string>xs:string(&quot;123 456 789&quot;)</result-string>
     <result>
       <assert-string-value>123 456 789</assert-string-value>
     </result>
@@ -35,7 +35,7 @@
     <description> enclosed expression in text node - empty string </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <test>text {1,'',2}</test>
-    <result-string>xs:string('1  2')</result-string>
+    <result-string>xs:string(&quot;1  2&quot;)</result-string>
     <result>
       <assert-string-value>1  2</assert-string-value>
     </result>
@@ -47,7 +47,7 @@
     <test>
       <![CDATA[text {1,<a/>,2}]]>
     </test>
-    <result-string>xs:string('1  2')</result-string>
+    <result-string>xs:string(&quot;1  2&quot;)</result-string>
     <result>
       <assert-string-value>1  2</assert-string-value>
     </result>
@@ -57,7 +57,7 @@
     <created by="Andreas Behm" on="2005-05-20"/>
     <environment ref="DupNode"/>
     <test>text {/root}</test>
-    <result-string>xs:string('texttext')</result-string>
+    <result-string>xs:string(&quot;texttext&quot;)</result-string>
     <result>
       <assert-string-value>texttext</assert-string-value>
     </result>
@@ -67,7 +67,7 @@
     <created by="Andreas Behm" on="2005-05-20"/>
     <environment ref="DupNode"/>
     <test>text {., .}</test>
-    <result-string>xs:string('texttext texttext')</result-string>
+    <result-string>xs:string(&quot;texttext texttext&quot;)</result-string>
     <result>
       <assert-string-value>texttext texttext</assert-string-value>
     </result>
@@ -76,7 +76,7 @@
     <description> empty parent </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <test>count((text {'text'})/..)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -85,7 +85,7 @@
     <description> string value of text node </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <test>fn:string(text {'a', element a {}, 'b'})</test>
-    <result-string>xs:string('a  b')</result-string>
+    <result-string>xs:string(&quot;a  b&quot;)</result-string>
     <result>
       <assert-string-value>a  b</assert-string-value>
     </result>
@@ -94,7 +94,7 @@
     <description> typed value of text node </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <test>fn:data(text {'a', element a {}, 'b'})</test>
-    <result-string>xs:string('a  b')</result-string>
+    <result-string>xs:string(&quot;a  b&quot;)</result-string>
     <result>
       <assert-string-value>a  b</assert-string-value>
     </result>
@@ -103,7 +103,7 @@
     <description> count text nodes </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <test>count(text {''})</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -112,7 +112,7 @@
     <description> count text nodes </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <test>count(text {()})</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -121,7 +121,7 @@
     <description> count text nodes </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <test>count(element elem {text {''}}/text())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -145,7 +145,7 @@
     <test>
       <![CDATA[count(<a>{text {''}}<b/>{text {''}}<b/>{text {''}}</a>/text())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -172,7 +172,7 @@
     <test>
       <![CDATA[count(<elem>{text {'te'}, text {'xt'}}</elem>/text())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -181,7 +181,7 @@
     <description> merge adjacent text nodes </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <test>count(document {text {'te'}, text {'xt'}}/text())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -190,7 +190,7 @@
     <description> nested text node constructor </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <test>text {text {'one', text {'two'}}, 'three', text {'four'}}</test>
-    <result-string>xs:string('one two three four')</result-string>
+    <result-string>xs:string(&quot;one two three four&quot;)</result-string>
     <result>
       <assert-string-value>one two three four</assert-string-value>
     </result>
@@ -245,7 +245,7 @@
     <description> An empty text node is nevertheless a text node, not the empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(text {&quot;&quot;}) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -277,7 +277,7 @@
     <description> Test the atomized type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>data(text {&quot;content&quot;}) instance of xs:untypedAtomic</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -381,7 +381,7 @@
     <test>
       <![CDATA[string(<elem>{1}{text{""}}{2}</elem>)]]>
     </test>
-    <result-string>xs:string('12')</result-string>
+    <result-string>xs:string(&quot;12&quot;)</result-string>
     <result>
       <assert-string-value>12</assert-string-value>
     </result>

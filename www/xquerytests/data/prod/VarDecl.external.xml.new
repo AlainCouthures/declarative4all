@@ -450,7 +450,7 @@
     <description> It is ok to have space between '$' and the name in variable names. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare variable $ name := 3; $ name</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -459,7 +459,7 @@
     <description> Ensure a variable declaration doesn't violate stability rules. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare variable $e := current-time(); let $i := ($e, 1 to 50000, $e) return $i[1] = $i[last()]</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -482,7 +482,7 @@
     <description> Description ensure node identity is handled through variables that has cardinality zero or more. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare variable $a as attribute()* := (attribute name1 {()}, attribute name2 {()}, attribute name3 {()}); declare variable $b as attribute()* := (attribute name1 {()}, attribute name2 {()}, attribute name3 {()}); $a/(let $p := position() return . is $b[$p])</test>
-    <result-string>xs:string('false false false')</result-string>
+    <result-string>xs:string(&quot;false false false&quot;)</result-string>
     <result>
       <assert-string-value>false false false</assert-string-value>
     </result>
@@ -508,7 +508,7 @@
     <test>
       <![CDATA[declare variable $e := <e>{current-time()}</e>/(string-length(.) > 0); $e, if($e) then "SUCCESS" else "FAILURE"]]>
     </test>
-    <result-string>xs:string('true SUCCESS')</result-string>
+    <result-string>xs:string(&quot;true SUCCESS&quot;)</result-string>
     <result>
       <assert-string-value>true SUCCESS</assert-string-value>
     </result>
@@ -566,7 +566,7 @@
     <modified by="Michael Dyck" change="Split off the XQuery 3.0 expectation (from K2-ExternalVariablesWithout-18)" on="2011-09-05"/>
     <dependency type="spec" value="XQ30+"/>
     <test>declare variable $var external := 1; 1</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -605,7 +605,7 @@
     <test>
       <![CDATA[declare variable $global := count(*); $global, <wrongFocus> <e1/> <e2/> </wrongFocus>/$global, $global]]>
     </test>
-    <result-string>xs:string('1 1 1')</result-string>
+    <result-string>xs:string(&quot;1 1 1&quot;)</result-string>
     <result>
       <assert-string-value>1 1 1</assert-string-value>
     </result>
@@ -618,7 +618,7 @@
     <test>
       <![CDATA[declare variable $global := count(*); <wrongFocus> <e1/> <e2/> </wrongFocus>/$global]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -630,7 +630,7 @@
       <param declared="true" name="x" select="(: Name: extvardeclwithtypetobind-1 :) (: Description: Binding a string value for extvardeclwithtype-1.:) &quot;abc&quot;"/>
     </environment>
     <test>declare variable $x as xs:string external; $x</test>
-    <result-string>xs:string('abc')</result-string>
+    <result-string>xs:string(&quot;abc&quot;)</result-string>
     <result>
       <assert-string-value>abc</assert-string-value>
     </result>
@@ -642,7 +642,7 @@
       <param declared="true" name="x" select="(: Name: extvardeclwithtypetobind-2 :) (: Description: Binding a date value for extvardeclwithtype-2.:) xs:date(&quot;2000-01-01+05:00&quot;)"/>
     </environment>
     <test>declare variable $x as xs:date external; fn:string($x)</test>
-    <result-string>xs:string('2000-01-01+05:00')</result-string>
+    <result-string>xs:string(&quot;2000-01-01+05:00&quot;)</result-string>
     <result>
       <assert-string-value>2000-01-01+05:00</assert-string-value>
     </result>
@@ -654,7 +654,7 @@
       <param declared="true" name="x" select="(: Name: extvardeclwithtypetobind-3 :) (: Description: Binding an integer value for extvardeclwithtype-3.:) xs:integer(2)"/>
     </environment>
     <test>declare variable $x as xs:integer external; $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -666,7 +666,7 @@
       <param declared="true" name="x" select="xs:double(1.2E2)"/>
     </environment>
     <test>declare variable $x as xs:double external; $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;120&quot;)</result-string>
     <result>
       <assert-eq>120</assert-eq>
     </result>
@@ -678,7 +678,7 @@
       <param declared="true" name="x" select="true()"/>
     </environment>
     <test>declare variable $x as xs:boolean external; fn:string($x)</test>
-    <result-string>xs:string('true')</result-string>
+    <result-string>xs:string(&quot;true&quot;)</result-string>
     <result>
       <assert-string-value>true</assert-string-value>
     </result>
@@ -705,7 +705,7 @@
       <param declared="true" name="x" select="xs:decimal(12678967.543233)"/>
     </environment>
     <test>declare variable $x as xs:decimal external; $x</test>
-    <result-string>xs:string('12678967.543233')</result-string>
+    <result-string>xs:string(&quot;12678967.543233&quot;)</result-string>
     <result>
       <assert-string-value>12678967.543233</assert-string-value>
     </result>
@@ -717,7 +717,7 @@
       <param declared="true" name="x" select="let $var := 1 + 1 return $var"/>
     </environment>
     <test>declare variable $x as xs:integer external; $x + $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;4&quot;)</result-string>
     <result>
       <assert-eq>4</assert-eq>
     </result>
@@ -729,7 +729,7 @@
       <param declared="true" name="x" select="let $var := 1 + 1 return $var"/>
     </environment>
     <test>declare variable $x as xs:integer external; $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -741,7 +741,7 @@
       <param declared="true" name="x" select="let $var := 1 return $var"/>
     </environment>
     <test>declare variable $x as xs:integer external; $x + $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -753,7 +753,7 @@
       <param declared="true" name="x" select="let $var := 2 * 2 return $var"/>
     </environment>
     <test>declare variable $x as xs:integer external; $x * $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;16&quot;)</result-string>
     <result>
       <assert-eq>16</assert-eq>
     </result>
@@ -765,7 +765,7 @@
       <param declared="true" name="x" select="let $var := 5 - 2 return $var"/>
     </environment>
     <test>declare variable $x as xs:integer external; $x - xs:integer(1)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -777,7 +777,7 @@
       <param declared="true" name="x" select="let $var := 20 idiv 2 return $var"/>
     </environment>
     <test>declare variable $x as xs:integer external; $x idiv xs:integer(2)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;5&quot;)</result-string>
     <result>
       <assert-eq>5</assert-eq>
     </result>
@@ -789,7 +789,7 @@
       <param declared="true" name="x" select="let $var := 40 div 2 return xs:integer($var)"/>
     </environment>
     <test>declare variable $x as xs:integer external; $x div xs:integer(10)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -801,7 +801,7 @@
       <param declared="true" name="x" select="let $var := 55 mod 3 return $var"/>
     </environment>
     <test>declare variable $x as xs:integer external; $x mod xs:integer(2)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -813,7 +813,7 @@
       <param declared="true" name="x" select="let $var := true() and true() return $var"/>
     </environment>
     <test>declare variable $x as xs:boolean external; $x and fn:false()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -825,7 +825,7 @@
       <param declared="true" name="x" select="let $var := true() or true() return $var"/>
     </environment>
     <test>declare variable $x as xs:boolean external; $x or fn:false()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -864,7 +864,7 @@
       <param declared="true" name="x" select="let $var := lower-case(&quot;This String should be all in upper case&quot;) return $var"/>
     </environment>
     <test>declare variable $x as xs:string external; fn:upper-case($x)</test>
-    <result-string>xs:string('THIS STRING SHOULD BE ALL IN UPPER CASE')</result-string>
+    <result-string>xs:string(&quot;THIS STRING SHOULD BE ALL IN UPPER CASE&quot;)</result-string>
     <result>
       <assert-string-value>THIS STRING SHOULD BE ALL IN UPPER CASE</assert-string-value>
     </result>
@@ -876,7 +876,7 @@
       <param declared="true" name="x" select="let $var := upper-case(&quot;THIS STRING SHOULD ALL BE IN LOWER CASE&quot;) return $var"/>
     </environment>
     <test>declare variable $x as xs:string external; fn:lower-case($x)</test>
-    <result-string>xs:string('this string should all be in lower case')</result-string>
+    <result-string>xs:string(&quot;this string should all be in lower case&quot;)</result-string>
     <result>
       <assert-string-value>this string should all be in lower case</assert-string-value>
     </result>
@@ -888,7 +888,7 @@
       <param declared="true" name="x" select="let $var := xs:integer(0) + xs:integer(1) return xs:boolean($var)"/>
     </environment>
     <test>declare variable $x as xs:boolean external; fn:not($x)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1126,7 +1126,7 @@
     <test>
       <![CDATA[declare variable $v as element(*, xs:untyped?)+ := <e/>; exists($v/*)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1138,7 +1138,7 @@
     <test>
       <![CDATA[declare variable $v as element(elementName, xs:anyType?)+ := <elementName/>; 1]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>

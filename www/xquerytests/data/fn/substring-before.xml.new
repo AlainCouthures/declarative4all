@@ -90,7 +90,7 @@
     <description>fn-substring-before-8 Evaluates The &quot;substring-before&quot; function with the arguments set as follows: $arg1 = &quot;AAAAABBBBBCCCCC&quot; $arg2 = &quot;BBBBB&quot; </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before(&quot;AAAAABBBBBCCCCC&quot;,&quot;BBBBB&quot;)</test>
-    <result-string>xs:string('AAAAA')</result-string>
+    <result-string>xs:string(&quot;AAAAA&quot;)</result-string>
     <result>
       <assert-string-value>AAAAA</assert-string-value>
     </result>
@@ -123,7 +123,7 @@
     <description>fn-substring-before-11 Evaluates The &quot;substring-before&quot; function using it as a argument of a fn:not - returns true </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:not(fn:substring-before(&quot;A&quot;,&quot;A&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -132,7 +132,7 @@
     <description>fn-substring-before-12 Evaluates The &quot;substring-before&quot; function using it as a argument of a fn:not - returns true </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:not(fn:substring-before(&quot;A&quot;,&quot;B&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -250,7 +250,7 @@
     <created by="Michael Kay" on="2011-06-28"/>
     <test>substring-before(&quot;banana&quot;, &quot;a&quot;,
          &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;)</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;b&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;b&quot;</assert-eq>
     </result>
@@ -262,7 +262,7 @@
       <static-base-uri uri="http://www.w3.org/2005/xpath-functions/"/>
     </environment>
     <test>substring-before(&quot;banana&quot;, &quot;a&quot;, &quot;collation/codepoint&quot;)</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;b&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;b&quot;</assert-eq>
     </result>
@@ -275,7 +275,7 @@
     </environment>
     <test>substring-before(&quot;banana&quot;, &quot;A&quot;,
          &quot;http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind&quot;)</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;b&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;b&quot;</assert-eq>
     </result>
@@ -284,7 +284,7 @@
     <description>Use non-BMP characters</description>
     <created by="Michael Kay" on="2011-06-28"/>
     <test>substring-before(&quot;&quot;, &quot;&quot;)</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;&quot;</assert-eq>
     </result>
@@ -332,7 +332,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-before(&quot;foo&quot;, &quot;oo&quot;,
          &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;) eq &quot;f&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -341,7 +341,7 @@
     <description>K-SubstringBeforeFunc-6  A test whose essence is: `substring-before(&quot;tattoo&quot;, &quot;attoo&quot;) eq &quot;t&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-before(&quot;tattoo&quot;, &quot;attoo&quot;) eq &quot;t&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -350,7 +350,7 @@
     <description>K-SubstringBeforeFunc-7  A test whose essence is: `substring-before(&quot;tattoo&quot;, &quot;tatto&quot;) eq &quot;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-before(&quot;tattoo&quot;, &quot;tatto&quot;) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -359,7 +359,7 @@
     <description>K-SubstringBeforeFunc-8  A test whose essence is: `substring-before((), ()) eq &quot;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-before((), ()) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -368,7 +368,7 @@
     <description>K-SubstringBeforeFunc-9  A test whose essence is: `substring-before(&quot;a string&quot;, &quot;&quot;) eq &quot;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-before(&quot;a string&quot;, &quot;&quot;) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -377,7 +377,7 @@
     <description>K-SubstringBeforeFunc-10  A test whose essence is: `substring-before(&quot;a string&quot;, &quot;not in other&quot;) eq &quot;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-before(&quot;a string&quot;, &quot;not in other&quot;) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -388,7 +388,7 @@
     <test>
         fn:boolean(fn:substring-before('input', '', 'http://www.w3.org/2005/xpath-functions/collation/codepoint'))
       </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

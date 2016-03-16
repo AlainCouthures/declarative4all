@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:int(&quot;-2147483648&quot;),xs:int(&quot;-2147483648&quot;))</test>
-    <result-string>xs:string('-2147483648-2147483648')</result-string>
+    <result-string>xs:string(&quot;-2147483648-2147483648&quot;)</result-string>
     <result>
       <assert-string-value>-2147483648-2147483648</assert-string-value>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:int(mid range) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:int(&quot;-1873914410&quot;),xs:int(&quot;-2147483648&quot;))</test>
-    <result-string>xs:string('-1873914410-2147483648')</result-string>
+    <result-string>xs:string(&quot;-1873914410-2147483648&quot;)</result-string>
     <result>
       <assert-string-value>-1873914410-2147483648</assert-string-value>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:int(upper bound) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:int(&quot;2147483647&quot;),xs:int(&quot;-2147483648&quot;))</test>
-    <result-string>xs:string('2147483647-2147483648')</result-string>
+    <result-string>xs:string(&quot;2147483647-2147483648&quot;)</result-string>
     <result>
       <assert-string-value>2147483647-2147483648</assert-string-value>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:int(&quot;-2147483648&quot;),xs:int(&quot;-1873914410&quot;))</test>
-    <result-string>xs:string('-2147483648-1873914410')</result-string>
+    <result-string>xs:string(&quot;-2147483648-1873914410&quot;)</result-string>
     <result>
       <assert-string-value>-2147483648-1873914410</assert-string-value>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:int(&quot;-2147483648&quot;),xs:int(&quot;2147483647&quot;))</test>
-    <result-string>xs:string('-21474836482147483647')</result-string>
+    <result-string>xs:string(&quot;-21474836482147483647&quot;)</result-string>
     <result>
       <assert-string-value>-21474836482147483647</assert-string-value>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:integer(&quot;-999999999999999999&quot;),xs:integer(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:string('-999999999999999999-999999999999999999')</result-string>
+    <result-string>xs:string(&quot;-999999999999999999-999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>-999999999999999999-999999999999999999</assert-string-value>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:integer(mid range) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:integer(&quot;830993497117024304&quot;),xs:integer(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:string('830993497117024304-999999999999999999')</result-string>
+    <result-string>xs:string(&quot;830993497117024304-999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>830993497117024304-999999999999999999</assert-string-value>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:integer(upper bound) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:integer(&quot;999999999999999999&quot;),xs:integer(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:string('999999999999999999-999999999999999999')</result-string>
+    <result-string>xs:string(&quot;999999999999999999-999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>999999999999999999-999999999999999999</assert-string-value>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:integer(&quot;-999999999999999999&quot;),xs:integer(&quot;830993497117024304&quot;))</test>
-    <result-string>xs:string('-999999999999999999830993497117024304')</result-string>
+    <result-string>xs:string(&quot;-999999999999999999830993497117024304&quot;)</result-string>
     <result>
       <assert-string-value>-999999999999999999830993497117024304</assert-string-value>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:integer(&quot;-999999999999999999&quot;),xs:integer(&quot;999999999999999999&quot;))</test>
-    <result-string>xs:string('-999999999999999999999999999999999999')</result-string>
+    <result-string>xs:string(&quot;-999999999999999999999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>-999999999999999999999999999999999999</assert-string-value>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:decimal(&quot;-999999999999999999&quot;),xs:decimal(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:string('-999999999999999999-999999999999999999')</result-string>
+    <result-string>xs:string(&quot;-999999999999999999-999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>-999999999999999999-999999999999999999</assert-string-value>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:decimal(mid range) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:decimal(&quot;617375191608514839&quot;),xs:decimal(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:string('617375191608514839-999999999999999999')</result-string>
+    <result-string>xs:string(&quot;617375191608514839-999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>617375191608514839-999999999999999999</assert-string-value>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:decimal(upper bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:decimal(&quot;999999999999999999&quot;),xs:decimal(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:string('999999999999999999-999999999999999999')</result-string>
+    <result-string>xs:string(&quot;999999999999999999-999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>999999999999999999-999999999999999999</assert-string-value>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:decimal(&quot;-999999999999999999&quot;),xs:decimal(&quot;617375191608514839&quot;))</test>
-    <result-string>xs:string('-999999999999999999617375191608514839')</result-string>
+    <result-string>xs:string(&quot;-999999999999999999617375191608514839&quot;)</result-string>
     <result>
       <assert-string-value>-999999999999999999617375191608514839</assert-string-value>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:decimal(&quot;-999999999999999999&quot;),xs:decimal(&quot;999999999999999999&quot;))</test>
-    <result-string>xs:string('-999999999999999999999999999999999999')</result-string>
+    <result-string>xs:string(&quot;-999999999999999999999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>-999999999999999999999999999999999999</assert-string-value>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:double(&quot;-1.7976931348623157E308&quot;),xs:double(&quot;-1.7976931348623157E308&quot;))</test>
-    <result-string>xs:string('-1.7976931348623157E308-1.7976931348623157E308')</result-string>
+    <result-string>xs:string(&quot;-1.7976931348623157E308-1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E308-1.7976931348623157E308</assert-string-value>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:double(mid range) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:double(&quot;0&quot;),xs:double(&quot;-1.7976931348623157E308&quot;))</test>
-    <result-string>xs:string('0-1.7976931348623157E308')</result-string>
+    <result-string>xs:string(&quot;0-1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-string-value>0-1.7976931348623157E308</assert-string-value>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:double(upper bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:double(&quot;1.7976931348623157E308&quot;),xs:double(&quot;-1.7976931348623157E308&quot;))</test>
-    <result-string>xs:string('1.7976931348623157E308-1.7976931348623157E308')</result-string>
+    <result-string>xs:string(&quot;1.7976931348623157E308-1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-string-value>1.7976931348623157E308-1.7976931348623157E308</assert-string-value>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:double(&quot;-1.7976931348623157E308&quot;),xs:double(&quot;0&quot;))</test>
-    <result-string>xs:string('-1.7976931348623157E3080')</result-string>
+    <result-string>xs:string(&quot;-1.7976931348623157E3080&quot;)</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E3080</assert-string-value>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:double(&quot;-1.7976931348623157E308&quot;),xs:double(&quot;1.7976931348623157E308&quot;))</test>
-    <result-string>xs:string('-1.7976931348623157E3081.7976931348623157E308')</result-string>
+    <result-string>xs:string(&quot;-1.7976931348623157E3081.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E3081.7976931348623157E308</assert-string-value>
     </result>
@@ -186,7 +186,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:float(&quot;-3.4028235E38&quot;),xs:float(&quot;-3.4028235E38&quot;))</test>
-    <result-string>xs:string('-3.4028235E38-3.4028235E38')</result-string>
+    <result-string>xs:string(&quot;-3.4028235E38-3.4028235E38&quot;)</result-string>
     <result>
       <assert-string-value>-3.4028235E38-3.4028235E38</assert-string-value>
     </result>
@@ -195,7 +195,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:float(mid range) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:float(&quot;0&quot;),xs:float(&quot;-3.4028235E38&quot;))</test>
-    <result-string>xs:string('0-3.4028235E38')</result-string>
+    <result-string>xs:string(&quot;0-3.4028235E38&quot;)</result-string>
     <result>
       <assert-string-value>0-3.4028235E38</assert-string-value>
     </result>
@@ -204,7 +204,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:float(upper bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:float(&quot;3.4028235E38&quot;),xs:float(&quot;-3.4028235E38&quot;))</test>
-    <result-string>xs:string('3.4028235E38-3.4028235E38')</result-string>
+    <result-string>xs:string(&quot;3.4028235E38-3.4028235E38&quot;)</result-string>
     <result>
       <assert-string-value>3.4028235E38-3.4028235E38</assert-string-value>
     </result>
@@ -213,7 +213,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:float(&quot;-3.4028235E38&quot;),xs:float(&quot;0&quot;))</test>
-    <result-string>xs:string('-3.4028235E380')</result-string>
+    <result-string>xs:string(&quot;-3.4028235E380&quot;)</result-string>
     <result>
       <assert-string-value>-3.4028235E380</assert-string-value>
     </result>
@@ -222,7 +222,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:float(&quot;-3.4028235E38&quot;),xs:float(&quot;3.4028235E38&quot;))</test>
-    <result-string>xs:string('-3.4028235E383.4028235E38')</result-string>
+    <result-string>xs:string(&quot;-3.4028235E383.4028235E38&quot;)</result-string>
     <result>
       <assert-string-value>-3.4028235E383.4028235E38</assert-string-value>
     </result>
@@ -231,7 +231,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:long(&quot;-92233720368547758&quot;),xs:long(&quot;-92233720368547758&quot;))</test>
-    <result-string>xs:string('-92233720368547758-92233720368547758')</result-string>
+    <result-string>xs:string(&quot;-92233720368547758-92233720368547758&quot;)</result-string>
     <result>
       <assert-string-value>-92233720368547758-92233720368547758</assert-string-value>
     </result>
@@ -240,7 +240,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:long(mid range) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:long(&quot;-47175562203048468&quot;),xs:long(&quot;-92233720368547758&quot;))</test>
-    <result-string>xs:string('-47175562203048468-92233720368547758')</result-string>
+    <result-string>xs:string(&quot;-47175562203048468-92233720368547758&quot;)</result-string>
     <result>
       <assert-string-value>-47175562203048468-92233720368547758</assert-string-value>
     </result>
@@ -249,7 +249,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:long(upper bound) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:long(&quot;92233720368547758&quot;),xs:long(&quot;-92233720368547758&quot;))</test>
-    <result-string>xs:string('92233720368547758-92233720368547758')</result-string>
+    <result-string>xs:string(&quot;92233720368547758-92233720368547758&quot;)</result-string>
     <result>
       <assert-string-value>92233720368547758-92233720368547758</assert-string-value>
     </result>
@@ -258,7 +258,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:long(&quot;-92233720368547758&quot;),xs:long(&quot;-47175562203048468&quot;))</test>
-    <result-string>xs:string('-92233720368547758-47175562203048468')</result-string>
+    <result-string>xs:string(&quot;-92233720368547758-47175562203048468&quot;)</result-string>
     <result>
       <assert-string-value>-92233720368547758-47175562203048468</assert-string-value>
     </result>
@@ -267,7 +267,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:long(&quot;-92233720368547758&quot;),xs:long(&quot;92233720368547758&quot;))</test>
-    <result-string>xs:string('-9223372036854775892233720368547758')</result-string>
+    <result-string>xs:string(&quot;-9223372036854775892233720368547758&quot;)</result-string>
     <result>
       <assert-string-value>-9223372036854775892233720368547758</assert-string-value>
     </result>
@@ -276,7 +276,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:unsignedShort(&quot;0&quot;),xs:unsignedShort(&quot;0&quot;))</test>
-    <result-string>xs:string('00')</result-string>
+    <result-string>xs:string(&quot;00&quot;)</result-string>
     <result>
       <assert-string-value>00</assert-string-value>
     </result>
@@ -285,7 +285,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:unsignedShort(mid range) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:unsignedShort(&quot;44633&quot;),xs:unsignedShort(&quot;0&quot;))</test>
-    <result-string>xs:string('446330')</result-string>
+    <result-string>xs:string(&quot;446330&quot;)</result-string>
     <result>
       <assert-string-value>446330</assert-string-value>
     </result>
@@ -294,7 +294,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:unsignedShort(upper bound) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:unsignedShort(&quot;65535&quot;),xs:unsignedShort(&quot;0&quot;))</test>
-    <result-string>xs:string('655350')</result-string>
+    <result-string>xs:string(&quot;655350&quot;)</result-string>
     <result>
       <assert-string-value>655350</assert-string-value>
     </result>
@@ -303,7 +303,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:unsignedShort(&quot;0&quot;),xs:unsignedShort(&quot;44633&quot;))</test>
-    <result-string>xs:string('044633')</result-string>
+    <result-string>xs:string(&quot;044633&quot;)</result-string>
     <result>
       <assert-string-value>044633</assert-string-value>
     </result>
@@ -312,7 +312,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:unsignedShort(&quot;0&quot;),xs:unsignedShort(&quot;65535&quot;))</test>
-    <result-string>xs:string('065535')</result-string>
+    <result-string>xs:string(&quot;065535&quot;)</result-string>
     <result>
       <assert-string-value>065535</assert-string-value>
     </result>
@@ -321,7 +321,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:negativeInteger(&quot;-999999999999999999&quot;),xs:negativeInteger(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:string('-999999999999999999-999999999999999999')</result-string>
+    <result-string>xs:string(&quot;-999999999999999999-999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>-999999999999999999-999999999999999999</assert-string-value>
     </result>
@@ -330,7 +330,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:negativeInteger(mid range) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:negativeInteger(&quot;-297014075999096793&quot;),xs:negativeInteger(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:string('-297014075999096793-999999999999999999')</result-string>
+    <result-string>xs:string(&quot;-297014075999096793-999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>-297014075999096793-999999999999999999</assert-string-value>
     </result>
@@ -339,7 +339,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:negativeInteger(upper bound) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:negativeInteger(&quot;-1&quot;),xs:negativeInteger(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:string('-1-999999999999999999')</result-string>
+    <result-string>xs:string(&quot;-1-999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>-1-999999999999999999</assert-string-value>
     </result>
@@ -348,7 +348,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:negativeInteger(&quot;-999999999999999999&quot;),xs:negativeInteger(&quot;-297014075999096793&quot;))</test>
-    <result-string>xs:string('-999999999999999999-297014075999096793')</result-string>
+    <result-string>xs:string(&quot;-999999999999999999-297014075999096793&quot;)</result-string>
     <result>
       <assert-string-value>-999999999999999999-297014075999096793</assert-string-value>
     </result>
@@ -357,7 +357,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:negativeInteger(&quot;-999999999999999999&quot;),xs:negativeInteger(&quot;-1&quot;))</test>
-    <result-string>xs:string('-999999999999999999-1')</result-string>
+    <result-string>xs:string(&quot;-999999999999999999-1&quot;)</result-string>
     <result>
       <assert-string-value>-999999999999999999-1</assert-string-value>
     </result>
@@ -366,7 +366,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:positiveInteger(&quot;1&quot;),xs:positiveInteger(&quot;1&quot;))</test>
-    <result-string>xs:string('11')</result-string>
+    <result-string>xs:string(&quot;11&quot;)</result-string>
     <result>
       <assert-string-value>11</assert-string-value>
     </result>
@@ -375,7 +375,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:positiveInteger(mid range) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:positiveInteger(&quot;52704602390610033&quot;),xs:positiveInteger(&quot;1&quot;))</test>
-    <result-string>xs:string('527046023906100331')</result-string>
+    <result-string>xs:string(&quot;527046023906100331&quot;)</result-string>
     <result>
       <assert-string-value>527046023906100331</assert-string-value>
     </result>
@@ -384,7 +384,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:positiveInteger(upper bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:positiveInteger(&quot;999999999999999999&quot;),xs:positiveInteger(&quot;1&quot;))</test>
-    <result-string>xs:string('9999999999999999991')</result-string>
+    <result-string>xs:string(&quot;9999999999999999991&quot;)</result-string>
     <result>
       <assert-string-value>9999999999999999991</assert-string-value>
     </result>
@@ -393,7 +393,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:positiveInteger(&quot;1&quot;),xs:positiveInteger(&quot;52704602390610033&quot;))</test>
-    <result-string>xs:string('152704602390610033')</result-string>
+    <result-string>xs:string(&quot;152704602390610033&quot;)</result-string>
     <result>
       <assert-string-value>152704602390610033</assert-string-value>
     </result>
@@ -402,7 +402,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:positiveInteger(&quot;1&quot;),xs:positiveInteger(&quot;999999999999999999&quot;))</test>
-    <result-string>xs:string('1999999999999999999')</result-string>
+    <result-string>xs:string(&quot;1999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>1999999999999999999</assert-string-value>
     </result>
@@ -411,7 +411,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:unsignedLong(&quot;0&quot;),xs:unsignedLong(&quot;0&quot;))</test>
-    <result-string>xs:string('00')</result-string>
+    <result-string>xs:string(&quot;00&quot;)</result-string>
     <result>
       <assert-string-value>00</assert-string-value>
     </result>
@@ -420,7 +420,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:unsignedLong(mid range) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:unsignedLong(&quot;130747108607674654&quot;),xs:unsignedLong(&quot;0&quot;))</test>
-    <result-string>xs:string('1307471086076746540')</result-string>
+    <result-string>xs:string(&quot;1307471086076746540&quot;)</result-string>
     <result>
       <assert-string-value>1307471086076746540</assert-string-value>
     </result>
@@ -429,7 +429,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:unsignedLong(upper bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:unsignedLong(&quot;184467440737095516&quot;),xs:unsignedLong(&quot;0&quot;))</test>
-    <result-string>xs:string('1844674407370955160')</result-string>
+    <result-string>xs:string(&quot;1844674407370955160&quot;)</result-string>
     <result>
       <assert-string-value>1844674407370955160</assert-string-value>
     </result>
@@ -438,7 +438,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:unsignedLong(&quot;0&quot;),xs:unsignedLong(&quot;130747108607674654&quot;))</test>
-    <result-string>xs:string('0130747108607674654')</result-string>
+    <result-string>xs:string(&quot;0130747108607674654&quot;)</result-string>
     <result>
       <assert-string-value>0130747108607674654</assert-string-value>
     </result>
@@ -447,7 +447,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:unsignedLong(&quot;0&quot;),xs:unsignedLong(&quot;184467440737095516&quot;))</test>
-    <result-string>xs:string('0184467440737095516')</result-string>
+    <result-string>xs:string(&quot;0184467440737095516&quot;)</result-string>
     <result>
       <assert-string-value>0184467440737095516</assert-string-value>
     </result>
@@ -456,7 +456,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:nonPositiveInteger(&quot;-999999999999999999&quot;),xs:nonPositiveInteger(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:string('-999999999999999999-999999999999999999')</result-string>
+    <result-string>xs:string(&quot;-999999999999999999-999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>-999999999999999999-999999999999999999</assert-string-value>
     </result>
@@ -465,7 +465,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(mid range) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:nonPositiveInteger(&quot;-475688437271870490&quot;),xs:nonPositiveInteger(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:string('-475688437271870490-999999999999999999')</result-string>
+    <result-string>xs:string(&quot;-475688437271870490-999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>-475688437271870490-999999999999999999</assert-string-value>
     </result>
@@ -474,7 +474,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(upper bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:nonPositiveInteger(&quot;0&quot;),xs:nonPositiveInteger(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:string('0-999999999999999999')</result-string>
+    <result-string>xs:string(&quot;0-999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>0-999999999999999999</assert-string-value>
     </result>
@@ -483,7 +483,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:nonPositiveInteger(&quot;-999999999999999999&quot;),xs:nonPositiveInteger(&quot;-475688437271870490&quot;))</test>
-    <result-string>xs:string('-999999999999999999-475688437271870490')</result-string>
+    <result-string>xs:string(&quot;-999999999999999999-475688437271870490&quot;)</result-string>
     <result>
       <assert-string-value>-999999999999999999-475688437271870490</assert-string-value>
     </result>
@@ -492,7 +492,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:nonPositiveInteger(&quot;-999999999999999999&quot;),xs:nonPositiveInteger(&quot;0&quot;))</test>
-    <result-string>xs:string('-9999999999999999990')</result-string>
+    <result-string>xs:string(&quot;-9999999999999999990&quot;)</result-string>
     <result>
       <assert-string-value>-9999999999999999990</assert-string-value>
     </result>
@@ -501,7 +501,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:nonNegativeInteger(&quot;0&quot;),xs:nonNegativeInteger(&quot;0&quot;))</test>
-    <result-string>xs:string('00')</result-string>
+    <result-string>xs:string(&quot;00&quot;)</result-string>
     <result>
       <assert-string-value>00</assert-string-value>
     </result>
@@ -510,7 +510,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(mid range) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:nonNegativeInteger(&quot;303884545991464527&quot;),xs:nonNegativeInteger(&quot;0&quot;))</test>
-    <result-string>xs:string('3038845459914645270')</result-string>
+    <result-string>xs:string(&quot;3038845459914645270&quot;)</result-string>
     <result>
       <assert-string-value>3038845459914645270</assert-string-value>
     </result>
@@ -519,7 +519,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(upper bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:nonNegativeInteger(&quot;999999999999999999&quot;),xs:nonNegativeInteger(&quot;0&quot;))</test>
-    <result-string>xs:string('9999999999999999990')</result-string>
+    <result-string>xs:string(&quot;9999999999999999990&quot;)</result-string>
     <result>
       <assert-string-value>9999999999999999990</assert-string-value>
     </result>
@@ -528,7 +528,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:nonNegativeInteger(&quot;0&quot;),xs:nonNegativeInteger(&quot;303884545991464527&quot;))</test>
-    <result-string>xs:string('0303884545991464527')</result-string>
+    <result-string>xs:string(&quot;0303884545991464527&quot;)</result-string>
     <result>
       <assert-string-value>0303884545991464527</assert-string-value>
     </result>
@@ -537,7 +537,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:nonNegativeInteger(&quot;0&quot;),xs:nonNegativeInteger(&quot;999999999999999999&quot;))</test>
-    <result-string>xs:string('0999999999999999999')</result-string>
+    <result-string>xs:string(&quot;0999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>0999999999999999999</assert-string-value>
     </result>
@@ -546,7 +546,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:short(&quot;-32768&quot;),xs:short(&quot;-32768&quot;))</test>
-    <result-string>xs:string('-32768-32768')</result-string>
+    <result-string>xs:string(&quot;-32768-32768&quot;)</result-string>
     <result>
       <assert-string-value>-32768-32768</assert-string-value>
     </result>
@@ -555,7 +555,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:short(mid range) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:short(&quot;-5324&quot;),xs:short(&quot;-32768&quot;))</test>
-    <result-string>xs:string('-5324-32768')</result-string>
+    <result-string>xs:string(&quot;-5324-32768&quot;)</result-string>
     <result>
       <assert-string-value>-5324-32768</assert-string-value>
     </result>
@@ -564,7 +564,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:short(upper bound) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:short(&quot;32767&quot;),xs:short(&quot;-32768&quot;))</test>
-    <result-string>xs:string('32767-32768')</result-string>
+    <result-string>xs:string(&quot;32767-32768&quot;)</result-string>
     <result>
       <assert-string-value>32767-32768</assert-string-value>
     </result>
@@ -573,7 +573,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:short(&quot;-32768&quot;),xs:short(&quot;-5324&quot;))</test>
-    <result-string>xs:string('-32768-5324')</result-string>
+    <result-string>xs:string(&quot;-32768-5324&quot;)</result-string>
     <result>
       <assert-string-value>-32768-5324</assert-string-value>
     </result>
@@ -582,7 +582,7 @@
     <description> Evaluates The &quot;concat&quot; function with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:short(&quot;-32768&quot;),xs:short(&quot;32767&quot;))</test>
-    <result-string>xs:string('-3276832767')</result-string>
+    <result-string>xs:string(&quot;-3276832767&quot;)</result-string>
     <result>
       <assert-string-value>-3276832767</assert-string-value>
     </result>
@@ -591,7 +591,7 @@
     <description>Evaluation of concat function as per example 1 (for this function) from the FO specs. </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat('un', 'grateful')</test>
-    <result-string>xs:string('ungrateful')</result-string>
+    <result-string>xs:string(&quot;ungrateful&quot;)</result-string>
     <result>
       <assert-string-value>ungrateful</assert-string-value>
     </result>
@@ -600,7 +600,7 @@
     <description>Evaluation of concat function as per example 2 (for this function) from the FO specs. </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat('Thy ', (), 'old ', &quot;groans&quot;, &quot;&quot;, ' ring', ' yet', ' in', ' my', ' ancient',' ears.')</test>
-    <result-string>xs:string('Thy old groans ring yet in my ancient ears.')</result-string>
+    <result-string>xs:string(&quot;Thy old groans ring yet in my ancient ears.&quot;)</result-string>
     <result>
       <assert-string-value>Thy old groans ring yet in my ancient ears.</assert-string-value>
     </result>
@@ -609,7 +609,7 @@
     <description>Evaluation of concat function as per example 3 (for this function) from the FO specs. </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat('Ciao!',())</test>
-    <result-string>xs:string('Ciao!')</result-string>
+    <result-string>xs:string(&quot;Ciao!&quot;)</result-string>
     <result>
       <assert-string-value>Ciao!</assert-string-value>
     </result>
@@ -618,7 +618,7 @@
     <description>Evaluation of concat function as per example 4 (for this function) from the FO specs. </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat('Ingratitude, ', 'thou ', 'marble-hearted', ' fiend!')</test>
-    <result-string>xs:string('Ingratitude, thou marble-hearted fiend!')</result-string>
+    <result-string>xs:string(&quot;Ingratitude, thou marble-hearted fiend!&quot;)</result-string>
     <result>
       <assert-string-value>Ingratitude, thou marble-hearted fiend!</assert-string-value>
     </result>
@@ -627,7 +627,7 @@
     <description>Evaluation of concat function that uses only upper case letters as part of argument </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat(&quot;AB&quot;,&quot;CD&quot;)</test>
-    <result-string>xs:string('ABCD')</result-string>
+    <result-string>xs:string(&quot;ABCD&quot;)</result-string>
     <result>
       <assert-string-value>ABCD</assert-string-value>
     </result>
@@ -636,7 +636,7 @@
     <description>Evaluation of concat function that uses only lower case letters as part of argument </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat(&quot;abc&quot;,&quot;de&quot;)</test>
-    <result-string>xs:string('abcde')</result-string>
+    <result-string>xs:string(&quot;abcde&quot;)</result-string>
     <result>
       <assert-string-value>abcde</assert-string-value>
     </result>
@@ -645,7 +645,7 @@
     <description>Evaluation of concat function that uses both upper and lower case letters as part of argument </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat(&quot;ABCDE&quot;,&quot;abcde&quot;)</test>
-    <result-string>xs:string('ABCDEabcde')</result-string>
+    <result-string>xs:string(&quot;ABCDEabcde&quot;)</result-string>
     <result>
       <assert-string-value>ABCDEabcde</assert-string-value>
     </result>
@@ -654,7 +654,7 @@
     <description>Evaluation of concat function that uses the empty string as part of argument Uses &quot;fn:count&quot; to avoid the empty file </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:count(fn:concat(&quot;&quot;,&quot;&quot;))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -663,7 +663,7 @@
     <description>Evaluation of concat function that uses the &quot;upper-case&quot; function as part of argument </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat(fn:upper-case(&quot;Abc&quot;),fn:upper-case(&quot;DH&quot;))</test>
-    <result-string>xs:string('ABCDH')</result-string>
+    <result-string>xs:string(&quot;ABCDH&quot;)</result-string>
     <result>
       <assert-string-value>ABCDH</assert-string-value>
     </result>
@@ -672,7 +672,7 @@
     <description>Evaluation of concat function with argument set to &quot;*****&quot; </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat(&quot;**&quot;,&quot;***&quot;)</test>
-    <result-string>xs:string('*****')</result-string>
+    <result-string>xs:string(&quot;*****&quot;)</result-string>
     <result>
       <assert-string-value>*****</assert-string-value>
     </result>
@@ -681,7 +681,7 @@
     <description>Evaluation of concat function with argument that uses another concat function </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat(fn:concat(&quot;zzz&quot;,&quot;zz&quot;),&quot;123&quot;)</test>
-    <result-string>xs:string('zzzzz123')</result-string>
+    <result-string>xs:string(&quot;zzzzz123&quot;)</result-string>
     <result>
       <assert-string-value>zzzzz123</assert-string-value>
     </result>
@@ -690,7 +690,7 @@
     <description>Evaluation of concat function as an argument to the &quot;fn:boolean&quot; function </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:boolean(fn:concat(&quot;ab&quot;,&quot;cde&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -699,7 +699,7 @@
     <description>Evaluation of concat function as an argument to the &quot;fn:string&quot; function </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:string(fn:concat(&quot;abc&quot;,&quot;de&quot;))</test>
-    <result-string>xs:string('abcde')</result-string>
+    <result-string>xs:string(&quot;abcde&quot;)</result-string>
     <result>
       <assert-string-value>abcde</assert-string-value>
     </result>
@@ -708,7 +708,7 @@
     <description>Evaluation of concat function as an argument to the &quot;fn:not&quot; function </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:not(fn:concat(&quot;ab&quot;,&quot;cde&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -717,7 +717,7 @@
     <description>Evaluation of concat function with argument set to &quot;%$&quot;,#@!&quot; </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat(&quot;%$&quot;,&quot;#@!&quot;)</test>
-    <result-string>xs:string('%$#@!')</result-string>
+    <result-string>xs:string(&quot;%$#@!&quot;)</result-string>
     <result>
       <assert-string-value>%$#@!</assert-string-value>
     </result>
@@ -726,7 +726,7 @@
     <description>Evaluation of concat function with argument set to &quot;concat&quot;,&quot;concat&quot; </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat(&quot;concat&quot;,&quot;concat&quot;)</test>
-    <result-string>xs:string('concatconcat')</result-string>
+    <result-string>xs:string(&quot;concatconcat&quot;)</result-string>
     <result>
       <assert-string-value>concatconcat</assert-string-value>
     </result>
@@ -735,7 +735,7 @@
     <description>Evaluation of concat function as part of a boolean expression </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat(&quot;abc&quot;,&quot;abc&quot;) and fn:concat(&quot;abc&quot;,&quot;abc&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -774,7 +774,7 @@
     <description> A test whose essence is: `concat(&quot;ab&quot;, &quot;c&quot;) eq &quot;abc&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat(&quot;ab&quot;, &quot;c&quot;) eq &quot;abc&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -783,7 +783,7 @@
     <description> A test whose essence is: `concat(&quot;ab&quot;, &quot;c&quot;) instance of xs:string`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat(&quot;ab&quot;, &quot;c&quot;) instance of xs:string</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -792,7 +792,7 @@
     <description> A test whose essence is: `concat((), ()) instance of xs:string`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat((), ()) instance of xs:string</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -801,7 +801,7 @@
     <description> A test whose essence is: `concat((), ()) eq &quot;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat((), ()) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -810,7 +810,7 @@
     <description> A test whose essence is: `concat('a', 'b', 'c', (), 'd', 'e', 'f', 'g', 'h', ' ', 'i', 'j', 'k l') eq &quot;abcdefgh ijk l&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat('a', 'b', 'c', (), 'd', 'e', 'f', 'g', 'h', ' ', 'i', 'j', 'k l') eq &quot;abcdefgh ijk l&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -819,7 +819,7 @@
     <description> A test whose essence is: `concat(1, 2, 3) eq &quot;123&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat(1, 2, 3) eq &quot;123&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -828,7 +828,7 @@
     <description> A test whose essence is: `concat(1, &quot;2&quot;, 3) eq &quot;123&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat(1, &quot;2&quot;, 3) eq &quot;123&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -864,7 +864,7 @@
     <description> test fn:boolean(fn:concat()) where concat returns empty string </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <test>fn:boolean(fn:concat('', ''))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

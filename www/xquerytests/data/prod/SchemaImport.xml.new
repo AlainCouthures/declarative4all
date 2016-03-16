@@ -117,7 +117,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
              fn:not(//atomic:boolean)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -128,7 +128,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
              (fn:avg((//atomic:float,//atomic:float))) eq xs:float(1.26743233E15)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -139,7 +139,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           (fn:avg(//atomic:integer)) eq 12678967543233</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -150,7 +150,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           (fn:avg((//atomic:decimal,//atomic:decimal))) eq 12678967.543233</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -161,7 +161,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           fn:avg((//atomic:double,//atomic:double))</test>
-    <result-string>xs:string('1.26743233E15')</result-string>
+    <result-string>xs:string(&quot;1.26743233E15&quot;)</result-string>
     <result>
       <assert-string-value>1.26743233E15</assert-string-value>
     </result>
@@ -172,7 +172,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           (fn:abs(//atomic:float[1])) eq xs:float(1.26743233E15)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -183,7 +183,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           (fn:abs(//atomic:integer[1])) eq 12678967543233</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -194,7 +194,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           (fn:abs(//atomic:decimal[1])) eq 12678967.543233</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -205,7 +205,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           fn:abs(//atomic:double[1])</test>
-    <result-string>xs:string('1.26743233E15')</result-string>
+    <result-string>xs:string(&quot;1.26743233E15&quot;)</result-string>
     <result>
       <assert-string-value>1.26743233E15</assert-string-value>
     </result>
@@ -216,7 +216,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           (fn:max((//atomic:float,//atomic:float))) eq xs:float(1.26743233E15)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -227,7 +227,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           (fn:max((//atomic:integer,//atomic:integer))) eq 12678967543233</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -238,7 +238,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           (fn:max((//atomic:decimal,//atomic:decimal))) eq 12678967.543233</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -249,7 +249,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           fn:max((//atomic:double,//atomic:double))</test>
-    <result-string>xs:string('1.26743233E15')</result-string>
+    <result-string>xs:string(&quot;1.26743233E15&quot;)</result-string>
     <result>
       <assert-string-value>1.26743233E15</assert-string-value>
     </result>
@@ -260,7 +260,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           (fn:min((//atomic:float,//atomic:float))) eq xs:float(1.26743233E15)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -271,7 +271,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           (fn:min((//atomic:integer,//atomic:integer))) eq 12678967543233</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -282,7 +282,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           (fn:min((//atomic:decimal,//atomic:decimal))) eq 12678967.543233</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -293,7 +293,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           fn:min((//atomic:double,//atomic:double))</test>
-    <result-string>xs:string('1.26743233E15')</result-string>
+    <result-string>xs:string(&quot;1.26743233E15&quot;)</result-string>
     <result>
       <assert-string-value>1.26743233E15</assert-string-value>
     </result>
@@ -304,7 +304,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           fn:hours-from-dateTime(//atomic:dateTime[1])</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;12&quot;)</result-string>
     <result>
       <assert-eq>12</assert-eq>
     </result>
@@ -315,7 +315,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           fn:minutes-from-dateTime(//atomic:dateTime[1])</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -326,7 +326,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           fn:seconds-from-dateTime(//atomic:dateTime[1])</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -337,7 +337,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           ((//atomic:float[1]) + (//atomic:float[1])) eq xs:float(2.53486466E15)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -348,7 +348,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           ((//atomic:integer[1]) + (//atomic:integer[1])) eq 25357935086466</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -359,7 +359,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           ((//atomic:integer[1]) + (//atomic:integer[1])) eq 2.5357935086466E13</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -370,7 +370,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           (//atomic:double[1]) + (//atomic:double[1])</test>
-    <result-string>xs:string('2.53486466E15')</result-string>
+    <result-string>xs:string(&quot;2.53486466E15&quot;)</result-string>
     <result>
       <assert-string-value>2.53486466E15</assert-string-value>
     </result>
@@ -381,7 +381,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           (//atomic:integer[1]) idiv (//atomic:integer[1])</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -392,7 +392,7 @@
     <environment ref="atomic"/>
     <test>import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;;
                           (//atomic:integer[1]) - (//atomic:integer[1])</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -903,7 +903,7 @@
         import module &quot;http://www.fpml.org/2005/FpML-4-2&quot; (:at &quot;xmod043a.xq&quot; :); 
         $hat:twelve
       </test>
-    <result-string>xs:string('12')</result-string>
+    <result-string>xs:string(&quot;12&quot;)</result-string>
     <result>
       <assert-string-value>12</assert-string-value>
     </result>
@@ -1300,7 +1300,7 @@
         <e>{.}</e> instance of element(*, xs:anyType)
       ]]>
     </test>
-    <result-string>xs:string('false true')</result-string>
+    <result-string>xs:string(&quot;false true&quot;)</result-string>
     <result>
       <assert-string-value>false true</assert-string-value>
     </result>
@@ -1330,7 +1330,7 @@
         }; 
         3
       </test>
-    <result-string>xs:string('3')</result-string>
+    <result-string>xs:string(&quot;3&quot;)</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>
@@ -1843,7 +1843,7 @@
         $in instance of schema-element(s:H)
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1864,7 +1864,7 @@
         $in instance of schema-element(s:H)
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1899,7 +1899,7 @@
         $in/s:A instance of schema-element(s:H)
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1921,7 +1921,7 @@
         $in/s:B instance of schema-element(s:H)
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1943,7 +1943,7 @@
         $in/s:C instance of schema-element(s:H)
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1965,7 +1965,7 @@
         $in/s:C instance of schema-element(s:H)
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1987,7 +1987,7 @@
         $in/s:D instance of schema-element(s:H)
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2010,7 +2010,7 @@
         $in/s:E instance of schema-element(s:H)
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2032,7 +2032,7 @@
         $in/s:F instance of schema-element(s:H)
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2069,7 +2069,7 @@
         $in/s:G instance of schema-element(s:H)
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2097,7 +2097,7 @@
         $in/s:E instance of schema-element(s:D)
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2121,7 +2121,7 @@
         $in/s:A instance of schema-element(s:H1)
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2145,7 +2145,7 @@
         $in/s:A instance of schema-element(s:H2)
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2168,7 +2168,7 @@
         $in/s:B instance of schema-element(s:H1)
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2191,7 +2191,7 @@
         $in/s:B instance of schema-element(s:H2)
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2215,7 +2215,7 @@
         $in/s:C instance of schema-element(s:H1)
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2239,7 +2239,7 @@
         $in/s:C instance of schema-element(s:H2)
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2263,7 +2263,7 @@
         local:f#1 instance of function(schema-element(s:A)) as xs:integer
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2282,7 +2282,7 @@
         local:f#1 instance of function(schema-element(s:E)) as xs:integer
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2301,7 +2301,7 @@
         local:f#1 instance of function(schema-element(s:G)) as xs:integer
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2313,7 +2313,7 @@
     <test>
         import schema namespace tc=&quot;http://www.w3.org/XQueryTest/testcases&quot;;
         count(/tc:root/schema-element(tc:schema-element-head))</test>
-    <result-string>xs:string('6')</result-string>
+    <result-string>xs:string(&quot;6&quot;)</result-string>
     <result>
       <assert-string-value>6</assert-string-value>
     </result>
@@ -2325,7 +2325,7 @@
     <test>
         import schema namespace tc=&quot;http://www.w3.org/XQueryTest/testcases&quot;;
         count(/tc:root/schema-element(tc:schema-element-group))</test>
-    <result-string>xs:string('2')</result-string>
+    <result-string>xs:string(&quot;2&quot;)</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
@@ -2337,7 +2337,7 @@
     <test>
         import schema namespace tc=&quot;http://www.w3.org/XQueryTest/testcases&quot;;
         count(/tc:root/schema-element(tc:schema-element-group-nillable))</test>
-    <result-string>xs:string('3')</result-string>
+    <result-string>xs:string(&quot;3&quot;)</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>
@@ -2349,7 +2349,7 @@
     <test>
         import schema namespace tc=&quot;http://www.w3.org/XQueryTest/testcases&quot;;
         count(/tc:root/schema-element(tc:schema-element-nillable-head))</test>
-    <result-string>xs:string('7')</result-string>
+    <result-string>xs:string(&quot;7&quot;)</result-string>
     <result>
       <assert-string-value>7</assert-string-value>
     </result>
@@ -2361,7 +2361,7 @@
     <test>
         import schema namespace tc=&quot;http://www.w3.org/XQueryTest/testcases&quot;;
         count(/tc:root/schema-element(tc:schema-element-nillable-group))</test>
-    <result-string>xs:string('6')</result-string>
+    <result-string>xs:string(&quot;6&quot;)</result-string>
     <result>
       <assert-string-value>6</assert-string-value>
     </result>
@@ -2373,7 +2373,7 @@
     <test>
         import schema namespace tc=&quot;http://www.w3.org/XQueryTest/testcases&quot;;
         count(/tc:root/schema-element(tc:schema-element-nillable-group-restriction))</test>
-    <result-string>xs:string('3')</result-string>
+    <result-string>xs:string(&quot;3&quot;)</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>
@@ -2385,7 +2385,7 @@
     <test>
         import schema namespace tc=&quot;http://www.w3.org/XQueryTest/testcases&quot;;
         count(/tc:root/schema-element(tc:nillable))</test>
-    <result-string>xs:string('3')</result-string>
+    <result-string>xs:string(&quot;3&quot;)</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>
@@ -2397,7 +2397,7 @@
     <test>
         import schema namespace tc=&quot;http://www.w3.org/XQueryTest/testcases&quot;;
         exists(/tc:root/schema-element(tc:schema-element-head)/self::tc:schema-element-group)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2411,7 +2411,7 @@
         import schema namespace tc=&quot;http://www.w3.org/XQueryTest/testcases&quot;;
         declare function local:f($x as schema-element(tc:schema-element-head)) { local-name($x) };
         local:f(exactly-one(/tc:root/schema-element(tc:schema-element-group-nillable)[2]))</test>
-    <result-string>xs:string('schema-element-group-nillable')</result-string>
+    <result-string>xs:string(&quot;schema-element-group-nillable&quot;)</result-string>
     <result>
       <assert-string-value>schema-element-group-nillable</assert-string-value>
     </result>
@@ -2425,7 +2425,7 @@
         import schema namespace tc=&quot;http://www.w3.org/XQueryTest/testcases&quot;;
         let $x := validate strict {/} 
         return count($x/tc:root/schema-element(tc:schema-element-head))</test>
-    <result-string>xs:string('6')</result-string>
+    <result-string>xs:string(&quot;6&quot;)</result-string>
     <result>
       <assert-string-value>6</assert-string-value>
     </result>
@@ -2441,7 +2441,7 @@
         import schema namespace tc="http://www.w3.org/XQueryTest/testcases";
         let $x := <newroot>{/}</newroot> return count($x/tc:root/schema-element(tc:schema-element-head))]]>
     </test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -2458,7 +2458,7 @@
         let $x := validate lax {<newroot>{/}</newroot>} 
         return count($x/tc:root/schema-element(tc:schema-element-head))]]>
     </test>
-    <result-string>xs:string('6')</result-string>
+    <result-string>xs:string(&quot;6&quot;)</result-string>
     <result>
       <assert-string-value>6</assert-string-value>
     </result>
@@ -2471,7 +2471,7 @@
         import schema namespace tc=&quot;http://www.w3.org/XQueryTest/testcases&quot;;
         let $x := validate strict {/} 
         return exists($x/tc:root/schema-element(tc:schema-element-head)/self::tc:schema-element-group)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2483,7 +2483,7 @@
     <test>
         import schema namespace tc=&quot;http://www.w3.org/XQueryTest/testcases&quot;;
         count(/tc:root/tc:schema-attribute/schema-attribute(tc:x))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -2495,7 +2495,7 @@
     <test>
         import schema namespace tc=&quot;http://www.w3.org/XQueryTest/testcases&quot;;
         count(/tc:root/tc:schema-attribute/schema-attribute(tc:y))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -2507,7 +2507,7 @@
     <test>
         import schema namespace tc=&quot;http://www.w3.org/XQueryTest/testcases&quot;;
         count(/tc:root/tc:default-attribute[1]/@attr)</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -2519,7 +2519,7 @@
     <test>
         import schema namespace tc=&quot;http://www.w3.org/XQueryTest/testcases&quot;;
         count(/tc:root/tc:default-attribute[2]/@attr)</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -2531,7 +2531,7 @@
     <test>
         import schema namespace tc=&quot;http://www.w3.org/XQueryTest/testcases&quot;;
         string(/tc:root/tc:fixed-attribute[1]/@attr)</test>
-    <result-string>xs:string('fixed')</result-string>
+    <result-string>xs:string(&quot;fixed&quot;)</result-string>
     <result>
       <assert-string-value>fixed</assert-string-value>
     </result>
@@ -2543,7 +2543,7 @@
     <test>
         import schema namespace tc=&quot;http://www.w3.org/XQueryTest/testcases&quot;;
         string(/tc:root/tc:fixed-attribute[2]/@attr)</test>
-    <result-string>xs:string('fixed')</result-string>
+    <result-string>xs:string(&quot;fixed&quot;)</result-string>
     <result>
       <assert-string-value>fixed</assert-string-value>
     </result>

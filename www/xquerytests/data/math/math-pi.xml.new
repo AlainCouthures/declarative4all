@@ -8,7 +8,7 @@
     <created by="O'Neil Delpratt" on="2010-12-10"/>
     <environment ref="math"/>
     <test>2*math:pi()</test>
-    <result-string/>
+    <result-string>xs:double(&quot;6.283185307179586e0&quot;)</result-string>
     <result>
       <assert-eq>6.283185307179586e0</assert-eq>
     </result>
@@ -29,7 +29,7 @@
     <created by="Michael Kay" on="2013-01-07"/>
     <environment ref="math"/>
     <test>math:pi()</test>
-    <result-string/>
+    <result-string>xs:double(&quot;3.141592653589793e0&quot;)</result-string>
     <result>
       <assert-eq>3.141592653589793e0</assert-eq>
     </result>
@@ -39,7 +39,7 @@
     <created by="Michael Kay" on="2013-01-07"/>
     <environment ref="math"/>
     <test>math:pi#0()</test>
-    <result-string/>
+    <result-string>xs:double(&quot;3.141592653589793e0&quot;)</result-string>
     <result>
       <assert-eq>3.141592653589793e0</assert-eq>
     </result>
@@ -49,7 +49,7 @@
     <created by="Michael Kay" on="2013-01-07"/>
     <environment ref="math"/>
     <test>function-lookup(xs:QName('math:pi'), 0)()</test>
-    <result-string/>
+    <result-string>xs:double(&quot;3.141592653589793e0&quot;)</result-string>
     <result>
       <assert-eq>3.141592653589793e0</assert-eq>
     </result>

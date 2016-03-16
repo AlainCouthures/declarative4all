@@ -60,7 +60,7 @@
     <test>
         import schema default element namespace &quot;http://www.example.com/typedecl&quot;;
         for $test as attribute(*,xs:decimal) in ( /root/InterleaveType2/@integer, /root/InterleaveType2/@decimal ) return data( $test )</test>
-    <result-string>xs:string('10 20')</result-string>
+    <result-string>xs:string(&quot;10 20&quot;)</result-string>
     <result>
       <assert-string-value>10 20</assert-string-value>
     </result>
@@ -71,7 +71,7 @@
     <environment ref="SpecialTypes"/>
     <test>import schema default element namespace &quot;http://www.example.com/typedecl&quot;;
             for $test as attribute( att,Enumeration ) in /root/UserDefinedSimpleTypeAttribute/@att return data( $test )</test>
-    <result-string>xs:string('ok')</result-string>
+    <result-string>xs:string(&quot;ok&quot;)</result-string>
     <result>
       <assert-string-value>ok</assert-string-value>
     </result>
@@ -82,7 +82,7 @@
     <environment ref="SpecialTypes"/>
     <test>import schema default element namespace &quot;http://www.example.com/typedecl&quot;;
             for $test as attribute( *,Enumeration ) in /root/UserDefinedSimpleTypeAttribute/@att return data( $test )</test>
-    <result-string>xs:string('ok')</result-string>
+    <result-string>xs:string(&quot;ok&quot;)</result-string>
     <result>
       <assert-string-value>ok</assert-string-value>
     </result>
@@ -197,7 +197,7 @@
     <environment ref="SpecialTypes"/>
     <test>import schema default element namespace &quot;http://www.example.com/typedecl&quot;;
             for $test as xs:anyAtomicType in data( /root/anyAtomicType/@att ) return $test</test>
-    <result-string>xs:string('10')</result-string>
+    <result-string>xs:string(&quot;10&quot;)</result-string>
     <result>
       <assert-string-value>10</assert-string-value>
     </result>
@@ -208,7 +208,7 @@
     <environment ref="SpecialTypes"/>
     <test>import schema default element namespace &quot;http://www.example.com/typedecl&quot;;
             for $test as xs:decimal in data(/root/InterleaveType/*) return $test</test>
-    <result-string>xs:string('10 20')</result-string>
+    <result-string>xs:string(&quot;10 20&quot;)</result-string>
     <result>
       <assert-string-value>10 20</assert-string-value>
     </result>
@@ -219,7 +219,7 @@
     <environment ref="SpecialTypes"/>
     <test>import schema default element namespace &quot;http://www.example.com/typedecl&quot;;
             for $test as xs:decimal in data( exactly-one(/root/UnionType/*) ) return $test</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;20&quot;)</result-string>
     <result>
       <assert-eq>20</assert-eq>
     </result>
@@ -230,7 +230,7 @@
     <environment ref="SpecialTypes"/>
     <test>import schema default element namespace &quot;http://www.example.com/typedecl&quot;;
             for $test as xs:string in exactly-one(data( /root/ListType )) return $test</test>
-    <result-string>xs:string('entity1 entity2 entity3')</result-string>
+    <result-string>xs:string(&quot;entity1 entity2 entity3&quot;)</result-string>
     <result>
       <assert-string-value>entity1 entity2 entity3</assert-string-value>
     </result>
@@ -241,7 +241,7 @@
     <environment ref="SpecialTypes"/>
     <test>import schema default element namespace &quot;http://www.example.com/typedecl&quot;;
             for $test as Enumeration in exactly-one(data( /root/UserDefinedSimpleType )) return $test</test>
-    <result-string>xs:string('ok')</result-string>
+    <result-string>xs:string(&quot;ok&quot;)</result-string>
     <result>
       <assert-string-value>ok</assert-string-value>
     </result>
@@ -252,7 +252,7 @@
     <environment ref="SpecialTypes"/>
     <test>import schema default element namespace &quot;http://www.example.com/typedecl&quot;;
             for $test as Enumeration in exactly-one(data( /root/UserDefinedSimpleTypeAttribute/@att )) return $test</test>
-    <result-string>xs:string('ok')</result-string>
+    <result-string>xs:string(&quot;ok&quot;)</result-string>
     <result>
       <assert-string-value>ok</assert-string-value>
     </result>

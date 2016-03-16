@@ -16,7 +16,7 @@ $arg2 = xs:dateTime(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) eq xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -35,7 +35,7 @@ $arg2 = xs:dateTime(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;1996-04-07T01:40:52Z&quot;) eq xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -54,7 +54,7 @@ $arg2 = xs:dateTime(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;2030-12-31T23:59:59Z&quot;) eq xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -73,7 +73,7 @@ $arg2 = xs:dateTime(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) eq xs:dateTime(&quot;1996-04-07T01:40:52Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -92,7 +92,7 @@ $arg2 = xs:dateTime(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) eq xs:dateTime(&quot;2030-12-31T23:59:59Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -111,7 +111,7 @@ $arg2 = xs:dateTime(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) ne xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -130,7 +130,7 @@ $arg2 = xs:dateTime(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;1996-04-07T01:40:52Z&quot;) ne xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -149,7 +149,7 @@ $arg2 = xs:dateTime(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;2030-12-31T23:59:59Z&quot;) ne xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -168,7 +168,7 @@ $arg2 = xs:dateTime(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) ne xs:dateTime(&quot;1996-04-07T01:40:52Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -187,7 +187,7 @@ $arg2 = xs:dateTime(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) ne xs:dateTime(&quot;2030-12-31T23:59:59Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -206,7 +206,7 @@ $arg2 = xs:dateTime(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2005-06-03"/>
     <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) le xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -225,7 +225,7 @@ $arg2 = xs:dateTime(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2005-06-03"/>
     <test>xs:dateTime(&quot;1996-04-07T01:40:52Z&quot;) le xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -244,7 +244,7 @@ $arg2 = xs:dateTime(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2005-06-03"/>
     <test>xs:dateTime(&quot;2030-12-31T23:59:59Z&quot;) le xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -263,7 +263,7 @@ $arg2 = xs:dateTime(mid range)
 </description>
     <created by="Carmelo Montanez" on="2005-06-03"/>
     <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) le xs:dateTime(&quot;1996-04-07T01:40:52Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -282,7 +282,7 @@ $arg2 = xs:dateTime(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2005-06-03"/>
     <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) le xs:dateTime(&quot;2030-12-31T23:59:59Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -301,7 +301,7 @@ $arg2 = xs:dateTime(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2005-06-03"/>
     <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) ge xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -320,7 +320,7 @@ $arg2 = xs:dateTime(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2005-06-03"/>
     <test>xs:dateTime(&quot;1996-04-07T01:40:52Z&quot;) ge xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -339,7 +339,7 @@ $arg2 = xs:dateTime(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2005-06-03"/>
     <test>xs:dateTime(&quot;2030-12-31T23:59:59Z&quot;) ge xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -358,7 +358,7 @@ $arg2 = xs:dateTime(mid range)
 </description>
     <created by="Carmelo Montanez" on="2005-06-03"/>
     <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) ge xs:dateTime(&quot;1996-04-07T01:40:52Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -377,7 +377,7 @@ $arg2 = xs:dateTime(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2005-06-03"/>
     <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) ge xs:dateTime(&quot;2030-12-31T23:59:59Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -393,7 +393,7 @@ $arg2 = xs:dateTime(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dateTime(&quot;2004-08-12T23:01:04.12&quot;) eq xs:dateTime(&quot;2004-08-12T23:01:04.12&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -409,7 +409,7 @@ $arg2 = xs:dateTime(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:dateTime(&quot;2004-08-12T23:01:04.12&quot;) eq xs:dateTime(&quot;2004-08-12T23:01:04.13&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -425,7 +425,7 @@ $arg2 = xs:dateTime(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dateTime(&quot;2004-08-12T23:01:05.12&quot;) ne xs:dateTime(&quot;2004-08-12T23:01:04.12&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -441,7 +441,7 @@ $arg2 = xs:dateTime(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:dateTime(&quot;2004-07-12T23:01:04.12&quot;) ne xs:dateTime(&quot;2004-07-12T23:01:04.12&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -457,7 +457,7 @@ $arg2 = xs:dateTime(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dateTime(&quot;1999-12-04T16:00:12.345-00:00&quot;) eq xs:dateTime(&quot;1999-12-04T16:00:12.345Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -473,7 +473,7 @@ $arg2 = xs:dateTime(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dateTime(&quot;1999-12-04T16:00:12.345+00:00&quot;) eq xs:dateTime(&quot;1999-12-04T16:00:12.345Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -489,7 +489,7 @@ $arg2 = xs:dateTime(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dateTime(&quot;1999-12-04T16:00:12.345Z&quot;) eq xs:dateTime(&quot;1999-12-04T16:00:12.345Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -505,7 +505,7 @@ $arg2 = xs:dateTime(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dateTime(&quot;1999-12-04T16:00:12.345-00:00&quot;) eq xs:dateTime(&quot;1999-12-04T16:00:12.345+00:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -905,7 +905,7 @@ $arg2 = xs:dateTime(upper bound)
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dateTime(&quot;2002-03-06T00:00:00Z&quot;) ne xs:dateTime(&quot;2002-03-05T00:00:00+03:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -915,7 +915,7 @@ $arg2 = xs:dateTime(upper bound)
     <created by="Tim Mills" on="2008-05-16"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:two-digit($number as xs:integer) { let $string := string($number) return if (string-length($string) lt 2) then concat('0', $string) else $string }; declare function local:dateTime($year as xs:integer, $month as xs:integer, $day as xs:integer) { let $m := local:two-digit($month), $d := local:two-digit($day) return xs:dateTime(concat($year, '-', $m, '-', $d, &quot;T12:00:00&quot;)) }; not(local:dateTime(2008, 05, 12) eq xs:dateTime(&quot;1972-12-15T12:00:00&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -924,7 +924,7 @@ $arg2 = xs:dateTime(upper bound)
     <description> test comparison of dateTime </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:dateTime(&quot;2008-01-30T00:01:00&quot;) eq xs:dateTime(&quot;2008-01-31T01:00:00+09:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -933,7 +933,7 @@ $arg2 = xs:dateTime(upper bound)
     <description> test comparison of dateTime </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:dateTime(&quot;2008-01-31T00:01:00+09:00&quot;) eq xs:dateTime(&quot;2008-01-30T00:01:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -942,7 +942,7 @@ $arg2 = xs:dateTime(upper bound)
     <description> test comparison of dateTime </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:dateTime(&quot;2008-01-31T00:01:00&quot;) eq xs:dateTime(&quot;2008-01-31T00:01:00+09:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -951,7 +951,7 @@ $arg2 = xs:dateTime(upper bound)
     <description> test comparison of dateTime </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:dateTime(&quot;2008-01-31T00:01:00+09:00&quot;) eq xs:dateTime(&quot;2008-01-31T00:01:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -961,7 +961,7 @@ $arg2 = xs:dateTime(upper bound)
     <created by="Tim Mills" on="2008-05-16"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:two-digit($number as xs:integer) { let $string := string($number) return if (string-length($string) lt 2) then concat('0', $string) else $string }; declare function local:dateTime($year as xs:integer, $month as xs:integer, $day as xs:integer) { let $m := local:two-digit($month), $d := local:two-digit($day) return xs:dateTime(concat($year, '-', $m, '-', $d, &quot;T12:00:00&quot;)) }; not(local:dateTime(2008, 05, 12) ne xs:dateTime(&quot;1972-12-15T12:00:00&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -970,7 +970,7 @@ $arg2 = xs:dateTime(upper bound)
     <description> test comparison of dateTime </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:dateTime(&quot;2008-01-30T00:01:00&quot;) ne xs:dateTime(&quot;2008-01-31T00:01:00+09:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -979,7 +979,7 @@ $arg2 = xs:dateTime(upper bound)
     <description> test comparison of dateTime </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:dateTime(&quot;2008-01-31T00:01:00+09:00&quot;) ne xs:dateTime(&quot;2008-01-30T00:01:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -988,7 +988,7 @@ $arg2 = xs:dateTime(upper bound)
     <description> test comparison of dateTime </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:dateTime(&quot;2008-01-31T00:01:00&quot;) ne xs:dateTime(&quot;2008-01-31T00:01:00+09:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -997,7 +997,7 @@ $arg2 = xs:dateTime(upper bound)
     <description> test comparison of dateTime </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:dateTime(&quot;2008-01-31T00:01:00+09:00&quot;) ne xs:dateTime(&quot;2008-01-31T00:01:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1007,7 +1007,7 @@ $arg2 = xs:dateTime(upper bound)
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:dateTime($dateTime as xs:dateTime, $null as xs:boolean) { if ($null) then () else $dateTime }; exists(local:dateTime(xs:dateTime(&quot;1972-12-15T12:00:00&quot;), fn:true()) eq xs:dateTime(&quot;1972-12-15T12:00:00&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1017,7 +1017,7 @@ $arg2 = xs:dateTime(upper bound)
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:dateTime($dateTime as xs:dateTime, $null as xs:boolean) { if ($null) then () else $dateTime }; local:dateTime(xs:dateTime(&quot;1972-12-15T12:00:00&quot;), fn:false()) eq xs:dateTime(&quot;1972-12-15T12:00:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1027,7 +1027,7 @@ $arg2 = xs:dateTime(upper bound)
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:dateTime($dateTime as xs:dateTime, $null as xs:boolean) { if ($null) then () else $dateTime }; exists(local:dateTime(xs:dateTime(&quot;1972-12-15T12:00:00&quot;), fn:true()) ne xs:dateTime(&quot;1972-12-15T12:00:00&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1037,7 +1037,7 @@ $arg2 = xs:dateTime(upper bound)
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:dateTime($dateTime as xs:dateTime, $null as xs:boolean) { if ($null) then () else $dateTime }; local:dateTime(xs:dateTime(&quot;1972-12-15T12:00:00&quot;), fn:false()) ne xs:dateTime(&quot;1972-12-15T12:00:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1047,7 +1047,7 @@ $arg2 = xs:dateTime(upper bound)
     <created by="Tim Mills" on="2008-05-23"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:dateTime($dateTime as xs:string, $timezone as xs:string) { xs:dateTime( concat($dateTime, $timezone) ) }; adjust-dateTime-to-timezone(local:dateTime(&quot;1972-12-14T00:00:00&quot;, &quot;-12:00&quot;)) eq adjust-dateTime-to-timezone(xs:dateTime(&quot;1972-12-15T00:00:00+12:00&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1057,7 +1057,7 @@ $arg2 = xs:dateTime(upper bound)
     <created by="Tim Mills" on="2008-05-23"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:dateTime($dateTime as xs:string, $timezone as xs:string) { xs:dateTime( concat($dateTime, $timezone) ) }; adjust-dateTime-to-timezone(local:dateTime(&quot;1972-12-14T00:00:00&quot;, &quot;-12:00&quot;)) ne adjust-dateTime-to-timezone(xs:dateTime(&quot;1972-12-15T00:00:00+12:00&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1066,7 +1066,7 @@ $arg2 = xs:dateTime(upper bound)
     <description> test comparison of dateTime </description>
     <created by="Tim Mills" on="2008-05-23"/>
     <test>xs:dateTime(&quot;1972-12-15T00:00:00+12:00&quot;) eq xs:dateTime(&quot;1972-12-15T00:00:01&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1075,7 +1075,7 @@ $arg2 = xs:dateTime(upper bound)
     <description> test comparison of dateTime </description>
     <created by="Tim Mills" on="2008-05-23"/>
     <test>xs:dateTime(&quot;1972-12-15T00:00:00+12:00&quot;) ne xs:dateTime(&quot;1972-12-15T00:00:01&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

@@ -364,7 +364,7 @@ declare option output:version  "5.0";
     <test>
       <![CDATA[ () ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -376,7 +376,7 @@ declare option output:version  "5.0";
     <test>
       <![CDATA[ () ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -388,7 +388,7 @@ declare option output:version  "5.0";
     <test>
       <![CDATA[ () ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -400,7 +400,7 @@ declare option output:version  "5.0";
     <test>
       <![CDATA[ () ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -412,7 +412,7 @@ declare option output:version  "5.0";
     <test>
       <![CDATA[ () ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -424,7 +424,7 @@ declare option output:version  "5.0";
     <test>
       <![CDATA[ () ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -436,7 +436,7 @@ declare option output:version  "5.0";
     <test>
       <![CDATA[ () ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -448,7 +448,7 @@ declare option output:version  "5.0";
     <test>
       <![CDATA[ () ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -460,7 +460,7 @@ declare option output:version  "5.0";
     <test>
       <![CDATA[ () ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -472,7 +472,7 @@ declare option output:version  "5.0";
     <test>
       <![CDATA[ () ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -484,7 +484,7 @@ declare option output:version  "5.0";
     <test>
       <![CDATA[ () ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -496,7 +496,7 @@ declare option output:version  "5.0";
     <test>
       <![CDATA[ () ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -508,7 +508,7 @@ declare option output:version  "5.0";
     <test>
       <![CDATA[ () ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -938,7 +938,7 @@ declare option output:doctype-public  "-//W3C//DTD HTML 4.0//EN";
     <test>
       <![CDATA[ () ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -950,7 +950,7 @@ declare option output:doctype-public  "-//W3C//DTD HTML 4.0//EN";
     <test>
       <![CDATA[ () ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>

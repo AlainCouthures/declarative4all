@@ -1,6 +1,6 @@
 <!--
 XSLTForms rev.632 (632)
-xf:trimmed Demo
+xf:wrap Demo
 
 Copyright (C) 2016 agenceXML - Alain COUTHURES
 Contact at : xsltforms@agencexml.com
@@ -26,8 +26,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 <dcterms:hasVersion>rev.632 (632)</dcterms:hasVersion>
 <dcterms:creator>Alain Couthures - agenceXML</dcterms:creator>
 <dcterms:conformsTo>XForms 1.1</dcterms:conformsTo>
-<dcterms:created>2016-02-24</dcterms:created>
-<dcterms:description>xf:trimmed Demo</dcterms:description>
+<dcterms:created>2016-03-16</dcterms:created>
+<dcterms:description>xf:wrap Demo</dcterms:description>
 <dcterms:format>text/xsl</dcterms:format>
 </rdf:Description>
 </rdf:RDF><xsl:output method='html' encoding='utf-8' omit-xml-declaration='yes' indent='no' doctype-public='-//W3C//DTD HTML 4.01 Transitional//EN' doctype-system='http://www.w3.org/TR/html4/loose.dtd'/>
@@ -383,7 +383,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 				<xsl:text>";
 </xsl:text>
 			</script>
-			<link type="text/css" href="{$resourcesdircss}xsltforms.css" rel="stylesheet"/>
+			<link type="text/css" href="{$resourcesdircss}xsltforms.css" pivalue="{translate(normalize-space(/processing-instruction('xml-stylesheet')[1]), '.', '.')}" rel="stylesheet"/>
 			<xsl:apply-templates select="xhtml:head/xhtml:*[local-name() != 'script' and local-name() != 'style' and local-name() != 'link' and local-name() != 'meta'] | xhtml:head/comment() | head/title | head/comment()" mode="nons"/>
 			<xsl:apply-templates select="xhtml:head/xhtml:style | xhtml:head/xhtml:link | head/style | head/link">
 				<xsl:with-param name="config" select="$script/config"/>
@@ -799,7 +799,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 <xsl:template match="processing-instruction()" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
 <xsl:template match="comment()" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
 <xsl:template match="text()" mode="item" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"/>
-<xsl:template match="xforms:setvalue|xforms:insert|xforms:delete|xforms:dispatch|xforms:action|xforms:load|xforms:toggle|xforms:send|xforms:setfocus" priority="2" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xforms="http://www.w3.org/2002/xforms"/>
+<xsl:template match="xforms:setvalue|xforms:insert|xforms:delete|xforms:dispatch|xforms:action|xforms:load|xforms:toggle|xforms:send|xforms:setfocus|xforms:wrap" priority="2" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xforms="http://www.w3.org/2002/xforms"/>
 <xsl:template match="xforms:setindex|xforms:setnode|xforms:reset|xforms:refresh|xforms:rebuild|xforms:recalculate|xforms:revalidate|xforms:unload" priority="2" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xforms="http://www.w3.org/2002/xforms"/>
 <xsl:template match="xforms:hint|xforms:alert|xforms:help|xforms:value|xforms:item|xforms:itemset|xforms:choices|xforms:filename" priority="2" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xforms="http://www.w3.org/2002/xforms"/>
 <xsl:template match="xforms:model|xforms:show|xforms:hide" priority="2" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xforms="http://www.w3.org/2002/xforms"/>
@@ -3208,7 +3208,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 		<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="@iterate"/></xsl:call-template>
 		<xsl:text>)</xsl:text>
 		<xsl:for-each select="node()">
-			<xsl:if test="contains(':var:setvalue:split:insert:delete:action:toggle:send:setfocus:setindex:setnode:load:message:dispatch:rebuild:recalculate:refresh:reset:revalidate:show:hide:script:unload:',concat(':',local-name(),':'))">
+			<xsl:if test="contains(':var:wrap:setvalue:split:insert:delete:action:toggle:send:setfocus:setindex:setnode:load:message:dispatch:rebuild:recalculate:refresh:reset:revalidate:show:hide:script:unload:',concat(':',local-name(),':'))">
 				<xsl:text>.add(</xsl:text>
 				<xsl:value-of select="$vn_pf"/>
 				<xsl:value-of select="local-name()"/>
@@ -5242,6 +5242,37 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 		<xsl:with-param name="workid" select="$workid"/>
 	</xsl:call-template>
 </xsl:template>
+<xsl:template match="xforms:wrap" mode="script" priority="1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xforms="http://www.w3.org/2002/xforms">
+	<xsl:param name="parentworkid"/>
+	<xsl:param name="workid" select="concat(position(),'_',$parentworkid)"/>
+	<xsl:apply-templates select="@*" mode="scriptattr"/>
+	<js xmlns="">
+		<xsl:text>var </xsl:text>
+		<xsl:value-of select="$vn_pf"/>
+		<xsl:text>wrap_</xsl:text>
+		<xsl:value-of select="$workid"/>
+		<xsl:text> = new XsltForms_wrap(</xsl:text>
+		<xsl:value-of select="$vn_subform"/>
+		<xsl:text>,</xsl:text>
+		<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="@control"/></xsl:call-template>
+		<xsl:text>,</xsl:text>
+		<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="@pre"/></xsl:call-template>
+		<xsl:text>,</xsl:text>
+		<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="@post"/></xsl:call-template>
+		<xsl:text>,</xsl:text>
+		<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="@context"/></xsl:call-template>
+		<xsl:text>,null,</xsl:text>
+		<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="@if"/></xsl:call-template>
+		<xsl:text>,</xsl:text>
+		<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="@while"/></xsl:call-template>
+		<xsl:text>,</xsl:text>
+		<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="@iterate"/></xsl:call-template>
+		<xsl:text>);</xsl:text>
+	</js>
+	<xsl:apply-templates select="node()" mode="script">
+		<xsl:with-param name="parentworkid" select="$workid"/>
+	</xsl:apply-templates>
+</xsl:template>
 <xsl:template match="xforms:script" mode="script" priority="1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xforms="http://www.w3.org/2002/xforms">
 	<xsl:param name="parentworkid"/>
 	<xsl:param name="workid" select="concat(position(),'_',$parentworkid)"/>
@@ -5445,7 +5476,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 		</xsl:choose>
 	</xsl:variable>
 	<xsl:for-each select="node()">
-		<xsl:if test="namespace-uri() = 'http://www.w3.org/2002/xforms' and contains(':setvalue:split:insert:load:delete:action:toggle:send:setfocus:setnode:dispatch:message:show:hide:script:unload:',concat(':',local-name(),':'))">
+		<xsl:if test="namespace-uri() = 'http://www.w3.org/2002/xforms' and contains(':setvalue:split:insert:load:delete:action:toggle:send:setfocus:setnode:dispatch:message:show:hide:script:unload:wrap:',concat(':',local-name(),':'))">
 			<js xmlns="">
 				<xsl:text>new XsltForms_listener(</xsl:text>
 				<xsl:value-of select="$vn_subform"/>

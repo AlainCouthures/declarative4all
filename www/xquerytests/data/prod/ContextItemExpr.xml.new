@@ -21,7 +21,7 @@
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in /works/employee[1] return $var/xs:string(exactly-one(empnum))</test>
-    <result-string>xs:string('E1')</result-string>
+    <result-string>xs:string(&quot;E1&quot;)</result-string>
     <result>
       <assert-string-value>E1</assert-string-value>
     </result>
@@ -31,7 +31,7 @@
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in (/works/employee[1]) return $var/xs:integer(exactly-one(hours))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;40&quot;)</result-string>
     <result>
       <assert-eq>40</assert-eq>
     </result>
@@ -41,7 +41,7 @@
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in (/works/employee[1]) return $var/xs:decimal(exactly-one(hours))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;40&quot;)</result-string>
     <result>
       <assert-eq>40</assert-eq>
     </result>
@@ -51,7 +51,7 @@
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in /works/employee[1] return $var/xs:float(exactly-one(hours))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;40&quot;)</result-string>
     <result>
       <assert-eq>40</assert-eq>
     </result>
@@ -61,7 +61,7 @@
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in (/works/employee[1]) return $var/xs:double(exactly-one(hours))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;40&quot;)</result-string>
     <result>
       <assert-eq>40</assert-eq>
     </result>
@@ -71,7 +71,7 @@
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in (/works/employee[1]) return $var/xs:boolean(exactly-one(hours) - 39)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -81,7 +81,7 @@
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in (/works/employee[1]) return $var/fn:not(xs:boolean(exactly-one(hours) - 39))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -91,7 +91,7 @@
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in (/works/employee[1]) return $var/fn:sum((hours,hours))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;80&quot;)</result-string>
     <result>
       <assert-eq>80</assert-eq>
     </result>
@@ -101,7 +101,7 @@
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in (/works/employee[1]) return $var/(exactly-one(hours) + exactly-one(hours))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;80&quot;)</result-string>
     <result>
       <assert-eq>80</assert-eq>
     </result>
@@ -111,7 +111,7 @@
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in (/works/employee[1]) return $var/(exactly-one(hours) - exactly-one(hours))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -121,7 +121,7 @@
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in (/works/employee[1]) return $var/(exactly-one(hours) * exactly-one(hours))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1600&quot;)</result-string>
     <result>
       <assert-eq>1600</assert-eq>
     </result>
@@ -131,7 +131,7 @@
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in (/works/employee[1]) return $var/(exactly-one(hours) mod exactly-one(hours))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -141,7 +141,7 @@
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in (/works/employee[1]) return $var/(exactly-one(hours) div exactly-one(hours))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -151,7 +151,7 @@
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in (/works/employee[1]) return $var/(exactly-one(hours) idiv exactly-one(hours))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -161,7 +161,7 @@
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in (/works/employee[1]) return $var/(xs:boolean(exactly-one(hours) - 39) and xs:boolean(exactly-one(hours) - 39))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -171,7 +171,7 @@
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in (/works/employee[1]) return $var/(xs:boolean(exactly-one(hours) - 39) or xs:boolean(exactly-one(hours) - 39))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -181,7 +181,7 @@
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in (/works/employee[1]) return $var/fn:string-length(exactly-one(hours))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -191,7 +191,7 @@
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in (/works/employee[1]) return $var/fn:avg((hours,hours,hours))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;40&quot;)</result-string>
     <result>
       <assert-eq>40</assert-eq>
     </result>
@@ -201,7 +201,7 @@
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in (/works/employee[1]) return $var/fn:min((hours,hours,22))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;22&quot;)</result-string>
     <result>
       <assert-eq>22</assert-eq>
     </result>
@@ -211,7 +211,7 @@
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in (/works/employee[1]) return $var/fn:max((hours,exactly-one(hours) + 1,22))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;41&quot;)</result-string>
     <result>
       <assert-eq>41</assert-eq>
     </result>
@@ -275,7 +275,7 @@
     <description> context item expression wher context item is string. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;)[xs:string(.)]</test>
-    <result-string>xs:string('A B C')</result-string>
+    <result-string>xs:string(&quot;A B C&quot;)</result-string>
     <result>
       <assert-string-value>A B C</assert-string-value>
     </result>
@@ -284,7 +284,7 @@
     <description> context item expression wher context item is an integer. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(1,2,3)[xs:integer(.)]</test>
-    <result-string>xs:string('1 2 3')</result-string>
+    <result-string>xs:string(&quot;1 2 3&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3</assert-string-value>
     </result>
@@ -293,7 +293,7 @@
     <description> context item expression wher context item is a decimal. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(1,2,3)[xs:decimal(.)]</test>
-    <result-string>xs:string('1 2 3')</result-string>
+    <result-string>xs:string(&quot;1 2 3&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3</assert-string-value>
     </result>
@@ -302,7 +302,7 @@
     <description> context item expression where context item is a float. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(1,2,3)[xs:float(.)]</test>
-    <result-string>xs:string('1 2 3')</result-string>
+    <result-string>xs:string(&quot;1 2 3&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3</assert-string-value>
     </result>
@@ -311,7 +311,7 @@
     <description> context item expression where context item is a double. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(1,2,3)[xs:double(.)]</test>
-    <result-string>xs:string('1 2 3')</result-string>
+    <result-string>xs:string(&quot;1 2 3&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3</assert-string-value>
     </result>
@@ -320,7 +320,7 @@
     <description> context item expression where context item is an xs:boolean. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(fn:true(),fn:false(),fn:true())[xs:boolean(.)]</test>
-    <result-string>xs:string('true true')</result-string>
+    <result-string>xs:string(&quot;true true&quot;)</result-string>
     <result>
       <assert-string-value>true true</assert-string-value>
     </result>
@@ -329,7 +329,7 @@
     <description> context item expression where context item is an xs:boolean used with fn:not(). </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(fn:false(),fn:true(),fn:false())[fn:not(xs:boolean(.))]</test>
-    <result-string>xs:string('false false')</result-string>
+    <result-string>xs:string(&quot;false false&quot;)</result-string>
     <result>
       <assert-string-value>false false</assert-string-value>
     </result>
@@ -350,7 +350,7 @@
     <description> context item expression where context item used in addition operation. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(1,2,3)[(. + .) gt 1]</test>
-    <result-string>xs:string('1 2 3')</result-string>
+    <result-string>xs:string(&quot;1 2 3&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3</assert-string-value>
     </result>
@@ -359,7 +359,7 @@
     <description> context item expression where context item used in subtraction operation. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(3,4,5)[(xs:integer(5) - xs:integer(.)) gt 1]</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -368,7 +368,7 @@
     <description> context item expression where context item used in multiplication operation. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(3,4,5)[(xs:integer(.) * xs:integer(.)) gt 2]</test>
-    <result-string>xs:string('3 4 5')</result-string>
+    <result-string>xs:string(&quot;3 4 5&quot;)</result-string>
     <result>
       <assert-string-value>3 4 5</assert-string-value>
     </result>
@@ -377,7 +377,7 @@
     <description> context item expression where context item used in mod operation. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(6,10,14)[(xs:integer(.) mod xs:integer(3)) gt 1]</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;14&quot;)</result-string>
     <result>
       <assert-eq>14</assert-eq>
     </result>
@@ -386,7 +386,7 @@
     <description> context item expression where context item used in division (div operator) operation. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(6,10,14)[(xs:integer(.) div xs:integer(3)) gt 2]</test>
-    <result-string>xs:string('10 14')</result-string>
+    <result-string>xs:string(&quot;10 14&quot;)</result-string>
     <result>
       <assert-string-value>10 14</assert-string-value>
     </result>
@@ -395,7 +395,7 @@
     <description> context item expression where context item used in division (idiv operator) operation. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(6,10,14)[(xs:integer(.) idiv xs:integer(3)) gt 2]</test>
-    <result-string>xs:string('10 14')</result-string>
+    <result-string>xs:string(&quot;10 14&quot;)</result-string>
     <result>
       <assert-string-value>10 14</assert-string-value>
     </result>
@@ -404,7 +404,7 @@
     <description> context item expression where context item used in a boolean (and operator)expression. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(fn:true(),fn:false(),fn:true())[xs:boolean(.) and xs:boolean(.)]</test>
-    <result-string>xs:string('true true')</result-string>
+    <result-string>xs:string(&quot;true true&quot;)</result-string>
     <result>
       <assert-string-value>true true</assert-string-value>
     </result>
@@ -413,7 +413,7 @@
     <description> context item expression where context item used in a boolean (or operator)expression. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(fn:true(),fn:false(),fn:true())[xs:boolean(.) or xs:boolean(.)]</test>
-    <result-string>xs:string('true true')</result-string>
+    <result-string>xs:string(&quot;true true&quot;)</result-string>
     <result>
       <assert-string-value>true true</assert-string-value>
     </result>
@@ -422,7 +422,7 @@
     <description> context item expression where context item used with string-length function. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(&quot;ABC&quot;, &quot;DEF&quot;,&quot;A&quot;)[fn:string-length(.) gt 2]</test>
-    <result-string>xs:string('ABC DEF')</result-string>
+    <result-string>xs:string(&quot;ABC DEF&quot;)</result-string>
     <result>
       <assert-string-value>ABC DEF</assert-string-value>
     </result>
@@ -431,7 +431,7 @@
     <description> context item expression where context item used with &quot;avg&quot; function. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(1,2,3)[fn:avg((.,2,3)) gt 2]</test>
-    <result-string>xs:string('2 3')</result-string>
+    <result-string>xs:string(&quot;2 3&quot;)</result-string>
     <result>
       <assert-string-value>2 3</assert-string-value>
     </result>
@@ -440,7 +440,7 @@
     <description> context item expression where context item used with &quot;min&quot; function. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(1,2,3)[fn:min((.,2)) eq 2]</test>
-    <result-string>xs:string('2 3')</result-string>
+    <result-string>xs:string(&quot;2 3&quot;)</result-string>
     <result>
       <assert-string-value>2 3</assert-string-value>
     </result>
@@ -449,7 +449,7 @@
     <description> context item expression where context item used with &quot;max&quot; function. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(1,2,3)[fn:min((.,3)) eq 3]</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>

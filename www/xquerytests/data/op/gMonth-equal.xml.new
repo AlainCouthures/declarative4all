@@ -16,7 +16,7 @@ $arg2 = xs:gMonth(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gMonth(&quot;--01Z&quot;) eq xs:gMonth(&quot;--01Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -35,7 +35,7 @@ $arg2 = xs:gMonth(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gMonth(&quot;--07Z&quot;) eq xs:gMonth(&quot;--01Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -54,7 +54,7 @@ $arg2 = xs:gMonth(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gMonth(&quot;--12Z&quot;) eq xs:gMonth(&quot;--01Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -73,7 +73,7 @@ $arg2 = xs:gMonth(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gMonth(&quot;--01Z&quot;) eq xs:gMonth(&quot;--07Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -92,7 +92,7 @@ $arg2 = xs:gMonth(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gMonth(&quot;--01Z&quot;) eq xs:gMonth(&quot;--12Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -111,7 +111,7 @@ $arg2 = xs:gMonth(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gMonth(&quot;--01Z&quot;) ne xs:gMonth(&quot;--01Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -130,7 +130,7 @@ $arg2 = xs:gMonth(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gMonth(&quot;--07Z&quot;) ne xs:gMonth(&quot;--01Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -149,7 +149,7 @@ $arg2 = xs:gMonth(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gMonth(&quot;--12Z&quot;) ne xs:gMonth(&quot;--01Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -168,7 +168,7 @@ $arg2 = xs:gMonth(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gMonth(&quot;--01Z&quot;) ne xs:gMonth(&quot;--07Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -187,7 +187,7 @@ $arg2 = xs:gMonth(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gMonth(&quot;--01Z&quot;) ne xs:gMonth(&quot;--12Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -203,7 +203,7 @@ As per example 2 (for this function) of the FO  specs
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>(xs:gMonth(&quot;--12-05:00&quot;) eq xs:gMonth(&quot;--12Z&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -220,7 +220,7 @@ return true and used together with fn:not (eq operator)
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>fn:not((xs:gMonth(&quot;--12Z&quot;) eq xs:gMonth(&quot;--12Z&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -237,7 +237,7 @@ return true and used together with fn:not (ne operator)
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>fn:not(xs:gMonth(&quot;--05Z&quot;) ne xs:gMonth(&quot;--06Z&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -254,7 +254,7 @@ return false and used together with fn:not (eq operator)
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>fn:not(xs:gMonth(&quot;--11Z&quot;) eq xs:gMonth(&quot;--10Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -271,7 +271,7 @@ return false and used together with fn:not(ne operator)
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>fn:not(xs:gMonth(&quot;--05Z&quot;) ne xs:gMonth(&quot;--05Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -288,7 +288,7 @@ together with &quot;and&quot; expression (eq operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>(xs:gMonth(&quot;--04Z&quot;) eq xs:gMonth(&quot;--02Z&quot;)) and (xs:gMonth(&quot;--01Z&quot;) eq xs:gMonth(&quot;--12Z&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -305,7 +305,7 @@ together with &quot;and&quot; expression (ne operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>(xs:gMonth(&quot;--12Z&quot;) ne xs:gMonth(&quot;--03Z&quot;)) and (xs:gMonth(&quot;--05Z&quot;) ne xs:gMonth(&quot;--08Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -322,7 +322,7 @@ together with &quot;or&quot; expression (eq operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>(xs:gMonth(&quot;--02Z&quot;) eq xs:gMonth(&quot;--02Z&quot;)) or (xs:gMonth(&quot;--06Z&quot;) eq xs:gMonth(&quot;--06Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -339,7 +339,7 @@ together with &quot;or&quot; expression (ne operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>(xs:gMonth(&quot;--06Z&quot;) ne xs:gMonth(&quot;--06Z&quot;)) or (xs:gMonth(&quot;--08Z&quot;) ne xs:gMonth(&quot;--09Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -356,7 +356,7 @@ together with &quot;fn:true&quot;/or expression (eq operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>(xs:gMonth(&quot;--03Z&quot;) eq xs:gMonth(&quot;--01Z&quot;)) or (fn:true())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -373,7 +373,7 @@ together with &quot;fn:true&quot;/or expression (ne operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>(xs:gMonth(&quot;--08Z&quot;) ne xs:gMonth(&quot;--07Z&quot;)) or (fn:true())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -390,7 +390,7 @@ together with &quot;fn:false&quot;/or expression (eq operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>(xs:gMonth(&quot;--05Z&quot;) eq xs:gMonth(&quot;--05Z&quot;)) or (fn:false())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -407,7 +407,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>(xs:gMonth(&quot;--09Z&quot;) ne xs:gMonth(&quot;--09Z&quot;)) or (fn:false())</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -423,7 +423,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:gMonth(&quot;--11 &quot;) eq xs:gMonth(&quot;--11&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -439,7 +439,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:gMonth(&quot;--11&quot;) eq xs:gMonth(&quot;--01&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -455,7 +455,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:gMonth(&quot;--12&quot;) ne xs:gMonth(&quot;--10&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -471,7 +471,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:gMonth(&quot;--03&quot;) ne xs:gMonth(&quot;--03&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -487,7 +487,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:gMonth(&quot;--01-00:00&quot;) eq xs:gMonth(&quot;--01Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -503,7 +503,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:gMonth(&quot;--01+00:00&quot;) eq xs:gMonth(&quot;--01Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -519,7 +519,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:gMonth(&quot;--01Z&quot;) eq xs:gMonth(&quot;--01Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -535,7 +535,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:gMonth(&quot;--01-00:00&quot;) eq xs:gMonth(&quot;--01+00:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -545,7 +545,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <created by="Tim Mills" on="2008-05-16"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:gMonth($month as xs:integer) { if ($month lt 10) then xs:gMonth(concat(&quot;--0&quot;, $month)) else xs:gMonth(concat(&quot;--&quot;, $month)) }; not(local:gMonth(1) eq xs:gMonth(&quot;--06&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -557,7 +557,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('PT9M'))
             then xs:gMonth(&quot;--06&quot;) eq xs:gMonth(&quot;--06+09:01&quot;)
             else xs:gMonth(&quot;--06&quot;) eq xs:gMonth(&quot;--06+09:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -569,7 +569,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('PT9M'))
             then xs:gMonth(&quot;--06+09:01&quot;) eq xs:gMonth(&quot;--06&quot;)
             else xs:gMonth(&quot;--06+09:00&quot;) eq xs:gMonth(&quot;--06&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -581,7 +581,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('-PT9M'))
             then xs:gMonth(&quot;--06&quot;) eq xs:gMonth(&quot;--06-09:01&quot;)
             else xs:gMonth(&quot;--06&quot;) eq xs:gMonth(&quot;--06-09:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -593,7 +593,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('-PT9M'))
             then xs:gMonth(&quot;--06-09:01&quot;) eq xs:gMonth(&quot;--06&quot;)
             else xs:gMonth(&quot;--06-09:00&quot;) eq xs:gMonth(&quot;--06&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -603,7 +603,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <created by="Tim Mills" on="2008-05-16"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:gMonth($month as xs:integer) { if ($month lt 10) then xs:gMonth(concat(&quot;--0&quot;, $month)) else xs:gMonth(concat(&quot;--&quot;, $month)) }; not(local:gMonth(1) ne xs:gMonth(&quot;--06&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -615,7 +615,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('PT9M'))
             then xs:gMonth(&quot;--06&quot;) ne xs:gMonth(&quot;--06+09:01&quot;)
             else xs:gMonth(&quot;--06&quot;) ne xs:gMonth(&quot;--06+09:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -627,7 +627,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('PT9M'))
             then xs:gMonth(&quot;--06+09:01&quot;) ne xs:gMonth(&quot;--06&quot;)
             else xs:gMonth(&quot;--06+09:00&quot;) ne xs:gMonth(&quot;--06&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -639,7 +639,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('-PT9M'))
             then xs:gMonth(&quot;--06&quot;) ne xs:gMonth(&quot;--06-09:01&quot;)
             else xs:gMonth(&quot;--06&quot;) ne xs:gMonth(&quot;--06-09:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -651,7 +651,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('-PT9M'))
             then xs:gMonth(&quot;--06-09:01&quot;) ne xs:gMonth(&quot;--06&quot;)
             else xs:gMonth(&quot;--06-09:00&quot;) ne xs:gMonth(&quot;--06&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -661,7 +661,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:gMonth($gMonth as xs:gMonth, $null as xs:boolean) { if ($null) then () else $gMonth }; exists(local:gMonth(xs:gMonth(&quot;--12&quot;), fn:true()) eq xs:gMonth(&quot;--12&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -671,7 +671,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:gMonth($gMonth as xs:gMonth, $null as xs:boolean) { if ($null) then () else $gMonth }; local:gMonth(xs:gMonth(&quot;--12&quot;), fn:false()) eq xs:gMonth(&quot;--12&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -681,7 +681,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:gMonth($gMonth as xs:gMonth, $null as xs:boolean) { if ($null) then () else $gMonth }; exists(local:gMonth(xs:gMonth(&quot;--12&quot;), fn:true()) ne xs:gMonth(&quot;--12&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -691,7 +691,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:gMonth($gMonth as xs:gMonth, $null as xs:boolean) { if ($null) then () else $gMonth }; local:gMonth(xs:gMonth(&quot;--12&quot;), fn:false()) ne xs:gMonth(&quot;--12&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

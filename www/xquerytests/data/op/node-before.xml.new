@@ -172,7 +172,7 @@
     <test>
       <![CDATA[/works[1]/employee[1]/empnum[1] << /works[1]/employee[1]/empnum[1]]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -241,7 +241,7 @@
          and ($works/works[1]/employee[1]/empnum[1] >> $staff/staff[1]/employee[2]/empnum[1]) 
          and ($works/works[1]/employee[1]/empnum[1] >> $staff/staff[1]/employee[3]/empnum[1]))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -254,7 +254,7 @@
     <test>
       <![CDATA[(/staff[1]/employee[1]/empnum[1]) << (/staff[1]/employee[1]/empnum[1])]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -266,7 +266,7 @@
     <test>
       <![CDATA[fn:not((/staff[1]/employee[1]/empnum[1]) << (/staff[1]/employee[1]/empnum[1]))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -280,7 +280,7 @@
          lt 
          ((/staff[1]/employee[1]/empnum[1]) << (/staff[1]/employee[1]/empnum[1]))]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -294,7 +294,7 @@
          ge
          ((/staff[1]/employee[1]/empnum[1]) << (/staff[1]/employee[1]/empnum[1]))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -307,7 +307,7 @@
       <![CDATA[((/staff[1]/employee[1]/empnum[1]) << (/staff[1]/employee[1]/empnum[1])) 
          gt ((/staff[1]/employee[1]/empnum[1]) << (/staff[1]/employee[1]/empnum[1]))]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -320,7 +320,7 @@
       <![CDATA[((/staff[1]/employee[1]/empnum[1]) << (/staff[1]/employee[1]/empnum[1])) 
          le ((/staff[1]/employee[1]/empnum[1]) << (/staff[1]/employee[1]/empnum[1]))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -482,7 +482,7 @@
       	return not(exactly-one($node/b[1]) << exactly-one($node/c[1]))
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -497,7 +497,7 @@
       	return not(not(exactly-one($node/b[1]) << exactly-one($node/c[1])))
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

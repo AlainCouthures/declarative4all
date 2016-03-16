@@ -7,7 +7,7 @@
     <description>Keys in empty map</description>
     <created by="Michael Kay, Saxonica" on="2011-03-27"/>
     <test>map:keys(map{})</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -16,7 +16,7 @@
     <description>Keys in empty map</description>
     <created by="Michael Kay, Saxonica" on="2011-03-27"/>
     <test>map:keys(map:new(()))</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -116,7 +116,7 @@
     <description>Keys after removing the only entry</description>
     <created by="Michael Kay, Saxonica" on="2011-03-27"/>
     <test>map:keys(map:remove(map:entry(1,2),1))</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -125,7 +125,7 @@
     <description>Keys after removing the only two entries</description>
     <created by="Michael Kay, Saxonica" on="2011-03-27"/>
     <test>map:keys(map:remove(map:remove(map{&quot;a&quot;:=1,&quot;b&quot;:=2},&quot;b&quot;),&quot;a&quot;))</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>

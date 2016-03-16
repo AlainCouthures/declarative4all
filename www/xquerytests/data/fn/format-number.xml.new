@@ -10,7 +10,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat01.xml-->
     <test>format-number(2392.14*36.58,'000,000.000000')</test>
-    <result-string>xs:string('087,504.481200')</result-string>
+    <result-string>xs:string(&quot;087,504.481200&quot;)</result-string>
     <result>
       <assert-string-value>087,504.481200</assert-string-value>
     </result>
@@ -22,7 +22,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat02.xml-->
     <test>format-number(12792.14*96.58,'##,###,000.000###')</test>
-    <result-string>xs:string('1,235,464.8812')</result-string>
+    <result-string>xs:string(&quot;1,235,464.8812&quot;)</result-string>
     <result>
       <assert-string-value>1,235,464.8812</assert-string-value>
     </result>
@@ -34,7 +34,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat03.xml-->
     <test>format-number(2792.14*(-36.58),'000,000.000###')</test>
-    <result-string>xs:string('-102,136.4812')</result-string>
+    <result-string>xs:string(&quot;-102,136.4812&quot;)</result-string>
     <result>
       <assert-string-value>-102,136.4812</assert-string-value>
     </result>
@@ -46,7 +46,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat04.xml-->
     <test>format-number(2392.14*(-36.58),'000,000.000###;###,###.000###')</test>
-    <result-string>xs:string('87,504.4812')</result-string>
+    <result-string>xs:string(&quot;87,504.4812&quot;)</result-string>
     <result>
       <assert-string-value>87,504.4812</assert-string-value>
     </result>
@@ -58,7 +58,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat05.xml-->
     <test>format-number(0.4857,'###.###%')</test>
-    <result-string>xs:string('48.57%')</result-string>
+    <result-string>xs:string(&quot;48.57%&quot;)</result-string>
     <result>
       <assert-string-value>48.57%</assert-string-value>
     </result>
@@ -70,7 +70,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat06.xml-->
     <test>format-number(0.4857,'###.###')</test>
-    <result-string>xs:string('485.7')</result-string>
+    <result-string>xs:string(&quot;485.7&quot;)</result-string>
     <result>
       <assert-string-value>485.7</assert-string-value>
     </result>
@@ -82,7 +82,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat07.xml-->
     <test>format-number(95.4857,'###.####')</test>
-    <result-string>xs:string('95.4857')</result-string>
+    <result-string>xs:string(&quot;95.4857&quot;)</result-string>
     <result>
       <assert-string-value>95.4857</assert-string-value>
     </result>
@@ -94,7 +94,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat08.xml-->
     <test>format-number(2.14*86.58,'PREFIX##00.000###SUFFIX')</test>
-    <result-string>xs:string('PREFIX185.2812SUFFIX')</result-string>
+    <result-string>xs:string(&quot;PREFIX185.2812SUFFIX&quot;)</result-string>
     <result>
       <assert-string-value>PREFIX185.2812SUFFIX</assert-string-value>
     </result>
@@ -109,7 +109,7 @@
       <decimal-format decimal-separator="|" grouping-separator="."/>
     </environment>
     <test>format-number(931.4857,'000.000|###')</test>
-    <result-string>xs:string('000.931|486')</result-string>
+    <result-string>xs:string(&quot;000.931|486&quot;)</result-string>
     <result>
       <assert-string-value>000.931|486</assert-string-value>
     </result>
@@ -124,7 +124,7 @@
       <decimal-format digit="!" pattern-separator="\"/>
     </environment>
     <test>format-number(26931.4,'+!!!,!!!.!!!\-!!,!!!.!!!')</test>
-    <result-string>xs:string('+26,931.4')</result-string>
+    <result-string>xs:string(&quot;+26,931.4&quot;)</result-string>
     <result>
       <assert-string-value>+26,931.4</assert-string-value>
     </result>
@@ -139,7 +139,7 @@
       <decimal-format digit="!" pattern-separator="\"/>
     </environment>
     <test>format-number(-26931.4,'+!!,!!!.!!!\-!!!,!!!.!!!')</test>
-    <result-string>xs:string('-26,931.4')</result-string>
+    <result-string>xs:string(&quot;-26,931.4&quot;)</result-string>
     <result>
       <assert-string-value>-26,931.4</assert-string-value>
     </result>
@@ -154,7 +154,7 @@
       <decimal-format digit="!" pattern-separator="\"/>
     </environment>
     <test>format-number(-26931.4,'!!!,!!!.!!!')</test>
-    <result-string>xs:string('-26,931.4')</result-string>
+    <result-string>xs:string(&quot;-26,931.4&quot;)</result-string>
     <result>
       <assert-string-value>-26,931.4</assert-string-value>
     </result>
@@ -169,7 +169,7 @@
       <decimal-format infinity="off-the-scale"/>
     </environment>
     <test>format-number(1 div 0e0,'###############################')</test>
-    <result-string>xs:string('off-the-scale')</result-string>
+    <result-string>xs:string(&quot;off-the-scale&quot;)</result-string>
     <result>
       <assert-string-value>off-the-scale</assert-string-value>
     </result>
@@ -186,7 +186,7 @@
     <dependency type="feature" value="xpath-1.0-compatibility"/>
     <dependency type="spec" value="XP30+"/>
     <test>format-number('foo','#############')</test>
-    <result-string>xs:string('non-numeric')</result-string>
+    <result-string>xs:string(&quot;non-numeric&quot;)</result-string>
     <result>
       <assert-string-value>non-numeric</assert-string-value>
     </result>
@@ -201,7 +201,7 @@
       <decimal-format per-mille="m"/>
     </environment>
     <test>format-number(0.4857,'###.###m')</test>
-    <result-string>xs:string('485.7m')</result-string>
+    <result-string>xs:string(&quot;485.7m&quot;)</result-string>
     <result>
       <assert-string-value>485.7m</assert-string-value>
     </result>
@@ -216,7 +216,7 @@
       <decimal-format minus-sign="_"/>
     </environment>
     <test>format-number(-26931.4,'+###,###.###;-###,###.###')</test>
-    <result-string>xs:string('-26,931.4')</result-string>
+    <result-string>xs:string(&quot;-26,931.4&quot;)</result-string>
     <result>
       <assert-string-value>-26,931.4</assert-string-value>
     </result>
@@ -231,7 +231,7 @@
       <decimal-format minus-sign="_"/>
     </environment>
     <test>format-number(-26931.4,'###,###.###')</test>
-    <result-string>xs:string('_26,931.4')</result-string>
+    <result-string>xs:string(&quot;_26,931.4&quot;)</result-string>
     <result>
       <assert-string-value>_26,931.4</assert-string-value>
     </result>
@@ -247,7 +247,7 @@
     </environment>
     <test>concat(format-number(-26931.4,'###,###.###','myminus'), '/',
             format-number(-42857.1,'###,###.###'))</test>
-    <result-string>xs:string('_26,931.4/-42,857.1')</result-string>
+    <result-string>xs:string(&quot;_26,931.4/-42,857.1&quot;)</result-string>
     <result>
       <assert-string-value>_26,931.4/-42,857.1</assert-string-value>
     </result>
@@ -264,7 +264,7 @@
       <decimal-format decimal-separator="*" grouping-separator="!" name="decimal1"/>
     </environment>
     <test>format-number(1234.567,'#*###*###!###','foo:decimal1')</test>
-    <result-string>xs:string('1*234!567')</result-string>
+    <result-string>xs:string(&quot;1*234!567&quot;)</result-string>
     <result>
       <assert-string-value>1*234!567</assert-string-value>
     </result>
@@ -283,7 +283,7 @@
       <decimal-format decimal-separator="," grouping-separator=" "/>
     </environment>
     <test>format-number(7654321.4857,'### ### ###,#####')</test>
-    <result-string>xs:string('7 654 321,4857')</result-string>
+    <result-string>xs:string(&quot;7 654 321,4857&quot;)</result-string>
     <result>
       <assert-string-value>7 654 321,4857</assert-string-value>
     </result>
@@ -301,7 +301,7 @@
                         format-number(2392.14*36.58,'000,000.000000;###,###.000###'),
                         format-number(2392.14*36.58,'000,000.000000;###,###.000###','myminus')), ' ')
       </test>
-    <result-string>xs:string('087,504.481200 087,504.481200 087,504.481200')</result-string>
+    <result-string>xs:string(&quot;087,504.481200 087,504.481200 087,504.481200&quot;)</result-string>
     <result>
       <assert-string-value>087,504.481200 087,504.481200 087,504.481200</assert-string-value>
     </result>
@@ -314,7 +314,7 @@
     <!--SOURCE: numberformat/numberformat28.xml-->
     <environment/>
     <test>format-number(2392.14*(-36.58),'000,000.000###;-###,###.000###')</test>
-    <result-string>xs:string('-87,504.4812')</result-string>
+    <result-string>xs:string(&quot;-87,504.4812&quot;)</result-string>
     <result>
       <assert-string-value>-87,504.4812</assert-string-value>
     </result>
@@ -329,7 +329,7 @@
       <decimal-format minus-sign="_"/>
     </environment>
     <test>format-number(-26931.4,'+###,###.###;_###,###.###')</test>
-    <result-string>xs:string('_26,931.4')</result-string>
+    <result-string>xs:string(&quot;_26,931.4&quot;)</result-string>
     <result>
       <assert-string-value>_26,931.4</assert-string-value>
     </result>
@@ -347,7 +347,7 @@
                 format-number(-26931.4,'-###,###.###'),
                 format-number(-26931.4,'zzz-###,###.###','myminus'),
                 format-number(-26931.4,'_###,###.###','myminus')), ' ')</test>
-    <result-string>xs:string('--26,931.4 _zzz-26,931.4 __26,931.4')</result-string>
+    <result-string>xs:string(&quot;--26,931.4 _zzz-26,931.4 __26,931.4&quot;)</result-string>
     <result>
       <assert-string-value>--26,931.4 _zzz-26,931.4 __26,931.4</assert-string-value>
     </result>
@@ -362,7 +362,7 @@
       <decimal-format minus-sign="_"/>
     </environment>
     <test>format-number(-26931.4,'###,###.###;###,###.###')</test>
-    <result-string>xs:string('26,931.4')</result-string>
+    <result-string>xs:string(&quot;26,931.4&quot;)</result-string>
     <result>
       <assert-string-value>26,931.4</assert-string-value>
     </result>
@@ -377,7 +377,7 @@
       <decimal-format percent="c"/>
     </environment>
     <test>format-number(0.4857,'###.###c')</test>
-    <result-string>xs:string('48.57c')</result-string>
+    <result-string>xs:string(&quot;48.57c&quot;)</result-string>
     <result>
       <assert-string-value>48.57c</assert-string-value>
     </result>
@@ -392,7 +392,7 @@
       <decimal-format digit="!" zero-digit="&#1632;"/>
     </environment>
     <test>format-number(4030201.0506,'#!!!,!!!,.0')</test>
-    <result-string>xs:string('#,,.0')</result-string>
+    <result-string>xs:string(&quot;#,,.0&quot;)</result-string>
     <result>
       <assert-string-value>#,,.0</assert-string-value>
     </result>
@@ -405,7 +405,7 @@
     <!--SOURCE: numberformat/numberformat35.xml-->
     <environment/>
     <test>format-number(987654321,'###,##0,00.00')</test>
-    <result-string>xs:string('9876,543,21.00')</result-string>
+    <result-string>xs:string(&quot;9876,543,21.00&quot;)</result-string>
     <result>
       <assert-string-value>9876,543,21.00</assert-string-value>
     </result>
@@ -418,7 +418,7 @@
     <!--SOURCE: numberformat/numberformat36.xml-->
     <environment/>
     <test>format-number(239236.588,'00000.00')</test>
-    <result-string>xs:string('239236.59')</result-string>
+    <result-string>xs:string(&quot;239236.59&quot;)</result-string>
     <result>
       <assert-string-value>239236.59</assert-string-value>
     </result>
@@ -431,7 +431,7 @@
     <!--SOURCE: numberformat/numberformat37.xml-->
     <environment/>
     <test>format-number(1 div 0e0,'###############################')</test>
-    <result-string>xs:string('Infinity')</result-string>
+    <result-string>xs:string(&quot;Infinity&quot;)</result-string>
     <result>
       <assert-string-value>Infinity</assert-string-value>
     </result>
@@ -446,7 +446,7 @@
     <dependency type="feature" value="xpath-1.0-compatibility"/>
     <dependency type="spec" value="XP30+"/>
     <test>format-number('foo','#############')</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -459,7 +459,7 @@
     <!--SOURCE: numberformat/numberformat39.xml-->
     <environment/>
     <test>format-number(-1 div 0e0,'###############################')</test>
-    <result-string>xs:string('-Infinity')</result-string>
+    <result-string>xs:string(&quot;-Infinity&quot;)</result-string>
     <result>
       <assert-string-value>-Infinity</assert-string-value>
     </result>
@@ -474,7 +474,7 @@
       <decimal-format infinity="huge"/>
     </environment>
     <test>format-number(-1 div 0e0,'###############################')</test>
-    <result-string>xs:string('-huge')</result-string>
+    <result-string>xs:string(&quot;-huge&quot;)</result-string>
     <result>
       <assert-string-value>-huge</assert-string-value>
     </result>
@@ -499,7 +499,7 @@
                 format-number(-13.2,'###.0','foo:decimal1'),
                 format-number('NaN','###','baz:decimal1'),
                 format-number(-13.2,'###.0','baz:decimal1')), '|')</test>
-    <result-string>xs:string('not a number|-13.2|not a number|-13.2')</result-string>
+    <result-string>xs:string(&quot;not a number|-13.2|not a number|-13.2&quot;)</result-string>
     <result>
       <assert-string-value>not a number|-13.2|not a number|-13.2</assert-string-value>
     </result>
@@ -518,7 +518,7 @@
     <dependency type="spec" value="XP30+"/>
     <test>concat(format-number('NaN','###','decimal2'), '|',
                       format-number(3.2,'###.0','decimal2'))</test>
-    <result-string>xs:string('not a number|3.2')</result-string>
+    <result-string>xs:string(&quot;not a number|3.2&quot;)</result-string>
     <result>
       <assert-string-value>not a number|3.2</assert-string-value>
     </result>
@@ -535,7 +535,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
     <test>format-number(1E25,'#,######')</test>
-    <result-string>xs:string('10,000000,000000,000000,000000')</result-string>
+    <result-string>xs:string(&quot;10,000000,000000,000000,000000&quot;)</result-string>
     <result>
       <assert-string-value>10,000000,000000,000000,000000</assert-string-value>
     </result>
@@ -548,7 +548,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
     <test>format-number(1E10,'#####################')</test>
-    <result-string>xs:string('10000000000')</result-string>
+    <result-string>xs:string(&quot;10000000000&quot;)</result-string>
     <result>
       <assert-string-value>10000000000</assert-string-value>
     </result>
@@ -561,7 +561,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
     <test>format-number(1E11,'#####################')</test>
-    <result-string>xs:string('100000000000')</result-string>
+    <result-string>xs:string(&quot;100000000000&quot;)</result-string>
     <result>
       <assert-string-value>100000000000</assert-string-value>
     </result>
@@ -574,7 +574,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
     <test>format-number(1E12,'#####################')</test>
-    <result-string>xs:string('1000000000000')</result-string>
+    <result-string>xs:string(&quot;1000000000000&quot;)</result-string>
     <result>
       <assert-string-value>1000000000000</assert-string-value>
     </result>
@@ -587,7 +587,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
     <test>format-number(1E13,'#####################')</test>
-    <result-string>xs:string('10000000000000')</result-string>
+    <result-string>xs:string(&quot;10000000000000&quot;)</result-string>
     <result>
       <assert-string-value>10000000000000</assert-string-value>
     </result>
@@ -600,7 +600,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
     <test>format-number(1E14,'#####################')</test>
-    <result-string>xs:string('100000000000000')</result-string>
+    <result-string>xs:string(&quot;100000000000000&quot;)</result-string>
     <result>
       <assert-string-value>100000000000000</assert-string-value>
     </result>
@@ -613,7 +613,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
     <test>format-number(1E15,'#####################')</test>
-    <result-string>xs:string('1000000000000000')</result-string>
+    <result-string>xs:string(&quot;1000000000000000&quot;)</result-string>
     <result>
       <assert-string-value>1000000000000000</assert-string-value>
     </result>
@@ -626,7 +626,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
     <test>format-number(1E16,'#####################')</test>
-    <result-string>xs:string('10000000000000000')</result-string>
+    <result-string>xs:string(&quot;10000000000000000&quot;)</result-string>
     <result>
       <assert-string-value>10000000000000000</assert-string-value>
     </result>
@@ -639,7 +639,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
     <test>format-number(1E17,'#####################')</test>
-    <result-string>xs:string('100000000000000000')</result-string>
+    <result-string>xs:string(&quot;100000000000000000&quot;)</result-string>
     <result>
       <assert-string-value>100000000000000000</assert-string-value>
     </result>
@@ -652,7 +652,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
     <test>format-number(1E18,'#####################')</test>
-    <result-string>xs:string('1000000000000000000')</result-string>
+    <result-string>xs:string(&quot;1000000000000000000&quot;)</result-string>
     <result>
       <assert-string-value>1000000000000000000</assert-string-value>
     </result>
@@ -665,7 +665,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
     <test>format-number(1E19,'#####################')</test>
-    <result-string>xs:string('10000000000000000000')</result-string>
+    <result-string>xs:string(&quot;10000000000000000000&quot;)</result-string>
     <result>
       <assert-string-value>10000000000000000000</assert-string-value>
     </result>
@@ -678,7 +678,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
     <test>format-number(1E20,'#####################')</test>
-    <result-string>xs:string('100000000000000000000')</result-string>
+    <result-string>xs:string(&quot;100000000000000000000&quot;)</result-string>
     <result>
       <assert-string-value>100000000000000000000</assert-string-value>
     </result>
@@ -691,7 +691,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
     <test>format-number(1E25,'#####################')</test>
-    <result-string>xs:string('10000000000000000000000000')</result-string>
+    <result-string>xs:string(&quot;10000000000000000000000000&quot;)</result-string>
     <result>
       <assert-string-value>10000000000000000000000000</assert-string-value>
     </result>
@@ -704,7 +704,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
     <test>format-number(1E30,'#####################')</test>
-    <result-string>xs:string('1000000000000000000000000000000')</result-string>
+    <result-string>xs:string(&quot;1000000000000000000000000000000&quot;)</result-string>
     <result>
       <assert-string-value>1000000000000000000000000000000</assert-string-value>
     </result>
@@ -717,7 +717,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
     <test>format-number(1E35,'#####################')</test>
-    <result-string>xs:string('100000000000000000000000000000000000')</result-string>
+    <result-string>xs:string(&quot;100000000000000000000000000000000000&quot;)</result-string>
     <result>
       <assert-string-value>100000000000000000000000000000000000</assert-string-value>
     </result>
@@ -730,7 +730,7 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
     <test>format-number(1E100,'#####################')</test>
-    <result-string>xs:string('10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000')</result-string>
+    <result-string>xs:string(&quot;10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&quot;)</result-string>
     <result>
       <assert-string-value>10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</assert-string-value>
     </result>
@@ -744,7 +744,7 @@
     <modified by="Michael Kay" change="changed expected result for 1e100 div 3 as per bug 14934" on="2012-05-17"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
     <test>format-number(1E100 div 3,'#####################')</test>
-    <result-string>xs:string('3333333333333333000000000000000000000000000000000000000000000000000000000000000000000000000000000000')</result-string>
+    <result-string>xs:string(&quot;3333333333333333000000000000000000000000000000000000000000000000000000000000000000000000000000000000&quot;)</result-string>
     <result>
       <assert-string-value>3333333333333333000000000000000000000000000000000000000000000000000000000000000000000000000000000000</assert-string-value>
     </result>
@@ -757,7 +757,7 @@
     <!--SOURCE: numberformat/stdxmlfile.xml-->
     <environment/>
     <test>format-number((),'###.###')</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -808,7 +808,7 @@
     </environment>
     <test>concat(format-number(1234e0, '0000.####'), '|',
                     format-number(1234.00, '0000.####'))</test>
-    <result-string>xs:string('1234|1234')</result-string>
+    <result-string>xs:string(&quot;1234|1234&quot;)</result-string>
     <result>
       <assert-string-value>1234|1234</assert-string-value>
     </result>
@@ -823,7 +823,7 @@
       <decimal-format decimal-separator="&#44464;" grouping-separator="&#44465;"/>
     </environment>
     <test>format-number(1234567890.123456,'000000')</test>
-    <result-string>xs:string('1234567890123')</result-string>
+    <result-string>xs:string(&quot;1234567890123&quot;)</result-string>
     <result>
       <assert-string-value>1234567890123</assert-string-value>
     </result>
@@ -838,7 +838,7 @@
       <decimal-format zero-digit="&#1184;"/>
     </environment>
     <test>format-number(1234567890.123456,'##########.#####')</test>
-    <result-string>xs:string('.')</result-string>
+    <result-string>xs:string(&quot;.&quot;)</result-string>
     <result>
       <assert-string-value>.</assert-string-value>
     </result>
@@ -851,7 +851,7 @@
     <!--SOURCE: numberformat/stdxmlfile.xml-->
     <environment/>
     <test>format-number(1234567890.123456,'000.000')</test>
-    <result-string>xs:string('1234567890.123')</result-string>
+    <result-string>xs:string(&quot;1234567890.123&quot;)</result-string>
     <result>
       <assert-string-value>1234567890.123</assert-string-value>
     </result>
@@ -864,7 +864,7 @@
     <!--SOURCE: numberformat/numberformat80.xml-->
     <environment/>
     <test>format-number(12.34, '##.##')</test>
-    <result-string>xs:string('12.34')</result-string>
+    <result-string>xs:string(&quot;12.34&quot;)</result-string>
     <result>
       <assert-string-value>12.34</assert-string-value>
     </result>
@@ -880,7 +880,7 @@
       <decimal-format decimal-separator="," grouping-separator="." name="a:test" xmlns:a="http://a.ns/"/>
     </environment>
     <test>format-number(12.34, '0.000,00', ' b:test ')</test>
-    <result-string>xs:string('0.012,34')</result-string>
+    <result-string>xs:string(&quot;0.012,34&quot;)</result-string>
     <result>
       <assert-string-value>0.012,34</assert-string-value>
     </result>
@@ -895,7 +895,7 @@
       <decimal-format decimal-separator="," grouping-separator="." name="two"/>
     </environment>
     <test>format-number(12.34, '0.000,00', if (current-date() gt xs:date('1900-01-01')) then 'two' else 'one')</test>
-    <result-string>xs:string('0.012,34')</result-string>
+    <result-string>xs:string(&quot;0.012,34&quot;)</result-string>
     <result>
       <assert-string-value>0.012,34</assert-string-value>
     </result>
@@ -913,7 +913,7 @@
       <decimal-format decimal-separator="," grouping-separator="." name="y:one" xmlns:y="http://b.ns/"/>
     </environment>
     <test>format-number(12.34, '0.000,00', concat(if (current-date() lt xs:date('1900-01-01')) then ' a' else ' b', ':one '))</test>
-    <result-string>xs:string('0.012,34')</result-string>
+    <result-string>xs:string(&quot;0.012,34&quot;)</result-string>
     <result>
       <assert-string-value>0.012,34</assert-string-value>
     </result>
@@ -926,7 +926,7 @@
     <!--SOURCE: numberformat/numberformat84.xml-->
     <environment/>
     <test>format-number(123456789.34, '#,###.##')</test>
-    <result-string>xs:string('123,456,789.34')</result-string>
+    <result-string>xs:string(&quot;123,456,789.34&quot;)</result-string>
     <result>
       <assert-string-value>123,456,789.34</assert-string-value>
     </result>
@@ -945,7 +945,7 @@
                 format-number(xs:float(0), '#')), '|')
         
       </test>
-    <result-string>xs:string('0|0|0|0')</result-string>
+    <result-string>xs:string(&quot;0|0|0|0&quot;)</result-string>
     <result>
       <assert-string-value>0|0|0|0</assert-string-value>
     </result>
@@ -955,7 +955,7 @@
     <created by="Michael Kay, Saxonica" on="2011-12-06"/>
     <dependency type="spec" value="XQ30+ XP30+"/>
     <test>format-number(0.4857,'###.###%', ())</test>
-    <result-string>xs:string('48.57%')</result-string>
+    <result-string>xs:string(&quot;48.57%&quot;)</result-string>
     <result>
       <assert-string-value>48.57%</assert-string-value>
     </result>
@@ -969,7 +969,7 @@
       <decimal-format decimal-separator="," grouping-separator="." name="a:test" xmlns:a="http://a.ns/"/>
     </environment>
     <test>format-number(12.34, '0.000,00', 'Q{http://a.ns/}test ')</test>
-    <result-string>xs:string('0.012,34')</result-string>
+    <result-string>xs:string(&quot;0.012,34&quot;)</result-string>
     <result>
       <assert-string-value>0.012,34</assert-string-value>
     </result>
@@ -983,7 +983,7 @@
       <decimal-format decimal-separator="," grouping-separator="." name="a:test" xmlns:a="http://a.ns/"/>
     </environment>
     <test>format-number(12.34, '0.000,00', if (current-date() lt xs:date('1900-01-01')) then () else ' Q{http://a.ns/}test')</test>
-    <result-string>xs:string('0.012,34')</result-string>
+    <result-string>xs:string(&quot;0.012,34&quot;)</result-string>
     <result>
       <assert-string-value>0.012,34</assert-string-value>
     </result>
@@ -994,7 +994,7 @@
     </description>
     <created by="Michael Kay, Saxonica" on="2013-05-15"/>
     <test>format-number(12.34, '9,999.99')</test>
-    <result-string>xs:string('0,012.34')</result-string>
+    <result-string>xs:string(&quot;0,012.34&quot;)</result-string>
     <result>
       <assert-string-value>0,012.34</assert-string-value>
     </result>
@@ -1005,7 +1005,7 @@
     </description>
     <created by="Michael Kay, Saxonica" on="2013-05-15"/>
     <test>format-number(12.34, '#,##9.99')</test>
-    <result-string>xs:string('12.34')</result-string>
+    <result-string>xs:string(&quot;12.34&quot;)</result-string>
     <result>
       <assert-string-value>12.34</assert-string-value>
     </result>
@@ -1016,7 +1016,7 @@
     </description>
     <created by="Michael Kay, Saxonica" on="2013-05-15"/>
     <test>format-number(42, '001')</test>
-    <result-string>xs:string('042')</result-string>
+    <result-string>xs:string(&quot;042&quot;)</result-string>
     <result>
       <assert-string-value>042</assert-string-value>
     </result>
@@ -1109,7 +1109,7 @@
     <created by="Zhen Hua Liu" on="2012-01-18"/>
     <environment/>
     <test>format-number(number(&quot;abc&quot;),'#############')</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>

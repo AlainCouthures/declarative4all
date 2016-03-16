@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;string-join&quot; function with the arguments set as follows: $arg1 = xs:string(lower bound) $arg2 = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string-join(xs:string(&quot;This is a characte&quot;),xs:string(&quot;This is a characte&quot;))</test>
-    <result-string>xs:string('This is a characte')</result-string>
+    <result-string>xs:string(&quot;This is a characte&quot;)</result-string>
     <result>
       <assert-string-value>This is a characte</assert-string-value>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;string-join&quot; function with the arguments set as follows: $arg1 = xs:string(mid range) $arg2 = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string-join(xs:string(&quot;This is a characte&quot;),xs:string(&quot;This is a characte&quot;))</test>
-    <result-string>xs:string('This is a characte')</result-string>
+    <result-string>xs:string(&quot;This is a characte&quot;)</result-string>
     <result>
       <assert-string-value>This is a characte</assert-string-value>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;string-join&quot; function with the arguments set as follows: $arg1 = xs:string(upper bound) $arg2 = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string-join(xs:string(&quot;This is a characte&quot;),xs:string(&quot;This is a characte&quot;))</test>
-    <result-string>xs:string('This is a characte')</result-string>
+    <result-string>xs:string(&quot;This is a characte&quot;)</result-string>
     <result>
       <assert-string-value>This is a characte</assert-string-value>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluates The &quot;string-join&quot; function with the arguments set as follows: $arg1 = xs:string(lower bound) $arg2 = xs:string(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string-join(xs:string(&quot;This is a characte&quot;),xs:string(&quot;This is a characte&quot;))</test>
-    <result-string>xs:string('This is a characte')</result-string>
+    <result-string>xs:string(&quot;This is a characte&quot;)</result-string>
     <result>
       <assert-string-value>This is a characte</assert-string-value>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluates The &quot;string-join&quot; function with the arguments set as follows: $arg1 = xs:string(lower bound) $arg2 = xs:string(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string-join(xs:string(&quot;This is a characte&quot;),xs:string(&quot;This is a characte&quot;))</test>
-    <result-string>xs:string('This is a characte')</result-string>
+    <result-string>xs:string(&quot;This is a characte&quot;)</result-string>
     <result>
       <assert-string-value>This is a characte</assert-string-value>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluates The &quot;string-join&quot; function as per example 1 for this frunction in FO sepecs. </description>
     <created by="Carmelo Montanez" on="2005-06-24"/>
     <test>fn:string-join(('Now', 'is', 'the', 'time', '...'), ' ')</test>
-    <result-string>xs:string('Now is the time ...')</result-string>
+    <result-string>xs:string(&quot;Now is the time ...&quot;)</result-string>
     <result>
       <assert-string-value>Now is the time ...</assert-string-value>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluates The &quot;string-join&quot; function as per example 2 for this function in the FO specs. </description>
     <created by="Carmelo Montanez" on="2005-06-24"/>
     <test>fn:string-join(('Blow, ', 'blow, ', 'thou ', 'winter ', 'wind!'), '')</test>
-    <result-string>xs:string('Blow, blow, thou winter wind!')</result-string>
+    <result-string>xs:string(&quot;Blow, blow, thou winter wind!&quot;)</result-string>
     <result>
       <assert-string-value>Blow, blow, thou winter wind!</assert-string-value>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluates The &quot;string-join&quot; function as per example 3 for this function in the FO specs. Use of fn:count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-06-24"/>
     <test>fn:count(fn:string-join((), 'separator'))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluates The &quot;string-join&quot; function with the arguments set as follows: $arg1 = () $arg2 = &quot;&quot; </description>
     <created by="Carmelo Montanez" on="2005-06-24"/>
     <test>fn:count(fn:string-join((),&quot;&quot;))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluates The &quot;string-join&quot; function with the arguments set as follows: $arg1 = &quot;&quot; $arg2 = &quot;&quot; </description>
     <created by="Carmelo Montanez" on="2005-06-24"/>
     <test>fn:count(fn:string-join(&quot;&quot;,&quot;&quot;))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluates The &quot;string-join&quot; function with the arguments set as follows: $arg1 = &quot;&quot; $arg2 = &quot;A Character String&quot;. </description>
     <created by="Carmelo Montanez" on="2005-06-24"/>
     <test>fn:count(fn:string-join(&quot;&quot;,&quot;A Character String&quot;))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluates The &quot;string-join&quot; function with the arguments set as follows: $arg1 = () $arg2 = &quot;A Character String&quot; </description>
     <created by="Carmelo Montanez" on="2005-06-24"/>
     <test>fn:count(fn:string-join((),&quot;A Character String&quot;))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluates The &quot;string-join&quot; function with the arguments set as follows: $arg1 = &quot;AAAAABBBBBCCCCC&quot; $arg2 = &quot;BBBBB&quot; </description>
     <created by="Carmelo Montanez" on="2005-06-24"/>
     <test>fn:string-join((&quot;AAAAABBBBBCCCCC&quot;),&quot;BBBBB&quot;)</test>
-    <result-string>xs:string('AAAAABBBBBCCCCC')</result-string>
+    <result-string>xs:string(&quot;AAAAABBBBBCCCCC&quot;)</result-string>
     <result>
       <assert-string-value>AAAAABBBBBCCCCC</assert-string-value>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluates The &quot;string-join&quot; function with the arguments set as follows: $arg1 = (&quot;AAAAABBBBB&quot;) $arg2 = &quot; &quot; </description>
     <created by="Carmelo Montanez" on="2005-06-24"/>
     <test>fn:string-join((&quot;AAAAABBBBB&quot;),&quot; &quot;)</test>
-    <result-string>xs:string('AAAAABBBBB')</result-string>
+    <result-string>xs:string(&quot;AAAAABBBBB&quot;)</result-string>
     <result>
       <assert-string-value>AAAAABBBBB</assert-string-value>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluates The &quot;string-join&quot; function with the arguments set as follows: $arg1 = (&quot; &quot;) $arg2 = &quot; AAAAABBBBB&quot;. Use of count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-06-24"/>
     <test>fn:count(fn:string-join((&quot; &quot;),&quot;AAAAABBBBB&quot;))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluates The &quot;string-join&quot; function using it as a argument of a fn:not - returns true </description>
     <created by="Carmelo Montanez" on="2005-06-24"/>
     <test>fn:not(fn:string-join((),&quot;A&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluates The &quot;string-join&quot; function using it as a argument of a fn:not - returns true </description>
     <created by="Carmelo Montanez" on="2005-06-24"/>
     <test>fn:not(fn:string-join((&quot;A&quot;),&quot;B&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluates The &quot;string-join&quot; function with the arguments set as follows: $arg1 = xs:string(&quot;A&quot;) $arg2 = &quot;A&quot; </description>
     <created by="Carmelo Montanez" on="2005-06-24"/>
     <test>fn:string-join((xs:string(&quot;A&quot;)),&quot;A&quot;)</test>
-    <result-string>xs:string('A')</result-string>
+    <result-string>xs:string(&quot;A&quot;)</result-string>
     <result>
       <assert-string-value>A</assert-string-value>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluates The &quot;string-join&quot; function with the arguments set as follows: $arg1 = &quot;A&quot; $arg2 = xs:string(&quot;A&quot;) </description>
     <created by="Carmelo Montanez" on="2005-06-24"/>
     <test>fn:string-join((&quot;A&quot;),xs:string(&quot;A&quot;))</test>
-    <result-string>xs:string('A')</result-string>
+    <result-string>xs:string(&quot;A&quot;)</result-string>
     <result>
       <assert-string-value>A</assert-string-value>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluates The &quot;string-join&quot; function with the arguments set as follows: $arg1 = &quot;A&quot; $arg2 = &quot;a&quot; </description>
     <created by="Carmelo Montanez" on="2005-06-24"/>
     <test>fn:string-join((&quot;A&quot;),&quot;a&quot;)</test>
-    <result-string>xs:string('A')</result-string>
+    <result-string>xs:string(&quot;A&quot;)</result-string>
     <result>
       <assert-string-value>A</assert-string-value>
     </result>
@@ -186,7 +186,7 @@
     <description> Evaluates The &quot;string-join&quot; function with the arguments set as follows: $arg1 = &quot;a&quot; $arg2 = &quot;A&quot; </description>
     <created by="Carmelo Montanez" on="2005-06-24"/>
     <test>fn:string-join((&quot;a&quot;),&quot;A&quot;)</test>
-    <result-string>xs:string('a')</result-string>
+    <result-string>xs:string(&quot;a&quot;)</result-string>
     <result>
       <assert-string-value>a</assert-string-value>
     </result>
@@ -195,7 +195,7 @@
     <description> Evaluates The &quot;string-join&quot; function with the arguments set as follows: $arg1 = &quot;string-join&quot; $arg2 = &quot;string-join&quot; </description>
     <created by="Carmelo Montanez" on="2005-06-24"/>
     <test>fn:string-join(&quot;string-join&quot;,&quot;string-join&quot;)</test>
-    <result-string>xs:string('string-join')</result-string>
+    <result-string>xs:string(&quot;string-join&quot;)</result-string>
     <result>
       <assert-string-value>string-join</assert-string-value>
     </result>
@@ -204,7 +204,7 @@
     <description> Evaluates The &quot;string-join&quot; function with the arguments set as follows: $arg1 = &quot;string-joinstring-join&quot; $arg2 = &quot;string-join&quot; </description>
     <created by="Carmelo Montanez" on="2005-06-24"/>
     <test>fn:string-join((&quot;string-joinstring-join&quot;),&quot;string-join&quot;)</test>
-    <result-string>xs:string('string-joinstring-join')</result-string>
+    <result-string>xs:string(&quot;string-joinstring-join&quot;)</result-string>
     <result>
       <assert-string-value>string-joinstring-join</assert-string-value>
     </result>
@@ -213,7 +213,7 @@
     <description> Evaluates The &quot;string-join&quot; function with the arguments set as follows: $arg1 = &quot;****&quot; $arg2 = &quot;***&quot; </description>
     <created by="Carmelo Montanez" on="2005-06-24"/>
     <test>fn:string-join(&quot;****&quot;,&quot;***&quot;)</test>
-    <result-string>xs:string('****')</result-string>
+    <result-string>xs:string(&quot;****&quot;)</result-string>
     <result>
       <assert-string-value>****</assert-string-value>
     </result>
@@ -222,7 +222,7 @@
     <description> Evaluates The &quot;string-join&quot; function with the arguments set as follows: $arg1 = &quot;12345&quot; $arg2 = &quot;1234&quot; </description>
     <created by="Carmelo Montanez" on="2005-06-24"/>
     <test>fn:string-join(&quot;12345&quot;,&quot;1234&quot;)</test>
-    <result-string>xs:string('12345')</result-string>
+    <result-string>xs:string(&quot;12345&quot;)</result-string>
     <result>
       <assert-string-value>12345</assert-string-value>
     </result>
@@ -231,7 +231,7 @@
     <description> Evaluates The &quot;string-join&quot; function with the arguments set as follows: $arg1 = &quot;string-join $arg2 = &quot;nioj-gnirts (&quot;string-join&quot; backwards) </description>
     <created by="Carmelo Montanez" on="2005-06-24"/>
     <test>fn:string-join(&quot;string-join&quot;,&quot;nioj-gnirts&quot;)</test>
-    <result-string>xs:string('string-join')</result-string>
+    <result-string>xs:string(&quot;string-join&quot;)</result-string>
     <result>
       <assert-string-value>string-join</assert-string-value>
     </result>
@@ -241,7 +241,7 @@
     <created by="Michael Kay" on="2012-07-09"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:string-join((&quot;1&quot;, &quot;2&quot;, &quot;3&quot;))</test>
-    <result-string>xs:string('123')</result-string>
+    <result-string>xs:string(&quot;123&quot;)</result-string>
     <result>
       <assert-string-value>123</assert-string-value>
     </result>
@@ -256,7 +256,7 @@
          return fn:string-join($e/*)
       ]]>
     </test>
-    <result-string>xs:string('123')</result-string>
+    <result-string>xs:string(&quot;123&quot;)</result-string>
     <result>
       <assert-string-value>123</assert-string-value>
     </result>
@@ -271,7 +271,7 @@
          return fn:string-join($e/*)
       ]]>
     </test>
-    <result-string>xs:string('13')</result-string>
+    <result-string>xs:string(&quot;13&quot;)</result-string>
     <result>
       <assert-string-value>13</assert-string-value>
     </result>
@@ -286,7 +286,7 @@
          return fn:string-join($e/d)
       ]]>
     </test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -300,7 +300,7 @@
          fn:string-join((1 to 9)!string())
       ]]>
     </test>
-    <result-string>xs:string('123456789')</result-string>
+    <result-string>xs:string(&quot;123456789&quot;)</result-string>
     <result>
       <assert-string-value>123456789</assert-string-value>
     </result>
@@ -320,7 +320,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ30+ XP30+"/>
     <test>string-join(&quot;a string&quot;)</test>
-    <result-string>xs:string('a string')</result-string>
+    <result-string>xs:string(&quot;a string&quot;)</result-string>
     <result>
       <assert-string-value>a string</assert-string-value>
     </result>
@@ -338,7 +338,7 @@
     <description> A test whose essence is: `string-join(('Now', 'is', 'the', 'time', '...'), ' ') eq &quot;Now is the time ...&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string-join(('Now', 'is', 'the', 'time', '...'), ' ') eq &quot;Now is the time ...&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -347,7 +347,7 @@
     <description> A test whose essence is: `string-join((&quot;abc&quot;, &quot;def&quot;), &quot;&quot;) eq &quot;abcdef&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string-join((&quot;abc&quot;, &quot;def&quot;), &quot;&quot;) eq &quot;abcdef&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -356,7 +356,7 @@
     <description> A test whose essence is: `string-join(('Blow, ', 'blow, ', 'thou ', 'winter ', 'wind!'), '') eq &quot;Blow, blow, thou winter wind!&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string-join(('Blow, ', 'blow, ', 'thou ', 'winter ', 'wind!'), '') eq &quot;Blow, blow, thou winter wind!&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -365,7 +365,7 @@
     <description> A test whose essence is: `string-join((), 'separator') eq &quot;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string-join((), 'separator') eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -386,7 +386,7 @@
     <test>
         declare function local:repeat($count as xs:integer, $arg as xs:string) as xs:string* { if ($count le 0) then &quot;&quot; else for $x in 1 to $count return $arg };
         string-join( for $x in 0 to 4 return local:repeat($x, 'a') , ' ') and string-join( for $x in 0 to 4 return local:repeat($x, 'a') , '')</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

@@ -10,7 +10,7 @@
     <test>
       <![CDATA[string-length("abc&#x1D156;def")]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;7&quot;)</result-string>
     <result>
       <assert-eq>7</assert-eq>
     </result>
@@ -22,7 +22,7 @@
     <test>
       <![CDATA[substring("abc&#x1D156;def", 5)]]>
     </test>
-    <result-string>xs:string('def')</result-string>
+    <result-string>xs:string(&quot;def&quot;)</result-string>
     <result>
       <assert-string-value>def</assert-string-value>
     </result>
@@ -34,7 +34,7 @@
     <test>
       <![CDATA[substring("abc&#x1D156;def", 4)]]>
     </test>
-    <result-string>xs:string('def')</result-string>
+    <result-string>xs:string(&quot;def&quot;)</result-string>
     <result>
       <assert-string-value>def</assert-string-value>
     </result>
@@ -46,7 +46,7 @@
     <test>
       <![CDATA[translate("abc&#x1D156;def", "&#x1D156;", "#")]]>
     </test>
-    <result-string>xs:string('abc#def')</result-string>
+    <result-string>xs:string(&quot;abc#def&quot;)</result-string>
     <result>
       <assert-string-value>abc#def</assert-string-value>
     </result>
@@ -58,7 +58,7 @@
     <test>
       <![CDATA[translate("abc&#x1D156;def", "&#x1D156;de", "#DE")]]>
     </test>
-    <result-string>xs:string('abc#DEf')</result-string>
+    <result-string>xs:string(&quot;abc#DEf&quot;)</result-string>
     <result>
       <assert-string-value>abc#DEf</assert-string-value>
     </result>
@@ -70,7 +70,7 @@
     <test>
       <![CDATA[translate("abc&#x1D156;def", "def", "&#x1D156;EF")]]>
     </test>
-    <result-string>xs:string('abcEF')</result-string>
+    <result-string>xs:string(&quot;abcEF&quot;)</result-string>
     <result>
       <assert-string-value>abcEF</assert-string-value>
     </result>
@@ -82,7 +82,7 @@
     <test>
       <![CDATA[string-to-codepoints("abc&#x1D156;def")]]>
     </test>
-    <result-string>xs:string('97 98 99 119126 100 101 102')</result-string>
+    <result-string>xs:string(&quot;97 98 99 119126 100 101 102&quot;)</result-string>
     <result>
       <assert-string-value>97 98 99 119126 100 101 102</assert-string-value>
     </result>
@@ -91,7 +91,7 @@
     <description> codepoints-to-string() when non-BMP characters are present </description>
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
     <test>codepoints-to-string((97, 98, 99, 119126, 100, 101, 102))</test>
-    <result-string>xs:string('abcdef')</result-string>
+    <result-string>xs:string(&quot;abcdef&quot;)</result-string>
     <result>
       <assert-string-value>abcdef</assert-string-value>
     </result>
@@ -103,7 +103,7 @@
     <test>
       <![CDATA[substring-before("abc&#x1D156;def", "&#x1D156;")]]>
     </test>
-    <result-string>xs:string('abc')</result-string>
+    <result-string>xs:string(&quot;abc&quot;)</result-string>
     <result>
       <assert-string-value>abc</assert-string-value>
     </result>
@@ -115,7 +115,7 @@
     <test>
       <![CDATA[substring-before("abc&#x1D156;def", "f")]]>
     </test>
-    <result-string>xs:string('abcde')</result-string>
+    <result-string>xs:string(&quot;abcde&quot;)</result-string>
     <result>
       <assert-string-value>abcde</assert-string-value>
     </result>
@@ -127,7 +127,7 @@
     <test>
       <![CDATA[substring-after("abc&#x1D156;def", "&#x1D156;")]]>
     </test>
-    <result-string>xs:string('def')</result-string>
+    <result-string>xs:string(&quot;def&quot;)</result-string>
     <result>
       <assert-string-value>def</assert-string-value>
     </result>
@@ -139,7 +139,7 @@
     <test>
       <![CDATA[matches("abc&#x1D157;def", "abc[&#x1D156;-&#x1D158;]def")]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -151,7 +151,7 @@
     <test>
       <![CDATA[matches("abc&#x1D157;def", "abc.def")]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -163,7 +163,7 @@
     <test>
       <![CDATA[replace("abc&#119130;def", "[&#119120;-&#119135;]", "&#119135;")]]>
     </test>
-    <result-string>xs:string('abcdef')</result-string>
+    <result-string>xs:string(&quot;abcdef&quot;)</result-string>
     <result>
       <assert-string-value>abcdef</assert-string-value>
     </result>
@@ -175,7 +175,7 @@
     <test>
       <![CDATA[replace("abc&#x1D157;def", "[^a-f]", "###")]]>
     </test>
-    <result-string>xs:string('abc###def')</result-string>
+    <result-string>xs:string(&quot;abc###def&quot;)</result-string>
     <result>
       <assert-string-value>abc###def</assert-string-value>
     </result>
@@ -187,7 +187,7 @@
     <test>
       <![CDATA[string-to-codepoints(substring("&#x10FC00;A", 2, 1))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;65&quot;)</result-string>
     <result>
       <assert-eq>65</assert-eq>
     </result>
@@ -197,7 +197,7 @@
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
     <dependency type="spec" value="XP20+"/>
     <test>string-length(&quot;abcdef&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;7&quot;)</result-string>
     <result>
       <assert-eq>7</assert-eq>
     </result>
@@ -207,7 +207,7 @@
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
     <dependency type="spec" value="XP20+"/>
     <test>substring(&quot;abcdef&quot;, 5)</test>
-    <result-string>xs:string('def')</result-string>
+    <result-string>xs:string(&quot;def&quot;)</result-string>
     <result>
       <assert-string-value>def</assert-string-value>
     </result>
@@ -217,7 +217,7 @@
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
     <dependency type="spec" value="XP20+"/>
     <test>substring(&quot;abcdef&quot;, 4)</test>
-    <result-string>xs:string('def')</result-string>
+    <result-string>xs:string(&quot;def&quot;)</result-string>
     <result>
       <assert-string-value>def</assert-string-value>
     </result>
@@ -227,7 +227,7 @@
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
     <dependency type="spec" value="XP20+"/>
     <test>translate(&quot;abcdef&quot;, &quot;&quot;, &quot;#&quot;)</test>
-    <result-string>xs:string('abc#def')</result-string>
+    <result-string>xs:string(&quot;abc#def&quot;)</result-string>
     <result>
       <assert-string-value>abc#def</assert-string-value>
     </result>
@@ -237,7 +237,7 @@
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
     <dependency type="spec" value="XP20+"/>
     <test>translate(&quot;abcdef&quot;, &quot;de&quot;, &quot;#DE&quot;)</test>
-    <result-string>xs:string('abc#DEf')</result-string>
+    <result-string>xs:string(&quot;abc#DEf&quot;)</result-string>
     <result>
       <assert-string-value>abc#DEf</assert-string-value>
     </result>
@@ -247,7 +247,7 @@
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
     <dependency type="spec" value="XP20+"/>
     <test>translate(&quot;abcdef&quot;, &quot;def&quot;, &quot;EF&quot;)</test>
-    <result-string>xs:string('abcEF')</result-string>
+    <result-string>xs:string(&quot;abcEF&quot;)</result-string>
     <result>
       <assert-string-value>abcEF</assert-string-value>
     </result>
@@ -257,7 +257,7 @@
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
     <dependency type="spec" value="XP20+"/>
     <test>string-to-codepoints(&quot;abcdef&quot;)</test>
-    <result-string>xs:string('97 98 99 119126 100 101 102')</result-string>
+    <result-string>xs:string(&quot;97 98 99 119126 100 101 102&quot;)</result-string>
     <result>
       <assert-string-value>97 98 99 119126 100 101 102</assert-string-value>
     </result>
@@ -266,7 +266,7 @@
     <description> codepoints-to-string() when non-BMP characters are present </description>
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
     <test>codepoints-to-string((97, 98, 99, 119126, 100, 101, 102))</test>
-    <result-string>xs:string('abcdef')</result-string>
+    <result-string>xs:string(&quot;abcdef&quot;)</result-string>
     <result>
       <assert-string-value>abcdef</assert-string-value>
     </result>
@@ -276,7 +276,7 @@
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
     <dependency type="spec" value="XP20+"/>
     <test>substring-before(&quot;abcdef&quot;, &quot;&quot;)</test>
-    <result-string>xs:string('abc')</result-string>
+    <result-string>xs:string(&quot;abc&quot;)</result-string>
     <result>
       <assert-string-value>abc</assert-string-value>
     </result>
@@ -286,7 +286,7 @@
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
     <dependency type="spec" value="XP20+"/>
     <test>substring-before(&quot;abcdef&quot;, &quot;f&quot;)</test>
-    <result-string>xs:string('abcde')</result-string>
+    <result-string>xs:string(&quot;abcde&quot;)</result-string>
     <result>
       <assert-string-value>abcde</assert-string-value>
     </result>
@@ -296,7 +296,7 @@
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
     <dependency type="spec" value="XP20+"/>
     <test>substring-after(&quot;abcdef&quot;, &quot;&quot;)</test>
-    <result-string>xs:string('def')</result-string>
+    <result-string>xs:string(&quot;def&quot;)</result-string>
     <result>
       <assert-string-value>def</assert-string-value>
     </result>
@@ -306,7 +306,7 @@
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
     <dependency type="spec" value="XP20+"/>
     <test>matches(&quot;abcdef&quot;, &quot;abc[-]def&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -316,7 +316,7 @@
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
     <dependency type="spec" value="XP20+"/>
     <test>matches(&quot;abcdef&quot;, &quot;abc.def&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -326,7 +326,7 @@
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
     <dependency type="spec" value="XP20+"/>
     <test>replace(&quot;abcdef&quot;, &quot;[-]&quot;, &quot;&quot;)</test>
-    <result-string>xs:string('abcdef')</result-string>
+    <result-string>xs:string(&quot;abcdef&quot;)</result-string>
     <result>
       <assert-string-value>abcdef</assert-string-value>
     </result>
@@ -336,7 +336,7 @@
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
     <dependency type="spec" value="XP20+"/>
     <test>replace(&quot;abcdef&quot;, &quot;[^a-f]&quot;, &quot;###&quot;)</test>
-    <result-string>xs:string('abc###def')</result-string>
+    <result-string>xs:string(&quot;abc###def&quot;)</result-string>
     <result>
       <assert-string-value>abc###def</assert-string-value>
     </result>
@@ -346,7 +346,7 @@
     <created by="Michael Kay, Saxonica" on="2012-01-14"/>
     <dependency type="spec" value="XP20+"/>
     <test>string-to-codepoints(substring(&quot;A&quot;, 2, 1))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;65&quot;)</result-string>
     <result>
       <assert-eq>65</assert-eq>
     </result>

@@ -151,7 +151,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-05-16"/>
     <environment ref="works"/>
     <test>/works[1]/employee[1]/empnum[1]  /works[1]/employee[1]/empnum[1]</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -210,7 +210,7 @@
          and ($works/works[1]/employee[2]/empnum[1] << $staff/staff[1]/employee[2]/empnum[1]) 
          and ($works/works[1]/employee[3]/empnum[1] << $staff/staff[1]/employee[3]/empnum[1]))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -220,7 +220,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-05-16"/>
     <environment ref="staff"/>
     <test>(/staff[1]/employee[1]/empnum[1])  (/staff[1]/employee[1]/empnum[1])</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -230,7 +230,7 @@
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-08"/>
     <environment ref="staff"/>
     <test>fn:not((/staff[1]/employee[1]/empnum[1])  (/staff[1]/employee[1]/empnum[1]))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -241,7 +241,7 @@
     <environment ref="staff"/>
     <test>((/staff[1]/employee[1]/empnum[1])  (/staff[1]/employee[1]/empnum[1])) 
          lt ((/staff[1]/employee[1]/empnum[1])  (/staff[1]/employee[1]/empnum[1]))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -252,7 +252,7 @@
     <environment ref="staff"/>
     <test>((/staff[1]/employee[1]/empnum[1])  (/staff[1]/employee[1]/empnum[1])) 
          ge ((/staff[1]/employee[1]/empnum[1])  (/staff[1]/employee[1]/empnum[1]))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -263,7 +263,7 @@
     <environment ref="staff"/>
     <test>((/staff[1]/employee[1]/empnum[1])  (/staff[1]/employee[1]/empnum[1])) 
          gt ((/staff[1]/employee[1]/empnum[1])  (/staff[1]/employee[1]/empnum[1]))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -274,7 +274,7 @@
     <environment ref="staff"/>
     <test>((/staff[1]/employee[1]/empnum[1])  (/staff[1]/employee[1]/empnum[1])) 
          le ((/staff[1]/employee[1]/empnum[1])  (/staff[1]/employee[1]/empnum[1]))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -412,7 +412,7 @@
       	return not(exactly-one($node/b[1]) >> exactly-one($node/c[1]))
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -427,7 +427,7 @@
       	return not(not(exactly-one($node/b[1]) >> exactly-one($node/c[1])))
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

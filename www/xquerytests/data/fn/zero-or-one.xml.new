@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:int(&quot;-2147483648&quot;))</test>
-    <result-string>xs:string('-2147483648')</result-string>
+    <result-string>xs:string(&quot;-2147483648&quot;)</result-string>
     <result>
       <assert-string-value>-2147483648</assert-string-value>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:int(&quot;-1873914410&quot;))</test>
-    <result-string>xs:string('-1873914410')</result-string>
+    <result-string>xs:string(&quot;-1873914410&quot;)</result-string>
     <result>
       <assert-string-value>-1873914410</assert-string-value>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:int(&quot;2147483647&quot;))</test>
-    <result-string>xs:string('2147483647')</result-string>
+    <result-string>xs:string(&quot;2147483647&quot;)</result-string>
     <result>
       <assert-string-value>2147483647</assert-string-value>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:integer(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:string('-999999999999999999')</result-string>
+    <result-string>xs:string(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>-999999999999999999</assert-string-value>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:integer(&quot;830993497117024304&quot;))</test>
-    <result-string>xs:string('830993497117024304')</result-string>
+    <result-string>xs:string(&quot;830993497117024304&quot;)</result-string>
     <result>
       <assert-string-value>830993497117024304</assert-string-value>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:integer(&quot;999999999999999999&quot;))</test>
-    <result-string>xs:string('999999999999999999')</result-string>
+    <result-string>xs:string(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>999999999999999999</assert-string-value>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:decimal(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:string('-999999999999999999')</result-string>
+    <result-string>xs:string(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>-999999999999999999</assert-string-value>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:decimal(&quot;617375191608514839&quot;))</test>
-    <result-string>xs:string('617375191608514839')</result-string>
+    <result-string>xs:string(&quot;617375191608514839&quot;)</result-string>
     <result>
       <assert-string-value>617375191608514839</assert-string-value>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:decimal(&quot;999999999999999999&quot;))</test>
-    <result-string>xs:string('999999999999999999')</result-string>
+    <result-string>xs:string(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>999999999999999999</assert-string-value>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:double(&quot;-1.7976931348623157E308&quot;))</test>
-    <result-string>xs:string('-1.7976931348623157E308')</result-string>
+    <result-string>xs:string(&quot;-1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E308</assert-string-value>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:double(&quot;0&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:double(&quot;1.7976931348623157E308&quot;))</test>
-    <result-string>xs:string('1.7976931348623157E308')</result-string>
+    <result-string>xs:string(&quot;1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-string-value>1.7976931348623157E308</assert-string-value>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:float(&quot;-3.4028235E38&quot;))</test>
-    <result-string>xs:string('-3.4028235E38')</result-string>
+    <result-string>xs:string(&quot;-3.4028235E38&quot;)</result-string>
     <result>
       <assert-string-value>-3.4028235E38</assert-string-value>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:float(&quot;0&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:float(&quot;3.4028235E38&quot;))</test>
-    <result-string>xs:string('3.4028235E38')</result-string>
+    <result-string>xs:string(&quot;3.4028235E38&quot;)</result-string>
     <result>
       <assert-string-value>3.4028235E38</assert-string-value>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:long(&quot;-92233720368547758&quot;))</test>
-    <result-string>xs:string('-92233720368547758')</result-string>
+    <result-string>xs:string(&quot;-92233720368547758&quot;)</result-string>
     <result>
       <assert-string-value>-92233720368547758</assert-string-value>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:long(&quot;-47175562203048468&quot;))</test>
-    <result-string>xs:string('-47175562203048468')</result-string>
+    <result-string>xs:string(&quot;-47175562203048468&quot;)</result-string>
     <result>
       <assert-string-value>-47175562203048468</assert-string-value>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:long(&quot;92233720368547758&quot;))</test>
-    <result-string>xs:string('92233720368547758')</result-string>
+    <result-string>xs:string(&quot;92233720368547758&quot;)</result-string>
     <result>
       <assert-string-value>92233720368547758</assert-string-value>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:unsignedShort(&quot;0&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:unsignedShort(&quot;44633&quot;))</test>
-    <result-string>xs:string('44633')</result-string>
+    <result-string>xs:string(&quot;44633&quot;)</result-string>
     <result>
       <assert-string-value>44633</assert-string-value>
     </result>
@@ -186,7 +186,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:unsignedShort(&quot;65535&quot;))</test>
-    <result-string>xs:string('65535')</result-string>
+    <result-string>xs:string(&quot;65535&quot;)</result-string>
     <result>
       <assert-string-value>65535</assert-string-value>
     </result>
@@ -195,7 +195,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:negativeInteger(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:string('-999999999999999999')</result-string>
+    <result-string>xs:string(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>-999999999999999999</assert-string-value>
     </result>
@@ -204,7 +204,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:negativeInteger(&quot;-297014075999096793&quot;))</test>
-    <result-string>xs:string('-297014075999096793')</result-string>
+    <result-string>xs:string(&quot;-297014075999096793&quot;)</result-string>
     <result>
       <assert-string-value>-297014075999096793</assert-string-value>
     </result>
@@ -213,7 +213,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:negativeInteger(&quot;-1&quot;))</test>
-    <result-string>xs:string('-1')</result-string>
+    <result-string>xs:string(&quot;-1&quot;)</result-string>
     <result>
       <assert-string-value>-1</assert-string-value>
     </result>
@@ -222,7 +222,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:positiveInteger(&quot;1&quot;))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -231,7 +231,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:positiveInteger(&quot;52704602390610033&quot;))</test>
-    <result-string>xs:string('52704602390610033')</result-string>
+    <result-string>xs:string(&quot;52704602390610033&quot;)</result-string>
     <result>
       <assert-string-value>52704602390610033</assert-string-value>
     </result>
@@ -240,7 +240,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:positiveInteger(&quot;999999999999999999&quot;))</test>
-    <result-string>xs:string('999999999999999999')</result-string>
+    <result-string>xs:string(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>999999999999999999</assert-string-value>
     </result>
@@ -249,7 +249,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:unsignedLong(&quot;0&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -258,7 +258,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:unsignedLong(&quot;130747108607674654&quot;))</test>
-    <result-string>xs:string('130747108607674654')</result-string>
+    <result-string>xs:string(&quot;130747108607674654&quot;)</result-string>
     <result>
       <assert-string-value>130747108607674654</assert-string-value>
     </result>
@@ -267,7 +267,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:unsignedLong(&quot;184467440737095516&quot;))</test>
-    <result-string>xs:string('184467440737095516')</result-string>
+    <result-string>xs:string(&quot;184467440737095516&quot;)</result-string>
     <result>
       <assert-string-value>184467440737095516</assert-string-value>
     </result>
@@ -276,7 +276,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:nonPositiveInteger(&quot;-999999999999999999&quot;))</test>
-    <result-string>xs:string('-999999999999999999')</result-string>
+    <result-string>xs:string(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>-999999999999999999</assert-string-value>
     </result>
@@ -285,7 +285,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:nonPositiveInteger(&quot;-475688437271870490&quot;))</test>
-    <result-string>xs:string('-475688437271870490')</result-string>
+    <result-string>xs:string(&quot;-475688437271870490&quot;)</result-string>
     <result>
       <assert-string-value>-475688437271870490</assert-string-value>
     </result>
@@ -294,7 +294,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:nonPositiveInteger(&quot;0&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -303,7 +303,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:nonNegativeInteger(&quot;0&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -312,7 +312,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:nonNegativeInteger(&quot;303884545991464527&quot;))</test>
-    <result-string>xs:string('303884545991464527')</result-string>
+    <result-string>xs:string(&quot;303884545991464527&quot;)</result-string>
     <result>
       <assert-string-value>303884545991464527</assert-string-value>
     </result>
@@ -321,7 +321,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:nonNegativeInteger(&quot;999999999999999999&quot;))</test>
-    <result-string>xs:string('999999999999999999')</result-string>
+    <result-string>xs:string(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>999999999999999999</assert-string-value>
     </result>
@@ -330,7 +330,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:short(&quot;-32768&quot;))</test>
-    <result-string>xs:string('-32768')</result-string>
+    <result-string>xs:string(&quot;-32768&quot;)</result-string>
     <result>
       <assert-string-value>-32768</assert-string-value>
     </result>
@@ -339,7 +339,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:short(&quot;-5324&quot;))</test>
-    <result-string>xs:string('-5324')</result-string>
+    <result-string>xs:string(&quot;-5324&quot;)</result-string>
     <result>
       <assert-string-value>-5324</assert-string-value>
     </result>
@@ -348,7 +348,7 @@
     <description> Evaluates The &quot;zero-or-one&quot; function with the arguments set as follows: $arg = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:short(&quot;32767&quot;))</test>
-    <result-string>xs:string('32767')</result-string>
+    <result-string>xs:string(&quot;32767&quot;)</result-string>
     <result>
       <assert-string-value>32767</assert-string-value>
     </result>
@@ -384,7 +384,7 @@
     <description> A test whose essence is: `zero-or-one(true())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>zero-or-one(true())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -393,7 +393,7 @@
     <description> A test whose essence is: `empty(zero-or-one(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(zero-or-one(()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -402,7 +402,7 @@
     <description> A test whose essence is: `count(zero-or-one( &quot;one&quot; )) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(zero-or-one( &quot;one&quot; )) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -411,7 +411,7 @@
     <description> A test whose essence is: `count(zero-or-one( () )) eq 0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(zero-or-one( () )) eq 0</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -438,7 +438,7 @@
     <description> Test an optimization in if-not-empoty for empty return </description>
     <created by="Nick Jones" on="2008-07-01"/>
     <test>for $x in zero-or-one((1 to 10)[. div 2 = 0]) return ()</test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -450,7 +450,7 @@
     <test>
         declare function local:generate($arg as xs:integer?) { if ($arg = 0) then (1, 2, 3) else $arg };
         fn:empty( fn:zero-or-one(fn:unordered( local:generate( () ) )) )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -462,7 +462,7 @@
     <test>
         declare function local:generate($arg as xs:integer?) { if ($arg = 0) then () else if ($arg = 1) then $arg else ($arg, $arg) };
         1 + fn:zero-or-one(fn:one-or-more( local:generate( 1 ) ))</test>
-    <result-string>xs:string('2')</result-string>
+    <result-string>xs:string(&quot;2&quot;)</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>

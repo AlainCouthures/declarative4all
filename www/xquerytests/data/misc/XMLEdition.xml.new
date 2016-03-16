@@ -127,7 +127,7 @@
     <created by="Michael Kay" on="2011-11-24"/>
     <dependency type="spec" value="XQ10+"/>
     <test>deep-equal(string-to-codepoints(''), (10))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -137,7 +137,7 @@
     <created by="Michael Kay" on="2011-11-24"/>
     <dependency type="spec" value="XQ10+"/>
     <test>deep-equal(string-to-codepoints(''), (10))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -147,7 +147,7 @@
     <created by="Michael Kay" on="2011-11-24"/>
     <dependency type="spec" value="XQ10+"/>
     <test>deep-equal(string-to-codepoints('  '), (10, 32, 10, 32, 10, 10))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -158,7 +158,7 @@
     <dependency type="spec" value="XQ10+"/>
     <dependency type="xml-version" value="1.1"/>
     <test>deep-equal(string-to-codepoints(''), (10))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -169,7 +169,7 @@
     <dependency type="spec" value="XQ10+"/>
     <dependency type="xml-version" value="1.1"/>
     <test>deep-equal(string-to-codepoints('  '), (32, 10, 32))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -180,7 +180,7 @@
     <dependency type="spec" value="XQ10+"/>
     <dependency type="xml-version" value="1.1"/>
     <test>deep-equal(string-to-codepoints('  '), (32, 10, 32))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -191,7 +191,7 @@
     <dependency type="spec" value="XQ10+"/>
     <dependency type="xml-version" value="1.0"/>
     <test>deep-equal(string-to-codepoints(''), (10, 133))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -202,7 +202,7 @@
     <dependency type="spec" value="XQ10+"/>
     <dependency type="xml-version" value="1.0"/>
     <test>deep-equal(string-to-codepoints('  '), (32, 133, 32))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -213,7 +213,7 @@
     <dependency type="spec" value="XQ10+"/>
     <dependency type="xml-version" value="1.0"/>
     <test>deep-equal(string-to-codepoints('  '), (32, 8232, 32))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -225,7 +225,7 @@
     <modified by="Michael Kay" change="reflect resolution of bug 14917" on="2013-06-13"/>
     <dependency type="spec" value="XP20+"/>
     <test>deep-equal(string-to-codepoints(''), (13, 10))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -236,7 +236,7 @@
     <dependency type="spec" value="XQ30+"/>
     <dependency type="xml-version" value="1.1"/>
     <test file="XMLEdition/XML11-c0-001.xq"/>
-    <result-string/>
+    <result-string>xs:decimal(&quot;7&quot;)</result-string>
     <result>
       <assert-eq>7</assert-eq>
     </result>

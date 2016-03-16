@@ -16,7 +16,7 @@ $arg2 = xs:double(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) * xs:double(&quot;-1.7976931348623157E308&quot;)</test>
-    <result-string>xs:string('P0M')</result-string>
+    <result-string>xs:string(&quot;P0M&quot;)</result-string>
     <result>
       <assert-string-value>P0M</assert-string-value>
     </result>
@@ -35,7 +35,7 @@ $arg2 = xs:double(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration(&quot;P1000Y6M&quot;) * xs:double(&quot;-0&quot;)</test>
-    <result-string>xs:string('P0M')</result-string>
+    <result-string>xs:string(&quot;P0M&quot;)</result-string>
     <result>
       <assert-string-value>P0M</assert-string-value>
     </result>
@@ -54,7 +54,7 @@ $arg2 = xs:double(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration(&quot;P2030Y12M&quot;) * xs:double(&quot;-0&quot;)</test>
-    <result-string>xs:string('P0M')</result-string>
+    <result-string>xs:string(&quot;P0M&quot;)</result-string>
     <result>
       <assert-string-value>P0M</assert-string-value>
     </result>
@@ -73,7 +73,7 @@ $arg2 = xs:double(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) * xs:double(&quot;0&quot;)</test>
-    <result-string>xs:string('P0M')</result-string>
+    <result-string>xs:string(&quot;P0M&quot;)</result-string>
     <result>
       <assert-string-value>P0M</assert-string-value>
     </result>
@@ -92,7 +92,7 @@ $arg2 = xs:double(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) * xs:double(&quot;1.7976931348623157E308&quot;)</test>
-    <result-string>xs:string('P0M')</result-string>
+    <result-string>xs:string(&quot;P0M&quot;)</result-string>
     <result>
       <assert-string-value>P0M</assert-string-value>
     </result>
@@ -109,7 +109,7 @@ As per example 1 (for this function)of the FO specs.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>xs:yearMonthDuration(&quot;P2Y11M&quot;) * 2.3</test>
-    <result-string>xs:string('P6Y9M')</result-string>
+    <result-string>xs:string(&quot;P6Y9M&quot;)</result-string>
     <result>
       <assert-string-value>P6Y9M</assert-string-value>
     </result>
@@ -127,7 +127,7 @@ used as part of a boolean expression (and operator) and the &quot;fn:false&quot;
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:string((xs:yearMonthDuration(&quot;P10Y11M&quot;)) * 2.0) and fn:false()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -145,7 +145,7 @@ part of a boolean expression (or operator) and the &quot;fn:boolean&quot; functi
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:string((xs:yearMonthDuration(&quot;P20Y10M&quot;) * 2.0)) or fn:false()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -163,7 +163,7 @@ return true and used together with fn:not.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:not(fn:string(xs:yearMonthDuration(&quot;P11Y04M&quot;) * 2.0))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -181,7 +181,7 @@ is used as an argument to the fn:boolean function.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:boolean(fn:string(xs:yearMonthDuration(&quot;P05Y08M&quot;) * 2.0))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -198,7 +198,7 @@ is used as an argument to the fn:number function.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:number(xs:yearMonthDuration(&quot;P02Y09M&quot;) * 2.0)</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -215,7 +215,7 @@ as an argument to the &quot;fn:string&quot; function).
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:string(xs:yearMonthDuration(&quot;P03Y08M&quot;) * 2.0)</test>
-    <result-string>xs:string('P7Y4M')</result-string>
+    <result-string>xs:string(&quot;P7Y4M&quot;)</result-string>
     <result>
       <assert-string-value>P7Y4M</assert-string-value>
     </result>
@@ -232,7 +232,7 @@ returns a negative value.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>(xs:yearMonthDuration(&quot;P10Y01M&quot;) * -2.0)</test>
-    <result-string>xs:string('-P20Y2M')</result-string>
+    <result-string>xs:string(&quot;-P20Y2M&quot;)</result-string>
     <result>
       <assert-string-value>-P20Y2M</assert-string-value>
     </result>
@@ -250,7 +250,7 @@ together with and &quot;and&quot; expression.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:string((xs:yearMonthDuration(&quot;P01Y01M&quot;) * 2.0)) and fn:string((xs:yearMonthDuration(&quot;P02Y03M&quot;) * 2.0))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -268,7 +268,7 @@ together with an &quot;or&quot; expression.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:string((xs:yearMonthDuration(&quot;P05Y02M&quot;) * 2.0)) or fn:string((xs:yearMonthDuration(&quot;P05Y03M&quot;) * 2.0))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -285,7 +285,7 @@ together with a &quot;div&quot; expression.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>(xs:yearMonthDuration(&quot;P20Y11M&quot;) * 2.0) div (xs:yearMonthDuration(&quot;P20Y11M&quot;) * 2.0)</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -303,7 +303,7 @@ with a boolean expression and the &quot;fn:true&quot; function.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:string((xs:yearMonthDuration(&quot;P10Y11M&quot;) * 2.0)) and (fn:true())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -320,7 +320,7 @@ together with the numeric-equal- operator &quot;eq&quot;.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>(xs:yearMonthDuration(&quot;P23Y11M&quot;) * 2.0) eq xs:yearMonthDuration(&quot;P23Y11M&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -337,7 +337,7 @@ together with the numeric-equal operator &quot;ne&quot;.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>(xs:yearMonthDuration(&quot;P21Y12M&quot;) * 2.0) ne xs:yearMonthDuration(&quot;P08Y05M&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -354,7 +354,7 @@ together with the numeric-equal operator &quot;le&quot;.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>(xs:yearMonthDuration(&quot;P10Y01M&quot;) * 2.0) le xs:yearMonthDuration(&quot;P17Y02M&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -371,7 +371,7 @@ together with the numeric-equal operator &quot;ge&quot;.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>(xs:yearMonthDuration(&quot;P13Y09M&quot;) - xs:yearMonthDuration(&quot;P18Y02M&quot;)) ge xs:yearMonthDuration(&quot;P18Y02M&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -388,7 +388,7 @@ multiplied by +0.  Use of fn:count to avoid empty file.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:count((xs:yearMonthDuration(&quot;P13Y09M&quot;) *+0))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -405,7 +405,7 @@ multiplied by -0.  Use of fn:count to avoid empty file.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:count((xs:yearMonthDuration(&quot;P13Y09M&quot;) *-0))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -438,7 +438,7 @@ Purpose: Test rounding behaviour, FO.E12.
 </description>
     <created by="Michael Kay, Saxonica" on="2009-03-05"/>
     <test>for $i in (-3.9, -3.5, -3.1, -0.9, -0.5, -0.1, +0.1, +0.5, +0.9, +3.1, +3.5, +3.9) return xs:yearMonthDuration(&quot;P1M&quot;) * $i</test>
-    <result-string>xs:string('-P4M -P3M -P3M -P1M P0M P0M P0M P1M P1M P3M P4M P4M')</result-string>
+    <result-string>xs:string(&quot;-P4M -P3M -P3M -P1M P0M P0M P0M P1M P1M P3M P4M P4M&quot;)</result-string>
     <result>
       <assert-string-value>-P4M -P3M -P3M -P1M P0M P0M P0M P1M P1M P3M P4M P4M</assert-string-value>
     </result>
@@ -454,7 +454,7 @@ Purpose: Test rounding behaviour, FO.E12.
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:yearMonthDuration(&quot;P3Y36M&quot;) * 3 eq xs:yearMonthDuration(&quot;P18Y&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -470,7 +470,7 @@ Purpose: Test rounding behaviour, FO.E12.
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>3 * xs:yearMonthDuration(&quot;P3Y36M&quot;) eq xs:yearMonthDuration(&quot;P18Y&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -486,7 +486,7 @@ Purpose: Test rounding behaviour, FO.E12.
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>0 * xs:yearMonthDuration(&quot;P3Y36M&quot;) eq xs:yearMonthDuration(&quot;P0M&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -502,7 +502,7 @@ Purpose: Test rounding behaviour, FO.E12.
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:yearMonthDuration(&quot;P3Y36M&quot;) * 0 eq xs:yearMonthDuration(&quot;P0M&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -658,7 +658,7 @@ Purpose: Test rounding behaviour, FO.E12.
     <test>
         declare function local:yearMonthDuration($years as xs:integer) as xs:yearMonthDuration { xs:yearMonthDuration(concat(&quot;P&quot;, $years, &quot;Y&quot;)) };
         local:yearMonthDuration(2) * 0</test>
-    <result-string>xs:string('P0M')</result-string>
+    <result-string>xs:string(&quot;P0M&quot;)</result-string>
     <result>
       <assert-string-value>P0M</assert-string-value>
     </result>
@@ -670,7 +670,7 @@ Purpose: Test rounding behaviour, FO.E12.
     <test>
         declare function local:yearMonthDuration($years as xs:integer) as xs:yearMonthDuration { xs:yearMonthDuration(concat(&quot;P&quot;, $years, &quot;Y&quot;)) };
         local:yearMonthDuration(2) * 1</test>
-    <result-string>xs:string('P2Y')</result-string>
+    <result-string>xs:string(&quot;P2Y&quot;)</result-string>
     <result>
       <assert-string-value>P2Y</assert-string-value>
     </result>
@@ -691,7 +691,7 @@ Purpose: Test rounding behaviour, FO.E12.
     <test>
         declare function local:yearMonthDuration($years as xs:integer) as xs:yearMonthDuration { xs:yearMonthDuration(concat(&quot;P&quot;, $years, &quot;Y&quot;)) };
         0 * local:yearMonthDuration(2)</test>
-    <result-string>xs:string('P0M')</result-string>
+    <result-string>xs:string(&quot;P0M&quot;)</result-string>
     <result>
       <assert-string-value>P0M</assert-string-value>
     </result>
@@ -703,7 +703,7 @@ Purpose: Test rounding behaviour, FO.E12.
     <test>
         declare function local:yearMonthDuration($years as xs:integer) as xs:yearMonthDuration { xs:yearMonthDuration(concat(&quot;P&quot;, $years, &quot;Y&quot;)) };
         1 * local:yearMonthDuration(2)</test>
-    <result-string>xs:string('P2Y')</result-string>
+    <result-string>xs:string(&quot;P2Y&quot;)</result-string>
     <result>
       <assert-string-value>P2Y</assert-string-value>
     </result>

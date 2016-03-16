@@ -37,7 +37,7 @@
     <description>Boolean value</description>
     <created by="Michael Kay, Saxonica" on="2011-04-06"/>
     <test>normalize-space(serialize-json(true(), map{&quot;spec&quot;:=&quot;ECMA-262&quot;}))</test>
-    <result-string>xs:string('true')</result-string>
+    <result-string>xs:string(&quot;true&quot;)</result-string>
     <result>
       <assert-string-value>true</assert-string-value>
     </result>
@@ -46,7 +46,7 @@
     <description>Boolean value</description>
     <created by="Michael Kay, Saxonica" on="2011-04-06"/>
     <test>normalize-space(serialize-json(false(), map{&quot;spec&quot;:=&quot;ECMA-262&quot;}))</test>
-    <result-string>xs:string('false')</result-string>
+    <result-string>xs:string(&quot;false&quot;)</result-string>
     <result>
       <assert-string-value>false</assert-string-value>
     </result>
@@ -83,7 +83,7 @@
     <created by="Michael Kay, Saxonica" on="2011-04-06"/>
     <test>let $r := serialize-json(parse-json('[1, 2, 3, &quot;four&quot;, true, false, null]'), map{&quot;spec&quot;:=&quot;RFC4627&quot;})
             return translate($r,' ', '')</test>
-    <result-string>xs:string('[1,2,3,&quot;four&quot;,true,false,null]')</result-string>
+    <result-string>xs:string(&quot;[1,2,3,&quot;four&quot;,true,false,null]&quot;)</result-string>
     <result>
       <assert-string-value>[1,2,3,&quot;four&quot;,true,false,null]</assert-string-value>
     </result>
@@ -93,7 +93,7 @@
     <created by="Michael Kay, Saxonica" on="2011-04-06"/>
     <test>let $r := serialize-json((1, 2, 3, &quot;four&quot;, true(), false()), map{&quot;spec&quot;:=&quot;RFC4627&quot;})
             return translate($r,' ', '')</test>
-    <result-string>xs:string('[1,2,3,&quot;four&quot;,true,false]')</result-string>
+    <result-string>xs:string(&quot;[1,2,3,&quot;four&quot;,true,false]&quot;)</result-string>
     <result>
       <assert-string-value>[1,2,3,&quot;four&quot;,true,false]</assert-string-value>
     </result>
@@ -103,7 +103,7 @@
     <created by="Michael Kay, Saxonica" on="2011-04-06"/>
     <test>let $r := serialize-json(parse-json('[[1, 2], [3, 4], [5, 6], [7], [], [null]]'))
             return translate($r,' ', '')</test>
-    <result-string>xs:string('[[1,2],[3,4],[5,6],[7],[],[null]]')</result-string>
+    <result-string>xs:string(&quot;[[1,2],[3,4],[5,6],[7],[],[null]]&quot;)</result-string>
     <result>
       <assert-string-value>[[1,2],[3,4],[5,6],[7],[],[null]]</assert-string-value>
     </result>
@@ -113,7 +113,7 @@
     <created by="Michael Kay, Saxonica" on="2011-04-06"/>
     <test>let $r := serialize-json(map{&quot;abc&quot;:=(1 to 10)}, map{&quot;spec&quot;:=&quot;RFC4627&quot;})
             return translate($r,' ', '')</test>
-    <result-string>xs:string('{&quot;abc&quot;:[1,2,3,4,5,6,7,8,9,10]}')</result-string>
+    <result-string>xs:string(&quot;{&quot;abc&quot;:[1,2,3,4,5,6,7,8,9,10]}&quot;)</result-string>
     <result>
       <assert-string-value>{&quot;abc&quot;:[1,2,3,4,5,6,7,8,9,10]}</assert-string-value>
     </result>
@@ -123,7 +123,7 @@
     <created by="Michael Kay, Saxonica" on="2011-04-06"/>
     <test>let $r := serialize-json((map{&quot;abc&quot;:=1},map{&quot;def&quot;:=2},map{&quot;ghi&quot;:=3}))
             return translate($r,' ', '')</test>
-    <result-string>xs:string('[{&quot;abc&quot;:1},{&quot;def&quot;:2},{&quot;ghi&quot;:3}]')</result-string>
+    <result-string>xs:string(&quot;[{&quot;abc&quot;:1},{&quot;def&quot;:2},{&quot;ghi&quot;:3}]&quot;)</result-string>
     <result>
       <assert-string-value>[{&quot;abc&quot;:1},{&quot;def&quot;:2},{&quot;ghi&quot;:3}]</assert-string-value>
     </result>
@@ -133,7 +133,7 @@
     <created by="Michael Kay, Saxonica" on="2011-04-06"/>
     <test>let $r := serialize-json((map{&quot;abc&quot;:=map{&quot;abc&quot;:=1}},map{&quot;def&quot;:=map{&quot;def&quot;:=2}},map{&quot;ghi&quot;:=map{&quot;ghi&quot;:=3}}), map{&quot;spec&quot;:=&quot;RFC4627&quot;})
             return translate($r,' ', '')</test>
-    <result-string>xs:string('[{&quot;abc&quot;:{&quot;abc&quot;:1}},{&quot;def&quot;:{&quot;def&quot;:2}},{&quot;ghi&quot;:{&quot;ghi&quot;:3}}]')</result-string>
+    <result-string>xs:string(&quot;[{&quot;abc&quot;:{&quot;abc&quot;:1}},{&quot;def&quot;:{&quot;def&quot;:2}},{&quot;ghi&quot;:{&quot;ghi&quot;:3}}]&quot;)</result-string>
     <result>
       <assert-string-value>[{&quot;abc&quot;:{&quot;abc&quot;:1}},{&quot;def&quot;:{&quot;def&quot;:2}},{&quot;ghi&quot;:{&quot;ghi&quot;:3}}]</assert-string-value>
     </result>
@@ -143,7 +143,7 @@
     <created by="Michael Kay, Saxonica" on="2011-04-06"/>
     <test>let $r := serialize-json('', map{&quot;spec&quot;:=&quot;ECMA-262&quot;})
             return translate(normalize-space($r), 'abcdef', 'ABCDEF')</test>
-    <result-string>xs:string('&quot;\uD834\uDD1E&quot;')</result-string>
+    <result-string>xs:string(&quot;&quot;\uD834\uDD1E&quot;&quot;)</result-string>
     <result>
       <assert-string-value>&quot;\uD834\uDD1E&quot;</assert-string-value>
     </result>
@@ -166,7 +166,7 @@
     <created by="Michael Kay, Saxonica" on="2011-04-06"/>
     <test>serialize-json((map{&quot;abc&quot;:=map{&quot;abc&quot;:=1}},map{&quot;def&quot;:=map{&quot;def&quot;:=2}},map{&quot;ghi&quot;:=map{&quot;ghi&quot;:=3}}),
         map{&quot;indent&quot;:=false()})</test>
-    <result-string>xs:string('[{&quot;abc&quot;:{&quot;abc&quot;:1}},{&quot;def&quot;:{&quot;def&quot;:2}},{&quot;ghi&quot;:{&quot;ghi&quot;:3}}]')</result-string>
+    <result-string>xs:string(&quot;[{&quot;abc&quot;:{&quot;abc&quot;:1}},{&quot;def&quot;:{&quot;def&quot;:2}},{&quot;ghi&quot;:{&quot;ghi&quot;:3}}]&quot;)</result-string>
     <result>
       <assert-string-value>[{&quot;abc&quot;:{&quot;abc&quot;:1}},{&quot;def&quot;:{&quot;def&quot;:2}},{&quot;ghi&quot;:{&quot;ghi&quot;:3}}]</assert-string-value>
     </result>
@@ -177,7 +177,7 @@
     <test>let $r := serialize-json((map{&quot;abc&quot;:=map{&quot;abc&quot;:=1}},map{&quot;def&quot;:=map{&quot;def&quot;:=2}},map{&quot;ghi&quot;:=map{&quot;ghi&quot;:=3}}),
               map{&quot;indent&quot;:=true(), &quot;spec&quot;:=&quot;RFC4627&quot;})
             return translate($r,' ', '')</test>
-    <result-string>xs:string('[{&quot;abc&quot;:{&quot;abc&quot;:1}},{&quot;def&quot;:{&quot;def&quot;:2}},{&quot;ghi&quot;:{&quot;ghi&quot;:3}}]')</result-string>
+    <result-string>xs:string(&quot;[{&quot;abc&quot;:{&quot;abc&quot;:1}},{&quot;def&quot;:{&quot;def&quot;:2}},{&quot;ghi&quot;:{&quot;ghi&quot;:3}}]&quot;)</result-string>
     <result>
       <assert-string-value>[{&quot;abc&quot;:{&quot;abc&quot;:1}},{&quot;def&quot;:{&quot;def&quot;:2}},{&quot;ghi&quot;:{&quot;ghi&quot;:3}}]</assert-string-value>
     </result>
@@ -235,7 +235,7 @@
     <created by="Michael Kay, Saxonica" on="2011-04-06"/>
     <test>let $r := serialize-json((number('NaN'), number('INF'), number('-INF')))
             return translate($r,' ', '')</test>
-    <result-string>xs:string('[&quot;NaN&quot;,&quot;INF&quot;,&quot;-INF&quot;]')</result-string>
+    <result-string>xs:string(&quot;[&quot;NaN&quot;,&quot;INF&quot;,&quot;-INF&quot;]&quot;)</result-string>
     <result>
       <assert-string-value>[&quot;NaN&quot;,&quot;INF&quot;,&quot;-INF&quot;]</assert-string-value>
     </result>
@@ -245,7 +245,7 @@
     <created by="Michael Kay, Saxonica" on="2011-04-06"/>
     <test>let $r := serialize-json((0,0,xs:untypedAtomic(&quot;abcd&quot;)))
             return translate($r,' ', '')</test>
-    <result-string>xs:string('[0,0,&quot;abcd&quot;]')</result-string>
+    <result-string>xs:string(&quot;[0,0,&quot;abcd&quot;]&quot;)</result-string>
     <result>
       <assert-string-value>[0,0,&quot;abcd&quot;]</assert-string-value>
     </result>
@@ -255,7 +255,7 @@
     <created by="Michael Kay, Saxonica" on="2011-04-06"/>
     <test>let $r := serialize-json(map{1:=&quot;a&quot;,2:=&quot;b&quot;,4:=&quot;d&quot;,10:=&quot;j&quot;,7:=&quot;g&quot;})
             return translate($r,' ', '')</test>
-    <result-string>xs:string('[&quot;a&quot;,&quot;b&quot;,null,&quot;d&quot;,null,null,&quot;g&quot;,null,null,&quot;j&quot;]')</result-string>
+    <result-string>xs:string(&quot;[&quot;a&quot;,&quot;b&quot;,null,&quot;d&quot;,null,null,&quot;g&quot;,null,null,&quot;j&quot;]&quot;)</result-string>
     <result>
       <assert-string-value>[&quot;a&quot;,&quot;b&quot;,null,&quot;d&quot;,null,null,&quot;g&quot;,null,null,&quot;j&quot;]</assert-string-value>
     </result>
@@ -266,7 +266,7 @@
     <created by="Michael Kay, Saxonica" on="2011-04-06"/>
     <test>let $r := serialize-json((0,0,xs:date('2011-04-06')), map{&quot;fallback&quot;:=function($v){string($v)}})
         return translate($r,' ', '')</test>
-    <result-string>xs:string('[0,0,&quot;2011-04-06&quot;]')</result-string>
+    <result-string>xs:string(&quot;[0,0,&quot;2011-04-06&quot;]&quot;)</result-string>
     <result>
       <assert-string-value>[0,0,&quot;2011-04-06&quot;]</assert-string-value>
     </result>
@@ -276,7 +276,7 @@
     <created by="Michael Kay, Saxonica" on="2011-04-06"/>
     <test>let $r := serialize-json(map{&quot;a&quot;:=xs:date('2011-04-06')}, map{&quot;fallback&quot;:=function($v){string($v)}})
         return translate($r,' ', '')</test>
-    <result-string>xs:string('{&quot;a&quot;:&quot;2011-04-06&quot;}')</result-string>
+    <result-string>xs:string(&quot;{&quot;a&quot;:&quot;2011-04-06&quot;}&quot;)</result-string>
     <result>
       <assert-string-value>{&quot;a&quot;:&quot;2011-04-06&quot;}</assert-string-value>
     </result>
@@ -290,7 +290,7 @@
     </environment>
     <test>let $r := serialize-json(map{&quot;a&quot;:=doc($uri)}, map{&quot;fallback&quot;:=function($v){serialize($v)}})
         return translate($r,' ', '')</test>
-    <result-string>xs:string('{&quot;a&quot;:&quot;&lt;?xmlversion=\&quot;1.0\&quot;encoding=\&quot;UTF-8\&quot;?&gt;&lt;a&gt;text&lt;/a&gt;&quot;}')</result-string>
+    <result-string>xs:string(&quot;{&quot;a&quot;:&quot;&lt;?xmlversion=\&quot;1.0\&quot;encoding=\&quot;UTF-8\&quot;?&gt;&lt;a&gt;text&lt;/a&gt;&quot;}&quot;)</result-string>
     <result>
       <assert-string-value>
         <![CDATA[{"a":"<?xmlversion=\"1.0\"encoding=\"UTF-8\"?><a>text</a>"}]]>
@@ -302,7 +302,7 @@
     <created by="Michael Kay, Saxonica" on="2011-04-06"/>
     <test>let $r := serialize-json((0,0,map{true():=&quot;gogogo&quot;}), map{&quot;fallback&quot;:=function($v){if ($v instance of map(xs:boolean, item()*)) then &quot;a-boolean-map&quot; else $v}})
         return translate($r,' ', '')</test>
-    <result-string>xs:string('[0,0,&quot;a-boolean-map&quot;]')</result-string>
+    <result-string>xs:string(&quot;[0,0,&quot;a-boolean-map&quot;]&quot;)</result-string>
     <result>
       <assert-string-value>[0,0,&quot;a-boolean-map&quot;]</assert-string-value>
     </result>
@@ -316,7 +316,7 @@
                  then map:new(for $k in map:keys($v) return map:entry(string($k), map:get($v, $k)))  
                  else $v}})
         return translate($r,' ', '')</test>
-    <result-string>xs:string('[0,0,{&quot;false&quot;:{&quot;false&quot;:&quot;ok&quot;}}]')</result-string>
+    <result-string>xs:string(&quot;[0,0,{&quot;false&quot;:{&quot;false&quot;:&quot;ok&quot;}}]&quot;)</result-string>
     <result>
       <assert-string-value>[0,0,{&quot;false&quot;:{&quot;false&quot;:&quot;ok&quot;}}]</assert-string-value>
     </result>

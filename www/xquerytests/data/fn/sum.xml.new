@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:int(&quot;-2147483648&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-2147483648&quot;)</result-string>
     <result>
       <assert-eq>-2147483648</assert-eq>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:int(&quot;-1873914410&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1873914410&quot;)</result-string>
     <result>
       <assert-eq>-1873914410</assert-eq>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:int(&quot;2147483647&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2147483647&quot;)</result-string>
     <result>
       <assert-eq>2147483647</assert-eq>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:integer(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:integer(&quot;830993497117024304&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;830993497117024304&quot;)</result-string>
     <result>
       <assert-eq>830993497117024304</assert-eq>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:integer(&quot;999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:decimal(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:decimal(&quot;617375191608514839&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;617375191608514839&quot;)</result-string>
     <result>
       <assert-eq>617375191608514839</assert-eq>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:decimal(&quot;999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double(&quot;-1.7976931348623157E308&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double(&quot;1.7976931348623157E308&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-eq>1.7976931348623157E308</assert-eq>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float(&quot;-3.4028235E38&quot;)))</test>
-    <result-string/>
+    <result-string>xs:float(&quot;-3.4028235E38&quot;)</result-string>
     <result>
       <assert-eq>xs:float(&quot;-3.4028235E38&quot;)</assert-eq>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float(&quot;3.4028235E38&quot;)))</test>
-    <result-string/>
+    <result-string>xs:float(&quot;3.4028235E38&quot;)</result-string>
     <result>
       <assert-eq>xs:float(&quot;3.4028235E38&quot;)</assert-eq>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long(&quot;-92233720368547758&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-92233720368547758&quot;)</result-string>
     <result>
       <assert-eq>-92233720368547758</assert-eq>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long(&quot;-47175562203048468&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-47175562203048468&quot;)</result-string>
     <result>
       <assert-eq>-47175562203048468</assert-eq>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long(&quot;92233720368547758&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;92233720368547758&quot;)</result-string>
     <result>
       <assert-eq>92233720368547758</assert-eq>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort(&quot;44633&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;44633&quot;)</result-string>
     <result>
       <assert-eq>44633</assert-eq>
     </result>
@@ -186,7 +186,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort(&quot;65535&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;65535&quot;)</result-string>
     <result>
       <assert-eq>65535</assert-eq>
     </result>
@@ -195,7 +195,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:negativeInteger(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -204,7 +204,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:negativeInteger(&quot;-297014075999096793&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-297014075999096793&quot;)</result-string>
     <result>
       <assert-eq>-297014075999096793</assert-eq>
     </result>
@@ -213,7 +213,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:negativeInteger(&quot;-1&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -222,7 +222,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger(&quot;1&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -231,7 +231,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger(&quot;52704602390610033&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;52704602390610033&quot;)</result-string>
     <result>
       <assert-eq>52704602390610033</assert-eq>
     </result>
@@ -240,7 +240,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger(&quot;999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -249,7 +249,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -258,7 +258,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong(&quot;130747108607674654&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;130747108607674654&quot;)</result-string>
     <result>
       <assert-eq>130747108607674654</assert-eq>
     </result>
@@ -267,7 +267,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong(&quot;184467440737095516&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;184467440737095516&quot;)</result-string>
     <result>
       <assert-eq>184467440737095516</assert-eq>
     </result>
@@ -276,7 +276,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -285,7 +285,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger(&quot;-475688437271870490&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-475688437271870490&quot;)</result-string>
     <result>
       <assert-eq>-475688437271870490</assert-eq>
     </result>
@@ -294,7 +294,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -303,7 +303,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -312,7 +312,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger(&quot;303884545991464527&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;303884545991464527&quot;)</result-string>
     <result>
       <assert-eq>303884545991464527</assert-eq>
     </result>
@@ -321,7 +321,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger(&quot;999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -330,7 +330,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:short(&quot;-32768&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-32768&quot;)</result-string>
     <result>
       <assert-eq>-32768</assert-eq>
     </result>
@@ -339,7 +339,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:short(&quot;-5324&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-5324&quot;)</result-string>
     <result>
       <assert-eq>-5324</assert-eq>
     </result>
@@ -348,7 +348,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:short(&quot;32767&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;32767&quot;)</result-string>
     <result>
       <assert-eq>32767</assert-eq>
     </result>
@@ -357,7 +357,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:int(mid range) $zero = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:int(&quot;-1873914410&quot;),xs:int(&quot;-273569238&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-2147483648&quot;)</result-string>
     <result>
       <assert-eq>-2147483648</assert-eq>
     </result>
@@ -366,7 +366,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:int(upper bound) $zero = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:int(&quot;2147483647&quot;),xs:int(&quot;-2147483648&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -375,7 +375,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:int(lower bound) $zero = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:int(&quot;-273569238&quot;),xs:int(&quot;-1873914410&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-2147483648&quot;)</result-string>
     <result>
       <assert-eq>-2147483648</assert-eq>
     </result>
@@ -384,7 +384,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:int(lower bound) $zero = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:int(&quot;-2147483648&quot;),xs:int(&quot;2147483647&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -393,7 +393,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:integer(mid range) $zero = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:integer(&quot;830993497117024304&quot;),xs:integer(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-169006502882975695&quot;)</result-string>
     <result>
       <assert-eq>-169006502882975695</assert-eq>
     </result>
@@ -402,7 +402,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:integer(upper bound) $zero = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:integer(&quot;999999999999999999&quot;),xs:integer(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -411,7 +411,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:integer(lower bound) $zero = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:integer(&quot;-999999999999999999&quot;),xs:integer(&quot;830993497117024304&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-169006502882975695&quot;)</result-string>
     <result>
       <assert-eq>-169006502882975695</assert-eq>
     </result>
@@ -420,7 +420,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:integer(lower bound) $zero = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:integer(&quot;-999999999999999999&quot;),xs:integer(&quot;999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -429,7 +429,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:decimal(mid range) $zero = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:decimal(&quot;617375191608514839&quot;),xs:decimal(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-382624808391485160&quot;)</result-string>
     <result>
       <assert-eq>-382624808391485160</assert-eq>
     </result>
@@ -438,7 +438,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:decimal(upper bound) $zero = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:decimal(&quot;999999999999999999&quot;),xs:decimal(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -447,7 +447,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:decimal(lower bound) $zero = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:decimal(&quot;-999999999999999999&quot;),xs:decimal(&quot;617375191608514839&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-382624808391485160&quot;)</result-string>
     <result>
       <assert-eq>-382624808391485160</assert-eq>
     </result>
@@ -456,7 +456,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:decimal(lower bound) $zero = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:decimal(&quot;-999999999999999999&quot;),xs:decimal(&quot;999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -465,7 +465,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:double(mid range) $zero = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double(&quot;0&quot;),xs:double(&quot;-1.7976931348623157E308&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
@@ -474,7 +474,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:double(upper bound) $zero = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double(&quot;1.7976931348623157E308&quot;),xs:double(&quot;-1.7976931348623157E308&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -483,7 +483,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:double(lower bound) $zero = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double(&quot;-1.7976931348623157E308&quot;),xs:double(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
@@ -492,7 +492,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:double(lower bound) $zero = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double(&quot;-1.7976931348623157E308&quot;),xs:double(&quot;1.7976931348623157E308&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -501,7 +501,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:float(mid range) $zero = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float(&quot;0&quot;),xs:float(&quot;-3.4028235E38&quot;)))</test>
-    <result-string/>
+    <result-string>xs:float(&quot;-3.4028235E38&quot;)</result-string>
     <result>
       <assert-eq>xs:float(&quot;-3.4028235E38&quot;)</assert-eq>
     </result>
@@ -510,7 +510,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:float(upper bound) $zero = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float(&quot;3.4028235E38&quot;),xs:float(&quot;-3.4028235E38&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -519,7 +519,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:float(lower bound) $zero = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float(&quot;-3.4028235E38&quot;),xs:float(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:float(&quot;-3.4028235E38&quot;)</result-string>
     <result>
       <assert-eq>xs:float(&quot;-3.4028235E38&quot;)</assert-eq>
     </result>
@@ -528,7 +528,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:float(lower bound) $zero = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float(&quot;-3.4028235E38&quot;),xs:float(&quot;3.4028235E38&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -537,7 +537,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:long(mid range) $zero = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long(&quot;-47175562203048468&quot;),xs:long(&quot;-45058158165499290&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-92233720368547758&quot;)</result-string>
     <result>
       <assert-eq>-92233720368547758</assert-eq>
     </result>
@@ -546,7 +546,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:long(upper bound) $zero = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long(&quot;92233720368547758&quot;),xs:long(&quot;-92233720368547758&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -555,7 +555,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:long(lower bound) $zero = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long(&quot;-45058158165499290&quot;),xs:long(&quot;-47175562203048468&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-92233720368547758&quot;)</result-string>
     <result>
       <assert-eq>-92233720368547758</assert-eq>
     </result>
@@ -564,7 +564,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:long(lower bound) $zero = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long(&quot;-92233720368547758&quot;),xs:long(&quot;92233720368547758&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -573,7 +573,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) $zero = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort(&quot;0&quot;),xs:unsignedShort(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -582,7 +582,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:unsignedShort(mid range) $zero = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort(&quot;44633&quot;),xs:unsignedShort(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;44633&quot;)</result-string>
     <result>
       <assert-eq>44633</assert-eq>
     </result>
@@ -591,7 +591,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) $zero = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort(&quot;65535&quot;),xs:unsignedShort(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;65535&quot;)</result-string>
     <result>
       <assert-eq>65535</assert-eq>
     </result>
@@ -600,7 +600,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) $zero = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort(&quot;0&quot;),xs:unsignedShort(&quot;44633&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;44633&quot;)</result-string>
     <result>
       <assert-eq>44633</assert-eq>
     </result>
@@ -609,7 +609,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) $zero = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort(&quot;0&quot;),xs:unsignedShort(&quot;65535&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;65535&quot;)</result-string>
     <result>
       <assert-eq>65535</assert-eq>
     </result>
@@ -618,7 +618,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:negativeInteger(mid range) $zero = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:negativeInteger(&quot;-297014075999096793&quot;),xs:negativeInteger(&quot;-702985924000903206&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -627,7 +627,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) $zero = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:negativeInteger(&quot;-1&quot;),xs:negativeInteger(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1000000000000000000&quot;)</result-string>
     <result>
       <assert-eq>-1000000000000000000</assert-eq>
     </result>
@@ -636,7 +636,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) $zero = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:negativeInteger(&quot;-702985924000903206&quot;),xs:negativeInteger(&quot;-297014075999096793&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -645,7 +645,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) $zero = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:negativeInteger(&quot;-999999999999999999&quot;),xs:negativeInteger(&quot;-1&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1000000000000000000&quot;)</result-string>
     <result>
       <assert-eq>-1000000000000000000</assert-eq>
     </result>
@@ -654,7 +654,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) $zero = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger(&quot;1&quot;),xs:positiveInteger(&quot;1&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -663,7 +663,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:positiveInteger(mid range) $zero = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger(&quot;52704602390610033&quot;),xs:positiveInteger(&quot;1&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;52704602390610034&quot;)</result-string>
     <result>
       <assert-eq>52704602390610034</assert-eq>
     </result>
@@ -672,7 +672,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) $zero = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger(&quot;999999999999999998&quot;),xs:positiveInteger(&quot;1&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -681,7 +681,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) $zero = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger(&quot;1&quot;),xs:positiveInteger(&quot;52704602390610033&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;52704602390610034&quot;)</result-string>
     <result>
       <assert-eq>52704602390610034</assert-eq>
     </result>
@@ -690,7 +690,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) $zero = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger(&quot;1&quot;),xs:positiveInteger(&quot;999999999999999998&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -699,7 +699,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) $zero = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong(&quot;0&quot;),xs:unsignedLong(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -708,7 +708,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:unsignedLong(mid range) $zero = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong(&quot;130747108607674654&quot;),xs:unsignedLong(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;130747108607674654&quot;)</result-string>
     <result>
       <assert-eq>130747108607674654</assert-eq>
     </result>
@@ -717,7 +717,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) $zero = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong(&quot;184467440737095516&quot;),xs:unsignedLong(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;184467440737095516&quot;)</result-string>
     <result>
       <assert-eq>184467440737095516</assert-eq>
     </result>
@@ -726,7 +726,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) $zero = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong(&quot;0&quot;),xs:unsignedLong(&quot;130747108607674654&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;130747108607674654&quot;)</result-string>
     <result>
       <assert-eq>130747108607674654</assert-eq>
     </result>
@@ -735,7 +735,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) $zero = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong(&quot;0&quot;),xs:unsignedLong(&quot;184467440737095516&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;184467440737095516&quot;)</result-string>
     <result>
       <assert-eq>184467440737095516</assert-eq>
     </result>
@@ -744,7 +744,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) $zero = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger(&quot;-475688437271870490&quot;),xs:nonPositiveInteger(&quot;-524311562728129509&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -753,7 +753,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) $zero = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger(&quot;0&quot;),xs:nonPositiveInteger(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -762,7 +762,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) $zero = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger(&quot;-524311562728129509&quot;),xs:nonPositiveInteger(&quot;-475688437271870490&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -771,7 +771,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) $zero = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger(&quot;-999999999999999999&quot;),xs:nonPositiveInteger(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -780,7 +780,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) $zero = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger(&quot;0&quot;),xs:nonNegativeInteger(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -789,7 +789,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) $zero = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger(&quot;303884545991464527&quot;),xs:nonNegativeInteger(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;303884545991464527&quot;)</result-string>
     <result>
       <assert-eq>303884545991464527</assert-eq>
     </result>
@@ -798,7 +798,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) $zero = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger(&quot;999999999999999999&quot;),xs:nonNegativeInteger(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -807,7 +807,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) $zero = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger(&quot;0&quot;),xs:nonNegativeInteger(&quot;303884545991464527&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;303884545991464527&quot;)</result-string>
     <result>
       <assert-eq>303884545991464527</assert-eq>
     </result>
@@ -816,7 +816,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) $zero = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger(&quot;0&quot;),xs:nonNegativeInteger(&quot;999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -825,7 +825,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:short(mid range) $zero = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:short(&quot;-5324&quot;),xs:short(&quot;-27444&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-32768&quot;)</result-string>
     <result>
       <assert-eq>-32768</assert-eq>
     </result>
@@ -834,7 +834,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:short(upper bound) $zero = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:short(&quot;32767&quot;),xs:short(&quot;-32768&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -843,7 +843,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:short(lower bound) $zero = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:short(&quot;-27444&quot;),xs:short(&quot;-5324&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-32768&quot;)</result-string>
     <result>
       <assert-eq>-32768</assert-eq>
     </result>
@@ -852,7 +852,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg = xs:short(lower bound) $zero = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:short(&quot;-32768&quot;),xs:short(&quot;32767&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -861,7 +861,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:int(mid range) $arg2 = xs:int(lower bound) $zero = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:int(&quot;-1873914410&quot;),xs:int(&quot;-273569238&quot;),xs:int(&quot;-273569238&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-2421052886&quot;)</result-string>
     <result>
       <assert-eq>-2421052886</assert-eq>
     </result>
@@ -870,7 +870,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(mid range) $zero = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:int(&quot;-273569238&quot;),xs:int(&quot;-1873914410&quot;),xs:int(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-2147483648&quot;)</result-string>
     <result>
       <assert-eq>-2147483648</assert-eq>
     </result>
@@ -879,7 +879,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(lower bound) $zero = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:int(&quot;0&quot;),xs:int(&quot;0&quot;),xs:int(&quot;-1873914410&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1873914410&quot;)</result-string>
     <result>
       <assert-eq>-1873914410</assert-eq>
     </result>
@@ -888,7 +888,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(lower bound) $zero = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:int(&quot;0&quot;),xs:int(&quot;0&quot;),xs:int(&quot;2147483647&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2147483647&quot;)</result-string>
     <result>
       <assert-eq>2147483647</assert-eq>
     </result>
@@ -897,7 +897,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:integer(upper bound) $arg2 = xs:integer(lower bound) $zero = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:integer(&quot;999999999999999999&quot;),xs:integer(&quot;-999999999999999999&quot;),xs:integer(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -906,7 +906,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(upper bound) $zero = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:integer(&quot;-999999999999999999&quot;),xs:integer(&quot;999999999999999999&quot;),xs:integer(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -915,7 +915,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(lower bound) $zero = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:integer(&quot;0&quot;),xs:integer(&quot;0&quot;),xs:integer(&quot;830993497117024304&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;830993497117024304&quot;)</result-string>
     <result>
       <assert-eq>830993497117024304</assert-eq>
     </result>
@@ -924,7 +924,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(lower bound) $zero = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:integer(&quot;-999999999999999999&quot;),xs:integer(&quot;-999999999999999999&quot;),xs:integer(&quot;999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -933,7 +933,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:decimal(upper bound) $arg2 = xs:decimal(lower bound) $zero = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:decimal(&quot;999999999999999999&quot;),xs:decimal(&quot;-999999999999999999&quot;),xs:decimal(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -942,7 +942,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(upper bound) $zero = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:decimal(&quot;-999999999999999999&quot;),xs:decimal(&quot;999999999999999999&quot;),xs:decimal(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -951,7 +951,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(lower bound) $zero = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:decimal(&quot;0&quot;),xs:decimal(&quot;0&quot;),xs:decimal(&quot;617375191608514839&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;617375191608514839&quot;)</result-string>
     <result>
       <assert-eq>617375191608514839</assert-eq>
     </result>
@@ -960,7 +960,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(lower bound) $zero = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:decimal(&quot;-999999999999999999&quot;),xs:decimal(&quot;-999999999999999999&quot;),xs:decimal(&quot;999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -981,7 +981,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:double(upper bound) $arg2 = xs:double(lower bound) $zero = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double(&quot;1.7976931348623157E308&quot;),xs:double(&quot;-1.7976931348623157E308&quot;),xs:double(&quot;-1.7976931348623157E308&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
@@ -990,7 +990,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(mid range) $zero = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double(&quot;-1.7976931348623157E308&quot;),xs:double(&quot;0&quot;),xs:double(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
@@ -999,7 +999,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(upper bound) $zero = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double(&quot;-1.7976931348623157E308&quot;),xs:double(&quot;1.7976931348623157E308&quot;),xs:double(&quot;-1.7976931348623157E308&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
@@ -1008,7 +1008,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(lower bound) $zero = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double(&quot;0&quot;),xs:double(&quot;0&quot;),xs:double(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1042,7 +1042,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:float(upper bound) $arg2 = xs:float(lower bound) $zero = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float(&quot;3.4028235E38&quot;),xs:float(&quot;-3.4028235E38&quot;),xs:float(&quot;-3.4028235E38&quot;)))</test>
-    <result-string/>
+    <result-string>xs:float(&quot;-3.4028235E38&quot;)</result-string>
     <result>
       <assert-eq>xs:float(&quot;-3.4028235E38&quot;)</assert-eq>
     </result>
@@ -1051,7 +1051,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(mid range) $zero = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float(&quot;-3.4028235E38&quot;),xs:float(&quot;0&quot;),xs:float(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:float(&quot;-3.4028235E38&quot;)</result-string>
     <result>
       <assert-eq>xs:float(&quot;-3.4028235E38&quot;)</assert-eq>
     </result>
@@ -1060,7 +1060,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(upper bound) $zero = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float(&quot;-3.4028235E38&quot;),xs:float(&quot;3.4028235E38&quot;),xs:float(&quot;-3.4028235E38&quot;)))</test>
-    <result-string/>
+    <result-string>xs:float(&quot;-3.4028235E38&quot;)</result-string>
     <result>
       <assert-eq>xs:float(&quot;-3.4028235E38&quot;)</assert-eq>
     </result>
@@ -1069,7 +1069,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(lower bound) $zero = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float(&quot;0&quot;),xs:float(&quot;0&quot;),xs:float(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1091,7 +1091,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:long(mid range) $arg2 = xs:long(lower bound) $zero = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long(&quot;-47175562203048468&quot;),xs:long(&quot;-45058158165499290&quot;),xs:long(&quot;-45058158165499290&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-137291878534047048&quot;)</result-string>
     <result>
       <assert-eq>-137291878534047048</assert-eq>
     </result>
@@ -1100,7 +1100,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:long(upper bound) $arg2 = xs:long(lower bound) $zero = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long(&quot;92233720368547758&quot;),xs:long(&quot;-92233720368547758&quot;),xs:long(&quot;-92233720368547758&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-92233720368547758&quot;)</result-string>
     <result>
       <assert-eq>-92233720368547758</assert-eq>
     </result>
@@ -1109,7 +1109,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(mid range) $zero = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long(&quot;-45058158165499290&quot;),xs:long(&quot;-47175562203048468&quot;),xs:long(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-92233720368547758&quot;)</result-string>
     <result>
       <assert-eq>-92233720368547758</assert-eq>
     </result>
@@ -1118,7 +1118,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(upper bound) $zero = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long(&quot;-92233720368547758&quot;),xs:long(&quot;92233720368547758&quot;),xs:long(&quot;-92233720368547758&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-92233720368547758&quot;)</result-string>
     <result>
       <assert-eq>-92233720368547758</assert-eq>
     </result>
@@ -1127,7 +1127,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(lower bound) $zero = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long(&quot;0&quot;),xs:long(&quot;0&quot;),xs:long(&quot;-47175562203048468&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-47175562203048468&quot;)</result-string>
     <result>
       <assert-eq>-47175562203048468</assert-eq>
     </result>
@@ -1136,7 +1136,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(lower bound) $zero = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long(&quot;-92233720368547758&quot;),xs:long(&quot;-92233720368547758&quot;),xs:long(&quot;92233720368547758&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-92233720368547758&quot;)</result-string>
     <result>
       <assert-eq>-92233720368547758</assert-eq>
     </result>
@@ -1145,7 +1145,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(lower bound) $zero = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort(&quot;0&quot;),xs:unsignedShort(&quot;0&quot;),xs:unsignedShort(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1154,7 +1154,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:unsignedShort(mid range) $arg2 = xs:unsignedShort(lower bound) $zero = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort(&quot;44633&quot;),xs:unsignedShort(&quot;0&quot;),xs:unsignedShort(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;44633&quot;)</result-string>
     <result>
       <assert-eq>44633</assert-eq>
     </result>
@@ -1163,7 +1163,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:unsignedShort(upper bound) $arg2 = xs:unsignedShort(lower bound) $zero = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort(&quot;65535&quot;),xs:unsignedShort(&quot;0&quot;),xs:unsignedShort(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;65535&quot;)</result-string>
     <result>
       <assert-eq>65535</assert-eq>
     </result>
@@ -1172,7 +1172,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(mid range) $zero = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort(&quot;0&quot;),xs:unsignedShort(&quot;44633&quot;),xs:unsignedShort(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;44633&quot;)</result-string>
     <result>
       <assert-eq>44633</assert-eq>
     </result>
@@ -1181,7 +1181,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(upper bound) $zero = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort(&quot;0&quot;),xs:unsignedShort(&quot;65535&quot;),xs:unsignedShort(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;65535&quot;)</result-string>
     <result>
       <assert-eq>65535</assert-eq>
     </result>
@@ -1190,7 +1190,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(lower bound) $zero = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort(&quot;0&quot;),xs:unsignedShort(&quot;0&quot;),xs:unsignedShort(&quot;44633&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;44633&quot;)</result-string>
     <result>
       <assert-eq>44633</assert-eq>
     </result>
@@ -1199,7 +1199,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(lower bound) $zero = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort(&quot;0&quot;),xs:unsignedShort(&quot;0&quot;),xs:unsignedShort(&quot;65535&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;65535&quot;)</result-string>
     <result>
       <assert-eq>65535</assert-eq>
     </result>
@@ -1208,7 +1208,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:negativeInteger(mid range) $arg2 = xs:negativeInteger(lower bound) $zero = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:negativeInteger(&quot;-297014075999096793&quot;),xs:negativeInteger(&quot;-702985924000903206&quot;),xs:negativeInteger(&quot;-702985924000903206&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1702985924000903205&quot;)</result-string>
     <result>
       <assert-eq>-1702985924000903205</assert-eq>
     </result>
@@ -1217,7 +1217,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:negativeInteger(upper bound) $arg2 = xs:negativeInteger(lower bound) $zero = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:negativeInteger(&quot;-1&quot;),xs:negativeInteger(&quot;-999999999999999999&quot;),xs:negativeInteger(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-1999999999999999999</assert-eq>
     </result>
@@ -1226,7 +1226,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(lower bound) $zero = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger(&quot;1&quot;),xs:positiveInteger(&quot;1&quot;),xs:positiveInteger(&quot;1&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -1235,7 +1235,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:positiveInteger(mid range) $arg2 = xs:positiveInteger(lower bound) $zero = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger(&quot;52704602390610033&quot;),xs:positiveInteger(&quot;1&quot;),xs:positiveInteger(&quot;1&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;52704602390610035&quot;)</result-string>
     <result>
       <assert-eq>52704602390610035</assert-eq>
     </result>
@@ -1244,7 +1244,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:positiveInteger(upper bound) $arg2 = xs:positiveInteger(lower bound) $zero = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger(&quot;999999999999999998&quot;),xs:positiveInteger(&quot;1&quot;),xs:positiveInteger(&quot;1&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1000000000000000000&quot;)</result-string>
     <result>
       <assert-eq>1000000000000000000</assert-eq>
     </result>
@@ -1253,7 +1253,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(mid range) $zero = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger(&quot;1&quot;),xs:positiveInteger(&quot;52704602390610033&quot;),xs:positiveInteger(&quot;1&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;52704602390610035&quot;)</result-string>
     <result>
       <assert-eq>52704602390610035</assert-eq>
     </result>
@@ -1262,7 +1262,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(upper bound) $zero = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger(&quot;1&quot;),xs:positiveInteger(&quot;999999999999999998&quot;),xs:positiveInteger(&quot;1&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1000000000000000000&quot;)</result-string>
     <result>
       <assert-eq>1000000000000000000</assert-eq>
     </result>
@@ -1271,7 +1271,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(lower bound) $zero = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger(&quot;1&quot;),xs:positiveInteger(&quot;1&quot;),xs:positiveInteger(&quot;52704602390610033&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;52704602390610035&quot;)</result-string>
     <result>
       <assert-eq>52704602390610035</assert-eq>
     </result>
@@ -1280,7 +1280,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(lower bound) $zero = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger(&quot;1&quot;),xs:positiveInteger(&quot;1&quot;),xs:positiveInteger(&quot;999999999999999998&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1000000000000000000&quot;)</result-string>
     <result>
       <assert-eq>1000000000000000000</assert-eq>
     </result>
@@ -1289,7 +1289,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(lower bound) $zero = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong(&quot;0&quot;),xs:unsignedLong(&quot;0&quot;),xs:unsignedLong(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1298,7 +1298,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:unsignedLong(mid range) $arg2 = xs:unsignedLong(lower bound) $zero = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong(&quot;130747108607674654&quot;),xs:unsignedLong(&quot;0&quot;),xs:unsignedLong(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;130747108607674654&quot;)</result-string>
     <result>
       <assert-eq>130747108607674654</assert-eq>
     </result>
@@ -1307,7 +1307,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:unsignedLong(upper bound) $arg2 = xs:unsignedLong(lower bound) $zero = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong(&quot;184467440737095516&quot;),xs:unsignedLong(&quot;0&quot;),xs:unsignedLong(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;184467440737095516&quot;)</result-string>
     <result>
       <assert-eq>184467440737095516</assert-eq>
     </result>
@@ -1316,7 +1316,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(mid range) $zero = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong(&quot;0&quot;),xs:unsignedLong(&quot;130747108607674654&quot;),xs:unsignedLong(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;130747108607674654&quot;)</result-string>
     <result>
       <assert-eq>130747108607674654</assert-eq>
     </result>
@@ -1325,7 +1325,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(upper bound) $zero = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong(&quot;0&quot;),xs:unsignedLong(&quot;184467440737095516&quot;),xs:unsignedLong(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;184467440737095516&quot;)</result-string>
     <result>
       <assert-eq>184467440737095516</assert-eq>
     </result>
@@ -1334,7 +1334,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(lower bound) $zero = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong(&quot;0&quot;),xs:unsignedLong(&quot;0&quot;),xs:unsignedLong(&quot;130747108607674654&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;130747108607674654&quot;)</result-string>
     <result>
       <assert-eq>130747108607674654</assert-eq>
     </result>
@@ -1343,7 +1343,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(lower bound) $zero = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong(&quot;0&quot;),xs:unsignedLong(&quot;0&quot;),xs:unsignedLong(&quot;184467440737095516&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;184467440737095516&quot;)</result-string>
     <result>
       <assert-eq>184467440737095516</assert-eq>
     </result>
@@ -1352,7 +1352,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(mid range) $arg2 = xs:nonPositiveInteger(lower bound) $zero = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger(&quot;-475688437271870490&quot;),xs:nonPositiveInteger(&quot;-524311562728129509&quot;),xs:nonPositiveInteger(&quot;-524311562728129509&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1524311562728129508&quot;)</result-string>
     <result>
       <assert-eq>-1524311562728129508</assert-eq>
     </result>
@@ -1361,7 +1361,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(upper bound) $arg2 = xs:nonPositiveInteger(lower bound) $zero = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger(&quot;0&quot;),xs:nonPositiveInteger(&quot;-999999999999999999&quot;),xs:nonPositiveInteger(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1999999999999999998&quot;)</result-string>
     <result>
       <assert-eq>-1999999999999999998</assert-eq>
     </result>
@@ -1370,7 +1370,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(mid range) $zero = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger(&quot;-524311562728129509&quot;),xs:nonPositiveInteger(&quot;-475688437271870490&quot;),xs:nonPositiveInteger(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -1379,7 +1379,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(upper bound) $zero = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger(&quot;-999999999999999999&quot;),xs:nonPositiveInteger(&quot;0&quot;),xs:nonPositiveInteger(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -1388,7 +1388,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(lower bound) $zero = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger(&quot;0&quot;),xs:nonPositiveInteger(&quot;0&quot;),xs:nonPositiveInteger(&quot;-475688437271870490&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-475688437271870490&quot;)</result-string>
     <result>
       <assert-eq>-475688437271870490</assert-eq>
     </result>
@@ -1397,7 +1397,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(lower bound) $zero = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger(&quot;0&quot;),xs:nonPositiveInteger(&quot;0&quot;),xs:nonPositiveInteger(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1406,7 +1406,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(lower bound) $zero = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger(&quot;0&quot;),xs:nonNegativeInteger(&quot;0&quot;),xs:nonNegativeInteger(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1415,7 +1415,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(mid range) $arg2 = xs:nonNegativeInteger(lower bound) $zero = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger(&quot;303884545991464527&quot;),xs:nonNegativeInteger(&quot;0&quot;),xs:nonNegativeInteger(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;303884545991464527&quot;)</result-string>
     <result>
       <assert-eq>303884545991464527</assert-eq>
     </result>
@@ -1424,7 +1424,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(upper bound) $arg2 = xs:nonNegativeInteger(lower bound) $zero = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger(&quot;999999999999999999&quot;),xs:nonNegativeInteger(&quot;0&quot;),xs:nonNegativeInteger(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -1433,7 +1433,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(mid range) $zero = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger(&quot;0&quot;),xs:nonNegativeInteger(&quot;303884545991464527&quot;),xs:nonNegativeInteger(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;303884545991464527&quot;)</result-string>
     <result>
       <assert-eq>303884545991464527</assert-eq>
     </result>
@@ -1442,7 +1442,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(upper bound) $zero = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger(&quot;0&quot;),xs:nonNegativeInteger(&quot;999999999999999999&quot;),xs:nonNegativeInteger(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -1451,7 +1451,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(lower bound) $zero = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger(&quot;0&quot;),xs:nonNegativeInteger(&quot;0&quot;),xs:nonNegativeInteger(&quot;303884545991464527&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;303884545991464527&quot;)</result-string>
     <result>
       <assert-eq>303884545991464527</assert-eq>
     </result>
@@ -1460,7 +1460,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(lower bound) $zero = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger(&quot;0&quot;),xs:nonNegativeInteger(&quot;0&quot;),xs:nonNegativeInteger(&quot;999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -1469,7 +1469,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:short(mid range) $arg2 = xs:short(lower bound) $zero = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:short(&quot;-5324&quot;),xs:short(&quot;-27444&quot;),xs:short(&quot;-27444&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-60212&quot;)</result-string>
     <result>
       <assert-eq>-60212</assert-eq>
     </result>
@@ -1478,7 +1478,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(mid range) $zero = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:short(&quot;-27444&quot;),xs:short(&quot;-5324&quot;),xs:short(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-32768&quot;)</result-string>
     <result>
       <assert-eq>-32768</assert-eq>
     </result>
@@ -1487,7 +1487,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(lower bound) $zero = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:short(&quot;0&quot;),xs:short(&quot;0&quot;),xs:short(&quot;-5324&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-5324&quot;)</result-string>
     <result>
       <assert-eq>-5324</assert-eq>
     </result>
@@ -1496,7 +1496,7 @@
     <description> Evaluates The &quot;sum&quot; function with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(lower bound) $zero = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:short(&quot;0&quot;),xs:short(&quot;0&quot;),xs:short(&quot;32767&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;32767&quot;)</result-string>
     <result>
       <assert-eq>32767</assert-eq>
     </result>
@@ -1523,7 +1523,7 @@
     <description> A test whose essence is: `sum((), 3) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((), 3) eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1532,7 +1532,7 @@
     <description> A test whose essence is: `sum((), 3) instance of xs:integer`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((), 3) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1541,7 +1541,7 @@
     <description> A test whose essence is: `empty(sum((), ()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(sum((), ()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1550,7 +1550,7 @@
     <description> A test whose essence is: `sum((), 0.0) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((), 0.0) instance of xs:decimal</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1559,7 +1559,7 @@
     <description> A test whose essence is: `sum((), 0.0) eq 0.0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((), 0.0) eq 0.0</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1568,7 +1568,7 @@
     <description> A test whose essence is: `sum(()) eq 0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum(()) eq 0</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1577,7 +1577,7 @@
     <description> A test whose essence is: `sum(()) instance of xs:integer`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum(()) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1586,7 +1586,7 @@
     <description> A test whose essence is: `sum((-5, -0, -3, -6)) eq -14`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((-5, -0, -3, -6)) eq -14</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1595,7 +1595,7 @@
     <description> A test whose essence is: `string(sum((1, 2, 3, xs:float(&quot;NaN&quot;)))) eq &quot;NaN&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(sum((1, 2, 3, xs:float(&quot;NaN&quot;)))) eq &quot;NaN&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1604,7 +1604,7 @@
     <description> A test whose essence is: `string(sum((1, 2, 3, xs:double(&quot;NaN&quot;)))) eq &quot;NaN&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(sum((1, 2, 3, xs:double(&quot;NaN&quot;)))) eq &quot;NaN&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1613,7 +1613,7 @@
     <description> A test whose essence is: `string(sum((xs:double(&quot;NaN&quot;), 1, 2, 3))) eq &quot;NaN&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(sum((xs:double(&quot;NaN&quot;), 1, 2, 3))) eq &quot;NaN&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1622,7 +1622,7 @@
     <description> A test whose essence is: `string(sum((xs:float(&quot;NaN&quot;), 1, 2, 3))) eq &quot;NaN&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(sum((xs:float(&quot;NaN&quot;), 1, 2, 3))) eq &quot;NaN&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1631,7 +1631,7 @@
     <description> A test whose essence is: `string(sum((1, 2, xs:double(&quot;NaN&quot;), 1, 2, 3))) eq &quot;NaN&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(sum((1, 2, xs:double(&quot;NaN&quot;), 1, 2, 3))) eq &quot;NaN&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1640,7 +1640,7 @@
     <description> A test whose essence is: `string(sum((1, 2, xs:float(&quot;NaN&quot;), 1, 2, 3))) eq &quot;NaN&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(sum((1, 2, xs:float(&quot;NaN&quot;), 1, 2, 3))) eq &quot;NaN&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1649,7 +1649,7 @@
     <description> A test whose essence is: `sum(xs:untypedAtomic(&quot;3&quot;)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum(xs:untypedAtomic(&quot;3&quot;)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1658,7 +1658,7 @@
     <description> A test whose essence is: `sum((1, 2, xs:untypedAtomic(&quot;3&quot;))) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((1, 2, xs:untypedAtomic(&quot;3&quot;))) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1667,7 +1667,7 @@
     <description> A test whose essence is: `sum((1, 2, xs:untypedAtomic(&quot;3&quot;))) eq 6`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((1, 2, xs:untypedAtomic(&quot;3&quot;))) eq 6</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1676,7 +1676,7 @@
     <description> A test whose essence is: `sum((xs:float(1), 2, xs:untypedAtomic(&quot;3&quot;))) eq 6`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((xs:float(1), 2, xs:untypedAtomic(&quot;3&quot;))) eq 6</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1685,7 +1685,7 @@
     <description> A test whose essence is: `sum((xs:float(1), 2, xs:untypedAtomic(&quot;3&quot;))) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((xs:float(1), 2, xs:untypedAtomic(&quot;3&quot;))) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1694,7 +1694,7 @@
     <description> fn:sum() having an input sequence whose static type is xs:anyAtomicType. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum(remove((1.0, xs:float(1), 2, xs:untypedAtomic(&quot;3&quot;)), 1)) eq 6</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1739,7 +1739,7 @@
     <description> A test whose essence is: `sum(((),())) eq 0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum(((),())) eq 0</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1748,7 +1748,7 @@
     <description> A test whose essence is: `sum(()) eq 0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum(()) eq 0</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1757,7 +1757,7 @@
     <description> A test whose essence is: `sum((3, 4, 5)) eq 12`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((3, 4, 5)) eq 12</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1766,7 +1766,7 @@
     <description> A test whose essence is: `sum((xs:yearMonthDuration(&quot;P20Y&quot;), xs:yearMonthDuration(&quot;P10M&quot;))) eq xs:yearMonthDuration(&quot;P250M&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((xs:yearMonthDuration(&quot;P20Y&quot;), xs:yearMonthDuration(&quot;P10M&quot;))) eq xs:yearMonthDuration(&quot;P250M&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1777,7 +1777,7 @@
     <test>
       <![CDATA[sum((xs:yearMonthDuration("P20Y"), xs:yearMonthDuration("P10M")) [. < xs:yearMonthDuration("P3M")], xs:yearMonthDuration("P0M")) eq xs:yearMonthDuration("P0M")]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1788,7 +1788,7 @@
     <test>
       <![CDATA[sum((1 to 100)[. < 0], 0) eq 0]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1806,7 +1806,7 @@
     <description> Pass in an empty sequence as zero. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((), ())</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -1815,7 +1815,7 @@
     <description> Ensure the return type is correct when type promotion is required. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((xs:float('NaN'), 2, 3, 4, xs:double('NaN'))) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1824,7 +1824,7 @@
     <description> Ensure the return type is correct when type promotion is required(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((xs:float('NaN'), 2, 3.3, 4, xs:double('NaN'))) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1833,7 +1833,7 @@
     <description> Ensure the return type is properly inferred. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum(xs:unsignedShort(&quot;1&quot;)) instance of xs:unsignedShort</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1842,7 +1842,7 @@
     <description> Test fn:sum on a sequence of xs:dayTimeDuration arguments </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>sum((xs:dayTimeDuration(&quot;P1D&quot;), xs:dayTimeDuration(&quot;PT1H&quot;))) instance of xs:dayTimeDuration</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1851,7 +1851,7 @@
     <description> Test fn:sum on a sequence of xs:dayTimeDuration arguments </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>sum((), xs:dayTimeDuration(&quot;PT0S&quot;))</test>
-    <result-string>xs:string('PT0S')</result-string>
+    <result-string>xs:string(&quot;PT0S&quot;)</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
@@ -1860,7 +1860,7 @@
     <description> Test fn:sum on a sequence of xs:dayTimeDuration arguments </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>sum(for $x in 1 to 10 return xs:dayTimeDuration(concat(&quot;PT&quot;,$x,&quot;H&quot;)))</test>
-    <result-string>xs:string('P2DT7H')</result-string>
+    <result-string>xs:string(&quot;P2DT7H&quot;)</result-string>
     <result>
       <assert-string-value>P2DT7H</assert-string-value>
     </result>
@@ -1869,7 +1869,7 @@
     <description> Test fn:sum on a sequence of xs:yearMonthDuration arguments </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>sum((xs:yearMonthDuration(&quot;P1Y&quot;), xs:yearMonthDuration(&quot;P1M&quot;))) instance of xs:yearMonthDuration</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1878,7 +1878,7 @@
     <description> Test fn:sum on a sequence of xs:yearMonthDuration arguments </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>sum((), xs:yearMonthDuration(&quot;P0M&quot;))</test>
-    <result-string>xs:string('P0M')</result-string>
+    <result-string>xs:string(&quot;P0M&quot;)</result-string>
     <result>
       <assert-string-value>P0M</assert-string-value>
     </result>
@@ -1887,7 +1887,7 @@
     <description> Test fn:sum on a sequence of xs:yearMonthDuration arguments </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>sum(for $x in 1 to 10 return xs:yearMonthDuration(concat(&quot;P&quot;,$x,&quot;M&quot;)))</test>
-    <result-string>xs:string('P4Y7M')</result-string>
+    <result-string>xs:string(&quot;P4Y7M&quot;)</result-string>
     <result>
       <assert-string-value>P4Y7M</assert-string-value>
     </result>
@@ -1908,7 +1908,7 @@
     <description> Test fn:sum with $zero as xs:duration </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>sum((), xs:duration(&quot;P0M&quot;))</test>
-    <result-string>xs:string('PT0S')</result-string>
+    <result-string>xs:string(&quot;PT0S&quot;)</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
@@ -1941,7 +1941,7 @@
     <description> Test sum(1 to 10) </description>
     <created by="Nick Jones" on="2008-06-10"/>
     <test>sum(1 to 10)</test>
-    <result-string>xs:string('55')</result-string>
+    <result-string>xs:string(&quot;55&quot;)</result-string>
     <result>
       <assert-string-value>55</assert-string-value>
     </result>
@@ -1950,7 +1950,7 @@
     <description> Test sum(foreach) </description>
     <created by="Nick Jones" on="2008-06-10"/>
     <test>sum(for $x in 1 to 10 return 5)</test>
-    <result-string>xs:string('50')</result-string>
+    <result-string>xs:string(&quot;50&quot;)</result-string>
     <result>
       <assert-string-value>50</assert-string-value>
     </result>
@@ -1961,7 +1961,7 @@
     <test>
         for $x in 1 to 10, $y in 1 to 10 return concat('sum(',$x,' to ',$y,') = ',sum($x to $y))
       </test>
-    <result-string>xs:string('sum(1 to 1) = 1 sum(1 to 2) = 3 sum(1 to 3) = 6 sum(1 to 4) = 10 sum(1 to 5) = 15 sum(1 to 6) = 21 sum(1 to 7) = 28 sum(1 to 8) = 36 sum(1 to 9) = 45 sum(1 to 10) = 55 sum(2 to 1) = 0 sum(2 to 2) = 2 sum(2 to 3) = 5 sum(2 to 4) = 9 sum(2 to 5) = 14 sum(2 to 6) = 20 sum(2 to 7) = 27 sum(2 to 8) = 35 sum(2 to 9) = 44 sum(2 to 10) = 54 sum(3 to 1) = 0 sum(3 to 2) = 0 sum(3 to 3) = 3 sum(3 to 4) = 7 sum(3 to 5) = 12 sum(3 to 6) = 18 sum(3 to 7) = 25 sum(3 to 8) = 33 sum(3 to 9) = 42 sum(3 to 10) = 52 sum(4 to 1) = 0 sum(4 to 2) = 0 sum(4 to 3) = 0 sum(4 to 4) = 4 sum(4 to 5) = 9 sum(4 to 6) = 15 sum(4 to 7) = 22 sum(4 to 8) = 30 sum(4 to 9) = 39 sum(4 to 10) = 49 sum(5 to 1) = 0 sum(5 to 2) = 0 sum(5 to 3) = 0 sum(5 to 4) = 0 sum(5 to 5) = 5 sum(5 to 6) = 11 sum(5 to 7) = 18 sum(5 to 8) = 26 sum(5 to 9) = 35 sum(5 to 10) = 45 sum(6 to 1) = 0 sum(6 to 2) = 0 sum(6 to 3) = 0 sum(6 to 4) = 0 sum(6 to 5) = 0 sum(6 to 6) = 6 sum(6 to 7) = 13 sum(6 to 8) = 21 sum(6 to 9) = 30 sum(6 to 10) = 40 sum(7 to 1) = 0 sum(7 to 2) = 0 sum(7 to 3) = 0 sum(7 to 4) = 0 sum(7 to 5) = 0 sum(7 to 6) = 0 sum(7 to 7) = 7 sum(7 to 8) = 15 sum(7 to 9) = 24 sum(7 to 10) = 34 sum(8 to 1) = 0 sum(8 to 2) = 0 sum(8 to 3) = 0 sum(8 to 4) = 0 sum(8 to 5) = 0 sum(8 to 6) = 0 sum(8 to 7) = 0 sum(8 to 8) = 8 sum(8 to 9) = 17 sum(8 to 10) = 27 sum(9 to 1) = 0 sum(9 to 2) = 0 sum(9 to 3) = 0 sum(9 to 4) = 0 sum(9 to 5) = 0 sum(9 to 6) = 0 sum(9 to 7) = 0 sum(9 to 8) = 0 sum(9 to 9) = 9 sum(9 to 10) = 19 sum(10 to 1) = 0 sum(10 to 2) = 0 sum(10 to 3) = 0 sum(10 to 4) = 0 sum(10 to 5) = 0 sum(10 to 6) = 0 sum(10 to 7) = 0 sum(10 to 8) = 0 sum(10 to 9) = 0 sum(10 to 10) = 10')</result-string>
+    <result-string>xs:string(&quot;sum(1 to 1) = 1 sum(1 to 2) = 3 sum(1 to 3) = 6 sum(1 to 4) = 10 sum(1 to 5) = 15 sum(1 to 6) = 21 sum(1 to 7) = 28 sum(1 to 8) = 36 sum(1 to 9) = 45 sum(1 to 10) = 55 sum(2 to 1) = 0 sum(2 to 2) = 2 sum(2 to 3) = 5 sum(2 to 4) = 9 sum(2 to 5) = 14 sum(2 to 6) = 20 sum(2 to 7) = 27 sum(2 to 8) = 35 sum(2 to 9) = 44 sum(2 to 10) = 54 sum(3 to 1) = 0 sum(3 to 2) = 0 sum(3 to 3) = 3 sum(3 to 4) = 7 sum(3 to 5) = 12 sum(3 to 6) = 18 sum(3 to 7) = 25 sum(3 to 8) = 33 sum(3 to 9) = 42 sum(3 to 10) = 52 sum(4 to 1) = 0 sum(4 to 2) = 0 sum(4 to 3) = 0 sum(4 to 4) = 4 sum(4 to 5) = 9 sum(4 to 6) = 15 sum(4 to 7) = 22 sum(4 to 8) = 30 sum(4 to 9) = 39 sum(4 to 10) = 49 sum(5 to 1) = 0 sum(5 to 2) = 0 sum(5 to 3) = 0 sum(5 to 4) = 0 sum(5 to 5) = 5 sum(5 to 6) = 11 sum(5 to 7) = 18 sum(5 to 8) = 26 sum(5 to 9) = 35 sum(5 to 10) = 45 sum(6 to 1) = 0 sum(6 to 2) = 0 sum(6 to 3) = 0 sum(6 to 4) = 0 sum(6 to 5) = 0 sum(6 to 6) = 6 sum(6 to 7) = 13 sum(6 to 8) = 21 sum(6 to 9) = 30 sum(6 to 10) = 40 sum(7 to 1) = 0 sum(7 to 2) = 0 sum(7 to 3) = 0 sum(7 to 4) = 0 sum(7 to 5) = 0 sum(7 to 6) = 0 sum(7 to 7) = 7 sum(7 to 8) = 15 sum(7 to 9) = 24 sum(7 to 10) = 34 sum(8 to 1) = 0 sum(8 to 2) = 0 sum(8 to 3) = 0 sum(8 to 4) = 0 sum(8 to 5) = 0 sum(8 to 6) = 0 sum(8 to 7) = 0 sum(8 to 8) = 8 sum(8 to 9) = 17 sum(8 to 10) = 27 sum(9 to 1) = 0 sum(9 to 2) = 0 sum(9 to 3) = 0 sum(9 to 4) = 0 sum(9 to 5) = 0 sum(9 to 6) = 0 sum(9 to 7) = 0 sum(9 to 8) = 0 sum(9 to 9) = 9 sum(9 to 10) = 19 sum(10 to 1) = 0 sum(10 to 2) = 0 sum(10 to 3) = 0 sum(10 to 4) = 0 sum(10 to 5) = 0 sum(10 to 6) = 0 sum(10 to 7) = 0 sum(10 to 8) = 0 sum(10 to 9) = 0 sum(10 to 10) = 10&quot;)</result-string>
     <result>
       <assert-string-value>sum(1 to 1) = 1 sum(1 to 2) = 3 sum(1 to 3) = 6 sum(1 to 4) = 10 sum(1 to 5) = 15 sum(1 to 6) = 21 sum(1 to 7) = 28 sum(1 to 8) = 36 sum(1 to 9) = 45 sum(1 to 10) = 55 sum(2 to 1) = 0 sum(2 to 2) = 2 sum(2 to 3) = 5 sum(2 to 4) = 9 sum(2 to 5) = 14 sum(2 to 6) = 20 sum(2 to 7) = 27 sum(2 to 8) = 35 sum(2 to 9) = 44 sum(2 to 10) = 54 sum(3 to 1) = 0 sum(3 to 2) = 0 sum(3 to 3) = 3 sum(3 to 4) = 7 sum(3 to 5) = 12 sum(3 to 6) = 18 sum(3 to 7) = 25 sum(3 to 8) = 33 sum(3 to 9) = 42 sum(3 to 10) = 52 sum(4 to 1) = 0 sum(4 to 2) = 0 sum(4 to 3) = 0 sum(4 to 4) = 4 sum(4 to 5) = 9 sum(4 to 6) = 15 sum(4 to 7) = 22 sum(4 to 8) = 30 sum(4 to 9) = 39 sum(4 to 10) = 49 sum(5 to 1) = 0 sum(5 to 2) = 0 sum(5 to 3) = 0 sum(5 to 4) = 0 sum(5 to 5) = 5 sum(5 to 6) = 11 sum(5 to 7) = 18 sum(5 to 8) = 26 sum(5 to 9) = 35 sum(5 to 10) = 45 sum(6 to 1) = 0 sum(6 to 2) = 0 sum(6 to 3) = 0 sum(6 to 4) = 0 sum(6 to 5) = 0 sum(6 to 6) = 6 sum(6 to 7) = 13 sum(6 to 8) = 21 sum(6 to 9) = 30 sum(6 to 10) = 40 sum(7 to 1) = 0 sum(7 to 2) = 0 sum(7 to 3) = 0 sum(7 to 4) = 0 sum(7 to 5) = 0 sum(7 to 6) = 0 sum(7 to 7) = 7 sum(7 to 8) = 15 sum(7 to 9) = 24 sum(7 to 10) = 34 sum(8 to 1) = 0 sum(8 to 2) = 0 sum(8 to 3) = 0 sum(8 to 4) = 0 sum(8 to 5) = 0 sum(8 to 6) = 0 sum(8 to 7) = 0 sum(8 to 8) = 8 sum(8 to 9) = 17 sum(8 to 10) = 27 sum(9 to 1) = 0 sum(9 to 2) = 0 sum(9 to 3) = 0 sum(9 to 4) = 0 sum(9 to 5) = 0 sum(9 to 6) = 0 sum(9 to 7) = 0 sum(9 to 8) = 0 sum(9 to 9) = 9 sum(9 to 10) = 19 sum(10 to 1) = 0 sum(10 to 2) = 0 sum(10 to 3) = 0 sum(10 to 4) = 0 sum(10 to 5) = 0 sum(10 to 6) = 0 sum(10 to 7) = 0 sum(10 to 8) = 0 sum(10 to 9) = 0 sum(10 to 10) = 10</assert-string-value>
     </result>
@@ -1970,7 +1970,7 @@
     <description> Tests boolean call to sum </description>
     <created by="Nick Jones" on="2008-06-17"/>
     <test>boolean(sum((1 to 10)[. mod 2 = 0]))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1979,7 +1979,7 @@
     <description> Tests sum of a sum </description>
     <created by="Nick Jones" on="2008-06-17"/>
     <test>sum(sum((1 to 10)[. mod 2 = 0],()))</test>
-    <result-string>xs:string('30')</result-string>
+    <result-string>xs:string(&quot;30&quot;)</result-string>
     <result>
       <assert-string-value>30</assert-string-value>
     </result>
@@ -1988,7 +1988,7 @@
     <description> Tests sum of two integer converts to plus </description>
     <created by="Nick Jones" on="2008-06-17"/>
     <test>sum((1,exactly-one((1 to 10)[. div 2 = 2])))</test>
-    <result-string>xs:string('5')</result-string>
+    <result-string>xs:string(&quot;5&quot;)</result-string>
     <result>
       <assert-string-value>5</assert-string-value>
     </result>

@@ -447,7 +447,7 @@
     <description> A test whose essence is: `if(true()) then true() else error()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>if(true()) then true() else error()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -456,7 +456,7 @@
     <description> A test whose essence is: `if(true()) then true() else error(QName(&quot;&quot;, &quot;local&quot;), &quot;description&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>if(true()) then true() else error(QName(&quot;&quot;, &quot;local&quot;), &quot;description&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -501,7 +501,7 @@
     <description> A test whose essence is: `if(false()) then error((), &quot;description&quot;) else true()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>if(false()) then error((), &quot;description&quot;) else true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -911,7 +911,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:item() { if (current-date() gt xs:date('1900-01-01')) then 1 else &quot;one&quot; }; empty( typeswitch ( local:item() ) case xs:integer return () default return fn:error())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

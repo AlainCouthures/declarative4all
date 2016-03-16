@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;adjust-time-to-timezone&quot; function with the arguments set as follows: $arg = xs:time(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:adjust-time-to-timezone(xs:time(&quot;00:00:00Z&quot;),xs:dayTimeDuration(&quot;-PT10H&quot;))</test>
-    <result-string>xs:string('14:00:00-10:00')</result-string>
+    <result-string>xs:string(&quot;14:00:00-10:00&quot;)</result-string>
     <result>
       <assert-string-value>14:00:00-10:00</assert-string-value>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;adjust-time-to-timezone&quot; function with the arguments set as follows: $arg = xs:time(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:adjust-time-to-timezone(xs:time(&quot;08:03:35Z&quot;),xs:dayTimeDuration(&quot;-PT10H&quot;))</test>
-    <result-string>xs:string('22:03:35-10:00')</result-string>
+    <result-string>xs:string(&quot;22:03:35-10:00&quot;)</result-string>
     <result>
       <assert-string-value>22:03:35-10:00</assert-string-value>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;adjust-time-to-timezone&quot; function with the arguments set as follows: $arg = xs:time(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:adjust-time-to-timezone(xs:time(&quot;23:59:59Z&quot;),xs:dayTimeDuration(&quot;-PT10H&quot;))</test>
-    <result-string>xs:string('13:59:59-10:00')</result-string>
+    <result-string>xs:string(&quot;13:59:59-10:00&quot;)</result-string>
     <result>
       <assert-string-value>13:59:59-10:00</assert-string-value>
     </result>
@@ -33,7 +33,7 @@
     <description>Test Description: Evaluates The &quot;adjust-time-to-timezone&quot; function as per example 1 (for this function) of the FO specs. </description>
     <created by="Carmelo Montanez" on="2005-09-10"/>
     <test>fn:adjust-time-to-timezone(xs:time(&quot;10:00:00-05:00&quot;),xs:dayTimeDuration(&quot;-PT5H0M&quot;))</test>
-    <result-string>xs:string('10:00:00-05:00')</result-string>
+    <result-string>xs:string(&quot;10:00:00-05:00&quot;)</result-string>
     <result>
       <assert-string-value>10:00:00-05:00</assert-string-value>
     </result>
@@ -42,7 +42,7 @@
     <description>Test Description: Evaluates The &quot;adjust-time-to-timezone&quot; function as per example 2 (for this function) of the FO specs. </description>
     <created by="Carmelo Montanez" on="2005-09-10"/>
     <test>fn:adjust-time-to-timezone(xs:time(&quot;10:00:00-07:00&quot;),xs:dayTimeDuration(&quot;-PT5H0M&quot;))</test>
-    <result-string>xs:string('12:00:00-05:00')</result-string>
+    <result-string>xs:string(&quot;12:00:00-05:00&quot;)</result-string>
     <result>
       <assert-string-value>12:00:00-05:00</assert-string-value>
     </result>
@@ -54,7 +54,7 @@
     <test>let $tz := xs:dayTimeDuration(&quot;-PT10H&quot;) 
          return fn:adjust-time-to-timezone(xs:time(&quot;10:00:00&quot;), $tz)
       </test>
-    <result-string>xs:string('10:00:00-10:00')</result-string>
+    <result-string>xs:string(&quot;10:00:00-10:00&quot;)</result-string>
     <result>
       <assert-string-value>10:00:00-10:00</assert-string-value>
     </result>
@@ -66,7 +66,7 @@
     <test>let $tz := xs:dayTimeDuration(&quot;-PT10H&quot;) 
          return fn:adjust-time-to-timezone(xs:time(&quot;10:00:00-07:00&quot;), $tz)
       </test>
-    <result-string>xs:string('07:00:00-10:00')</result-string>
+    <result-string>xs:string(&quot;07:00:00-10:00&quot;)</result-string>
     <result>
       <assert-string-value>07:00:00-10:00</assert-string-value>
     </result>
@@ -75,7 +75,7 @@
     <description>Test Description: Evaluates The &quot;adjust-time-to-timezone&quot; function as per example 5 (for this function) of the FO specs. </description>
     <created by="Carmelo Montanez" on="2005-09-10"/>
     <test>fn:adjust-time-to-timezone(xs:time(&quot;10:00:00-05:00&quot;),())</test>
-    <result-string>xs:string('10:00:00')</result-string>
+    <result-string>xs:string(&quot;10:00:00&quot;)</result-string>
     <result>
       <assert-string-value>10:00:00</assert-string-value>
     </result>
@@ -84,7 +84,7 @@
     <description>Test Description: Evaluates The &quot;adjust-time-to-timezone&quot; function as per example 6 (for this function) of the FO specs. </description>
     <created by="Carmelo Montanez" on="2005-09-10"/>
     <test>fn:adjust-time-to-timezone(xs:time(&quot;10:00:00-07:00&quot;), ())</test>
-    <result-string>xs:string('10:00:00')</result-string>
+    <result-string>xs:string(&quot;10:00:00&quot;)</result-string>
     <result>
       <assert-string-value>10:00:00</assert-string-value>
     </result>
@@ -93,7 +93,7 @@
     <description>Test Description: Evaluates The &quot;adjust-time-to-timezone&quot; function as per example 7 (for this function) of the FO specs. </description>
     <created by="Carmelo Montanez" on="2005-09-10"/>
     <test>fn:adjust-time-to-timezone(xs:time(&quot;10:00:00-07:00&quot;), xs:dayTimeDuration(&quot;PT10H&quot;))</test>
-    <result-string>xs:string('03:00:00+10:00')</result-string>
+    <result-string>xs:string(&quot;03:00:00+10:00&quot;)</result-string>
     <result>
       <assert-string-value>03:00:00+10:00</assert-string-value>
     </result>
@@ -102,7 +102,7 @@
     <description>Test Description: Evaluates The &quot;adjust-time-to-timezone&quot; function using the empty sequence as the first argument, Uses the count function to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-09-10"/>
     <test>fn:count(fn:adjust-time-to-timezone((),()))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -111,7 +111,7 @@
     <description>Test Description: Evaluates The &quot;adjust-time-to-timezone&quot; function as part of a subtraction expression, whicg results on a negative number. Uses two adjust-time-to-timezone functions. </description>
     <created by="Carmelo Montanez" on="2005-09-10"/>
     <test>fn:adjust-time-to-timezone(xs:time(&quot;09:00:00Z&quot;),()) - fn:adjust-time-to-timezone(xs:time(&quot;10:00:00Z&quot;),())</test>
-    <result-string>xs:string('-PT1H')</result-string>
+    <result-string>xs:string(&quot;-PT1H&quot;)</result-string>
     <result>
       <assert-string-value>-PT1H</assert-string-value>
     </result>
@@ -120,7 +120,7 @@
     <description>Test Description: Evaluates The &quot;adjust-time-to-timezone&quot; function as part of an subtraction expression. Use zulu timezone and empty sequence for 2nd argument. </description>
     <created by="Carmelo Montanez" on="2005-09-10"/>
     <test>fn:adjust-time-to-timezone(xs:time(&quot;10:00:00Z&quot;),()) - fn:adjust-time-to-timezone(xs:time(&quot;10:00:00Z&quot;),())</test>
-    <result-string>xs:string('PT0S')</result-string>
+    <result-string>xs:string(&quot;PT0S&quot;)</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
@@ -129,7 +129,7 @@
     <description>Test Description: Evaluates The &quot;adjust-time-to-timezone&quot; function as an argument to a string function. Use zulu timezone and empty sequence for 2nd argument. </description>
     <created by="Carmelo Montanez" on="2005-09-10"/>
     <test>fn:string(fn:adjust-time-to-timezone(xs:time(&quot;10:00:00Z&quot;),()))</test>
-    <result-string>xs:string('10:00:00')</result-string>
+    <result-string>xs:string(&quot;10:00:00&quot;)</result-string>
     <result>
       <assert-string-value>10:00:00</assert-string-value>
     </result>
@@ -138,7 +138,7 @@
     <description>Test Description: Evaluates The string value &quot;adjust-time-to-timezone&quot; function as an argument to a boolean function. Use zulu timezone and empty sequence for 2nd argument. </description>
     <created by="Carmelo Montanez" on="2005-09-10"/>
     <test>fn:boolean(fn:string(fn:adjust-time-to-timezone(xs:time(&quot;10:00:00Z&quot;),())))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -147,7 +147,7 @@
     <description>Test Description: Evaluates The string value of &quot;adjust-time-to-timezone&quot; function as an argument to the &quot;fn:not&quot; function. Use zulu timezone and empty sequence for 2nd argument. </description>
     <created by="Carmelo Montanez" on="2005-09-10"/>
     <test>fn:not(fn:string(fn:adjust-time-to-timezone(xs:time(&quot;10:00:00Z&quot;),())))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -156,7 +156,7 @@
     <description>Test Description: Evaluates The string value of &quot;adjust-time-to-timezone&quot; function part of a boolean (or) expression and the fn:true function. Use zulu timezone and empty sequence for 2nd argument. </description>
     <created by="Carmelo Montanez" on="2005-09-10"/>
     <test>fn:string(fn:adjust-time-to-timezone(xs:time(&quot;10:00:00Z&quot;),())) or fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -165,7 +165,7 @@
     <description>Test Description: Evaluates The string value of &quot;adjust-time-to-timezone&quot; function as part of a boolean (or) expression and the fn:false function. Use zulu timezone and empty sequence for 2nd argument. </description>
     <created by="Carmelo Montanez" on="2005-09-10"/>
     <test>fn:string(fn:adjust-time-to-timezone(xs:time(&quot;10:00:00Z&quot;),())) or fn:false()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -174,7 +174,7 @@
     <description>Test Description: Evaluates The string value of &quot;adjust-time-to-timezone&quot; function as part of a boolean (and) expression and the fn:true function. Use zulu timezone and empty sequence for 2nd argument. </description>
     <created by="Carmelo Montanez" on="2005-09-10"/>
     <test>fn:string(fn:adjust-time-to-timezone(xs:time(&quot;10:00:00Z&quot;),())) and fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -183,7 +183,7 @@
     <description>Test Description: Evaluates The string value of &quot;adjust-time-to-timezone&quot; function as part of a boolean (and) expression and the fn:false function. Use zulu timezone and empty sequence for 2nd argument. </description>
     <created by="Carmelo Montanez" on="2005-09-10"/>
     <test>fn:string(fn:adjust-time-to-timezone(xs:time(&quot;10:00:00Z&quot;),())) and fn:false()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -195,7 +195,7 @@
     <test>let $tz := xs:dayTimeDuration(&quot;PT10H&quot;) 
          return fn:adjust-time-to-timezone(xs:time(&quot;01:00:00Z&quot;),$tz) - xs:time(&quot;10:00:00Z&quot;)
       </test>
-    <result-string>xs:string('-PT9H')</result-string>
+    <result-string>xs:string(&quot;-PT9H&quot;)</result-string>
     <result>
       <assert-string-value>-PT9H</assert-string-value>
     </result>
@@ -207,7 +207,7 @@
     <test>let $tz := xs:dayTimeDuration(&quot;PT10H&quot;) 
          return fn:adjust-time-to-timezone(xs:time(&quot;10:00:00Z&quot;),$tz) - xs:time(&quot;09:00:00Z&quot;)
       </test>
-    <result-string>xs:string('PT1H')</result-string>
+    <result-string>xs:string(&quot;PT1H&quot;)</result-string>
     <result>
       <assert-string-value>PT1H</assert-string-value>
     </result>
@@ -216,7 +216,7 @@
     <description>Test Description: Evaluates The &quot;adjust-time-to-timezone&quot; function as part of a comparisson expression (ge operator). Use zulu timezone and empty sequence for 2nd argument. </description>
     <created by="Carmelo Montanez" on="2005-09-10"/>
     <test>fn:adjust-time-to-timezone(xs:time(&quot;10:00:00Z&quot;),()) ge fn:adjust-time-to-timezone(xs:time(&quot;11:00:00Z&quot;),())</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -243,7 +243,7 @@
     <description> A test whose essence is: `empty(adjust-time-to-timezone(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(adjust-time-to-timezone(()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -252,7 +252,7 @@
     <description> A test whose essence is: `empty(adjust-time-to-timezone((), ()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(adjust-time-to-timezone((), ()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -261,7 +261,7 @@
     <description> A test whose essence is: `adjust-time-to-timezone(()) instance of xs:time?`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>adjust-time-to-timezone(()) instance of xs:time?</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -297,7 +297,7 @@
     <description> Test that the implicit timezone in the dynamic context is used if $timezone is empty; indirectly also tests context stability. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>timezone-from-time(adjust-time-to-timezone(xs:time(&quot;00:00:00&quot;))) eq implicit-timezone()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -306,7 +306,7 @@
     <description> Example from FO. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>adjust-time-to-timezone(xs:time(&quot;10:00:00&quot;), xs:dayTimeDuration(&quot;-PT5H0M&quot;)) eq xs:time(&quot;10:00:00-05:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -315,7 +315,7 @@
     <description> Example from FO. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>adjust-time-to-timezone(xs:time(&quot;10:00:00-07:00&quot;), xs:dayTimeDuration(&quot;-PT5H0M&quot;)) eq xs:time(&quot;12:00:00-05:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -324,7 +324,7 @@
     <description> Example from FO. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>adjust-time-to-timezone(xs:time(&quot;10:00:00&quot;), xs:dayTimeDuration(&quot;-PT10H&quot;)) eq xs:time(&quot;10:00:00-10:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -333,7 +333,7 @@
     <description> Example from FO. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>adjust-time-to-timezone(xs:time(&quot;10:00:00-07:00&quot;), xs:dayTimeDuration(&quot;-PT10H&quot;)) eq xs:time(&quot;07:00:00-10:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -342,7 +342,7 @@
     <description> Example from FO. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>adjust-time-to-timezone(xs:time(&quot;10:00:00&quot;), ()) eq xs:time(&quot;10:00:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -351,7 +351,7 @@
     <description> Example from FO. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>adjust-time-to-timezone(xs:time(&quot;10:00:00-07:00&quot;), ()) eq xs:time(&quot;10:00:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -360,7 +360,7 @@
     <description> Example from FO. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>adjust-time-to-timezone(xs:time(&quot;10:00:00-07:00&quot;), xs:dayTimeDuration(&quot;PT10H&quot;)) eq xs:time(&quot;03:00:00+10:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -369,7 +369,7 @@
     <description>Check optimization codepath in adjust-time-to-timezone </description>
     <created by="Oliver Hallam" on="2008-04-10"/>
     <test>adjust-time-to-timezone(current-time(), implicit-timezone()) eq current-time()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -378,7 +378,7 @@
     <description>Trigger EvaluateToItem in adjust-time-to-timezone </description>
     <created by="Oliver Hallam" on="2008-04-10"/>
     <test>adjust-time-to-timezone(xs:time(&quot;12:00:00Z&quot;)) eq adjust-time-to-timezone(xs:time(&quot;13:00:00+01:00&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

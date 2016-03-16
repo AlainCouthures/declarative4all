@@ -18,7 +18,7 @@
     <description> Evaluation of &quot;fn:true&quot; function as an argument to &quot;fn:not&quot; function. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:not(fn:true())</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -27,7 +27,7 @@
     <description> Evaluation of a &quot;true&quot; function with a logical expression involving the &quot;and&quot; operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:true() and fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -36,7 +36,7 @@
     <description> Evaluation of a &quot;fn:true&quot; function with a logical expression involving the &quot;or&quot; operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:true() or fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -45,7 +45,7 @@
     <description> Evaluation of an &quot;fn:true&quot; function with a comparison expression involving the &quot;eq&quot; operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:true() eq fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -54,7 +54,7 @@
     <description> Evaluation of an &quot;fn:true&quot; function with a comparison expression involving the &quot;ne&quot; operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:true() ne fn:true()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -63,7 +63,7 @@
     <description> Evaluation of an &quot;fn:true&quot; function with a comparison expression involving the &quot;lt&quot; operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:true() lt fn:true()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -72,7 +72,7 @@
     <description> Evaluation of an &quot;fn:true&quot; function with a comparison expression involving the &quot;le&quot; operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:true() le fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -81,7 +81,7 @@
     <description> Evaluation of an &quot;fn:true&quot; function with a comparison expression involving the &quot;gt&quot; operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:true() gt fn:true()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -90,7 +90,7 @@
     <description> Evaluation of an &quot;fn:true&quot; function with a comparison expression involving the &quot;ge&quot; operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:true() ge fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -99,7 +99,7 @@
     <description> Evaluation of an &quot;fn:true&quot; function with a comparison expression involving the &quot;=&quot; operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:true() = fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -108,7 +108,7 @@
     <description> Evaluation of an &quot;fn:true&quot; function with a comparison expression involving the &quot;!=&quot; operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:true() != fn:true()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -119,7 +119,7 @@
     <test>
       <![CDATA[fn:true() < fn:true()]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -130,7 +130,7 @@
     <test>
       <![CDATA[fn:true() <= fn:true()]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -139,7 +139,7 @@
     <description> Evaluation of an &quot;fn:true&quot; function with a comparison expression involving the &quot;&quot; operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:true()  fn:true()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -148,7 +148,7 @@
     <description> Evaluation of an &quot;fn:true&quot; function with a comparison expression involving the &quot;=&quot; operator. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:true() = fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -157,7 +157,7 @@
     <description> Evaluation of an &quot;fn:true&quot; function as an argument to an &quot;xs:boolean&quot; function. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>xs:boolean(fn:true())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -166,7 +166,7 @@
     <description> Evaluation of an &quot;fn:true&quot; function as an argument to an &quot;fn:string&quot; function. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:string(fn:true())</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;true&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;true&quot;</assert-eq>
     </result>
@@ -175,7 +175,7 @@
     <description> Evaluation of an &quot;fn:true&quot; function as arguments to an &quot;fn:concat&quot; function. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:concat(xs:string(fn:true()),xs:string(fn:true()))</test>
-    <result-string>xs:string('truetrue')</result-string>
+    <result-string>xs:string(&quot;truetrue&quot;)</result-string>
     <result>
       <assert-string-value>truetrue</assert-string-value>
     </result>
@@ -184,7 +184,7 @@
     <description> Evaluation of an &quot;fn:true&quot; function as arguments to an &quot;fn:contains&quot; function. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:contains(xs:string(fn:true()),xs:string(fn:true()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -193,7 +193,7 @@
     <description> Evaluation of an &quot;fn:true&quot; function as an argument to an &quot;fn:string-length&quot; function. </description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:string-length(xs:string(fn:true()))</test>
-    <result-string>xs:string('4')</result-string>
+    <result-string>xs:string(&quot;4&quot;)</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -204,7 +204,7 @@
     <dependency type="spec" value="XP30+ XQ30+"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>let $t := true#0 return 3[$t()]</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -222,7 +222,7 @@
     <description> A test whose essence is: `true() eq true()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>true() eq true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -231,7 +231,7 @@
     <description> A test whose essence is: `true()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

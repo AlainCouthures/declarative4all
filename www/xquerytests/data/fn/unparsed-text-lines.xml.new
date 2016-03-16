@@ -115,7 +115,7 @@
     <modified by="Tim Mills" change="Context-dependent functions can now be referenced without error." on="2012-05-01"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>fn:exists(fn:unparsed-text-lines#1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -126,7 +126,7 @@
     <modified by="Tim Mills" change="Context-dependent functions can now be referenced without error." on="2012-05-01"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>fn:exists(fn:unparsed-text-lines#2)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -389,7 +389,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-lines-with-base-uri"/>
     <test>fn:unparsed-text-lines(&quot;text-plain-utf-8.txt&quot;)</test>
-    <result-string>xs:string('helloworld')</result-string>
+    <result-string>xs:string(&quot;helloworld&quot;)</result-string>
     <result>
       <assert-string-value>helloworld</assert-string-value>
     </result>
@@ -399,7 +399,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-lines-with-base-uri"/>
     <test>fn:unparsed-text-lines(&quot;text-plain-utf-8.txt&quot;, &quot;utf-8&quot;)</test>
-    <result-string>xs:string('helloworld')</result-string>
+    <result-string>xs:string(&quot;helloworld&quot;)</result-string>
     <result>
       <assert-string-value>helloworld</assert-string-value>
     </result>
@@ -429,7 +429,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-lines-with-base-uri-2"/>
     <test>fn:unparsed-text-lines(&quot;&quot;)</test>
-    <result-string>xs:string('helloworld')</result-string>
+    <result-string>xs:string(&quot;helloworld&quot;)</result-string>
     <result>
       <assert-string-value>helloworld</assert-string-value>
     </result>
@@ -439,7 +439,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-lines-with-base-uri-2"/>
     <test>fn:unparsed-text-lines(&quot;&quot;, &quot;utf-8&quot;)</test>
-    <result-string>xs:string('helloworld')</result-string>
+    <result-string>xs:string(&quot;helloworld&quot;)</result-string>
     <result>
       <assert-string-value>helloworld</assert-string-value>
     </result>
@@ -544,7 +544,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-lines"/>
     <test>fn:unparsed-text-lines(&quot;http://www.w3.org/fots/unparsed-text/text-plain-utf-8.txt&quot;)</test>
-    <result-string>xs:string('helloworld')</result-string>
+    <result-string>xs:string(&quot;helloworld&quot;)</result-string>
     <result>
       <assert-string-value>helloworld</assert-string-value>
     </result>
@@ -554,7 +554,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-lines"/>
     <test>fn:unparsed-text(&quot;http://www.w3.org/fots/unparsed-text/text-plain-utf-8-bom.txt&quot;)</test>
-    <result-string>xs:string('helloworld')</result-string>
+    <result-string>xs:string(&quot;helloworld&quot;)</result-string>
     <result>
       <assert-string-value>helloworld</assert-string-value>
     </result>
@@ -564,7 +564,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-lines"/>
     <test>fn:unparsed-text(&quot;http://www.w3.org/fots/unparsed-text/text-plain-utf-16le-bom.txt&quot;)</test>
-    <result-string>xs:string('helloworld')</result-string>
+    <result-string>xs:string(&quot;helloworld&quot;)</result-string>
     <result>
       <assert-string-value>helloworld</assert-string-value>
     </result>
@@ -574,7 +574,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-lines"/>
     <test>fn:unparsed-text-lines(&quot;http://www.w3.org/fots/unparsed-text/text-plain-utf-16be-bom.txt&quot;)</test>
-    <result-string>xs:string('helloworld')</result-string>
+    <result-string>xs:string(&quot;helloworld&quot;)</result-string>
     <result>
       <assert-string-value>helloworld</assert-string-value>
     </result>
@@ -597,7 +597,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-lines"/>
     <test>fn:unparsed-text-lines(&quot;http://www.w3.org/fots/unparsed-text/text-xml-utf-8.xml&quot;)</test>
-    <result-string>xs:string('?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?texthelloworld/text')</result-string>
+    <result-string>xs:string(&quot;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?texthelloworld/text&quot;)</result-string>
     <result>
       <assert-string-value>?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?texthelloworld/text</assert-string-value>
     </result>

@@ -6,7 +6,7 @@
     <description> A test whose essence is: `'abc' gt 'a'`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>'abc' gt 'a'</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -15,7 +15,7 @@
     <description> A test whose essence is: `not('abc' gt 'abc')`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not('abc' gt 'abc')</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -24,7 +24,7 @@
     <description> A test whose essence is: `'abc' ge 'a'`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>'abc' ge 'a'</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -33,7 +33,7 @@
     <description> A test whose essence is: `not('a' ge 'abc')`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not('a' ge 'abc')</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -42,7 +42,7 @@
     <description> A test whose essence is: `'abc' ge 'abc'`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>'abc' ge 'abc'</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -51,7 +51,7 @@
     <description> test string comparison </description>
     <created by="Tim Mills" on="2008-05-23"/>
     <test>not(string(current-time()) gt &quot;now&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -60,7 +60,7 @@
     <description> test string comparison </description>
     <created by="Tim Mills" on="2008-05-23"/>
     <test>not(string(current-time()) le &quot;now&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -71,7 +71,7 @@
     <test>
         not(xs:untypedAtomic(current-time()) gt xs:untypedAtomic(&quot;now&quot;))
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -82,7 +82,7 @@
     <test>
         not(xs:untypedAtomic(current-time()) le xs:untypedAtomic(&quot;now&quot;))
       </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

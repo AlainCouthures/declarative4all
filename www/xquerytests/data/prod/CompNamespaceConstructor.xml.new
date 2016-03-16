@@ -488,7 +488,7 @@
         return ($ns is $ns, $ns is mod1:one())
       ]]>
     </test>
-    <result-string>xs:string('true false')</result-string>
+    <result-string>xs:string(&quot;true false&quot;)</result-string>
     <result>
       <assert-string-value>true false</assert-string-value>
     </result>
@@ -763,7 +763,7 @@
           data($val) instance of xs:int
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

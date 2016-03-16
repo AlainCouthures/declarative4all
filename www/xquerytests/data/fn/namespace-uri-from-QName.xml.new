@@ -13,7 +13,7 @@
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
     <test>fn:namespace-uri-from-QName(fn:QName(&quot;http://www.example.com/urn&quot;, exactly-one(xs:string((/root/elemQN)[1]))))</test>
-    <result-string>xs:string('http://www.example.com/urn')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/urn&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/urn</assert-string-value>
     </result>
@@ -23,7 +23,7 @@
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
     <test>fn:namespace-uri-from-QName(fn:QName(&quot;http://www.example.com/urn&quot;, exactly-one(xs:string((/root/@attrQN)[1]))))</test>
-    <result-string>xs:string('http://www.example.com/urn')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/urn&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/urn</assert-string-value>
     </result>
@@ -33,7 +33,7 @@
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
     <test>fn:namespace-uri-from-QName(fn:QName(&quot;http://www.example.com/urn&quot;, exactly-one(xs:string((/root/derivQN)[1]))))</test>
-    <result-string>xs:string('http://www.example.com/urn')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/urn&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/urn</assert-string-value>
     </result>
@@ -43,7 +43,7 @@
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
     <test>fn:namespace-uri-from-QName(fn:QName(&quot;http://www.example.com/urn&quot;, exactly-one(xs:string((/root/@attrDerivQN)[1]))))</test>
-    <result-string>xs:string('http://www.example.com/urn')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/urn&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/urn</assert-string-value>
     </result>
@@ -53,7 +53,7 @@
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
     <test>fn:namespace-uri-from-QName(fn:QName(&quot;http://www.example.com/urn&quot;, exactly-one(xs:string(/root[1]/@attrDerivQN)))) instance of xs:anyURI ?</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -62,7 +62,7 @@
     <description> Test function fn:namespace-uri-from-QName. Empty sequence literal as input </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <test>fn:namespace-uri-from-QName(())</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -71,7 +71,7 @@
     <description> Test function fn:namespace-uri-from-QName. Empty sequence literal as input </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <test>fn:namespace-uri-from-QName(((),()))</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -182,7 +182,7 @@
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
     <test>fn:namespace-uri-from-QName(fn:QName(&quot;http://www.example.com/urn&quot;, exactly-one(xs:string(data((/root/elemQN))[1]))))</test>
-    <result-string>xs:string('http://www.example.com/urn')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/urn&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/urn</assert-string-value>
     </result>
@@ -193,7 +193,7 @@
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
     <test>fn:namespace-uri-from-QName( if( true() ) then fn:QName(&quot;http://www.example.com/urn&quot;, exactly-one(xs:string((/root/elemQN[1])))) else fn:QName(&quot;http://www.example.com/urn&quot;, exactly-one(xs:string((/root/@attrQN))[1])) )</test>
-    <result-string>xs:string('http://www.example.com/urn')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/urn&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/urn</assert-string-value>
     </result>
@@ -204,7 +204,7 @@
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
     <test>fn:namespace-uri-from-QName( if( false() ) then fn:QName(&quot;http://www.example.com/urn&quot;, exactly-one(xs:string((/root/elemQN)[1]))) else fn:QName(&quot;http://www.example.com/urn&quot;, exactly-one(xs:string((/root/@attrQN)[1]))) )</test>
-    <result-string>xs:string('http://www.example.com/urn')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/urn&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/urn</assert-string-value>
     </result>
@@ -247,7 +247,7 @@
     <description> A test whose essence is: `empty(namespace-uri-from-QName( () ))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(namespace-uri-from-QName( () ))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -256,7 +256,7 @@
     <description> A test whose essence is: `namespace-uri-from-QName( QName(&quot;example.com/&quot;, &quot;pre:lname&quot;)) eq xs:anyURI(&quot;example.com/&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>namespace-uri-from-QName( QName(&quot;example.com/&quot;, &quot;pre:lname&quot;)) eq xs:anyURI(&quot;example.com/&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -265,7 +265,7 @@
     <description> A test whose essence is: `namespace-uri-from-QName( QName(&quot;example.com/&quot;, &quot;pre:lname&quot;)) instance of xs:anyURI`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>namespace-uri-from-QName( QName(&quot;example.com/&quot;, &quot;pre:lname&quot;)) instance of xs:anyURI</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -280,7 +280,7 @@
         string(<name xmlns:ns="http://example.com/BNamespace">{namespace-uri-from-QName("ns:foo" cast as xs:QName)}</name>)
       ]]>
     </test>
-    <result-string>xs:string('http://example.com/BNamespace')</result-string>
+    <result-string>xs:string(&quot;http://example.com/BNamespace&quot;)</result-string>
     <result>
       <assert-string-value>http://example.com/BNamespace</assert-string-value>
     </result>
@@ -294,7 +294,7 @@
         <e xmlns="http://example.com/"> {namespace-uri-from-QName(node-name(element anElement{"text"}))} </e>/string()
       ]]>
     </test>
-    <result-string>xs:string('http://example.com/')</result-string>
+    <result-string>xs:string(&quot;http://example.com/&quot;)</result-string>
     <result>
       <assert-string-value>http://example.com/</assert-string-value>
     </result>
@@ -309,7 +309,7 @@
         <e xmlns="">{namespace-uri-from-QName(xs:QName("l"))}</e>/string()
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;&quot;</assert-eq>
     </result>
@@ -325,7 +325,7 @@
         <e xmlns="" xmlns:p="http://example.com/3">[{namespace-uri-from-QName(xs:QName("n1"))}|{namespace-uri-from-QName(xs:QName("p:n2"))}]</e>/text()
       ]]>
     </test>
-    <result-string>xs:string('[|http://example.com/3]')</result-string>
+    <result-string>xs:string(&quot;[|http://example.com/3]&quot;)</result-string>
     <result>
       <assert-string-value>[|http://example.com/3]</assert-string-value>
     </result>

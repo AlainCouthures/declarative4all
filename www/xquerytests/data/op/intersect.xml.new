@@ -19,7 +19,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>(/bib/book[1]/title intersect /bib/book[1]/title)/string()</test>
-    <result-string>xs:string('TCP/IP Illustrated')</result-string>
+    <result-string>xs:string(&quot;TCP/IP Illustrated&quot;)</result-string>
     <result>
       <assert-string-value>TCP/IP Illustrated</assert-string-value>
     </result>
@@ -29,7 +29,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>/bib/book/title intersect /bib/book[1]/title</test>
-    <result-string>xs:string('TCP/IP Illustrated')</result-string>
+    <result-string>xs:string(&quot;TCP/IP Illustrated&quot;)</result-string>
     <result>
       <assert-string-value>TCP/IP Illustrated</assert-string-value>
     </result>
@@ -39,7 +39,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>/bib/book[3]/title intersect root(exactly-one(/bib/book[3]/title))</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -49,7 +49,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>/bib/book[3]/title/text() intersect /bib/book/title/text()</test>
-    <result-string>xs:string('Data on the Web')</result-string>
+    <result-string>xs:string(&quot;Data on the Web&quot;)</result-string>
     <result>
       <assert-string-value>Data on the Web</assert-string-value>
     </result>
@@ -59,7 +59,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>(/processing-instruction() intersect /processing-instruction())/name()</test>
-    <result-string>xs:string('PI1 PI2')</result-string>
+    <result-string>xs:string(&quot;PI1 PI2&quot;)</result-string>
     <result>
       <assert-string-value>PI1 PI2</assert-string-value>
     </result>
@@ -69,7 +69,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>(/processing-instruction(PI1) intersect /processing-instruction())/name()</test>
-    <result-string>xs:string('PI1')</result-string>
+    <result-string>xs:string(&quot;PI1&quot;)</result-string>
     <result>
       <assert-string-value>PI1</assert-string-value>
     </result>
@@ -79,7 +79,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>string-join((/comment() intersect /comment()), &quot;|&quot;)</test>
-    <result-string>xs:string(' this file is a copy of bib.xml; just adds a few comments and PI nodes for testing | Comment 1 | Comment 2 ')</result-string>
+    <result-string>xs:string(&quot; this file is a copy of bib.xml; just adds a few comments and PI nodes for testing | Comment 1 | Comment 2 &quot;)</result-string>
     <result>
       <assert-string-value> this file is a copy of bib.xml; just adds a few comments and PI nodes for testing | Comment 1 | Comment 2 </assert-string-value>
     </result>
@@ -89,7 +89,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>/bib/book[3]/title/text() intersect /bib/book/title/text()</test>
-    <result-string>xs:string('Data on the Web')</result-string>
+    <result-string>xs:string(&quot;Data on the Web&quot;)</result-string>
     <result>
       <assert-string-value>Data on the Web</assert-string-value>
     </result>
@@ -99,7 +99,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>/processing-instruction() intersect /bib/book[2]/title</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -109,7 +109,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>/processing-instruction(PI1) intersect /bib/book</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -119,7 +119,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>(/bib/book intersect /bib/book)/string(@year)</test>
-    <result-string>xs:string('1994 1992 2000 1999')</result-string>
+    <result-string>xs:string(&quot;1994 1992 2000 1999&quot;)</result-string>
     <result>
       <assert-string-value>1994 1992 2000 1999</assert-string-value>
     </result>
@@ -129,7 +129,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>//author intersect //nonexisting</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -139,7 +139,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>//author intersect ()</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -185,7 +185,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="atomic"/>
     <test>(/atomic:root/atomic:integer) intersect (/atomic:root/atomic:string)</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -195,7 +195,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="atomic"/>
     <test>(/atomic:root/atomic:duration/text()) intersect (/atomic:root/atomic:duration/text())</test>
-    <result-string>xs:string('P1Y2M3DT10H30M')</result-string>
+    <result-string>xs:string(&quot;P1Y2M3DT10H30M&quot;)</result-string>
     <result>
       <assert-string-value>P1Y2M3DT10H30M</assert-string-value>
     </result>
@@ -205,7 +205,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="atomic"/>
     <test>(/atomic:root/atomic:date/text()) intersect (/atomic:root/atomic:date/text())</test>
-    <result-string>xs:string('2000-01-01+05:00')</result-string>
+    <result-string>xs:string(&quot;2000-01-01+05:00&quot;)</result-string>
     <result>
       <assert-string-value>2000-01-01+05:00</assert-string-value>
     </result>
@@ -215,7 +215,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="atomic"/>
     <test>(/atomic:root/atomic:base64Binary/text()) intersect (/atomic:root/atomic:base64Binary/text())</test>
-    <result-string>xs:string('R0lGODlhcgGSALMAAAQCAEMmCZtuMFQxDS8b')</result-string>
+    <result-string>xs:string(&quot;R0lGODlhcgGSALMAAAQCAEMmCZtuMFQxDS8b&quot;)</result-string>
     <result>
       <assert-string-value>R0lGODlhcgGSALMAAAQCAEMmCZtuMFQxDS8b</assert-string-value>
     </result>
@@ -225,7 +225,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="atomic"/>
     <test>(/atomic:root/atomic:QName/text()) intersect (/atomic:root/atomic:QName/text())</test>
-    <result-string>xs:string('foo:aQname')</result-string>
+    <result-string>xs:string(&quot;foo:aQname&quot;)</result-string>
     <result>
       <assert-string-value>foo:aQname</assert-string-value>
     </result>
@@ -235,7 +235,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="atomic"/>
     <test>(/atomic:root/atomic:idrefs/text()) intersect (/atomic:root/atomic:idrefs/text())</test>
-    <result-string>xs:string('id1 id2')</result-string>
+    <result-string>xs:string(&quot;id1 id2&quot;)</result-string>
     <result>
       <assert-string-value>id1 id2</assert-string-value>
     </result>
@@ -271,7 +271,7 @@
     <test>
       <![CDATA[empty(<e/>/(author intersect text))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -283,7 +283,7 @@
     <test>
       <![CDATA[empty(<e/>/(author intersect node))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -295,7 +295,7 @@
     <test>
       <![CDATA[empty(<e/>/(author intersect element))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -307,7 +307,7 @@
     <test>
       <![CDATA[empty(<e/>/(author intersect attribute))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -319,7 +319,7 @@
     <test>
       <![CDATA[empty(<e/>/(author intersect document-node))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -331,7 +331,7 @@
     <test>
       <![CDATA[empty(<e/>/(author intersect comment))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -343,7 +343,7 @@
     <test>
       <![CDATA[empty(<e/>/(author intersect processing-instruction))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -355,7 +355,7 @@
     <test>
       <![CDATA[empty(<e/>/(author intersect item))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -367,7 +367,7 @@
     <test>
       <![CDATA[empty(<e/>/(author intersect document))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -379,7 +379,7 @@
     <test>
       <![CDATA[empty(<e/>/(author intersect if))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -391,7 +391,7 @@
     <test>
       <![CDATA[empty(<e/>/(author intersect then))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -403,7 +403,7 @@
     <test>
       <![CDATA[empty(<e/>/(author intersect mod))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -415,7 +415,7 @@
     <test>
       <![CDATA[empty(<e/>/(author intersect div))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -427,7 +427,7 @@
     <test>
       <![CDATA[empty(<e/>/(author intersect empty-sequence))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -439,7 +439,7 @@
     <test>
       <![CDATA[empty(<e/>/(author intersect schema-attribute))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -451,7 +451,7 @@
     <test>
       <![CDATA[empty(<e/>/(author intersect schema-element))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -463,7 +463,7 @@
     <test>
       <![CDATA[empty(<e/>/(a intersect attribute {"name"} {()}))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -475,7 +475,7 @@
     <test>
       <![CDATA[empty(<e/>/(a intersect attribute name {()}))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -517,7 +517,7 @@
     <test>
       <![CDATA[empty(<e/>/(a intersect processing-instruction {"name"} {()}))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -529,7 +529,7 @@
     <test>
       <![CDATA[empty(<e/>/(a intersect processing-instruction name {}))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -541,7 +541,7 @@
     <test>
       <![CDATA[empty(<e/>/(a intersect comment {()}))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -553,7 +553,7 @@
     <test>
       <![CDATA[empty(<e/>/(a intersect text {()}))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -565,7 +565,7 @@
     <test>
       <![CDATA[empty(<e/>/(a intersect descendant))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -577,7 +577,7 @@
     <test>
       <![CDATA[empty(<e/>/(a intersect attribute))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -589,7 +589,7 @@
     <test>
       <![CDATA[empty(<e/>/(a intersect self))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -601,7 +601,7 @@
     <test>
       <![CDATA[empty(<e/>/(a intersect descendant-or-self))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -613,7 +613,7 @@
     <test>
       <![CDATA[empty(<e/>/(a intersect following-sibling))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -625,7 +625,7 @@
     <test>
       <![CDATA[empty(<e/>/(a intersect following))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -637,7 +637,7 @@
     <test>
       <![CDATA[empty(<e/>/(a intersect preceding-sibling))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -649,7 +649,7 @@
     <test>
       <![CDATA[empty(<e/>/(a intersect preceding))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -661,7 +661,7 @@
     <test>
       <![CDATA[empty(<e/>/(a intersect parent))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -673,7 +673,7 @@
     <test>
       <![CDATA[empty(<e/>/(a intersect ancestor))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -685,7 +685,7 @@
     <test>
       <![CDATA[empty(<e/>/(a intersect ancestor))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -697,7 +697,7 @@
     <test>
       <![CDATA[empty(<e/>/(a intersect ancestor-or-self))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -709,7 +709,7 @@
     <test>
       <![CDATA[empty(<e/>/(a intersect declare))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -719,7 +719,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="acme_corp"/>
     <test>boolean(//employee[location = &quot;Denver&quot;] intersect //employee[last()])</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -729,7 +729,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="acme_corp"/>
     <test>//(employee[location = &quot;Denver&quot;] intersect //employee[last()])/./location</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -756,7 +756,7 @@
          declare function local:function ($c as node()) { $c intersect $c }; 
          empty(local:function(document{()}))
       </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -786,7 +786,7 @@
     <test>
       <![CDATA[count((<a>0</a>,<a>1</a>) intersect (<a>3</a>,<a>4</a>))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>

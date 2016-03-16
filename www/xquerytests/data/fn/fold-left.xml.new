@@ -9,7 +9,7 @@
     <created by="Michael Kay" on="2010-02-10"/>
     <environment ref="empty"/>
     <test>fold-left(1 to 5, 0, function($a, $b) { $a + $b })</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;15&quot;)</result-string>
     <result>
       <assert-eq>15</assert-eq>
     </result>
@@ -19,7 +19,7 @@
     <created by="Michael Kay" on="2010-02-10"/>
     <environment ref="empty"/>
     <test>fold-left((2,3,5,7), 1, function($a, $b) { $a * $b })</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;210&quot;)</result-string>
     <result>
       <assert-eq>210</assert-eq>
     </result>
@@ -29,7 +29,7 @@
     <created by="Michael Kay" on="2010-02-10"/>
     <environment ref="empty"/>
     <test>fold-left((true(), false(), false()), false(), function($a, $b) { $a or $b })</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -39,7 +39,7 @@
     <created by="Michael Kay" on="2010-02-10"/>
     <environment ref="empty"/>
     <test>fold-left((true(), false(), false()), false(), function($a, $b) { $a and $b })</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -59,7 +59,7 @@
     <created by="Michael Kay" on="2010-02-10"/>
     <environment ref="empty"/>
     <test>fold-left(1 to 5, &quot;&quot;, fn:concat(?, &quot;.&quot;, ?))</test>
-    <result-string/>
+    <result-string>xs:string(&quot;'.1.2.3.4.5'&quot;)</result-string>
     <result>
       <assert-eq>'.1.2.3.4.5'</assert-eq>
     </result>
@@ -69,7 +69,7 @@
     <created by="Michael Kay" on="2010-02-10"/>
     <environment ref="empty"/>
     <test>fold-left(1 to 5, &quot;$zero&quot;, fn:concat(&quot;$f(&quot;, ?, &quot;, &quot;, ?, &quot;)&quot;))</test>
-    <result-string>xs:string('$f($f($f($f($f($zero, 1), 2), 3), 4), 5)')</result-string>
+    <result-string>xs:string(&quot;$f($f($f($f($f($zero, 1), 2), 3), 4), 5)&quot;)</result-string>
     <result>
       <assert-string-value>$f($f($f($f($f($zero, 1), 2), 3), 4), 5)</assert-string-value>
     </result>
@@ -122,7 +122,7 @@
             return local:distinct-nodes-stable($perm)/local-name()
       ]]>
     </test>
-    <result-string>xs:string('a b d c')</result-string>
+    <result-string>xs:string(&quot;a b d c&quot;)</result-string>
     <result>
       <assert-string-value>a b d c</assert-string-value>
     </result>
@@ -218,7 +218,7 @@ return
   $result/text()
 	 ]]>
     </test>
-    <result-string>xs:string('Hello World!')</result-string>
+    <result-string>xs:string(&quot;Hello World!&quot;)</result-string>
     <result>
       <assert-string-value>Hello World!</assert-string-value>
     </result>
@@ -228,7 +228,7 @@ return
     <created by="William Candillon" on="2011-11-27"/>
     <environment ref="empty"/>
     <test>fold-left(1 to 13, 0, concat(&quot;(&quot;, ?, &quot;+&quot;, ?, &quot;)&quot;))</test>
-    <result-string>xs:string('(((((((((((((0+1)+2)+3)+4)+5)+6)+7)+8)+9)+10)+11)+12)+13)')</result-string>
+    <result-string>xs:string(&quot;(((((((((((((0+1)+2)+3)+4)+5)+6)+7)+8)+9)+10)+11)+12)+13)&quot;)</result-string>
     <result>
       <assert-string-value>(((((((((((((0+1)+2)+3)+4)+5)+6)+7)+8)+9)+10)+11)+12)+13)</assert-string-value>
     </result>
@@ -272,7 +272,7 @@ return (
     <created by="William Candillon" on="2011-11-27"/>
     <environment ref="empty"/>
     <test>fold-left((13, 14, 9, 6), (), function($a, $b){ if(empty($a)) then $b else ($a + $b) div 2 })</test>
-    <result-string>xs:string('8.625')</result-string>
+    <result-string>xs:string(&quot;8.625&quot;)</result-string>
     <result>
       <assert-string-value>8.625</assert-string-value>
     </result>
@@ -282,7 +282,7 @@ return (
     <created by="William Candillon" on="2011-11-27"/>
     <environment ref="empty"/>
     <test>fold-left(1 to 1000000, 0, function($a, $b){ $a + 1})</test>
-    <result-string>xs:string('1000000')</result-string>
+    <result-string>xs:string(&quot;1000000&quot;)</result-string>
     <result>
       <assert-string-value>1000000</assert-string-value>
     </result>

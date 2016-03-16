@@ -1383,7 +1383,7 @@ return
             )
         ]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1.5&quot;)</result-string>
     <result>
       <assert-eq>1.5</assert-eq>
     </result>
@@ -1402,7 +1402,7 @@ return
             )
         ]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -1571,7 +1571,7 @@ return
           return <window>{$w}</window>
         ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -1588,7 +1588,7 @@ return
           return <window>{$w}</window>
         ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -1985,7 +1985,7 @@ return
           return true()
         ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2003,7 +2003,7 @@ return
           return true()
         ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2020,7 +2020,7 @@ return
           return ($w, $s, $x, $sp, $sn, $e, $y, $ep, $en)
         ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -2751,7 +2751,7 @@ return
           local:window()
         ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>

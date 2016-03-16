@@ -8,7 +8,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:log10(())</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -18,7 +18,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:log10(0)</test>
-    <result-string/>
+    <result-string>xs:double('-INF')</result-string>
     <result>
       <assert-eq>xs:double('-INF')</assert-eq>
     </result>
@@ -28,7 +28,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:log10(1.0e3)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;3.0e0&quot;)</result-string>
     <result>
       <assert-eq>3.0e0</assert-eq>
     </result>
@@ -38,7 +38,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:log10(1.0e-3)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;-3.0e0&quot;)</result-string>
     <result>
       <assert-eq>-3.0e0</assert-eq>
     </result>
@@ -48,7 +48,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:log10(2)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;0.3010299956639812e0&quot;)</result-string>
     <result>
       <assert-eq>0.3010299956639812e0</assert-eq>
     </result>
@@ -58,7 +58,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:log10(-1)</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -68,7 +68,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:log10(xs:double('NaN'))</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -78,7 +78,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:log10(xs:double('INF'))</test>
-    <result-string/>
+    <result-string>xs:double('INF')</result-string>
     <result>
       <assert-eq>xs:double('INF')</assert-eq>
     </result>
@@ -88,7 +88,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:log10(xs:double('-INF'))</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>

@@ -313,7 +313,7 @@
     <description> A simple 'declare ordering mode' declaration, specifying 'preserve'. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare(::)ordering ordered; 1 eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -322,7 +322,7 @@
     <description> A simple 'declare ordering mode' declaration, specifying 'strip'. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare(::)ordering unordered; 1 eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

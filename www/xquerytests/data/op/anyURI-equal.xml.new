@@ -6,7 +6,7 @@
     <description> A test whose essence is: `xs:anyURI(&quot;example.com/&quot;) eq xs:anyURI(&quot;example.com/&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:anyURI(&quot;example.com/&quot;) eq xs:anyURI(&quot;example.com/&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -15,7 +15,7 @@
     <description> A test whose essence is: `xs:anyURI(&quot;example.com/&quot;) ne xs:anyURI(&quot;example.com/No&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:anyURI(&quot;example.com/&quot;) ne xs:anyURI(&quot;example.com/No&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -24,7 +24,7 @@
     <description> A test whose essence is: `xs:anyURI(&quot;example.com/&quot;) eq xs:string(&quot;example.com/&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:anyURI(&quot;example.com/&quot;) eq xs:string(&quot;example.com/&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -33,7 +33,7 @@
     <description> A test whose essence is: `xs:string(&quot;example.com/&quot;) eq xs:anyURI(&quot;example.com/&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:string(&quot;example.com/&quot;) eq xs:anyURI(&quot;example.com/&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -42,7 +42,7 @@
     <description> A test whose essence is: `xs:anyURI(&quot;example.com/&quot;) ne xs:string(&quot;example.com/No&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:anyURI(&quot;example.com/&quot;) ne xs:string(&quot;example.com/No&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -51,7 +51,7 @@
     <description> A test whose essence is: `xs:string(&quot;example.com/&quot;) ne xs:anyURI(&quot;example.com/No&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:string(&quot;example.com/&quot;) ne xs:anyURI(&quot;example.com/No&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -60,7 +60,7 @@
     <description> A test whose essence is: `xs:anyURI(&quot;example.com/&quot;) eq xs:untypedAtomic(&quot;example.com/&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:anyURI(&quot;example.com/&quot;) eq xs:untypedAtomic(&quot;example.com/&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -69,7 +69,7 @@
     <description> A test whose essence is: `xs:untypedAtomic(&quot;example.com/&quot;) eq xs:anyURI(&quot;example.com/&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:untypedAtomic(&quot;example.com/&quot;) eq xs:anyURI(&quot;example.com/&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -78,7 +78,7 @@
     <description> A test whose essence is: `xs:anyURI(&quot;example.com/&quot;) ne xs:untypedAtomic(&quot;example.com/No&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:anyURI(&quot;example.com/&quot;) ne xs:untypedAtomic(&quot;example.com/No&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -87,7 +87,7 @@
     <description> A test whose essence is: `xs:untypedAtomic(&quot;example.com/&quot;) ne xs:anyURI(&quot;example.com/No&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:untypedAtomic(&quot;example.com/&quot;) ne xs:anyURI(&quot;example.com/No&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -96,7 +96,7 @@
     <description> Invoked 'eq' on xs:anyURI values. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:string(&quot;http://example.com/A&quot;) eq xs:anyURI(&quot;http://example.com/A&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -105,7 +105,7 @@
     <description> Invoked 'eq' on xs:anyURI values. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:anyURI(&quot;http://example.com/A&quot;) eq xs:string(&quot;http://example.com/A&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -114,7 +114,7 @@
     <description> Invoked 'eq' on xs:anyURI values. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:anyURI(&quot;http://example.com/A&quot;) eq xs:anyURI(&quot;http://example.com/A&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -123,7 +123,7 @@
     <description> Invoked 'eq' on xs:anyURI values. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(xs:string(&quot;http://example.com/A&quot;) eq xs:anyURI(&quot;http://example.com/B&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -132,7 +132,7 @@
     <description> Invoked 'eq' on xs:anyURI values. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(xs:anyURI(&quot;http://example.com/A&quot;) eq xs:string(&quot;http://example.com/B&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -141,7 +141,7 @@
     <description> Invoked 'eq' on xs:anyURI values. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(xs:anyURI(&quot;http://example.com/A&quot;) eq xs:anyURI(&quot;http://example.com/B&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -150,7 +150,7 @@
     <description> Invoked 'ne' on xs:anyURI values. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(xs:anyURI(&quot;http://example.com/A&quot;) ne xs:string(&quot;http://example.com/A&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -159,7 +159,7 @@
     <description> Invoked 'ne' on xs:anyURI values. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(xs:string(&quot;http://example.com/A&quot;) ne xs:anyURI(&quot;http://example.com/A&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -168,7 +168,7 @@
     <description> Invoked 'ne' on xs:anyURI values. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(xs:anyURI(&quot;http://example.com/A&quot;) ne xs:anyURI(&quot;http://example.com/A&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -177,7 +177,7 @@
     <description> Invoked 'ne' on xs:anyURI values. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:anyURI(&quot;http://example.com/A&quot;) ne xs:string(&quot;http://example.com/B&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -186,7 +186,7 @@
     <description> Invoked 'ne' on xs:anyURI values. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:string(&quot;http://example.com/A&quot;) ne xs:anyURI(&quot;http://example.com/B&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -195,7 +195,7 @@
     <description> Invoked 'ne' on xs:anyURI values. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:anyURI(&quot;http://example.com/A&quot;) ne xs:anyURI(&quot;http://example.com/B&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

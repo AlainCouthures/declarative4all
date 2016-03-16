@@ -89,7 +89,7 @@
     <test>
       <![CDATA[declare namespace ns1 = "http://example.org/someweirdnamespace"; (# ns1:you-do-not-know-me-as-index #) {(every $x in (1,2,3) satisfies $x < 4)}]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -98,7 +98,7 @@
     <description> An extension expression for which the pragma is ignored and default expression is a quantified expression (&quot;every&quot; operator). </description>
     <created by="Carmelo Montanez" on="2005-12-21"/>
     <test>declare namespace ns1 = &quot;http://example.org/someweirdnamespace&quot;; (# ns1:you-do-not-know-me-as-index #) {(some $x in (1,2,3) satisfies $x = 2)}</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -107,7 +107,7 @@
     <description> An extension expression for which the pragma is ignored and default expression is a call to fn:true() </description>
     <created by="Carmelo Montanez" on="2005-12-21"/>
     <test>declare namespace ns1 = &quot;http://example.org/someweirdnamespace&quot;; (# ns1:you-do-not-know-me-as-index #) {(fn:true())}</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -116,7 +116,7 @@
     <description> An extension expression for which the pragma is ignored and default expression is a call to fn:false() </description>
     <created by="Carmelo Montanez" on="2005-12-21"/>
     <test>declare namespace ns1 = &quot;http://example.org/someweirdnamespace&quot;; (# ns1:you-do-not-know-me-as-index #) {(fn:false())}</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -125,7 +125,7 @@
     <description> An extension expression for which the pragma is ignored and default expression is an &quot;or&quot; true expression (&quot;or&quot; operator) </description>
     <created by="Carmelo Montanez" on="2005-12-21"/>
     <test>declare namespace ns1 = &quot;http://example.org/someweirdnamespace&quot;; (# ns1:you-do-not-know-me-as-index #) {(fn:false() or fn:true())}</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -134,7 +134,7 @@
     <description> An extension expression for which the pragma is ignored and default expression is an &quot;or&quot; false expression (&quot;or&quot; operator) </description>
     <created by="Carmelo Montanez" on="2005-12-21"/>
     <test>declare namespace ns1 = &quot;http://example.org/someweirdnamespace&quot;; (# ns1:you-do-not-know-me-as-index #) {(fn:false() or fn:false())}</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -143,7 +143,7 @@
     <description> An extension expression for which the pragma is ignored and default expression is an &quot;or&quot; true expression (&quot;and&quot; operator) </description>
     <created by="Carmelo Montanez" on="2005-12-21"/>
     <test>declare namespace ns1 = &quot;http://example.org/someweirdnamespace&quot;; (# ns1:you-do-not-know-me-as-index #) {(fn:true() and fn:true())}</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -152,7 +152,7 @@
     <description> An extension expression for which the pragma is ignored and default expression is an &quot;or&quot; false expression (&quot;and&quot; operator) </description>
     <created by="Carmelo Montanez" on="2005-12-21"/>
     <test>declare namespace ns1 = &quot;http://example.org/someweirdnamespace&quot;; (# ns1:you-do-not-know-me-as-index #) {(fn:true() and fn:false())}</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -161,7 +161,7 @@
     <description> An extension expression for which the pragma is ignored and default expression is an &quot;if&quot; true expression </description>
     <created by="Carmelo Montanez" on="2005-12-21"/>
     <test>declare namespace ns1 = &quot;http://example.org/someweirdnamespace&quot;; (# ns1:you-do-not-know-me-as-index #) {if(fn:true()) then &quot;passed&quot; else &quot;failed&quot;}</test>
-    <result-string>xs:string('passed')</result-string>
+    <result-string>xs:string(&quot;passed&quot;)</result-string>
     <result>
       <assert-string-value>passed</assert-string-value>
     </result>
@@ -170,7 +170,7 @@
     <description> An extension expression for which the pragma is ignored and default expression is an &quot;if&quot; false expression (returns &quot;else&quot; part of expression) </description>
     <created by="Carmelo Montanez" on="2005-12-21"/>
     <test>declare namespace ns1 = &quot;http://example.org/someweirdnamespace&quot;; (# ns1:you-do-not-know-me-as-index #) {if(fn:false()) then &quot;failed&quot; else &quot;passed&quot;}</test>
-    <result-string>xs:string('passed')</result-string>
+    <result-string>xs:string(&quot;passed&quot;)</result-string>
     <result>
       <assert-string-value>passed</assert-string-value>
     </result>
@@ -179,7 +179,7 @@
     <description> An extension expression for which the pragma is ignored and default expression is a &quot;typeswitch&quot; expression </description>
     <created by="Carmelo Montanez" on="2005-12-21"/>
     <test>declare namespace ns1 = &quot;http://example.org/someweirdnamespace&quot;; (# ns1:you-do-not-know-me-as-index #) {typeswitch (&quot;A String&quot;) case $i as xs:decimal return &quot;test failed&quot; case $i as xs:integer return &quot;test failed&quot; case $i as xs:string return &quot;test passed&quot; default return &quot;test failed&quot; }</test>
-    <result-string>xs:string('test passed')</result-string>
+    <result-string>xs:string(&quot;test passed&quot;)</result-string>
     <result>
       <assert-string-value>test passed</assert-string-value>
     </result>
@@ -188,7 +188,7 @@
     <description> An extension expression for which the pragma is ignored and default expression uses the fn:not function. </description>
     <created by="Carmelo Montanez" on="2005-12-21"/>
     <test>declare namespace ns1 = &quot;http://example.org/someweirdnamespace&quot;; (# ns1:you-do-not-know-me-as-index #) {(fn:not(fn:true()))}</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -197,7 +197,7 @@
     <description> An extension expression for which the pragma is ignored and default expression uses the fn:string-length function. </description>
     <created by="Carmelo Montanez" on="2005-12-21"/>
     <test>declare namespace ns1 = &quot;http://example.org/someweirdnamespace&quot;; (# ns1:you-do-not-know-me-as-index #) {fn:string-length(&quot;abc&quot;)}</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -206,7 +206,7 @@
     <description> An extension expression for which the pragma is ignored and default expression uses the fn:count function. </description>
     <created by="Carmelo Montanez" on="2005-12-21"/>
     <test>declare namespace ns1 = &quot;http://example.org/someweirdnamespace&quot;; (# ns1:you-do-not-know-me-as-index #) {fn:count((1,2,3))}</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -215,7 +215,7 @@
     <description> An extension expression for which the pragma is ignored and default expression is an addition operation. </description>
     <created by="Carmelo Montanez" on="2005-12-21"/>
     <test>declare namespace ns1 = &quot;http://example.org/someweirdnamespace&quot;; (# ns1:you-do-not-know-me-as-index #) {3+2}</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;5&quot;)</result-string>
     <result>
       <assert-eq>5</assert-eq>
     </result>
@@ -224,7 +224,7 @@
     <description> An extension expression for which the pragma is ignored and default expression is a subtraction operation. </description>
     <created by="Carmelo Montanez" on="2005-12-21"/>
     <test>declare namespace ns1 = &quot;http://example.org/someweirdnamespace&quot;; (# ns1:you-do-not-know-me-as-index #) {10 - 5}</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;5&quot;)</result-string>
     <result>
       <assert-eq>5</assert-eq>
     </result>
@@ -233,7 +233,7 @@
     <description> An extension expression for which the pragma is ignored and default expression is a multiplication operation. </description>
     <created by="Carmelo Montanez" on="2005-12-21"/>
     <test>declare namespace ns1 = &quot;http://example.org/someweirdnamespace&quot;; (# ns1:you-do-not-know-me-as-index #) {10 * 2}</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;20&quot;)</result-string>
     <result>
       <assert-eq>20</assert-eq>
     </result>
@@ -242,7 +242,7 @@
     <description> An extension expression for which the pragma is ignored and default expression is a division operation (div operator). </description>
     <created by="Carmelo Montanez" on="2005-12-21"/>
     <test>declare namespace ns1 = &quot;http://example.org/someweirdnamespace&quot;; (# ns1:you-do-not-know-me-as-index #) {10 div 2}</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;5&quot;)</result-string>
     <result>
       <assert-eq>5</assert-eq>
     </result>
@@ -251,7 +251,7 @@
     <description> An extension expression for which the pragma is ignored and default expression is a division operation (idiv operator). </description>
     <created by="Carmelo Montanez" on="2005-12-21"/>
     <test>declare namespace ns1 = &quot;http://example.org/someweirdnamespace&quot;; (# ns1:you-do-not-know-me-as-index #) {10 idiv 2}</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;5&quot;)</result-string>
     <result>
       <assert-eq>5</assert-eq>
     </result>
@@ -260,7 +260,7 @@
     <description> Extension expression for missing space after pragma name. </description>
     <created by="Carmelo Montanez" on="2006-03-14"/>
     <test>declare namespace ns1 = &quot;http://example.org/someweirdnamespace&quot;; (# ns1:you-do-not-know-me-as-index#){fn:count((1,2,3))}</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -287,7 +287,7 @@
     <description> A simple pragma expression. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare namespace prefix = &quot;http://example.com/NotRecognized&quot;; (#prefix:pr content #) {1 eq 1}</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -314,7 +314,7 @@
     <description> A pragma expression containing complex content. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare namespace prefix = &quot;http://example.com/NotRecognized&quot;; 1 eq (#prefix:notRecognized ##cont## # # ( &quot;# ) # )# )#ent #) {1}</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -334,7 +334,7 @@
     <test>declare namespace prefix = &quot;http://example.com/NotRecognized&quot;;
 (::)1(::)eq(::)(#prefix:name ##cont## # # ( &quot;# ) #
 		)# )#ent #)(::){(::)1(::)}(::)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -352,7 +352,7 @@
     <description> Whitespace isn't required if there is no pragma content. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare namespace ex = &quot;http://example.com/&quot;; (#ex:myExtensionExpression#) {true()}</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -361,7 +361,7 @@
     <description> Whitespace is allowed but not required if there is no pragma content. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare namespace ex = &quot;http://example.com/&quot;; (#ex:myExtensionExpression #) {true()}</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -370,7 +370,7 @@
     <description> Content looking like comments are not recognized as so in pragma content. asdad </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare namespace ex = &quot;http://example.com/&quot;; (#ex:myExtensionExpression content#) {true()}</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -379,7 +379,7 @@
     <description> Content looking like comments are not recognized as so in pragma content. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare namespace ex = &quot;http://example.com/&quot;; (#ex:myExtensionExpression (:(:(:(:(: content #) {true()}</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -434,7 +434,7 @@
     <description> A single whitespace must separate pragma name and content. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare namespace ex = &quot;http://example.com/&quot;; (#ex:myExtensionExpression :)#) {true()}</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -443,7 +443,7 @@
     <description> No whitespace is required between pragma content and name if the content is empty. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare namespace ex = &quot;http://example.com/&quot;; (#ex:myExtensionExpression#) {true()}</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -488,7 +488,7 @@
     <description> Use four nested pragma expressions. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(#xs:a#)(#xs:a#)(#local:a#){-5}</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-5&quot;)</result-string>
     <result>
       <assert-eq>-5</assert-eq>
     </result>

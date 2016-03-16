@@ -231,7 +231,7 @@
     <description> A test whose essence is: `unordered(1) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>unordered(1) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -240,7 +240,7 @@
     <description> A test whose essence is: `count(unordered((1, 2, 3))) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(unordered((1, 2, 3))) eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -249,7 +249,7 @@
     <description> A test whose essence is: `count(unordered((1, 2, current-time()))) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(unordered((1, 2, current-time()))) eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -270,7 +270,7 @@
     <description> A test whose essence is: `deep-equal((1, 2, 3), unordered((1, 2, 3)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 3), unordered((1, 2, 3)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -288,7 +288,7 @@
     <description> Tests optimizations for unordered </description>
     <created by="Nick Jones" on="2008-06-12"/>
     <test>boolean(unordered(reverse((1 to 10)[. div 2 = 2])))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -300,7 +300,7 @@
     <test>
       <![CDATA[local-name(unordered(<a><b/><c/></a>/*[1]))]]>
     </test>
-    <result-string>xs:string('b')</result-string>
+    <result-string>xs:string(&quot;b&quot;)</result-string>
     <result>
       <assert-string-value>b</assert-string-value>
     </result>
@@ -309,7 +309,7 @@
     <description> Tests corner evaluation case </description>
     <created by="Nick Jones" on="2008-06-27"/>
     <test>floor(unordered((1 to 10)[. div 2 = 0]))</test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>

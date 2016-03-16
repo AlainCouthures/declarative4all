@@ -19,7 +19,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;dateTime instance of xs:dateTime&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:dateTime(&quot;2002-04-02T12:00:00Z&quot;) instance of xs:dateTime</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -28,7 +28,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;dateTime instance of xs:time&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:dateTime(&quot;2002-04-02T12:00:00Z&quot;) instance of xs:time</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -37,7 +37,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;dateTime instance of xs:date&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:dateTime(&quot;2002-04-02T12:00:00Z&quot;) instance of xs:date</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -46,7 +46,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;dateTime instance of xs:boolean&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:dateTime(&quot;2002-04-02T12:00:00Z&quot;) instance of xs:boolean</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -55,7 +55,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;dateTime instance of xs:float&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:dateTime(&quot;2002-04-02T12:00:00Z&quot;) instance of xs:float</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -64,7 +64,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;dateTime instance of xs:double&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:dateTime(&quot;2002-04-02T12:00:00Z&quot;) instance of xs:double</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -73,7 +73,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;dateTime instance of xs:anyURI&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:dateTime(&quot;2002-04-02T12:00:00Z&quot;) instance of xs:anyURI</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -82,7 +82,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;dateTime instance of xs:string&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:dateTime(&quot;2002-04-02T12:00:00Z&quot;) instance of xs:string</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -91,7 +91,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;dateTime instance of xs:decimal&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:dateTime(&quot;2002-04-02T12:00:00Z&quot;) instance of xs:decimal</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -100,7 +100,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;dateTime instance of xs:integer&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:dateTime(&quot;2002-04-02T12:00:00Z&quot;) instance of xs:integer</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -109,7 +109,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;dateTime instance of xs:int&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:dateTime(&quot;2002-04-02T12:00:00Z&quot;) instance of xs:int</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -118,7 +118,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;time instance of xs:dateTime&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:time(&quot;13:20:10.5Z&quot;) instance of xs:dateTime</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -127,7 +127,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;time instance of xs:time&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:time(&quot;13:20:10.5Z&quot;) instance of xs:time</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -136,7 +136,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;time instance of xs:date&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:time(&quot;13:20:10.5Z&quot;) instance of xs:date</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -145,7 +145,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;time instance of xs:boolean&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:time(&quot;13:20:10.5Z&quot;) instance of xs:boolean</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -154,7 +154,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;time instance of xs:float&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:time(&quot;13:20:10.5Z&quot;) instance of xs:float</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -163,7 +163,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;time instance of xs:double&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:time(&quot;13:20:10.5Z&quot;) instance of xs:double</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -172,7 +172,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;time instance of xs:anyURI&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:time(&quot;13:20:10.5Z&quot;) instance of xs:anyURI</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -181,7 +181,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;time instance of xs:string&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:time(&quot;13:20:10.5Z&quot;) instance of xs:string</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -190,7 +190,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;time instance of xs:decimal&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:time(&quot;13:20:10.5Z&quot;) instance of xs:decimal</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -199,7 +199,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;time instance of xs:integer&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:time(&quot;13:20:10.5Z&quot;) instance of xs:integer</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -208,7 +208,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;time instance of xs:int&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:time(&quot;13:20:10.5Z&quot;) instance of xs:int</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -217,7 +217,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;date instance of xs:dateTime&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:date(&quot;2000-01-01+05:00&quot;) instance of xs:dateTime</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -226,7 +226,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;date instance of xs:time&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:date(&quot;2000-01-01+05:00&quot;) instance of xs:time</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -235,7 +235,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;date instance of xs:date&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:date(&quot;2000-01-01+05:00&quot;) instance of xs:date</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -244,7 +244,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;date instance of xs:boolean&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:date(&quot;2000-01-01+05:00&quot;) instance of xs:boolean</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -253,7 +253,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;date instance of xs:float&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:date(&quot;2000-01-01+05:00&quot;) instance of xs:float</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -262,7 +262,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;date instance of xs:double&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:date(&quot;2000-01-01+05:00&quot;) instance of xs:double</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -271,7 +271,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;date instance of xs:anyURI&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:date(&quot;2000-01-01+05:00&quot;) instance of xs:anyURI</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -280,7 +280,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;date instance of xs:string&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:date(&quot;2000-01-01+05:00&quot;) instance of xs:string</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -289,7 +289,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;date instance of xs:decimal&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:date(&quot;2000-01-01+05:00&quot;) instance of xs:decimal</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -298,7 +298,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;date instance of xs:integer&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:date(&quot;2000-01-01+05:00&quot;) instance of xs:integer</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -307,7 +307,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;date instance of xs:int&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:date(&quot;2000-01-01+05:00&quot;) instance of xs:int</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -316,7 +316,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;boolean instance of xs:dateTime&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:boolean(&quot;true&quot;) instance of xs:dateTime</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -325,7 +325,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;boolean instance of xs:time&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:boolean(&quot;true&quot;) instance of xs:time</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -334,7 +334,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;boolean instance of xs:date&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:boolean(&quot;true&quot;) instance of xs:date</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -343,7 +343,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;boolean instance of xs:boolean&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:boolean(&quot;true&quot;) instance of xs:boolean</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -352,7 +352,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;boolean instance of xs:float&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:boolean(&quot;true&quot;) instance of xs:float</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -361,7 +361,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;boolean instance of xs:double&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:boolean(&quot;true&quot;) instance of xs:double</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -370,7 +370,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;boolean instance of xs:anyURI&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:boolean(&quot;true&quot;) instance of xs:anyURI</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -379,7 +379,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;boolean instance of xs:string&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:boolean(&quot;true&quot;) instance of xs:string</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -388,7 +388,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;boolean instance of xs:decimal&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:boolean(&quot;true&quot;) instance of xs:decimal</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -397,7 +397,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;boolean instance of xs:integer&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:boolean(&quot;true&quot;) instance of xs:integer</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -406,7 +406,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;boolean instance of xs:int&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:boolean(&quot;true&quot;) instance of xs:int</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -415,7 +415,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;float instance of xs:dateTime&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>1267.43233E12 instance of xs:dateTime</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -424,7 +424,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;float instance of xs:time&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>1267.43233E12 instance of xs:time</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -433,7 +433,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;float instance of xs:date&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>1267.43233E12 instance of xs:date</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -442,7 +442,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;float instance of xs:boolean&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>1267.43233E12 instance of xs:boolean</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -451,7 +451,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;float instance of xs:float&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>1267.43233E12 instance of xs:float</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -460,7 +460,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;float instance of xs:double&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>1267.43233E12 instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -469,7 +469,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;float instance of xs:anyURI&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>1267.43233E12 instance of xs:anyURI</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -478,7 +478,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;float instance of xs:string&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>1267.43233E12 instance of xs:string</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -487,7 +487,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;float instance of xs:decimal&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>1267.43233E12 instance of xs:decimal</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -496,7 +496,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;float instance of xs:integer&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>1267.43233E12 instance of xs:integer</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -505,7 +505,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;float instance of xs:int&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>1267.43233E12 instance of xs:int</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -514,7 +514,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;double instance of xs:dateTime&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>1267.43233E12 instance of xs:dateTime</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -523,7 +523,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;double instance of xs:time&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>1267.43233E12 instance of xs:time</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -532,7 +532,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;double instance of xs:date&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>1267.43233E12 instance of xs:date</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -541,7 +541,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;double instance of xs:boolean&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>1267.43233E12 instance of xs:boolean</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -550,7 +550,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;double instance of xs:float&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>1267.43233E12 instance of xs:float</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -559,7 +559,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;double instance of xs:double&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>1267.43233E12 instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -568,7 +568,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;double instance of xs:anyURI&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>1267.43233E12 instance of xs:anyURI</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -577,7 +577,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;double instance of xs:string&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>1267.43233E12 instance of xs:string</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -586,7 +586,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;double instance of xs:decimal&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>1267.43233E12 instance of xs:decimal</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -595,7 +595,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;double instance of xs:integer&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>1267.43233E12 instance of xs:integer</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -604,7 +604,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;double instance of xs:int&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>1267.43233E12 instance of xs:int</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -613,7 +613,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;anyURI instance of xs:dateTime&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:anyURI(&quot;http://www.example.com&quot;) instance of xs:dateTime</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -622,7 +622,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;anyURI instance of xs:time&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:anyURI(&quot;http://www.example.com&quot;) instance of xs:time</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -631,7 +631,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;anyURI instance of xs:date&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:anyURI(&quot;http://www.example.com&quot;) instance of xs:date</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -640,7 +640,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;anyURI instance of xs:boolean&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:anyURI(&quot;http://www.example.com&quot;) instance of xs:boolean</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -649,7 +649,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;anyURI instance of xs:float&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:anyURI(&quot;http://www.example.com&quot;) instance of xs:float</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -658,7 +658,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;anyURI instance of xs:double&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:anyURI(&quot;http://www.example.com&quot;) instance of xs:double</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -667,7 +667,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;anyURI instance of xs:anyURI&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:anyURI(&quot;http://www.example.com&quot;) instance of xs:anyURI</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -676,7 +676,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;anyURI instance of xs:string&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:anyURI(&quot;http://www.example.com&quot;) instance of xs:string</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -685,7 +685,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;anyURI instance of xs:decimal&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:anyURI(&quot;http://www.example.com&quot;) instance of xs:decimal</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -694,7 +694,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;anyURI instance of xs:integer&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:anyURI(&quot;http://www.example.com&quot;) instance of xs:integer</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -703,7 +703,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;anyURI instance of xs:int&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>xs:anyURI(&quot;http://www.example.com&quot;) instance of xs:int</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -712,7 +712,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;string instance of xs:dateTime&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>&quot;A String Function&quot; instance of xs:dateTime</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -721,7 +721,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;string instance of xs:time&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>&quot;A String Function&quot; instance of xs:time</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -730,7 +730,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;string instance of xs:date&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>&quot;A String Function&quot; instance of xs:date</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -739,7 +739,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;string instance of xs:boolean&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>&quot;A String Function&quot; instance of xs:boolean</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -748,7 +748,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;string instance of xs:float&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>&quot;A String Function&quot; instance of xs:float</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -757,7 +757,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;string instance of xs:double&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>&quot;A String Function&quot; instance of xs:double</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -766,7 +766,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;string instance of xs:anyURI&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>&quot;A String Function&quot; instance of xs:anyURI</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -775,7 +775,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;string instance of xs:string&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>&quot;A String Function&quot; instance of xs:string</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -784,7 +784,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;string instance of xs:decimal&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>&quot;A String Function&quot; instance of xs:decimal</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -793,7 +793,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;string instance of xs:integer&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>&quot;A String Function&quot; instance of xs:integer</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -802,7 +802,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;string instance of xs:int&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>&quot;A String Function&quot; instance of xs:int</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -811,7 +811,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;decimal instance of xs:dateTime&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>12678967.543233 instance of xs:dateTime</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -820,7 +820,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;decimal instance of xs:time&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>12678967.543233 instance of xs:time</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -829,7 +829,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;decimal instance of xs:date&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>12678967.543233 instance of xs:date</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -838,7 +838,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;decimal instance of xs:boolean&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>12678967.543233 instance of xs:boolean</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -847,7 +847,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;decimal instance of xs:float&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>12678967.543233 instance of xs:float</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -856,7 +856,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;decimal instance of xs:double&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>12678967.543233 instance of xs:double</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -865,7 +865,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;decimal instance of xs:anyURI&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>12678967.543233 instance of xs:anyURI</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -874,7 +874,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;decimal instance of xs:string&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>12678967.543233 instance of xs:string</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -883,7 +883,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;decimal instance of xs:decimal&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>12678967.543233 instance of xs:decimal</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -892,7 +892,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;decimal instance of xs:integer&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>12678967.543233 instance of xs:integer</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -901,7 +901,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;decimal instance of xs:int&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>12678967.543233 instance of xs:int</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -910,7 +910,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;integer instance of xs:dateTime&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>12678967543233 instance of xs:dateTime</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -919,7 +919,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;integer instance of xs:time&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>12678967543233 instance of xs:time</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -928,7 +928,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;integer instance of xs:date&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>12678967543233 instance of xs:date</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -937,7 +937,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;integer instance of xs:boolean&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>12678967543233 instance of xs:boolean</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -946,7 +946,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;integer instance of xs:float&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>12678967543233 instance of xs:float</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -955,7 +955,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;integer instance of xs:double&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>12678967543233 instance of xs:double</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -964,7 +964,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;integer instance of xs:anyURI&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>12678967543233 instance of xs:anyURI</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -973,7 +973,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;integer instance of xs:string&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>12678967543233 instance of xs:string</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -982,7 +982,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;integer instance of xs:decimal&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>12678967543233 instance of xs:decimal</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -991,7 +991,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;integer instance of xs:integer&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>12678967543233 instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1000,7 +1000,7 @@
     <description>purpose: Evaluation of &quot;instance of&quot; expression for pattern &quot;integer instance of xs:int&quot;. </description>
     <created by="Carmelo Montanez" on="2005-04-26"/>
     <test>12678967543233 instance of xs:int</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1025,7 +1025,7 @@
         import schema &quot;http://www.w3.org/XQueryTest/ListUnionTypes&quot;;
       	23 instance of lu:unionType
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1091,7 +1091,7 @@
       	  and
       	23 instance of lu:unionOfUnionType
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1127,7 +1127,7 @@
          s:unrestrictedInteger(3) instance of s:myUnionType1
        ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1145,7 +1145,7 @@
          s:restrictedString("IB40") instance of s:myUnionType2
        ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1178,7 +1178,7 @@
          name#1 instance of function(*)
        ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1193,7 +1193,7 @@
          name#1 instance of function(node()?) as xs:string
        ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1208,7 +1208,7 @@
          name#1 instance of function(node()) as xs:string
        ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1223,7 +1223,7 @@
          name#1 instance of function(element(A)?) as xs:string
        ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1238,7 +1238,7 @@
          name#1 instance of function(element(A)) as xs:string
        ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1253,7 +1253,7 @@
          name#1 instance of function(element(A)) as xs:anyAtomicType
        ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1268,7 +1268,7 @@
          name#1 instance of function(element(A)) as xs:string+
        ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1283,7 +1283,7 @@
          name#1 instance of function(element(A)) as xs:NCName
        ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1298,7 +1298,7 @@
          name#1 instance of function(node()*) as xs:string
        ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1313,7 +1313,7 @@
          name#1 instance of function(item()) as xs:string
        ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1328,7 +1328,7 @@
          name#0 instance of function(item()) as xs:string
        ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1343,7 +1343,7 @@
          filter#2 instance of function(item()*, function(item()) as xs:boolean) as item()*
        ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1358,7 +1358,7 @@
          filter#2 instance of function(item()*, function(item()*) as xs:boolean) as item()*
        ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1374,7 +1374,7 @@
          filter#2 instance of function(function(*), item()*) as item()*
        ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1393,7 +1393,7 @@
          local:f#1 instance of function(s:myUnionType1) as xs:boolean
        ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1412,7 +1412,7 @@
          local:f#1 instance of function(s:unrestrictedDate) as xs:boolean
        ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1431,7 +1431,7 @@
          local:f#1 instance of function(s:unrestrictedInteger) as xs:boolean
        ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1450,7 +1450,7 @@
          local:f#1 instance of function(s:restrictedDate) as xs:boolean
        ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1470,7 +1470,7 @@
          local:f#1 instance of function(s:dateOrDateTime) as xs:boolean
        ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1489,7 +1489,7 @@
          local:f#1 instance of function(s:integer-union) as xs:boolean
        ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1508,7 +1508,7 @@
          local:f#1 instance of function(xs:integer) as xs:boolean
        ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1517,7 +1517,7 @@
     <description> A test whose essence is: `1 instance of item()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 instance of item()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1526,7 +1526,7 @@
     <description> item() type with comment appearing inside the paranteses. comment </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 instance of item()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1535,7 +1535,7 @@
     <description> A test whose essence is: `1 instance of xs:integer`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1544,7 +1544,7 @@
     <description> A test whose essence is: `1 instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 instance of xs:decimal</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1553,7 +1553,7 @@
     <description> A test whose essence is: `1 instance of xs:integer?`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 instance of xs:integer?</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1562,7 +1562,7 @@
     <description> A test whose essence is: `1 instance of xs:integer+`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 instance of xs:integer+</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1571,7 +1571,7 @@
     <description> A test whose essence is: `1 instance of xs:integer*`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 instance of xs:integer*</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1580,7 +1580,7 @@
     <description> A test whose essence is: `false() instance of xs:boolean`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>false() instance of xs:boolean</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1589,7 +1589,7 @@
     <description> A test whose essence is: `false() instance of xs:anyAtomicType`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>false() instance of xs:anyAtomicType</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1598,7 +1598,7 @@
     <description> A test whose essence is: `&quot;a string&quot; instance of xs:string`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>&quot;a string&quot; instance of xs:string</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1607,7 +1607,7 @@
     <description> A test whose essence is: `not(&quot;false&quot; instance of xs:boolean)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(&quot;false&quot; instance of xs:boolean)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1616,7 +1616,7 @@
     <description> A test whose essence is: `1.1 instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1.1 instance of xs:decimal</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1625,7 +1625,7 @@
     <description> A test whose essence is: `not(1.1 instance of xs:integer)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(1.1 instance of xs:integer)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1634,7 +1634,7 @@
     <description> A test whose essence is: `xs:anyURI(&quot;http://www.example.com/&quot;) instance of xs:anyURI`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:anyURI(&quot;http://www.example.com/&quot;) instance of xs:anyURI</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1643,7 +1643,7 @@
     <description> A test whose essence is: `not(xs:anyURI(&quot;http://www.example.com/&quot;) instance of xs:string)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(xs:anyURI(&quot;http://www.example.com/&quot;) instance of xs:string)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1652,7 +1652,7 @@
     <description> A test whose essence is: `not(&quot;a string&quot; instance of xs:untypedAtomic)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(&quot;a string&quot; instance of xs:untypedAtomic)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1661,7 +1661,7 @@
     <description> A test whose essence is: `(1, 2, 3, 4, 5) instance of xs:integer+`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3, 4, 5) instance of xs:integer+</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1670,7 +1670,7 @@
     <description> A test whose essence is: `not((1, 2, 3, 4, 5) instance of xs:integer)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not((1, 2, 3, 4, 5) instance of xs:integer)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1679,7 +1679,7 @@
     <description> A test whose essence is: `not((1, 2, 3, 4, 5) instance of xs:integer?)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not((1, 2, 3, 4, 5) instance of xs:integer?)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1688,7 +1688,7 @@
     <description> A test whose essence is: `(1, 2, 3, 4, 5) instance of xs:integer*`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3, 4, 5) instance of xs:integer*</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1697,7 +1697,7 @@
     <description> A test whose essence is: `(1, 2, 3, 4, 5) instance of item()+`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3, 4, 5) instance of item()+</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1706,7 +1706,7 @@
     <description> A test whose essence is: `not((1, 2, &quot;a string&quot;, 4, 5) instance of xs:integer*)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not((1, 2, &quot;a string&quot;, 4, 5) instance of xs:integer*)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1715,7 +1715,7 @@
     <description> A test whose essence is: `not((1, 2, 1.1, 4, 5) instance of xs:integer*)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not((1, 2, 1.1, 4, 5) instance of xs:integer*)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1724,7 +1724,7 @@
     <description> A test whose essence is: `not((1, 2, &quot;a string&quot;, 4, 5) instance of xs:string*)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not((1, 2, &quot;a string&quot;, 4, 5) instance of xs:string*)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1733,7 +1733,7 @@
     <description> A test whose essence is: `(1, 2, &quot;a string&quot;, 4, 5) instance of xs:anyAtomicType*`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, &quot;a string&quot;, 4, 5) instance of xs:anyAtomicType*</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1742,7 +1742,7 @@
     <description> A test whose essence is: `(1, 2, count(&quot;one&quot;), 4, 5) instance of xs:integer+`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, count(&quot;one&quot;), 4, 5) instance of xs:integer+</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1751,7 +1751,7 @@
     <description> A test whose essence is: `not(1 instance of text())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(1 instance of text())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1760,7 +1760,7 @@
     <description> A test whose essence is: `not(1 instance of node())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(1 instance of node())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1769,7 +1769,7 @@
     <description> A test whose essence is: `not(1 instance of element())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(1 instance of element())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1778,7 +1778,7 @@
     <description> A test whose essence is: `not(1 instance of processing-instruction())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(1 instance of processing-instruction())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1787,7 +1787,7 @@
     <description> A test whose essence is: `not(1 instance of comment())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(1 instance of comment())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1796,7 +1796,7 @@
     <description> A comment appearing inside the paranteses of the sequence type text(). comment </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(1 instance of text())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1805,7 +1805,7 @@
     <description> A comment appearing inside the paranteses of the sequence type node(). comment </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(1 instance of node())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1814,7 +1814,7 @@
     <description> A comment appearing inside the paranteses of the sequence type element(). comment </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(1 instance of element())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1823,7 +1823,7 @@
     <description> A comment appearing inside the paranteses of the sequence type processing-instruction(). comment </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(1 instance of processing-instruction())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1832,7 +1832,7 @@
     <description> A comment appearing inside the paranteses of the sequence type comment(). comment </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(1 instance of comment())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1841,7 +1841,7 @@
     <description> A test whose essence is: `not(1 instance of empty-sequence())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(1 instance of empty-sequence())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1850,7 +1850,7 @@
     <description> A test whose essence is: `not( (1, 2, 3) instance of empty-sequence())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not( (1, 2, 3) instance of empty-sequence())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1859,7 +1859,7 @@
     <description> A test whose essence is: `() instance of empty-sequence()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>() instance of empty-sequence()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1868,7 +1868,7 @@
     <description> Comment appearing inside the paranteses of empty-sequence(). comment </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>() instance of empty-sequence()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1877,7 +1877,7 @@
     <description> A test whose essence is: `(((()))) instance of empty-sequence()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(((()))) instance of empty-sequence()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1886,7 +1886,7 @@
     <description> A test whose essence is: `((), (), ()) instance of empty-sequence()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>((), (), ()) instance of empty-sequence()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1895,7 +1895,7 @@
     <description> A test whose essence is: `((), &quot;xs:string&quot;) instance of xs:string`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>((), &quot;xs:string&quot;) instance of xs:string</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1904,7 +1904,7 @@
     <description> A test whose essence is: `(&quot;xs:string&quot;, (), &quot;xs:string&quot;) instance of xs:string+`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(&quot;xs:string&quot;, (), &quot;xs:string&quot;) instance of xs:string+</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1913,7 +1913,7 @@
     <description> A test whose essence is: `(1.1, (), 1) instance of xs:decimal+`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1.1, (), 1) instance of xs:decimal+</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1922,7 +1922,7 @@
     <description> A test whose essence is: `not(&quot;a string&quot; instance of xs:NOTATION)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(&quot;a string&quot; instance of xs:NOTATION)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1931,7 +1931,7 @@
     <description> A test whose essence is: `not(&quot;a string&quot; instance of xs:QName)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(&quot;a string&quot; instance of xs:QName)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1940,7 +1940,7 @@
     <description> A test whose essence is: `1.1 instance of xs:decimal and not(1.1 instance of xs:integer)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1.1 instance of xs:decimal and not(1.1 instance of xs:integer)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2108,7 +2108,7 @@
     <description> A test whose essence is: `not(((10)div(3)) instance of xs:integer)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(((10)div(3)) instance of xs:integer)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2117,7 +2117,7 @@
     <description> A test whose essence is: `((10)idiv(3)) instance of xs:integer`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>((10)idiv(3)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2126,7 +2126,7 @@
     <description> A test whose essence is: `((10)mod(3)) instance of xs:integer`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>((10)mod(3)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2138,7 +2138,7 @@
     <test>
       <![CDATA[<e/> instance of element()]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2150,7 +2150,7 @@
     <test>
       <![CDATA[<e/> instance of element(*)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2162,7 +2162,7 @@
     <test>
       <![CDATA[<e/> instance of element(e)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2174,7 +2174,7 @@
     <test>
       <![CDATA[<e/> instance of element(name)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2186,7 +2186,7 @@
     <test>
       <![CDATA[<e/> instance of attribute()]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2198,7 +2198,7 @@
     <test>
       <![CDATA[<e/> instance of attribute(*)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2210,7 +2210,7 @@
     <test>
       <![CDATA[<e/> instance of attribute(e)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2220,7 +2220,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>attribute e{&quot;content&quot;} instance of attribute(e)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2230,7 +2230,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>attribute e{&quot;content&quot;} instance of attribute()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2240,7 +2240,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>attribute e{&quot;content&quot;} instance of attribute(*)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2250,7 +2250,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>attribute e{&quot;content&quot;} instance of element(e)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2260,7 +2260,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>attribute e{&quot;content&quot;} instance of element()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2270,7 +2270,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>attribute e{&quot;content&quot;} instance of element(*)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2280,7 +2280,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>attribute e{&quot;content&quot;} instance of attribute(name)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2289,7 +2289,7 @@
     <description> Check the return type of xs:nonPositiveInteger in a simple way. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:nonPositiveInteger(0) instance of xs:nonPositiveInteger</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2298,7 +2298,7 @@
     <description> Check the return type of xs:negativeInteger in a simple way. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:negativeInteger(-1) instance of xs:negativeInteger</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2307,7 +2307,7 @@
     <description> Check the return type of xs:long in a simple way. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:long(0) instance of xs:long</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2316,7 +2316,7 @@
     <description> Check the return type of xs:int in a simple way. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:int(0) instance of xs:int</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2325,7 +2325,7 @@
     <description> Check the return type of xs:short in a simple way. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:short(0) instance of xs:short</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2334,7 +2334,7 @@
     <description> Check the return type of xs:byte in a simple way. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:byte(0) instance of xs:byte</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2343,7 +2343,7 @@
     <description> Check the return type of xs:nonNegativeInteger in a simple way. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:nonNegativeInteger(0) instance of xs:nonNegativeInteger</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2352,7 +2352,7 @@
     <description> Check the return type of xs:nonNegativeInteger in a simple way. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:nonNegativeInteger(0) instance of xs:nonNegativeInteger</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2361,7 +2361,7 @@
     <description> Check the return type of xs:unsignedLong in a simple way. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:unsignedLong(0) instance of xs:unsignedLong</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2370,7 +2370,7 @@
     <description> Check the return type of xs:unsignedInt in a simple way. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:unsignedInt(0) instance of xs:unsignedInt</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2379,7 +2379,7 @@
     <description> Check the return type of xs:unsignedShort in a simple way. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:unsignedShort(0) instance of xs:unsignedShort</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2388,7 +2388,7 @@
     <description> Check the return type of xs:unsignedByte in a simple way. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:unsignedByte(0) instance of xs:unsignedByte</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2397,7 +2397,7 @@
     <description> Check the return type of xs:positiveInteger in a simple way. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:positiveInteger(1) instance of xs:positiveInteger</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2406,7 +2406,7 @@
     <description> Check the return type of xs:normalizedString in a simple way. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:normalizedString(&quot;NCName&quot;) instance of xs:normalizedString</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2415,7 +2415,7 @@
     <description> Check the return type of xs:token in a simple way. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:token(&quot;NCName&quot;) instance of xs:token</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2424,7 +2424,7 @@
     <description> Check the return type of xs:language in a simple way. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:language(&quot;NCName&quot;) instance of xs:language</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2433,7 +2433,7 @@
     <description> Check the return type of xs:NMTOKEN in a simple way. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:NMTOKEN(&quot;NCName&quot;) instance of xs:NMTOKEN</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2442,7 +2442,7 @@
     <description> Check the return type of xs:Name in a simple way. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:Name(&quot;NCName&quot;) instance of xs:Name</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2451,7 +2451,7 @@
     <description> Check the return type of xs:NCName in a simple way. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:NCName(&quot;NCName&quot;) instance of xs:NCName</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2460,7 +2460,7 @@
     <description> Check the return type of xs:ID in a simple way. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:ID(&quot;NCName&quot;) instance of xs:ID</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2469,7 +2469,7 @@
     <description> Check the return type of xs:IDREF in a simple way. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:IDREF(&quot;NCName&quot;) instance of xs:IDREF</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2478,7 +2478,7 @@
     <description> Check the return type of xs:ENTITY in a simple way. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:ENTITY(&quot;NCName&quot;) instance of xs:ENTITY</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2487,7 +2487,7 @@
     <description> Check that xs:normalizedString has the correct parent type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:normalizedString(&quot;ncname&quot;) instance of xs:string</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2496,7 +2496,7 @@
     <description> Check that xs:token has the correct parent type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:token(&quot;ncname&quot;) instance of xs:normalizedString</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2505,7 +2505,7 @@
     <description> Check that xs:language has the correct parent type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:language(&quot;ncname&quot;) instance of xs:token</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2514,7 +2514,7 @@
     <description> Check that xs:NMTOKEN has the correct parent type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:NMTOKEN(&quot;ncname&quot;) instance of xs:token</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2523,7 +2523,7 @@
     <description> Check that xs:Name has the correct parent type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:Name(&quot;ncname&quot;) instance of xs:token</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2532,7 +2532,7 @@
     <description> Check that xs:NCName has the correct parent type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:NCName(&quot;ncname&quot;) instance of xs:Name</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2541,7 +2541,7 @@
     <description> Check that xs:ID has the correct parent type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:ID(&quot;ncname&quot;) instance of xs:NCName</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2550,7 +2550,7 @@
     <description> Check that xs:IDREF has the correct parent type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:IDREF(&quot;ncname&quot;) instance of xs:NCName</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2559,7 +2559,7 @@
     <description> Check that xs:ENTITY has the correct parent type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:ENTITY(&quot;ncname&quot;) instance of xs:NCName</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2568,7 +2568,7 @@
     <description> Check that xs:nonPositiveInteger has the correct parent type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:nonPositiveInteger(&quot;0&quot;) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2577,7 +2577,7 @@
     <description> Check that xs:negativeInteger has the correct parent type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:negativeInteger(&quot;-1&quot;) instance of xs:nonPositiveInteger</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2586,7 +2586,7 @@
     <description> Check that xs:long has the correct parent type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:long(&quot;0&quot;) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2595,7 +2595,7 @@
     <description> Check that xs:int has the correct parent type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:int(&quot;0&quot;) instance of xs:long</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2604,7 +2604,7 @@
     <description> Check that xs:short has the correct parent type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:short(&quot;0&quot;) instance of xs:int</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2613,7 +2613,7 @@
     <description> Check that xs:byte has the correct parent type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:byte(&quot;0&quot;) instance of xs:short</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2622,7 +2622,7 @@
     <description> Check that xs:nonNegativeInteger has the correct parent type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:nonNegativeInteger(&quot;0&quot;) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2631,7 +2631,7 @@
     <description> Check that xs:unsignedLong has the correct parent type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:unsignedLong(&quot;0&quot;) instance of xs:nonNegativeInteger</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2640,7 +2640,7 @@
     <description> Check that xs:unsignedInt has the correct parent type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:unsignedInt(&quot;0&quot;) instance of xs:unsignedLong</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2649,7 +2649,7 @@
     <description> Check that xs:unsignedShort has the correct parent type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:unsignedShort(&quot;0&quot;) instance of xs:unsignedInt</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2658,7 +2658,7 @@
     <description> Check that xs:unsignedByte has the correct parent type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:unsignedByte(&quot;0&quot;) instance of xs:unsignedShort</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2667,7 +2667,7 @@
     <description> Check that xs:positiveInteger has the correct parent type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:positiveInteger(&quot;1&quot;) instance of xs:nonNegativeInteger</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2676,7 +2676,7 @@
     <description> Check that xs:nonNegativeInteger is not a child of nonPositiveInteger. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:nonNegativeInteger(&quot;1&quot;) instance of xs:nonPositiveInteger</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2685,7 +2685,7 @@
     <description> Check that xs:nonNegativeInteger is not a child of negativeInteger. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:nonNegativeInteger(&quot;1&quot;) instance of xs:negativeInteger</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2694,7 +2694,7 @@
     <description> Check that xs:positiveInteger is not a child of negativeInteger. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:positiveInteger(&quot;1&quot;) instance of xs:negativeInteger</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2703,7 +2703,7 @@
     <description> Check that xs:positiveInteger is not a child of nonPositiveInteger. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:positiveInteger(&quot;1&quot;) instance of xs:nonPositiveInteger</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2712,7 +2712,7 @@
     <description> Check that xs:long is not a child of negativeInteger. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:long(&quot;1&quot;) instance of xs:negativeInteger</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2721,7 +2721,7 @@
     <description> Check that xs:long is not a child of nonPositiveInteger. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:long(&quot;1&quot;) instance of xs:nonPositiveInteger</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2730,7 +2730,7 @@
     <description> Check that xs:long is not a child of nonNegativeInteger. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:long(&quot;1&quot;) instance of xs:nonNegativeInteger</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2739,7 +2739,7 @@
     <description> Check that xs:long is not a child of positiveInteger. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:long(&quot;1&quot;) instance of xs:positiveInteger</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2748,7 +2748,7 @@
     <description> Check that xs:token is not a child of xs:NCName. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:token(&quot;ncname&quot;) instance of xs:NCName</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2757,7 +2757,7 @@
     <description> Check that xs:ID is not a child of xs:NCName. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:ID(&quot;ncname&quot;) instance of xs:IDREF</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2766,7 +2766,7 @@
     <description> Check that xs:ENTITY is not a child of xs:NCName. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:ENTITY(&quot;ncname&quot;) instance of xs:IDREF</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2775,7 +2775,7 @@
     <description> Check that xs:language is not a child of xs:NMTOKEN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:language(&quot;ncname&quot;) instance of xs:NMTOKEN</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2784,7 +2784,7 @@
     <description> Check that xs:Name is not a child of xs:language. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:Name(&quot;ncname&quot;) instance of xs:language</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2793,7 +2793,7 @@
     <description> Check that xs:normalizedString is not a child of xs:token. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:normalizedString(&quot;ncname&quot;) instance of xs:token</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -2805,7 +2805,7 @@
     <test>
       <![CDATA[<e a=""/>/attribute::a instance of attribute(a)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2817,7 +2817,7 @@
     <test>
       <![CDATA[<e a=""/>/@a instance of attribute(a)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2826,7 +2826,7 @@
     <description> Ensure that a cast to xs:byte is of the right type, when casting from xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:byte(xs:double(&quot;1&quot;)) instance of xs:byte</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2835,7 +2835,7 @@
     <description> Ensure that a cast to xs:nonPositiveInteger is of the right type, when casting from xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:nonPositiveInteger(xs:double(&quot;0&quot;)) instance of xs:nonPositiveInteger</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2844,7 +2844,7 @@
     <description> Ensure that a cast to xs:negativeInteger is of the right type, when casting from xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:negativeInteger(xs:double(&quot;-4&quot;)) instance of xs:negativeInteger</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2853,7 +2853,7 @@
     <description> Ensure that a cast to xs:long is of the right type, when casting from xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:long(xs:double(&quot;-4&quot;)) instance of xs:long</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2862,7 +2862,7 @@
     <description> Ensure that a cast to xs:int is of the right type, when casting from xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:int(xs:double(&quot;-4&quot;)) instance of xs:int</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2871,7 +2871,7 @@
     <description> Ensure that a cast to xs:short is of the right type, when casting from xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:short(xs:double(&quot;-4&quot;)) instance of xs:short</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2880,7 +2880,7 @@
     <description> Ensure that a cast to xs:nonNegativeInteger is of the right type, when casting from xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:nonNegativeInteger(xs:double(&quot;4&quot;)) instance of xs:nonNegativeInteger</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2889,7 +2889,7 @@
     <description> Ensure that a cast to xs:unsignedLong is of the right type, when casting from xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:unsignedLong(xs:double(&quot;4&quot;)) instance of xs:unsignedLong</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2898,7 +2898,7 @@
     <description> Ensure that a cast to xs:unsignedInt is of the right type, when casting from xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:unsignedInt(xs:double(&quot;4&quot;)) instance of xs:unsignedInt</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2907,7 +2907,7 @@
     <description> Ensure that a cast to xs:unsignedShort is of the right type, when casting from xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:unsignedShort(xs:double(&quot;4&quot;)) instance of xs:unsignedShort</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2916,7 +2916,7 @@
     <description> Ensure that a cast to xs:unsignedByte is of the right type, when casting from xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:unsignedByte(xs:double(&quot;4&quot;)) instance of xs:unsignedByte</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2925,7 +2925,7 @@
     <description> Ensure that a cast to xs:positiveInteger is of the right type, when casting from xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:positiveInteger(xs:double(&quot;4&quot;)) instance of xs:positiveInteger</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2934,7 +2934,7 @@
     <description> Ensure that a cast to xs:byte is of the right type, when casting from xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:byte(xs:float(&quot;1&quot;)) instance of xs:byte</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2943,7 +2943,7 @@
     <description> Ensure that a cast to xs:nonPositiveInteger is of the right type, when casting from xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:nonPositiveInteger(xs:float(&quot;0&quot;)) instance of xs:nonPositiveInteger</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2952,7 +2952,7 @@
     <description> Ensure that a cast to xs:negativeInteger is of the right type, when casting from xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:negativeInteger(xs:float(&quot;-4&quot;)) instance of xs:negativeInteger</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2961,7 +2961,7 @@
     <description> Ensure that a cast to xs:long is of the right type, when casting from xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:long(xs:float(&quot;-4&quot;)) instance of xs:long</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2970,7 +2970,7 @@
     <description> Ensure that a cast to xs:int is of the right type, when casting from xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:int(xs:float(&quot;-4&quot;)) instance of xs:int</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2979,7 +2979,7 @@
     <description> Ensure that a cast to xs:short is of the right type, when casting from xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:short(xs:float(&quot;-4&quot;)) instance of xs:short</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2988,7 +2988,7 @@
     <description> Ensure that a cast to xs:nonNegativeInteger is of the right type, when casting from xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:nonNegativeInteger(xs:float(&quot;4&quot;)) instance of xs:nonNegativeInteger</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2997,7 +2997,7 @@
     <description> Ensure that a cast to xs:unsignedLong is of the right type, when casting from xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:unsignedLong(xs:float(&quot;4&quot;)) instance of xs:unsignedLong</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -3006,7 +3006,7 @@
     <description> Ensure that a cast to xs:unsignedInt is of the right type, when casting from xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:unsignedInt(xs:float(&quot;4&quot;)) instance of xs:unsignedInt</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -3015,7 +3015,7 @@
     <description> Ensure that a cast to xs:unsignedShort is of the right type, when casting from xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:unsignedShort(xs:float(&quot;4&quot;)) instance of xs:unsignedShort</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -3024,7 +3024,7 @@
     <description> Ensure that a cast to xs:unsignedByte is of the right type, when casting from xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:unsignedByte(xs:float(&quot;4&quot;)) instance of xs:unsignedByte</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -3033,7 +3033,7 @@
     <description> Ensure that a cast to xs:positiveInteger is of the right type, when casting from xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:positiveInteger(xs:float(&quot;4&quot;)) instance of xs:positiveInteger</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -3043,7 +3043,7 @@
     <created by="Frans Englich" on="2008-11-13"/>
     <dependency type="spec" value="XQ10+"/>
     <test>node-name(text {&quot;&quot;}) instance of empty-sequence()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -3055,7 +3055,7 @@
     <test>
       <![CDATA[<e attr=""/>/(@attr instance of attribute(), @* instance of attribute())]]>
     </test>
-    <result-string>xs:string('true true')</result-string>
+    <result-string>xs:string(&quot;true true&quot;)</result-string>
     <result>
       <assert-string-value>true true</assert-string-value>
     </result>
@@ -3067,7 +3067,7 @@
     <test>
       <![CDATA[<a><b/></a>/(b instance of element(), * instance of element())]]>
     </test>
-    <result-string>xs:string('true true')</result-string>
+    <result-string>xs:string(&quot;true true&quot;)</result-string>
     <result>
       <assert-string-value>true true</assert-string-value>
     </result>
@@ -3078,7 +3078,7 @@
     <test>
         for $x in (xs:integer(1), xs:decimal(1)) return (((($x + 1) * 2) - 1) instance of xs:integer)
       </test>
-    <result-string>xs:string('true false')</result-string>
+    <result-string>xs:string(&quot;true false&quot;)</result-string>
     <result>
       <assert-string-value>true false</assert-string-value>
     </result>

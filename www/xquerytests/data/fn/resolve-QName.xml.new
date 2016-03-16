@@ -33,7 +33,7 @@
     <test>
       <![CDATA[fn:count(fn:resolve-QName((), <anElement>Some content</anElement>))]]>
     </test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -45,7 +45,7 @@
     <test>
       <![CDATA[fn:string(fn:local-name-from-QName(fn:resolve-QName("p1:name", <anElement xmlns:p1="http://example.com/examples">Some content</anElement>)))]]>
     </test>
-    <result-string>xs:string('name')</result-string>
+    <result-string>xs:string(&quot;name&quot;)</result-string>
     <result>
       <assert-string-value>name</assert-string-value>
     </result>
@@ -57,7 +57,7 @@
     <test>
       <![CDATA[fn:string(fn:namespace-uri-from-QName(fn:resolve-QName("p1:name", <anElement xmlns:p1="http://example.com/examples">Some content</anElement>)))]]>
     </test>
-    <result-string>xs:string('http://example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://example.com/examples</assert-string-value>
     </result>
@@ -69,7 +69,7 @@
     <test>
       <![CDATA[fn:string(fn:local-name-from-QName(fn:resolve-QName("p1:name", <anElement xmlns:p1="http://example.com/examples" xmlns:P1="http://example.com/examples">Some content</anElement>)))]]>
     </test>
-    <result-string>xs:string('name')</result-string>
+    <result-string>xs:string(&quot;name&quot;)</result-string>
     <result>
       <assert-string-value>name</assert-string-value>
     </result>
@@ -81,7 +81,7 @@
     <test>
       <![CDATA[fn:string(fn:namespace-uri-from-QName(fn:resolve-QName("P1:name", <anElement xmlns:p1="http://example.com/examples" xmlns:P1="http://someothernamespace.com/examples">Some content</anElement>)))]]>
     </test>
-    <result-string>xs:string('http://someothernamespace.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://someothernamespace.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://someothernamespace.com/examples</assert-string-value>
     </result>
@@ -93,7 +93,7 @@
     <test>
       <![CDATA[fn:string(fn:local-name-from-QName(fn:resolve-QName("anElement", <anElement xmlns:p1="http://example.com/examples">Some content</anElement>)))]]>
     </test>
-    <result-string>xs:string('anElement')</result-string>
+    <result-string>xs:string(&quot;anElement&quot;)</result-string>
     <result>
       <assert-string-value>anElement</assert-string-value>
     </result>
@@ -105,7 +105,7 @@
     <test>
       <![CDATA[fn:string(fn:namespace-uri-from-QName(fn:resolve-QName("anElement", <anElement xmlns="http://example.com/examples">Some content</anElement>)))]]>
     </test>
-    <result-string>xs:string('http://example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://example.com/examples</assert-string-value>
     </result>
@@ -117,7 +117,7 @@
     <test>
       <![CDATA[fn:count(fn:namespace-uri-from-QName(fn:resolve-QName("anElement", <anElement xmlns:p1="http://example.com/examples">Some content</anElement>)))]]>
     </test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -129,7 +129,7 @@
     <test>
       <![CDATA[fn:string(fn:local-name-from-QName(fn:resolve-QName(xs:string("p1:anElement"), <anElement xmlns:p1="http://example.com/examples">Some content</anElement>)))]]>
     </test>
-    <result-string>xs:string('anElement')</result-string>
+    <result-string>xs:string(&quot;anElement&quot;)</result-string>
     <result>
       <assert-string-value>anElement</assert-string-value>
     </result>
@@ -141,7 +141,7 @@
     <test>
       <![CDATA[fn:string(fn:namespace-uri-from-QName(fn:resolve-QName(xs:string("p1:anElement"), <anElement xmlns:p1="http://example.com/examples">Some content</anElement>)))]]>
     </test>
-    <result-string>xs:string('http://example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://example.com/examples</assert-string-value>
     </result>
@@ -153,7 +153,7 @@
     <test>
       <![CDATA[fn:string(fn:local-name-from-QName(fn:resolve-QName(fn:concat("p1:","anElement"), <anElement xmlns:p1="http://example.com/examples">Some content</anElement>)))]]>
     </test>
-    <result-string>xs:string('anElement')</result-string>
+    <result-string>xs:string(&quot;anElement&quot;)</result-string>
     <result>
       <assert-string-value>anElement</assert-string-value>
     </result>
@@ -165,7 +165,7 @@
     <test>
       <![CDATA[fn:string(fn:namespace-uri-from-QName(fn:resolve-QName(fn:concat("p1:","anElement"), <anElement xmlns:p1="http://example.com/examples">Some content</anElement>)))]]>
     </test>
-    <result-string>xs:string('http://example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://example.com/examples</assert-string-value>
     </result>
@@ -177,7 +177,7 @@
     <test>
       <![CDATA[fn:string(fn:local-name-from-QName(fn:resolve-QName(fn:string-join(("p1:","anElement"),""), <anElement xmlns:p1="http://example.com/examples">Some content</anElement>)))]]>
     </test>
-    <result-string>xs:string('anElement')</result-string>
+    <result-string>xs:string(&quot;anElement&quot;)</result-string>
     <result>
       <assert-string-value>anElement</assert-string-value>
     </result>
@@ -189,7 +189,7 @@
     <test>
       <![CDATA[fn:string(fn:namespace-uri-from-QName(fn:resolve-QName(fn:string-join(('p1:','anElement'),''), <anElement xmlns:p1="http://example.com/examples">Some content</anElement>)))]]>
     </test>
-    <result-string>xs:string('http://example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://example.com/examples</assert-string-value>
     </result>
@@ -201,7 +201,7 @@
     <test>
       <![CDATA[fn:string(fn:local-name-from-QName(fn:resolve-QName(fn:substring-before("p1:anElementabc","abc"), <anElement xmlns:p1="http://example.com/examples">Some content</anElement>)))]]>
     </test>
-    <result-string>xs:string('anElement')</result-string>
+    <result-string>xs:string(&quot;anElement&quot;)</result-string>
     <result>
       <assert-string-value>anElement</assert-string-value>
     </result>
@@ -213,7 +213,7 @@
     <test>
       <![CDATA[fn:string(fn:namespace-uri-from-QName(fn:resolve-QName(fn:substring-before("p1:anElementabc","abc"), <anElement xmlns:p1="http://example.com/examples">Some content</anElement>)))]]>
     </test>
-    <result-string>xs:string('http://example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://example.com/examples</assert-string-value>
     </result>
@@ -225,7 +225,7 @@
     <test>
       <![CDATA[fn:string(fn:local-name-from-QName(fn:resolve-QName(fn:substring-after("abcp1:anElement","abc"), <anElement xmlns:p1="http://example.com/examples">Some content</anElement>)))]]>
     </test>
-    <result-string>xs:string('anElement')</result-string>
+    <result-string>xs:string(&quot;anElement&quot;)</result-string>
     <result>
       <assert-string-value>anElement</assert-string-value>
     </result>
@@ -237,7 +237,7 @@
     <test>
       <![CDATA[fn:string(fn:namespace-uri-from-QName(fn:resolve-QName(fn:substring-after("abcp1:anElement","abc"), <anElement xmlns:p1="http://example.com/examples">Some content</anElement>)))]]>
     </test>
-    <result-string>xs:string('http://example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://example.com/examples</assert-string-value>
     </result>
@@ -249,7 +249,7 @@
     <test>
       <![CDATA[fn:string(fn:local-name-from-QName(fn:resolve-QName(fn:substring("abcp1:anElement",4), <anElement xmlns:p1="http://example.com/examples">Some content</anElement>)))]]>
     </test>
-    <result-string>xs:string('anElement')</result-string>
+    <result-string>xs:string(&quot;anElement&quot;)</result-string>
     <result>
       <assert-string-value>anElement</assert-string-value>
     </result>
@@ -261,7 +261,7 @@
     <test>
       <![CDATA[fn:string(fn:namespace-uri-from-QName(fn:resolve-QName(fn:substring("abcp1:anElement",4), <anElement xmlns:p1="http://example.com/examples">Some content</anElement>)))]]>
     </test>
-    <result-string>xs:string('http://example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://example.com/examples</assert-string-value>
     </result>
@@ -312,7 +312,7 @@
     <test>
       <![CDATA[resolve-QName("blah",<foo:a xmlns:foo="http://test/"/>)]]>
     </test>
-    <result-string>xs:string('blah')</result-string>
+    <result-string>xs:string(&quot;blah&quot;)</result-string>
     <result>
       <assert-string-value>blah</assert-string-value>
     </result>

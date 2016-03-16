@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;string-length&quot; function with the arguments set as follows: $arg = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string-length(xs:string(&quot;This is a characte&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;18&quot;)</result-string>
     <result>
       <assert-eq>18</assert-eq>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;string-length&quot; function with the arguments set as follows: $arg = xs:string(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string-length(xs:string(&quot;This is a characte&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;18&quot;)</result-string>
     <result>
       <assert-eq>18</assert-eq>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;string-length&quot; function with the arguments set as follows: $arg = xs:string(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string-length(xs:string(&quot;This is a characte&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;18&quot;)</result-string>
     <result>
       <assert-eq>18</assert-eq>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluation of string-length function as per example 1 (for this function) from the FO specs. </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:string-length(&quot;Harp not on that string, madam; that is past.&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;45&quot;)</result-string>
     <result>
       <assert-eq>45</assert-eq>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluation of string-length function using the empty sequence </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:string-length(())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluation of string-length function that uses only numbers as part of argument </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:string-length(&quot;12345&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;5&quot;)</result-string>
     <result>
       <assert-eq>5</assert-eq>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluation of string-length function that uses both numbers and letters as part of argument </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:string-length(&quot;12345abcd&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;9&quot;)</result-string>
     <result>
       <assert-eq>9</assert-eq>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluation of string-length function that uses only upper case letters as part of argument </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:string-length(&quot;ABCD&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;4&quot;)</result-string>
     <result>
       <assert-eq>4</assert-eq>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluation of string-length function that uses only lower case letters as part of argument </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:string-length(&quot;abcde&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;5&quot;)</result-string>
     <result>
       <assert-eq>5</assert-eq>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluation of string-length function that uses both upper and lower case letters as part of argument </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:string-length(&quot;ABCDEabcde&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluation of string-length function that uses the empty string as part of argument </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:string-length(&quot;&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluation of string-length function that uses the &quot;string&quot; as part of argument </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:string-length(fn:string(&quot;AbcDH&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;5&quot;)</result-string>
     <result>
       <assert-eq>5</assert-eq>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluation of string-length function with argument set to &quot;*****&quot; </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:string-length(&quot;*****&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;5&quot;)</result-string>
     <result>
       <assert-eq>5</assert-eq>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluation of string-length function as part of an addition operation </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:string-length(&quot;zzzzz&quot;) + fn:string-length(&quot;zzzzz&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluation of string-length function as an argument to the &quot;fn:boolean&quot; function </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:boolean(fn:string-length(&quot;abcde&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluation of string-length function as an argument to the &quot;fn:concat&quot; function </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat(fn:string-length(&quot;abcde&quot;), fn:string-length(&quot;fghi&quot;))</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;54&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;54&quot;</assert-eq>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluation of string-length function as an argument to the &quot;fn:not&quot; function </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:not(fn:string-length(&quot;abcde&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluation of string-length function with argument set to &quot;%$#@!&quot; </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:string-length(&quot;%$#@!&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;5&quot;)</result-string>
     <result>
       <assert-eq>5</assert-eq>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluation of string-length function with argument set to &quot;string-length&quot; </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:string-length(&quot;string-length&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;13&quot;)</result-string>
     <result>
       <assert-eq>13</assert-eq>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluation of string-length function as part of a boolean expression </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:string-length(&quot;abc&quot;) and fn:string-length(&quot;abc&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -206,7 +206,7 @@
     <description>Evaluation of string-length function with non-BMP characters.</description>
     <created by="Michael Kay" on="2011-06-25"/>
     <test>string-length(&quot;&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -232,7 +232,7 @@
     <environment ref="qname"/>
     <dependency type="feature" value="schemaValidation"/>
     <test>/*/string-length()</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;38&quot;)</result-string>
     <result>
       <assert-eq>38</assert-eq>
     </result>
@@ -255,7 +255,7 @@
     <created by="Michael Kay" on="2011-06-25"/>
     <environment ref="qname"/>
     <test>(1 to 100)[string-length() = 3]</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;100&quot;)</result-string>
     <result>
       <assert-eq>100</assert-eq>
     </result>
@@ -283,7 +283,7 @@
     <description>A test whose essence is: `string-length(&quot;ebv&quot;) eq 3`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string-length(&quot;ebv&quot;) eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -292,7 +292,7 @@
     <description>A test whose essence is: `string-length(&quot;ebv&quot;) instance of xs:integer`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string-length(&quot;ebv&quot;) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -301,7 +301,7 @@
     <description>A test whose essence is: `string-length(()) eq 0`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string-length(()) eq 0</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -310,7 +310,7 @@
     <description>A test whose essence is: `string-length(&quot;&quot;) eq 0`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string-length(&quot;&quot;) eq 0</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -319,7 +319,7 @@
     <description>A test whose essence is: `string-length(()) instance of xs:integer`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string-length(()) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -340,7 +340,7 @@
     <description>A test whose essence is: `string-length(&quot;Harp not on that string, madam; that is past.&quot;) eq 45`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string-length(&quot;Harp not on that string, madam; that is past.&quot;) eq 45</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

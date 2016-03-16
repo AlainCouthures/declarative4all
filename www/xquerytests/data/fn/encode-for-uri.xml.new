@@ -6,7 +6,7 @@
     <description>Test encode-for-uri from example defined in functions and operators specification </description>
     <created by="Joanne Tong" on="2005-09-29"/>
     <test>fn:encode-for-uri (&quot;http://www.example.com/00/Weather/CA/Los%20Angeles#ocean&quot;)</test>
-    <result-string>xs:string('http%3A%2F%2Fwww.example.com%2F00%2FWeather%2FCA%2FLos%2520Angeles%23ocean')</result-string>
+    <result-string>xs:string(&quot;http%3A%2F%2Fwww.example.com%2F00%2FWeather%2FCA%2FLos%2520Angeles%23ocean&quot;)</result-string>
     <result>
       <assert-string-value>http%3A%2F%2Fwww.example.com%2F00%2FWeather%2FCA%2FLos%2520Angeles%23ocean</assert-string-value>
     </result>
@@ -15,7 +15,7 @@
     <description>Test encode-for-uri from example defined in functions and operators specification </description>
     <created by="Joanne Tong" on="2005-09-29"/>
     <test>encode-for-uri(&quot;~bb&quot;)</test>
-    <result-string>xs:string('~b%C3%A9b%C3%A9')</result-string>
+    <result-string>xs:string(&quot;~b%C3%A9b%C3%A9&quot;)</result-string>
     <result>
       <assert-string-value>~b%C3%A9b%C3%A9</assert-string-value>
     </result>
@@ -24,7 +24,7 @@
     <description>Test encode-for-uri from example defined in functions and operators specification </description>
     <created by="Joanne Tong" on="2005-09-29"/>
     <test>encode-for-uri(&quot;100% organic&quot;)</test>
-    <result-string>xs:string('100%25%20organic')</result-string>
+    <result-string>xs:string(&quot;100%25%20organic&quot;)</result-string>
     <result>
       <assert-string-value>100%25%20organic</assert-string-value>
     </result>
@@ -33,7 +33,7 @@
     <description>Test encode-for-uri with zero-length string argument </description>
     <created by="Joanne Tong" on="2005-09-29"/>
     <test>encode-for-uri('')</test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -42,7 +42,7 @@
     <description>Test encode-for-uri with empty sequence argument </description>
     <created by="Joanne Tong" on="2005-09-29"/>
     <test>encode-for-uri(())</test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluation of fn-encode-for-uri function with argument thast ha nothing to encode. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>(fn:encode-for-uri(&quot;example&quot;))</test>
-    <result-string>xs:string('example')</result-string>
+    <result-string>xs:string(&quot;example&quot;)</result-string>
     <result>
       <assert-string-value>example</assert-string-value>
     </result>
@@ -78,7 +78,7 @@
     <description> Examines that fn-encode-for-uri function does escape the &quot;#&quot; symbol. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>(fn:encode-for-uri(&quot;examples#example&quot;))</test>
-    <result-string>xs:string('examples%23example')</result-string>
+    <result-string>xs:string(&quot;examples%23example&quot;)</result-string>
     <result>
       <assert-string-value>examples%23example</assert-string-value>
     </result>
@@ -87,7 +87,7 @@
     <description> Examines that fn-encode-for-uri function does not escape the &quot;-&quot; symbol. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>(fn:encode-for-uri(&quot;examples-example&quot;))</test>
-    <result-string>xs:string('examples-example')</result-string>
+    <result-string>xs:string(&quot;examples-example&quot;)</result-string>
     <result>
       <assert-string-value>examples-example</assert-string-value>
     </result>
@@ -96,7 +96,7 @@
     <description> Examines that fn-encode-for-uri function does not escape the &quot;_&quot; symbol. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>(fn:encode-for-uri(&quot;examples_example&quot;))</test>
-    <result-string>xs:string('examples_example')</result-string>
+    <result-string>xs:string(&quot;examples_example&quot;)</result-string>
     <result>
       <assert-string-value>examples_example</assert-string-value>
     </result>
@@ -105,7 +105,7 @@
     <description> Examines that fn-encode-for-uri function does not escape the &quot;.&quot; symbol. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>(fn:encode-for-uri(&quot;examples.example&quot;))</test>
-    <result-string>xs:string('examples.example')</result-string>
+    <result-string>xs:string(&quot;examples.example&quot;)</result-string>
     <result>
       <assert-string-value>examples.example</assert-string-value>
     </result>
@@ -114,7 +114,7 @@
     <description> Examines that fn-encode-for-uri function does escapes the &quot;!&quot; symbol. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>(fn:encode-for-uri(&quot;examples!example&quot;))</test>
-    <result-string>xs:string('examples%21example')</result-string>
+    <result-string>xs:string(&quot;examples%21example&quot;)</result-string>
     <result>
       <assert-string-value>examples%21example</assert-string-value>
     </result>
@@ -123,7 +123,7 @@
     <description> Examines that fn-encode-for-uri function does not escape the &quot;~&quot; symbol. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>(fn:encode-for-uri(&quot;examples~example&quot;))</test>
-    <result-string>xs:string('examples~example')</result-string>
+    <result-string>xs:string(&quot;examples~example&quot;)</result-string>
     <result>
       <assert-string-value>examples~example</assert-string-value>
     </result>
@@ -132,7 +132,7 @@
     <description> Examines that fn-encode-for-uri function does escape the &quot;*&quot; symbol. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>(fn:encode-for-uri(&quot;examples*example&quot;))</test>
-    <result-string>xs:string('examples%2Aexample')</result-string>
+    <result-string>xs:string(&quot;examples%2Aexample&quot;)</result-string>
     <result>
       <assert-string-value>examples%2Aexample</assert-string-value>
     </result>
@@ -141,7 +141,7 @@
     <description> Examines that fn-encode-for-uri function does escape the &quot;'&quot; symbol. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>(fn:encode-for-uri(&quot;examples'example&quot;))</test>
-    <result-string>xs:string('examples%27example')</result-string>
+    <result-string>xs:string(&quot;examples%27example&quot;)</result-string>
     <result>
       <assert-string-value>examples%27example</assert-string-value>
     </result>
@@ -150,7 +150,7 @@
     <description> Examines that fn-encode-for-uri function does escape the &quot;(&quot; symbol. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>(fn:encode-for-uri(&quot;examples(example&quot;))</test>
-    <result-string>xs:string('examples%28example')</result-string>
+    <result-string>xs:string(&quot;examples%28example&quot;)</result-string>
     <result>
       <assert-string-value>examples%28example</assert-string-value>
     </result>
@@ -159,7 +159,7 @@
     <description> Examines that fn-encode-for-uri function does escape the &quot;)&quot; symbol. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>(fn:encode-for-uri(&quot;examples)example&quot;))</test>
-    <result-string>xs:string('examples%29example')</result-string>
+    <result-string>xs:string(&quot;examples%29example&quot;)</result-string>
     <result>
       <assert-string-value>examples%29example</assert-string-value>
     </result>
@@ -168,7 +168,7 @@
     <description> Examines that fn-encode-for-uri function does not escape numbers. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>(fn:encode-for-uri(&quot;examples0123456789example&quot;))</test>
-    <result-string>xs:string('examples0123456789example')</result-string>
+    <result-string>xs:string(&quot;examples0123456789example&quot;)</result-string>
     <result>
       <assert-string-value>examples0123456789example</assert-string-value>
     </result>
@@ -177,7 +177,7 @@
     <description> Examines that fn-encode-for-uri function escapes the space. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>(fn:encode-for-uri(&quot;examples example&quot;))</test>
-    <result-string>xs:string('examples%20example')</result-string>
+    <result-string>xs:string(&quot;examples%20example&quot;)</result-string>
     <result>
       <assert-string-value>examples%20example</assert-string-value>
     </result>
@@ -186,7 +186,7 @@
     <description> Examines that fn-encode-for-uri function escapes the &quot;/&quot; character. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>(fn:encode-for-uri(&quot;examples/example&quot;))</test>
-    <result-string>xs:string('examples%2Fexample')</result-string>
+    <result-string>xs:string(&quot;examples%2Fexample&quot;)</result-string>
     <result>
       <assert-string-value>examples%2Fexample</assert-string-value>
     </result>
@@ -195,7 +195,7 @@
     <description> Examines that fn-encode-for-uri function escapes the &quot;:&quot; character. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>(fn:encode-for-uri(&quot;http:examples&quot;))</test>
-    <result-string>xs:string('http%3Aexamples')</result-string>
+    <result-string>xs:string(&quot;http%3Aexamples&quot;)</result-string>
     <result>
       <assert-string-value>http%3Aexamples</assert-string-value>
     </result>
@@ -204,7 +204,7 @@
     <description> Examines that fn-encode-for-uri function escapes the &quot;%&quot; character. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>(fn:encode-for-uri(&quot;http%20examples&quot;))</test>
-    <result-string>xs:string('http%2520examples')</result-string>
+    <result-string>xs:string(&quot;http%2520examples&quot;)</result-string>
     <result>
       <assert-string-value>http%2520examples</assert-string-value>
     </result>
@@ -231,7 +231,7 @@
     <description> A test whose essence is: `encode-for-uri(()) eq &quot;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>encode-for-uri(()) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -240,7 +240,7 @@
     <description> Combine fn:concat and fn:encode-for-uri. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat(&quot;http://www.example.com/&quot;, encode-for-uri(&quot;~bb&quot;)) eq &quot;http://www.example.com/~b%C3%A9b%C3%A9&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -249,7 +249,7 @@
     <description> Combine fn:concat and fn:encode-for-uri. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat(&quot;http://www.example.com/&quot;, encode-for-uri(&quot;100% organic&quot;)) eq &quot;http://www.example.com/100%25%20organic&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -258,7 +258,7 @@
     <description> Invoke fn:normalize-space() on the return value of fn:encode-for-uri(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-space(encode-for-uri((&quot;some string&quot;, current-time())[1] treat as xs:string))</test>
-    <result-string>xs:string('some%20string')</result-string>
+    <result-string>xs:string(&quot;some%20string&quot;)</result-string>
     <result>
       <assert-string-value>some%20string</assert-string-value>
     </result>

@@ -259,7 +259,7 @@
     <description> merge adjacent atomic values to text node </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <test>count((element elem {1, 'string', 1,2e3})/text())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -269,7 +269,7 @@
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="DupNode"/>
     <test>count((element elem {1, //text(), 'string'})/text())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -281,7 +281,7 @@
     <test>
       <![CDATA[count((element elem {1, 2, <a/>, 3, 4, <b/>, 5, 6})/text())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -361,7 +361,7 @@
     <test>
       <![CDATA[for $x in <a/>, $y in element elem {$x} return exactly-one($y/a) is $x]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -373,7 +373,7 @@
     <test>
       <![CDATA[for $x in <a b="b"/>, $y in element elem {$x/@b} return $y/@b is $x/@b]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -385,7 +385,7 @@
     <test>
       <![CDATA[for $x in <!--comment-->, $y in element elem {$x} return exactly-one($y/comment()) is $x]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -397,7 +397,7 @@
     <test>
       <![CDATA[for $x in <?pi content?>, $y in element elem {$x} return exactly-one($y/processing-instruction()) is $x]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -409,7 +409,7 @@
     <test>
       <![CDATA[for $x in <a>text</a>, $y in element elem {$x/text()} return exactly-one($y/text()) is exactly-one($x/text())]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -465,7 +465,7 @@
     <description> base-uri through xml:base attribute </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <test>fn:base-uri(element elem {attribute xml:base {&quot;http://www.example.com&quot;}})</test>
-    <result-string>xs:string('http://www.example.com')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com</assert-string-value>
     </result>
@@ -477,7 +477,7 @@
     <test>
       <![CDATA[fn:base-uri(exactly-one((<elem xml:base="http://www.example.com">{element a {}}</elem>)/a))]]>
     </test>
-    <result-string>xs:string('http://www.example.com')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com</assert-string-value>
     </result>
@@ -486,7 +486,7 @@
     <description> base-uri through declaration </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <test>declare base-uri &quot;http://www.example.com&quot;; fn:base-uri(element elem {})</test>
-    <result-string>xs:string('http://www.example.com')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com</assert-string-value>
     </result>
@@ -507,7 +507,7 @@
     <description> empty parent </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <test>count((element elem {})/..)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -516,7 +516,7 @@
     <description> string value of element </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <test>fn:string(element elem {'a', element a {}, 'b'})</test>
-    <result-string>xs:string('ab')</result-string>
+    <result-string>xs:string(&quot;ab&quot;)</result-string>
     <result>
       <assert-string-value>ab</assert-string-value>
     </result>
@@ -525,7 +525,7 @@
     <description> typed value of element </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <test>fn:data(element elem {'a', element a {}, 'b'})</test>
-    <result-string>xs:string('ab')</result-string>
+    <result-string>xs:string(&quot;ab&quot;)</result-string>
     <result>
       <assert-string-value>ab</assert-string-value>
     </result>
@@ -631,7 +631,7 @@
     <description> Test the type of the typed value of a computationally constructed element node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>data(element foo {&quot;dsa&quot;}) instance of xs:untypedAtomic</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -640,7 +640,7 @@
     <description> Test the data of the typed value of a computationally constructed element node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>data(element foo {&quot;dsa&quot;})</test>
-    <result-string>xs:string('dsa')</result-string>
+    <result-string>xs:string(&quot;dsa&quot;)</result-string>
     <result>
       <assert-string-value>dsa</assert-string-value>
     </result>
@@ -649,7 +649,7 @@
     <description> Check that a directly constructed element gets the right type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>element e {&quot;content&quot;} instance of element(*, xs:anyType)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -672,7 +672,7 @@
     <description> Check that a directly constructed element gets the right type(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare construction strip; element e {&quot;content&quot;} instance of element(*, xs:untyped)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -681,7 +681,7 @@
     <description> Check that a directly constructed element gets the right type, and that the name test fails. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>element e {&quot;content&quot;} instance of element(a, xs:anyType)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -690,7 +690,7 @@
     <description> Check that a directly constructed element gets the right type, and that the name test fails(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare construction strip; element e {&quot;content&quot;} instance of element(b, xs:untyped)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

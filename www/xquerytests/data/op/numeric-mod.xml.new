@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;op:numeric-mod&quot; operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;-2147483648&quot;) mod xs:int(&quot;2147483647&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;op:numeric-mod&quot; operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;-999999999999999999&quot;) mod xs:integer(&quot;830993497117024304&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-169006502882975695&quot;)</result-string>
     <result>
       <assert-eq>-169006502882975695</assert-eq>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;op:numeric-mod&quot; operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;-999999999999999999&quot;) mod xs:integer(&quot;999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluates The &quot;op:numeric-mod&quot; operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;-999999999999999999&quot;) mod xs:decimal(&quot;617375191608514839&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-382624808391485160&quot;)</result-string>
     <result>
       <assert-eq>-382624808391485160</assert-eq>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluates The &quot;op:numeric-mod&quot; operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;-999999999999999999&quot;) mod xs:decimal(&quot;999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluates The &quot;op:numeric-mod&quot; operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;-1.7976931348623157E308&quot;) mod xs:double(&quot;1.7976931348623157E308&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-0&quot;)</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluates The &quot;op:numeric-mod&quot; operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;-3.4028235E38&quot;) mod xs:float(&quot;3.4028235E38&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-0&quot;)</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluates The &quot;op:numeric-mod&quot; operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;-92233720368547758&quot;) mod xs:long(&quot;92233720368547758&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluates The &quot;op:numeric-mod&quot; operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;0&quot;) mod xs:unsignedShort(&quot;44633&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluates The &quot;op:numeric-mod&quot; operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;0&quot;) mod xs:unsignedShort(&quot;65535&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluates The &quot;op:numeric-mod&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;1&quot;) mod xs:positiveInteger(&quot;1&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluates The &quot;op:numeric-mod&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(mid range) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;52704602390610033&quot;) mod xs:positiveInteger(&quot;1&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluates The &quot;op:numeric-mod&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(upper bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;999999999999999999&quot;) mod xs:positiveInteger(&quot;1&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluates The &quot;op:numeric-mod&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;1&quot;) mod xs:positiveInteger(&quot;52704602390610033&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluates The &quot;op:numeric-mod&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;1&quot;) mod xs:positiveInteger(&quot;999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluates The &quot;op:numeric-mod&quot; operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;0&quot;) mod xs:unsignedLong(&quot;130747108607674654&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluates The &quot;op:numeric-mod&quot; operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;0&quot;) mod xs:unsignedLong(&quot;184467440737095516&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluates The &quot;op:numeric-mod&quot; operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;0&quot;) mod xs:nonNegativeInteger(&quot;303884545991464527&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluates The &quot;op:numeric-mod&quot; operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;0&quot;) mod xs:nonNegativeInteger(&quot;999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluates The &quot;op:numeric-mod&quot; operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;-32768&quot;) mod xs:short(&quot;32767&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -207,7 +207,7 @@
     <description> Simple mod test, second operator cast string to integer </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <test>1 mod xs:integer('1')</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -219,7 +219,7 @@
     <test>
       <![CDATA[1 mod <a> 2 </a>]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -231,7 +231,7 @@
     <test>
       <![CDATA[1 mod <a> <b> 2 </b> </a>]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -255,7 +255,7 @@
     <test>
       <![CDATA[<a> 1 </a> mod <b> 2 </b>]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -288,7 +288,7 @@
     <description> A test whose essence is: `(xs:decimal(6) mod xs:integer(2)) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) mod xs:integer(2)) instance of xs:decimal</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -297,7 +297,7 @@
     <description> A test whose essence is: `(xs:integer(6) mod xs:decimal(2)) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) mod xs:decimal(2)) instance of xs:decimal</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -306,7 +306,7 @@
     <description> A test whose essence is: `(xs:integer(6) mod xs:integer(2)) instance of xs:integer`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) mod xs:integer(2)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -315,7 +315,7 @@
     <description> A test whose essence is: `(xs:decimal(6) mod xs:decimal(2)) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) mod xs:decimal(2)) instance of xs:decimal</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -324,7 +324,7 @@
     <description> A test whose essence is: `(xs:decimal(6) mod xs:float(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) mod xs:float(2)) instance of xs:float</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -333,7 +333,7 @@
     <description> A test whose essence is: `(xs:float(6) mod xs:decimal(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) mod xs:decimal(2)) instance of xs:float</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -342,7 +342,7 @@
     <description> A test whose essence is: `(xs:float(6) mod xs:integer(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) mod xs:integer(2)) instance of xs:float</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -351,7 +351,7 @@
     <description> A test whose essence is: `(xs:integer(6) mod xs:float(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) mod xs:float(2)) instance of xs:float</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -360,7 +360,7 @@
     <description> A test whose essence is: `(xs:float(6) mod xs:float(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) mod xs:float(2)) instance of xs:float</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -369,7 +369,7 @@
     <description> A test whose essence is: `(xs:decimal(6) mod xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) mod xs:double(2)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -378,7 +378,7 @@
     <description> A test whose essence is: `(xs:double(6) mod xs:decimal(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) mod xs:decimal(2)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -387,7 +387,7 @@
     <description> A test whose essence is: `(xs:double(6) mod xs:float(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) mod xs:float(2)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -396,7 +396,7 @@
     <description> A test whose essence is: `(xs:float(6) mod xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) mod xs:double(2)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -405,7 +405,7 @@
     <description> A test whose essence is: `(xs:double(6) mod xs:integer(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) mod xs:integer(2)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -414,7 +414,7 @@
     <description> A test whose essence is: `(xs:integer(6) mod xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) mod xs:double(2)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -423,7 +423,7 @@
     <description> A test whose essence is: `(xs:double(6) mod xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) mod xs:double(2)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -432,7 +432,7 @@
     <description> A test whose essence is: `10 mod 3 eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>10 mod 3 eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -441,7 +441,7 @@
     <description> A test whose essence is: `6 mod -2 eq 0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>6 mod -2 eq 0</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -450,7 +450,7 @@
     <description> A test whose essence is: `4.5 mod 1.2 eq 0.9`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>4.5 mod 1.2 eq 0.9</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -459,7 +459,7 @@
     <description> A test whose essence is: `1.23E2 mod 0.6E1 eq 3.0E0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1.23E2 mod 0.6E1 eq 3.0E0</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -513,7 +513,7 @@
     <description> A test whose essence is: `(xs:untypedAtomic(&quot;5&quot;) mod xs:double(3)) eq 2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:untypedAtomic(&quot;5&quot;) mod xs:double(3)) eq 2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -522,7 +522,7 @@
     <description> A test whose essence is: `(xs:decimal(5) mod xs:untypedAtomic(&quot;3&quot;)) eq 2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(5) mod xs:untypedAtomic(&quot;3&quot;)) eq 2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -555,7 +555,7 @@
     <description> Divisor is small negative xs:integer. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>-1 mod -1</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -564,7 +564,7 @@
     <description> Divisor is small negative xs:decimal. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>-1.0 mod -1.0</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -573,7 +573,7 @@
     <description> Divisor is small negative xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>-1.0e0 mod -1.0e0</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-0&quot;)</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
@@ -582,7 +582,7 @@
     <description> Divisor is small negative xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>-1.0e0 mod xs:float(-1.0e0)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-0&quot;)</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
@@ -603,7 +603,7 @@
     <description> Divisor is large negative xs:decimal. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>-1.0 mod -9223372036854775808.0</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -636,7 +636,7 @@
     <description> Left op is xs:float/NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;NaN&quot;) mod 3</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -645,7 +645,7 @@
     <description> Right op is xs:float/NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 mod xs:float(&quot;NaN&quot;)</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -654,7 +654,7 @@
     <description> Both ops are xs:float/NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;NaN&quot;) mod xs:float(&quot;NaN&quot;)</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -663,7 +663,7 @@
     <description> Left op is xs:double/NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;NaN&quot;) mod 3</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -672,7 +672,7 @@
     <description> Right op is xs:double/NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 mod xs:double(&quot;NaN&quot;)</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -681,7 +681,7 @@
     <description> Both ops are xs:double/NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;NaN&quot;) mod xs:double(&quot;NaN&quot;)</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -690,7 +690,7 @@
     <description> Left op is xs:double/positive INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;INF&quot;) mod 3</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -699,7 +699,7 @@
     <description> Right op is xs:double/positive INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 mod xs:double(&quot;INF&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -708,7 +708,7 @@
     <description> Both ops are xs:double/positive INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;INF&quot;) mod xs:double(&quot;INF&quot;)</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -717,7 +717,7 @@
     <description> Left op is xs:double/-INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;-INF&quot;) mod 3</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -726,7 +726,7 @@
     <description> Right op is xs:double/-INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 mod xs:double(&quot;-INF&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -735,7 +735,7 @@
     <description> Both ops are xs:double/-INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;-INF&quot;) mod xs:double(&quot;-INF&quot;)</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -744,7 +744,7 @@
     <description> Left op is xs:double/positive 0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;0&quot;) mod 3</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -753,7 +753,7 @@
     <description> Right op is xs:double/positive 0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 mod xs:double(&quot;0&quot;)</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -762,7 +762,7 @@
     <description> Both ops are xs:double/positive 0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;0&quot;) mod xs:double(&quot;INF&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -771,7 +771,7 @@
     <description> Left op is xs:double/-0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;-0&quot;) mod 3</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-0&quot;)</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
@@ -780,7 +780,7 @@
     <description> Right op is xs:double/-0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 mod xs:double(&quot;-0&quot;)</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -789,7 +789,7 @@
     <description> Both ops are xs:double/-0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;-0&quot;) mod xs:double(&quot;-0&quot;)</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -798,7 +798,7 @@
     <description> Left op is xs:float/positive INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;INF&quot;) mod 3</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -807,7 +807,7 @@
     <description> Right op is xs:float/positive INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 mod xs:float(&quot;INF&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -816,7 +816,7 @@
     <description> Both ops are xs:float/positive INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;INF&quot;) mod xs:float(&quot;INF&quot;)</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -825,7 +825,7 @@
     <description> Left op is xs:float/-INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;-INF&quot;) mod 3</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -834,7 +834,7 @@
     <description> Right op is xs:float/-INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 mod xs:float(&quot;-INF&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -843,7 +843,7 @@
     <description> Both ops are xs:float/-INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;-INF&quot;) mod xs:float(&quot;-INF&quot;)</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -852,7 +852,7 @@
     <description> Left op is xs:float/positive 0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;0&quot;) mod 3</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -861,7 +861,7 @@
     <description> Right op is xs:float/positive 0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 mod xs:float(&quot;0&quot;)</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -870,7 +870,7 @@
     <description> Both ops are xs:float/positive 0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;0&quot;) mod xs:float(&quot;INF&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -879,7 +879,7 @@
     <description> Left op is xs:float/-0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;-0&quot;) mod 3</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-0&quot;)</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
@@ -888,7 +888,7 @@
     <description> Right op is xs:float/-0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 mod xs:float(&quot;-0&quot;)</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -897,7 +897,7 @@
     <description> Both ops are xs:float/-0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;-0&quot;) mod xs:float(&quot;-0&quot;)</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -906,7 +906,7 @@
     <description> Left op is xs:float/-0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;-0&quot;) mod xs:float(&quot;4&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-0&quot;)</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
@@ -915,7 +915,7 @@
     <description> Left op is xs:float/0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;0&quot;) mod xs:float(&quot;4&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -924,7 +924,7 @@
     <description> Left op is xs:double/-0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;-0&quot;) mod xs:double(&quot;4&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-0&quot;)</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
@@ -933,7 +933,7 @@
     <description> Left op is xs:double/0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;0&quot;) mod xs:double(&quot;4&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -942,7 +942,7 @@
     <description> Left op is xs:float/-0 with INF as divisor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;-0&quot;) mod xs:float(&quot;INF&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-0&quot;)</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
@@ -951,7 +951,7 @@
     <description> Left op is xs:float/0 with INF as divisor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;0&quot;) mod xs:float(&quot;INF&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -960,7 +960,7 @@
     <description> Left op is xs:double/-0 with INF as divisor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;-0&quot;) mod xs:double(&quot;INF&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-0&quot;)</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
@@ -969,7 +969,7 @@
     <description> Left op is xs:double/0 with INF as divisor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;0&quot;) mod xs:double(&quot;INF&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -978,7 +978,7 @@
     <description> Left op is xs:float/-0 with -INF as divisor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;-0&quot;) mod xs:float(&quot;-INF&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-0&quot;)</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
@@ -987,7 +987,7 @@
     <description> Left op is xs:float/0 with -INF as divisor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;0&quot;) mod xs:float(&quot;-INF&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -996,7 +996,7 @@
     <description> Left op is xs:double/-0 with -INF as divisor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;-0&quot;) mod xs:double(&quot;-INF&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-0&quot;)</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
@@ -1005,7 +1005,7 @@
     <description> Left op is xs:double/0 with -INF as divisor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;0&quot;) mod xs:double(&quot;-INF&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1014,7 +1014,7 @@
     <description> Trival mod with xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;10000000&quot;) mod xs:double(&quot;10000000&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1023,7 +1023,7 @@
     <description> Trival mod with xs:double(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;-10000000&quot;) mod xs:double(&quot;-10000000&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-0&quot;)</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
@@ -1032,7 +1032,7 @@
     <description> Trival mod with xs:double(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;10000000&quot;) mod xs:double(&quot;-10000000&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1041,7 +1041,7 @@
     <description> Trival mod with xs:double(#4). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(&quot;-10000000&quot;) mod xs:double(&quot;10000000&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-0&quot;)</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
@@ -1050,7 +1050,7 @@
     <description> Trival mod with xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;10000000&quot;) mod xs:float(&quot;10000000&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1059,7 +1059,7 @@
     <description> Trival mod with xs:float(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;-10000000&quot;) mod xs:float(&quot;-10000000&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-0&quot;)</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
@@ -1068,7 +1068,7 @@
     <description> Trival mod with xs:float(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;10000000&quot;) mod xs:float(&quot;-10000000&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1077,7 +1077,7 @@
     <description> Trival mod with xs:float(#4). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(&quot;-10000000&quot;) mod xs:float(&quot;10000000&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-0&quot;)</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
@@ -1116,7 +1116,7 @@
     <test>
       <![CDATA[empty(<e/>/(mod mod mod))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1126,7 +1126,7 @@
     <created by="Oliver Hallam" on="2010-03-16"/>
     <dependency type="spec" value="XQ10+"/>
     <test>for $x in (1, xs:decimal(2), xs:float(3), xs:double(4), xs:untypedAtomic(5)) for $y in (1, xs:decimal(2), xs:float(3), xs:double(4), xs:untypedAtomic(5)) return typeswitch ($x mod $y) case xs:integer return &quot;integer&quot; case xs:decimal return &quot;decimal&quot; case xs:float return &quot;float&quot; case xs:double return &quot;double&quot; default return error()</test>
-    <result-string>xs:string('integer decimal float double double decimal decimal float double double float float float double double double double double double double double double double double double')</result-string>
+    <result-string>xs:string(&quot;integer decimal float double double decimal decimal float double double float float float double double double double double double double double double double double double&quot;)</result-string>
     <result>
       <assert-string-value>integer decimal float double double decimal decimal float double double float float float double double double double double double double double double double double double</assert-string-value>
     </result>
@@ -1138,7 +1138,7 @@
     <test>
       	declare function local:integer($x as xs:decimal) { if ($x mod 1 eq 0) then xs:integer($x) else $x }; 
       	(local:integer(3) mod local:integer(2)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1150,7 +1150,7 @@
     <test>
       	declare function local:integer($x as xs:decimal) { if ($x mod 1 eq 0) then xs:integer($x) else $x }; 
       	(local:integer(3.5) mod local:integer(2)) instance of xs:integer</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

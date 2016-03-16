@@ -6,7 +6,7 @@
     <created by="Norman Walsh" on="2011-07-28"/>
     <dependency type="xsd-version" value="1.1"/>
     <test>fn:string(xs:float(&quot;-0&quot;))</test>
-    <result-string/>
+    <result-string>xs:string(&quot;fn:string(&quot;-0&quot;)&quot;)</result-string>
     <result>
       <assert-eq>fn:string(&quot;-0&quot;)</assert-eq>
     </result>
@@ -16,7 +16,7 @@
     <created by="Michael Kay" on="2011-07-28"/>
     <dependency type="xsd-version" value="1.1"/>
     <test>1 div xs:float(&quot;-0&quot;) ne 1 div xs:float(&quot;0&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -26,7 +26,7 @@
     <created by="Michael Kay" on="2011-07-28"/>
     <dependency type="xsd-version" value="1.1"/>
     <test>exists(xs:float(&quot;+INF&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -45,7 +45,7 @@
     <description/>
     <created by="Oliver Hallam" on="2008-04-14"/>
     <test>count(xs:float(()))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -54,7 +54,7 @@
     <description/>
     <created by="Oliver Hallam" on="2008-04-14"/>
     <test>xs:float(xs:double('-INF')),xs:float(xs:double('INF'))</test>
-    <result-string>xs:string('-INF INF')</result-string>
+    <result-string>xs:string(&quot;-INF INF&quot;)</result-string>
     <result>
       <assert-string-value>-INF INF</assert-string-value>
     </result>

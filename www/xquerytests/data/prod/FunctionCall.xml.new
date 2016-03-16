@@ -16,7 +16,7 @@
     <test>
       <![CDATA[concat(<a>X</a>, <a>Y</a>)]]>
     </test>
-    <result-string>xs:string('XY')</result-string>
+    <result-string>xs:string(&quot;XY&quot;)</result-string>
     <result>
       <assert-string-value>XY</assert-string-value>
     </result>
@@ -28,7 +28,7 @@
     <test>
       <![CDATA[xs:boolean(<a>0</a>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -58,7 +58,7 @@
          declare function local:f($in as xs:boolean) as xs:boolean { $in };
          local:f(<a>0</a>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -73,7 +73,7 @@
          declare function local:f($in as xs:anyAtomicType) as xs:boolean { $in instance of xs:decimal };
          local:f(validate type xs:integer {<a>12</a>})]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -89,7 +89,7 @@
          return $f(<a>0</a>)
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -106,7 +106,7 @@
          let $f := function-lookup(xs:QName('local:f'), 1)
          return $f(validate type xs:integer {<a>12</a>})]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -244,7 +244,7 @@
          let $f := function-lookup(xs:QName(<f>local:f</f>), 1)
          return $f(12)]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;13&quot;)</result-string>
     <result>
       <assert-eq>13</assert-eq>
     </result>
@@ -359,7 +359,7 @@
     <test>
       <![CDATA[string-join((<a>X</a>, <a>Y</a>, <a>Z</a>), '')]]>
     </test>
-    <result-string>xs:string('XYZ')</result-string>
+    <result-string>xs:string(&quot;XYZ&quot;)</result-string>
     <result>
       <assert-string-value>XYZ</assert-string-value>
     </result>
@@ -416,7 +416,7 @@
         declare namespace lu = 'http://www.w3.org/XQueryTest/ListUnionTypes' ;
         import schema &quot;http://www.w3.org/XQueryTest/ListUnionTypes&quot;;
       	function($in as lu:unionType) as xs:boolean {$in instance of xs:integer}(23)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -432,7 +432,7 @@
         declare namespace lu = 'http://www.w3.org/XQueryTest/ListUnionTypes' ;
         import schema &quot;http://www.w3.org/XQueryTest/ListUnionTypes&quot;;
       	function($in as lu:unionType) as xs:boolean {$in instance of xs:integer}(xs:float(12))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -464,7 +464,7 @@
         declare namespace lu = 'http://www.w3.org/XQueryTest/ListUnionTypes' ;
         import schema &quot;http://www.w3.org/XQueryTest/ListUnionTypes&quot;;
       	function($in as lu:unionType) as xs:boolean {$in instance of xs:integer}(xs:untypedAtomic('123'))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -632,7 +632,7 @@
       	return local-name-from-QName($f())
       ]]>
     </test>
-    <result-string>xs:string('a')</result-string>
+    <result-string>xs:string(&quot;a&quot;)</result-string>
     <result>
       <assert-string-value>a</assert-string-value>
     </result>
@@ -851,7 +851,7 @@
     <modified by="Michael Kay" change="correct the version dependency" on="2011-11-25"/>
     <dependency type="spec" value="XQ30 XP30"/>
     <test>format-number(3, &quot;0000&quot;)</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;0003&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;0003&quot;</assert-eq>
     </result>
@@ -875,7 +875,7 @@
     <modified by="Michael Kay" change="split into XQ10 and XQ30 tests" on="2011-11-17"/>
     <dependency type="spec" value="XQ30+ XP30+"/>
     <test>matches(format-time(current-time(), &quot;[H01]:[m01]&quot;), &quot;[0-2][0-9]:[0-5][0-9]&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -899,7 +899,7 @@
     <modified by="Michael Kay" change="split into XQ10 and XQ30 tests" on="2011-11-17"/>
     <dependency type="spec" value="XQ30+ XP30+"/>
     <test>matches(format-time(current-time(), &quot;[H01]:[m01]&quot;, (), (), ()), &quot;..:..&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -998,7 +998,7 @@
     <test>
       <![CDATA[generate-id(<a/>) castable as xs:NCName]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1038,7 +1038,7 @@
         declare function local:bar($c, $d, $e, $f, $g, $h, $i, $j, $a, $b) { 1 }; 
         declare function local:moo($k) { $k }; 
         local:moo(1)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1131,7 +1131,7 @@
         local:testSingleNodeIdentity(<a/>), local:testDoubleNodeIdentity(<a/>, <b/>), local:testDoubleNodeIdentity($a, $a)
       ]]>
     </test>
-    <result-string>xs:string('true false true')</result-string>
+    <result-string>xs:string(&quot;true false true&quot;)</result-string>
     <result>
       <assert-string-value>true false true</assert-string-value>
     </result>
@@ -1156,7 +1156,7 @@
         local:compare(&quot;bab&quot;, &quot;bbb&quot;), 
         local:compare(&quot;aba&quot;, &quot;bab&quot;)
      </test>
-    <result-string>xs:string('0 1 1 0 2 1 0 1 3')</result-string>
+    <result-string>xs:string(&quot;0 1 1 0 2 1 0 1 3&quot;)</result-string>
     <result>
       <assert-string-value>0 1 1 0 2 1 0 1 3</assert-string-value>
     </result>
@@ -1169,7 +1169,7 @@
         declare function local:func1() { if(local:func2('b')) then 3 else local:func1() }; 
         declare function local:func2($a) { if(matches(&quot;&quot;,$a)) then () else 4 }; 
         local:func1()</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -1179,7 +1179,7 @@
     <created by="Frans Englich" on="2008-11-13"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:foo($arg) { local:foo(local:foo(1)) }; 1</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1190,7 +1190,7 @@
     <test>
         string-join( (xs:anyURI('http://www.microsoft.com'), xs:anyURI('http://www.google.com/')), ' ')
       </test>
-    <result-string>xs:string('http://www.microsoft.com http://www.google.com/')</result-string>
+    <result-string>xs:string(&quot;http://www.microsoft.com http://www.google.com/&quot;)</result-string>
     <result>
       <assert-string-value>http://www.microsoft.com http://www.google.com/</assert-string-value>
     </result>
@@ -1203,7 +1203,7 @@
         declare function local:index-of($seq as xs:double*, $item as xs:double) { for $x at $p in $seq return if ($x eq $item) then $p else () };
         declare function local:sequence($x as xs:integer) { (&quot;string&quot;, 1, 2.0, xs:float(3))[$x] };
         local:index-of(for $x in (2,3,4) return local:sequence($x), 2)</test>
-    <result-string>xs:string('2')</result-string>
+    <result-string>xs:string(&quot;2&quot;)</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
@@ -1220,7 +1220,7 @@
             else for $x at $p in $seq return if ($x eq $item) then $p else () 
         };
         local:index-of(1 to 10, 3)</test>
-    <result-string>xs:string('3')</result-string>
+    <result-string>xs:string(&quot;3&quot;)</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>
@@ -1237,7 +1237,7 @@
         };
         local:f() + 1]]>
     </test>
-    <result-string>xs:string('4')</result-string>
+    <result-string>xs:string(&quot;4&quot;)</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1274,7 +1274,7 @@
         declare function local:f($v as xs:double*) as xs:double+ { if (empty($v)) then 0 else $v };
         declare function local:g($v as xs:double*) as xs:double+ { local:f($v) };
         local:g((1,2,3))</test>
-    <result-string>xs:string('1 2 3')</result-string>
+    <result-string>xs:string(&quot;1 2 3&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3</assert-string-value>
     </result>
@@ -1470,7 +1470,7 @@
 	declare function local:function() { fn:true() };
 	function()
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1484,7 +1484,7 @@
 	declare function namespace-node($arg) { fn:true() };
 	namespace-node(1)
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1498,7 +1498,7 @@
 	declare function local:switch() { fn:true() };
 	switch()
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

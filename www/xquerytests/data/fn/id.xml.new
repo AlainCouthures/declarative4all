@@ -78,7 +78,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:id(&quot;id1&quot;, /IDS[1])/string(@anId)</test>
-    <result-string>xs:string('id1')</result-string>
+    <result-string>xs:string(&quot;id1&quot;)</result-string>
     <result>
       <assert-string-value>id1</assert-string-value>
     </result>
@@ -88,7 +88,7 @@
     <created by="Carmelo Montanez" on="2006-06-23"/>
     <environment ref="id-idref-dtd"/>
     <test>fn:count(fn:id(&quot;nomatchingid&quot;, /IDS[1]))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -100,7 +100,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:id(&quot;id2 id2&quot;, /IDS[1])/name()</test>
-    <result-string>xs:string('elementwithid-2')</result-string>
+    <result-string>xs:string(&quot;elementwithid-2&quot;)</result-string>
     <result>
       <assert-string-value>elementwithid-2</assert-string-value>
     </result>
@@ -112,7 +112,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:id(&quot;id1 id2&quot;, /IDS[1])/name()</test>
-    <result-string>xs:string('elementwithid-1 elementwithid-2')</result-string>
+    <result-string>xs:string(&quot;elementwithid-1 elementwithid-2&quot;)</result-string>
     <result>
       <assert-string-value>elementwithid-1 elementwithid-2</assert-string-value>
     </result>
@@ -124,7 +124,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:id(&quot;id1 nomatching&quot;, /IDS[1])/name()</test>
-    <result-string>xs:string('elementwithid-1')</result-string>
+    <result-string>xs:string(&quot;elementwithid-1&quot;)</result-string>
     <result>
       <assert-string-value>elementwithid-1</assert-string-value>
     </result>
@@ -134,7 +134,7 @@
     <created by="Carmelo Montanez" on="2006-06-23"/>
     <environment ref="id-idref-dtd"/>
     <test>fn:count(fn:id(&quot;nomatching1 nomatching2&quot;, /IDS[1]))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -144,7 +144,7 @@
     <created by="Carmelo Montanez" on="2006-06-23"/>
     <environment ref="id-idref-dtd"/>
     <test>fn:id(&quot;&quot;, /IDS[1])</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -156,7 +156,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:id(fn:substring(&quot;1id3&quot;,2), /IDS[1])/name()</test>
-    <result-string>xs:string('elementwithid-3')</result-string>
+    <result-string>xs:string(&quot;elementwithid-3&quot;)</result-string>
     <result>
       <assert-string-value>elementwithid-3</assert-string-value>
     </result>
@@ -168,7 +168,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:id(&quot;id4&quot;, /IDS[1])/name()</test>
-    <result-string>xs:string('elementwithid-4')</result-string>
+    <result-string>xs:string(&quot;elementwithid-4&quot;)</result-string>
     <result>
       <assert-string-value>elementwithid-4</assert-string-value>
     </result>
@@ -178,7 +178,7 @@
     <created by="Carmelo Montanez" on="2006-06-23"/>
     <environment ref="id-idref-dtd"/>
     <test>fn:id(&quot;p1:id5&quot;, /IDS[1])</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -189,7 +189,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:id(&quot;id1 id1&quot;, /IDS[1])/name()</test>
-    <result-string>xs:string('elementwithid-1')</result-string>
+    <result-string>xs:string(&quot;elementwithid-1&quot;)</result-string>
     <result>
       <assert-string-value>elementwithid-1</assert-string-value>
     </result>
@@ -201,7 +201,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:id(&quot;id1 ID1&quot;, /IDS[1])/name()</test>
-    <result-string>xs:string('elementwithid-1')</result-string>
+    <result-string>xs:string(&quot;elementwithid-1&quot;)</result-string>
     <result>
       <assert-string-value>elementwithid-1</assert-string-value>
     </result>
@@ -212,7 +212,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:id(fn:lower-case(&quot;ID1&quot;), /IDS[1])/name()</test>
-    <result-string>xs:string('elementwithid-1')</result-string>
+    <result-string>xs:string(&quot;elementwithid-1&quot;)</result-string>
     <result>
       <assert-string-value>elementwithid-1</assert-string-value>
     </result>
@@ -224,7 +224,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:id(fn:upper-case(&quot;id5&quot;), /IDS[1])/name()</test>
-    <result-string>xs:string('elementwithid-6')</result-string>
+    <result-string>xs:string(&quot;elementwithid-6&quot;)</result-string>
     <result>
       <assert-string-value>elementwithid-6</assert-string-value>
     </result>
@@ -236,7 +236,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:id(fn:concat(&quot;i&quot;,&quot;d1&quot;), /IDS[1])/name()</test>
-    <result-string>xs:string('elementwithid-1')</result-string>
+    <result-string>xs:string(&quot;elementwithid-1&quot;)</result-string>
     <result>
       <assert-string-value>elementwithid-1</assert-string-value>
     </result>
@@ -248,7 +248,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:id(xs:string(&quot;id1&quot;), /IDS[1])/name()</test>
-    <result-string>xs:string('elementwithid-1')</result-string>
+    <result-string>xs:string(&quot;elementwithid-1&quot;)</result-string>
     <result>
       <assert-string-value>elementwithid-1</assert-string-value>
     </result>
@@ -260,7 +260,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:id(fn:string-join((&quot;id&quot;,&quot;1&quot;),&quot;&quot;), /IDS[1])/name()</test>
-    <result-string>xs:string('elementwithid-1')</result-string>
+    <result-string>xs:string(&quot;elementwithid-1&quot;)</result-string>
     <result>
       <assert-string-value>elementwithid-1</assert-string-value>
     </result>
@@ -283,7 +283,7 @@
     <dependency type="spec" value="XQ10+"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>declare ordering ordered; fn:id(&quot;id1 id2&quot;, /IDS[1])/name()</test>
-    <result-string>xs:string('elementwithid-1 elementwithid-2')</result-string>
+    <result-string>xs:string(&quot;elementwithid-1 elementwithid-2&quot;)</result-string>
     <result>
       <assert-string-value>elementwithid-1 elementwithid-2</assert-string-value>
     </result>
@@ -400,7 +400,7 @@
     <test>
       <![CDATA[let $i := document {<e> <e/> <e/> <e/> <e/> <e/> <e/> <e/> <b xml:id="foo"/> <e/> </e>} return id("foo", $i)/name()]]>
     </test>
-    <result-string>xs:string('b')</result-string>
+    <result-string>xs:string(&quot;b&quot;)</result-string>
     <result>
       <assert-string-value>b</assert-string-value>
     </result>
@@ -410,7 +410,7 @@
     <created by="Frans Englich" on="2008-01-15"/>
     <environment ref="UsingXMLId"/>
     <test>for $i in id((&quot;short&quot;, &quot;positiveInteger&quot;)) return $i/@name/string()</test>
-    <result-string>xs:string('positiveInteger short')</result-string>
+    <result-string>xs:string(&quot;positiveInteger short&quot;)</result-string>
     <result>
       <assert-string-value>positiveInteger short</assert-string-value>
     </result>
@@ -422,7 +422,7 @@
     <modified by="Michael Kay" change="remove dependency as per bug 21414" on="2013-05-21"/>
     <environment ref="UsingXMLId"/>
     <test>id((&quot;short&quot;), //xs:element/@name[. = &quot;positiveInteger&quot;])/@name</test>
-    <result-string>xs:string('short')</result-string>
+    <result-string>xs:string(&quot;short&quot;)</result-string>
     <result>
       <assert-string-value>short</assert-string-value>
     </result>
@@ -434,7 +434,7 @@
     <modified by="Michael Kay" change="remove dependency as per bug 21414" on="2013-05-21"/>
     <environment ref="UsingXMLId"/>
     <test>id((&quot;.&quot;, &quot;short&quot;, &quot;123&quot;), //xs:element/@name[. = &quot;positiveInteger&quot;])/@name</test>
-    <result-string>xs:string('short')</result-string>
+    <result-string>xs:string(&quot;short&quot;)</result-string>
     <result>
       <assert-string-value>short</assert-string-value>
     </result>
@@ -444,7 +444,7 @@
     <created by="Frans Englich" on="2008-11-13"/>
     <environment ref="XMLIdMany"/>
     <test>fn:id(//b/@ref)/data(exactly-one(@*))</test>
-    <result-string>xs:string('a b c d e f i')</result-string>
+    <result-string>xs:string(&quot;a b c d e f i&quot;)</result-string>
     <result>
       <assert-string-value>a b c d e f i</assert-string-value>
     </result>
@@ -454,7 +454,7 @@
     <created by="Michael Kay" on="2011-07-01"/>
     <environment ref="UsingXMLId"/>
     <test>for $i in id((&quot;short positiveInteger&quot;)) return $i/@name/string()</test>
-    <result-string>xs:string('positiveInteger short')</result-string>
+    <result-string>xs:string(&quot;positiveInteger short&quot;)</result-string>
     <result>
       <assert-string-value>positiveInteger short</assert-string-value>
     </result>
@@ -464,7 +464,7 @@
     <created by="Michael Kay" on="2011-07-01"/>
     <environment ref="XMLIdMany"/>
     <test>fn:id(string-join(reverse(//b/@ref), '	'))/data(exactly-one(@*))</test>
-    <result-string>xs:string('a b c d e f i')</result-string>
+    <result-string>xs:string(&quot;a b c d e f i&quot;)</result-string>
     <result>
       <assert-string-value>a b c d e f i</assert-string-value>
     </result>
@@ -479,7 +479,7 @@
       	let $doc := document { <root /> } return fn:empty( fn:id( local:generate(0), $doc) )
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -511,7 +511,7 @@
       	let $doc := document { <root /> } return fn:empty( $doc/fn:id( local:generate(0)) )
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

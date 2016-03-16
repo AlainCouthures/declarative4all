@@ -8,7 +8,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:exp(())</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -18,7 +18,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:exp(0)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;1.0e0&quot;)</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
@@ -39,7 +39,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:exp(2)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;7.38905609893065e0&quot;)</result-string>
     <result>
       <assert-eq>7.38905609893065e0</assert-eq>
     </result>
@@ -49,7 +49,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:exp(-1)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;0.36787944117144233e0&quot;)</result-string>
     <result>
       <assert-eq>0.36787944117144233e0</assert-eq>
     </result>
@@ -59,7 +59,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:exp(math:pi())</test>
-    <result-string/>
+    <result-string>xs:double(&quot;23.140692632779267e0&quot;)</result-string>
     <result>
       <assert-eq>23.140692632779267e0</assert-eq>
     </result>
@@ -69,7 +69,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:exp(xs:double('NaN'))</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -79,7 +79,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:exp(xs:double('INF'))</test>
-    <result-string/>
+    <result-string>xs:double('INF')</result-string>
     <result>
       <assert-eq>xs:double('INF')</assert-eq>
     </result>
@@ -89,7 +89,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:exp(xs:double('-INF'))</test>
-    <result-string/>
+    <result-string>xs:double(&quot;0.0e0&quot;)</result-string>
     <result>
       <assert-eq>0.0e0</assert-eq>
     </result>

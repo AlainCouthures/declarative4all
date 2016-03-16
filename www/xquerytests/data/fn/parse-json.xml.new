@@ -449,7 +449,7 @@
     <description>Anything allowed at Top level under ECMA spec</description>
     <created by="Michael Kay, Saxonica" on="2011-03-31"/>
     <test>parse-json('true', map{'spec':='ECMA-262'})</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -458,7 +458,7 @@
     <description>Anything allowed at Top level under ECMA spec</description>
     <created by="Michael Kay, Saxonica" on="2011-03-31"/>
     <test>parse-json('false', map{'spec':='ECMA-262'})</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -467,7 +467,7 @@
     <description>Anything allowed at Top level under ECMA spec</description>
     <created by="Michael Kay, Saxonica" on="2011-03-31"/>
     <test>parse-json('null', map{'spec':='ECMA-262'})</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>

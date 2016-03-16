@@ -8,7 +8,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow((), 93.7)</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -18,7 +18,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(2, 3)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;8.0e0&quot;)</result-string>
     <result>
       <assert-eq>8.0e0</assert-eq>
     </result>
@@ -28,7 +28,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-2, 3)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;-8.0e0&quot;)</result-string>
     <result>
       <assert-eq>-8.0e0</assert-eq>
     </result>
@@ -38,7 +38,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-2, -3)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;-0.125e0&quot;)</result-string>
     <result>
       <assert-eq>-0.125e0</assert-eq>
     </result>
@@ -48,7 +48,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(2, 0)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;1.0e0&quot;)</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
@@ -58,7 +58,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(0, 0)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;1.0e0&quot;)</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
@@ -68,7 +68,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(xs:double('INF'), 0)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;1.0e0&quot;)</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
@@ -78,7 +78,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(xs:double('NaN'), 0)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;1.0e0&quot;)</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
@@ -88,7 +88,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-math:pi(), 0)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;1.0e0&quot;)</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
@@ -98,7 +98,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(0e0, 3)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;0.0e0&quot;)</result-string>
     <result>
       <assert-eq>0.0e0</assert-eq>
     </result>
@@ -108,7 +108,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(0e0, 4)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;0.0e0&quot;)</result-string>
     <result>
       <assert-eq>0.0e0</assert-eq>
     </result>
@@ -118,7 +118,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-0e0, 3)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;-0.0e0&quot;)</result-string>
     <result>
       <assert-eq>-0.0e0</assert-eq>
     </result>
@@ -128,7 +128,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(0, 4)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;0.0e0&quot;)</result-string>
     <result>
       <assert-eq>0.0e0</assert-eq>
     </result>
@@ -138,7 +138,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(0e0, -3)</test>
-    <result-string/>
+    <result-string>xs:double('INF')</result-string>
     <result>
       <assert-eq>xs:double('INF')</assert-eq>
     </result>
@@ -148,7 +148,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(0e0, -4)</test>
-    <result-string/>
+    <result-string>xs:double('INF')</result-string>
     <result>
       <assert-eq>xs:double('INF')</assert-eq>
     </result>
@@ -158,7 +158,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-0e0, -3)</test>
-    <result-string/>
+    <result-string>xs:double('-INF')</result-string>
     <result>
       <assert-eq>xs:double('-INF')</assert-eq>
     </result>
@@ -168,7 +168,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(0, -4)</test>
-    <result-string/>
+    <result-string>xs:double('INF')</result-string>
     <result>
       <assert-eq>xs:double('INF')</assert-eq>
     </result>
@@ -178,7 +178,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(16, 0.5e0)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;4.0e0&quot;)</result-string>
     <result>
       <assert-eq>4.0e0</assert-eq>
     </result>
@@ -188,7 +188,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(16, 0.25e0)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;2.0e0&quot;)</result-string>
     <result>
       <assert-eq>2.0e0</assert-eq>
     </result>
@@ -198,7 +198,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(0e0, -3.0e0)</test>
-    <result-string/>
+    <result-string>xs:double('INF')</result-string>
     <result>
       <assert-eq>xs:double('INF')</assert-eq>
     </result>
@@ -208,7 +208,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-0e0, -3.0e0)</test>
-    <result-string/>
+    <result-string>xs:double('-INF')</result-string>
     <result>
       <assert-eq>xs:double('-INF')</assert-eq>
     </result>
@@ -218,7 +218,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(0e0, -3.1e0)</test>
-    <result-string/>
+    <result-string>xs:double('INF')</result-string>
     <result>
       <assert-eq>xs:double('INF')</assert-eq>
     </result>
@@ -228,7 +228,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-0e0, -3.1e0)</test>
-    <result-string/>
+    <result-string>xs:double('INF')</result-string>
     <result>
       <assert-eq>xs:double('INF')</assert-eq>
     </result>
@@ -238,7 +238,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(0e0, 3.0e0)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;0.0e0&quot;)</result-string>
     <result>
       <assert-eq>0.0e0</assert-eq>
     </result>
@@ -248,7 +248,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-0e0, 3.0e0)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;-0.0e0&quot;)</result-string>
     <result>
       <assert-eq>-0.0e0</assert-eq>
     </result>
@@ -258,7 +258,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(0e0, 3.1e0)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;0.0e0&quot;)</result-string>
     <result>
       <assert-eq>0.0e0</assert-eq>
     </result>
@@ -268,7 +268,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-0e0, 3.1e0)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;0.0e0&quot;)</result-string>
     <result>
       <assert-eq>0.0e0</assert-eq>
     </result>
@@ -278,7 +278,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-1, xs:double('INF'))</test>
-    <result-string/>
+    <result-string>xs:double(&quot;1.0e0&quot;)</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
@@ -288,7 +288,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-1, xs:double('-INF'))</test>
-    <result-string/>
+    <result-string>xs:double(&quot;1.0e0&quot;)</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
@@ -298,7 +298,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(1, xs:double('INF'))</test>
-    <result-string/>
+    <result-string>xs:double(&quot;1.0e0&quot;)</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
@@ -308,7 +308,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(1, xs:double('-INF'))</test>
-    <result-string/>
+    <result-string>xs:double(&quot;1.0e0&quot;)</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
@@ -318,7 +318,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(1, xs:double('NaN'))</test>
-    <result-string/>
+    <result-string>xs:double(&quot;1.0e0&quot;)</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
@@ -328,7 +328,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-2.5e0, 2.0e0)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;6.25e0&quot;)</result-string>
     <result>
       <assert-eq>6.25e0</assert-eq>
     </result>
@@ -338,7 +338,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-2.5e0, 2.00000001e0)</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>

@@ -1484,7 +1484,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>empty(abs(()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1494,7 +1494,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>abs(10.5) eq 10.5</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1504,7 +1504,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>abs(-10.5) eq 10.5</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1524,7 +1524,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:integer(-4))</test>
-    <result-string>xs:string('4')</result-string>
+    <result-string>xs:string(&quot;4&quot;)</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1534,7 +1534,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonPositiveInteger(-4))</test>
-    <result-string>xs:string('4')</result-string>
+    <result-string>xs:string(&quot;4&quot;)</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1544,7 +1544,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:negativeInteger(-4))</test>
-    <result-string>xs:string('4')</result-string>
+    <result-string>xs:string(&quot;4&quot;)</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1554,7 +1554,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:long(-4))</test>
-    <result-string>xs:string('4')</result-string>
+    <result-string>xs:string(&quot;4&quot;)</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1564,7 +1564,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:int(-4))</test>
-    <result-string>xs:string('4')</result-string>
+    <result-string>xs:string(&quot;4&quot;)</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1574,7 +1574,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:short(-4))</test>
-    <result-string>xs:string('4')</result-string>
+    <result-string>xs:string(&quot;4&quot;)</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1584,7 +1584,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:byte(-4))</test>
-    <result-string>xs:string('4')</result-string>
+    <result-string>xs:string(&quot;4&quot;)</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1594,7 +1594,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonNegativeInteger(4))</test>
-    <result-string>xs:string('4')</result-string>
+    <result-string>xs:string(&quot;4&quot;)</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1604,7 +1604,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedLong(4))</test>
-    <result-string>xs:string('4')</result-string>
+    <result-string>xs:string(&quot;4&quot;)</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1614,7 +1614,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedInt(4))</test>
-    <result-string>xs:string('4')</result-string>
+    <result-string>xs:string(&quot;4&quot;)</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1624,7 +1624,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedShort(4))</test>
-    <result-string>xs:string('4')</result-string>
+    <result-string>xs:string(&quot;4&quot;)</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1634,7 +1634,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedByte(4))</test>
-    <result-string>xs:string('4')</result-string>
+    <result-string>xs:string(&quot;4&quot;)</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1644,7 +1644,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:positiveInteger(4))</test>
-    <result-string>xs:string('4')</result-string>
+    <result-string>xs:string(&quot;4&quot;)</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1654,7 +1654,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:integer(-4)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1664,7 +1664,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonPositiveInteger(-4)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1674,7 +1674,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:negativeInteger(-4)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1684,7 +1684,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:long(-4)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1694,7 +1694,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:int(-4)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1704,7 +1704,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:short(-4)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1714,7 +1714,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:byte(-4)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1724,7 +1724,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonNegativeInteger(4)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1734,7 +1734,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedLong(4)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1744,7 +1744,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedInt(4)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1754,7 +1754,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedShort(4)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1764,7 +1764,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedByte(4)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1774,7 +1774,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:positiveInteger(4)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1784,7 +1784,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(1.1) instance of xs:integer</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1794,7 +1794,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(1e1) instance of xs:integer</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1804,7 +1804,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:float(1)) instance of xs:double</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1814,7 +1814,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:float(1)) instance of xs:double</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1824,7 +1824,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(1.1) instance of xs:decimal</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1834,7 +1834,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(1e1) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1844,7 +1844,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:float(1)) instance of xs:float</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1854,7 +1854,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:integer(1)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -2022,7 +2022,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:float(&quot;-INF&quot;))</test>
-    <result-string>xs:string('INF')</result-string>
+    <result-string>xs:string(&quot;INF&quot;)</result-string>
     <result>
       <assert-string-value>INF</assert-string-value>
     </result>
@@ -2032,7 +2032,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:double(&quot;-INF&quot;))</test>
-    <result-string>xs:string('INF')</result-string>
+    <result-string>xs:string(&quot;INF&quot;)</result-string>
     <result>
       <assert-string-value>INF</assert-string-value>
     </result>
@@ -2042,7 +2042,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:float(&quot;INF&quot;))</test>
-    <result-string>xs:string('INF')</result-string>
+    <result-string>xs:string(&quot;INF&quot;)</result-string>
     <result>
       <assert-string-value>INF</assert-string-value>
     </result>
@@ -2052,7 +2052,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:double(&quot;INF&quot;))</test>
-    <result-string>xs:string('INF')</result-string>
+    <result-string>xs:string(&quot;INF&quot;)</result-string>
     <result>
       <assert-string-value>INF</assert-string-value>
     </result>
@@ -2066,7 +2066,7 @@
            else if ((abs($x)) instance of xs:decimal) then &quot;decimal&quot; 
            else if ((abs($x)) instance of xs:float) then &quot;float&quot;
            else if ((abs($x)) instance of xs:double) then &quot;double&quot; else error(), &quot; &quot;)</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;integer decimal float double&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;integer decimal float double&quot;</assert-eq>
     </result>
@@ -2075,7 +2075,7 @@
     <description>test fn:abs where input type is uncertain</description>
     <created by="Tim Mills" on="2008-04-11"/>
     <test>fn:abs( fn:reverse( (1, xs:decimal(2.2), xs:float(3.3), xs:double(4.4)) )[2] )</test>
-    <result-string>xs:string('3.3')</result-string>
+    <result-string>xs:string(&quot;3.3&quot;)</result-string>
     <result>
       <assert-string-value>3.3</assert-string-value>
     </result>

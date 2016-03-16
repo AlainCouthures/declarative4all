@@ -95,7 +95,7 @@
     <created by="Andrew Eisenberg" on="2006-07-07"/>
     <environment ref="simple-collection-1"/>
     <test>count(fn:collection($collection-uri))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -105,7 +105,7 @@
     <created by="Andrew Eisenberg" on="2006-07-07"/>
     <environment ref="default-collection-1"/>
     <test>count(fn:collection())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -115,7 +115,7 @@
     <created by="Andrew Eisenberg" on="2006-07-07"/>
     <environment ref="simple-collection-2"/>
     <test>count(fn:collection($collection-uri))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -125,7 +125,7 @@
     <created by="Andrew Eisenberg" on="2006-07-07"/>
     <environment ref="default-collection-2"/>
     <test>count(fn:collection())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -179,7 +179,7 @@
     <environment ref="simple-collection-2"/>
     <dependency type="spec" value="XQ10+"/>
     <test>for $d in fn:collection($collection-uri) order by count($d//title) return count($d//title)</test>
-    <result-string>xs:string('3 4 5')</result-string>
+    <result-string>xs:string(&quot;3 4 5&quot;)</result-string>
     <result>
       <assert-string-value>3 4 5</assert-string-value>
     </result>
@@ -194,7 +194,7 @@
         let $c2 := fn:collection($collection-uri) 
         for $c at $p in $c1 
         return $c is exactly-one($c2[$p])</test>
-    <result-string>xs:string('true true true')</result-string>
+    <result-string>xs:string(&quot;true true true&quot;)</result-string>
     <result>
       <assert-string-value>true true true</assert-string-value>
     </result>
@@ -209,7 +209,7 @@
         let $c2 := fn:collection() 
         for $c at $p in $c1 
         return $c is exactly-one($c2[$p])</test>
-    <result-string>xs:string('true true true')</result-string>
+    <result-string>xs:string(&quot;true true true&quot;)</result-string>
     <result>
       <assert-string-value>true true true</assert-string-value>
     </result>

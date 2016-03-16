@@ -55,7 +55,7 @@
     <test>
       <![CDATA[empty(<a/>/a)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -81,7 +81,7 @@
     <test>
       <![CDATA[count((<a/>, <!--comment-->)/3)]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -152,7 +152,7 @@
     <test>
       <![CDATA[empty(<e/>/(for $i in e return $i))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -492,7 +492,7 @@
     <test>
       <![CDATA[declare variable $var := document {<a>123</a>}; $var[(/)*5]]]>
     </test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -516,7 +516,7 @@
     <test>
       <![CDATA[declare variable $var := document {<a>123</a>}; $var[(/)<a]]]>
     </test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -540,7 +540,7 @@
     <test>
       <![CDATA[declare variable $var := document {<a>123</a>}; $var[(/)<5]]]>
     </test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -576,7 +576,7 @@
     <test>
       <![CDATA[declare variable $var := document {<a>123</a>}; $var[(/)<a div 3]]]>
     </test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -612,7 +612,7 @@
     <test>
       <![CDATA[declare variable $var := document {<a>123</a>}; declare variable $a := document {<a>123</a>}; $var[(/) is $a]]]>
     </test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -636,7 +636,7 @@
     <test>
       <![CDATA[declare variable $var := document {<a>123</a>}; $var[(/) instance of document-node(element(x))]]]>
     </test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -716,7 +716,7 @@
     <test>
       <![CDATA[declare variable $var := document {<a>123</a>}; $var[/max(a)]]]>
     </test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -728,7 +728,7 @@
     <test>
       <![CDATA[declare variable $var := document {<a>123</a>}; $var[/-5]]]>
     </test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -754,7 +754,7 @@
     <test>
       <![CDATA[declare variable $var := document {<a>123</a>}; declare variable $a := document {<a>123</a>}; $var[5*/]]]>
     </test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>

@@ -89,7 +89,7 @@
     <description>for-each function - input is an empty sequence</description>
     <created by="Michael Kay" on="2010-02-10"/>
     <test>for-each((), round#1)</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>

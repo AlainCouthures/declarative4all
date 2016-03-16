@@ -212,7 +212,7 @@
     <environment ref="auction"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>string((//Q{http://www.example.com/AuctionWatch}Start)[1])</test>
-    <result-string>xs:string('3.00')</result-string>
+    <result-string>xs:string(&quot;3.00&quot;)</result-string>
     <result>
       <assert-string-value>3.00</assert-string-value>
     </result>
@@ -224,7 +224,7 @@
     <environment ref="auction"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>for $Q{http://example.com/ns}x in 1 to 10 return $Q{http://example.com/ns}x + 1</test>
-    <result-string>xs:string('2 3 4 5 6 7 8 9 10 11')</result-string>
+    <result-string>xs:string(&quot;2 3 4 5 6 7 8 9 10 11&quot;)</result-string>
     <result>
       <assert-string-value>2 3 4 5 6 7 8 9 10 11</assert-string-value>
     </result>
@@ -256,7 +256,7 @@
     <test>
       <![CDATA[string-join(<a foo="3" bar="5" xml:space="preserve"/> / @Q{http://www.w3.org/XML/1998/namespace}*, '.')]]>
     </test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;preserve&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;preserve&quot;</assert-eq>
     </result>

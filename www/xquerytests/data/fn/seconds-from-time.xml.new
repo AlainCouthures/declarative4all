@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;seconds-from-time&quot; function with the arguments set as follows: $arg = xs:time(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:seconds-from-time(xs:time(&quot;00:00:00Z&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;seconds-from-time&quot; function with the arguments set as follows: $arg = xs:time(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:seconds-from-time(xs:time(&quot;08:03:35Z&quot;))</test>
-    <result-string>xs:string('35')</result-string>
+    <result-string>xs:string(&quot;35&quot;)</result-string>
     <result>
       <assert-string-value>35</assert-string-value>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;seconds-from-time&quot; function with the arguments set as follows: $arg = xs:time(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:seconds-from-time(xs:time(&quot;23:59:59Z&quot;))</test>
-    <result-string>xs:string('59')</result-string>
+    <result-string>xs:string(&quot;59&quot;)</result-string>
     <result>
       <assert-string-value>59</assert-string-value>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluates The &quot;seconds-from-time&quot; function As per example 1 of the FO specs (for this function) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time(&quot;13:20:10.5&quot;))</test>
-    <result-string>xs:string('10.5')</result-string>
+    <result-string>xs:string(&quot;10.5&quot;)</result-string>
     <result>
       <assert-string-value>10.5</assert-string-value>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluates The &quot;seconds-from-time&quot; function used as part of a numeric less than expression (lt operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time(&quot;21:23:04Z&quot;)) lt fn:seconds-from-time(xs:time(&quot;21:24:00Z&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluates The &quot;seconds-from-time&quot; function as part of a numeric greater than operation (gt operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time(&quot;01:23:02Z&quot;)) gt fn:seconds-from-time(xs:time(&quot;01:23:03Z&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluates The &quot;seconds-from-time&quot; function used as an argument to an avg function. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:avg((fn:seconds-from-time(xs:time(&quot;01:10:20Z&quot;)), fn:seconds-from-time(xs:time(&quot;01:20:30Z&quot;))))</test>
-    <result-string>xs:string('25')</result-string>
+    <result-string>xs:string(&quot;25&quot;)</result-string>
     <result>
       <assert-string-value>25</assert-string-value>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluates The &quot;seconds-from-time&quot; function using the empty sequence as an argument. Use count function to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:count(fn:seconds-from-time(()))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluates The &quot;seconds-from-time&quot; function that returns 0. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:hours-from-time(xs:time(&quot;00:59:00Z&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluates The &quot;seconds-from-time&quot; function with the argument set to return 59. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time(&quot;23:20:59Z&quot;))</test>
-    <result-string>xs:string('59')</result-string>
+    <result-string>xs:string(&quot;59&quot;)</result-string>
     <result>
       <assert-string-value>59</assert-string-value>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluates The &quot;seconds-from-time&quot; function as part of a &quot;+&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time(&quot;02:00:00Z&quot;)) + fn:seconds-from-time(xs:time(&quot;10:00:10Z&quot;))</test>
-    <result-string>xs:string('10')</result-string>
+    <result-string>xs:string(&quot;10&quot;)</result-string>
     <result>
       <assert-string-value>10</assert-string-value>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluates The &quot;seconds-from-time&quot; function as part of a &quot;-&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time(&quot;10:10:10Z&quot;)) - fn:seconds-from-time(xs:time(&quot;09:02:07Z&quot;))</test>
-    <result-string>xs:string('3')</result-string>
+    <result-string>xs:string(&quot;3&quot;)</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluates The &quot;seconds-from-time&quot; function as part of a &quot;*&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time(&quot;02:02:03Z&quot;)) * fn:seconds-from-time(xs:time(&quot;10:08:09Z&quot;))</test>
-    <result-string>xs:string('27')</result-string>
+    <result-string>xs:string(&quot;27&quot;)</result-string>
     <result>
       <assert-string-value>27</assert-string-value>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluates The &quot;seconds-from-time&quot; function as part of a &quot;div&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time(&quot;22:33:10Z&quot;)) div fn:seconds-from-time(xs:time(&quot;02:11:02Z&quot;))</test>
-    <result-string>xs:string('5')</result-string>
+    <result-string>xs:string(&quot;5&quot;)</result-string>
     <result>
       <assert-string-value>5</assert-string-value>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluates The &quot;seconds-from-time&quot; function as part of a &quot;idiv&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time(&quot;10:12:15Z&quot;)) idiv fn:seconds-from-time(xs:time(&quot;02:02:03Z&quot;))</test>
-    <result-string>xs:string('5')</result-string>
+    <result-string>xs:string(&quot;5&quot;)</result-string>
     <result>
       <assert-string-value>5</assert-string-value>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluates The &quot;seconds-from-time&quot; function as part of a &quot;mod&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time(&quot;10:10:20Z&quot;)) mod fn:seconds-from-time(xs:time(&quot;03:03:02Z&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluates The &quot;seconds-from-time&quot; function as part of a &quot;numeric-unary-plus&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>+fn:seconds-from-time(xs:time(&quot;10:00:01Z&quot;))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluates The &quot;seconds-from-time&quot; function as part of a &quot;numeric-unary-minus&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>-fn:seconds-from-time(xs:time(&quot;10:10:01Z&quot;))</test>
-    <result-string>xs:string('-1')</result-string>
+    <result-string>xs:string(&quot;-1&quot;)</result-string>
     <result>
       <assert-string-value>-1</assert-string-value>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluates The &quot;seconds-from-time&quot; function as part of a &quot;numeric-equal&quot; expression (eq operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time(&quot;10:02:01Z&quot;)) eq fn:seconds-from-time(xs:time(&quot;10:02:00Z&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluates The &quot;seconds-from-time&quot; function as part of a &quot;numeric-equal&quot; expression (ne operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time(&quot;10:00:01Z&quot;)) ne fn:seconds-from-time(xs:time(&quot;01:01:00Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -186,7 +186,7 @@
     <description> Evaluates The &quot;seconds-from-time&quot; function as part of a &quot;numeric-equal&quot; expression (le operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time(&quot;10:00:00Z&quot;)) le fn:seconds-from-time(xs:time(&quot;10:00:00Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -195,7 +195,7 @@
     <description> Evaluates The &quot;seconds-from-time&quot; function as part of a &quot;numeric-equal&quot; expression (ge operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time(&quot;10:03:01Z&quot;)) ge fn:seconds-from-time(xs:time(&quot;10:04:02Z&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -222,7 +222,7 @@
     <description> A test whose essence is: `empty(seconds-from-time(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(seconds-from-time(()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -231,7 +231,7 @@
     <description> A test whose essence is: `seconds-from-time(()) instance of xs:decimal?`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>seconds-from-time(()) instance of xs:decimal?</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -240,7 +240,7 @@
     <description> Simple test invoking seconds-from-time(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>seconds-from-time(xs:time(&quot;23:11:12.43&quot;)) eq 12.43</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

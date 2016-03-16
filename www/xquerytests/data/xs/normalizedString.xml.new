@@ -5,7 +5,7 @@
     <description/>
     <created by="Oliver Hallam" on="2008-04-14"/>
     <test>xs:normalizedString(xs:normalizedString(&quot;test&quot;))</test>
-    <result-string>xs:string('test')</result-string>
+    <result-string>xs:string(&quot;test&quot;)</result-string>
     <result>
       <assert-string-value>test</assert-string-value>
     </result>
@@ -17,7 +17,7 @@
     <test>
       <![CDATA[xs:normalizedString('&#x9;')]]>
     </test>
-    <result-string>xs:string(' ')</result-string>
+    <result-string>xs:string(&quot; &quot;)</result-string>
     <result>
       <assert-string-value>
        </assert-string-value>
@@ -28,7 +28,7 @@
     <created by="Oliver Hallam" on="2008-04-14"/>
     <dependency type="spec" value="XP10+"/>
     <test>xs:normalizedString('')</test>
-    <result-string>xs:string(' ')</result-string>
+    <result-string>xs:string(&quot; &quot;)</result-string>
     <result>
       <assert-string-value>
        </assert-string-value>
@@ -38,7 +38,7 @@
     <description/>
     <created by="Oliver Hallam" on="2008-04-14"/>
     <test>xs:normalizedString(5)</test>
-    <result-string>xs:string('5')</result-string>
+    <result-string>xs:string(&quot;5&quot;)</result-string>
     <result>
       <assert-string-value>5</assert-string-value>
     </result>
@@ -49,7 +49,7 @@
     <test>
       <![CDATA["&#x9;" castable as xs:normalizedString]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -58,7 +58,7 @@
     <description/>
     <created by="Oliver Hallam" on="2008-04-14"/>
     <test>5 castable as xs:normalizedString</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -67,7 +67,7 @@
     <description/>
     <created by="Oliver Hallam" on="2008-04-14"/>
     <test>xs:normalizedString(&quot;test&quot;) castable as xs:normalizedString</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

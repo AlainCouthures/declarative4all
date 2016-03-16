@@ -37,7 +37,7 @@
     <created by="Michael Kay" on="2009-10-18"/>
     <modified by="Michael Kay" change="fix bug 14822" on="2011-11-17"/>
     <test>count(analyze-string((), &quot;abc&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -309,7 +309,7 @@ it put its sooty foot.</fn:non-match></fn:analyze-string-result>]]>
         let $result := analyze-string(&quot;banana&quot;, &quot;(b)(anana)&quot;) 
         return ($result//@nr)[1] instance of attribute(nr, xs:positiveInteger)
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -320,7 +320,7 @@ it put its sooty foot.</fn:non-match></fn:analyze-string-result>]]>
     <modified by="Michael Kay" change="fix bug 14822" on="2011-11-17"/>
     <dependency type="feature" value="schemaValidation"/>
     <test>let $result := analyze-string(&quot;banana&quot;, &quot;(b)(anana)&quot;) return $result instance of element(*, xs:untyped)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -330,7 +330,7 @@ it put its sooty foot.</fn:non-match></fn:analyze-string-result>]]>
     <created by="Michael Kay" on="2009-10-18"/>
     <modified by="Michael Kay" change="fix bug 14822" on="2011-11-17"/>
     <test>let $result := analyze-string(&quot;banana&quot;, &quot;(b)(anana)&quot;) return string($result)</test>
-    <result-string>xs:string('banana')</result-string>
+    <result-string>xs:string(&quot;banana&quot;)</result-string>
     <result>
       <assert-string-value>banana</assert-string-value>
     </result>
@@ -340,7 +340,7 @@ it put its sooty foot.</fn:non-match></fn:analyze-string-result>]]>
     <created by="Michael Kay" on="2009-10-18"/>
     <modified by="Michael Kay" change="fix bug 14822" on="2011-11-17"/>
     <test>let $result := analyze-string(&quot;banana&quot;, &quot;(b)(anana)&quot;) return string($result/fn:match[1])</test>
-    <result-string>xs:string('banana')</result-string>
+    <result-string>xs:string(&quot;banana&quot;)</result-string>
     <result>
       <assert-string-value>banana</assert-string-value>
     </result>
@@ -358,7 +358,7 @@ it put its sooty foot.</fn:non-match></fn:analyze-string-result>]]>
         import schema &quot;http://www.w3.org/2005/xpath-functions&quot;;
         let $result := analyze-string(&quot;banana&quot;, &quot;(b)(anana)&quot;) 
         return $result/fn:match[1] instance of schema-element(fn:match)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -374,7 +374,7 @@ it put its sooty foot.</fn:non-match></fn:analyze-string-result>]]>
 	import schema &quot;http://www.w3.org/2005/xpath-functions&quot;;
         analyze-string(&quot;banana&quot;, &quot;(b)(anana)&quot;) instance of schema-element(fn:analyze-string-result)
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -384,7 +384,7 @@ it put its sooty foot.</fn:non-match></fn:analyze-string-result>]]>
     <created by="Tim Mills" on="2012-09-25"/>
     <dependency type="spec" value="XQ30+"/>
     <test>exactly-one(fn:analyze-string(concat('Mary', codepoints-to-string(13), 'Jones'), 'y.J')/fn:non-match)/string()</test>
-    <result-string/>
+    <result-string>xs:string(&quot;concat('Mary', codepoints-to-string(13), 'Jones')&quot;)</result-string>
     <result>
       <assert-eq>concat('Mary', codepoints-to-string(13), 'Jones')</assert-eq>
     </result>
@@ -394,7 +394,7 @@ it put its sooty foot.</fn:non-match></fn:analyze-string-result>]]>
     <created by="Tim Mills" on="2012-09-25"/>
     <dependency type="spec" value="XQ30+"/>
     <test>exactly-one(fn:analyze-string(concat('Mary', codepoints-to-string(13), 'Jones'), 'y.J', 's')/fn:match)/string()</test>
-    <result-string/>
+    <result-string>xs:string(&quot;concat('y', codepoints-to-string(13), 'J')&quot;)</result-string>
     <result>
       <assert-eq>concat('y', codepoints-to-string(13), 'J')</assert-eq>
     </result>

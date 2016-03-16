@@ -6,7 +6,7 @@
     <description> Evaluation of node function with argument set empty sequence. Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-11-16"/>
     <test>fn:count(fn:node-name(()))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -16,7 +16,7 @@
     <created by="Carmelo Montanez" on="2005-11-16"/>
     <environment ref="works-mod"/>
     <test>fn:count(fn:node-name(/works[1]/employee[2]/child::text()[last()]))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -26,7 +26,7 @@
     <created by="Carmelo Montanez" on="2005-11-16"/>
     <environment ref="works-mod"/>
     <test>fn:local-name-from-QName(fn:node-name(/works[1]/employee[2]))</test>
-    <result-string>xs:string('employee')</result-string>
+    <result-string>xs:string(&quot;employee&quot;)</result-string>
     <result>
       <assert-string-value>employee</assert-string-value>
     </result>
@@ -38,7 +38,7 @@
     <test>
       <![CDATA[fn:local-name-from-QName(fn:node-name(<shoe size = "5"/>))]]>
     </test>
-    <result-string>xs:string('shoe')</result-string>
+    <result-string>xs:string(&quot;shoe&quot;)</result-string>
     <result>
       <assert-string-value>shoe</assert-string-value>
     </result>
@@ -50,7 +50,7 @@
     <test>
       <![CDATA[fn:count(fn:node-name(<!-- This a comment node -->))]]>
     </test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -62,7 +62,7 @@
     <test>
       <![CDATA[fn:local-name-from-QName(fn:node-name(<?format role="output" ?>))]]>
     </test>
-    <result-string>xs:string('format')</result-string>
+    <result-string>xs:string(&quot;format&quot;)</result-string>
     <result>
       <assert-string-value>format</assert-string-value>
     </result>
@@ -74,7 +74,7 @@
     <test>
       <![CDATA[fn:namespace-uri-from-QName(fn:node-name(<anelement xmlns = "http://example.com/examples"></anelement>))]]>
     </test>
-    <result-string>xs:string('http://example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://example.com/examples</assert-string-value>
     </result>
@@ -84,7 +84,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:local-name-from-QName(fn:node-name(element elementName {}))</test>
-    <result-string>xs:string('elementName')</result-string>
+    <result-string>xs:string(&quot;elementName&quot;)</result-string>
     <result>
       <assert-string-value>elementName</assert-string-value>
     </result>
@@ -94,7 +94,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:count(fn:namespace-uri-from-QName(fn:node-name(element elementName {})))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -104,7 +104,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:local-name-from-QName(fn:node-name(element elementName { element achild {&quot;some text&quot;}}))</test>
-    <result-string>xs:string('elementName')</result-string>
+    <result-string>xs:string(&quot;elementName&quot;)</result-string>
     <result>
       <assert-string-value>elementName</assert-string-value>
     </result>
@@ -114,7 +114,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:local-name-from-QName(fn:node-name(attribute attributeName {&quot;&quot;}))</test>
-    <result-string>xs:string('attributeName')</result-string>
+    <result-string>xs:string(&quot;attributeName&quot;)</result-string>
     <result>
       <assert-string-value>attributeName</assert-string-value>
     </result>
@@ -124,7 +124,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:local-name-from-QName(fn:node-name(attribute attributeName {&quot;an attribute value&quot;}))</test>
-    <result-string>xs:string('attributeName')</result-string>
+    <result-string>xs:string(&quot;attributeName&quot;)</result-string>
     <result>
       <assert-string-value>attributeName</assert-string-value>
     </result>
@@ -134,7 +134,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:count(fn:namespace-uri-from-QName(fn:node-name(attribute attributeName {&quot;an attribute value&quot;})))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -144,7 +144,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:count(fn:local-name-from-QName(fn:node-name(document {&quot;&quot;})))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -154,7 +154,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:count(fn:namespace-uri-from-QName(fn:node-name(document {&quot;&quot;})))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -166,7 +166,7 @@
     <test>
       <![CDATA[fn:count(fn:local-name-from-QName(fn:node-name(document {"<element1> text </element1>"})))]]>
     </test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -178,7 +178,7 @@
     <test>
       <![CDATA[fn:count(fn:namespace-uri-from-QName(fn:node-name(document {"<element1> text </element1>"})))]]>
     </test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -188,7 +188,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:count(fn:local-name-from-QName(fn:node-name(text {&quot;&quot;})))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -198,7 +198,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:count(fn:namespace-uri-from-QName(fn:node-name(text {&quot;&quot;})))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -208,7 +208,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:count(fn:local-name-from-QName(fn:node-name(text {&quot;a text value&quot;})))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -218,7 +218,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:count(fn:namespace-uri-from-QName(fn:node-name(text {&quot;a text value&quot;})))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -228,7 +228,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:local-name-from-QName(fn:node-name(processing-instruction piName {&quot;Processing Instruction content&quot;}))</test>
-    <result-string>xs:string('piName')</result-string>
+    <result-string>xs:string(&quot;piName&quot;)</result-string>
     <result>
       <assert-string-value>piName</assert-string-value>
     </result>
@@ -238,7 +238,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:count(fn:namespace-uri-from-QName(fn:node-name(processing-instruction piName {&quot;Processing Instruction content&quot;})))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -260,7 +260,7 @@
     <test>
       <![CDATA[<node xmlns="http://example.com/ns"/>/node-name()]]>
     </test>
-    <result-string/>
+    <result-string>xs:string(&quot;QName(&quot;http://example.com/ns&quot;, &quot;node&quot;)&quot;)</result-string>
     <result>
       <assert-eq>QName(&quot;http://example.com/ns&quot;, &quot;node&quot;)</assert-eq>
     </result>
@@ -273,7 +273,7 @@
     <test>
       <![CDATA[<node xml:space="preserve" xmlns="http://example.com/ns"/>/@xml:space/node-name()]]>
     </test>
-    <result-string/>
+    <result-string>xs:string(&quot;QName(&quot;http://www.w3.org/XML/1998/namespace&quot;, &quot;space&quot;)&quot;)</result-string>
     <result>
       <assert-eq>QName(&quot;http://www.w3.org/XML/1998/namespace&quot;, &quot;space&quot;)</assert-eq>
     </result>
@@ -285,7 +285,7 @@
     <test>
       <![CDATA[<?test data?>/node-name()]]>
     </test>
-    <result-string/>
+    <result-string>xs:string(&quot;QName(&quot;&quot;, &quot;test&quot;)&quot;)</result-string>
     <result>
       <assert-eq>QName(&quot;&quot;, &quot;test&quot;)</assert-eq>
     </result>
@@ -297,7 +297,7 @@
     <test>
       <![CDATA[namespace{"foo"}{"http://example.com/foo"}/node-name()]]>
     </test>
-    <result-string/>
+    <result-string>xs:string(&quot;QName(&quot;&quot;, &quot;foo&quot;)&quot;)</result-string>
     <result>
       <assert-eq>QName(&quot;&quot;, &quot;foo&quot;)</assert-eq>
     </result>
@@ -309,7 +309,7 @@
     <test>
       <![CDATA[<a>abc</a>/text()/node-name()]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -379,7 +379,7 @@
     <description> A test whose essence is: `empty(node-name(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(node-name(()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -408,7 +408,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="works-mod"/>
     <test>node-name(/*) instance of xs:QName</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -464,7 +464,7 @@
     <created by="Tim Mills" on="2008-10-04"/>
     <dependency type="spec" value="XQ10+"/>
     <test>empty(node-name( comment { &quot;comments have no name &quot; } ) )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

@@ -26,7 +26,7 @@
     <description> A 'declare default collation' that uses a relative URI combined with setting the base-uri, to specify the Unicode Codepoint collation. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare base-uri &quot;http://www.w3.org/2005/xpath-functions/&quot;; declare default collation &quot;collation/codepoint&quot;; default-collation() eq &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -44,7 +44,7 @@
     <description> Any implementation must support setting the default collation to the Unicode Codepoint collation with 'declare default collation'. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare default collation &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;; default-collation() eq &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

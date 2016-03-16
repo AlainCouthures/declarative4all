@@ -90,7 +90,7 @@
     <description> Evaluates The &quot;substring-after&quot; function with the arguments set as follows: $arg1 = &quot;AAAAABBBBBCCCCC&quot; $arg2 = &quot;BBBBB&quot; </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-after(&quot;AAAAABBBBBCCCCC&quot;,&quot;BBBBB&quot;)</test>
-    <result-string>xs:string('CCCCC')</result-string>
+    <result-string>xs:string(&quot;CCCCC&quot;)</result-string>
     <result>
       <assert-string-value>CCCCC</assert-string-value>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluates The &quot;substring-after&quot; function using it as a argument of a fn:not - returns true </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:not(fn:substring-after(&quot;A&quot;,&quot;A&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluates The &quot;substring-after&quot; function using it as a argument of a fn:not - returns true </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:not(fn:substring-after(&quot;A&quot;,&quot;B&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -201,7 +201,7 @@
     <description> Evaluates The &quot;substring-after&quot; function with the arguments set as follows: $arg1 = &quot;substring-aftersubstring-after&quot; $arg2 = &quot;substring-after&quot; </description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:substring-after(&quot;substring-aftersubstring-after&quot;,&quot;substring-after&quot;)</test>
-    <result-string>xs:string('substring-after')</result-string>
+    <result-string>xs:string(&quot;substring-after&quot;)</result-string>
     <result>
       <assert-string-value>substring-after</assert-string-value>
     </result>
@@ -210,7 +210,7 @@
     <description> Evaluates The &quot;substring-after&quot; function with the arguments set as follows: $arg1 = &quot;****&quot; $arg2 = &quot;***&quot; </description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:substring-after(&quot;****&quot;,&quot;***&quot;)</test>
-    <result-string>xs:string('*')</result-string>
+    <result-string>xs:string(&quot;*&quot;)</result-string>
     <result>
       <assert-string-value>*</assert-string-value>
     </result>
@@ -219,7 +219,7 @@
     <description> Evaluates The &quot;substring-after&quot; function with the arguments set as follows: $arg1 = &quot;12345&quot; $arg2 = &quot;1234&quot; </description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:substring-after(&quot;12345&quot;,&quot;1234&quot;)</test>
-    <result-string>xs:string('5')</result-string>
+    <result-string>xs:string(&quot;5&quot;)</result-string>
     <result>
       <assert-string-value>5</assert-string-value>
     </result>
@@ -240,7 +240,7 @@
     <description>Use absolute collation URI</description>
     <created by="Michael Kay" on="2011-06-28"/>
     <test>substring-after(&quot;banana&quot;, &quot;a&quot;, &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;)</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;nana&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;nana&quot;</assert-eq>
     </result>
@@ -252,7 +252,7 @@
       <static-base-uri uri="http://www.w3.org/2005/xpath-functions/"/>
     </environment>
     <test>substring-after(&quot;banana&quot;, &quot;a&quot;, &quot;collation/codepoint&quot;)</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;nana&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;nana&quot;</assert-eq>
     </result>
@@ -264,7 +264,7 @@
       <collation uri="http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind"/>
     </environment>
     <test>substring-after(&quot;banana&quot;, &quot;A&quot;, &quot;http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind&quot;)</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;nana&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;nana&quot;</assert-eq>
     </result>
@@ -273,7 +273,7 @@
     <description>Use non-BMP characters</description>
     <created by="Michael Kay" on="2011-06-28"/>
     <test>substring-after(&quot;&quot;, &quot;&quot;)</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;&quot;</assert-eq>
     </result>
@@ -318,7 +318,7 @@
     <description> A test whose essence is: `substring-after(&quot;foo&quot;, &quot;fo&quot;, &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;) eq &quot;o&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-after(&quot;foo&quot;, &quot;fo&quot;, &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;) eq &quot;o&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -327,7 +327,7 @@
     <description> A test whose essence is: `substring-after(&quot;tattoo&quot;, &quot;tat&quot;) eq &quot;too&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-after(&quot;tattoo&quot;, &quot;tat&quot;) eq &quot;too&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -336,7 +336,7 @@
     <description> A test whose essence is: `substring-after(&quot;tattoo&quot;, &quot;tattoo&quot;) eq &quot;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-after(&quot;tattoo&quot;, &quot;tattoo&quot;) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -345,7 +345,7 @@
     <description> A test whose essence is: `substring-after(&quot;abcdefgedij&quot;, &quot;def&quot;) eq &quot;gedij&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-after(&quot;abcdefgedij&quot;, &quot;def&quot;) eq &quot;gedij&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -354,7 +354,7 @@
     <description> A test whose essence is: `substring-after((), ()) eq &quot;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-after((), ()) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -363,7 +363,7 @@
     <description> A test whose essence is: `substring-after(&quot;a string&quot;, ()) eq &quot;a string&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-after(&quot;a string&quot;, ()) eq &quot;a string&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -372,7 +372,7 @@
     <description> A test whose essence is: `substring-after(&quot;a string&quot;, &quot;not in other&quot;) eq &quot;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-after(&quot;a string&quot;, &quot;not in other&quot;) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -383,7 +383,7 @@
     <test>
         fn:boolean(fn:substring-after('input', '', 'http://www.w3.org/2005/xpath-functions/collation/codepoint'))
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

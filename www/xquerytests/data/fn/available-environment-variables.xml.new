@@ -9,7 +9,7 @@
     <dependency type="spec" value="XP30+ XQ30+"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>fn:exists(fn:available-environment-variables#0)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -24,7 +24,7 @@
 	  fn:QName('http://www.w3.org/2005/xpath-functions',
 	  'available-environment-variables'), 0)))
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -60,7 +60,7 @@
     <test>let $all := fn:available-environment-variables()
 	  return empty($all) or ($all[1] ne &quot;&quot;)
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -73,7 +73,7 @@
 	   (for $e in fn:available-environment-variables()
 	   return fn:environment-variable($e) instance of xs:string) = (false())
       </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -90,7 +90,7 @@
 		  for $e in $all return fn:environment-variable($e)
 	      ) eq $n
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -103,7 +103,7 @@
 	  let $all := fn:available-environment-variables()
 	  return count($all) eq count(distinct-values($all))
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -127,7 +127,7 @@
 	  return deep-equal($first, $second)
 	  ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -141,7 +141,7 @@
 	  return if (fn:empty($all)) then true()
 	  else fn:empty(fn:environment-variable(fn:string-join($all)))
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -175,7 +175,7 @@
 	  then fn:environment-variable(&quot;QTTEST&quot;) eq &quot;42&quot;
 	  else false()
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

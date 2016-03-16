@@ -16,7 +16,7 @@ $arg2 = xs:dateTime(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) gt xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -35,7 +35,7 @@ $arg2 = xs:dateTime(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;1996-04-07T01:40:52Z&quot;) gt xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -54,7 +54,7 @@ $arg2 = xs:dateTime(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;2030-12-31T23:59:59Z&quot;) gt xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -73,7 +73,7 @@ $arg2 = xs:dateTime(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) gt xs:dateTime(&quot;1996-04-07T01:40:52Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -92,7 +92,7 @@ $arg2 = xs:dateTime(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) gt xs:dateTime(&quot;2030-12-31T23:59:59Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -111,7 +111,7 @@ $arg2 = xs:dateTime(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) le xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -130,7 +130,7 @@ $arg2 = xs:dateTime(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;1996-04-07T01:40:52Z&quot;) le xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -149,7 +149,7 @@ $arg2 = xs:dateTime(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;2030-12-31T23:59:59Z&quot;) le xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -168,7 +168,7 @@ $arg2 = xs:dateTime(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) le xs:dateTime(&quot;1996-04-07T01:40:52Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -187,7 +187,7 @@ $arg2 = xs:dateTime(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) le xs:dateTime(&quot;2030-12-31T23:59:59Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -204,7 +204,7 @@ return true and used together with fn:not (gt operator)
 </description>
     <created by="Carmelo Montanez" on="2005-06-15"/>
     <test>fn:not((xs:dateTime(&quot;2004-04-02T12:00:00Z&quot;) gt xs:dateTime(&quot;2003-04-02T12:00:00Z&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -221,7 +221,7 @@ return true and used together with fn:not (ge operator)
 </description>
     <created by="Carmelo Montanez" on="2005-06-15"/>
     <test>fn:not(xs:dateTime(&quot;2002-04-02T12:00:00Z&quot;) ge xs:dateTime(&quot;2002-04-02T12:00:00Z&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -238,7 +238,7 @@ return false and used together with fn:not (gt operator)
 </description>
     <created by="Carmelo Montanez" on="2005-06-15"/>
     <test>fn:not(xs:dateTime(&quot;2002-04-02T12:00:00Z&quot;) gt xs:dateTime(&quot;2002-05-02T12:00:00Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -255,7 +255,7 @@ return false and used together with fn:not(ge operator)
 </description>
     <created by="Carmelo Montanez" on="2005-06-15"/>
     <test>fn:not(xs:dateTime(&quot;2002-04-02T12:00:00Z&quot;) ge xs:dateTime(&quot;2008-04-02T12:00:00Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -272,7 +272,7 @@ together with &quot;and&quot; expression (gt operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-15"/>
     <test>(xs:dateTime(&quot;2002-04-02T12:00:00Z&quot;) gt xs:dateTime(&quot;2002-04-02T12:01:00Z&quot;)) and (xs:dateTime(&quot;2003-04-02T12:00:00Z&quot;) gt xs:dateTime(&quot;2002-04-02T12:00:00Z&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -289,7 +289,7 @@ together with &quot;and&quot; expression (ge operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-15"/>
     <test>(xs:dateTime(&quot;2002-04-02T12:00:00Z&quot;) ge xs:dateTime(&quot;2005-04-02T12:00:20Z&quot;)) and (xs:dateTime(&quot;2002-04-02T12:10:00Z&quot;) ge xs:dateTime(&quot;2002-04-03T12:00:00Z&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -306,7 +306,7 @@ together with &quot;or&quot; expression (gt operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-15"/>
     <test>(xs:dateTime(&quot;2002-06-02T12:00:10Z&quot;) gt xs:dateTime(&quot;2000-04-04T12:00:00Z&quot;)) or (xs:dateTime(&quot;2002-04-02T13:00:10Z&quot;) gt xs:dateTime(&quot;2001-04-02T10:00:00Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -323,7 +323,7 @@ together with &quot;or&quot; expression (ge operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-15"/>
     <test>(xs:dateTime(&quot;2002-04-03T12:00:10Z&quot;) ge xs:dateTime(&quot;1990-04-02T12:10:00Z&quot;)) or (xs:dateTime(&quot;1975-04-03T12:10:00Z&quot;) ge xs:dateTime(&quot;2000-02-02T12:00:09Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -340,7 +340,7 @@ together with &quot;fn:true&quot;/or expression (gt operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-15"/>
     <test>(xs:dateTime(&quot;1990-04-02T12:00:10Z&quot;) gt xs:dateTime(&quot;2006-06-02T12:10:00Z&quot;)) or (fn:true())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -357,7 +357,7 @@ together with &quot;fn:true&quot;/or expression (ge operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-15"/>
     <test>(xs:dateTime(&quot;1970-04-02T12:00:20Z&quot;) ge xs:dateTime(&quot;1980-04-02T12:00:20Z&quot;)) or (fn:true())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -374,7 +374,7 @@ together with &quot;fn:false&quot;/or expression (gt operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-15"/>
     <test>(xs:dateTime(&quot;1981-04-02T12:00:00Z&quot;) gt xs:dateTime(&quot;2003-04-02T12:10:00Z&quot;)) or (fn:false())</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -391,7 +391,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-15"/>
     <test>(xs:dateTime(&quot;1976-04-03T12:00:00Z&quot;) ge xs:dateTime(&quot;2002-07-02T12:00:30Z&quot;)) or (fn:false())</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -407,7 +407,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dateTime(&quot;2004-07-13T23:01:04.12&quot;) gt xs:dateTime(&quot;2004-07-12T23:01:04.12&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -423,7 +423,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:dateTime(&quot;2004-07-12T23:01:04.12&quot;) gt xs:dateTime(&quot;2004-07-12T23:01:04.12&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -439,7 +439,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:dateTime(&quot;2004-07-12T23:01:04.12&quot;) gt xs:dateTime(&quot;2004-07-13T23:01:04.12&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -455,7 +455,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dateTime(&quot;2004-07-12T23:01:04.12&quot;) ge xs:dateTime(&quot;2004-07-12T23:01:04.12&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -471,7 +471,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dateTime(&quot;2004-07-13T23:01:04.12&quot;) ge xs:dateTime(&quot;2004-07-12T23:01:04.12&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -487,7 +487,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:dateTime(&quot;2004-07-11T23:01:04.12&quot;) ge xs:dateTime(&quot;2004-07-12T23:01:04.12&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -497,7 +497,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
     <created by="Tim Mills" on="2008-05-16"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:two-digit($number as xs:integer) { let $string := string($number) return if (string-length($string) lt 2) then concat('0', $string) else $string }; declare function local:dateTime($year as xs:integer, $month as xs:integer, $day as xs:integer) { let $m := local:two-digit($month), $d := local:two-digit($day) return xs:dateTime(concat($year, '-', $m, '-', $d, &quot;T12:00:00&quot;)) }; not(local:dateTime(2008, 05, 12) gt xs:dateTime(&quot;1972-12-15T12:00:00&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -506,7 +506,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
     <description> test comparison of dateTime </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:dateTime(&quot;2008-01-30T00:01:00&quot;) gt xs:dateTime(&quot;2008-01-31T01:00:00+09:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -515,7 +515,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
     <description> test comparison of dateTime </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:dateTime(&quot;2008-01-31T00:01:00+09:00&quot;) gt xs:dateTime(&quot;2008-01-30T00:01:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -524,7 +524,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
     <description> test comparison of dateTime </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:dateTime(&quot;2008-01-31T00:01:00&quot;) gt xs:dateTime(&quot;2008-01-31T00:01:00+09:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -533,7 +533,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
     <description> test comparison of dateTime </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:dateTime(&quot;2008-01-31T00:01:00+09:00&quot;) gt xs:dateTime(&quot;2008-01-31T00:01:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -543,7 +543,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
     <created by="Tim Mills" on="2008-05-16"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:two-digit($number as xs:integer) { let $string := string($number) return if (string-length($string) lt 2) then concat('0', $string) else $string }; declare function local:dateTime($year as xs:integer, $month as xs:integer, $day as xs:integer) { let $m := local:two-digit($month), $d := local:two-digit($day) return xs:dateTime(concat($year, '-', $m, '-', $d, &quot;T12:00:00&quot;)) }; not(local:dateTime(2008, 05, 12) ge xs:dateTime(&quot;1972-12-15T12:00:00&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -552,7 +552,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
     <description> test comparison of dateTime </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:dateTime(&quot;2008-01-30T00:01:00&quot;) ge xs:dateTime(&quot;2008-01-31T00:01:00+09:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -561,7 +561,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
     <description> test comparison of dateTime </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:dateTime(&quot;2008-01-31T00:01:00+09:00&quot;) ge xs:dateTime(&quot;2008-01-30T00:01:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -570,7 +570,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
     <description> test comparison of dateTime </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:dateTime(&quot;2008-01-31T00:01:00&quot;) ge xs:dateTime(&quot;2008-01-31T00:01:00+09:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -579,7 +579,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
     <description> test comparison of dateTime </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:dateTime(&quot;2008-01-31T00:01:00+09:00&quot;) ge xs:dateTime(&quot;2008-01-31T00:01:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -589,7 +589,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:dateTime($dateTime as xs:dateTime, $null as xs:boolean) { if ($null) then () else $dateTime }; exists(local:dateTime(xs:dateTime(&quot;1972-12-15T12:00:00&quot;), fn:true()) gt xs:dateTime(&quot;1972-12-15T12:00:00&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -599,7 +599,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:dateTime($dateTime as xs:dateTime, $null as xs:boolean) { if ($null) then () else $dateTime }; local:dateTime(xs:dateTime(&quot;1972-12-15T12:00:00&quot;), fn:false()) gt xs:dateTime(&quot;1972-12-15T12:00:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -609,7 +609,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:dateTime($dateTime as xs:dateTime, $null as xs:boolean) { if ($null) then () else $dateTime }; exists(local:dateTime(xs:dateTime(&quot;1972-12-15T12:00:00&quot;), fn:true()) le xs:dateTime(&quot;1972-12-15T12:00:00&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -619,7 +619,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:dateTime($dateTime as xs:dateTime, $null as xs:boolean) { if ($null) then () else $dateTime }; local:dateTime(xs:dateTime(&quot;1972-12-15T12:00:00&quot;), fn:false()) le xs:dateTime(&quot;1972-12-15T12:00:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -629,7 +629,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
     <created by="Tim Mills" on="2008-05-23"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:dateTime($dateTime as xs:string, $timezone as xs:string) { xs:dateTime( concat($dateTime, $timezone) ) }; adjust-dateTime-to-timezone(local:dateTime(&quot;1972-12-14T00:00:00&quot;, &quot;-12:00&quot;)) gt adjust-dateTime-to-timezone(xs:dateTime(&quot;1972-12-15T00:00:00+12:00&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -639,7 +639,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
     <created by="Tim Mills" on="2008-05-23"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:dateTime($dateTime as xs:string, $timezone as xs:string) { xs:dateTime( concat($dateTime, $timezone) ) }; adjust-dateTime-to-timezone(local:dateTime(&quot;1972-12-14T00:00:00&quot;, &quot;-12:00&quot;)) ge adjust-dateTime-to-timezone(xs:dateTime(&quot;1972-12-15T00:00:00+12:00&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

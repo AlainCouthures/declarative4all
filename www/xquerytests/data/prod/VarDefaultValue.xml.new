@@ -32,7 +32,7 @@
     <test>
       <![CDATA[declare variable $ext external := 0; $ext]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;5&quot;)</result-string>
     <result>
       <assert-eq>5</assert-eq>
     </result>
@@ -219,7 +219,7 @@
         $ext gt xs:date('2008-12-30')
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -263,7 +263,7 @@
         $x
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -280,7 +280,7 @@
         $a
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;28&quot;)</result-string>
     <result>
       <assert-eq>28</assert-eq>
     </result>
@@ -338,7 +338,7 @@
         $x 
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -360,7 +360,7 @@
         $x 
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;28&quot;)</result-string>
     <result>
       <assert-eq>28</assert-eq>
     </result>
@@ -376,7 +376,7 @@
         fn:count($x)
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -413,7 +413,7 @@
         $x
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -431,7 +431,7 @@
         $x
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -446,7 +446,7 @@
         $x
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -477,7 +477,7 @@
         $y
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;28&quot;)</result-string>
     <result>
       <assert-eq>28</assert-eq>
     </result>
@@ -495,7 +495,7 @@
         $y
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;28&quot;)</result-string>
     <result>
       <assert-eq>28</assert-eq>
     </result>
@@ -511,7 +511,7 @@
         $y instance of xs:decimal
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:string(&quot;fn:true()&quot;)</result-string>
     <result>
       <assert-eq>fn:true()</assert-eq>
     </result>
@@ -529,7 +529,7 @@
         local:foo()
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;5&quot;)</result-string>
     <result>
       <assert-eq>5</assert-eq>
     </result>

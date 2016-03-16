@@ -31,7 +31,7 @@
     <created by="Pulkita Tyagi" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>(/bib/book/title | /bib/book)/local-name()</test>
-    <result-string>xs:string('book title book title book title book title')</result-string>
+    <result-string>xs:string(&quot;book title book title book title book title&quot;)</result-string>
     <result>
       <assert-string-value>book title book title book title book title</assert-string-value>
     </result>
@@ -254,7 +254,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="atomic"/>
     <test>(/atomic:root/atomic:duration/text()) | (/atomic:root/atomic:duration/text())</test>
-    <result-string>xs:string('P1Y2M3DT10H30M')</result-string>
+    <result-string>xs:string(&quot;P1Y2M3DT10H30M&quot;)</result-string>
     <result>
       <assert-string-value>P1Y2M3DT10H30M</assert-string-value>
     </result>
@@ -264,7 +264,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="atomic"/>
     <test>(/atomic:root/atomic:date/text()) | (/atomic:root/atomic:date/text())</test>
-    <result-string>xs:string('2000-01-01+05:00')</result-string>
+    <result-string>xs:string(&quot;2000-01-01+05:00&quot;)</result-string>
     <result>
       <assert-string-value>2000-01-01+05:00</assert-string-value>
     </result>
@@ -274,7 +274,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="atomic"/>
     <test>(/atomic:root/atomic:base64Binary/text()) | (/atomic:root/atomic:base64Binary/text())</test>
-    <result-string>xs:string('R0lGODlhcgGSALMAAAQCAEMmCZtuMFQxDS8b')</result-string>
+    <result-string>xs:string(&quot;R0lGODlhcgGSALMAAAQCAEMmCZtuMFQxDS8b&quot;)</result-string>
     <result>
       <assert-string-value>R0lGODlhcgGSALMAAAQCAEMmCZtuMFQxDS8b</assert-string-value>
     </result>
@@ -284,7 +284,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="atomic"/>
     <test>(/atomic:root/atomic:QName/text()) | (/atomic:root/atomic:QName/text())</test>
-    <result-string>xs:string('foo:aQname')</result-string>
+    <result-string>xs:string(&quot;foo:aQname&quot;)</result-string>
     <result>
       <assert-string-value>foo:aQname</assert-string-value>
     </result>
@@ -294,7 +294,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="atomic"/>
     <test>(/atomic:root/atomic:idrefs/text()) | (/atomic:root/atomic:idrefs/text())</test>
-    <result-string>xs:string('id1 id2')</result-string>
+    <result-string>xs:string(&quot;id1 id2&quot;)</result-string>
     <result>
       <assert-string-value>id1 id2</assert-string-value>
     </result>
@@ -304,7 +304,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>string-join(for $node in ((//price/text()) , (//price/text())) union ((//price/text()) , (//price/text())) return $node, &quot;|&quot;)</test>
-    <result-string>xs:string(' 65.95|65.95| 39.95|129.95')</result-string>
+    <result-string>xs:string(&quot; 65.95|65.95| 39.95|129.95&quot;)</result-string>
     <result>
       <assert-string-value> 65.95|65.95| 39.95|129.95</assert-string-value>
     </result>
@@ -344,7 +344,7 @@
     <test>
       <![CDATA[empty(<e/>/(author union comment))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -379,7 +379,7 @@
     <test>
       <![CDATA[empty(<e/>/(author union text))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -391,7 +391,7 @@
     <test>
       <![CDATA[empty(<e/>/(author union node))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -403,7 +403,7 @@
     <test>
       <![CDATA[empty(<e/>/(author union element))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -415,7 +415,7 @@
     <test>
       <![CDATA[empty(<e/>/(author union attribute))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -427,7 +427,7 @@
     <test>
       <![CDATA[empty(<e/>/(author union document-node))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -439,7 +439,7 @@
     <test>
       <![CDATA[empty(<e/>/(author union comment))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -451,7 +451,7 @@
     <test>
       <![CDATA[empty(<e/>/(author union processing-instruction))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -463,7 +463,7 @@
     <test>
       <![CDATA[empty(<e/>/(author union item))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -475,7 +475,7 @@
     <test>
       <![CDATA[empty(<e/>/(author union document))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -487,7 +487,7 @@
     <test>
       <![CDATA[empty(<e/>/(author union if))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -499,7 +499,7 @@
     <test>
       <![CDATA[empty(<e/>/(author union then))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -511,7 +511,7 @@
     <test>
       <![CDATA[empty(<e/>/(author union mod))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -523,7 +523,7 @@
     <test>
       <![CDATA[empty(<e/>/(author union div))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -535,7 +535,7 @@
     <test>
       <![CDATA[empty(<e/>/(author union empty-sequence))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -547,7 +547,7 @@
     <test>
       <![CDATA[empty(<e/>/(author union schema-attribute))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -559,7 +559,7 @@
     <test>
       <![CDATA[empty(<e/>/(author union schema-element))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -571,7 +571,7 @@
     <test>
       <![CDATA[empty(<e/>/(a union attribute {"name"} {()}))]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -583,7 +583,7 @@
     <test>
       <![CDATA[empty(<e/>/(a union attribute name {()}))]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -625,7 +625,7 @@
     <test>
       <![CDATA[empty(<e/>/(a union processing-instruction {"name"} {()}))]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -637,7 +637,7 @@
     <test>
       <![CDATA[empty(<e/>/(a union processing-instruction name {}))]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -649,7 +649,7 @@
     <test>
       <![CDATA[empty(<e/>/(a union comment {()}))]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -661,7 +661,7 @@
     <test>
       <![CDATA[empty(<e/>/(a union text {()}))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -673,7 +673,7 @@
     <test>
       <![CDATA[empty(<e/>/(a union descendant))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -685,7 +685,7 @@
     <test>
       <![CDATA[empty(<e/>/(a union attribute))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -697,7 +697,7 @@
     <test>
       <![CDATA[empty(<e/>/(a union self))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -709,7 +709,7 @@
     <test>
       <![CDATA[empty(<e/>/(a union descendant-or-self))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -721,7 +721,7 @@
     <test>
       <![CDATA[empty(<e/>/(a union following-sibling))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -733,7 +733,7 @@
     <test>
       <![CDATA[empty(<e/>/(a union following))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -745,7 +745,7 @@
     <test>
       <![CDATA[empty(<e/>/(a union preceding-sibling))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -757,7 +757,7 @@
     <test>
       <![CDATA[empty(<e/>/(a union preceding))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -769,7 +769,7 @@
     <test>
       <![CDATA[empty(<e/>/(a union parent))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -781,7 +781,7 @@
     <test>
       <![CDATA[empty(<e/>/(a union ancestor))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -793,7 +793,7 @@
     <test>
       <![CDATA[empty(<e/>/(a union ancestor))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -805,7 +805,7 @@
     <test>
       <![CDATA[empty(<e/>/(a union ancestor-or-self))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -817,7 +817,7 @@
     <test>
       <![CDATA[empty(<e/>/(a union declare))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -827,7 +827,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="acme_corp"/>
     <test>boolean(//employee[location = &quot;Denver&quot;] union //employee[last()])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -837,7 +837,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="acme_corp"/>
     <test>boolean(//employee[location = &quot;Denver&quot;] | //employee[last()])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

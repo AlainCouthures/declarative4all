@@ -10,7 +10,7 @@
     <test>
         declare default decimal-format zero-digit=&quot;0&quot; grouping-separator=&quot;,&quot; decimal-separator=&quot;.&quot;;
       	format-number(2392.14*36.58,'000,000.000000')</test>
-    <result-string>xs:string('087,504.481200')</result-string>
+    <result-string>xs:string(&quot;087,504.481200&quot;)</result-string>
     <result>
       <assert-string-value>087,504.481200</assert-string-value>
     </result>
@@ -22,7 +22,7 @@
     <test>
         declare default decimal-format digit=&quot;#&quot; grouping-separator=&quot;,&quot; decimal-separator=&quot;.&quot;;
       	format-number(12792.14*96.58,'##,###,000.000###')</test>
-    <result-string>xs:string('1,235,464.8812')</result-string>
+    <result-string>xs:string(&quot;1,235,464.8812&quot;)</result-string>
     <result>
       <assert-string-value>1,235,464.8812</assert-string-value>
     </result>
@@ -34,7 +34,7 @@
     <test>
         declare default decimal-format minus-sign=&quot;-&quot; grouping-separator=&quot;,&quot; decimal-separator=&quot;.&quot;;
       	format-number(2792.14*(-36.58),'000,000.000###')</test>
-    <result-string>xs:string('-102,136.4812')</result-string>
+    <result-string>xs:string(&quot;-102,136.4812&quot;)</result-string>
     <result>
       <assert-string-value>-102,136.4812</assert-string-value>
     </result>
@@ -46,7 +46,7 @@
     <test>
         declare default decimal-format minus-sign=&quot;-&quot; pattern-separator=&quot;;&quot; grouping-separator=&quot;,&quot; decimal-separator=&quot;.&quot;;
       	format-number(2392.14*(-36.58),'000,000.000###;###,###.000###')</test>
-    <result-string>xs:string('87,504.4812')</result-string>
+    <result-string>xs:string(&quot;87,504.4812&quot;)</result-string>
     <result>
       <assert-string-value>87,504.4812</assert-string-value>
     </result>
@@ -58,7 +58,7 @@
     <test>
         declare decimal-format local:df minus-sign=&quot;-&quot; percent=&quot;%&quot; decimal-separator=&quot;.&quot;;
       	format-number(0.4857,'###.###%', 'local:df')</test>
-    <result-string>xs:string('48.57%')</result-string>
+    <result-string>xs:string(&quot;48.57%&quot;)</result-string>
     <result>
       <assert-string-value>48.57%</assert-string-value>
     </result>
@@ -70,7 +70,7 @@
     <test>
         declare decimal-format local:df minus-sign=&quot;-&quot; per-mille=&quot;&quot; decimal-separator=&quot;.&quot;;
       	format-number(0.4857,'###.###')</test>
-    <result-string>xs:string('485.7')</result-string>
+    <result-string>xs:string(&quot;485.7&quot;)</result-string>
     <result>
       <assert-string-value>485.7</assert-string-value>
     </result>
@@ -94,7 +94,7 @@
     <test>
          declare default decimal-format decimal-separator=&quot;|&quot; grouping-separator=&quot;.&quot;; 
          format-number(931.4857,'000.000|###')</test>
-    <result-string>xs:string('000.931|486')</result-string>
+    <result-string>xs:string(&quot;000.931|486&quot;)</result-string>
     <result>
       <assert-string-value>000.931|486</assert-string-value>
     </result>
@@ -106,7 +106,7 @@
     <test>
         declare default decimal-format digit=&quot;!&quot; pattern-separator=&quot;\&quot;;
         format-number(26931.4,'+!!!,!!!.!!!\-!!,!!!.!!!')</test>
-    <result-string>xs:string('+26,931.4')</result-string>
+    <result-string>xs:string(&quot;+26,931.4&quot;)</result-string>
     <result>
       <assert-string-value>+26,931.4</assert-string-value>
     </result>
@@ -118,7 +118,7 @@
     <test>
         declare default decimal-format digit=&quot;!&quot; pattern-separator=&quot;\&quot;;
         format-number(-26931.4,'+!!,!!!.!!!\-!!!,!!!.!!!')</test>
-    <result-string>xs:string('-26,931.4')</result-string>
+    <result-string>xs:string(&quot;-26,931.4&quot;)</result-string>
     <result>
       <assert-string-value>-26,931.4</assert-string-value>
     </result>
@@ -130,7 +130,7 @@
     <test>
         declare default decimal-format digit=&quot;!&quot; pattern-separator=&quot;\&quot;;
         format-number(-26931.4,'!!!,!!!.!!!')</test>
-    <result-string>xs:string('-26,931.4')</result-string>
+    <result-string>xs:string(&quot;-26,931.4&quot;)</result-string>
     <result>
       <assert-string-value>-26,931.4</assert-string-value>
     </result>
@@ -142,7 +142,7 @@
     <test>
         declare decimal-format local:df2 infinity=&quot;off-the-scale&quot;;
         format-number(1 div 0e0,'###############################', 'local:df2')</test>
-    <result-string>xs:string('off-the-scale')</result-string>
+    <result-string>xs:string(&quot;off-the-scale&quot;)</result-string>
     <result>
       <assert-string-value>off-the-scale</assert-string-value>
     </result>
@@ -154,7 +154,7 @@
     <test>
         declare decimal-format local:df2 NaN=&quot;non-numeric&quot;;
         format-number(number('none'), '#############', 'local:df2')</test>
-    <result-string>xs:string('non-numeric')</result-string>
+    <result-string>xs:string(&quot;non-numeric&quot;)</result-string>
     <result>
       <assert-string-value>non-numeric</assert-string-value>
     </result>
@@ -166,7 +166,7 @@
     <test>
         declare default decimal-format  per-mille=&quot;m&quot;;
         format-number(0.4857,'###.###m')</test>
-    <result-string>xs:string('485.7m')</result-string>
+    <result-string>xs:string(&quot;485.7m&quot;)</result-string>
     <result>
       <assert-string-value>485.7m</assert-string-value>
     </result>
@@ -178,7 +178,7 @@
     <test>
         declare default decimal-format  minus-sign=&quot;_&quot;;
         format-number(-26931.4,'+###,###.###;-###,###.###')</test>
-    <result-string>xs:string('-26,931.4')</result-string>
+    <result-string>xs:string(&quot;-26,931.4&quot;)</result-string>
     <result>
       <assert-string-value>-26,931.4</assert-string-value>
     </result>
@@ -190,7 +190,7 @@
     <test>
         declare default decimal-format minus-sign=&quot;_&quot;;
         format-number(-26931.4,'###,###.###')</test>
-    <result-string>xs:string('_26,931.4')</result-string>
+    <result-string>xs:string(&quot;_26,931.4&quot;)</result-string>
     <result>
       <assert-string-value>_26,931.4</assert-string-value>
     </result>
@@ -203,7 +203,7 @@
         declare decimal-format myminus minus-sign=&quot;_&quot;; 
         concat(format-number(-26931.4,'###,###.###','myminus'), '/',
         format-number(-42857.1,'###,###.###'))</test>
-    <result-string>xs:string('_26,931.4/-42,857.1')</result-string>
+    <result-string>xs:string(&quot;_26,931.4/-42,857.1&quot;)</result-string>
     <result>
       <assert-string-value>_26,931.4/-42,857.1</assert-string-value>
     </result>
@@ -217,7 +217,7 @@
         declare decimal-format foo:decimal1  decimal-separator=&quot;!&quot; grouping-separator=&quot;*&quot;;
         declare decimal-format decimal1  decimal-separator=&quot;*&quot; grouping-separator=&quot;!&quot;;
         format-number(1234.567,'#*###*###!###','foo:decimal1')</test>
-    <result-string>xs:string('1*234!567')</result-string>
+    <result-string>xs:string(&quot;1*234!567&quot;)</result-string>
     <result>
       <assert-string-value>1*234!567</assert-string-value>
     </result>
@@ -232,7 +232,7 @@
         declare decimal-format df001 grouping-separator=&quot;!&quot;;
         format-number(123456.789,'#!###!###.###','df001')||'-'||m:do()
       </test>
-    <result-string>xs:string('123!456.789-123'456.789')</result-string>
+    <result-string>xs:string(&quot;123!456.789-123'456.789&quot;)</result-string>
     <result>
       <assert-string-value>123!456.789-123'456.789</assert-string-value>
     </result>

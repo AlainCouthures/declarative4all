@@ -16,7 +16,7 @@ $arg2 = xs:gDay(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gDay(&quot;---01Z&quot;) eq xs:gDay(&quot;---01Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -35,7 +35,7 @@ $arg2 = xs:gDay(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gDay(&quot;---14Z&quot;) eq xs:gDay(&quot;---01Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -54,7 +54,7 @@ $arg2 = xs:gDay(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gDay(&quot;---31Z&quot;) eq xs:gDay(&quot;---01Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -73,7 +73,7 @@ $arg2 = xs:gDay(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gDay(&quot;---01Z&quot;) eq xs:gDay(&quot;---14Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -92,7 +92,7 @@ $arg2 = xs:gDay(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gDay(&quot;---01Z&quot;) eq xs:gDay(&quot;---31Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -111,7 +111,7 @@ $arg2 = xs:gDay(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gDay(&quot;---01Z&quot;) ne xs:gDay(&quot;---01Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -130,7 +130,7 @@ $arg2 = xs:gDay(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gDay(&quot;---14Z&quot;) ne xs:gDay(&quot;---01Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -149,7 +149,7 @@ $arg2 = xs:gDay(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gDay(&quot;---31Z&quot;) ne xs:gDay(&quot;---01Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -168,7 +168,7 @@ $arg2 = xs:gDay(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gDay(&quot;---01Z&quot;) ne xs:gDay(&quot;---14Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -187,7 +187,7 @@ $arg2 = xs:gDay(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gDay(&quot;---01Z&quot;) ne xs:gDay(&quot;---31Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -204,7 +204,7 @@ As per example 2 (for this function) of the FO  specs
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>(xs:gDay(&quot;---12-05:00&quot;) eq xs:gDay(&quot;---12Z&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -221,7 +221,7 @@ return true and used together with fn:not (eq operator)
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>fn:not((xs:gDay(&quot;---12Z&quot;) eq xs:gDay(&quot;---12Z&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -238,7 +238,7 @@ return true and used together with fn:not (ne operator)
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>fn:not(xs:gDay(&quot;---05Z&quot;) ne xs:gDay(&quot;---06Z&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -255,7 +255,7 @@ return false and used together with fn:not (eq operator)
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>fn:not(xs:gDay(&quot;---11Z&quot;) eq xs:gDay(&quot;---10Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -272,7 +272,7 @@ return false and used together with fn:not(ne operator)
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>fn:not(xs:gDay(&quot;---05Z&quot;) ne xs:gDay(&quot;---05Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -289,7 +289,7 @@ together with &quot;and&quot; expression (eq operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>(xs:gDay(&quot;---04Z&quot;) eq xs:gDay(&quot;---02Z&quot;)) and (xs:gDay(&quot;---01Z&quot;) eq xs:gDay(&quot;---12Z&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -306,7 +306,7 @@ together with &quot;and&quot; expression (ne operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>(xs:gDay(&quot;---12Z&quot;) ne xs:gDay(&quot;---03Z&quot;)) and (xs:gDay(&quot;---05Z&quot;) ne xs:gDay(&quot;---08Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -323,7 +323,7 @@ together with &quot;or&quot; expression (eq operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>(xs:gDay(&quot;---02Z&quot;) eq xs:gDay(&quot;---02Z&quot;)) or (xs:gDay(&quot;---06Z&quot;) eq xs:gDay(&quot;---06Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -340,7 +340,7 @@ together with &quot;or&quot; expression (ne operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>(xs:gDay(&quot;---06Z&quot;) ne xs:gDay(&quot;---06Z&quot;)) or (xs:gDay(&quot;---08Z&quot;) ne xs:gDay(&quot;---09Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -357,7 +357,7 @@ together with &quot;fn:true&quot;/or expression (eq operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>(xs:gDay(&quot;---03Z&quot;) eq xs:gDay(&quot;---01Z&quot;)) or (fn:true())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -374,7 +374,7 @@ together with &quot;fn:true&quot;/or expression (ne operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>(xs:gDay(&quot;---08Z&quot;) ne xs:gDay(&quot;---07Z&quot;)) or (fn:true())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -391,7 +391,7 @@ together with &quot;fn:false&quot;/or expression (eq operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>(xs:gDay(&quot;---05Z&quot;) eq xs:gDay(&quot;---05Z&quot;)) or (fn:false())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -408,7 +408,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-16"/>
     <test>(xs:gDay(&quot;---09Z&quot;) ne xs:gDay(&quot;---09Z&quot;)) or (fn:false())</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -424,7 +424,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:gDay(&quot; ---31 &quot;) eq xs:gDay(&quot;---31&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -440,7 +440,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:gDay(&quot;---31&quot;) eq xs:gDay(&quot;---01&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -456,7 +456,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:gDay(&quot;---01&quot;) ne xs:gDay(&quot;---10&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -472,7 +472,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:gDay(&quot;---01&quot;) ne xs:gDay(&quot;---01&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -488,7 +488,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:gDay(&quot;---01-00:00&quot;) eq xs:gDay(&quot;---01Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -504,7 +504,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:gDay(&quot;---01+00:00&quot;) eq xs:gDay(&quot;---01Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -520,7 +520,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:gDay(&quot;---01Z&quot;) eq xs:gDay(&quot;---01Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -536,7 +536,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:gDay(&quot;---01-00:00&quot;) eq xs:gDay(&quot;---01+00:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -546,7 +546,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <created by="Tim Mills" on="2008-05-16"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:gDay($day as xs:integer) { if ($day lt 10) then xs:gDay(concat(&quot;---0&quot;, $day)) else xs:gDay(concat(&quot;---&quot;, $day)) }; not(local:gDay(1) eq xs:gDay(&quot;---31&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -558,7 +558,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('PT9M'))
             then xs:gDay(&quot;---30&quot;) eq xs:gDay(&quot;---31+09:01&quot;)
             else xs:gDay(&quot;---30&quot;) eq xs:gDay(&quot;---31+09:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -570,7 +570,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('PT9M'))
             then xs:gDay(&quot;---31+09:01&quot;) eq xs:gDay(&quot;---30&quot;)
             else xs:gDay(&quot;---31+09:00&quot;) eq xs:gDay(&quot;---30&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -582,7 +582,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('-PT9M'))
             then xs:gDay(&quot;---30&quot;) eq xs:gDay(&quot;---31-09:01&quot;)
             else xs:gDay(&quot;---30&quot;) eq xs:gDay(&quot;---31-09:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -594,7 +594,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('-PT9M'))
             then xs:gDay(&quot;---31-09:01&quot;) eq xs:gDay(&quot;---30&quot;)
             else xs:gDay(&quot;---31-09:00&quot;) eq xs:gDay(&quot;---30&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -604,7 +604,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <created by="Tim Mills" on="2008-05-16"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:gDay($day as xs:integer) { if ($day lt 10) then xs:gDay(concat(&quot;---0&quot;, $day)) else xs:gDay(concat(&quot;---&quot;, $day)) }; not(local:gDay(1) ne xs:gDay(&quot;---31&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -616,7 +616,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('PT9M'))
             then xs:gDay(&quot;---30&quot;) ne xs:gDay(&quot;---31+09:01&quot;)
             else xs:gDay(&quot;---30&quot;) ne xs:gDay(&quot;---31+09:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -628,7 +628,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('PT9M'))
             then xs:gDay(&quot;---31+09:01&quot;) ne xs:gDay(&quot;---30&quot;)
             else xs:gDay(&quot;---31+09:00&quot;) ne xs:gDay(&quot;---30&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -640,7 +640,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('-PT9M'))
             then xs:gDay(&quot;---30&quot;) ne xs:gDay(&quot;---31-09:01&quot;)
             else xs:gDay(&quot;---30&quot;) ne xs:gDay(&quot;---31-09:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -652,7 +652,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('-PT9M'))
             then xs:gDay(&quot;---31-09:01&quot;) ne xs:gDay(&quot;---30&quot;)
             else xs:gDay(&quot;---31-09:00&quot;) ne xs:gDay(&quot;---30&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -662,7 +662,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:gDay($gDay as xs:gDay, $null as xs:boolean) { if ($null) then () else $gDay }; exists(local:gDay(xs:gDay(&quot;---31&quot;), fn:true()) eq xs:gDay(&quot;---31&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -672,7 +672,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:gDay($gDay as xs:gDay, $null as xs:boolean) { if ($null) then () else $gDay }; local:gDay(xs:gDay(&quot;---31&quot;), fn:false()) eq xs:gDay(&quot;---31&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -682,7 +682,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:gDay($gDay as xs:gDay, $null as xs:boolean) { if ($null) then () else $gDay }; exists(local:gDay(xs:gDay(&quot;---31&quot;), fn:true()) ne xs:gDay(&quot;---31&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -692,7 +692,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:gDay($gDay as xs:gDay, $null as xs:boolean) { if ($null) then () else $gDay }; local:gDay(xs:gDay(&quot;---31&quot;), fn:false()) ne xs:gDay(&quot;---31&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -701,7 +701,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <description> test comparison of gDay </description>
     <created by="Oliver Hallam" on="2008-05-21"/>
     <test>xs:gDay(&quot;---30-12:00&quot;) eq xs:gDay(&quot;---31+12:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -710,7 +710,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <description> test comparison of gDay </description>
     <created by="Oliver Hallam" on="2008-05-21"/>
     <test>xs:gDay(&quot;---31+12:00&quot;) eq xs:gDay(&quot;---30-12:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -719,7 +719,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <description> test comparison of gDay </description>
     <created by="Oliver Hallam" on="2008-05-21"/>
     <test>xs:gDay(&quot;---30-12:00&quot;) ne xs:gDay(&quot;---31+12:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -728,7 +728,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <description> test comparison of gDay </description>
     <created by="Oliver Hallam" on="2008-05-21"/>
     <test>xs:gDay(&quot;---31+12:00&quot;) ne xs:gDay(&quot;---30-12:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -740,7 +740,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('PT1H'))
             then xs:gDay(&quot;---31+01:01&quot;) eq xs:gDay(&quot;---31&quot;)
             else xs:gDay(&quot;---31+01:00&quot;) eq xs:gDay(&quot;---31&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -752,7 +752,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('PT1H'))
             then xs:gDay(&quot;---31&quot;) eq xs:gDay(&quot;---31+01:01&quot;)
             else xs:gDay(&quot;---31&quot;) eq xs:gDay(&quot;---31+01:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

@@ -105,7 +105,7 @@
     <created by="Michael Kay" on="2010-12-20"/>
     <environment ref="auction"/>
     <test>generate-id() eq generate-id(/)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -115,7 +115,7 @@
     <created by="Michael Kay" on="2010-12-20"/>
     <environment ref="auction"/>
     <test>/*/(generate-id() eq generate-id(.))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -126,7 +126,7 @@
     <environment ref="auction"/>
     <test>let $nodes := (/ | //*/(.|@*|comment()|processing-instruction()|text())) 
             return count($nodes) eq count(distinct-values($nodes/generate-id()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -139,7 +139,7 @@
     <dependency type="spec" value="XP20+"/>
     <test>let $nodes := //*/(@* | namespace::*) 
             return count($nodes) eq count(distinct-values($nodes/generate-id()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -150,7 +150,7 @@
     <environment ref="collection"/>
     <test>let $nodes := collection()
             return count($nodes) eq count(distinct-values($nodes/generate-id()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -161,7 +161,7 @@
     <environment ref="collection"/>
     <test>let $nodes := collection()//*
             return count($nodes) eq count(distinct-values($nodes/generate-id()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -209,7 +209,7 @@
         import module namespace copy=&quot;http://www.w3.org/QT3/copy&quot;;
         generate-id(copy:copy(/*)) eq generate-id(/*)
       </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -225,7 +225,7 @@
         import module namespace copy=&quot;http://www.w3.org/QT3/copy&quot;;
         let $att := (//@*)[1] return generate-id(copy:copy($att)) eq generate-id($att)
       </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -238,7 +238,7 @@
     <dependency type="spec" value="XP20+"/>
     <dependency type="feature" value="xpath-1.0-compatibility"/>
     <test>generate-id(//*) eq generate-id(/*)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

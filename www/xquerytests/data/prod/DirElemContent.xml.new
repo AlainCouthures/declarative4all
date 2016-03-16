@@ -144,7 +144,7 @@
     <test>
       <![CDATA[string-to-codepoints(<elem>&lt;</elem>)]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;60&quot;)</result-string>
     <result>
       <assert-eq>60</assert-eq>
     </result>
@@ -156,7 +156,7 @@
     <test>
       <![CDATA[string-to-codepoints(<elem>&gt;</elem>)]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;62&quot;)</result-string>
     <result>
       <assert-eq>62</assert-eq>
     </result>
@@ -168,7 +168,7 @@
     <test>
       <![CDATA[string-to-codepoints(<elem>&amp;</elem>)]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;38&quot;)</result-string>
     <result>
       <assert-eq>38</assert-eq>
     </result>
@@ -180,7 +180,7 @@
     <test>
       <![CDATA[string-to-codepoints(<elem>&quot;</elem>)]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;34&quot;)</result-string>
     <result>
       <assert-eq>34</assert-eq>
     </result>
@@ -192,7 +192,7 @@
     <test>
       <![CDATA[string-to-codepoints(<elem>&apos;</elem>)]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;39&quot;)</result-string>
     <result>
       <assert-eq>39</assert-eq>
     </result>
@@ -242,7 +242,7 @@
     <test>
       <![CDATA[count((<elem>text</elem>)/text())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -252,7 +252,7 @@
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
     <test>count((elemtext![CDATA[cdata]]/elem)/text())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -320,7 +320,7 @@
     <test>
       <![CDATA[count((<elem>{1,'a',3.5,4e2}</elem>)/text())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -332,7 +332,7 @@
     <test>
       <![CDATA[count((<elem>{1,'a',<a/>,3.5,4e2}</elem>)/text())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -403,7 +403,7 @@
     <test>
       <![CDATA[for $x in <a/>, $y in <elem>{$x}</elem> return exactly-one($y/a) is $x]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -415,7 +415,7 @@
     <test>
       <![CDATA[for $x in <a b="b"/>, $y in <elem>{$x/@b}</elem> return $y/@b is $x/@b]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -427,7 +427,7 @@
     <test>
       <![CDATA[for $x in <!--comment-->, $y in <elem>{$x}</elem> return exactly-one($y/comment()) is $x]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -439,7 +439,7 @@
     <test>
       <![CDATA[for $x in <?pi content?>, $y in <elem>{$x}</elem> return exactly-one($y/processing-instruction()) is $x]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -451,7 +451,7 @@
     <test>
       <![CDATA[for $x in <a>text</a>, $y in <elem>{$x/text()}</elem> return exactly-one($y/text()) is exactly-one($x/text())]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -464,7 +464,7 @@
     <test>
       <![CDATA[declare construction strip; fn:count(fn:data(<elem>{//*:idrefs}</elem>/*))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -522,7 +522,7 @@
     <test>
       <![CDATA[declare construction strip; fn:count(fn:data((<elem>{//*:idrefs/@*:attr}</elem>)/@*:attr))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -768,7 +768,7 @@
         return fn:base-uri(exactly-one($y/b))
       ]]>
     </test>
-    <result-string>xs:string('http://www.example.com/base2')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/base2&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/base2</assert-string-value>
     </result>
@@ -780,7 +780,7 @@
     <test>
       <![CDATA[count((<elem>a{1,2,3}b</elem>)/text())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -792,7 +792,7 @@
     <test>
       <![CDATA[count((<elem>a{1,<a/>,3}b</elem>)/text())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -804,7 +804,7 @@
     <test>
       <![CDATA[count((<elem>{''}</elem>)/text())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -816,7 +816,7 @@
     <test>
       <![CDATA[count((<elem>{()}</elem>)/text())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -897,7 +897,7 @@
     <test>
       <![CDATA[fn:base-uri(<elem xml:base="http://www.example.com"/>)]]>
     </test>
-    <result-string>xs:string('http://www.example.com')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com</assert-string-value>
     </result>
@@ -909,7 +909,7 @@
     <test>
       <![CDATA[fn:base-uri(exactly-one((<elem xml:base="http://www.example.com"><a/></elem>)/a))]]>
     </test>
-    <result-string>xs:string('http://www.example.com')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com</assert-string-value>
     </result>
@@ -921,7 +921,7 @@
     <test>
       <![CDATA[declare base-uri "http://www.example.com"; fn:base-uri(<elem/>)]]>
     </test>
-    <result-string>xs:string('http://www.example.com')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com</assert-string-value>
     </result>
@@ -933,7 +933,7 @@
     <test>
       <![CDATA[count((<elem/>)/..)]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1016,7 +1016,7 @@
     <test>
       <![CDATA[fn:string(<elem>a<a/>b</elem>)]]>
     </test>
-    <result-string>xs:string('ab')</result-string>
+    <result-string>xs:string(&quot;ab&quot;)</result-string>
     <result>
       <assert-string-value>ab</assert-string-value>
     </result>
@@ -1028,7 +1028,7 @@
     <test>
       <![CDATA[fn:data(<elem>a<a/>b</elem>)]]>
     </test>
-    <result-string>xs:string('ab')</result-string>
+    <result-string>xs:string(&quot;ab&quot;)</result-string>
     <result>
       <assert-string-value>ab</assert-string-value>
     </result>
@@ -1040,7 +1040,7 @@
     <test>
       <![CDATA[count(<wrapper> {'abc', document {'def', <anode/>, 'ghi'}, 'jkl'} </wrapper>/node())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -1052,7 +1052,7 @@
     <test>
       <![CDATA[count(<wrapper> abc {document {'def', <anode/>, 'ghi'}} jkl </wrapper>/node())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -1092,7 +1092,7 @@
     <test>
       <![CDATA[count( document {'abc', 'def', document {'ghi', <anode/>, 'jkl'}, 'mno' } /node() )]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -1102,7 +1102,7 @@
     <created by="Nicolae Brinza" on="2006-09-25"/>
     <dependency type="spec" value="XQ10+"/>
     <test>count( document {'abc', 'def', document {'ghi', 'jkl'}, 'mno' } /node() )</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1150,7 +1150,7 @@
     <test>
       <![CDATA[data(<name>some text</name>) instance of xs:untypedAtomic]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1162,7 +1162,7 @@
     <test>
       <![CDATA[not(data(<name>some text</name>) instance of xs:string)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1174,7 +1174,7 @@
     <test>
       <![CDATA[<name>some, if(1) then else</name> instance of element()]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1186,7 +1186,7 @@
     <test>
       <![CDATA[not(<name>some text</name> instance of xs:untypedAtomic)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1198,7 +1198,7 @@
     <test>
       <![CDATA[data(<!-- a comment -->) instance of xs:string]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1210,7 +1210,7 @@
     <test>
       <![CDATA[not(data(<!-- a comment -->) instance of xs:untypedAtomic)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1222,7 +1222,7 @@
     <test>
       <![CDATA[<!-- a comment --> instance of comment()]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1234,7 +1234,7 @@
     <test>
       <![CDATA[not(<!-- a comment --> instance of xs:untypedAtomic)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1246,7 +1246,7 @@
     <test>
       <![CDATA[not(<!-- a comment --> instance of xs:string)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1258,7 +1258,7 @@
     <test>
       <![CDATA[data(<?target content?>) instance of xs:string]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1270,7 +1270,7 @@
     <test>
       <![CDATA[not(data(<?target content?>) instance of xs:untypedAtomic)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1282,7 +1282,7 @@
     <test>
       <![CDATA[<?target content?> instance of processing-instruction()]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1294,7 +1294,7 @@
     <test>
       <![CDATA[not(<?target content?> instance of xs:untypedAtomic)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1382,7 +1382,7 @@
     <test>
       <![CDATA[string(<eg> (: an (:example:) </eg>)]]>
     </test>
-    <result-string>xs:string(' (: an (:example:) ')</result-string>
+    <result-string>xs:string(&quot; (: an (:example:) &quot;)</result-string>
     <result>
       <assert-string-value> (: an (:example:) </assert-string-value>
     </result>
@@ -1404,7 +1404,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>string(elem![CDATA[str]]str![CDATA[str]]![CDATA[str]]![CDATA[str]]strstr{ &quot;str&quot;, &quot;str&quot;, &quot;strstr&quot;, &quot;str&quot;}strstr![CDATA[str]]s?target str?tr/elem) eq &quot;strstrstrstrstrstrstrstr str strstr strstrstrstrstr&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1414,7 +1414,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>string(elem![CDATA[con ]] &quot;&quot;'*&quot;*&quot;tent]]#00;#x12;amp;quot;notrecognized;apos]]/elem) eq &quot;conlt;lt;lt; ]] gt;&quot;&quot;&quot;&quot;'*&quot;&quot;*&quot;&quot;gt;gt;tent]]amp;#00;amp;#x12;amp;amp;amp;quot;amp;notrecognized;amp;apos&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1424,7 +1424,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>data(text{&quot;content&quot;}) instance of xs:untypedAtomic</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1450,7 +1450,7 @@
     <test>
       <![CDATA[string(<e>{1}A{1}</e>)]]>
     </test>
-    <result-string>xs:string('1A1')</result-string>
+    <result-string>xs:string(&quot;1A1&quot;)</result-string>
     <result>
       <assert-string-value>1A1</assert-string-value>
     </result>
@@ -1462,7 +1462,7 @@
     <test>
       <![CDATA[data(<e>dsa</e>) instance of xs:untypedAtomic]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1474,7 +1474,7 @@
     <test>
       <![CDATA[data(<e>dsa</e>)]]>
     </test>
-    <result-string>xs:string('dsa')</result-string>
+    <result-string>xs:string(&quot;dsa&quot;)</result-string>
     <result>
       <assert-string-value>dsa</assert-string-value>
     </result>
@@ -1486,7 +1486,7 @@
     <test>
       <![CDATA[<e/> instance of element(*, xs:anyType)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1501,7 +1501,7 @@
     <test>
       <![CDATA[<e/> instance of element(*, xs:untyped)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1513,7 +1513,7 @@
     <test>
       <![CDATA[declare construction strip; <e/> instance of element(*, xs:untyped)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1525,7 +1525,7 @@
     <test>
       <![CDATA[<e/> instance of element(a, xs:anyType)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1537,7 +1537,7 @@
     <test>
       <![CDATA[declare construction strip; <e/> instance of element(b, xs:untyped)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1692,7 +1692,7 @@
       	return count(distinct-values(in-scope-prefixes($z)))
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>

@@ -33,7 +33,7 @@
     <created by="Carmelo Montanez" on="2005-11-28"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:count(fn:document-uri(()))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -43,7 +43,7 @@
     <created by="Carmelo Montanez" on="2005-11-28"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:count(fn:document-uri(element anElement {&quot;some content&quot;}))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -53,7 +53,7 @@
     <created by="Carmelo Montanez" on="2005-11-28"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:count(fn:document-uri(comment {&quot;a comment node&quot;}))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -63,7 +63,7 @@
     <created by="Carmelo Montanez" on="2005-11-28"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:count(fn:document-uri(text {&quot;a text node&quot;}))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -73,7 +73,7 @@
     <created by="Carmelo Montanez" on="2005-11-28"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:count(fn:document-uri(attribute anAttribute {&quot;an attribute node&quot;}))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -83,7 +83,7 @@
     <created by="Carmelo Montanez" on="2005-11-28"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:count(fn:document-uri(processing-instruction {&quot;PITarget&quot;} {&quot;PIContent&quot;}))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -95,7 +95,7 @@
     <test>
       <![CDATA[fn:count(fn:document-uri(<?audio-output beep?>))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -107,7 +107,7 @@
     <test>
       <![CDATA[fn:count(fn:document-uri(<!-- A comment node -->))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -119,7 +119,7 @@
     <test>
       <![CDATA[fn:count(fn:document-uri(<anElement>element content</anElement>))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -131,7 +131,7 @@
     <test>
       <![CDATA[fn:count(fn:document-uri(document {<anElement>element content</anElement>}))]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -155,7 +155,7 @@
     <created by="Carmelo Montanez" on="2005-11-28"/>
     <environment ref="works-mod"/>
     <test>fn:count(fn:document-uri(/works[1]/employee[1]))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -165,7 +165,7 @@
     <created by="Carmelo Montanez" on="2005-11-28"/>
     <environment ref="works-mod"/>
     <test>fn:count(fn:document-uri(/works[1]/employee[1]/@name))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -242,7 +242,7 @@
     <created by="Carmelo Montanez" on="2005-11-28"/>
     <environment ref="works-mod"/>
     <test>fn:substring-before(fn:string(fn:contains(fn:document-uri(/),&quot;works-mod&quot;)),&quot;e&quot;)</test>
-    <result-string>xs:string('tru')</result-string>
+    <result-string>xs:string(&quot;tru&quot;)</result-string>
     <result>
       <assert-string-value>tru</assert-string-value>
     </result>
@@ -252,7 +252,7 @@
     <created by="Carmelo Montanez" on="2005-11-28"/>
     <environment ref="works-mod"/>
     <test>fn:substring-after(fn:string(fn:contains(fn:document-uri(/),&quot;works-mod&quot;)),&quot;t&quot;)</test>
-    <result-string>xs:string('rue')</result-string>
+    <result-string>xs:string(&quot;rue&quot;)</result-string>
     <result>
       <assert-string-value>rue</assert-string-value>
     </result>
@@ -262,7 +262,7 @@
     <created by="Tim Mills" on="2013-01-19"/>
     <dependency type="spec" value="XQ30+"/>
     <test>(attribute anAttribute {&quot;an attribute node&quot;})/document-uri()</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -272,7 +272,7 @@
     <created by="Tim Mills" on="2013-01-19"/>
     <dependency type="spec" value="XQ30+"/>
     <test>(processing-instruction {&quot;PITarget&quot;} {&quot;PIContent&quot;})/document-uri()</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -284,7 +284,7 @@
     <test>
       <![CDATA[(<?audio-output beep?>)/document-uri()]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -296,7 +296,7 @@
     <test>
       <![CDATA[(<!-- A comment node -->)/document-uri()]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -308,7 +308,7 @@
     <test>
       <![CDATA[(<anElement>element content</anElement>)/document-uri()]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -320,7 +320,7 @@
     <test>
       <![CDATA[(document {<anElement>element content</anElement>})/document-uri()]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -345,7 +345,7 @@
     <environment ref="works-mod"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:count((/works[1]/employee[1])/document-uri())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -356,7 +356,7 @@
     <environment ref="works-mod"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:count((/works[1]/employee[1]/@name)/document-uri())</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -437,7 +437,7 @@
     <environment ref="works-mod"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:substring-before(fn:string(fn:contains((/)/document-uri(),&quot;works-mod&quot;)),&quot;e&quot;)</test>
-    <result-string>xs:string('tru')</result-string>
+    <result-string>xs:string(&quot;tru&quot;)</result-string>
     <result>
       <assert-string-value>tru</assert-string-value>
     </result>
@@ -448,7 +448,7 @@
     <environment ref="works-mod"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:substring-after(fn:string(fn:contains((/)/document-uri(),&quot;works-mod&quot;)),&quot;t&quot;)</test>
-    <result-string>xs:string('rue')</result-string>
+    <result-string>xs:string(&quot;rue&quot;)</result-string>
     <result>
       <assert-string-value>rue</assert-string-value>
     </result>
@@ -479,7 +479,7 @@
     <environment ref="works-mod-uri"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>ends-with(document-uri(),&quot;works-mod.xml&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -498,7 +498,7 @@
     <description> A test whose essence is: `empty(document-uri(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(document-uri(()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -510,7 +510,7 @@
     <test>
       <![CDATA[empty(document-uri(<!-- comment -->))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -520,7 +520,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>empty(document-uri(attribute name {&quot;content&quot;}))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -532,7 +532,7 @@
     <test>
       <![CDATA[empty(document-uri(<?target data?>))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -542,7 +542,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>empty(document-uri(processing-instruction name {123}))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -552,7 +552,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>empty(document-uri(text {123}))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -564,7 +564,7 @@
     <test>
       <![CDATA[empty(document-uri(<elem/>))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -576,7 +576,7 @@
     <test>
       <![CDATA[empty(document-uri(<elem attr="f"/>/@attr))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -586,7 +586,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>empty(document-uri(document {1}))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -598,7 +598,7 @@
     <test>
       <![CDATA[let $i := document { <e> <a/> <a/> <a/> <b/> <b/> <a/> <a/> </e> } return empty(document-uri($i))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -624,7 +624,7 @@
     <environment ref="TopMany"/>
     <dependency type="spec" value="XQ10+"/>
     <test>for $i in (1, document-uri(.), 3) return typeswitch($i) case xs:anyURI return &quot;xs:anyURI&quot; case xs:integer return &quot;int&quot; default return &quot;FAILURE&quot;</test>
-    <result-string>xs:string('int xs:anyURI int')</result-string>
+    <result-string>xs:string(&quot;int xs:anyURI int&quot;)</result-string>
     <result>
       <assert-string-value>int xs:anyURI int</assert-string-value>
     </result>
@@ -635,7 +635,7 @@
     <environment ref="works-mod-uri"/>
     <dependency type="spec" value="XQ30+"/>
     <test>empty(//works[fn:document-uri()])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

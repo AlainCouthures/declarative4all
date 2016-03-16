@@ -175,7 +175,7 @@
     <description> fn:subsequence ordered </description>
     <created by="Andreas Behm" on="2005-10-05"/>
     <test>ordered {fn:subsequence((1,2,3,4),2,2)}</test>
-    <result-string>xs:string('2 3')</result-string>
+    <result-string>xs:string(&quot;2 3&quot;)</result-string>
     <result>
       <assert-string-value>2 3</assert-string-value>
     </result>
@@ -196,7 +196,7 @@
     <description> fn:reverse ordered </description>
     <created by="Andreas Behm" on="2005-10-05"/>
     <test>ordered {fn:reverse((3,2))}</test>
-    <result-string>xs:string('2 3')</result-string>
+    <result-string>xs:string(&quot;2 3&quot;)</result-string>
     <result>
       <assert-string-value>2 3</assert-string-value>
     </result>
@@ -221,7 +221,7 @@
     <test>
       <![CDATA[ordered { for $i in (//part[@partid = 1], //part[@partid = 2]), $j in (//part[@partof = $i/@partid]) where ($i/@partid + $j/@partid) < 7 return $i/@partid + $j/@partid }]]>
     </test>
-    <result-string>xs:string('4 6')</result-string>
+    <result-string>xs:string(&quot;4 6&quot;)</result-string>
     <result>
       <assert-string-value>4 6</assert-string-value>
     </result>
@@ -246,7 +246,7 @@
     <description> Evaluation of ordered expression together with if expression (&quot;some&quot; operator). </description>
     <created by="Carmelo Montanez" on="2005-12-09"/>
     <test>ordered {if (fn:true()) then (0,1,2,3,4) else (&quot;A&quot;,&quot;B&quot;,&quot;C&quot;)}</test>
-    <result-string>xs:string('0 1 2 3 4')</result-string>
+    <result-string>xs:string(&quot;0 1 2 3 4&quot;)</result-string>
     <result>
       <assert-string-value>0 1 2 3 4</assert-string-value>
     </result>
@@ -255,7 +255,7 @@
     <description> Evaluation of ordered expression used with &quot;or&quot; expression (&quot;and&quot; operator). </description>
     <created by="Carmelo Montanez" on="2005-12-09"/>
     <test>ordered {if (1 eq 1 and 2 eq 2) then (0,1,2,3,4) else (&quot;a&quot;,&quot;b&quot;)}</test>
-    <result-string>xs:string('0 1 2 3 4')</result-string>
+    <result-string>xs:string(&quot;0 1 2 3 4&quot;)</result-string>
     <result>
       <assert-string-value>0 1 2 3 4</assert-string-value>
     </result>
@@ -264,7 +264,7 @@
     <description> Evaluation of ordered expression used with &quot;or&quot; expression (&quot;or&quot; operator). </description>
     <created by="Carmelo Montanez" on="2005-12-09"/>
     <test>ordered {if (1 eq 1 or 2 eq 3) then (0,1,2,3,4) else (&quot;a&quot;,&quot;b&quot;)}</test>
-    <result-string>xs:string('0 1 2 3 4')</result-string>
+    <result-string>xs:string(&quot;0 1 2 3 4&quot;)</result-string>
     <result>
       <assert-string-value>0 1 2 3 4</assert-string-value>
     </result>
@@ -273,7 +273,7 @@
     <description> Evaluation of ordered expression used with quantified expression. </description>
     <created by="Carmelo Montanez" on="2005-12-09"/>
     <test>ordered {if (some $x in (1, 2, 3), $y in (2, 3, 4) satisfies $x + $y = 4) then (0,1,2,3,4) else (&quot;a&quot;,&quot;b&quot;)}</test>
-    <result-string>xs:string('0 1 2 3 4')</result-string>
+    <result-string>xs:string(&quot;0 1 2 3 4&quot;)</result-string>
     <result>
       <assert-string-value>0 1 2 3 4</assert-string-value>
     </result>
@@ -285,7 +285,7 @@
     <test>
       <![CDATA[ordered {if (every $x in (1, 2, 3) satisfies $x < 4) then (0,1,2,3,4) else ("a","b")}]]>
     </test>
-    <result-string>xs:string('0 1 2 3 4')</result-string>
+    <result-string>xs:string(&quot;0 1 2 3 4&quot;)</result-string>
     <result>
       <assert-string-value>0 1 2 3 4</assert-string-value>
     </result>
@@ -294,7 +294,7 @@
     <description> Evaluation of ordered expression used with typeswitch expression. </description>
     <created by="Carmelo Montanez" on="2005-12-09"/>
     <test>ordered {typeswitch(123) case $i as xs:string return (&quot;a&quot;,&quot;b&quot;,&quot;c&quot;) case $i as xs:double return (&quot;a&quot;,&quot;b&quot;,&quot;c&quot;) case $i as xs:integer return (1,2,3,4) default return (&quot;a&quot;,&quot;b&quot;,&quot;c&quot;) }</test>
-    <result-string>xs:string('1 2 3 4')</result-string>
+    <result-string>xs:string(&quot;1 2 3 4&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3 4</assert-string-value>
     </result>
@@ -321,7 +321,7 @@
     <description> A simple test of 'ordered{}'. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>ordered{true()}</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -330,7 +330,7 @@
     <description> A simple test of 'unordered{}'. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>unordered{true()}</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

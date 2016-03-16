@@ -88,7 +88,7 @@
     <description> empty parent </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <test>count((comment {'comment'})/..)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -97,7 +97,7 @@
     <description> string value of computed comment node </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <test>fn:string(comment {'a', element a {}, 'b'})</test>
-    <result-string>xs:string('a  b')</result-string>
+    <result-string>xs:string(&quot;a  b&quot;)</result-string>
     <result>
       <assert-string-value>a  b</assert-string-value>
     </result>
@@ -106,7 +106,7 @@
     <description> typed value of computed comment node </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <test>fn:data(comment {'a', element a {}, 'b'})</test>
-    <result-string>xs:string('a  b')</result-string>
+    <result-string>xs:string(&quot;a  b&quot;)</result-string>
     <result>
       <assert-string-value>a  b</assert-string-value>
     </result>
@@ -285,7 +285,7 @@
     <description> Test the atomized type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>data(comment {&quot;content&quot;}) instance of xs:string</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

@@ -13,7 +13,7 @@
     <created by="Michael Kay" on="2010-02-10"/>
     <environment ref="empty"/>
     <test>fold-right(1 to 5, 0,function($a, $b) { $a + $b })</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;15&quot;)</result-string>
     <result>
       <assert-eq>15</assert-eq>
     </result>
@@ -27,7 +27,7 @@
     <created by="Michael Kay" on="2010-02-10"/>
     <environment ref="empty"/>
     <test>fold-right((2,3,5,7), 1,function($a, $b) { $a * $b })</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;210&quot;)</result-string>
     <result>
       <assert-eq>210</assert-eq>
     </result>
@@ -41,7 +41,7 @@
     <created by="Michael Kay" on="2010-02-10"/>
     <environment ref="empty"/>
     <test>fold-right((true(), false(), false()), false(),function($a, $b) { $a or $b })</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -55,7 +55,7 @@
     <created by="Michael Kay" on="2010-02-10"/>
     <environment ref="empty"/>
     <test>fold-right((true(), false(), false()), false(),function($a, $b) { $a and $b })</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -83,7 +83,7 @@
     <created by="Michael Kay" on="2010-02-10"/>
     <environment ref="empty"/>
     <test>fold-right(1 to 5, &quot;&quot;, fn:concat(?, &quot;.&quot;, ?))</test>
-    <result-string/>
+    <result-string>xs:string(&quot;'1.2.3.4.5.'&quot;)</result-string>
     <result>
       <assert-eq>'1.2.3.4.5.'</assert-eq>
     </result>
@@ -97,7 +97,7 @@
     <created by="Michael Kay" on="2010-02-10"/>
     <environment ref="empty"/>
     <test>fold-right(1 to 5, &quot;$zero&quot;, fn:concat(&quot;$f(&quot;, ?, &quot;, &quot;, ?, &quot;)&quot;))</test>
-    <result-string>xs:string('$f(1, $f(2, $f(3, $f(4, $f(5, $zero)))))')</result-string>
+    <result-string>xs:string(&quot;$f(1, $f(2, $f(3, $f(4, $f(5, $zero)))))&quot;)</result-string>
     <result>
       <assert-string-value>$f(1, $f(2, $f(3, $f(4, $f(5, $zero)))))</assert-string-value>
     </result>
@@ -176,7 +176,7 @@
     <created by="William Candillon" on="2011-11-27"/>
     <environment ref="empty"/>
     <test>fold-right(1 to 1000000, 0, function($a, $b){ $b + 1 })</test>
-    <result-string>xs:string('1000000')</result-string>
+    <result-string>xs:string(&quot;1000000&quot;)</result-string>
     <result>
       <assert-string-value>1000000</assert-string-value>
     </result>
@@ -232,7 +232,7 @@
     <created by="William Candillon" on="2011-11-27"/>
     <environment ref="empty"/>
     <test>fold-right((1 to 13), 0, concat(&quot;(&quot;, ?, &quot;+&quot;, ?, &quot;)&quot;))</test>
-    <result-string>xs:string('(1+(2+(3+(4+(5+(6+(7+(8+(9+(10+(11+(12+(13+0)))))))))))))')</result-string>
+    <result-string>xs:string(&quot;(1+(2+(3+(4+(5+(6+(7+(8+(9+(10+(11+(12+(13+0)))))))))))))&quot;)</result-string>
     <result>
       <assert-string-value>(1+(2+(3+(4+(5+(6+(7+(8+(9+(10+(11+(12+(13+0)))))))))))))</assert-string-value>
     </result>
@@ -246,7 +246,7 @@
     <created by="William Candillon" on="2011-11-27"/>
     <environment ref="empty"/>
     <test>fold-right((&quot;Hello&quot;, &quot;World&quot;), 0, function($a, $b){ string-length($a) + $b })</test>
-    <result-string>xs:string('10')</result-string>
+    <result-string>xs:string(&quot;10&quot;)</result-string>
     <result>
       <assert-string-value>10</assert-string-value>
     </result>
@@ -260,7 +260,7 @@
     <created by="William Candillon" on="2011-11-27"/>
     <environment ref="empty"/>
     <test>fold-right( 1 to 10, (), function($a, $b){ if(empty($b)) then $a else if($a lt $b) then $b else $a })</test>
-    <result-string>xs:string('10')</result-string>
+    <result-string>xs:string(&quot;10&quot;)</result-string>
     <result>
       <assert-string-value>10</assert-string-value>
     </result>
@@ -274,7 +274,7 @@
     <created by="William Candillon" on="2011-11-27"/>
     <environment ref="empty"/>
     <test>fold-right(1 to 10, (), function($a, $b){ if(empty($b)) then $a else if($a gt $b) then $b else $a })</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>

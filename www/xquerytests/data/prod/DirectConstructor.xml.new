@@ -24,7 +24,7 @@
     <test>
       <![CDATA[fn:data(<?pi content?>) = "content"]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -50,7 +50,7 @@
     <test>
       <![CDATA[fn:data(<?pi ?>) = ""]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -174,7 +174,7 @@
     <test>
       <![CDATA[fn:data(<!--comment-->) = "comment"]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -200,7 +200,7 @@
     <test>
       <![CDATA[fn:data(<!---->) = ""]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -258,7 +258,7 @@
     <test>
       <![CDATA[string(<?target ""''content&amp;amp;ss&amp;#00; &amp;#x2014;?>) eq """""''content&amp;amp;amp;ss&amp;amp;#00; &amp;amp;#x2014;"]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -594,7 +594,7 @@
     <test>
       <![CDATA[local-name(<?xmlSUFFIX content?>)]]>
     </test>
-    <result-string>xs:string('xmlSUFFIX')</result-string>
+    <result-string>xs:string(&quot;xmlSUFFIX&quot;)</result-string>
     <result>
       <assert-string-value>xmlSUFFIX</assert-string-value>
     </result>
@@ -606,7 +606,7 @@
     <test>
       <![CDATA[local-name(<?PREFIXxml content?>)]]>
     </test>
-    <result-string>xs:string('PREFIXxml')</result-string>
+    <result-string>xs:string(&quot;PREFIXxml&quot;)</result-string>
     <result>
       <assert-string-value>PREFIXxml</assert-string-value>
     </result>
@@ -618,7 +618,7 @@
     <test>
       <![CDATA[local-name(<?PREFIXxmlSUFFIX content?>)]]>
     </test>
-    <result-string>xs:string('PREFIXxmlSUFFIX')</result-string>
+    <result-string>xs:string(&quot;PREFIXxmlSUFFIX&quot;)</result-string>
     <result>
       <assert-string-value>PREFIXxmlSUFFIX</assert-string-value>
     </result>
@@ -630,7 +630,7 @@
     <test>
       <![CDATA[<?validchar ???<<???? <? >?hm???> eq "???<<???? <? >?hm??"]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -642,7 +642,7 @@
     <test>
       <![CDATA[<?validchar content ?> eq "content "]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -654,7 +654,7 @@
     <test>
       <![CDATA[<?validchar content a b c asdada dad ?> eq "content a b c asdada dad "]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -666,7 +666,7 @@
     <test>
       <![CDATA[<!-- some - - - - content - - - >>>>> << >>><>& ;& --> eq " some - - - - content - - - >>>>> << >>><>&amp; ;&amp; "]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -678,7 +678,7 @@
     <test>
       <![CDATA[<!-- - - - - - - - - - - - - - - - - --> eq " - - - - - - - - - - - - - - - - "]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -704,7 +704,7 @@
     <test>
       <![CDATA[string(<?target content ?>) eq "content "]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -730,7 +730,7 @@
     <test>
       <![CDATA[string(<e>a<!--data tar-->b</e>)]]>
     </test>
-    <result-string>xs:string('ab')</result-string>
+    <result-string>xs:string(&quot;ab&quot;)</result-string>
     <result>
       <assert-string-value>ab</assert-string-value>
     </result>
@@ -742,7 +742,7 @@
     <test>
       <![CDATA[string(<!-- content&amp;amp;ss&amp;amp;#00; &amp;#x2014;-->) eq " content&amp;amp;amp;ss&amp;amp;amp;#00; &amp;amp;#x2014;"]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -778,7 +778,7 @@
     <test>
       <![CDATA[data(<?target data?>) instance of xs:string]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -790,7 +790,7 @@
     <test>
       <![CDATA[data(<!-- a comment -->) instance of xs:string]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1123,7 +1123,7 @@ string literal
  
 |&#xD; &#xD;&#xA;</a>)]]>
     </test>
-    <result-string>xs:string('10 10 10 32 10 124 13 32 13 10')</result-string>
+    <result-string>xs:string(&quot;10 10 10 32 10 124 13 32 13 10&quot;)</result-string>
     <result>
       <assert-string-value>10 10 10 32 10 124 13 32 13 10</assert-string-value>
     </result>

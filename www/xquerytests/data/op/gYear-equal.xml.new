@@ -16,7 +16,7 @@ $arg2 = xs:gYear(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gYear(&quot;1970Z&quot;) eq xs:gYear(&quot;1970Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -35,7 +35,7 @@ $arg2 = xs:gYear(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gYear(&quot;2012Z&quot;) eq xs:gYear(&quot;1970Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -54,7 +54,7 @@ $arg2 = xs:gYear(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gYear(&quot;2030Z&quot;) eq xs:gYear(&quot;1970Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -73,7 +73,7 @@ $arg2 = xs:gYear(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gYear(&quot;1970Z&quot;) eq xs:gYear(&quot;2012Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -92,7 +92,7 @@ $arg2 = xs:gYear(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gYear(&quot;1970Z&quot;) eq xs:gYear(&quot;2030Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -111,7 +111,7 @@ $arg2 = xs:gYear(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gYear(&quot;1970Z&quot;) ne xs:gYear(&quot;1970Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -130,7 +130,7 @@ $arg2 = xs:gYear(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gYear(&quot;2012Z&quot;) ne xs:gYear(&quot;1970Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -149,7 +149,7 @@ $arg2 = xs:gYear(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gYear(&quot;2030Z&quot;) ne xs:gYear(&quot;1970Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -168,7 +168,7 @@ $arg2 = xs:gYear(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gYear(&quot;1970Z&quot;) ne xs:gYear(&quot;2012Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -187,7 +187,7 @@ $arg2 = xs:gYear(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:gYear(&quot;1970Z&quot;) ne xs:gYear(&quot;2030Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -204,7 +204,7 @@ As per example 1 (for this function)of the FO specs
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>(xs:gYear(&quot;2005-12:00&quot;) eq xs:gYear(&quot;2005+12:00&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -221,7 +221,7 @@ As per example 2 (for this function) of the FO  specs
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>(xs:gYear(&quot;1976-05:00&quot;) eq xs:gYear(&quot;1976-05:00&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -238,7 +238,7 @@ return true and used together with fn:not (eq operator)
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>fn:not((xs:gYear(&quot;1995Z&quot;) eq xs:gYear(&quot;1995Z&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -255,7 +255,7 @@ return true and used together with fn:not (ne operator)
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>fn:not(xs:gYear(&quot;2005Z&quot;) ne xs:gYear(&quot;2006Z&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -272,7 +272,7 @@ return false and used together with fn:not (eq operator)
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>fn:not(xs:gYear(&quot;2000Z&quot;) eq xs:gYear(&quot;2001Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -289,7 +289,7 @@ return false and used together with fn:not(ne operator)
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>fn:not(xs:gYear(&quot;2005Z&quot;) ne xs:gYear(&quot;2005Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -306,7 +306,7 @@ together with &quot;and&quot; expression (eq operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>(xs:gYear(&quot;2000Z&quot;) eq xs:gYear(&quot;2000Z&quot;)) and (xs:gYear(&quot;2001Z&quot;) eq xs:gYear(&quot;2001Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -323,7 +323,7 @@ together with &quot;and&quot; expression (ne operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>(xs:gYear(&quot;2000Z&quot;) ne xs:gYear(&quot;2000Z&quot;)) and (xs:gYear(&quot;1975Z&quot;) ne xs:gYear(&quot;1975Z&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -340,7 +340,7 @@ together with &quot;or&quot; expression (eq operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>(xs:gYear(&quot;2000Z&quot;) eq xs:gYear(&quot;2000Z&quot;)) or (xs:gYear(&quot;1976Z&quot;) eq xs:gYear(&quot;1976Z&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -357,7 +357,7 @@ together with &quot;or&quot; expression (ne operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>(xs:gYear(&quot;1976Z&quot;) ne xs:gYear(&quot;1976Z&quot;)) or (xs:gYear(&quot;1980Z&quot;) ne xs:gYear(&quot;1980Z&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -374,7 +374,7 @@ together with &quot;fn:true&quot;/or expression (eq operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>(xs:gYear(&quot;1980Z&quot;) eq xs:gYear(&quot;1980Z&quot;)) or (fn:true())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -391,7 +391,7 @@ together with &quot;fn:true&quot;/or expression (ne operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>(xs:gYear(&quot;2000Z&quot;) ne xs:gYear(&quot;2000Z&quot;)) or (fn:true())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -408,7 +408,7 @@ together with &quot;fn:false&quot;/or expression (eq operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>(xs:gYear(&quot;1980Z&quot;) eq xs:gYear(&quot;1980Z&quot;)) or (fn:false())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -425,7 +425,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>(xs:gYear(&quot;1980Z&quot;) ne xs:gYear(&quot;1980Z&quot;)) or (fn:false())</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -441,7 +441,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:gYear(&quot; 1956 &quot;) eq xs:gYear(&quot;1956&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -457,7 +457,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:gYear(&quot;1956&quot;) eq xs:gYear(&quot;1958&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -473,7 +473,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:gYear(&quot;1956&quot;) ne xs:gYear(&quot;1958&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -489,7 +489,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:gYear(&quot;1956&quot;) ne xs:gYear(&quot;1956&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -505,7 +505,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:gYear(&quot;1956-00:00&quot;) eq xs:gYear(&quot;1956Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -521,7 +521,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:gYear(&quot;1956+00:00&quot;) eq xs:gYear(&quot;1956Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -537,7 +537,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:gYear(&quot;1956Z&quot;) eq xs:gYear(&quot;1956Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -553,7 +553,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:gYear(&quot;1956-00:00&quot;) eq xs:gYear(&quot;1956+00:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -563,7 +563,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <created by="Tim Mills" on="2008-05-16"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:gYear($year as xs:integer) { xs:gYear(string(2000 + $year)) }; not(local:gYear(7) eq xs:gYear(&quot;2008&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -575,7 +575,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('PT9M'))
             then xs:gYear(&quot;2008&quot;) eq xs:gYear(&quot;2008+09:01&quot;)
             else xs:gYear(&quot;2008&quot;) eq xs:gYear(&quot;2008+09:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -587,7 +587,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('PT9M'))
             then xs:gYear(&quot;2008+09:01&quot;) eq xs:gYear(&quot;2008&quot;)
             else xs:gYear(&quot;2008+09:00&quot;) eq xs:gYear(&quot;2008&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -599,7 +599,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('-PT9M'))
             then xs:gYear(&quot;2008&quot;) eq xs:gYear(&quot;2008-09:01&quot;)
             else xs:gYear(&quot;2008&quot;) eq xs:gYear(&quot;2008-09:00&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -611,7 +611,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('-PT9M'))
             then xs:gYear(&quot;2008-09:01&quot;) eq xs:gYear(&quot;2008&quot;)
             else xs:gYear(&quot;2008-09:00&quot;) eq xs:gYear(&quot;2008&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -621,7 +621,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <created by="Tim Mills" on="2008-05-16"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:gYear($year as xs:integer) { xs:gYear(string(2000 + $year)) }; not(local:gYear(7) ne xs:gYear(&quot;2008&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -633,7 +633,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('PT9M'))
             then xs:gYear(&quot;2008&quot;) ne xs:gYear(&quot;2008+09:01&quot;)
             else xs:gYear(&quot;2008&quot;) ne xs:gYear(&quot;2008+09:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -645,7 +645,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('PT9M'))
             then xs:gYear(&quot;2008+09:01&quot;) ne xs:gYear(&quot;2008&quot;)
             else xs:gYear(&quot;2008+09:00&quot;) ne xs:gYear(&quot;2008&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -657,7 +657,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('-PT9M'))
             then xs:gYear(&quot;2008&quot;) ne xs:gYear(&quot;2008-09:01&quot;)
             else xs:gYear(&quot;2008&quot;) ne xs:gYear(&quot;2008-09:00&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -669,7 +669,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <test>if (implicit-timezone() eq xs:dayTimeDuration('-PT9M'))
             then xs:gYear(&quot;2008-09:01&quot;) ne xs:gYear(&quot;2008&quot;)
             else xs:gYear(&quot;2008-09:00&quot;) ne xs:gYear(&quot;2008&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -679,7 +679,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:gYear($gYear as xs:gYear, $null as xs:boolean) { if ($null) then () else $gYear }; exists(local:gYear(xs:gYear(&quot;1972&quot;), fn:true()) eq xs:gYear(&quot;1972&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -689,7 +689,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:gYear($gYear as xs:gYear, $null as xs:boolean) { if ($null) then () else $gYear }; local:gYear(xs:gYear(&quot;1972&quot;), fn:false()) ne xs:gYear(&quot;1972&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -699,7 +699,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:gYear($gYear as xs:gYear, $null as xs:boolean) { if ($null) then () else $gYear }; exists(local:gYear(xs:gYear(&quot;1972&quot;), fn:true()) ne xs:gYear(&quot;1972&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -709,7 +709,7 @@ together with &quot;fn:false&quot;/or expression (ne operator).
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:gYear($gYear as xs:gYear, $null as xs:boolean) { if ($null) then () else $gYear }; local:gYear(xs:gYear(&quot;1972&quot;), fn:false()) ne xs:gYear(&quot;1972&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

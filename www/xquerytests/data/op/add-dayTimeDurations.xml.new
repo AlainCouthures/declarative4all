@@ -16,7 +16,7 @@ $arg2 = xs:dayTimeDuration(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;) + xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;)</test>
-    <result-string>xs:string('PT0S')</result-string>
+    <result-string>xs:string(&quot;PT0S&quot;)</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
@@ -35,7 +35,7 @@ $arg2 = xs:dayTimeDuration(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration(&quot;P15DT11H59M59S&quot;) + xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;)</test>
-    <result-string>xs:string('P15DT11H59M59S')</result-string>
+    <result-string>xs:string(&quot;P15DT11H59M59S&quot;)</result-string>
     <result>
       <assert-string-value>P15DT11H59M59S</assert-string-value>
     </result>
@@ -54,7 +54,7 @@ $arg2 = xs:dayTimeDuration(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration(&quot;P31DT23H59M59S&quot;) + xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;)</test>
-    <result-string>xs:string('P31DT23H59M59S')</result-string>
+    <result-string>xs:string(&quot;P31DT23H59M59S&quot;)</result-string>
     <result>
       <assert-string-value>P31DT23H59M59S</assert-string-value>
     </result>
@@ -73,7 +73,7 @@ $arg2 = xs:dayTimeDuration(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;) + xs:dayTimeDuration(&quot;P15DT11H59M59S&quot;)</test>
-    <result-string>xs:string('P15DT11H59M59S')</result-string>
+    <result-string>xs:string(&quot;P15DT11H59M59S&quot;)</result-string>
     <result>
       <assert-string-value>P15DT11H59M59S</assert-string-value>
     </result>
@@ -92,7 +92,7 @@ $arg2 = xs:dayTimeDuration(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;) + xs:dayTimeDuration(&quot;P31DT23H59M59S&quot;)</test>
-    <result-string>xs:string('P31DT23H59M59S')</result-string>
+    <result-string>xs:string(&quot;P31DT23H59M59S&quot;)</result-string>
     <result>
       <assert-string-value>P31DT23H59M59S</assert-string-value>
     </result>
@@ -109,7 +109,7 @@ As per example 1 (for this function)of the FO specs.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>xs:dayTimeDuration(&quot;P2DT12H5M&quot;) + xs:dayTimeDuration(&quot;P5DT12H&quot;)</test>
-    <result-string>xs:string('P8DT5M')</result-string>
+    <result-string>xs:string(&quot;P8DT5M&quot;)</result-string>
     <result>
       <assert-string-value>P8DT5M</assert-string-value>
     </result>
@@ -127,7 +127,7 @@ used as part of a boolean expression (and operator) and the &quot;fn:false&quot;
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:string(xs:dayTimeDuration(&quot;P10DT10H11M&quot;) + xs:dayTimeDuration(&quot;P12DT10H07M&quot;)) and fn:false()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -144,7 +144,7 @@ part of a boolean expression (or operator) and the &quot;fn:boolean&quot; functi
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:string(xs:dayTimeDuration(&quot;P20DT20H10M&quot;) + xs:dayTimeDuration(&quot;P19DT13H10M&quot;)) or fn:false()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -162,7 +162,7 @@ return true and used together with fn:not.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:not(fn:string(xs:dayTimeDuration(&quot;P11DT12H04M&quot;) + xs:dayTimeDuration(&quot;P02DT07H01M&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -180,7 +180,7 @@ is used as an argument to the fn:boolean function.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:boolean(fn:string(xs:dayTimeDuration(&quot;P05DT09H08M&quot;) + xs:dayTimeDuration(&quot;P03DT08H06M&quot;)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -197,7 +197,7 @@ is used as an argument to the fn:number function.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:number(xs:dayTimeDuration(&quot;P02DT06H09M&quot;) + xs:dayTimeDuration(&quot;P10DT08H01M&quot;))</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -214,7 +214,7 @@ as an argument to the &quot;fn:string&quot; function).
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:string(xs:dayTimeDuration(&quot;P03DT04H08M&quot;) + xs:dayTimeDuration(&quot;P01DT09H02M&quot;))</test>
-    <result-string>xs:string('P4DT13H10M')</result-string>
+    <result-string>xs:string(&quot;P4DT13H10M&quot;)</result-string>
     <result>
       <assert-string-value>P4DT13H10M</assert-string-value>
     </result>
@@ -231,7 +231,7 @@ returns a negative value.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>(xs:dayTimeDuration(&quot;P10DT01H01M&quot;) + xs:dayTimeDuration(&quot;-P11DT02H02M&quot;))</test>
-    <result-string>xs:string('-P1DT1H1M')</result-string>
+    <result-string>xs:string(&quot;-P1DT1H1M&quot;)</result-string>
     <result>
       <assert-string-value>-P1DT1H1M</assert-string-value>
     </result>
@@ -249,7 +249,7 @@ together with and &quot;and&quot; expression.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:string((xs:dayTimeDuration(&quot;P01DT02H01M&quot;) + xs:dayTimeDuration(&quot;P02DT09H02M&quot;))) and fn:string((xs:dayTimeDuration(&quot;P02DT03H03M&quot;) + xs:dayTimeDuration(&quot;P04DT04H04M&quot;)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -267,7 +267,7 @@ together with an &quot;or&quot; expression.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:string((xs:dayTimeDuration(&quot;P05DT09H02M&quot;) + xs:dayTimeDuration(&quot;P03DT01H04M&quot;))) or fn:string((xs:dayTimeDuration(&quot;P05DT05H03M&quot;) + xs:dayTimeDuration(&quot;P01DT01H03M&quot;)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -284,7 +284,7 @@ together with a &quot;div&quot; expression.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>(xs:dayTimeDuration(&quot;P42DT10H10M&quot;) + xs:dayTimeDuration(&quot;P10DT10H10M&quot;)) div (xs:dayTimeDuration(&quot;P42DT10H10M&quot;) + xs:dayTimeDuration(&quot;P10DT10H10M&quot;))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -302,7 +302,7 @@ with a boolean expression and the &quot;fn:true&quot; function.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:string((xs:dayTimeDuration(&quot;P10DT08H11M&quot;) + xs:dayTimeDuration(&quot;P05DT08H11M&quot;))) and (fn:true())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -319,7 +319,7 @@ together with the numeric-equal-operator &quot;eq&quot;.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>(xs:dayTimeDuration(&quot;P23DT11H11M&quot;) + xs:dayTimeDuration(&quot;P23DT11H11M&quot;)) eq xs:dayTimeDuration(&quot;P23DT11H11M&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -336,7 +336,7 @@ together with the numeric-equal operator &quot;ne&quot;.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>(xs:dayTimeDuration(&quot;P21DT08H12M&quot;) + xs:dayTimeDuration(&quot;P08DT08H05M&quot;)) ne xs:dayTimeDuration(&quot;P08DT08H05M&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -353,7 +353,7 @@ together with the numeric-equal operator &quot;le&quot;.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>(xs:dayTimeDuration(&quot;P10DT10H01M&quot;) + xs:dayTimeDuration(&quot;P17DT10H02M&quot;)) le xs:dayTimeDuration(&quot;P17DT10H02M&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -370,7 +370,7 @@ together with the numeric-equal operator &quot;ge&quot;.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>(xs:dayTimeDuration(&quot;P13DT09H09M&quot;) + xs:dayTimeDuration(&quot;P18DT02H02M&quot;)) ge xs:dayTimeDuration(&quot;P18DT02H02M&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -386,7 +386,7 @@ together with the numeric-equal operator &quot;ge&quot;.
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dayTimeDuration(&quot;P3DT4H3M3.100S&quot;) + xs:dayTimeDuration(&quot;PT0S&quot;) eq xs:dayTimeDuration(&quot;P3DT4H3M3.100S&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -402,7 +402,7 @@ together with the numeric-equal operator &quot;ge&quot;.
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dayTimeDuration(&quot;PT0S&quot;) + xs:dayTimeDuration(&quot;P3DT4H3M3.100S&quot;) eq xs:dayTimeDuration(&quot;P3DT4H3M3.100S&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -418,7 +418,7 @@ together with the numeric-equal operator &quot;ge&quot;.
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dayTimeDuration(&quot;P3DT4H3M3.100S&quot;) + xs:dayTimeDuration(&quot;P3DT12H31M56.303S&quot;) eq xs:dayTimeDuration(&quot;P6DT16H34M59.403S&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -428,7 +428,7 @@ together with the numeric-equal operator &quot;ge&quot;.
     <created by="Tim Mills" on="2008-05-12"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat('P', $days, 'DT', $hours, 'H')) }; local:dayTimeDuration(1, 1) + xs:dayTimeDuration(&quot;P0D&quot;)</test>
-    <result-string>xs:string('P1DT1H')</result-string>
+    <result-string>xs:string(&quot;P1DT1H&quot;)</result-string>
     <result>
       <assert-string-value>P1DT1H</assert-string-value>
     </result>
@@ -438,7 +438,7 @@ together with the numeric-equal operator &quot;ge&quot;.
     <created by="Tim Mills" on="2008-05-12"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat('P', $days, 'DT', $hours, 'H')) }; xs:dayTimeDuration(&quot;P0D&quot;) + local:dayTimeDuration(1, 1)</test>
-    <result-string>xs:string('P1DT1H')</result-string>
+    <result-string>xs:string(&quot;P1DT1H&quot;)</result-string>
     <result>
       <assert-string-value>P1DT1H</assert-string-value>
     </result>
@@ -448,7 +448,7 @@ together with the numeric-equal operator &quot;ge&quot;.
     <created by="Tim Mills" on="2008-05-12"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat('P', $days, 'DT', $hours, 'H')) }; local:dayTimeDuration(1, 1) + local:dayTimeDuration(1, 1)</test>
-    <result-string>xs:string('P2DT2H')</result-string>
+    <result-string>xs:string(&quot;P2DT2H&quot;)</result-string>
     <result>
       <assert-string-value>P2DT2H</assert-string-value>
     </result>
@@ -460,7 +460,7 @@ together with the numeric-equal operator &quot;ge&quot;.
     <test>
         declare function local:f($x) { if ($x) then xs:duration(&quot;P1D&quot;) else xs:dayTimeDuration(&quot;P1D&quot;) };
         xs:date(&quot;1997-01-01&quot;) + local:f(false())</test>
-    <result-string>xs:string('1997-01-02')</result-string>
+    <result-string>xs:string(&quot;1997-01-02&quot;)</result-string>
     <result>
       <assert-string-value>1997-01-02</assert-string-value>
     </result>
@@ -484,7 +484,7 @@ together with the numeric-equal operator &quot;ge&quot;.
     <test>
         declare function local:f($x) { if ($x) then xs:duration(&quot;P1D&quot;) else xs:yearMonthDuration(&quot;P1M&quot;) };
         xs:date(&quot;1997-01-01&quot;) + local:f(false())</test>
-    <result-string>xs:string('1997-02-01')</result-string>
+    <result-string>xs:string(&quot;1997-02-01&quot;)</result-string>
     <result>
       <assert-string-value>1997-02-01</assert-string-value>
     </result>
@@ -508,7 +508,7 @@ together with the numeric-equal operator &quot;ge&quot;.
     <test>
         declare function local:f($x) { if ($x) then xs:duration(&quot;P1D&quot;) else xs:dayTimeDuration(&quot;P1D&quot;) };
         xs:dateTime(&quot;1997-01-01T12:00:00&quot;) + local:f(false())</test>
-    <result-string>xs:string('1997-01-02T12:00:00')</result-string>
+    <result-string>xs:string(&quot;1997-01-02T12:00:00&quot;)</result-string>
     <result>
       <assert-string-value>1997-01-02T12:00:00</assert-string-value>
     </result>
@@ -532,7 +532,7 @@ together with the numeric-equal operator &quot;ge&quot;.
     <test>
         declare function local:f($x) { if ($x) then xs:duration(&quot;P1D&quot;) else xs:yearMonthDuration(&quot;P1M&quot;) };
         xs:dateTime(&quot;1997-01-01T12:00:00&quot;) + local:f(false())</test>
-    <result-string>xs:string('1997-02-01T12:00:00')</result-string>
+    <result-string>xs:string(&quot;1997-02-01T12:00:00&quot;)</result-string>
     <result>
       <assert-string-value>1997-02-01T12:00:00</assert-string-value>
     </result>
@@ -556,7 +556,7 @@ together with the numeric-equal operator &quot;ge&quot;.
     <test>
         declare function local:f($x) { if ($x) then xs:duration(&quot;P1D&quot;) else xs:dayTimeDuration(&quot;PT1H&quot;) };
         xs:time(&quot;12:00:00&quot;) + local:f(false())</test>
-    <result-string>xs:string('13:00:00')</result-string>
+    <result-string>xs:string(&quot;13:00:00&quot;)</result-string>
     <result>
       <assert-string-value>13:00:00</assert-string-value>
     </result>
@@ -580,7 +580,7 @@ together with the numeric-equal operator &quot;ge&quot;.
     <test>
         declare function local:f($x) { if ($x) then xs:duration(&quot;P1D&quot;) else xs:dayTimeDuration(&quot;P1D&quot;) };
         xs:dayTimeDuration(&quot;PT1H&quot;) + local:f(false())</test>
-    <result-string>xs:string('P1DT1H')</result-string>
+    <result-string>xs:string(&quot;P1DT1H&quot;)</result-string>
     <result>
       <assert-string-value>P1DT1H</assert-string-value>
     </result>
@@ -604,7 +604,7 @@ together with the numeric-equal operator &quot;ge&quot;.
     <test>
         declare function local:f($x) { if ($x) then xs:duration(&quot;P1M&quot;) else xs:yearMonthDuration(&quot;P1M&quot;) };
         xs:yearMonthDuration(&quot;P1Y&quot;) + local:f(false())</test>
-    <result-string>xs:string('P1Y1M')</result-string>
+    <result-string>xs:string(&quot;P1Y1M&quot;)</result-string>
     <result>
       <assert-string-value>P1Y1M</assert-string-value>
     </result>
@@ -628,7 +628,7 @@ together with the numeric-equal operator &quot;ge&quot;.
     <test>
         declare function local:f($x) { if ($x) then xs:duration(&quot;P1D&quot;) else xs:dayTimeDuration(&quot;P1D&quot;) };
         local:f(false()) + xs:date(&quot;1997-01-01&quot;)</test>
-    <result-string>xs:string('1997-01-02')</result-string>
+    <result-string>xs:string(&quot;1997-01-02&quot;)</result-string>
     <result>
       <assert-string-value>1997-01-02</assert-string-value>
     </result>
@@ -652,7 +652,7 @@ together with the numeric-equal operator &quot;ge&quot;.
     <test>
         declare function local:f($x) { if ($x) then xs:duration(&quot;P1D&quot;) else xs:yearMonthDuration(&quot;P1M&quot;) };
         local:f(false()) + xs:date(&quot;1997-01-01&quot;)</test>
-    <result-string>xs:string('1997-02-01')</result-string>
+    <result-string>xs:string(&quot;1997-02-01&quot;)</result-string>
     <result>
       <assert-string-value>1997-02-01</assert-string-value>
     </result>
@@ -676,7 +676,7 @@ together with the numeric-equal operator &quot;ge&quot;.
     <test>
         declare function local:f($x) { if ($x) then xs:duration(&quot;P1D&quot;) else xs:dayTimeDuration(&quot;P1D&quot;) };
         local:f(false()) + xs:dateTime(&quot;1997-01-01T12:00:00&quot;)</test>
-    <result-string>xs:string('1997-01-02T12:00:00')</result-string>
+    <result-string>xs:string(&quot;1997-01-02T12:00:00&quot;)</result-string>
     <result>
       <assert-string-value>1997-01-02T12:00:00</assert-string-value>
     </result>
@@ -700,7 +700,7 @@ together with the numeric-equal operator &quot;ge&quot;.
     <test>
         declare function local:f($x) { if ($x) then xs:duration(&quot;P1D&quot;) else xs:yearMonthDuration(&quot;P1M&quot;) };
         local:f(false()) + xs:dateTime(&quot;1997-01-01T12:00:00&quot;)</test>
-    <result-string>xs:string('1997-02-01T12:00:00')</result-string>
+    <result-string>xs:string(&quot;1997-02-01T12:00:00&quot;)</result-string>
     <result>
       <assert-string-value>1997-02-01T12:00:00</assert-string-value>
     </result>
@@ -724,7 +724,7 @@ together with the numeric-equal operator &quot;ge&quot;.
     <test>
         declare function local:f($x) { if ($x) then xs:duration(&quot;P1D&quot;) else xs:dayTimeDuration(&quot;PT1H&quot;) };
         local:f(false()) + xs:time(&quot;12:00:00&quot;)</test>
-    <result-string>xs:string('13:00:00')</result-string>
+    <result-string>xs:string(&quot;13:00:00&quot;)</result-string>
     <result>
       <assert-string-value>13:00:00</assert-string-value>
     </result>
@@ -748,7 +748,7 @@ together with the numeric-equal operator &quot;ge&quot;.
     <test>
         declare function local:f($x) { if ($x) then xs:duration(&quot;P1D&quot;) else xs:dayTimeDuration(&quot;P1D&quot;) };
         local:f(false()) + xs:dayTimeDuration(&quot;PT1H&quot;)</test>
-    <result-string>xs:string('P1DT1H')</result-string>
+    <result-string>xs:string(&quot;P1DT1H&quot;)</result-string>
     <result>
       <assert-string-value>P1DT1H</assert-string-value>
     </result>
@@ -772,7 +772,7 @@ together with the numeric-equal operator &quot;ge&quot;.
     <test>
         declare function local:f($x) { if ($x) then xs:duration(&quot;P1M&quot;) else xs:yearMonthDuration(&quot;P1M&quot;) };
         local:f(false()) + xs:yearMonthDuration(&quot;P1Y&quot;)</test>
-    <result-string>xs:string('P1Y1M')</result-string>
+    <result-string>xs:string(&quot;P1Y1M&quot;)</result-string>
     <result>
       <assert-string-value>P1Y1M</assert-string-value>
     </result>
@@ -796,7 +796,7 @@ together with the numeric-equal operator &quot;ge&quot;.
     <test>
         declare function local:f($x) { if ($x) then xs:duration(&quot;P1M&quot;) else xs:yearMonthDuration(&quot;P1M&quot;) };
         local:f(false()) + local:f(false())</test>
-    <result-string>xs:string('P2M')</result-string>
+    <result-string>xs:string(&quot;P2M&quot;)</result-string>
     <result>
       <assert-string-value>P2M</assert-string-value>
     </result>
@@ -820,7 +820,7 @@ together with the numeric-equal operator &quot;ge&quot;.
     <test>
         declare function local:f($x) { if ($x) then xs:duration(&quot;P1D&quot;) else xs:dayTimeDuration(&quot;P1D&quot;) };
         local:f(false()) + local:f(false())</test>
-    <result-string>xs:string('P2D')</result-string>
+    <result-string>xs:string(&quot;P2D&quot;)</result-string>
     <result>
       <assert-string-value>P2D</assert-string-value>
     </result>

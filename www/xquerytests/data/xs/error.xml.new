@@ -50,7 +50,7 @@
     <created by="Tim Mills" on="2013-03-25"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>fn:exists( xs:error#1 )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -60,7 +60,7 @@
     <created by="Tim Mills" on="2013-03-25"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>xs:error#1 instance of function(xs:anyAtomicType?) as xs:error?</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -70,7 +70,7 @@
     <created by="Tim Mills" on="2013-03-25"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>xs:error#1 instance of function(xs:anyAtomicType?) as empty-sequence()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -149,7 +149,7 @@
     <created by="Tim Mills" on="2013-03-25"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>function() as empty-sequence() { () } instance of function() as xs:error?</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -159,7 +159,7 @@
     <created by="Tim Mills" on="2013-03-25"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>function() as empty-sequence() { () } instance of function() as xs:error*</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -223,7 +223,7 @@
             };
        local:identity(())
       </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -320,7 +320,7 @@
     <created by="Tim Mills" on="2013-03-25"/>
     <dependency type="spec" value="XQ30+"/>
     <test>for $x as xs:error in () return fn:true()</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -384,7 +384,7 @@
     <description>Castablility of xs:error.</description>
     <created by="Tim Mills" on="2013-03-25"/>
     <test>xs:error(()) castable as xs:error</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -393,7 +393,7 @@
     <description>Castablility of xs:error.</description>
     <created by="Tim Mills" on="2013-03-25"/>
     <test>xs:error(()) castable as xs:error?</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -411,7 +411,7 @@
     <description>Castablility of xs:error.</description>
     <created by="Tim Mills" on="2013-03-25"/>
     <test>() castable as xs:error?</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -447,7 +447,7 @@
     <description>Cast to xs:error.</description>
     <created by="Tim Mills" on="2013-03-25"/>
     <test>xs:error(()) cast as xs:error?</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -456,7 +456,7 @@
     <description>Cast to xs:error.</description>
     <created by="Tim Mills" on="2013-03-25"/>
     <test>() cast as xs:error?</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -537,7 +537,7 @@
     <description>treat as xs:error.</description>
     <created by="Tim Mills" on="2013-03-25"/>
     <test>() treat as xs:error?</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>

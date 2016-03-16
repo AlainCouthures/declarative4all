@@ -17,5 +17,6 @@
 		"setvalue.js",
 		"split.js",
 		"toggle.js",
-		"unload.js"]
+		"unload.js",
+		"wrap.js"]
 }

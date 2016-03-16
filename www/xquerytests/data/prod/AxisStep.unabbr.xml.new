@@ -32,7 +32,7 @@
     <created by="Carmelo Montanez" on="2005-07-08"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works[1]/employee[2]) return $h/child::text()</test>
-    <result-string>xs:string('Text data from Employee[2]')</result-string>
+    <result-string>xs:string(&quot;Text data from Employee[2]&quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">Text data from Employee[2]</assert-string-value>
     </result>
@@ -135,7 +135,7 @@
     <created by="Carmelo Montanez" on="2005-07-11"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works[1]/employee[1]) return fn:count(($h/self::employee[1000]))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>

@@ -78,7 +78,7 @@
     <description> arg1: sequence of string  float , arg2  arg3: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:subsequence( (&quot;a&quot;, xs:float(&quot;INF&quot;), &quot;b&quot;, &quot;c&quot;),-2,3)</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -96,7 +96,7 @@
     <description> arg1: sequence of string  float , arg2  arg3: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:subsequence ( (&quot;a&quot;, xs:float(&quot;NaN&quot;), &quot;b&quot;, &quot;c&quot;), 0, 2)</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;a&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;a&quot;</assert-eq>
     </result>
@@ -141,7 +141,7 @@
     <description> arg1: sequence of string  double , arg2  arg3: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:subsequence ( (&quot;a&quot;, xs:double(&quot;INF&quot;), &quot;b&quot;, &quot;c&quot;), 2, 1)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;INF&quot;)</result-string>
     <result>
       <assert-eq>xs:double(&quot;INF&quot;)</assert-eq>
     </result>
@@ -159,7 +159,7 @@
     <description> arg1: sequence of string  boolean, arg2  arg3: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:subsequence ( (&quot;a&quot;, xs:boolean(&quot;0&quot;), &quot;b&quot;, &quot;c&quot;), 2,1)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -195,7 +195,7 @@
     <description> arg1: sequence of string  dateTime, arg2  arg3: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:subsequence ( (&quot;a&quot;, xs:dateTime(&quot;1972-12-31T00:00:00&quot;), &quot;b&quot;, &quot;c&quot;), 0,2)</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;a&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;a&quot;</assert-eq>
     </result>
@@ -213,7 +213,7 @@
     <description> subsequence(X, -INF, +INF Returns () because -INF + INF = NaN, and position() lt NaN is false. See XSLT test case bug 837 (member only bugzilla) </description>
     <created by="Michael Kay" on="2010-06-18"/>
     <test>fn:subsequence (1 to 10, xs:double('-INF'), xs:double('INF'))</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -261,7 +261,7 @@
     <description> A test whose essence is: `empty(subsequence((1, 2, 3), 2, -10))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(subsequence((1, 2, 3), 2, -10))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -270,7 +270,7 @@
     <description> A test whose essence is: `count(subsequence((1, 2, 3, &quot;four&quot;), 4)) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(subsequence((1, 2, 3, &quot;four&quot;), 4)) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -279,7 +279,7 @@
     <description> A test whose essence is: `count(subsequence((1, 2, 3, &quot;four&quot;), 4, 1)) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(subsequence((1, 2, 3, &quot;four&quot;), 4, 1)) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -288,7 +288,7 @@
     <description> A test whose essence is: `subsequence((1, 2, 3.1, &quot;four&quot;), 4)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>subsequence((1, 2, 3.1, &quot;four&quot;), 4)</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;four&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;four&quot;</assert-eq>
     </result>
@@ -297,7 +297,7 @@
     <description> A test whose essence is: `subsequence((1, 2, 3.1, &quot;four&quot;), 4, 1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>subsequence((1, 2, 3.1, &quot;four&quot;), 4, 1)</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;four&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;four&quot;</assert-eq>
     </result>
@@ -306,7 +306,7 @@
     <description> A test whose essence is: `subsequence((1, 2, 3.1, &quot;four&quot;), 3, 1) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>subsequence((1, 2, 3.1, &quot;four&quot;), 3, 1) instance of xs:decimal</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -315,7 +315,7 @@
     <description> A test whose essence is: `subsequence((1, 2, 3.1, &quot;four&quot;), 1, 1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>subsequence((1, 2, 3.1, &quot;four&quot;), 1, 1)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -324,7 +324,7 @@
     <description> A test whose essence is: `empty(subsequence((1, 2, 3, &quot;four&quot;), 4, -3))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(subsequence((1, 2, 3, &quot;four&quot;), 4, -3))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -333,7 +333,7 @@
     <description> A test whose essence is: `empty(subsequence((1, 2, 3, &quot;four&quot;), -4, -3))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(subsequence((1, 2, 3, &quot;four&quot;), -4, -3))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -342,7 +342,7 @@
     <description> A test whose essence is: `subsequence((1, 2, 3), 1, 1) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>subsequence((1, 2, 3), 1, 1) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -351,7 +351,7 @@
     <description> A test whose essence is: `subsequence((1, 2, 3), 1, 1) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>subsequence((1, 2, 3), 1, 1) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -360,7 +360,7 @@
     <description> A test whose essence is: `subsequence((1, 2, 3), 3) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>subsequence((1, 2, 3), 3) eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -369,7 +369,7 @@
     <description> A test whose essence is: `count(subsequence((1, 2, 3), 1, 1)) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(subsequence((1, 2, 3), 1, 1)) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -378,7 +378,7 @@
     <description> A test whose essence is: `count(subsequence((1, 2, 3), 1, 3)) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(subsequence((1, 2, 3), 1, 3)) eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -387,7 +387,7 @@
     <description> A test whose essence is: `count(subsequence((1, 2, 3, &quot;four&quot;), 4)) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(subsequence((1, 2, 3, &quot;four&quot;), 4)) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -396,7 +396,7 @@
     <description> A test whose essence is: `count(subsequence(1 to 3, 1, 1)) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(subsequence(1 to 3, 1, 1)) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -405,7 +405,7 @@
     <description> A test whose essence is: `empty(subsequence((1, 2), 4))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(subsequence((1, 2), 4))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -414,7 +414,7 @@
     <description> A test whose essence is: `subsequence((5, 6, 7, 8), 2, 1) eq 6`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>subsequence((5, 6, 7, 8), 2, 1) eq 6</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -423,7 +423,7 @@
     <description> A test whose essence is: `count(subsequence((1, 2), 2)) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(subsequence((1, 2), 2)) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -432,7 +432,7 @@
     <description> A test whose essence is: `count(subsequence((1, 2, 3, &quot;four&quot;), 2)) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(subsequence((1, 2, 3, &quot;four&quot;), 2)) eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -441,7 +441,7 @@
     <description> A test whose essence is: `count(subsequence((1, 2, 3, &quot;four&quot;), 2, 2)) eq 2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(subsequence((1, 2, 3, &quot;four&quot;), 2, 2)) eq 2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -450,7 +450,7 @@
     <description> A test whose essence is: `subsequence((1, 2, 3.1, &quot;four&quot;), 1, 1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>subsequence((1, 2, 3.1, &quot;four&quot;), 1, 1)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -495,7 +495,7 @@
     <description> A test whose essence is: `count(subsequence((1, 2, 2, current-time()), 2, 2)) eq 2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(subsequence((1, 2, 2, current-time()), 2, 2)) eq 2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -504,7 +504,7 @@
     <description> A test whose essence is: `count(subsequence(remove(current-time(), 1), 1, 1)) eq 0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(subsequence(remove(current-time(), 1), 1, 1)) eq 0</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -513,7 +513,7 @@
     <description> A test whose essence is: `deep-equal(1, subsequence((1, 2, current-time()), 1, 1))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(1, subsequence((1, 2, current-time()), 1, 1))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -522,7 +522,7 @@
     <description> Using subsequence inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1)[deep-equal(1, subsequence((1, 2, current-time()), 1, 1))] eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -531,7 +531,7 @@
     <description> A test whose essence is: `empty(subsequence((current-time(), 1), 4))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(subsequence((current-time(), 1), 4))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -540,7 +540,7 @@
     <description> A test whose essence is: `count(subsequence((current-time(), 1), 4)) eq 0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(subsequence((current-time(), 1), 4)) eq 0</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -549,7 +549,7 @@
     <description> A test whose essence is: `count(subsequence((current-time(), 2 , 3), 1)) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(subsequence((current-time(), 2 , 3), 1)) eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -558,7 +558,7 @@
     <description> A test whose essence is: `count(subsequence((current-time(), 2 , 3), 3)) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(subsequence((current-time(), 2 , 3), 3)) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -567,7 +567,7 @@
     <description> A test whose essence is: `count(subsequence((current-time(), 2 , 3, 4), 2, 2)) eq 2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(subsequence((current-time(), 2 , 3, 4), 2, 2)) eq 2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -576,7 +576,7 @@
     <description> Apply a predicate to the result of fn:subsequence(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>subsequence((1, 2, 3, current-time(), 5, 6, 7), 1, 1)[1]</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -585,7 +585,7 @@
     <description> Apply a predicate to the result of fn:subsequence(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>subsequence((1, 2, 3, current-time(), 5, 6, 9), 7)[last()]</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;9&quot;)</result-string>
     <result>
       <assert-eq>9</assert-eq>
     </result>
@@ -594,7 +594,7 @@
     <description> Apply a predicate to the result of fn:subsequence(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>subsequence((1, 2, 3, current-time(), 5, 6, 7), 4)[last() - 1]</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;6&quot;)</result-string>
     <result>
       <assert-eq>6</assert-eq>
     </result>
@@ -603,7 +603,7 @@
     <description> Apply a predicate to the result of fn:subsequence(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(subsequence((1, 2, 3, current-time(), 5, 6, 7), 4, 1)[last() - 10])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -612,7 +612,7 @@
     <description> Apply a predicate to the result of fn:subsequence(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(subsequence((1, 2, 3, current-time(), 5, 6, 7), 1, 1)[2])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -624,7 +624,7 @@
     <test>let $start := (current-time(), 2)[2] treat as xs:integer,
                 $len := (current-time(), 1)[2] treat as xs:integer
                 return subsequence((1, 2, 3), $start, $len)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -633,7 +633,7 @@
     <description> A zero length. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>subsequence((1, 2, 3), 1, 0)</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -642,7 +642,7 @@
     <description> A negative length. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>subsequence((1, 2, 3, 4, 5), 4, -1)</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -651,7 +651,7 @@
     <description> Ensure rounding is done properly, 1.1. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:subsequence((1,2,3), 1.1, 1)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -660,7 +660,7 @@
     <description> Ensure rounding is done properly, 1.8. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:subsequence((1,2,3), 1.8, 1)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -669,7 +669,7 @@
     <description> Ensure rounding is done properly, 1.4. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:subsequence((1,2,3), 1.4, 1.4)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -689,7 +689,7 @@
     <dependency type="spec" value="XP30+ XQ30+"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>let $f :=function() { subsequence(subsequence((1, 2, 3, 4), 3, 1), 1, 4) } return $f()</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -720,7 +720,7 @@
     <test>
         count(subsequence(1 to 10, xs:double(&quot;-INF&quot;), xs:double(&quot;INF&quot;)))
       </test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -729,7 +729,7 @@
     <description> Test fn:subsequence with length NaN </description>
     <created by="Oliver Hallam" on="2008-05-09"/>
     <test>count(subsequence(1 to 10, 2, xs:double(&quot;NaN&quot;)))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -738,7 +738,7 @@
     <description> Test fn:subsequence with starting position NaN </description>
     <created by="Oliver Hallam" on="2008-05-09"/>
     <test>count(subsequence(1 to 10, xs:double(&quot;NaN&quot;), 4))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -747,7 +747,7 @@
     <description> Test unbounded fn:subsequence with starting position -INF </description>
     <created by="Oliver Hallam" on="2008-05-09"/>
     <test>count(subsequence(1 to 10, xs:double(&quot;-INF&quot;)))</test>
-    <result-string>xs:string('10')</result-string>
+    <result-string>xs:string(&quot;10&quot;)</result-string>
     <result>
       <assert-string-value>10</assert-string-value>
     </result>
@@ -756,7 +756,7 @@
     <description> Test unbounded fn:subsequence with starting position NaN </description>
     <created by="Oliver Hallam" on="2008-05-09"/>
     <test>count(subsequence(1 to 10, xs:double(&quot;NaN&quot;)))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -767,7 +767,7 @@
     <test>
         subsequence((1, 2, for $x in 1 to 10 return 2*$x), 2, year-from-date(current-date()))
       </test>
-    <result-string>xs:string('2 2 4 6 8 10 12 14 16 18 20')</result-string>
+    <result-string>xs:string(&quot;2 2 4 6 8 10 12 14 16 18 20&quot;)</result-string>
     <result>
       <assert-string-value>2 2 4 6 8 10 12 14 16 18 20</assert-string-value>
     </result>
@@ -778,7 +778,7 @@
     <test>
         subsequence((1, 2, for $x in 1 to 10 return 2*$x), -1, sum((1 to 10)[. mod 10 = 3]))
       </test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -800,7 +800,7 @@
     <description> Test subsequence on starting value out of int range. </description>
     <created by="Oliver Hallam" on="2008-05-14"/>
     <test>count(subsequence(1 to 100, -2147483648, 20))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -875,7 +875,7 @@
     <description> Test subsequence on map expression. </description>
     <created by="Oliver Hallam" on="2008-05-15"/>
     <test>subsequence(for $x in (1 to 100) return -$x, 3, 5)</test>
-    <result-string>xs:string('-3 -4 -5 -6 -7')</result-string>
+    <result-string>xs:string(&quot;-3 -4 -5 -6 -7&quot;)</result-string>
     <result>
       <assert-string-value>-3 -4 -5 -6 -7</assert-string-value>
     </result>
@@ -886,7 +886,7 @@
     <test>
         subsequence( for $x in 1 to 10 return 1 to $x, count(for $x in 0 to 10 return 1 to $x), 1)
       </test>
-    <result-string>xs:string('10')</result-string>
+    <result-string>xs:string(&quot;10&quot;)</result-string>
     <result>
       <assert-string-value>10</assert-string-value>
     </result>
@@ -897,7 +897,7 @@
     <test>
         subsequence(for $x in 1 to 10 return 1 to $x, 1.2, xs:double(&quot;INF&quot;))
       </test>
-    <result-string>xs:string('1 1 2 1 2 3 1 2 3 4 1 2 3 4 5 1 2 3 4 5 6 1 2 3 4 5 6 7 1 2 3 4 5 6 7 8 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 10')</result-string>
+    <result-string>xs:string(&quot;1 1 2 1 2 3 1 2 3 4 1 2 3 4 5 1 2 3 4 5 6 1 2 3 4 5 6 7 1 2 3 4 5 6 7 8 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 10&quot;)</result-string>
     <result>
       <assert-string-value>1 1 2 1 2 3 1 2 3 4 1 2 3 4 5 1 2 3 4 5 6 1 2 3 4 5 6 7 1 2 3 4 5 6 7 8 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 10</assert-string-value>
     </result>
@@ -908,7 +908,7 @@
     <test>
         subsequence(for $x in 1 to 10 return 1 to $x, 4.2, xs:double(&quot;INF&quot;))
       </test>
-    <result-string>xs:string('1 2 3 1 2 3 4 1 2 3 4 5 1 2 3 4 5 6 1 2 3 4 5 6 7 1 2 3 4 5 6 7 8 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 10')</result-string>
+    <result-string>xs:string(&quot;1 2 3 1 2 3 4 1 2 3 4 5 1 2 3 4 5 6 1 2 3 4 5 6 7 1 2 3 4 5 6 7 8 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 10&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3 1 2 3 4 1 2 3 4 5 1 2 3 4 5 6 1 2 3 4 5 6 7 1 2 3 4 5 6 7 8 1 2 3 4 5 6 7 8 9 1 2 3 4 5 6 7 8 9 10</assert-string-value>
     </result>
@@ -920,7 +920,7 @@
     <test>
         let $y := for $x in 1 to 10 return $x * $x return subsequence($y, count($y), 3)
       </test>
-    <result-string>xs:string('100')</result-string>
+    <result-string>xs:string(&quot;100&quot;)</result-string>
     <result>
       <assert-string-value>100</assert-string-value>
     </result>
@@ -929,7 +929,7 @@
     <description> Tests subsequence with static start and length </description>
     <created by="Nick Jones" on="2008-06-06"/>
     <test>subsequence(for $x in 1 to 10 return $x[. mod 2 = 0],2,4)</test>
-    <result-string>xs:string('4 6 8 10')</result-string>
+    <result-string>xs:string(&quot;4 6 8 10&quot;)</result-string>
     <result>
       <assert-string-value>4 6 8 10</assert-string-value>
     </result>
@@ -938,7 +938,7 @@
     <description> Tests an unbounded subsequence with a static start </description>
     <created by="Nick Jones" on="2008-06-06"/>
     <test>subsequence(for $x in 1 to 10 return $x[. mod 2 = 0],2)</test>
-    <result-string>xs:string('4 6 8 10')</result-string>
+    <result-string>xs:string(&quot;4 6 8 10&quot;)</result-string>
     <result>
       <assert-string-value>4 6 8 10</assert-string-value>
     </result>
@@ -950,7 +950,7 @@
     <test>
       <![CDATA[subsequence((1 to 20)[. mod 2 = 0][position() < 5],2)]]>
     </test>
-    <result-string>xs:string('4 6 8')</result-string>
+    <result-string>xs:string(&quot;4 6 8&quot;)</result-string>
     <result>
       <assert-string-value>4 6 8</assert-string-value>
     </result>
@@ -959,7 +959,7 @@
     <description> Test subsequence(for .....) </description>
     <created by="Nick Jones" on="2008-06-12"/>
     <test>subsequence(for $x in 1 to 10 return $x * $x,2)</test>
-    <result-string>xs:string('4 9 16 25 36 49 64 81 100')</result-string>
+    <result-string>xs:string(&quot;4 9 16 25 36 49 64 81 100&quot;)</result-string>
     <result>
       <assert-string-value>4 9 16 25 36 49 64 81 100</assert-string-value>
     </result>
@@ -970,7 +970,7 @@
     <test>
         subsequence((1 to 100)[. mod 2 = 0],1,xs:double(string-join(('I','N','F')[position() mod 2 = 0],'')))
       </test>
-    <result-string>xs:string('2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100')</result-string>
+    <result-string>xs:string(&quot;2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100&quot;)</result-string>
     <result>
       <assert-string-value>2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100</assert-string-value>
     </result>
@@ -982,7 +982,7 @@
     <test>
       <![CDATA[count(<a><b/></a>/*/subsequence(.,1,1)/..)]]>
     </test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -994,7 +994,7 @@
     <test>
         let $x := (1 to 10)[. mod 2 = 0] return subsequence((0,$x),3,count($x) div 2)
       </test>
-    <result-string>xs:string('4 6 8')</result-string>
+    <result-string>xs:string(&quot;4 6 8&quot;)</result-string>
     <result>
       <assert-string-value>4 6 8</assert-string-value>
     </result>
@@ -1006,7 +1006,7 @@
     <test>
         let $z := (1 to 10)[. mod 2 = 0] return subsequence(for $x in $z return floor($x),2,4)
       </test>
-    <result-string>xs:string('4 6 8 10')</result-string>
+    <result-string>xs:string(&quot;4 6 8 10&quot;)</result-string>
     <result>
       <assert-string-value>4 6 8 10</assert-string-value>
     </result>

@@ -66,7 +66,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:idref(&quot;id1&quot;,/IDS[1])/name(..)</test>
-    <result-string>xs:string('elementwithidrefattr-1')</result-string>
+    <result-string>xs:string(&quot;elementwithidrefattr-1&quot;)</result-string>
     <result>
       <assert-string-value>elementwithidrefattr-1</assert-string-value>
     </result>
@@ -76,7 +76,7 @@
     <created by="Carmelo Montanez" on="2006-06-23"/>
     <environment ref="id-idref-dtd"/>
     <test>fn:idref(&quot;nomatchingid&quot;, /IDS[1])</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -88,7 +88,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:idref(&quot;id4&quot;, /IDS[1])/name(..)</test>
-    <result-string>xs:string('elementwithidrefattr-4')</result-string>
+    <result-string>xs:string(&quot;elementwithidrefattr-4&quot;)</result-string>
     <result>
       <assert-string-value>elementwithidrefattr-4</assert-string-value>
     </result>
@@ -115,7 +115,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:idref((&quot;id1&quot;, &quot;nomatching&quot;), /IDS[1])/name(..)</test>
-    <result-string>xs:string('elementwithidrefattr-1')</result-string>
+    <result-string>xs:string(&quot;elementwithidrefattr-1&quot;)</result-string>
     <result>
       <assert-string-value>elementwithidrefattr-1</assert-string-value>
     </result>
@@ -125,7 +125,7 @@
     <created by="Carmelo Montanez" on="2006-06-23"/>
     <environment ref="id-idref-dtd"/>
     <test>fn:count(fn:idref(&quot;nomatching1 nomatching2&quot;, /IDS[1]))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -135,7 +135,7 @@
     <created by="Carmelo Montanez" on="2006-06-23"/>
     <environment ref="id-idref-dtd"/>
     <test>fn:count(fn:idref(&quot;&quot;, /IDS[1]))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -147,7 +147,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:node-name(fn:idref(&quot;id2&quot;, /IDS[1]))</test>
-    <result-string>xs:string('anIdRef')</result-string>
+    <result-string>xs:string(&quot;anIdRef&quot;)</result-string>
     <result>
       <assert-string-value>anIdRef</assert-string-value>
     </result>
@@ -159,7 +159,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>(fn:idref(&quot;id1&quot;, /IDS[1])) is (fn:idref(&quot;id1&quot;, /IDS[1]))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -171,7 +171,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>(fn:idref(&quot;id1&quot;, /IDS[1])) is (fn:idref(&quot;id2&quot;, /IDS[1]))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -183,7 +183,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>count(fn:idref((&quot;id1&quot;,&quot;id1&quot;), /IDS[1]))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -195,7 +195,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>count(fn:idref((&quot;id1&quot;,&quot;ID1&quot;), /IDS[1]))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -207,7 +207,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:idref(fn:lower-case(&quot;ID1&quot;), /IDS[1])/name(..)</test>
-    <result-string>xs:string('elementwithidrefattr-1')</result-string>
+    <result-string>xs:string(&quot;elementwithidrefattr-1&quot;)</result-string>
     <result>
       <assert-string-value>elementwithidrefattr-1</assert-string-value>
     </result>
@@ -219,7 +219,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:idref(fn:upper-case(&quot;id5&quot;), /IDS[1])/name(..)</test>
-    <result-string>xs:string('elementwithidrefattr-6')</result-string>
+    <result-string>xs:string(&quot;elementwithidrefattr-6&quot;)</result-string>
     <result>
       <assert-string-value>elementwithidrefattr-6</assert-string-value>
     </result>
@@ -231,7 +231,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:idref(fn:concat(&quot;i&quot;,&quot;d1&quot;), /IDS[1])/name(..)</test>
-    <result-string>xs:string('elementwithidrefattr-1')</result-string>
+    <result-string>xs:string(&quot;elementwithidrefattr-1&quot;)</result-string>
     <result>
       <assert-string-value>elementwithidrefattr-1</assert-string-value>
     </result>
@@ -243,7 +243,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:idref(xs:string(&quot;id1&quot;), /IDS[1])/name(..)</test>
-    <result-string>xs:string('elementwithidrefattr-1')</result-string>
+    <result-string>xs:string(&quot;elementwithidrefattr-1&quot;)</result-string>
     <result>
       <assert-string-value>elementwithidrefattr-1</assert-string-value>
     </result>
@@ -255,7 +255,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:idref(fn:string-join((&quot;id&quot;,&quot;1&quot;),&quot;&quot;), /IDS[1])/name(..)</test>
-    <result-string>xs:string('elementwithidrefattr-1')</result-string>
+    <result-string>xs:string(&quot;elementwithidrefattr-1&quot;)</result-string>
     <result>
       <assert-string-value>elementwithidrefattr-1</assert-string-value>
     </result>
@@ -312,7 +312,7 @@
     <environment ref="id-idref-dtd"/>
     <dependency type="feature" value="infoset-dtd"/>
     <test>fn:idref(&quot;id1&quot;)/name(..)</test>
-    <result-string>xs:string('elementwithidrefattr-1')</result-string>
+    <result-string>xs:string(&quot;elementwithidrefattr-1&quot;)</result-string>
     <result>
       <assert-string-value>elementwithidrefattr-1</assert-string-value>
     </result>
@@ -354,7 +354,7 @@
       	let $doc := document { <root /> } return fn:empty( fn:idref( local:generate(0), $doc) )
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -386,7 +386,7 @@
       	let $doc := document { <root /> } return fn:empty( $doc/fn:idref( local:generate(0)) )
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

@@ -67,7 +67,7 @@
     <dependency type="feature" value="higherOrderFunctions"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:exists( fn:innermost#1 )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -177,7 +177,7 @@
     <environment ref="innermost"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:deep-equal(fn:innermost( / ), / )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -210,7 +210,7 @@
     <environment ref="innermost"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>deep-equal(fn:innermost( //*/@* ), //*/@*)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -283,7 +283,7 @@
     <dependency type="feature" value="namespace-axis"/>
     <test>fn:deep-equal( fn:innermost( //*/namespace::* ),
                            //*/namespace::* )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -317,7 +317,7 @@
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:deep-equal( fn:innermost( //processing-instruction() ), 
                           //processing-instruction() )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -351,7 +351,7 @@
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:deep-equal( fn:innermost( //comment() ),
                            //comment() )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -388,7 +388,7 @@
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:deep-equal( fn:innermost( //text() ),
                            //text() )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -429,7 +429,7 @@
     <test>fn:deep-equal( fn:innermost( //* ), 
                            let $nodes := //*
                            return $nodes except $nodes/ancestor::node() )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -453,7 +453,7 @@
     <test>fn:deep-equal( fn:innermost( //node() ), 
                            let $nodes := //node()
                            return $nodes except $nodes/ancestor::node() )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -477,7 +477,7 @@
     <test>fn:deep-equal( fn:innermost( /root/node() ), 
                            let $nodes := /root/node()
                            return $nodes except $nodes/ancestor::node() )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -501,7 +501,7 @@
     <test>fn:deep-equal( fn:innermost( /root/descendant::node() ), 
                            let $nodes := /root/descendant::node()
                            return $nodes except $nodes/ancestor::node() )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -525,7 +525,7 @@
     <test>fn:deep-equal( fn:innermost( /root/level[1]/level[1]/ancestor::node() ), 
                            let $nodes := /root/level[1]/level[1]/ancestor::node()
                            return $nodes except $nodes/ancestor::node() )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -549,7 +549,7 @@
     <test>fn:deep-equal( fn:innermost( /root/level[1]/level[last()]/preceding-sibling::node() ), 
                            let $nodes := /root/level[1]/level[last()]/preceding-sibling::node()
                            return $nodes except $nodes/ancestor::node() )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -573,7 +573,7 @@
     <test>fn:deep-equal( fn:innermost( /root/level[1]/level[last()]/preceding::node() ), 
                            let $nodes := /root/level[1]/level[last()]/preceding::node()
                            return $nodes except $nodes/ancestor::node() )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -597,7 +597,7 @@
     <test>fn:deep-equal( fn:innermost( /root/level[1]/following-sibling::node() ), 
                            let $nodes := /root/level[1]/following-sibling::node()
                            return $nodes except $nodes/ancestor::node() )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -621,7 +621,7 @@
     <test>fn:deep-equal( fn:innermost( /root/level[1]/level[1]/following::node() ), 
                            let $nodes := /root/level[1]/level[1]/following::node()
                            return $nodes except $nodes/ancestor::node() )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -645,7 +645,7 @@
     <test>fn:deep-equal( fn:innermost( /root/node()/.. ), 
                            let $nodes := /root/node()/..
                            return $nodes except $nodes/ancestor::node() )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -669,7 +669,7 @@
     <test>fn:deep-equal( fn:innermost( ($doc1//node(), $doc2//node()) ),
                            let $nodes := ($doc1//node(), $doc2//node())
                            return $nodes except $nodes/ancestor::node() )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -681,7 +681,7 @@
     <dependency type="spec" value="XQ30+"/>
     <test>let $in := for $x in //* order by local-name($x) return $x
             return deep-equal(fn:innermost($in)/local-name(), fn:innermost(//*)/local-name())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -693,7 +693,7 @@
     <dependency type="spec" value="XQ30+"/>
     <test>let $in := for $x in //* order by local-name($x) return $x
             return deep-equal(fn:innermost(($in, $in))/local-name(), fn:innermost(//*)/local-name())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -704,7 +704,7 @@
     <environment ref="innermost"/>
     <dependency type="spec" value="XQ30+"/>
     <test>innermost(//rubbish)</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -715,7 +715,7 @@
     <environment ref="innermost"/>
     <dependency type="spec" value="XQ30+"/>
     <test>innermost(//*) except //*</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>

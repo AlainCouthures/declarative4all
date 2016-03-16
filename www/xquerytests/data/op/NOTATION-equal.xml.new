@@ -21,7 +21,7 @@
     <dependency type="feature" value="schemaImport"/>
     <test>import schema namespace myns=&quot;http://www.example.com/notation&quot;; 
          fn:not(exactly-one(//*:NOTATION1[1]) eq exactly-one(//*:NOTATION3[1]))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -48,7 +48,7 @@
     <dependency type="feature" value="schemaImport"/>
     <test>import schema namespace myns=&quot;http://www.example.com/notation&quot;; 
          exactly-one(//*:NOTATION1[1]) eq exactly-one(//*:NOTATION4[1])</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -60,7 +60,7 @@
     <dependency type="feature" value="schemaImport"/>
     <test>import schema namespace myns=&quot;http://www.example.com/notation&quot;; 
          exactly-one(//*:NOTATION1[1]) ne exactly-one(//*:NOTATION3[1])</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -72,7 +72,7 @@
     <dependency type="feature" value="schemaImport"/>
     <test>import schema namespace myns=&quot;http://www.example.com/notation&quot;; 
          exactly-one(//*:NOTATION1[1]) ne exactly-one(//*:NOTATION2[1])</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -84,7 +84,7 @@
     <dependency type="feature" value="schemaImport"/>
     <test>import schema namespace myns=&quot;http://www.example.com/notation&quot;; 
          exactly-one(//*:NOTATION1[1]) ne exactly-one(//*:NOTATION4[1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -96,7 +96,7 @@
     <dependency type="feature" value="schemaImport"/>
     <test>import schema namespace myns=&quot;http://www.example.com/notation&quot;; 
          fn:not(exactly-one(//*:NOTATION1[1]) eq exactly-one(//*:NOTATION3[1]))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -108,7 +108,7 @@
     <dependency type="feature" value="schemaImport"/>
     <test>import schema namespace myns=&quot;http://www.example.com/notation&quot;; 
          fn:not(exactly-one(//*:NOTATION1[1]) eq exactly-one(//*:NOTATION2[1]))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -120,7 +120,7 @@
     <dependency type="feature" value="schemaImport"/>
     <test>import schema namespace myns=&quot;http://www.example.com/notation&quot;; 
          fn:not(exactly-one(//*:NOTATION1[1]) ne exactly-one(//*:NOTATION3[1]))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -132,7 +132,7 @@
     <dependency type="feature" value="schemaImport"/>
     <test>import schema namespace myns=&quot;http://www.example.com/notation&quot;; 
          fn:not(exactly-one(//*:NOTATION1[1]) ne exactly-one(//*:NOTATION2[1]))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -144,7 +144,7 @@
     <dependency type="feature" value="schemaImport"/>
     <test>import schema namespace myns=&quot;http://www.example.com/notation&quot;; 
          fn:boolean(exactly-one(//*:NOTATION1[1]) eq exactly-one(//*:NOTATION2[1]))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -156,7 +156,7 @@
     <dependency type="feature" value="schemaImport"/>
     <test>import schema namespace myns=&quot;http://www.example.com/notation&quot;; 
          fn:boolean(exactly-one(//*:NOTATION1[1]) ne exactly-one(//*:NOTATION2[1]))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -168,7 +168,7 @@
     <dependency type="feature" value="schemaImport"/>
     <test>import schema namespace myns=&quot;http://www.example.com/notation&quot;; 
          (exactly-one(//*:NOTATION1[1]) eq exactly-one(//*:NOTATION2[1])) and fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -180,7 +180,7 @@
     <dependency type="feature" value="schemaImport"/>
     <test>import schema namespace myns=&quot;http://www.example.com/notation&quot;; 
          (exactly-one(//*:NOTATION1[1]) ne exactly-one(//*:NOTATION2[1])) and fn:true()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -192,7 +192,7 @@
     <dependency type="feature" value="schemaImport"/>
     <test>import schema namespace myns=&quot;http://www.example.com/notation&quot;; 
          (exactly-one(//*:NOTATION1[1]) eq exactly-one(//*:NOTATION2[1])) or fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -204,7 +204,7 @@
     <dependency type="feature" value="schemaImport"/>
     <test>import schema namespace myns=&quot;http://www.example.com/notation&quot;; 
          (exactly-one(//*:NOTATION1[1]) ne exactly-one(//*:NOTATION2[1])) or fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -216,7 +216,7 @@
     <dependency type="feature" value="schemaImport"/>
     <test>import schema namespace myns=&quot;http://www.example.com/notation&quot;; 
          (exactly-one(//*:NOTATION1[1]) eq exactly-one(//*:NOTATION2[1])) and fn:false()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -228,7 +228,7 @@
     <dependency type="feature" value="schemaImport"/>
     <test>import schema namespace myns=&quot;http://www.example.com/notation&quot;; 
          (exactly-one(//*:NOTATION1[1]) ne exactly-one(//*:NOTATION2[1])) and fn:false()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -240,7 +240,7 @@
     <dependency type="feature" value="schemaImport"/>
     <test>import schema namespace myns=&quot;http://www.example.com/notation&quot;; 
          (exactly-one(//*:NOTATION1[1]) eq exactly-one(//*:NOTATION2[1])) or fn:false()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -252,7 +252,7 @@
     <dependency type="feature" value="schemaImport"/>
     <test>import schema namespace myns=&quot;http://www.example.com/notation&quot;; 
          (exactly-one(//*:NOTATION1[1]) ne exactly-one(//*:NOTATION2[1])) or fn:false()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -265,7 +265,7 @@
     <test>import schema namespace myns=&quot;http://www.example.com/notation&quot;; 
          exactly-one(//*:NOTATION1[1]) eq exactly-one(//*:NOTATION2[1])
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

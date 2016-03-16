@@ -5,7 +5,7 @@
     <description>Test xs:anyURI on empty sequence</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <test>xs:anyURI(())</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -14,7 +14,7 @@
     <description>Test parsing of characters '+', '-', '.' in scheme</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <test>xs:anyURI(&quot;odd-scheme+1.://www.example.org/&quot;)</test>
-    <result-string>xs:string('odd-scheme+1.://www.example.org/')</result-string>
+    <result-string>xs:string(&quot;odd-scheme+1.://www.example.org/&quot;)</result-string>
     <result>
       <assert-string-value>odd-scheme+1.://www.example.org/</assert-string-value>
     </result>
@@ -23,7 +23,7 @@
     <description>Test parsing of pct-encoded characters in reg-name</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <test>xs:anyURI(&quot;http://%0Ad%E2%9C%90%F0%98%9A%A0/&quot;)</test>
-    <result-string>xs:string('http://%0Ad%E2%9C%90%F0%98%9A%A0/')</result-string>
+    <result-string>xs:string(&quot;http://%0Ad%E2%9C%90%F0%98%9A%A0/&quot;)</result-string>
     <result>
       <assert-string-value>http://%0Ad%E2%9C%90%F0%98%9A%A0/</assert-string-value>
     </result>
@@ -35,7 +35,7 @@
     <test>
       <![CDATA[xs:anyURI("http://!$&amp;'()*+,;=/")]]>
     </test>
-    <result-string>xs:string('http://!$'()*+,;=/')</result-string>
+    <result-string>xs:string(&quot;http://!$'()*+,;=/&quot;)</result-string>
     <result>
       <assert-string-value>http://!$'()*+,;=/</assert-string-value>
     </result>
@@ -45,7 +45,7 @@
     <created by="Tim Mills" on="2013-02-15"/>
     <dependency type="spec" value="XP20+"/>
     <test>xs:anyURI(&quot;http://!$'()*+,;=/&quot;)</test>
-    <result-string>xs:string('http://!$'()*+,;=/')</result-string>
+    <result-string>xs:string(&quot;http://!$'()*+,;=/&quot;)</result-string>
     <result>
       <assert-string-value>http://!$'()*+,;=/</assert-string-value>
     </result>
@@ -54,7 +54,7 @@
     <description>Test parsing of pct-encoded characters in segment</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <test>xs:anyURI(&quot;http://www.example.org/%0Ad%E2%9C%90%F0%98%9A%A0/&quot;)</test>
-    <result-string>xs:string('http://www.example.org/%0Ad%E2%9C%90%F0%98%9A%A0/')</result-string>
+    <result-string>xs:string(&quot;http://www.example.org/%0Ad%E2%9C%90%F0%98%9A%A0/&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.org/%0Ad%E2%9C%90%F0%98%9A%A0/</assert-string-value>
     </result>
@@ -66,7 +66,7 @@
     <test>
       <![CDATA[xs:anyURI("http://www.example.org/!/$/&amp;/'/(/)/*/+/,/;/=/")]]>
     </test>
-    <result-string>xs:string('http://www.example.org/!/$//'/(/)/*/+/,/;/=/')</result-string>
+    <result-string>xs:string(&quot;http://www.example.org/!/$//'/(/)/*/+/,/;/=/&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.org/!/$//'/(/)/*/+/,/;/=/</assert-string-value>
     </result>
@@ -76,7 +76,7 @@
     <created by="Tim Mills" on="2013-02-15"/>
     <dependency type="spec" value="XP20+"/>
     <test>xs:anyURI(&quot;http://www.example.org/!/$//'/(/)/*/+/,/;/=/&quot;)</test>
-    <result-string>xs:string('http://www.example.org/!/$//'/(/)/*/+/,/;/=/')</result-string>
+    <result-string>xs:string(&quot;http://www.example.org/!/$//'/(/)/*/+/,/;/=/&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.org/!/$//'/(/)/*/+/,/;/=/</assert-string-value>
     </result>
@@ -85,7 +85,7 @@
     <description>Test parsing characters ':','@' in segment</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <test>xs:anyURI(&quot;http://www.example.org/:/@/&quot;)</test>
-    <result-string>xs:string('http://www.example.org/:/@/')</result-string>
+    <result-string>xs:string(&quot;http://www.example.org/:/@/&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.org/:/@/</assert-string-value>
     </result>
@@ -94,7 +94,7 @@
     <description>Test parsing of pct-encoded characters in query</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <test>xs:anyURI(&quot;http://www.example.org/?%0Ad%E2%9C%90%F0%98%9A%A0/&quot;)</test>
-    <result-string>xs:string('http://www.example.org/?%0Ad%E2%9C%90%F0%98%9A%A0/')</result-string>
+    <result-string>xs:string(&quot;http://www.example.org/?%0Ad%E2%9C%90%F0%98%9A%A0/&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.org/?%0Ad%E2%9C%90%F0%98%9A%A0/</assert-string-value>
     </result>
@@ -106,7 +106,7 @@
     <test>
       <![CDATA[xs:anyURI("http://www.example.org/?!$&amp;'()*+,;=")]]>
     </test>
-    <result-string>xs:string('http://www.example.org/?!$'()*+,;=')</result-string>
+    <result-string>xs:string(&quot;http://www.example.org/?!$'()*+,;=&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.org/?!$'()*+,;=</assert-string-value>
     </result>
@@ -116,7 +116,7 @@
     <created by="Tim Mills" on="2013-02-15"/>
     <dependency type="spec" value="XP20+"/>
     <test>xs:anyURI(&quot;http://www.example.org/?!$'()*+,;=&quot;)</test>
-    <result-string>xs:string('http://www.example.org/?!$'()*+,;=')</result-string>
+    <result-string>xs:string(&quot;http://www.example.org/?!$'()*+,;=&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.org/?!$'()*+,;=</assert-string-value>
     </result>
@@ -125,7 +125,7 @@
     <description>Test parsing characters ':','@' in query</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <test>xs:anyURI(&quot;http://www.example.org/?:@&quot;)</test>
-    <result-string>xs:string('http://www.example.org/?:@')</result-string>
+    <result-string>xs:string(&quot;http://www.example.org/?:@&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.org/?:@</assert-string-value>
     </result>
@@ -134,7 +134,7 @@
     <description>Test parsing of pct-encoded characters in fragment</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <test>xs:anyURI(&quot;http://www.example.org/#%0Ad%E2%9C%90%F0%98%9A%A0/&quot;)</test>
-    <result-string>xs:string('http://www.example.org/#%0Ad%E2%9C%90%F0%98%9A%A0/')</result-string>
+    <result-string>xs:string(&quot;http://www.example.org/#%0Ad%E2%9C%90%F0%98%9A%A0/&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.org/#%0Ad%E2%9C%90%F0%98%9A%A0/</assert-string-value>
     </result>
@@ -146,7 +146,7 @@
     <test>
       <![CDATA[xs:anyURI("http://www.example.org/#!$&amp;'()*+,;=")]]>
     </test>
-    <result-string>xs:string('http://www.example.org/#!$'()*+,;=')</result-string>
+    <result-string>xs:string(&quot;http://www.example.org/#!$'()*+,;=&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.org/#!$'()*+,;=</assert-string-value>
     </result>
@@ -156,7 +156,7 @@
     <created by="Tim Mills" on="2013-02-15"/>
     <dependency type="spec" value="XP20+"/>
     <test>xs:anyURI(&quot;http://www.example.org/#!$'()*+,;=&quot;)</test>
-    <result-string>xs:string('http://www.example.org/#!$'()*+,;=')</result-string>
+    <result-string>xs:string(&quot;http://www.example.org/#!$'()*+,;=&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.org/#!$'()*+,;=</assert-string-value>
     </result>
@@ -165,7 +165,7 @@
     <description>Test parsing characters ':','@' in fragment</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <test>xs:anyURI(&quot;http://www.example.org/#:@&quot;)</test>
-    <result-string>xs:string('http://www.example.org/#:@')</result-string>
+    <result-string>xs:string(&quot;http://www.example.org/#:@&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.org/#:@</assert-string-value>
     </result>

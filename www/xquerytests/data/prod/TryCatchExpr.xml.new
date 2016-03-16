@@ -14,7 +14,7 @@
     <test>
       <![CDATA[try { doc('rubbish.xml') } catch * {"ok"}]]>
     </test>
-    <result-string>xs:string('ok')</result-string>
+    <result-string>xs:string(&quot;ok&quot;)</result-string>
     <result>
       <assert-string-value>ok</assert-string-value>
     </result>
@@ -28,7 +28,7 @@
         try { doc('rubbish.xml') } catch err:FODC0001 | err:FODC0002 | err:FODC0005 {"ok"}
       ]]>
     </test>
-    <result-string>xs:string('ok')</result-string>
+    <result-string>xs:string(&quot;ok&quot;)</result-string>
     <result>
       <assert-string-value>ok</assert-string-value>
     </result>
@@ -40,7 +40,7 @@
     <test>
       <![CDATA[try { doc('rubbish.xml') } catch *:FODC0001 | *:FODC0002 | *:FODC0005 {"ok"}]]>
     </test>
-    <result-string>xs:string('ok')</result-string>
+    <result-string>xs:string(&quot;ok&quot;)</result-string>
     <result>
       <assert-string-value>ok</assert-string-value>
     </result>
@@ -118,7 +118,7 @@
         try { local:f() } catch * {"ok"}
       ]]>
     </test>
-    <result-string>xs:string('ok')</result-string>
+    <result-string>xs:string(&quot;ok&quot;)</result-string>
     <result>
       <assert-string-value>ok</assert-string-value>
     </result>
@@ -134,7 +134,7 @@
         try { local:f(0) } catch err:FOAR0001 {"ok"}
       ]]>
     </test>
-    <result-string>xs:string('ok')</result-string>
+    <result-string>xs:string(&quot;ok&quot;)</result-string>
     <result>
       <assert-string-value>ok</assert-string-value>
     </result>
@@ -149,7 +149,7 @@
         try { local:f(0) } catch * {local-name-from-QName($err:code)}
       ]]>
     </test>
-    <result-string>xs:string('FOAR0001')</result-string>
+    <result-string>xs:string(&quot;FOAR0001&quot;)</result-string>
     <result>
       <assert-string-value>FOAR0001</assert-string-value>
     </result>
@@ -165,7 +165,7 @@
         try { local:f(0) } catch * { try { local:f($t cast as xs:integer) } catch * {local-name-from-QName($err:code)} }
       ]]>
     </test>
-    <result-string>xs:string('FORG0001')</result-string>
+    <result-string>xs:string(&quot;FORG0001&quot;)</result-string>
     <result>
       <assert-string-value>FORG0001</assert-string-value>
     </result>
@@ -212,7 +212,7 @@
                 9999999999999999999999999999999999999999999999999999999999999999999999 }
         catch err:FOAR0002 {1}
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -224,7 +224,7 @@
     <test>try { xs:date('2013-02-29') }
           catch err:FORG0001 {true()}
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -237,7 +237,7 @@
       declare function local:f() { .+3 };
       try {local:f()} catch err:XPDY0002 {true()}
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -289,7 +289,7 @@
     <description>A division by zero (dynamic error) is caught.</description>
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <test>try { 1 div 0 } catch * { &quot;Division by zero&quot; }</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;Division by zero&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;Division by zero&quot;</assert-eq>
     </result>
@@ -299,7 +299,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 1 div 0 } catch err:FOAR0001 { &quot;Division by zero&quot; }</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;Division by zero&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;Division by zero&quot;</assert-eq>
     </result>
@@ -309,7 +309,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 1 div 0 } catch err:* { &quot;Division by zero&quot; }</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;Division by zero&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;Division by zero&quot;</assert-eq>
     </result>
@@ -318,7 +318,7 @@
     <description>A division by zero (dynamic error) is caught when the error local name is specified.</description>
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <test>try { 1 div 0 } catch *:FOAR0001 { &quot;Division by zero&quot; }</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;Division by zero&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;Division by zero&quot;</assert-eq>
     </result>
@@ -567,7 +567,7 @@
     <description>If no error is raised, the result of the try catch expression is the result of the try clause.</description>
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <test>try { 0 } catch * { &quot;No error&quot; }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -577,7 +577,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 0 } catch err:FOAR0001 { &quot;No error&quot; }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -587,7 +587,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 0 } catch err:* { &quot;No error&quot; }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -596,7 +596,7 @@
     <description>If no error is raised, the result of the try catch expression is the result of the try clause.</description>
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <test>try { 0 } catch *:FOAR0001 { &quot;No error&quot; }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -606,7 +606,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 0 } catch err:FOAR0001 { &quot;No error&quot; } catch *:FOAR0001 { &quot;No error &quot;} catch err:* { &quot;No error &quot;}  catch * { &quot;No error &quot;}</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -615,7 +615,7 @@
     <description>URI literals are supported in name tests.</description>
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <test>try { 1 div 0 } catch Q{http://www.w3.org/2005/xqt-errors}FOAR0001 { &quot;Division by zero&quot; }</test>
-    <result-string>xs:string('Division by zero')</result-string>
+    <result-string>xs:string(&quot;Division by zero&quot;)</result-string>
     <result>
       <assert-string-value>Division by zero</assert-string-value>
     </result>
@@ -624,7 +624,7 @@
     <description>URI literals are supported in name tests.</description>
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <test>try { 1 div 0 } catch Q{http://www.w3.org/2005/xqt-errors}* { &quot;Division by zero&quot; }</test>
-    <result-string>xs:string('Division by zero')</result-string>
+    <result-string>xs:string(&quot;Division by zero&quot;)</result-string>
     <result>
       <assert-string-value>Division by zero</assert-string-value>
     </result>
@@ -690,7 +690,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 1 div 0 } catch err:XPST0008 | err:FOAR0001 { &quot;Division by zero&quot; }</test>
-    <result-string>xs:string('Division by zero')</result-string>
+    <result-string>xs:string(&quot;Division by zero&quot;)</result-string>
     <result>
       <assert-string-value>Division by zero</assert-string-value>
     </result>
@@ -700,7 +700,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 1 div 0 } catch err:FOAR0001 | err:XPST0008 { &quot;Division by zero&quot; }</test>
-    <result-string>xs:string('Division by zero')</result-string>
+    <result-string>xs:string(&quot;Division by zero&quot;)</result-string>
     <result>
       <assert-string-value>Division by zero</assert-string-value>
     </result>
@@ -710,7 +710,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 1 div 0 } catch err:XPTY0004 | err:FOAR0001 | err:XPST0008 { &quot;Division by zero&quot; }</test>
-    <result-string>xs:string('Division by zero')</result-string>
+    <result-string>xs:string(&quot;Division by zero&quot;)</result-string>
     <result>
       <assert-string-value>Division by zero</assert-string-value>
     </result>
@@ -720,7 +720,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 1 div 0 } catch err:FOAR0001 { &quot;Clause 1&quot; } catch err:FOAR0001 { &quot;Clause 2&quot; }</test>
-    <result-string>xs:string('Clause 1')</result-string>
+    <result-string>xs:string(&quot;Clause 1&quot;)</result-string>
     <result>
       <assert-string-value>Clause 1</assert-string-value>
     </result>
@@ -730,7 +730,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 1 div 0 } catch err:XQST008 { &quot;Clause 1&quot; } catch err:FOAR0001 { &quot;Clause 2&quot; }</test>
-    <result-string>xs:string('Clause 2')</result-string>
+    <result-string>xs:string(&quot;Clause 2&quot;)</result-string>
     <result>
       <assert-string-value>Clause 2</assert-string-value>
     </result>
@@ -740,7 +740,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 1 div 0 } catch err:FOAR0001 { &quot;Clause 1&quot; } catch err:XQST008 { &quot;Clause 2&quot; }</test>
-    <result-string>xs:string('Clause 1')</result-string>
+    <result-string>xs:string(&quot;Clause 1&quot;)</result-string>
     <result>
       <assert-string-value>Clause 1</assert-string-value>
     </result>
@@ -750,7 +750,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 1 div 0 } catch err:FOAR0001 { &quot;Clause 1&quot; } catch err:XQST008 { &quot;Clause 2&quot; } catch err:XPTY0004 { &quot;Clause 3&quot; }</test>
-    <result-string>xs:string('Clause 1')</result-string>
+    <result-string>xs:string(&quot;Clause 1&quot;)</result-string>
     <result>
       <assert-string-value>Clause 1</assert-string-value>
     </result>
@@ -760,7 +760,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 1 div 0 } catch err:FOAR0001 { &quot;Clause 1&quot; } catch err:XPTY0004 { &quot;Clause 2&quot; } catch err:XQST008 { &quot;Clause 3&quot; }</test>
-    <result-string>xs:string('Clause 1')</result-string>
+    <result-string>xs:string(&quot;Clause 1&quot;)</result-string>
     <result>
       <assert-string-value>Clause 1</assert-string-value>
     </result>
@@ -770,7 +770,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 1 div 0 } catch err:XPTY0004 { &quot;Clause 1&quot; } catch err:FOAR0001 { &quot;Clause 2&quot; } catch err:XQST008 { &quot;Clause 3&quot; }</test>
-    <result-string>xs:string('Clause 2')</result-string>
+    <result-string>xs:string(&quot;Clause 2&quot;)</result-string>
     <result>
       <assert-string-value>Clause 2</assert-string-value>
     </result>
@@ -780,7 +780,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 1 div 0 } catch err:XPTY0004 { &quot;Clause 1&quot; } catch err:XPST0008 { &quot;Clause 2&quot; } catch err:FOAR0001 { &quot;Clause 3&quot; }</test>
-    <result-string>xs:string('Clause 3')</result-string>
+    <result-string>xs:string(&quot;Clause 3&quot;)</result-string>
     <result>
       <assert-string-value>Clause 3</assert-string-value>
     </result>
@@ -790,7 +790,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 1 div 0 } catch err:* { &quot;Clause 1&quot; } catch xs:* { &quot;Clause 2&quot; }</test>
-    <result-string>xs:string('Clause 1')</result-string>
+    <result-string>xs:string(&quot;Clause 1&quot;)</result-string>
     <result>
       <assert-string-value>Clause 1</assert-string-value>
     </result>
@@ -800,7 +800,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 1 div 0 } catch xs:* { &quot;Clause 1&quot; } catch err:* { &quot;Clause 2&quot; }</test>
-    <result-string>xs:string('Clause 2')</result-string>
+    <result-string>xs:string(&quot;Clause 2&quot;)</result-string>
     <result>
       <assert-string-value>Clause 2</assert-string-value>
     </result>
@@ -809,7 +809,7 @@
     <description>The first matching catch clause is used.</description>
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <test>try { 1 div 0 } catch Q{http://www.w3.org/2005/xqt-errors}* { &quot;Clause 1&quot; } catch Q{http://www.w3.org/2001/XMLSchema}* { &quot;Clause 2&quot; }</test>
-    <result-string>xs:string('Clause 1')</result-string>
+    <result-string>xs:string(&quot;Clause 1&quot;)</result-string>
     <result>
       <assert-string-value>Clause 1</assert-string-value>
     </result>
@@ -818,7 +818,7 @@
     <description>The first matching catch clause is used.</description>
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <test>try { 1 div 0 } catch Q{http://www.w3.org/2001/XMLSchema}* { &quot;Clause 1&quot; } catch Q{http://www.w3.org/2005/xqt-errors}* { &quot;Clause 2&quot; }</test>
-    <result-string>xs:string('Clause 2')</result-string>
+    <result-string>xs:string(&quot;Clause 2&quot;)</result-string>
     <result>
       <assert-string-value>Clause 2</assert-string-value>
     </result>
@@ -828,7 +828,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 1 div 0 } catch * { &quot;Clause 1&quot; } catch err:FOAR0001 { &quot;Clause 2&quot; }</test>
-    <result-string>xs:string('Clause 1')</result-string>
+    <result-string>xs:string(&quot;Clause 1&quot;)</result-string>
     <result>
       <assert-string-value>Clause 1</assert-string-value>
     </result>
@@ -838,7 +838,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 1 div 0 } catch * { $err:code }</test>
-    <result-string>xs:string('err:FOAR0001')</result-string>
+    <result-string>xs:string(&quot;err:FOAR0001&quot;)</result-string>
     <result>
       <assert-string-value>err:FOAR0001</assert-string-value>
     </result>
@@ -848,7 +848,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 1 div 0 } catch * { fn:prefix-from-QName($err:code) }</test>
-    <result-string>xs:string('err')</result-string>
+    <result-string>xs:string(&quot;err&quot;)</result-string>
     <result>
       <assert-string-value>err</assert-string-value>
     </result>
@@ -858,7 +858,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 1 div 0 } catch * { fn:local-name-from-QName($err:code) }</test>
-    <result-string>xs:string('FOAR0001')</result-string>
+    <result-string>xs:string(&quot;FOAR0001&quot;)</result-string>
     <result>
       <assert-string-value>FOAR0001</assert-string-value>
     </result>
@@ -868,7 +868,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 1 div 0 } catch * { fn:namespace-uri-from-QName($err:code) }</test>
-    <result-string>xs:string('http://www.w3.org/2005/xqt-errors')</result-string>
+    <result-string>xs:string(&quot;http://www.w3.org/2005/xqt-errors&quot;)</result-string>
     <result>
       <assert-string-value>http://www.w3.org/2005/xqt-errors</assert-string-value>
     </result>
@@ -878,7 +878,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FOER0001')) } catch * { $err:code }</test>
-    <result-string>xs:string('err:FOER0001')</result-string>
+    <result-string>xs:string(&quot;err:FOER0001&quot;)</result-string>
     <result>
       <assert-string-value>err:FOER0001</assert-string-value>
     </result>
@@ -888,7 +888,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FOER0001')) } catch * { fn:prefix-from-QName($err:code) }</test>
-    <result-string>xs:string('err')</result-string>
+    <result-string>xs:string(&quot;err&quot;)</result-string>
     <result>
       <assert-string-value>err</assert-string-value>
     </result>
@@ -898,7 +898,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FOER0001')) } catch * { fn:local-name-from-QName($err:code) }</test>
-    <result-string>xs:string('FOER0001')</result-string>
+    <result-string>xs:string(&quot;FOER0001&quot;)</result-string>
     <result>
       <assert-string-value>FOER0001</assert-string-value>
     </result>
@@ -908,7 +908,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FOER0001')) } catch * { fn:namespace-uri-from-QName($err:code) }</test>
-    <result-string>xs:string('http://www.w3.org/2005/xqt-errors')</result-string>
+    <result-string>xs:string(&quot;http://www.w3.org/2005/xqt-errors&quot;)</result-string>
     <result>
       <assert-string-value>http://www.w3.org/2005/xqt-errors</assert-string-value>
     </result>
@@ -918,7 +918,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { fn:error() } catch * { $err:code }</test>
-    <result-string>xs:string('err:FOER0000')</result-string>
+    <result-string>xs:string(&quot;err:FOER0000&quot;)</result-string>
     <result>
       <assert-string-value>err:FOER0000</assert-string-value>
     </result>
@@ -928,7 +928,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { fn:error() } catch * { fn:prefix-from-QName($err:code) }</test>
-    <result-string>xs:string('err')</result-string>
+    <result-string>xs:string(&quot;err&quot;)</result-string>
     <result>
       <assert-string-value>err</assert-string-value>
     </result>
@@ -938,7 +938,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { fn:error() } catch * { fn:local-name-from-QName($err:code) }</test>
-    <result-string>xs:string('FOER0000')</result-string>
+    <result-string>xs:string(&quot;FOER0000&quot;)</result-string>
     <result>
       <assert-string-value>FOER0000</assert-string-value>
     </result>
@@ -948,7 +948,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { fn:error() } catch * { fn:namespace-uri-from-QName($err:code) }</test>
-    <result-string>xs:string('http://www.w3.org/2005/xqt-errors')</result-string>
+    <result-string>xs:string(&quot;http://www.w3.org/2005/xqt-errors&quot;)</result-string>
     <result>
       <assert-string-value>http://www.w3.org/2005/xqt-errors</assert-string-value>
     </result>
@@ -958,7 +958,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 1 div 0 } catch * { count($err:description) le 1 }</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -968,7 +968,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 1 div 0 } catch * { if (($err:description)) then $err:description instance of xs:string else fn:true() }</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -978,7 +978,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FOER0000'), &quot;Description&quot;) } catch * { $err:description }</test>
-    <result-string>xs:string('Description')</result-string>
+    <result-string>xs:string(&quot;Description&quot;)</result-string>
     <result>
       <assert-string-value>Description</assert-string-value>
     </result>
@@ -988,7 +988,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FOER0000'), &quot;Description&quot;, &quot;Value&quot;) } catch * { $err:value }</test>
-    <result-string>xs:string('Value')</result-string>
+    <result-string>xs:string(&quot;Value&quot;)</result-string>
     <result>
       <assert-string-value>Value</assert-string-value>
     </result>
@@ -998,7 +998,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FOER0000'), &quot;Description&quot;, (&quot;Value&quot;, 3, a/&gt;, true())) } catch * { count($err:value) }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;4&quot;)</result-string>
     <result>
       <assert-eq>4</assert-eq>
     </result>
@@ -1008,7 +1008,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FOER0000'), &quot;Description&quot;, (&quot;Value&quot;, 3)) } catch * { $err:value[2] }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -1018,7 +1018,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { fn:error() } catch * { let $n := $err:module return true() }</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1051,7 +1051,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { fn:error() } catch * { let $n := $err:line-number return true() }</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1084,7 +1084,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { fn:error() } catch * { let $n := $err:column-number return true() }</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1146,7 +1146,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { 0 } catch err:FOER0000 { fn:error() }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1156,7 +1156,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { fn:error() } catch err:FOER0001 { fn:error() } catch err:FOER0000 { 0 }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1166,7 +1166,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { fn:error() } catch err:FOER0000 { 0 } catch err:FOER0001 { fn:error() }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1176,7 +1176,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { fn:error() } catch err:FOER0000 { 0 }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1186,7 +1186,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { fn:one-or-more(()) } catch err:FORG0004 { 0 }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1197,7 +1197,7 @@
     <environment ref="err"/>
     <dependency satisfied="true" type="feature" value="higherOrderFunctions"/>
     <test>try { function() { fn:error() } () } catch err:FOER0000 { 0 }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1208,7 +1208,7 @@
     <environment ref="err"/>
     <dependency satisfied="true" type="feature" value="higherOrderFunctions"/>
     <test>try { function() { 1 div 0 } () } catch err:FOAR0001 { 0 }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1218,7 +1218,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { fn:error(xs:QName(&quot;err:XPST0008&quot;)) } catch err:XPST0008 { 0 }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1264,7 +1264,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { for $x as xs:integer in (0, 1, &quot;&quot;) return $x } catch err:XPTY0004 { 0 }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1334,7 +1334,7 @@
       catch * {
       0
       }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1349,7 +1349,7 @@
       catch err:FORG0001 {
       0
       }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1364,7 +1364,7 @@
       catch err:FORG0001 | err:XPTY0004 {
       0
       }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1383,7 +1383,7 @@
         })
       return true()
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1420,7 +1420,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { . } catch err:XPDY0002 { &quot;Context item not set.&quot; }</test>
-    <result-string>xs:string('Context item not set.')</result-string>
+    <result-string>xs:string(&quot;Context item not set.&quot;)</result-string>
     <result>
       <assert-string-value>Context item not set.</assert-string-value>
     </result>
@@ -1430,7 +1430,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { &quot;&quot; treat as element() } catch err:XPDY0050 { &quot;Sequence type mismatch.&quot; }</test>
-    <result-string>xs:string('Sequence type mismatch.')</result-string>
+    <result-string>xs:string(&quot;Sequence type mismatch.&quot;)</result-string>
     <result>
       <assert-string-value>Sequence type mismatch.</assert-string-value>
     </result>
@@ -1440,7 +1440,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { element  element { attribute a {&quot;&quot;}, attribute a {&quot;&quot;} } } catch err:XQDY0025 { &quot;Attribute name duplicate.&quot; }</test>
-    <result-string>xs:string('Attribute name duplicate.')</result-string>
+    <result-string>xs:string(&quot;Attribute name duplicate.&quot;)</result-string>
     <result>
       <assert-string-value>Attribute name duplicate.</assert-string-value>
     </result>
@@ -1450,7 +1450,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { processing-instruction name { &quot;?&gt;&quot; } } catch err:XQDY0026 { &quot;Invalid PI.&quot; }</test>
-    <result-string>xs:string('Invalid PI.')</result-string>
+    <result-string>xs:string(&quot;Invalid PI.&quot;)</result-string>
     <result>
       <assert-string-value>Invalid PI.</assert-string-value>
     </result>
@@ -1460,7 +1460,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { processing-instruction  { &quot;prefix:name&quot; } {} } catch err:XQDY0041 { &quot;Invalid PI.&quot; }</test>
-    <result-string>xs:string('Invalid PI.')</result-string>
+    <result-string>xs:string(&quot;Invalid PI.&quot;)</result-string>
     <result>
       <assert-string-value>Invalid PI.</assert-string-value>
     </result>
@@ -1470,7 +1470,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { attribute xmlns {} } catch err:XQDY0044 { &quot;Invalid attribute.&quot; }</test>
-    <result-string>xs:string('Invalid attribute.')</result-string>
+    <result-string>xs:string(&quot;Invalid attribute.&quot;)</result-string>
     <result>
       <assert-string-value>Invalid attribute.</assert-string-value>
     </result>
@@ -1499,7 +1499,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { processing-instruction XML {} } catch err:XQDY0064 { &quot;Invalid PI.&quot; }</test>
-    <result-string>xs:string('Invalid PI.')</result-string>
+    <result-string>xs:string(&quot;Invalid PI.&quot;)</result-string>
     <result>
       <assert-string-value>Invalid PI.</assert-string-value>
     </result>
@@ -1509,7 +1509,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { comment { &quot;--&quot; } } catch err:XQDY0072 { &quot;Invalid comment.&quot; }</test>
-    <result-string>xs:string('Invalid comment.')</result-string>
+    <result-string>xs:string(&quot;Invalid comment.&quot;)</result-string>
     <result>
       <assert-string-value>Invalid comment.</assert-string-value>
     </result>
@@ -1519,7 +1519,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { element { &quot;prefix:name&quot; } {} } catch err:XQDY0074 { &quot;Invalid element.&quot; }</test>
-    <result-string>xs:string('Invalid element.')</result-string>
+    <result-string>xs:string(&quot;Invalid element.&quot;)</result-string>
     <result>
       <assert-string-value>Invalid element.</assert-string-value>
     </result>
@@ -1556,7 +1556,7 @@
     <modified by="Michael Kay" change="catch XQDY0074 as well, which is a reasonable error to raise since 'xmlns' is not declared in the static context" on="2012-12-20"/>
     <environment ref="err"/>
     <test>try { element { &quot;xmlns:name&quot; } {} } catch err:XQDY0096 | err:XQDY0074 { &quot;Invalid element.&quot; }</test>
-    <result-string>xs:string('Invalid element.')</result-string>
+    <result-string>xs:string(&quot;Invalid element.&quot;)</result-string>
     <result>
       <assert-string-value>Invalid element.</assert-string-value>
     </result>
@@ -1566,7 +1566,7 @@
     <created by="Michael Kay" on="2012-12-20"/>
     <environment ref="err"/>
     <test>try { element { QName(&quot;http://www.w3.org/2000/xmlns/&quot;, &quot;xmlns:name&quot;) } {} } catch err:XQDY0096 { &quot;Invalid element.&quot; }</test>
-    <result-string>xs:string('Invalid element.')</result-string>
+    <result-string>xs:string(&quot;Invalid element.&quot;)</result-string>
     <result>
       <assert-string-value>Invalid element.</assert-string-value>
     </result>
@@ -1576,7 +1576,7 @@
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <environment ref="err"/>
     <test>try { namespace xmlns { &quot;http://www.example.com&quot; } } catch err:XQDY0101 { &quot;Invalid namespace node.&quot; }</test>
-    <result-string>xs:string('Invalid namespace node.')</result-string>
+    <result-string>xs:string(&quot;Invalid namespace node.&quot;)</result-string>
     <result>
       <assert-string-value>Invalid namespace node.</assert-string-value>
     </result>
@@ -1586,7 +1586,7 @@
     <created by="Michael Kay" on="2012-12-27"/>
     <environment ref="err"/>
     <test>try { 10000000000000000000000000001 - 10000000000000000000000000000 } catch err:FOAR0002 { 1 }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1595,7 +1595,7 @@
     <description>Try-catch expressions must nest.</description>
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <test>try { try { 1 div 0 } catch * { &quot;Division by zero&quot; } } catch * { &quot;Should not be reached.&quot; }</test>
-    <result-string>xs:string('Division by zero')</result-string>
+    <result-string>xs:string(&quot;Division by zero&quot;)</result-string>
     <result>
       <assert-string-value>Division by zero</assert-string-value>
     </result>
@@ -1604,7 +1604,7 @@
     <description>Try-catch expressions must nest.</description>
     <created by="Ghislain Fourny" on="2011-07-28"/>
     <test>try { fn:error() } catch * { try { 1 div 0 } catch * { &quot;Division by zero&quot; } }</test>
-    <result-string>xs:string('Division by zero')</result-string>
+    <result-string>xs:string(&quot;Division by zero&quot;)</result-string>
     <result>
       <assert-string-value>Division by zero</assert-string-value>
     </result>
@@ -1623,7 +1623,7 @@
     <description>Try-catch must match fn:error semantics.</description>
     <created by="Ghislain Fourny" on="2012-10-03"/>
     <test>try { fn:error(fn:QName(&quot;http://www.example.com/&quot;, &quot;example:EXER3141&quot;)) } catch * { 0 }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1632,7 +1632,7 @@
     <description>Try-catch must match fn:error semantics.</description>
     <created by="Ghislain Fourny" on="2012-10-03"/>
     <test>try { fn:error(fn:QName(&quot;http://www.example.com/&quot;, &quot;example:EXER3141&quot;)) } catch Q{http://www.example.com/}EXER3141 { 0 }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1641,7 +1641,7 @@
     <description>Try-catch must match fn:error semantics.</description>
     <created by="Ghislain Fourny" on="2012-10-03"/>
     <test>try { fn:error(fn:QName(&quot;http://www.example.com/&quot;, &quot;example:EXER3141&quot;)) } catch Q{http://www.example.com/}* { 0 }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1650,7 +1650,7 @@
     <description>Try-catch must match fn:error semantics.</description>
     <created by="Ghislain Fourny" on="2012-10-03"/>
     <test>try { fn:error(fn:QName(&quot;http://www.example.com/&quot;, &quot;example:EXER3141&quot;)) } catch *:EXER3141 { 0 }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1674,7 +1674,7 @@
     <created by="Ghislain Fourny" on="2012-10-03"/>
     <environment ref="err"/>
     <test>try { fn:error(fn:QName(&quot;http://www.example.com/&quot;, &quot;example:EXER3141&quot;), &quot;Description&quot;) } catch Q{http://www.example.com/}EXER3141 { namespace-uri-from-QName($err:code) }</test>
-    <result-string/>
+    <result-string>xs:string(&quot;'http://www.example.com/'&quot;)</result-string>
     <result>
       <assert-eq>'http://www.example.com/'</assert-eq>
     </result>
@@ -1684,7 +1684,7 @@
     <created by="Ghislain Fourny" on="2012-10-03"/>
     <environment ref="err"/>
     <test>try { fn:error(fn:QName(&quot;http://www.example.com/&quot;, &quot;example:EXER3141&quot;), &quot;Description&quot;) } catch Q{http://www.example.com/}EXER3141 { prefix-from-QName($err:code) }</test>
-    <result-string/>
+    <result-string>xs:string(&quot;'example'&quot;)</result-string>
     <result>
       <assert-eq>'example'</assert-eq>
     </result>
@@ -1694,7 +1694,7 @@
     <created by="Ghislain Fourny" on="2012-10-03"/>
     <environment ref="err"/>
     <test>try { fn:error(fn:QName(&quot;http://www.example.com/&quot;, &quot;example:EXER3141&quot;), &quot;Description&quot;) } catch Q{http://www.example.com/}EXER3141 { local-name-from-QName($err:code) }</test>
-    <result-string/>
+    <result-string>xs:string(&quot;'EXER3141'&quot;)</result-string>
     <result>
       <assert-eq>'EXER3141'</assert-eq>
     </result>
@@ -1704,7 +1704,7 @@
     <created by="Ghislain Fourny" on="2012-10-03"/>
     <environment ref="err"/>
     <test>try { fn:error(fn:QName(&quot;http://www.example.com/&quot;, &quot;example:EXER3141&quot;), &quot;Description&quot;) } catch Q{http://www.example.com/}EXER3141 { $err:description }</test>
-    <result-string/>
+    <result-string>xs:string(&quot;'Description'&quot;)</result-string>
     <result>
       <assert-eq>'Description'</assert-eq>
     </result>
@@ -1714,7 +1714,7 @@
     <created by="Ghislain Fourny" on="2012-10-03"/>
     <environment ref="err"/>
     <test>try { fn:error(fn:QName(&quot;http://www.example.com/&quot;, &quot;example:EXER3141&quot;), &quot;Description&quot;, (1, 2)) } catch Q{http://www.example.com/}EXER3141 { $err:value[2] }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -1724,7 +1724,7 @@
     <created by="Ghislain Fourny" on="2012-10-03"/>
     <environment ref="err"/>
     <test>try { fn:error(xs:QName(&quot;err:XPTY0004&quot;)) } catch Q{http://www.w3.org/2005/xqt-errors}XPTY0004 { 0 }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1734,7 +1734,7 @@
     <created by="Ghislain Fourny" on="2012-10-03"/>
     <environment ref="err"/>
     <test>try { fn:error(xs:QName(&quot;err:XPST0001&quot;)) } catch Q{http://www.w3.org/2005/xqt-errors}XPST0001 { 0 }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1744,7 +1744,7 @@
     <created by="Ghislain Fourny" on="2012-10-03"/>
     <environment ref="err"/>
     <test>try { fn:error(xs:QName(&quot;err:XPDY0002&quot;)) } catch Q{http://www.w3.org/2005/xqt-errors}XPDY0002 { 0 }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1754,7 +1754,7 @@
     <created by="Ghislain Fourny" on="2012-10-03"/>
     <environment ref="err"/>
     <test>try { fn:error(xs:QName(&quot;err:XQTY0105&quot;)) } catch Q{http://www.w3.org/2005/xqt-errors}XQTY0105 { 0 }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1764,7 +1764,7 @@
     <created by="Ghislain Fourny" on="2012-10-03"/>
     <environment ref="err"/>
     <test>try { fn:error(xs:QName(&quot;err:XQST0089&quot;)) } catch Q{http://www.w3.org/2005/xqt-errors}XQST0089 { 0 }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1774,7 +1774,7 @@
     <created by="Ghislain Fourny" on="2012-10-03"/>
     <environment ref="err"/>
     <test>try { fn:error(xs:QName(&quot;err:XQDY0061&quot;)) } catch Q{http://www.w3.org/2005/xqt-errors}XQDY0061 { 0 }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1784,7 +1784,7 @@
     <created by="Ghislain Fourny" on="2012-10-03"/>
     <environment ref="err"/>
     <test>try { fn:error(xs:QName(&quot;err:FOTY0014&quot;)) } catch Q{http://www.w3.org/2005/xqt-errors}FOTY0014 { 0 }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1794,7 +1794,7 @@
     <created by="Ghislain Fourny" on="2012-10-03"/>
     <environment ref="err"/>
     <test>try { fn:error(xs:QName(&quot;err:FORG0001&quot;)) } catch Q{http://www.w3.org/2005/xqt-errors}FORG0001 { 0 }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -1804,7 +1804,7 @@
     <created by="Ghislain Fourny" on="2012-10-03"/>
     <environment ref="err"/>
     <test>try { fn:error(xs:QName(&quot;err:FONS0004&quot;)) } catch Q{http://www.w3.org/2005/xqt-errors}FONS0004 { 0 }</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>

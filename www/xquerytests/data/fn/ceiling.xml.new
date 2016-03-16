@@ -29,7 +29,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:int(&quot;-2147483648&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-2147483648&quot;)</result-string>
     <result>
       <assert-eq>-2147483648</assert-eq>
     </result>
@@ -39,7 +39,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:int(&quot;-1873914410&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1873914410&quot;)</result-string>
     <result>
       <assert-eq>-1873914410</assert-eq>
     </result>
@@ -49,7 +49,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:int(&quot;2147483647&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2147483647&quot;)</result-string>
     <result>
       <assert-eq>2147483647</assert-eq>
     </result>
@@ -59,7 +59,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:integer(&quot;-999999999999999999&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -69,7 +69,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:integer(&quot;830993497117024304&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;830993497117024304&quot;)</result-string>
     <result>
       <assert-eq>830993497117024304</assert-eq>
     </result>
@@ -79,7 +79,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:integer(&quot;999999999999999999&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -89,7 +89,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:decimal(&quot;-999999999999999999&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -99,7 +99,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:decimal(&quot;617375191608514839&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;617375191608514839&quot;)</result-string>
     <result>
       <assert-eq>617375191608514839</assert-eq>
     </result>
@@ -109,7 +109,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:decimal(&quot;999999999999999999&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -119,7 +119,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:double(&quot;-1.7976931348623157E308&quot;))</test>
-    <result-string>xs:string('-1.7976931348623157E308')</result-string>
+    <result-string>xs:string(&quot;-1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E308</assert-string-value>
     </result>
@@ -129,7 +129,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:double(&quot;0&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -139,7 +139,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:double(&quot;1.7976931348623157E308&quot;))</test>
-    <result-string>xs:string('1.7976931348623157E308')</result-string>
+    <result-string>xs:string(&quot;1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-string-value>1.7976931348623157E308</assert-string-value>
     </result>
@@ -149,7 +149,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:float(&quot;-3.4028235E38&quot;))</test>
-    <result-string>xs:string('-3.4028235E38')</result-string>
+    <result-string>xs:string(&quot;-3.4028235E38&quot;)</result-string>
     <result>
       <assert-string-value>-3.4028235E38</assert-string-value>
     </result>
@@ -159,7 +159,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:float(&quot;0&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -169,7 +169,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:float(&quot;3.4028235E38&quot;))</test>
-    <result-string>xs:string('3.4028235E38')</result-string>
+    <result-string>xs:string(&quot;3.4028235E38&quot;)</result-string>
     <result>
       <assert-string-value>3.4028235E38</assert-string-value>
     </result>
@@ -179,7 +179,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:long(&quot;-92233720368547758&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-92233720368547758&quot;)</result-string>
     <result>
       <assert-eq>-92233720368547758</assert-eq>
     </result>
@@ -189,7 +189,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:long(&quot;-47175562203048468&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-47175562203048468&quot;)</result-string>
     <result>
       <assert-eq>-47175562203048468</assert-eq>
     </result>
@@ -199,7 +199,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:long(&quot;92233720368547758&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;92233720368547758&quot;)</result-string>
     <result>
       <assert-eq>92233720368547758</assert-eq>
     </result>
@@ -209,7 +209,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:unsignedShort(&quot;0&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -219,7 +219,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:unsignedShort(&quot;44633&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;44633&quot;)</result-string>
     <result>
       <assert-eq>44633</assert-eq>
     </result>
@@ -229,7 +229,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:unsignedShort(&quot;65535&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;65535&quot;)</result-string>
     <result>
       <assert-eq>65535</assert-eq>
     </result>
@@ -239,7 +239,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:negativeInteger(&quot;-999999999999999999&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -249,7 +249,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:negativeInteger(&quot;-297014075999096793&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-297014075999096793&quot;)</result-string>
     <result>
       <assert-eq>-297014075999096793</assert-eq>
     </result>
@@ -259,7 +259,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:negativeInteger(&quot;-1&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -269,7 +269,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:positiveInteger(&quot;1&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -279,7 +279,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:positiveInteger(&quot;52704602390610033&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;52704602390610033&quot;)</result-string>
     <result>
       <assert-eq>52704602390610033</assert-eq>
     </result>
@@ -289,7 +289,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:positiveInteger(&quot;999999999999999999&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -299,7 +299,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:unsignedLong(&quot;0&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -309,7 +309,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:unsignedLong(&quot;130747108607674654&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;130747108607674654&quot;)</result-string>
     <result>
       <assert-eq>130747108607674654</assert-eq>
     </result>
@@ -319,7 +319,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:unsignedLong(&quot;184467440737095516&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;184467440737095516&quot;)</result-string>
     <result>
       <assert-eq>184467440737095516</assert-eq>
     </result>
@@ -329,7 +329,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:nonPositiveInteger(&quot;-999999999999999999&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -339,7 +339,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:nonPositiveInteger(&quot;-475688437271870490&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-475688437271870490&quot;)</result-string>
     <result>
       <assert-eq>-475688437271870490</assert-eq>
     </result>
@@ -349,7 +349,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:nonPositiveInteger(&quot;0&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -359,7 +359,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:nonNegativeInteger(&quot;0&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -369,7 +369,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:nonNegativeInteger(&quot;303884545991464527&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;303884545991464527&quot;)</result-string>
     <result>
       <assert-eq>303884545991464527</assert-eq>
     </result>
@@ -379,7 +379,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:nonNegativeInteger(&quot;999999999999999999&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -389,7 +389,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:short(&quot;-32768&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-32768&quot;)</result-string>
     <result>
       <assert-eq>-32768</assert-eq>
     </result>
@@ -399,7 +399,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:short(&quot;-5324&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-5324&quot;)</result-string>
     <result>
       <assert-eq>-5324</assert-eq>
     </result>
@@ -409,7 +409,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:short(&quot;32767&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;32767&quot;)</result-string>
     <result>
       <assert-eq>32767</assert-eq>
     </result>
@@ -439,7 +439,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="emptydoc"/>
     <test>empty(ceiling(()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -449,7 +449,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="emptydoc"/>
     <test>ceiling(10.5) eq 11</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -459,7 +459,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="emptydoc"/>
     <test>ceiling(-10.5) eq -10</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -479,7 +479,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
     <test>ceiling(xs:unsignedShort(.)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -489,7 +489,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
     <test>ceiling(xs:unsignedLong(.)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -499,7 +499,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
     <test>ceiling(xs:unsignedInt(.)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -509,7 +509,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
     <test>ceiling(xs:unsignedByte(.)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -520,7 +520,7 @@
     <modified by="O'Neil Delpratt" change="environement variable from e0 to e1" on="2011-09-06"/>
     <environment ref="e1"/>
     <test>ceiling(xs:positiveInteger(.)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -530,7 +530,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
     <test>ceiling(xs:nonPositiveInteger(.)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -540,7 +540,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
     <test>ceiling(xs:nonNegativeInteger(.)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -550,7 +550,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e-1"/>
     <test>ceiling(xs:negativeInteger(.)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -560,7 +560,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
     <test>ceiling(xs:long(.)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -570,7 +570,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
     <test>ceiling(xs:int(.)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -580,7 +580,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
     <test>ceiling(xs:short(.)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -590,7 +590,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
     <test>ceiling(xs:byte(.)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

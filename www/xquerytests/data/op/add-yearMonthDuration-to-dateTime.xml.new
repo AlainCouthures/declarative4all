@@ -7,7 +7,7 @@
     <description> Evaluates The &quot;op:add-yearMonthDuration-to-dateTime&quot; operator with the arguments set as follows: $arg1 = xs:dateTime(lower bound) $arg2 = xs:yearMonthDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) + xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
-    <result-string>xs:string('1970-01-01T00:00:00Z')</result-string>
+    <result-string>xs:string(&quot;1970-01-01T00:00:00Z&quot;)</result-string>
     <result>
       <assert-string-value>1970-01-01T00:00:00Z</assert-string-value>
     </result>
@@ -16,7 +16,7 @@
     <description> Evaluates The &quot;op:add-yearMonthDuration-to-dateTime&quot; operator with the arguments set as follows: $arg1 = xs:dateTime(mid range) $arg2 = xs:yearMonthDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;1996-04-07T01:40:52Z&quot;) + xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
-    <result-string>xs:string('1996-04-07T01:40:52Z')</result-string>
+    <result-string>xs:string(&quot;1996-04-07T01:40:52Z&quot;)</result-string>
     <result>
       <assert-string-value>1996-04-07T01:40:52Z</assert-string-value>
     </result>
@@ -25,7 +25,7 @@
     <description> Evaluates The &quot;op:add-yearMonthDuration-to-dateTime&quot; operator with the arguments set as follows: $arg1 = xs:dateTime(upper bound) $arg2 = xs:yearMonthDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;2030-12-31T23:59:59Z&quot;) + xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
-    <result-string>xs:string('2030-12-31T23:59:59Z')</result-string>
+    <result-string>xs:string(&quot;2030-12-31T23:59:59Z&quot;)</result-string>
     <result>
       <assert-string-value>2030-12-31T23:59:59Z</assert-string-value>
     </result>
@@ -34,7 +34,7 @@
     <description> Evaluates The &quot;op:add-yearMonthDuration-to-dateTime&quot; operator with the arguments set as follows: $arg1 = xs:dateTime(lower bound) $arg2 = xs:yearMonthDuration(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) + xs:yearMonthDuration(&quot;P1000Y6M&quot;)</test>
-    <result-string>xs:string('2970-07-01T00:00:00Z')</result-string>
+    <result-string>xs:string(&quot;2970-07-01T00:00:00Z&quot;)</result-string>
     <result>
       <assert-string-value>2970-07-01T00:00:00Z</assert-string-value>
     </result>
@@ -43,7 +43,7 @@
     <description> Evaluates The &quot;op:add-yearMonthDuration-to-dateTime&quot; operator with the arguments set as follows: $arg1 = xs:dateTime(lower bound) $arg2 = xs:yearMonthDuration(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime(&quot;1970-01-01T00:00:00Z&quot;) + xs:yearMonthDuration(&quot;P2030Y12M&quot;)</test>
-    <result-string>xs:string('4001-01-01T00:00:00Z')</result-string>
+    <result-string>xs:string(&quot;4001-01-01T00:00:00Z&quot;)</result-string>
     <result>
       <assert-string-value>4001-01-01T00:00:00Z</assert-string-value>
     </result>
@@ -52,7 +52,7 @@
     <description>date: July 5, 2005  Evaluates The &quot;add-yearMonthDuration-to-dateTime&quot; operator As per example 1 (for this function)of the FO specs. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>xs:dateTime(&quot;2000-10-30T11:12:00&quot;) + xs:yearMonthDuration(&quot;P1Y2M&quot;)</test>
-    <result-string>xs:string('2001-12-30T11:12:00')</result-string>
+    <result-string>xs:string(&quot;2001-12-30T11:12:00&quot;)</result-string>
     <result>
       <assert-string-value>2001-12-30T11:12:00</assert-string-value>
     </result>
@@ -61,7 +61,7 @@
     <description>date: July 5, 2005  Evaluates The string value of &quot;add-dayTimeDuration-to-dateTime&quot; operator used as part of a boolean expression (and operator) and the &quot;fn:false&quot; function. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>fn:string(xs:dateTime(&quot;2000-12-12T12:12:12Z&quot;) + xs:dayTimeDuration(&quot;P12DT10H07M&quot;)) and fn:false()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -70,7 +70,7 @@
     <description>date: July 5, 2005  Evaluates The string value of &quot;add-yearMonthDuration-to-dateTime&quot; operator as part of a boolean expression (or operator) and the &quot;fn:boolean&quot; function. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>fn:string((xs:dateTime(&quot;1999-10-23T13:45:45Z&quot;) + xs:yearMonthDuration(&quot;P19Y12M&quot;))) or fn:false()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -79,7 +79,7 @@
     <description>date: July 5, 2005  Evaluates The string value of the &quot;add-yearMonthDuration-to-dateTime&quot; operator that return true and used together with fn:not. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>fn:not(fn:string(xs:dateTime(&quot;1998-09-12T13:56:12Z&quot;) + xs:yearMonthDuration(&quot;P20Y03M&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -88,7 +88,7 @@
     <description>date: July 5, 2005  Evaluates The string value of the &quot;add-yearMonthDuration-to-dateTime&quot; operator that is used as an argument to the fn:boolean function. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>fn:boolean(fn:string(xs:dateTime(&quot;1962-03-12T10:12:34Z&quot;) + xs:yearMonthDuration(&quot;P10Y01M&quot;)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -97,7 +97,7 @@
     <description>date: July 5, 2005  Evaluates The &quot;add-yearMonthDuration-to-dateTime&quot; operator that is used as an argument to the fn:number function. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>fn:number(xs:dateTime(&quot;1988-01-28T13:45:23Z&quot;) + xs:yearMonthDuration(&quot;P09Y02M&quot;))</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -106,7 +106,7 @@
     <description>date: July 5, 2005  Evaluates The &quot;add-yearMonthDuration-to-dateTime&quot; operator used as an argument to the &quot;fn:string&quot; function). </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>fn:string(xs:dateTime(&quot;1989-07-05T14:34:36Z&quot;) + xs:yearMonthDuration(&quot;P08Y04M&quot;))</test>
-    <result-string>xs:string('1997-11-05T14:34:36Z')</result-string>
+    <result-string>xs:string(&quot;1997-11-05T14:34:36Z&quot;)</result-string>
     <result>
       <assert-string-value>1997-11-05T14:34:36Z</assert-string-value>
     </result>
@@ -127,7 +127,7 @@
     <description>date: July 5, 2005  Evaluates The string value of the &quot;add-yearMonthDuration-to-dateTime&quot; operator used together with an &quot;and&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>fn:string((xs:dateTime(&quot;1993-12-09T10:10:10Z&quot;) + xs:yearMonthDuration(&quot;P03Y03M&quot;))) and fn:string((xs:dateTime(&quot;1993-12-09T10:10:10Z&quot;) + xs:yearMonthDuration(&quot;P03Y03M&quot;)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -136,7 +136,7 @@
     <description>date: July 5, 2005  Evaluates The string value of the &quot;add-yearMonthDuration-to-dateTime&quot; operator used together with an &quot;or&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>fn:string((xs:dateTime(&quot;1985-07-05T09:09:09Z&quot;) + xs:yearMonthDuration(&quot;P02Y02M&quot;))) or fn:string((xs:dateTime(&quot;1985-07-05T09:09:09Z&quot;) + xs:yearMonthDuration(&quot;P02Y02M&quot;)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -145,7 +145,7 @@
     <description>date: July 5, 2005  Evaluates The string value of the &quot;add-yearMonthDuration-to-dateTime&quot; operator used with a boolean expression and the &quot;fn:true&quot; function. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>fn:string((xs:dateTime(&quot;1980-03-02T02:02:02Z&quot;) + xs:yearMonthDuration(&quot;P05Y05M&quot;))) and (fn:true())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -154,7 +154,7 @@
     <description>date: July 5, 2005  Evaluates The &quot;add-yearMonthDuration-to-dateTime&quot; operator used together with the numeric-equal-operator &quot;eq&quot;. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>(xs:dateTime(&quot;1980-05-05T05:05:05Z&quot;) + xs:yearMonthDuration(&quot;P23Y11M&quot;)) eq xs:dateTime(&quot;1980-05-05T05:05:05Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -163,7 +163,7 @@
     <description>date: July 5, 2005  Evaluates The &quot;add-yearMonthDuration-to-dateTime&quot; operator used together with the numeric-equal operator &quot;ne&quot;. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>(xs:dateTime(&quot;1979-12-12T09:09:09Z&quot;) + xs:yearMonthDuration(&quot;P08Y08M&quot;)) ne xs:dateTime(&quot;1979-12-12T09:09:09Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -172,7 +172,7 @@
     <description>date: July 5, 2005  Evaluates The &quot;add-yearMonthDuration-to-dateTime&quot; operator used together with the numeric-equal operator &quot;le&quot;. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>(xs:dateTime(&quot;1978-12-12T07:07:07Z&quot;) + xs:yearMonthDuration(&quot;P17Y12M&quot;)) le xs:dateTime(&quot;1978-12-12T07:07:07Z&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -181,7 +181,7 @@
     <description>date: July 5, 2005  Evaluates The &quot;add-yearMonthDuration-to-dateTime&quot; operator used together with the numeric-equal operator &quot;ge&quot;. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>(xs:dateTime(&quot;1977-12-12T03:03:03Z&quot;) + xs:yearMonthDuration(&quot;P18Y02M&quot;)) ge xs:dateTime(&quot;1977-12-12T03:03:03Z&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -190,7 +190,7 @@
     <description> Simple testing involving operator '+' between xs:dateTime and xs:yearMonthDuration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:dateTime(&quot;1999-07-19T08:23:01.765&quot;) + xs:yearMonthDuration(&quot;P3Y35M&quot;) eq xs:dateTime(&quot;2005-06-19T08:23:01.765&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -199,7 +199,7 @@
     <description> Simple testing involving operator '+' between xs:yearMonthDuration and xs:dateTime. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:yearMonthDuration(&quot;P3Y35M&quot;) + xs:dateTime(&quot;1999-07-19T08:23:01.765&quot;) eq xs:dateTime(&quot;2005-06-19T08:23:01.765&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -254,7 +254,7 @@
             return xs:dateTime(concat($year, '-', $m, '-', $d, 'T', $h, ':', $n, ':00')) 
          }; 
          xs:yearMonthDuration(&quot;P0Y&quot;) + local:dateTime(2008, 05, 12, 12, 59)</test>
-    <result-string>xs:string('2008-05-12T12:59:00')</result-string>
+    <result-string>xs:string(&quot;2008-05-12T12:59:00&quot;)</result-string>
     <result>
       <assert-string-value>2008-05-12T12:59:00</assert-string-value>
     </result>
@@ -272,7 +272,7 @@
             return xs:dateTime(concat($year, '-', $m, '-', $d, 'T', $h, ':', $n, ':00')) 
          }; 
          local:dateTime(2008, 05, 12, 12, 59) + xs:yearMonthDuration(&quot;P0Y&quot;)</test>
-    <result-string>xs:string('2008-05-12T12:59:00')</result-string>
+    <result-string>xs:string(&quot;2008-05-12T12:59:00&quot;)</result-string>
     <result>
       <assert-string-value>2008-05-12T12:59:00</assert-string-value>
     </result>

@@ -111,7 +111,7 @@
     <modified by="Tim Mills" change="Context-dependent functions can now be referenced without error." on="2012-05-01"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>fn:exists( fn:unparsed-text-available#1 )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -122,7 +122,7 @@
     <modified by="Tim Mills" change="Context-dependent functions can now be referenced without error." on="2012-05-01"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>fn:exists( fn:unparsed-text-available#2 )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -245,7 +245,7 @@
     <description>Evaluates the &quot;unparsed-text-available&quot; function with the argument set as follows: $href contains a fragment identifier.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text-available(&quot;http://www.example.org/#fragment&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -254,7 +254,7 @@
     <description>Evaluates the &quot;unparsed-text-available&quot; function with the argument set as follows: $href contains a fragment identifier.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text-available(&quot;http://www.example.org/#fragment&quot;, &quot;utf-8&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -263,7 +263,7 @@
     <description>Evaluates the &quot;unparsed-text-available&quot; function with the argument set as follows: $href is an invalid xs:anyURI.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text-available(&quot;http://www.example.org/%gg&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -272,7 +272,7 @@
     <description>Evaluates the &quot;unparsed-text-available&quot; function with the argument set as follows: $href is an invalid xs:anyURI.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text-available(&quot;http://www.example.org/%gg&quot;, &quot;utf-8&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -281,7 +281,7 @@
     <description>Evaluates the &quot;unparsed-text-available&quot; function with the argument set as follows: $href is an invalid xs:anyURI.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text-available(&quot;:/&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -290,7 +290,7 @@
     <description>Evaluates the &quot;unparsed-text-available&quot; function with the argument set as follows: $href is an invalid xs:anyURI.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text-available(&quot;:/&quot;, &quot;utf-8&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -299,7 +299,7 @@
     <description>Evaluates the &quot;unparsed-text-available&quot; function with the argument set as follows: $href refers to a non-existent file.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text-available( &quot;http://www.w3.org/fots/unparsed-text/does-not-exist.txt&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -308,7 +308,7 @@
     <description>Evaluates the &quot;unparsed-text-available&quot; function with the argument set as follows: $href refers to a non-existent file.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text-available( &quot;http://www.w3.org/fots/unparsed-text/does-not-exist.txt&quot;, &quot;utf-8&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -317,7 +317,7 @@
     <description>Evaluates the &quot;unparsed-text-available&quot; function with the argument set as follows: $href uses a (probably) unsupported URI scheme.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text-available(&quot;surely-nobody-supports-this:/path.txt&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -326,7 +326,7 @@
     <description>Evaluates the &quot;unparsed-text-available&quot; function with the argument set as follows: $href uses a (probably) unsupported URI scheme.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text-available(&quot;surely-nobody-supports-this:/path.txt&quot;, &quot;utf-8&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -362,7 +362,7 @@
       <static-base-uri uri="http://www.w3.org/fots/unparsed-text/"/>
     </environment>
     <test>fn:unparsed-text-available(&quot;does-not-exist.txt&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -374,7 +374,7 @@
       <static-base-uri uri="http://www.w3.org/fots/unparsed-text/"/>
     </environment>
     <test>fn:unparsed-text-available(&quot;does-not-exist.txt&quot;, &quot;utf-8&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -384,7 +384,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-available-with-base-uri"/>
     <test>fn:unparsed-text-available(&quot;text-plain-utf-8.txt&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -394,7 +394,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-available-with-base-uri"/>
     <test>fn:unparsed-text-available(&quot;text-plain-utf-8.txt&quot;, &quot;utf-8&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -404,7 +404,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-available-with-base-uri"/>
     <test>fn:unparsed-text-available(&quot;C:\file-might-exist.txt&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -414,7 +414,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-available-with-base-uri"/>
     <test>fn:unparsed-text-available(&quot;C:\file-might-exist.txt&quot;, &quot;utf-8&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -424,7 +424,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-available-with-base-uri-2"/>
     <test>fn:unparsed-text-available(&quot;&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -434,7 +434,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-available-with-base-uri-2"/>
     <test>fn:unparsed-text-available(&quot;&quot;, &quot;utf-8&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -446,7 +446,7 @@
       <static-base-uri uri="http://www.w3.org/fots/unparsed-text/does-not-exists.txt"/>
     </environment>
     <test>fn:unparsed-text-available(&quot;&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -458,7 +458,7 @@
       <static-base-uri uri="http://www.w3.org/fots/unparsed-text/does-not-exists.txt"/>
     </environment>
     <test>fn:unparsed-text-available(&quot;&quot;, &quot;utf-8&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -468,7 +468,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-available"/>
     <test>fn:unparsed-text-available(&quot;http://www.w3.org/fots/unparsed-text/text-plain-utf-8.txt&quot;, &quot;123&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -478,7 +478,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-available"/>
     <test>fn:unparsed-text-available(&quot;http://www.w3.org/fots/unparsed-text/unknown-encoding.txt&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -488,7 +488,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-available"/>
     <test>fn:unparsed-text-available(&quot;http://www.w3.org/fots/unparsed-text/text-plain-utf-8-invalid.txt&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -498,7 +498,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-available"/>
     <test>fn:unparsed-text-available(&quot;http://www.w3.org/fots/unparsed-text/non-xml-character.txt&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -508,7 +508,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-available"/>
     <test>fn:unparsed-text-available(&quot;http://www.w3.org/fots/unparsed-text/invalid-xml.xml&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -518,7 +518,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-available"/>
     <test>fn:unparsed-text-available(&quot;http://www.w3.org/fots/unparsed-text/text-plain-utf-8.txt&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -528,7 +528,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-available"/>
     <test>fn:unparsed-text-available(&quot;http://www.w3.org/fots/unparsed-text/text-plain-utf-8-bom.txt&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -538,7 +538,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-available"/>
     <test>fn:unparsed-text-available(&quot;http://www.w3.org/fots/unparsed-text/text-plain-utf-16le-bom.txt&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -548,7 +548,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-available"/>
     <test>fn:unparsed-text-available(&quot;http://www.w3.org/fots/unparsed-text/text-plain-utf-16be-bom.txt&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -571,7 +571,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-available"/>
     <test>fn:unparsed-text-available(&quot;http://www.w3.org/fots/unparsed-text/text-xml-utf-8.xml&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -581,7 +581,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-available"/>
     <test>fn:unparsed-text-available(&quot;http://www.w3.org/fots/unparsed-text/text-xml-utf-16.xml&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -604,7 +604,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-available"/>
     <test>fn:unparsed-text-available(&quot;http://www.w3.org/fots/unparsed-text/text-plain-utf-8-lines.txt&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -614,7 +614,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-available"/>
     <test>fn:unparsed-text-available(&quot;http://www.w3.org/fots/unparsed-text/text-plain-utf-8-bom-lines.txt&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -624,7 +624,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-available"/>
     <test>fn:unparsed-text-available(&quot;http://www.w3.org/fots/unparsed-text/text-plain-utf-16le-bom-lines.txt&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -634,7 +634,7 @@
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-available"/>
     <test>fn:unparsed-text-available(&quot;http://www.w3.org/fots/unparsed-text/text-plain-utf-16be-bom-lines.txt&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

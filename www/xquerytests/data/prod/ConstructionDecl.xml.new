@@ -26,7 +26,7 @@
         let $anElement := <anElement>some content</anElement> 
         return $anElement instance of element(*,xs:untyped)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -39,7 +39,7 @@
         let $anElement := element anElement {&quot;someContent&quot;} 
         return $anElement instance of element(*,xs:untyped)
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -54,7 +54,7 @@
         let $anElement := <anElement>some content</anElement> 
         return $anElement instance of element(*,xs:anyType)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -66,7 +66,7 @@
         declare construction strip; 
         let $anElement := element anElement {&quot;someContent&quot;} 
         return $anElement instance of element(*,xs:anyType)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -81,7 +81,7 @@
         let $anElement := <anElement>some content</anElement> 
         return $anElement instance of element(*,xs:anyType)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -94,7 +94,7 @@
         let $anElement := element anElement {&quot;someContent&quot;} 
         return $anElement instance of element(*,xs:anyType)
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -109,7 +109,7 @@
         let $anElement := <someElement>some content</someElement> 
         return fn:not($anElement instance of element(*,xs:untyped))]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -121,7 +121,7 @@
         declare construction strip; 
         let $anElement := element someElement{&quot;some content&quot;} 
         return fn:not($anElement instance of element(*,xs:untyped))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -137,7 +137,7 @@
         return fn:not($anElement instance of element(*,xs:anyType))
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -150,7 +150,7 @@
         let $anElement := element someElement{&quot;some content&quot;} 
         return fn:not($anElement instance of element(*,xs:anyType))
       </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -165,7 +165,7 @@
         fn:not(<someElement>some content</someElement> instance of element(*,xs:untyped))
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -177,7 +177,7 @@
         declare construction preserve; 
         fn:not(element someElement{&quot;some content&quot;} instance of element(*,xs:anyType))
       </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -193,7 +193,7 @@
         return ($var instance of element(*,xs:untyped)) and fn:true()
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -206,7 +206,7 @@
         let $anElement := element someElement{&quot;some content&quot;} 
         return ($anElement instance of element(*,xs:untyped)) and fn:true()
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -222,7 +222,7 @@
         return ($anElement instance of element(*,xs:anyType)) and fn:true()
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -235,7 +235,7 @@
         let $anElement := element someElement{&quot;some content&quot;} 
         return ($anElement instance of element(*,xs:anyType)) and fn:true()
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -251,7 +251,7 @@
         return ($var instance of element(*,xs:untyped)) or fn:false()
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -264,7 +264,7 @@
         let $anElement := element someElement{&quot;some content&quot;} 
         return ($anElement instance of element(*,xs:untyped)) or fn:false()
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -280,7 +280,7 @@
         return ($anElement instance of element(*,xs:anyType)) or fn:false()
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -293,7 +293,7 @@
         let $anElement := element someElement{&quot;some content&quot;} 
         return ($anElement instance of element(*,xs:anyType)) or fn:false()
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -302,7 +302,7 @@
     <description> Test that 'declare construction' with the preserve keyword is parsed properly. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(::)declare(::)construction(::)preserve(::);(::)1(::)eq(::)1(::)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -320,7 +320,7 @@
     <description> Test that 'declare construction' with the strip keyword is parsed properly. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare(::)construction(::)strip;(::)1(::)eq(::)1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

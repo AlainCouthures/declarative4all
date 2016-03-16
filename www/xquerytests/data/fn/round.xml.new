@@ -38,7 +38,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:int(&quot;-1873914410&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1873914410&quot;)</result-string>
     <result>
       <assert-eq>-1873914410</assert-eq>
     </result>
@@ -47,7 +47,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:int(&quot;2147483647&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2147483647&quot;)</result-string>
     <result>
       <assert-eq>2147483647</assert-eq>
     </result>
@@ -56,7 +56,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:integer(&quot;-999999999999999999&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -65,7 +65,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:integer(&quot;830993497117024304&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;830993497117024304&quot;)</result-string>
     <result>
       <assert-eq>830993497117024304</assert-eq>
     </result>
@@ -74,7 +74,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:integer(&quot;999999999999999999&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -83,7 +83,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:decimal(&quot;-999999999999999999&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -104,7 +104,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:decimal(&quot;999999999999999999&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -113,7 +113,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:double(&quot;-1.7976931348623157E308&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
@@ -134,7 +134,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:double(&quot;1.7976931348623157E308&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-eq>1.7976931348623157E308</assert-eq>
     </result>
@@ -143,7 +143,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:float(&quot;-3.4028235E38&quot;))</test>
-    <result-string/>
+    <result-string>xs:float(&quot;-3.4028235E38&quot;)</result-string>
     <result>
       <assert-eq>xs:float(&quot;-3.4028235E38&quot;)</assert-eq>
     </result>
@@ -164,7 +164,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:float(&quot;3.4028235E38&quot;))</test>
-    <result-string/>
+    <result-string>xs:float(&quot;3.4028235E38&quot;)</result-string>
     <result>
       <assert-eq>xs:float(&quot;3.4028235E38&quot;)</assert-eq>
     </result>
@@ -173,7 +173,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:long(&quot;-92233720368547758&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-92233720368547758&quot;)</result-string>
     <result>
       <assert-eq>-92233720368547758</assert-eq>
     </result>
@@ -182,7 +182,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:long(&quot;-47175562203048468&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-47175562203048468&quot;)</result-string>
     <result>
       <assert-eq>-47175562203048468</assert-eq>
     </result>
@@ -191,7 +191,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:long(&quot;92233720368547758&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;92233720368547758&quot;)</result-string>
     <result>
       <assert-eq>92233720368547758</assert-eq>
     </result>
@@ -200,7 +200,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:unsignedShort(&quot;0&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -209,7 +209,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:unsignedShort(&quot;44633&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;44633&quot;)</result-string>
     <result>
       <assert-eq>44633</assert-eq>
     </result>
@@ -218,7 +218,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:unsignedShort(&quot;65535&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;65535&quot;)</result-string>
     <result>
       <assert-eq>65535</assert-eq>
     </result>
@@ -227,7 +227,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:negativeInteger(&quot;-999999999999999999&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -236,7 +236,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:negativeInteger(&quot;-297014075999096793&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-297014075999096793&quot;)</result-string>
     <result>
       <assert-eq>-297014075999096793</assert-eq>
     </result>
@@ -245,7 +245,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:negativeInteger(&quot;-1&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -254,7 +254,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:positiveInteger(&quot;1&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -263,7 +263,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:positiveInteger(&quot;52704602390610033&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;52704602390610033&quot;)</result-string>
     <result>
       <assert-eq>52704602390610033</assert-eq>
     </result>
@@ -272,7 +272,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:positiveInteger(&quot;999999999999999999&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -281,7 +281,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:unsignedLong(&quot;0&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -290,7 +290,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:unsignedLong(&quot;130747108607674654&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;130747108607674654&quot;)</result-string>
     <result>
       <assert-eq>130747108607674654</assert-eq>
     </result>
@@ -299,7 +299,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:unsignedLong(&quot;184467440737095516&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;184467440737095516&quot;)</result-string>
     <result>
       <assert-eq>184467440737095516</assert-eq>
     </result>
@@ -308,7 +308,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:nonPositiveInteger(&quot;-999999999999999999&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -317,7 +317,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:nonPositiveInteger(&quot;-475688437271870490&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-475688437271870490&quot;)</result-string>
     <result>
       <assert-eq>-475688437271870490</assert-eq>
     </result>
@@ -326,7 +326,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:nonPositiveInteger(&quot;0&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -335,7 +335,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:nonNegativeInteger(&quot;0&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -344,7 +344,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:nonNegativeInteger(&quot;303884545991464527&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;303884545991464527&quot;)</result-string>
     <result>
       <assert-eq>303884545991464527</assert-eq>
     </result>
@@ -353,7 +353,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:nonNegativeInteger(&quot;999999999999999999&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -362,7 +362,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:short(&quot;-32768&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-32768&quot;)</result-string>
     <result>
       <assert-eq>-32768</assert-eq>
     </result>
@@ -371,7 +371,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:short(&quot;-5324&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-5324&quot;)</result-string>
     <result>
       <assert-eq>-5324</assert-eq>
     </result>
@@ -380,7 +380,7 @@
     <description> Evaluates The &quot;round&quot; function with the arguments set as follows: $arg = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:short(&quot;32767&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;32767&quot;)</result-string>
     <result>
       <assert-eq>32767</assert-eq>
     </result>
@@ -410,7 +410,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>round(1, 2)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -419,7 +419,7 @@
     <description> A test whose essence is: `empty(round(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(round(()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -428,7 +428,7 @@
     <description> A test whose essence is: `round(1) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(1) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -437,7 +437,7 @@
     <description> A test whose essence is: `round(1.1) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(1.1) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -446,7 +446,7 @@
     <description> A test whose essence is: `round(xs:double(1)) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(xs:double(1)) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -455,7 +455,7 @@
     <description> A test whose essence is: `round(xs:float(1)) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(xs:float(1)) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -464,7 +464,7 @@
     <description> A test whose essence is: `round(2.4999) eq 2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(2.4999) eq 2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -473,7 +473,7 @@
     <description> A test whose essence is: `round(-2.5) eq -2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(-2.5) eq -2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -641,7 +641,7 @@
     <description> Invoke on xs:double INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(xs:double(&quot;INF&quot;))</test>
-    <result-string>xs:string('INF')</result-string>
+    <result-string>xs:string(&quot;INF&quot;)</result-string>
     <result>
       <assert-string-value>INF</assert-string-value>
     </result>
@@ -650,7 +650,7 @@
     <description> Invoke on xs:double -INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(xs:double(&quot;-INF&quot;))</test>
-    <result-string>xs:string('-INF')</result-string>
+    <result-string>xs:string(&quot;-INF&quot;)</result-string>
     <result>
       <assert-string-value>-INF</assert-string-value>
     </result>
@@ -659,7 +659,7 @@
     <description> Invoke on xs:double 0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(xs:double(&quot;0&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -668,7 +668,7 @@
     <description> Invoke on xs:double -0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(xs:double(&quot;-0&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -677,7 +677,7 @@
     <description> Invoke on xs:float INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(xs:float(&quot;INF&quot;))</test>
-    <result-string>xs:string('INF')</result-string>
+    <result-string>xs:string(&quot;INF&quot;)</result-string>
     <result>
       <assert-string-value>INF</assert-string-value>
     </result>
@@ -686,7 +686,7 @@
     <description> Invoke on xs:float -INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(xs:float(&quot;-INF&quot;))</test>
-    <result-string>xs:string('-INF')</result-string>
+    <result-string>xs:string(&quot;-INF&quot;)</result-string>
     <result>
       <assert-string-value>-INF</assert-string-value>
     </result>
@@ -695,7 +695,7 @@
     <description> Invoke on xs:float 0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(xs:float(&quot;0&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -704,7 +704,7 @@
     <description> Invoke on xs:float -0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(xs:float(&quot;-0&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -713,7 +713,7 @@
     <description> Invoke on xs:float NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;NaN&quot;))</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -722,7 +722,7 @@
     <description> Invoke on xs:double NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;NaN&quot;))</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -731,7 +731,7 @@
     <description> Invoke on 0.01, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.01&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -740,7 +740,7 @@
     <description> Invoke on 0.01, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.01&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -749,7 +749,7 @@
     <description> Invoke on -0.01, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.01&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-0&quot;)</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
@@ -758,7 +758,7 @@
     <description> Invoke on -0.01, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.01&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -767,7 +767,7 @@
     <description> Invoke on 0.04, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.04&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -776,7 +776,7 @@
     <description> Invoke on 0.04, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.04&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -785,7 +785,7 @@
     <description> Invoke on -0.04, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.04&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -794,7 +794,7 @@
     <description> Invoke on -0.04, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.04&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -803,7 +803,7 @@
     <description> Invoke on 0.05, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.05&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -812,7 +812,7 @@
     <description> Invoke on 0.05, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.05&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -821,7 +821,7 @@
     <description> Invoke on -0.05, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.05&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -830,7 +830,7 @@
     <description> Invoke on -0.05, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.05&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -839,7 +839,7 @@
     <description> Invoke on 0.06, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.06&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -848,7 +848,7 @@
     <description> Invoke on 0.06, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.06&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -857,7 +857,7 @@
     <description> Invoke on -0.06, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.06&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -866,7 +866,7 @@
     <description> Invoke on -0.06, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.06&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -875,7 +875,7 @@
     <description> Invoke on 0.09, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.09&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -884,7 +884,7 @@
     <description> Invoke on 0.09, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.09&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -893,7 +893,7 @@
     <description> Invoke on -0.09, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.09&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -902,7 +902,7 @@
     <description> Invoke on -0.09, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.09&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -911,7 +911,7 @@
     <description> Invoke on 0.00, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.00&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -920,7 +920,7 @@
     <description> Invoke on 0.00, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.00&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -929,7 +929,7 @@
     <description> Invoke on -0.00, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.00&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -938,7 +938,7 @@
     <description> Invoke on -0.00, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.00&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -947,7 +947,7 @@
     <description> Invoke on 0.11, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.11&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -956,7 +956,7 @@
     <description> Invoke on 0.11, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.11&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -965,7 +965,7 @@
     <description> Invoke on -0.11, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.11&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -974,7 +974,7 @@
     <description> Invoke on -0.11, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.11&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -983,7 +983,7 @@
     <description> Invoke on 0.14, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.14&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -992,7 +992,7 @@
     <description> Invoke on 0.14, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.14&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1001,7 +1001,7 @@
     <description> Invoke on -0.14, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.14&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1022,7 +1022,7 @@
     <description> Invoke on 0.15, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.15&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1031,7 +1031,7 @@
     <description> Invoke on 0.15, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.15&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1040,7 +1040,7 @@
     <description> Invoke on -0.15, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.15&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1049,7 +1049,7 @@
     <description> Invoke on -0.15, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.15&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1058,7 +1058,7 @@
     <description> Invoke on 0.16, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.16&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1067,7 +1067,7 @@
     <description> Invoke on 0.16, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.16&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1076,7 +1076,7 @@
     <description> Invoke on -0.16, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.16&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1085,7 +1085,7 @@
     <description> Invoke on -0.16, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.16&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1094,7 +1094,7 @@
     <description> Invoke on 0.19, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.19&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1103,7 +1103,7 @@
     <description> Invoke on 0.19, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.19&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1112,7 +1112,7 @@
     <description> Invoke on -0.19, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.19&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1121,7 +1121,7 @@
     <description> Invoke on -0.19, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.19&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1130,7 +1130,7 @@
     <description> Invoke on 0.10, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.10&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1139,7 +1139,7 @@
     <description> Invoke on 0.10, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.10&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1148,7 +1148,7 @@
     <description> Invoke on -0.10, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.10&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1157,7 +1157,7 @@
     <description> Invoke on -0.10, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.10&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1166,7 +1166,7 @@
     <description> Invoke on 0.41, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.41&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1175,7 +1175,7 @@
     <description> Invoke on 0.41, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.41&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1184,7 +1184,7 @@
     <description> Invoke on -0.41, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.41&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1193,7 +1193,7 @@
     <description> Invoke on -0.41, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.41&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1202,7 +1202,7 @@
     <description> Invoke on 0.44, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.44&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1211,7 +1211,7 @@
     <description> Invoke on 0.44, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.44&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1220,7 +1220,7 @@
     <description> Invoke on -0.44, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.44&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1229,7 +1229,7 @@
     <description> Invoke on -0.44, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.44&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1238,7 +1238,7 @@
     <description> Invoke on 0.45, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.45&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1247,7 +1247,7 @@
     <description> Invoke on 0.45, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.45&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1256,7 +1256,7 @@
     <description> Invoke on -0.45, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.45&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1265,7 +1265,7 @@
     <description> Invoke on -0.45, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.45&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1274,7 +1274,7 @@
     <description> Invoke on 0.46, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.46&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1283,7 +1283,7 @@
     <description> Invoke on 0.46, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.46&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1292,7 +1292,7 @@
     <description> Invoke on -0.46, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.46&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1301,7 +1301,7 @@
     <description> Invoke on -0.46, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.46&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1310,7 +1310,7 @@
     <description> Invoke on 0.49, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.49&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1319,7 +1319,7 @@
     <description> Invoke on 0.49, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.49&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1328,7 +1328,7 @@
     <description> Invoke on -0.49, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.49&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1337,7 +1337,7 @@
     <description> Invoke on -0.49, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.49&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1346,7 +1346,7 @@
     <description> Invoke on 0.40, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.40&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1355,7 +1355,7 @@
     <description> Invoke on 0.40, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.40&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1364,7 +1364,7 @@
     <description> Invoke on -0.40, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.40&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1373,7 +1373,7 @@
     <description> Invoke on -0.40, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.40&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1382,7 +1382,7 @@
     <description> Invoke on 0.51, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.51&quot;))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -1391,7 +1391,7 @@
     <description> Invoke on 0.51, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.51&quot;))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -1400,7 +1400,7 @@
     <description> Invoke on -0.51, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.51&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1409,7 +1409,7 @@
     <description> Invoke on -0.51, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.51&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1418,7 +1418,7 @@
     <description> Invoke on 0.54, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.54&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1427,7 +1427,7 @@
     <description> Invoke on 0.54, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.54&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1436,7 +1436,7 @@
     <description> Invoke on -0.54, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.54&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1445,7 +1445,7 @@
     <description> Invoke on -0.54, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.54&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1454,7 +1454,7 @@
     <description> Invoke on 0.55, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.55&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1463,7 +1463,7 @@
     <description> Invoke on 0.55, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.55&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1472,7 +1472,7 @@
     <description> Invoke on -0.55, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.55&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1481,7 +1481,7 @@
     <description> Invoke on -0.55, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.55&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1490,7 +1490,7 @@
     <description> Invoke on 0.56, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.56&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1499,7 +1499,7 @@
     <description> Invoke on 0.56, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.56&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1508,7 +1508,7 @@
     <description> Invoke on -0.56, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.56&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1517,7 +1517,7 @@
     <description> Invoke on -0.56, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.56&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1526,7 +1526,7 @@
     <description> Invoke on 0.59, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.59&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1535,7 +1535,7 @@
     <description> Invoke on 0.59, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.59&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1544,7 +1544,7 @@
     <description> Invoke on -0.59, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.59&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1553,7 +1553,7 @@
     <description> Invoke on -0.59, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.59&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1562,7 +1562,7 @@
     <description> Invoke on 0.50, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.50&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1571,7 +1571,7 @@
     <description> Invoke on 0.50, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.50&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1580,7 +1580,7 @@
     <description> Invoke on -0.50, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.50&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1589,7 +1589,7 @@
     <description> Invoke on -0.50, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.50&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -1598,7 +1598,7 @@
     <description> Invoke on 0.61, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.61&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1607,7 +1607,7 @@
     <description> Invoke on 0.61, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.61&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1616,7 +1616,7 @@
     <description> Invoke on -0.61, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.61&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1625,7 +1625,7 @@
     <description> Invoke on -0.61, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.61&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1634,7 +1634,7 @@
     <description> Invoke on 0.64, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.64&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1643,7 +1643,7 @@
     <description> Invoke on 0.64, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.64&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1652,7 +1652,7 @@
     <description> Invoke on -0.64, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.64&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1661,7 +1661,7 @@
     <description> Invoke on -0.64, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.64&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1670,7 +1670,7 @@
     <description> Invoke on 0.65, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.65&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1679,7 +1679,7 @@
     <description> Invoke on 0.65, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.65&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1688,7 +1688,7 @@
     <description> Invoke on -0.65, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.65&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1697,7 +1697,7 @@
     <description> Invoke on -0.65, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.65&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1706,7 +1706,7 @@
     <description> Invoke on 0.66, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.66&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1715,7 +1715,7 @@
     <description> Invoke on 0.66, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.66&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1724,7 +1724,7 @@
     <description> Invoke on -0.66, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.66&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1733,7 +1733,7 @@
     <description> Invoke on -0.66, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.66&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1742,7 +1742,7 @@
     <description> Invoke on 0.69, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.69&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1751,7 +1751,7 @@
     <description> Invoke on 0.69, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.69&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1760,7 +1760,7 @@
     <description> Invoke on -0.69, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.69&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1769,7 +1769,7 @@
     <description> Invoke on -0.69, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.69&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1778,7 +1778,7 @@
     <description> Invoke on 0.60, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.60&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1787,7 +1787,7 @@
     <description> Invoke on 0.60, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.60&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1796,7 +1796,7 @@
     <description> Invoke on -0.60, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.60&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1805,7 +1805,7 @@
     <description> Invoke on -0.60, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.60&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1814,7 +1814,7 @@
     <description> Invoke on 0.91, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.91&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1823,7 +1823,7 @@
     <description> Invoke on 0.91, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.91&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1832,7 +1832,7 @@
     <description> Invoke on -0.91, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.91&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1841,7 +1841,7 @@
     <description> Invoke on -0.91, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.91&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1850,7 +1850,7 @@
     <description> Invoke on 0.94, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.94&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1859,7 +1859,7 @@
     <description> Invoke on 0.94, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.94&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1868,7 +1868,7 @@
     <description> Invoke on -0.94, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.94&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1877,7 +1877,7 @@
     <description> Invoke on -0.94, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.94&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1886,7 +1886,7 @@
     <description> Invoke on 0.95, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.95&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1895,7 +1895,7 @@
     <description> Invoke on 0.95, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.95&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1904,7 +1904,7 @@
     <description> Invoke on -0.95, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.95&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1913,7 +1913,7 @@
     <description> Invoke on -0.95, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.95&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1922,7 +1922,7 @@
     <description> Invoke on 0.96, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.96&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1931,7 +1931,7 @@
     <description> Invoke on 0.96, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.96&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1940,7 +1940,7 @@
     <description> Invoke on -0.96, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.96&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1949,7 +1949,7 @@
     <description> Invoke on -0.96, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.96&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1958,7 +1958,7 @@
     <description> Invoke on 0.99, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.99&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1967,7 +1967,7 @@
     <description> Invoke on 0.99, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.99&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -1976,7 +1976,7 @@
     <description> Invoke on -0.99, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.99&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1985,7 +1985,7 @@
     <description> Invoke on -0.99, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.99&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -1994,7 +1994,7 @@
     <description> Invoke on 0.90, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.90&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -2003,7 +2003,7 @@
     <description> Invoke on 0.90, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.90&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -2012,7 +2012,7 @@
     <description> Invoke on -0.90, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.90&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -2021,7 +2021,7 @@
     <description> Invoke on -0.90, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.90&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -2030,7 +2030,7 @@
     <description> Invoke on 0.101, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.101&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -2039,7 +2039,7 @@
     <description> Invoke on 0.101, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.101&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -2048,7 +2048,7 @@
     <description> Invoke on -0.101, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.101&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -2057,7 +2057,7 @@
     <description> Invoke on -0.101, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.101&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -2066,7 +2066,7 @@
     <description> Invoke on 0.104, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.104&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -2075,7 +2075,7 @@
     <description> Invoke on 0.104, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.104&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -2084,7 +2084,7 @@
     <description> Invoke on -0.104, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.104&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -2093,7 +2093,7 @@
     <description> Invoke on -0.104, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.104&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -2102,7 +2102,7 @@
     <description> Invoke on 0.105, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.105&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -2111,7 +2111,7 @@
     <description> Invoke on 0.105, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.105&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -2120,7 +2120,7 @@
     <description> Invoke on -0.105, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.105&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -2129,7 +2129,7 @@
     <description> Invoke on -0.105, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.105&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -2138,7 +2138,7 @@
     <description> Invoke on 0.106, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.106&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -2147,7 +2147,7 @@
     <description> Invoke on 0.106, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.106&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -2156,7 +2156,7 @@
     <description> Invoke on -0.106, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.106&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -2165,7 +2165,7 @@
     <description> Invoke on -0.106, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.106&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -2174,7 +2174,7 @@
     <description> Invoke on 0.109, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.109&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -2183,7 +2183,7 @@
     <description> Invoke on 0.109, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.109&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -2192,7 +2192,7 @@
     <description> Invoke on -0.109, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.109&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -2201,7 +2201,7 @@
     <description> Invoke on -0.109, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.109&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -2210,7 +2210,7 @@
     <description> Invoke on 0.100, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;0.100&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -2219,7 +2219,7 @@
     <description> Invoke on 0.100, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;0.100&quot;))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -2228,7 +2228,7 @@
     <description> Invoke on -0.100, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float(&quot;-0.100&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -2237,7 +2237,7 @@
     <description> Invoke on -0.100, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double(&quot;-0.100&quot;))</test>
-    <result-string>xs:string('-0')</result-string>
+    <result-string>xs:string(&quot;-0&quot;)</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
@@ -2413,7 +2413,7 @@
     <modified by="Michael Kay" change="add dependency" on="2011-07-29"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:round(8452, -2)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;8500&quot;)</result-string>
     <result>
       <assert-eq>8500</assert-eq>
     </result>
@@ -2424,7 +2424,7 @@
     <modified by="Michael Kay" change="add dependency" on="2011-07-29"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:round(3.1415e0, 2)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;3.14e0&quot;)</result-string>
     <result>
       <assert-eq>3.14e0</assert-eq>
     </result>
@@ -2435,7 +2435,7 @@
     <modified by="Michael Kay" change="add dependency, make test name unique, change expected result" on="2011-07-29"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:round(35.425, 2)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;35.43&quot;)</result-string>
     <result>
       <assert-eq>35.43</assert-eq>
     </result>

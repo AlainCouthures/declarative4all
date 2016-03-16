@@ -24,7 +24,7 @@
     <description>Casting from float to decimal. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:float(10.0) return $value cast as xs:decimal</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -33,7 +33,7 @@
     <description> Casting from float to integer. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:float(10.0) return $value cast as xs:decimal</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -42,7 +42,7 @@
     <description> Casting from float to nonPositiveInteger. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:float(-10.0) return $value cast as xs:nonPositiveInteger</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-10&quot;)</result-string>
     <result>
       <assert-eq>-10</assert-eq>
     </result>
@@ -51,7 +51,7 @@
     <description> Casting from float to a long. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:float(10.0) return $value cast as xs:long</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -60,7 +60,7 @@
     <description> Casting from float to a nonNegativeInteger. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:float(10.0) return $value cast as xs:nonNegativeInteger</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -69,7 +69,7 @@
     <description> Casting from float to a negativeInteger. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:float(-10.0) return $value cast as xs:negativeInteger</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-10&quot;)</result-string>
     <result>
       <assert-eq>-10</assert-eq>
     </result>
@@ -78,7 +78,7 @@
     <description> Casting from float to an int. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:float(10.0) return $value cast as xs:int</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -87,7 +87,7 @@
     <description> Casting from float to an unsignedLong. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:float(10.0) return $value cast as xs:unsignedLong</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -96,7 +96,7 @@
     <description> Casting from float to a positiveInteger. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:float(10.0) return $value cast as xs:positiveInteger</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -105,7 +105,7 @@
     <description> Casting from float to a short. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:float(10.0) return $value cast as xs:short</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -114,7 +114,7 @@
     <description> Casting from float to an unsignedInt. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:float(10.0) return $value cast as xs:unsignedInt</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -123,7 +123,7 @@
     <description> Casting from float to an unsignedShort. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:float(10.0) return $value cast as xs:unsignedShort</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -132,7 +132,7 @@
     <description> Casting from float to an unsignedByte. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:float(10.0) return $value cast as xs:unsignedByte</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -141,7 +141,7 @@
     <description> Casting from float to a byte. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:float(10.0) return $value cast as xs:byte</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -150,7 +150,7 @@
     <description> Casting from double to a decimal. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:double(10E2) return $value cast as xs:decimal</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1000&quot;)</result-string>
     <result>
       <assert-eq>1000</assert-eq>
     </result>
@@ -159,7 +159,7 @@
     <description> Casting from double to an integer. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:double(10E2) return $value cast as xs:integer</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1000&quot;)</result-string>
     <result>
       <assert-eq>1000</assert-eq>
     </result>
@@ -168,7 +168,7 @@
     <description> Casting from double to an positiveInteger. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:double(10E2) return $value cast as xs:positiveInteger</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1000&quot;)</result-string>
     <result>
       <assert-eq>1000</assert-eq>
     </result>
@@ -177,7 +177,7 @@
     <description> Casting from double to a long. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:double(10E2) return $value cast as xs:long</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1000&quot;)</result-string>
     <result>
       <assert-eq>1000</assert-eq>
     </result>
@@ -186,7 +186,7 @@
     <description> Casting from double to an int. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:double(10E2) return $value cast as xs:int</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1000&quot;)</result-string>
     <result>
       <assert-eq>1000</assert-eq>
     </result>
@@ -195,7 +195,7 @@
     <description> Casting from double to an unsignedLong. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:double(10E2) return $value cast as xs:unsignedLong</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1000&quot;)</result-string>
     <result>
       <assert-eq>1000</assert-eq>
     </result>
@@ -204,7 +204,7 @@
     <description> Casting from double to a short. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:double(10E2) return $value cast as xs:short</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1000&quot;)</result-string>
     <result>
       <assert-eq>1000</assert-eq>
     </result>
@@ -213,7 +213,7 @@
     <description>Casting from decimal to float. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:decimal(10.0) return $value cast as xs:float</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -222,7 +222,7 @@
     <description> Casting from intger to float. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:integer(10.0) return $value cast as xs:float</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -231,7 +231,7 @@
     <description> Casting from nonPositiveInteger to float. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:nonPositiveInteger(-10.0) return $value cast as xs:float</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-10&quot;)</result-string>
     <result>
       <assert-eq>-10</assert-eq>
     </result>
@@ -240,7 +240,7 @@
     <description> Casting from long to float. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:long(10.0) return $value cast as xs:float</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -249,7 +249,7 @@
     <description> Casting from nonNegativeInteger to float. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:nonNegativeInteger(10.0) return $value cast as xs:float</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -258,7 +258,7 @@
     <description> Casting from a negativeInteger to a float. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:negativeInteger(-10.0) return $value cast as xs:float</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-10&quot;)</result-string>
     <result>
       <assert-eq>-10</assert-eq>
     </result>
@@ -267,7 +267,7 @@
     <description> Casting from an int to a float. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:int(10.0) return $value cast as xs:float</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -276,7 +276,7 @@
     <description> Casting from an unsignedLong to a float. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:unsignedLong(10.0) return $value cast as xs:float</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -285,7 +285,7 @@
     <description> Casting from a positiveInteger to a float. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:positiveInteger(10.0) return $value cast as xs:float</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -294,7 +294,7 @@
     <description> Casting from a shortto a float. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:short(10.0) return $value cast as xs:float</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -303,7 +303,7 @@
     <description> Casting from an unsignedInt to a float. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:unsignedInt(10.0) return $value cast as xs:float</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -312,7 +312,7 @@
     <description> Casting from an unsignedShort to a float. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:unsignedShort(10.0) return $value cast as xs:float</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -321,7 +321,7 @@
     <description> Casting from an unsignedByte to a float. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:unsignedByte(10.0) return $value cast as xs:float</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -330,7 +330,7 @@
     <description> Casting from a byte to a float. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:byte(10.0) return $value cast as xs:float</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -339,7 +339,7 @@
     <description> Casting from a decimal to a double. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:decimal(10E2) return $value cast as xs:double</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1000&quot;)</result-string>
     <result>
       <assert-eq>1000</assert-eq>
     </result>
@@ -348,7 +348,7 @@
     <description> Casting from an integer to a double. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:integer(10E2) return $value cast as xs:double</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1000&quot;)</result-string>
     <result>
       <assert-eq>1000</assert-eq>
     </result>
@@ -357,7 +357,7 @@
     <description> Casting from a positiveInteger to a double. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:positiveInteger(10E2) return $value cast as xs:double</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1000&quot;)</result-string>
     <result>
       <assert-eq>1000</assert-eq>
     </result>
@@ -366,7 +366,7 @@
     <description> Casting from a long to a double. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:long(10E2) return $value cast as xs:double</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1000&quot;)</result-string>
     <result>
       <assert-eq>1000</assert-eq>
     </result>
@@ -375,7 +375,7 @@
     <description> Casting from an int to a double. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:int(10E2) return $value cast as xs:double</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1000&quot;)</result-string>
     <result>
       <assert-eq>1000</assert-eq>
     </result>
@@ -384,7 +384,7 @@
     <description> Casting from an unsignedLong to a double. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:unsignedLong(10E2) return $value cast as xs:double</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1000&quot;)</result-string>
     <result>
       <assert-eq>1000</assert-eq>
     </result>
@@ -393,7 +393,7 @@
     <description> Casting from a short to a double. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:short(10E2) return $value cast as xs:double</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1000&quot;)</result-string>
     <result>
       <assert-eq>1000</assert-eq>
     </result>
@@ -402,7 +402,7 @@
     <description>Casting from integer to nonPositiveInteger. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:integer(-10.0) return $value cast as xs:nonPositiveInteger</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-10&quot;)</result-string>
     <result>
       <assert-eq>-10</assert-eq>
     </result>
@@ -411,7 +411,7 @@
     <description> Casting from integer to long. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:integer(10.0) return $value cast as xs:long</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -420,7 +420,7 @@
     <description> Casting from integer to nonNegativeInteger. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:integer(10.0) return $value cast as xs:nonNegativeInteger</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -429,7 +429,7 @@
     <description> Casting from integer to negativeInteger. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:integer(-10.0) return $value cast as xs:negativeInteger</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-10&quot;)</result-string>
     <result>
       <assert-eq>-10</assert-eq>
     </result>
@@ -438,7 +438,7 @@
     <description> Casting from integer to int. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:integer(10.0) return $value cast as xs:int</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -447,7 +447,7 @@
     <description> Casting from integer to unsignedLong. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:integer(10.0) return $value cast as xs:unsignedLong</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -456,7 +456,7 @@
     <description> Casting from integer to positiveInteger. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:integer(10.0) return $value cast as xs:positiveInteger</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -465,7 +465,7 @@
     <description> Casting from integer to short. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:integer(10.0) return $value cast as xs:short</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -474,7 +474,7 @@
     <description> Casting from integer to unsignedInt. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:integer(10.0) return $value cast as xs:unsignedInt</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -483,7 +483,7 @@
     <description> Casting from integer to byte. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:integer(10.0) return $value cast as xs:byte</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -492,7 +492,7 @@
     <description> Casting from integer to unsignedShort. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:integer(10.0) return $value cast as xs:unsignedShort</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -501,7 +501,7 @@
     <description> Casting from integer to an unsignedByte. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:integer(10.0) return $value cast as xs:unsignedByte</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -510,7 +510,7 @@
     <description> Casting from a long to an integer. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:long(10.0) return $value cast as xs:integer</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -519,7 +519,7 @@
     <description> Casting from long to a nonNegativeInteger. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:long(10.0) return $value cast as xs:nonNegativeInteger</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -528,7 +528,7 @@
     <description> Casting from long to a negativeInteger. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:long(-10) return $value cast as xs:negativeInteger</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-10&quot;)</result-string>
     <result>
       <assert-eq>-10</assert-eq>
     </result>
@@ -537,7 +537,7 @@
     <description> Casting from long to an int. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:long(10) return $value cast as xs:int</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -546,7 +546,7 @@
     <description> Casting from long to an unsignedLong. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:long(10) return $value cast as xs:unsignedLong</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -555,7 +555,7 @@
     <description> Casting from long to a positiveInteger. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:long(10) return $value cast as xs:positiveInteger</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -564,7 +564,7 @@
     <description> Casting from long to a short. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:long(10) return $value cast as xs:short</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -573,7 +573,7 @@
     <description> Casting from long to unsignedInt. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:long(10) return $value cast as xs:unsignedInt</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -582,7 +582,7 @@
     <description> Casting from long to a byte. </description>
     <created by="Carmelo Montanez" on="2006-03-27"/>
     <test>let $value := xs:long(10) return $value cast as xs:byte</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -626,7 +626,7 @@
          &quot;1&quot; cast as derivedType:unsignedLong, 
          &quot;1&quot; cast as derivedType:unsignedShort
       </test>
-    <result-string>xs:string('16 16 16 16 aaaaaaaaaaaa AAAAAAAAAA http://news.bbc.co.uk/ true 2001-01-01T09:00:00 10:00:00 valid value 1 value1 derivedType:value1 ---01 --12-25 --12 2004 2004-02 P1D 1 -1 1 -1 1 1 1 1 1 1 1')</result-string>
+    <result-string>xs:string(&quot;16 16 16 16 aaaaaaaaaaaa AAAAAAAAAA http://news.bbc.co.uk/ true 2001-01-01T09:00:00 10:00:00 valid value 1 value1 derivedType:value1 ---01 --12-25 --12 2004 2004-02 P1D 1 -1 1 -1 1 1 1 1 1 1 1&quot;)</result-string>
     <result>
       <assert-string-value>16 16 16 16 aaaaaaaaaaaa AAAAAAAAAA http://news.bbc.co.uk/ true 2001-01-01T09:00:00 10:00:00 valid value 1 value1 derivedType:value1 ---01 --12-25 --12 2004 2004-02 P1D 1 -1 1 -1 1 1 1 1 1 1 1</assert-string-value>
     </result>
@@ -794,7 +794,7 @@
     <description> test cast to xs:ENTITY from a subtype of xs:NCName </description>
     <created by="Tim Mills" on="2008-04-28"/>
     <test>xs:NCName('entity') cast as xs:ENTITY</test>
-    <result-string>xs:string('entity')</result-string>
+    <result-string>xs:string(&quot;entity&quot;)</result-string>
     <result>
       <assert-string-value>entity</assert-string-value>
     </result>
@@ -812,7 +812,7 @@
     <description> test cast to xs:ID from a subtype of xs:NCName </description>
     <created by="Tim Mills" on="2008-04-28"/>
     <test>xs:NCName('id') cast as xs:ID</test>
-    <result-string>xs:string('id')</result-string>
+    <result-string>xs:string(&quot;id&quot;)</result-string>
     <result>
       <assert-string-value>id</assert-string-value>
     </result>
@@ -830,7 +830,7 @@
     <description> test cast to xs:IDREF from a subtype of xs:NCName </description>
     <created by="Tim Mills" on="2008-04-28"/>
     <test>xs:NCName('idref') cast as xs:IDREF</test>
-    <result-string>xs:string('idref')</result-string>
+    <result-string>xs:string(&quot;idref&quot;)</result-string>
     <result>
       <assert-string-value>idref</assert-string-value>
     </result>
@@ -936,7 +936,7 @@
     <description> test cast to xs:language </description>
     <created by="Tim Mills" on="2008-04-28"/>
     <test>xs:language('en-gb') cast as xs:language</test>
-    <result-string>xs:string('en-gb')</result-string>
+    <result-string>xs:string(&quot;en-gb&quot;)</result-string>
     <result>
       <assert-string-value>en-gb</assert-string-value>
     </result>
@@ -989,7 +989,7 @@
     <description> test cast to xs:Name from a subtype of xs:Name </description>
     <created by="Tim Mills" on="2008-04-28"/>
     <test>xs:NCName('NCName') cast as xs:Name</test>
-    <result-string>xs:string('NCName')</result-string>
+    <result-string>xs:string(&quot;NCName&quot;)</result-string>
     <result>
       <assert-string-value>NCName</assert-string-value>
     </result>
@@ -1007,7 +1007,7 @@
     <description> test cast to xs:NCName from a subtype of xs:NCName </description>
     <created by="Tim Mills" on="2008-04-28"/>
     <test>xs:ID('id') cast as xs:NCName</test>
-    <result-string>xs:string('id')</result-string>
+    <result-string>xs:string(&quot;id&quot;)</result-string>
     <result>
       <assert-string-value>id</assert-string-value>
     </result>
@@ -1047,7 +1047,7 @@
       <![CDATA[
         let $string := ("&#xD;&#xA;&#x9; foobar &#xA;&#xD;&#x9;" cast as xs:NMTOKEN) return not(contains($string, '&#x9;') or contains($string, '&#xA;') or contains($string, '&#xD;') or string-length($string) ne 6)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1057,7 +1057,7 @@
     <created by="Tim Mills" on="2008-04-28"/>
     <dependency type="spec" value="XP10+"/>
     <test>for $string in (&quot; foobar &quot; cast as xs:NMTOKEN) return not(contains($string, '') or contains($string, '') or contains($string, '') or string-length($string) ne 6)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1066,7 +1066,7 @@
     <description> test cast to xs:NMTOKEN from a subtype of xs:NMTOKEN </description>
     <created by="Tim Mills" on="2008-04-28"/>
     <test>xs:NMTOKEN('NMTOKEN') cast as xs:NMTOKEN</test>
-    <result-string>xs:string('NMTOKEN')</result-string>
+    <result-string>xs:string(&quot;NMTOKEN&quot;)</result-string>
     <result>
       <assert-string-value>NMTOKEN</assert-string-value>
     </result>
@@ -1119,7 +1119,7 @@
                    contains($string, '&#xD;') or 
                    string-length($string) ne 13)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1134,7 +1134,7 @@
                    contains($string, '') or 
                    contains($string, '') or 
                    string-length($string) ne 13)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1205,7 +1205,7 @@
                    contains($string, '&#xD;') or 
                    string-length($string) ne 7)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1220,7 +1220,7 @@
                    contains($string, '') or 
                    contains($string, '') or 
                    string-length($string) ne 7)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1431,7 +1431,7 @@
     <description> Ensure that &quot;-00&quot; is a valid lexical value for xs:nonNegativeInteger </description>
     <created by="Oliver Hallam" on="2008-05-20"/>
     <test>xs:nonNegativeInteger(&quot;-00&quot;)</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1440,7 +1440,7 @@
     <description> Ensure that &quot;+00&quot; is a valid lexical value for xs:nonPositiveInteger </description>
     <created by="Oliver Hallam" on="2008-05-20"/>
     <test>xs:nonPositiveInteger(&quot;+00&quot;)</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1449,7 +1449,7 @@
     <description> Ensure that &quot;-00&quot; is a valid lexical value for xs:unsignedByte </description>
     <created by="Oliver Hallam" on="2008-05-20"/>
     <test>xs:unsignedByte(&quot;-00&quot;)</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1458,7 +1458,7 @@
     <description> Ensure that &quot;-00&quot; is a valid lexical value for xs:unsignedInt </description>
     <created by="Oliver Hallam" on="2008-05-20"/>
     <test>xs:unsignedInt(&quot;-00&quot;)</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1467,7 +1467,7 @@
     <description> Ensure that &quot;-00&quot; is a valid lexical value for xs:unsignedLong </description>
     <created by="Oliver Hallam" on="2008-05-20"/>
     <test>xs:unsignedLong(&quot;-00&quot;)</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1476,7 +1476,7 @@
     <description> Ensure that &quot;-00&quot; is a valid lexical value for xs:unsignedShort </description>
     <created by="Oliver Hallam" on="2008-05-20"/>
     <test>xs:unsignedShort(&quot;-00&quot;)</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1548,7 +1548,7 @@
     <description> Test a uri with an empty path, but with a valid query </description>
     <created by="Nick Jones" on="2008-05-23"/>
     <test>&quot;http://example.com?query=&quot; cast as xs:anyURI</test>
-    <result-string>xs:string('http://example.com?query=')</result-string>
+    <result-string>xs:string(&quot;http://example.com?query=&quot;)</result-string>
     <result>
       <assert-string-value>http://example.com?query=</assert-string-value>
     </result>

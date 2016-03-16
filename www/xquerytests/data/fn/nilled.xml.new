@@ -39,7 +39,7 @@
     <description> Evaluation of nilled function with argument set to empty sequence. Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-11-16"/>
     <test>fn:count(fn:nilled(()))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -49,7 +49,7 @@
     <created by="Carmelo Montanez" on="2005-11-16"/>
     <environment ref="works-mod"/>
     <test> fn:count(fn:nilled(/works[1]/employee[2]/child::text()[last()]))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -59,7 +59,7 @@
     <created by="Carmelo Montanez" on="2005-11-16"/>
     <environment ref="works-mod"/>
     <test> fn:nilled(/works[1]/employee[2])</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -71,7 +71,7 @@
     <test>
       <![CDATA[ fn:nilled(<shoe size = "5"/>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -83,7 +83,7 @@
     <test>
       <![CDATA[ fn:nilled(<shoe xsi:nil="true"/>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -95,7 +95,7 @@
     <test>
       <![CDATA[ fn:nilled(<shoe xsi:nil="false"/>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -107,7 +107,7 @@
     <test>
       <![CDATA[ fn:nilled(<shoe xsi:nil="{fn:true()}"/>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -119,7 +119,7 @@
     <test>
       <![CDATA[ fn:nilled(<shoe xsi:nil="{fn:false()}"/>)]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -143,7 +143,7 @@
     <test>
       <![CDATA[ fn:not(fn:nilled(<shoe xsi:nil="{fn:false()}"/>))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -155,7 +155,7 @@
     <test>
       <![CDATA[ fn:not(fn:nilled(<shoe xsi:nil="{fn:true()}"/>))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -167,7 +167,7 @@
     <test>
       <![CDATA[ fn:nilled(<shoe xsi:nil="{fn:true()}"/>) and fn:true()]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -179,7 +179,7 @@
     <test>
       <![CDATA[ fn:nilled(<shoe xsi:nil="{fn:true()}"/>) and fn:false()]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -191,7 +191,7 @@
     <test>
       <![CDATA[ fn:nilled(<shoe xsi:nil="{fn:true()}"/>) or fn:true()]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -203,7 +203,7 @@
     <test>
       <![CDATA[ fn:nilled(<shoe xsi:nil="{fn:true()}"/>) or fn:false()]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -215,7 +215,7 @@
     <test>
       <![CDATA[ fn:nilled(<shoe xsi:nil="{fn:true()}"/>) ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -227,7 +227,7 @@
     <test>
       <![CDATA[ xs:boolean(fn:nilled(<shoe xsi:nil="{fn:true()}"/>))]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -239,7 +239,7 @@
     <test>
       <![CDATA[ xs:boolean(fn:nilled(<shoe xsi:nil="{fn:false()}"/>))]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -251,7 +251,7 @@
     <test>
       <![CDATA[ fn:nilled(document {<aList><anElement>data</anElement></aList>})]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -261,7 +261,7 @@
     <created by="Carmelo Montanez" on="2005-11-16"/>
     <dependency type="spec" value="XQ10+"/>
     <test> fn:nilled(attribute size {1})</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -273,7 +273,7 @@
     <test>
       <![CDATA[ fn:nilled(<!-- This is a comment node -->)]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -285,7 +285,7 @@
     <test>
       <![CDATA[ fn:nilled(<?format role="output" ?>)]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -296,7 +296,7 @@
     <environment ref="works-mod"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>nilled()</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -307,7 +307,7 @@
     <environment ref="works-mod"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>/*/nilled()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -318,7 +318,7 @@
     <environment ref="works-mod"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>/works/employee[1]/@gender/nilled()</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -329,7 +329,7 @@
     <environment ref="works-mod"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>/works/employee[1]/empnum/text()/nilled()</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -342,7 +342,7 @@
     <test>
       <![CDATA[ (<shoe xsi:nil="true"/>)/fn:nilled()]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -387,7 +387,7 @@
     <dependency type="spec" value="XQ10+ XP20+"/>
     <dependency type="feature" value="schemaImport"/>
     <test>nilled(/root)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -399,7 +399,7 @@
     <dependency type="spec" value="XQ10+ XP20+"/>
     <dependency type="feature" value="schemaImport"/>
     <test>nilled(/root/branch)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -411,7 +411,7 @@
     <dependency type="spec" value="XQ10+ XP20+"/>
     <dependency type="feature" value="schemaImport"/>
     <test>nilled(/root/branch/branch[1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -423,7 +423,7 @@
     <dependency type="spec" value="XQ10+ XP20+"/>
     <dependency type="feature" value="schemaImport"/>
     <test>nilled(/root/branch/branch[2])</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -435,7 +435,7 @@
     <dependency type="spec" value="XQ10+ XP20+"/>
     <dependency type="feature" value="schemaImport"/>
     <test>nilled(/root/branch/branch[2]/twig)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -447,7 +447,7 @@
     <dependency type="spec" value="XQ30+ XP30+"/>
     <dependency type="feature" value="schemaImport"/>
     <test>/root/branch/branch[2]/nilled()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -459,7 +459,7 @@
     <dependency type="spec" value="XQ30+ XP30+"/>
     <dependency type="feature" value="schemaImport"/>
     <test>/root/branch/branch[2]/twig/nilled()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -471,7 +471,7 @@
     <dependency type="spec" value="XQ10+ XP20+"/>
     <dependency type="feature" value="schemaImport"/>
     <test>data(/root/branch/note[3])</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -483,7 +483,7 @@
     <dependency type="spec" value="XQ10+ XP20+"/>
     <dependency type="feature" value="schemaImport"/>
     <test>data(/root/branch/branch[2]/twig)</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -498,7 +498,7 @@
         import schema namespace ids=&quot;http://www.w3.org/XQueryTest/nillable&quot;;
       	/ids:root/ids:branch/ids:branch[1] instance of element(ids:branch, ids:root?)
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -513,7 +513,7 @@
         import schema namespace ids=&quot;http://www.w3.org/XQueryTest/nillable&quot;;
       	/ids:root/ids:branch/ids:branch[1] instance of element(ids:branch, ids:root)
       </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -525,7 +525,7 @@
     <dependency type="spec" value="XQ10+ XP20+"/>
     <dependency type="feature" value="schemaImport"/>
     <test>/root/branch/branch[2]/twig instance of element(twig, xs:int?)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -537,7 +537,7 @@
     <dependency type="spec" value="XQ10+ XP20+"/>
     <dependency type="feature" value="schemaImport"/>
     <test>/root/branch/branch[2]/twig instance of element(twig, xs:decimal?)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -549,7 +549,7 @@
     <dependency type="spec" value="XQ10+ XP20+"/>
     <dependency type="feature" value="schemaImport"/>
     <test>/root/branch/branch[2]/twig instance of element(twig, xs:int)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -561,7 +561,7 @@
     <dependency type="spec" value="XQ10+ XP20+"/>
     <dependency type="feature" value="schemaImport"/>
     <test>/root/branch/branch[2]/twig instance of element(twig, xs:decimal)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -573,7 +573,7 @@
     <dependency type="spec" value="XQ10+ XP20+"/>
     <dependency type="feature" value="schemaImport"/>
     <test>nilled(/root/branch/date)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -585,7 +585,7 @@
     <dependency type="spec" value="XQ10+ XP20+"/>
     <dependency type="feature" value="schemaImport"/>
     <test>data(/root/branch/date)</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -600,7 +600,7 @@
         import schema namespace ids=&quot;http://www.w3.org/XQueryTest/nillable&quot;;
       	/root/branch/date instance of element(*, ids:date)
       </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -615,7 +615,7 @@
         import schema default element namespace &quot;http://www.w3.org/XQueryTest/nillable&quot;;
       	/root/branch/date instance of element(*, date?)
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -627,7 +627,7 @@
     <dependency type="spec" value="XQ10+ XP20+"/>
     <dependency type="feature" value="schemaImport"/>
     <test>nilled(/root/branch/size)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -639,7 +639,7 @@
     <dependency type="spec" value="XQ10+ XP20+"/>
     <dependency type="feature" value="schemaImport"/>
     <test>data(/root/branch/size)</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -654,7 +654,7 @@
         import schema namespace ids=&quot;http://www.w3.org/XQueryTest/nillable&quot;;
       	/ids:root/ids:branch/ids:size instance of element(*, ids:size)
       </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -669,7 +669,7 @@
         import schema namespace ids=&quot;http://www.w3.org/XQueryTest/nillable&quot;;
       	/ids:root/ids:branch/ids:size instance of element(*, ids:size?)
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -698,7 +698,7 @@
     <description> A test whose essence is: `empty(nilled( () ))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(nilled( () ))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -722,7 +722,7 @@
       	import schema namespace tc=&quot;http://www.w3.org/XQueryTest/testcases&quot;; 
       	fn:nilled(/tc:root/tc:nillable[1])
       </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -737,7 +737,7 @@
       	import schema namespace tc=&quot;http://www.w3.org/XQueryTest/testcases&quot;; 
       	fn:nilled(/tc:root/tc:nillable[2])
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -752,7 +752,7 @@
       	import schema namespace tc=&quot;http://www.w3.org/XQueryTest/testcases&quot;; 
       	fn:nilled(/tc:root/tc:nillable[3])
       </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -770,7 +770,7 @@
       	return fn:nilled($v)
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -787,7 +787,7 @@
       	let $v := validate { <tc:nillable xsi:nil="true" /> } return fn:nilled($v)
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -804,7 +804,7 @@
       	let $v := validate { <tc:nillable /> } return fn:nilled($v)
       ]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -818,7 +818,7 @@
       	empty(nilled( <?foo ?> ))
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

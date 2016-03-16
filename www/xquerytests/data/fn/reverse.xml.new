@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:int(&quot;-2147483648&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-2147483648&quot;)</result-string>
     <result>
       <assert-eq>-2147483648</assert-eq>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:int(&quot;-1873914410&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1873914410&quot;)</result-string>
     <result>
       <assert-eq>-1873914410</assert-eq>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:int(&quot;2147483647&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2147483647&quot;)</result-string>
     <result>
       <assert-eq>2147483647</assert-eq>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:integer(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:integer(&quot;830993497117024304&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;830993497117024304&quot;)</result-string>
     <result>
       <assert-eq>830993497117024304</assert-eq>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:integer(&quot;999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:decimal(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:decimal(&quot;617375191608514839&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;617375191608514839&quot;)</result-string>
     <result>
       <assert-eq>617375191608514839</assert-eq>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:decimal(&quot;999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:double(&quot;-1.7976931348623157E308&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:double(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:double(&quot;1.7976931348623157E308&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-eq>1.7976931348623157E308</assert-eq>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:float(&quot;-3.4028235E38&quot;)))</test>
-    <result-string/>
+    <result-string>xs:float(&quot;-3.4028235E38&quot;)</result-string>
     <result>
       <assert-eq>xs:float(&quot;-3.4028235E38&quot;)</assert-eq>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:float(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:float(&quot;3.4028235E38&quot;)))</test>
-    <result-string/>
+    <result-string>xs:float(&quot;3.4028235E38&quot;)</result-string>
     <result>
       <assert-eq>xs:float(&quot;3.4028235E38&quot;)</assert-eq>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:long(&quot;-92233720368547758&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-92233720368547758&quot;)</result-string>
     <result>
       <assert-eq>-92233720368547758</assert-eq>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:long(&quot;-47175562203048468&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-47175562203048468&quot;)</result-string>
     <result>
       <assert-eq>-47175562203048468</assert-eq>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:long(&quot;92233720368547758&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;92233720368547758&quot;)</result-string>
     <result>
       <assert-eq>92233720368547758</assert-eq>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:unsignedShort(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:unsignedShort(&quot;44633&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;44633&quot;)</result-string>
     <result>
       <assert-eq>44633</assert-eq>
     </result>
@@ -186,7 +186,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:unsignedShort(&quot;65535&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;65535&quot;)</result-string>
     <result>
       <assert-eq>65535</assert-eq>
     </result>
@@ -195,7 +195,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:negativeInteger(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -204,7 +204,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:negativeInteger(&quot;-297014075999096793&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-297014075999096793&quot;)</result-string>
     <result>
       <assert-eq>-297014075999096793</assert-eq>
     </result>
@@ -213,7 +213,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:negativeInteger(&quot;-1&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -222,7 +222,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:positiveInteger(&quot;1&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -231,7 +231,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:positiveInteger(&quot;52704602390610033&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;52704602390610033&quot;)</result-string>
     <result>
       <assert-eq>52704602390610033</assert-eq>
     </result>
@@ -240,7 +240,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:positiveInteger(&quot;999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -249,7 +249,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:unsignedLong(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -258,7 +258,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:unsignedLong(&quot;130747108607674654&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;130747108607674654&quot;)</result-string>
     <result>
       <assert-eq>130747108607674654</assert-eq>
     </result>
@@ -267,7 +267,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:unsignedLong(&quot;184467440737095516&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;184467440737095516&quot;)</result-string>
     <result>
       <assert-eq>184467440737095516</assert-eq>
     </result>
@@ -276,7 +276,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:nonPositiveInteger(&quot;-999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -285,7 +285,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:nonPositiveInteger(&quot;-475688437271870490&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-475688437271870490&quot;)</result-string>
     <result>
       <assert-eq>-475688437271870490</assert-eq>
     </result>
@@ -294,7 +294,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:nonPositiveInteger(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -303,7 +303,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:nonNegativeInteger(&quot;0&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -312,7 +312,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:nonNegativeInteger(&quot;303884545991464527&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;303884545991464527&quot;)</result-string>
     <result>
       <assert-eq>303884545991464527</assert-eq>
     </result>
@@ -321,7 +321,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:nonNegativeInteger(&quot;999999999999999999&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -330,7 +330,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:short(&quot;-32768&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-32768&quot;)</result-string>
     <result>
       <assert-eq>-32768</assert-eq>
     </result>
@@ -339,7 +339,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:short(&quot;-5324&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-5324&quot;)</result-string>
     <result>
       <assert-eq>-5324</assert-eq>
     </result>
@@ -348,7 +348,7 @@
     <description> Evaluates The &quot;reverse&quot; function with the arguments set as follows: $arg = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:reverse((xs:short(&quot;32767&quot;)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;32767&quot;)</result-string>
     <result>
       <assert-eq>32767</assert-eq>
     </result>
@@ -366,7 +366,7 @@
     <description>Reverse an empty sequence</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>fn:reverse(())</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -376,7 +376,7 @@
     <created by="Michael Kay" on="2011-06-29"/>
     <environment ref="auction"/>
     <test>string-join(reverse(((//*:Open)[1])/ancestor-or-self::*/local-name()), '~')</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;Open~Schedule~Auction~AuctionWatchList&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;Open~Schedule~Auction~AuctionWatchList&quot;</assert-eq>
     </result>
@@ -415,7 +415,7 @@
     <description> A test whose essence is: `not(empty(reverse((1))))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(empty(reverse((1))))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -448,7 +448,7 @@
     <description> A test whose essence is: `exists(reverse((1)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>exists(reverse((1)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -457,7 +457,7 @@
     <description> A test whose essence is: `reverse((1, current-time())[1])`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>reverse((1, current-time())[1])</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -466,7 +466,7 @@
     <description> A test whose essence is: `exists(reverse((1, 2, 3)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>exists(reverse((1, 2, 3)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -475,7 +475,7 @@
     <description> A test whose essence is: `count(reverse((1, 2, 3)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(reverse((1, 2, 3)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -484,7 +484,7 @@
     <description> A test whose essence is: `count(reverse((1, 2, 3)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(reverse((1, 2, 3)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -493,7 +493,7 @@
     <description> A test whose essence is: `deep-equal((3, 2, 1), reverse(1 to 3))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((3, 2, 1), reverse(1 to 3))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -502,7 +502,7 @@
     <description> A test whose essence is: `deep-equal((3, 2, 1), reverse((1, 2, 3)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((3, 2, 1), reverse((1, 2, 3)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -511,7 +511,7 @@
     <description> A test whose essence is: `deep-equal((11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1), reverse(((), (), 1, 2, (3, 4), (5), (6, (7, 8), 9), 10, (), 11, ())))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1), reverse(((), (), 1, 2, (3, 4), (5), (6, (7, 8), 9), 10, (), 11, ())))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -529,7 +529,7 @@
     <description> Apply a predicate to the result of fn:reverse(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>reverse((1, 2, 3))[last()] eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -538,7 +538,7 @@
     <description> Apply a predicate to the result of fn:reverse(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>reverse((1, 2, 3))[last() - 2]</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -547,7 +547,7 @@
     <description> Apply a predicate to the result of fn:reverse(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>reverse((1, 2, 3))[last() - 1]</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -556,7 +556,7 @@
     <description> Apply a predicate to the result of fn:reverse(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((3, 2, 1), reverse((1, 2, 3))[true()])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -565,7 +565,7 @@
     <description> Apply a predicate to the result of fn:reverse(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>reverse((1, 2, current-time(), 3))[last() - 1]</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -574,7 +574,7 @@
     <description> Apply a predicate to the result of fn:reverse(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>reverse((1, 2, current-time(), 3))[last() - 0]</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -600,7 +600,7 @@
     <test>
       <![CDATA[declare variable $myVar := unordered{ordered{unordered{fn:reverse((<a/>, <b/>))}}}; deep-equal($myVar, (<a/>, <b/>)) or deep-equal($myVar, (<b/>, <a/>))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -612,7 +612,7 @@
     <test>
       <![CDATA[declare variable $myVar := unordered(fn:reverse((<a/>, <b/>))); deep-equal($myVar, (<a/>, <b/>)) or deep-equal($myVar, (<b/>, <a/>))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

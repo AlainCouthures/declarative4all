@@ -66,7 +66,7 @@
     <test>
       <![CDATA[declare boundary-space strip; fn:count((<elem> <a> </a> <a> </a> <a> <b> </b> </a> </elem>)//text())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -164,7 +164,7 @@
     <test>
       <![CDATA[declare boundary-space preserve; fn:count((<elem> <a> </a> <a> </a> <a> <b> </b> </a> </elem>)//text())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;9&quot;)</result-string>
     <result>
       <assert-eq>9</assert-eq>
     </result>
@@ -753,7 +753,7 @@
     <test>
       <![CDATA[declare boundary-space preserve; string(<e> <b/> </e>)]]>
     </test>
-    <result-string>xs:string('  ')</result-string>
+    <result-string>xs:string(&quot;  &quot;)</result-string>
     <result>
       <assert-string-value>
         </assert-string-value>
@@ -780,7 +780,7 @@
     <test>
       <![CDATA[string(<a>aaaa<b/>aaaa</a>)]]>
     </test>
-    <result-string>xs:string('aaaaaaaa')</result-string>
+    <result-string>xs:string(&quot;aaaaaaaa&quot;)</result-string>
     <result>
       <assert-string-value>aaaaaaaa</assert-string-value>
     </result>
@@ -806,7 +806,7 @@
     <test>
       <![CDATA[declare boundary-space strip; string(<e xml:space="preserve"> </e>) eq ""]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -832,7 +832,7 @@
     <test>
       <![CDATA[declare boundary-space preserve; string(<e xml:space="default"> </e>) eq " "]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -858,7 +858,7 @@
     <test>
       <![CDATA[string(<e>'a''a'''a"a""a"""a"</e>) eq "'a''a'''a""a""""a""""""a"""]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -870,7 +870,7 @@
     <test>
       <![CDATA[string(<e> &#32; </e>)]]>
     </test>
-    <result-string>xs:string('   ')</result-string>
+    <result-string>xs:string(&quot;   &quot;)</result-string>
     <result>
       <assert-string-value>
          </assert-string-value>
@@ -881,7 +881,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>string(e ![CDATA[ ]] /e)</test>
-    <result-string>xs:string('   ')</result-string>
+    <result-string>xs:string(&quot;   &quot;)</result-string>
     <result>
       <assert-string-value>
          </assert-string-value>
@@ -894,7 +894,7 @@
     <test>
       <![CDATA[string(<e>123<b>XX</b>abc</e>)]]>
     </test>
-    <result-string>xs:string('123XXabc')</result-string>
+    <result-string>xs:string(&quot;123XXabc&quot;)</result-string>
     <result>
       <assert-string-value>123XXabc</assert-string-value>
     </result>
@@ -906,7 +906,7 @@
     <test>
       <![CDATA[string(<e>123<!-- a comment -->ab<!-- another comment -->c</e>)]]>
     </test>
-    <result-string>xs:string('123abc')</result-string>
+    <result-string>xs:string(&quot;123abc&quot;)</result-string>
     <result>
       <assert-string-value>123abc</assert-string-value>
     </result>
@@ -918,7 +918,7 @@
     <test>
       <![CDATA[string(<e>123<?target content ?>ab<?target2 content?>c</e>)]]>
     </test>
-    <result-string>xs:string('123abc')</result-string>
+    <result-string>xs:string(&quot;123abc&quot;)</result-string>
     <result>
       <assert-string-value>123abc</assert-string-value>
     </result>
@@ -930,7 +930,7 @@
     <test>
       <![CDATA[count(<elem>str{""}asdas{"asd", "asd", "''", ""}{''}asd{''}{''}</elem>/text())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -942,7 +942,7 @@
     <test>
       <![CDATA[count(<a></a>/node())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -954,7 +954,7 @@
     <test>
       <![CDATA[count(<a/>/node())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -964,7 +964,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>string(elem ![CDATA[]] /elem)</test>
-    <result-string>xs:string('  ')</result-string>
+    <result-string>xs:string(&quot;  &quot;)</result-string>
     <result>
       <assert-string-value>
         </assert-string-value>
@@ -977,7 +977,7 @@
     <test>
       <![CDATA[string(<e>e<b>ddd</b></e>)]]>
     </test>
-    <result-string>xs:string('eddd')</result-string>
+    <result-string>xs:string(&quot;eddd&quot;)</result-string>
     <result>
       <assert-string-value>eddd</assert-string-value>
     </result>
@@ -1015,7 +1015,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>string(e]]/e)</test>
-    <result-string>xs:string(']]')</result-string>
+    <result-string>xs:string(&quot;]]&quot;)</result-string>
     <result>
       <assert-string-value>]]</assert-string-value>
     </result>
@@ -1025,7 +1025,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>string(elem![CDATA[cdat]]!-- a comment --?target content?/elem)</test>
-    <result-string>xs:string('cdat')</result-string>
+    <result-string>xs:string(&quot;cdat&quot;)</result-string>
     <result>
       <assert-string-value>cdat</assert-string-value>
     </result>
@@ -1035,7 +1035,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>string(elem content ![CDATA[ content ]] content /elem)</test>
-    <result-string>xs:string(' content  content  content ')</result-string>
+    <result-string>xs:string(&quot; content  content  content &quot;)</result-string>
     <result>
       <assert-string-value> content  content  content </assert-string-value>
     </result>
@@ -1045,7 +1045,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>string(elem![CDATA[cdata'&quot; ]]asda ?target content?asdad/elem) eq &quot;cdataamp;'&quot;&quot;lt;#x20;asda asdad&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1057,7 +1057,7 @@
     <test>
       <![CDATA[string(<a> {1} <b> {1} </b> </a>)]]>
     </test>
-    <result-string>xs:string('11')</result-string>
+    <result-string>xs:string(&quot;11&quot;)</result-string>
     <result>
       <assert-string-value>11</assert-string-value>
     </result>

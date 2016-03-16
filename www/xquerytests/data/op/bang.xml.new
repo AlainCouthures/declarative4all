@@ -63,7 +63,7 @@
     <created by="Michael Kay" on="2011-06-30"/>
     <environment ref="works-mod"/>
     <test>/ works ! employee[2] ! hours[2] ! number()</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;20&quot;)</result-string>
     <result>
       <assert-eq>20</assert-eq>
     </result>
@@ -73,7 +73,7 @@
     <created by="Michael Kay" on="2011-06-30"/>
     <environment ref="works-mod"/>
     <test>2 + (/ works ! employee[2] ! hours[2]) ! number() ! (-.)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-18&quot;)</result-string>
     <result>
       <assert-eq>-18</assert-eq>
     </result>
@@ -82,7 +82,7 @@
     <description>Precedence of &quot;!&quot; is greater than unary &quot;-&quot;</description>
     <created by="Michael Kay" on="2011-06-30"/>
     <test>-2!(.+1)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-3&quot;)</result-string>
     <result>
       <assert-eq>-3</assert-eq>
     </result>
@@ -122,7 +122,7 @@
     <created by="Michael Kay" on="2011-06-30"/>
     <environment ref="works-mod"/>
     <test>/ works ! employee[4] ! preceding-sibling::*[1] ! string(@name) </test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;Jane Doe 3&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;Jane Doe 3&quot;</assert-eq>
     </result>
@@ -133,7 +133,7 @@
     <modified by="John Snelson" change="Revised syntax as per bug 16197" on="2012-06-19"/>
     <environment ref="works-mod"/>
     <test>count(/ ! works)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>

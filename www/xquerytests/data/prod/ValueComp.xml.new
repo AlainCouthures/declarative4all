@@ -283,7 +283,7 @@
     <description> Compare xs:untypedAtomic and xs:string. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:untypedAtomic(&quot;a string&quot;) eq &quot;a string&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -292,7 +292,7 @@
     <description> Compare xs:untypedAtomic and xs:string. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>&quot;a string&quot; eq xs:untypedAtomic(&quot;a string&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -301,7 +301,7 @@
     <description> An expression involving the ge operator that trigger certain optimization paths in some implementations. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count((0, current-time())) ge 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -310,7 +310,7 @@
     <description> An expression involving the ne operator that trigger certain optimization paths in some implementations. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count((0, current-time())) ne 0</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -319,7 +319,7 @@
     <description> Test that fn:count combined with expressions that might disable compile time evaluations(optimization) as well as the '=' operator, is conformant. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(count((1, 2, current-time())) eq 0)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -391,7 +391,7 @@
     <description> A simple value comparison that in some Bison grammars triggers a bug. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count((1, 2)) eq 2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

@@ -35,7 +35,7 @@
     <description> Evaluation of the fn:namespace-uri function argument set to empty sequence. </description>
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <test>fn:namespace-uri(())</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;&quot;</assert-eq>
     </result>
@@ -45,7 +45,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <environment ref="auction"/>
     <test>namespace-uri((//comment())[1])</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;&quot;</assert-eq>
     </result>
@@ -57,7 +57,7 @@
     <test>
       <![CDATA[namespace-uri(<!--comment-->)]]>
     </test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;&quot;</assert-eq>
     </result>
@@ -67,7 +67,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <environment ref="auction"/>
     <test>namespace-uri((//processing-instruction())[1])</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;&quot;</assert-eq>
     </result>
@@ -79,7 +79,7 @@
     <test>
       <![CDATA[namespace-uri(<?pi data?>)]]>
     </test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;&quot;</assert-eq>
     </result>
@@ -89,7 +89,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <environment ref="auction"/>
     <test>namespace-uri((//text())[1])</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;&quot;</assert-eq>
     </result>
@@ -99,7 +99,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <environment ref="works-mod"/>
     <test>namespace-uri(/*)</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;&quot;</assert-eq>
     </result>
@@ -109,7 +109,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:namespace-uri(element elementNode {&quot;with no namespace&quot;})</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;&quot;</assert-eq>
     </result>
@@ -119,7 +119,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <environment ref="works-mod"/>
     <test>fn:namespace-uri(/works/employee[1]/@name)</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;&quot;</assert-eq>
     </result>
@@ -142,7 +142,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <environment ref="works-mod"/>
     <test>fn:namespace-uri(/works[1]/employee[1])</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;&quot;</assert-eq>
     </result>
@@ -152,7 +152,7 @@
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <environment ref="works-mod"/>
     <test>fn:namespace-uri(/works[1]/employee[1]/@name)</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;&quot;</assert-eq>
     </result>
@@ -192,7 +192,7 @@
     <dependency type="spec" value="XQ10+"/>
     <test>declare namespace ex = &quot;http://www.example.com/examples&quot;; 
             fn:string(fn:namespace-uri(element ex:anElement {&quot;An Element Content&quot;}))</test>
-    <result-string>xs:string('http://www.example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/examples</assert-string-value>
     </result>
@@ -204,7 +204,7 @@
     <dependency type="spec" value="XQ10+"/>
     <test>declare namespace ex = &quot;http://www.example.com/examples&quot;; 
             fn:namespace-uri(element anElement {&quot;An Element Content&quot;})</test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -218,7 +218,7 @@
       <![CDATA[declare namespace ex = "http://www.example.com/examples"; 
               fn:namespace-uri(<anElement>An Element Content</anElement>)]]>
     </test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -231,7 +231,7 @@
       <![CDATA[declare namespace ex = "http://www.example.com/examples"; 
             fn:namespace-uri(<ex:anElement>An Element Content</ex:anElement>)]]>
     </test>
-    <result-string>xs:string('http://www.example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/examples</assert-string-value>
     </result>
@@ -244,7 +244,7 @@
       <![CDATA[declare default element namespace "http://www.example.com/examples"; 
             fn:string(fn:namespace-uri(<anElement>An Element Content</anElement>))]]>
     </test>
-    <result-string>xs:string('http://www.example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/examples</assert-string-value>
     </result>
@@ -258,7 +258,7 @@
         declare namespace ex = "http://www.example.com/exampleswithPrefix"; 
         fn:string(fn:namespace-uri(<ex:anElement>An Element Content</ex:anElement>))]]>
     </test>
-    <result-string>xs:string('http://www.example.com/exampleswithPrefix')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/exampleswithPrefix&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/exampleswithPrefix</assert-string-value>
     </result>
@@ -270,7 +270,7 @@
     <test>declare default element namespace &quot;http://www.example.com/examples&quot;; 
         declare namespace ex = &quot;http://www.example.com/exampleswithPrefix&quot;; 
         fn:string(fn:namespace-uri(element ex:anElement {&quot;An Element Content&quot;}))</test>
-    <result-string>xs:string('http://www.example.com/exampleswithPrefix')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/exampleswithPrefix&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/exampleswithPrefix</assert-string-value>
     </result>
@@ -282,7 +282,7 @@
     <test>declare default element namespace &quot;http://www.example.com/examples&quot;; 
         declare namespace ex = &quot;http://www.example.com/exampleswithPrefix&quot;; 
         fn:string(fn:namespace-uri(element anElement {&quot;An Element Content&quot;}))</test>
-    <result-string>xs:string('http://www.example.com/examples')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com/examples&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com/examples</assert-string-value>
     </result>
@@ -322,7 +322,7 @@
     <description> A test whose essence is: `namespace-uri(()) eq xs:anyURI(&quot;&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>namespace-uri(()) eq xs:anyURI(&quot;&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -334,7 +334,7 @@
     <test>
       <![CDATA[namespace-uri(<?target data?>) eq ""]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -346,7 +346,7 @@
     <test>
       <![CDATA[namespace-uri(<!--comment-->) eq ""]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -356,7 +356,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>namespace-uri(text{()}) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -368,7 +368,7 @@
     <test>
       <![CDATA[fn:boolean(fn:namespace-uri(<element />))]]>
     </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

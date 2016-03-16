@@ -26,7 +26,7 @@
             $refs := $testsets//fots:environment[@ref]
             return $refs[not(@ref = $environments/@name)]
       </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -52,7 +52,7 @@
               exists($test/(fots:dependency | ../fots:dependency)[contains(., &quot;XP&quot;)])
         return $test
       </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -69,7 +69,7 @@
         where empty($test/(fots:dependency | ../fots:dependency)[@type='feature' and @value=&quot;schemaImport&quot;]) 
         return $test
       </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -89,7 +89,7 @@
         return ($schema, <file>{base-uri($schema)}</file>)
       ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -119,7 +119,7 @@
         return $tc/@name/string()
       ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -148,7 +148,7 @@
         return $tc/@name/string()
       ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -171,7 +171,7 @@
         return $testname
       ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -193,7 +193,7 @@
         return <out catalog-name="{string($testname)}" test-name="{string($file-testname)}"/>
       ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -242,7 +242,7 @@
         return <out test-set="{string($testset/@name)}" bad-covers-value="{$token}"/>
       ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -290,7 +290,7 @@
       return $testsets//fots:test-case[.//fots:assert-xml[starts-with(., '<?xml')]]
     ]]>
     </test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>

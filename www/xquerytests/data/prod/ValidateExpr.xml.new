@@ -234,7 +234,7 @@
         let $var := validate strict {exactly-one(/DataValues/Strings)} 
         return fn:count($var/parent::node())
       </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -249,7 +249,7 @@
         let $var := validate lax {exactly-one(/DataValues/Strings)} 
         return fn:count($var/parent::node())
       </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -265,7 +265,7 @@
         let $var := validate strict {<Strings><orderData>A String</orderData></Strings>} 
         return fn:count($var/parent::node())]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -282,7 +282,7 @@
         return fn:count($var/parent::node())
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -462,7 +462,7 @@
         return ($dv[1] instance of xs:integer, $dv[2] instance of xs:float)
       ]]>
     </test>
-    <result-string>xs:string('true true')</result-string>
+    <result-string>xs:string(&quot;true true&quot;)</result-string>
     <result>
       <assert-string-value>true true</assert-string-value>
     </result>
@@ -584,7 +584,7 @@
         return count($validated/node())
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -606,7 +606,7 @@
         return $positive + $negative
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -628,7 +628,7 @@
         return $positive + $negative
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -650,7 +650,7 @@
         return $positive + $negative
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -699,7 +699,7 @@
                                 xmlns:udt="http://www.w3.org/XQueryTest/userDefinedTypes">udt:value1</a> } )
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;udt:value1&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;udt:value1&quot;</assert-eq>
     </result>
@@ -732,7 +732,7 @@
         string( validate type udt:NOTATIONBased { <a xmlns:udt="http://www.w3.org/XQueryTest/userDefinedTypes">udt:value1</a> } )
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;udt:value1&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;udt:value1&quot;</assert-eq>
     </result>
@@ -780,7 +780,7 @@
         string( validate strict { <notatio xmlns="http://www.w3.org/XQueryTest/userDefinedTypes">value1</notatio> } )
       ]]>
     </test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;value1&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;value1&quot;</assert-eq>
     </result>
@@ -888,7 +888,7 @@
         return ($dv instance of xs:integer)
         ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -905,7 +905,7 @@
         return fn:not($dv instance of xs:integer)
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -922,7 +922,7 @@
         return fn:not($dv instance of xs:integer)
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -938,7 +938,7 @@
         let $dv := fn:data($v) return ($dv instance of xs:integer)
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -954,7 +954,7 @@
         let $dv := fn:data($v) return fn:not($dv instance of xs:integer)
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -970,7 +970,7 @@
         let $dv := fn:data($v) return ($dv instance of xs:integer)
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -986,7 +986,7 @@
         let $dv := fn:data($v) return ($dv instance of xs:integer)
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1002,7 +1002,7 @@
         let $dv := fn:data($v) return ($dv instance of xs:integer)
       ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1456,7 +1456,7 @@
         declare namespace tc="http://www.w3.org/XQueryTest/testcases";
         let $var := validate lax { <Unknown> {element z {"12.345"}}</Unknown>} return count($var/element(*, xs:decimal))]]>
     </test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -1470,7 +1470,7 @@
         import schema namespace cd=&quot;http://www.cbcl.co.uk/XQueryTest/complexData&quot;;
         declare function local:f($x) as element(cd:complexTypeWithSimpleContent, cd:shortString)* { $x//cd:complexTypeWithSimpleContent };
         let $x := validate strict {/} return (count(local:f($x)/@value))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>

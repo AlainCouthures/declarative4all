@@ -14,7 +14,7 @@
         import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; 
         fn:count(fn:data((element elem {//*:idrefs})/*))
       </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -45,7 +45,7 @@
         import schema namespace atomic=&quot;http://www.w3.org/XQueryTest&quot;; 
         fn:count(fn:data((element elem {//*:idrefs/@*:attr})/@*:attr))
       </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>

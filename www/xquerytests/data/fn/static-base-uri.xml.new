@@ -16,7 +16,7 @@
     <created by="Carmelo Montanez" on="2005-11-25"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare base-uri &quot;ftp://ftp.is.co.za/rfc/somefile.txt&quot;; fn:string(fn:static-base-uri())</test>
-    <result-string>xs:string('ftp://ftp.is.co.za/rfc/somefile.txt')</result-string>
+    <result-string>xs:string(&quot;ftp://ftp.is.co.za/rfc/somefile.txt&quot;)</result-string>
     <result>
       <assert-string-value>ftp://ftp.is.co.za/rfc/somefile.txt</assert-string-value>
     </result>
@@ -26,7 +26,7 @@
     <created by="Carmelo Montanez" on="2005-11-25"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare base-uri &quot;mailto:John.Doe@example.com&quot;; fn:string(fn:static-base-uri())</test>
-    <result-string>xs:string('mailto:John.Doe@example.com')</result-string>
+    <result-string>xs:string(&quot;mailto:John.Doe@example.com&quot;)</result-string>
     <result>
       <assert-string-value>mailto:John.Doe@example.com</assert-string-value>
     </result>
@@ -36,7 +36,7 @@
     <created by="Carmelo Montanez" on="2005-11-25"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare base-uri &quot;news:comp.infosystems.www.servers.unix&quot;; fn:string(fn:static-base-uri())</test>
-    <result-string>xs:string('news:comp.infosystems.www.servers.unix')</result-string>
+    <result-string>xs:string(&quot;news:comp.infosystems.www.servers.unix&quot;)</result-string>
     <result>
       <assert-string-value>news:comp.infosystems.www.servers.unix</assert-string-value>
     </result>
@@ -46,7 +46,7 @@
     <created by="Carmelo Montanez" on="2005-11-25"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare base-uri &quot;telnet://192.0.2.16:80/&quot;; fn:string(fn:static-base-uri())</test>
-    <result-string>xs:string('telnet://192.0.2.16:80/')</result-string>
+    <result-string>xs:string(&quot;telnet://192.0.2.16:80/&quot;)</result-string>
     <result>
       <assert-string-value>telnet://192.0.2.16:80/</assert-string-value>
     </result>
@@ -56,7 +56,7 @@
     <created by="Carmelo Montanez" on="2005-11-25"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare base-uri &quot;tel:+1-816-555-1212&quot;; fn:string(fn:static-base-uri())</test>
-    <result-string>xs:string('tel:+1-816-555-1212')</result-string>
+    <result-string>xs:string(&quot;tel:+1-816-555-1212&quot;)</result-string>
     <result>
       <assert-string-value>tel:+1-816-555-1212</assert-string-value>
     </result>
@@ -66,7 +66,7 @@
     <created by="Carmelo Montanez" on="2005-11-25"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare base-uri &quot;urn:oasis:names:specification:docbook:dtd:xml:4.1.2&quot;; fn:string(fn:static-base-uri())</test>
-    <result-string>xs:string('urn:oasis:names:specification:docbook:dtd:xml:4.1.2')</result-string>
+    <result-string>xs:string(&quot;urn:oasis:names:specification:docbook:dtd:xml:4.1.2&quot;)</result-string>
     <result>
       <assert-string-value>urn:oasis:names:specification:docbook:dtd:xml:4.1.2</assert-string-value>
     </result>
@@ -76,7 +76,7 @@
     <created by="Carmelo Montanez" on="2005-11-25"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare base-uri &quot;http://www.example.com&quot;; fn:upper-case(fn:string(fn:static-base-uri()))</test>
-    <result-string>xs:string('HTTP://WWW.EXAMPLE.COM')</result-string>
+    <result-string>xs:string(&quot;HTTP://WWW.EXAMPLE.COM&quot;)</result-string>
     <result>
       <assert-string-value>HTTP://WWW.EXAMPLE.COM</assert-string-value>
     </result>
@@ -86,7 +86,7 @@
     <created by="Carmelo Montanez" on="2005-11-25"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare base-uri &quot;http://www.example.com&quot;; fn:lower-case(fn:string(fn:static-base-uri()))</test>
-    <result-string>xs:string('http://www.example.com')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com</assert-string-value>
     </result>
@@ -96,7 +96,7 @@
     <created by="Carmelo Montanez" on="2005-11-25"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare base-uri &quot;http://www.example.com&quot;; fn:concat(fn:string(fn:static-base-uri()),&quot;another string&quot;)</test>
-    <result-string>xs:string('http://www.example.comanother string')</result-string>
+    <result-string>xs:string(&quot;http://www.example.comanother string&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.comanother string</assert-string-value>
     </result>
@@ -106,7 +106,7 @@
     <created by="Carmelo Montanez" on="2005-11-25"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare base-uri &quot;http://www.example.com&quot;; fn:string-join((fn:string(fn:static-base-uri()),&quot;another string&quot;),&quot;&quot;)</test>
-    <result-string>xs:string('http://www.example.comanother string')</result-string>
+    <result-string>xs:string(&quot;http://www.example.comanother string&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.comanother string</assert-string-value>
     </result>
@@ -116,7 +116,7 @@
     <created by="Carmelo Montanez" on="2005-11-25"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare base-uri &quot;http://www.example.com&quot;; fn:string-length(fn:string(fn:static-base-uri()))</test>
-    <result-string>xs:string('22')</result-string>
+    <result-string>xs:string(&quot;22&quot;)</result-string>
     <result>
       <assert-string-value>22</assert-string-value>
     </result>
@@ -126,7 +126,7 @@
     <created by="Carmelo Montanez" on="2005-11-25"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare base-uri &quot;http://www.example.com&quot;; fn:substring-before(fn:string(fn:static-base-uri()),&quot;:&quot;)</test>
-    <result-string>xs:string('http')</result-string>
+    <result-string>xs:string(&quot;http&quot;)</result-string>
     <result>
       <assert-string-value>http</assert-string-value>
     </result>
@@ -136,7 +136,7 @@
     <created by="Carmelo Montanez" on="2005-11-25"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare base-uri &quot;http://www.example.com&quot;; fn:substring-after(fn:string(fn:static-base-uri()),&quot;:&quot;)</test>
-    <result-string>xs:string('//www.example.com')</result-string>
+    <result-string>xs:string(&quot;//www.example.com&quot;)</result-string>
     <result>
       <assert-string-value>//www.example.com</assert-string-value>
     </result>
@@ -148,7 +148,7 @@
       <static-base-uri uri="http://www.example.com"/>
     </environment>
     <test>static-base-uri()</test>
-    <result-string>xs:string('http://www.example.com')</result-string>
+    <result-string>xs:string(&quot;http://www.example.com&quot;)</result-string>
     <result>
       <assert-string-value>http://www.example.com</assert-string-value>
     </result>
@@ -175,7 +175,7 @@
     <description> A test whose essence is: `if(static-base-uri()) then true() else true()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>if(static-base-uri()) then true() else true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

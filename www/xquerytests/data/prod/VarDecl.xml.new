@@ -20,7 +20,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := &quot;&quot; ; $x</test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -29,7 +29,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := '' ; $x</test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -38,7 +38,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := 'a string' ; $x</test>
-    <result-string>xs:string('a string')</result-string>
+    <result-string>xs:string(&quot;a string&quot;)</result-string>
     <result>
       <assert-string-value>a string</assert-string-value>
     </result>
@@ -47,7 +47,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := &quot;a string&quot; ; $x</test>
-    <result-string>xs:string('a string')</result-string>
+    <result-string>xs:string(&quot;a string&quot;)</result-string>
     <result>
       <assert-string-value>a string</assert-string-value>
     </result>
@@ -56,7 +56,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := &quot;This is a string, isn't it?&quot; ; $x</test>
-    <result-string>xs:string('This is a string, isn't it?')</result-string>
+    <result-string>xs:string(&quot;This is a string, isn't it?&quot;)</result-string>
     <result>
       <assert-string-value>This is a string, isn't it?</assert-string-value>
     </result>
@@ -65,7 +65,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := 'This is a &quot;String&quot;' ; $x</test>
-    <result-string>xs:string('This is a &quot;String&quot;')</result-string>
+    <result-string>xs:string(&quot;This is a &quot;String&quot;&quot;)</result-string>
     <result>
       <assert-string-value>This is a &quot;String&quot;</assert-string-value>
     </result>
@@ -74,7 +74,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := &quot;a &quot;&quot; or a ' delimits a string literal&quot; ; $x</test>
-    <result-string>xs:string('a &quot; or a ' delimits a string literal')</result-string>
+    <result-string>xs:string(&quot;a &quot; or a ' delimits a string literal&quot;)</result-string>
     <result>
       <assert-string-value>a &quot; or a ' delimits a string literal</assert-string-value>
     </result>
@@ -83,7 +83,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := 'a &quot; or a '' delimits a string literal' ; $x</test>
-    <result-string>xs:string('a &quot; or a ' delimits a string literal')</result-string>
+    <result-string>xs:string(&quot;a &quot; or a ' delimits a string literal&quot;)</result-string>
     <result>
       <assert-string-value>a &quot; or a ' delimits a string literal</assert-string-value>
     </result>
@@ -94,7 +94,7 @@
     <test>
       <![CDATA[declare variable $x := '&lt;bold&gt;A sample element.&lt;/bold&gt;' ; $x]]>
     </test>
-    <result-string>xs:string('boldA sample element./bold')</result-string>
+    <result-string>xs:string(&quot;boldA sample element./bold&quot;)</result-string>
     <result>
       <assert-string-value>boldA sample element./bold</assert-string-value>
     </result>
@@ -103,7 +103,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := 0 ; $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -112,7 +112,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := 1 ; $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -121,7 +121,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := -1 ; $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -130,7 +130,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := +1 ; $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -139,7 +139,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := 1.23 ; $x</test>
-    <result-string>xs:string('1.23')</result-string>
+    <result-string>xs:string(&quot;1.23&quot;)</result-string>
     <result>
       <assert-string-value>1.23</assert-string-value>
     </result>
@@ -148,7 +148,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := -1.23 ; $x</test>
-    <result-string>xs:string('-1.23')</result-string>
+    <result-string>xs:string(&quot;-1.23&quot;)</result-string>
     <result>
       <assert-string-value>-1.23</assert-string-value>
     </result>
@@ -157,7 +157,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := 1.2e5 ; $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;120000&quot;)</result-string>
     <result>
       <assert-eq>120000</assert-eq>
     </result>
@@ -166,7 +166,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := -1.2E5 ; $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-120000&quot;)</result-string>
     <result>
       <assert-eq>-120000</assert-eq>
     </result>
@@ -175,7 +175,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := 0.0E0 ; $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -184,7 +184,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := 1e-5 ; $x</test>
-    <result-string>xs:string('0.00001')</result-string>
+    <result-string>xs:string(&quot;0.00001&quot;)</result-string>
     <result>
       <assert-string-value>0.00001</assert-string-value>
     </result>
@@ -193,7 +193,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := 9.999999999999999; $x</test>
-    <result-string>xs:string('9.999999999999999')</result-string>
+    <result-string>xs:string(&quot;9.999999999999999&quot;)</result-string>
     <result>
       <assert-string-value>9.999999999999999</assert-string-value>
     </result>
@@ -202,7 +202,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := -10000000 ; $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-10000000&quot;)</result-string>
     <result>
       <assert-eq>-10000000</assert-eq>
     </result>
@@ -211,7 +211,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := 1 to 10 ; $x</test>
-    <result-string>xs:string('1 2 3 4 5 6 7 8 9 10')</result-string>
+    <result-string>xs:string(&quot;1 2 3 4 5 6 7 8 9 10&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3 4 5 6 7 8 9 10</assert-string-value>
     </result>
@@ -220,7 +220,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := xs:double('NaN'); $x</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -229,7 +229,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := xs:double('INF'); $x</test>
-    <result-string>xs:string('INF')</result-string>
+    <result-string>xs:string(&quot;INF&quot;)</result-string>
     <result>
       <assert-string-value>INF</assert-string-value>
     </result>
@@ -238,7 +238,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := xs:double('-INF'); $x</test>
-    <result-string>xs:string('-INF')</result-string>
+    <result-string>xs:string(&quot;-INF&quot;)</result-string>
     <result>
       <assert-string-value>-INF</assert-string-value>
     </result>
@@ -247,7 +247,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := fn:false() ; $x</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -256,7 +256,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := false(); $x</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -265,7 +265,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := fn:true() ; $x</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -274,7 +274,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := true() ; $x</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -283,7 +283,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := true(); $x</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -292,7 +292,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := 2+2 ; $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;4&quot;)</result-string>
     <result>
       <assert-eq>4</assert-eq>
     </result>
@@ -301,7 +301,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := 2*2 ; $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;4&quot;)</result-string>
     <result>
       <assert-eq>4</assert-eq>
     </result>
@@ -310,7 +310,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := 3-2 ; $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -319,7 +319,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := 3 div 2 ; $x</test>
-    <result-string>xs:string('1.5')</result-string>
+    <result-string>xs:string(&quot;1.5&quot;)</result-string>
     <result>
       <assert-string-value>1.5</assert-string-value>
     </result>
@@ -328,7 +328,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := 3 mod 2 ; $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -337,7 +337,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := 3 idiv 2 ; $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -346,7 +346,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := -1.7976931348623157E308 ; $x</test>
-    <result-string>xs:string('-1.7976931348623157E308')</result-string>
+    <result-string>xs:string(&quot;-1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E308</assert-string-value>
     </result>
@@ -355,7 +355,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := xs:double(&quot;-1.7976931348623157E308&quot;) ; $x</test>
-    <result-string>xs:string('-1.7976931348623157E308')</result-string>
+    <result-string>xs:string(&quot;-1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E308</assert-string-value>
     </result>
@@ -364,7 +364,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := -999999999999999999 ; $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -373,7 +373,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := xs:decimal(&quot;-999999999999999999&quot;) ; $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -382,7 +382,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := 999999999999999999 ; $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -391,7 +391,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := xs:decimal(&quot;999999999999999999&quot;) ; $x</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -400,7 +400,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := -3.4028235E38 ; $x</test>
-    <result-string>xs:string('-3.4028235E38')</result-string>
+    <result-string>xs:string(&quot;-3.4028235E38&quot;)</result-string>
     <result>
       <assert-string-value>-3.4028235E38</assert-string-value>
     </result>
@@ -409,7 +409,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := xs:float(&quot;-3.4028235E38&quot;) ; $x</test>
-    <result-string>xs:string('-3.4028235E38')</result-string>
+    <result-string>xs:string(&quot;-3.4028235E38&quot;)</result-string>
     <result>
       <assert-string-value>-3.4028235E38</assert-string-value>
     </result>
@@ -418,7 +418,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := xs:date(&quot;1970-01-01Z&quot;) ; $x</test>
-    <result-string>xs:string('1970-01-01Z')</result-string>
+    <result-string>xs:string(&quot;1970-01-01Z&quot;)</result-string>
     <result>
       <assert-string-value>1970-01-01Z</assert-string-value>
     </result>
@@ -427,7 +427,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := xs:date(&quot;1970-01-01Z&quot;) + xs:dayTimeDuration(&quot;P31DT23H59M59S&quot;) ; $x</test>
-    <result-string>xs:string('1970-02-01Z')</result-string>
+    <result-string>xs:string(&quot;1970-02-01Z&quot;)</result-string>
     <result>
       <assert-string-value>1970-02-01Z</assert-string-value>
     </result>
@@ -436,7 +436,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := xs:time(&quot;08:03:35Z&quot;) ; $x</test>
-    <result-string>xs:string('08:03:35Z')</result-string>
+    <result-string>xs:string(&quot;08:03:35Z&quot;)</result-string>
     <result>
       <assert-string-value>08:03:35Z</assert-string-value>
     </result>
@@ -445,7 +445,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := xs:time(&quot;08:03:35Z&quot;) + xs:dayTimeDuration(&quot;P0DT0H0M0S&quot;) ; $x</test>
-    <result-string>xs:string('08:03:35Z')</result-string>
+    <result-string>xs:string(&quot;08:03:35Z&quot;)</result-string>
     <result>
       <assert-string-value>08:03:35Z</assert-string-value>
     </result>
@@ -454,7 +454,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := xs:dateTime(&quot;2030-12-31T23:59:59Z&quot;) ; $x</test>
-    <result-string>xs:string('2030-12-31T23:59:59Z')</result-string>
+    <result-string>xs:string(&quot;2030-12-31T23:59:59Z&quot;)</result-string>
     <result>
       <assert-string-value>2030-12-31T23:59:59Z</assert-string-value>
     </result>
@@ -463,7 +463,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := (1,2,3) ; $x</test>
-    <result-string>xs:string('1 2 3')</result-string>
+    <result-string>xs:string(&quot;1 2 3&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3</assert-string-value>
     </result>
@@ -472,7 +472,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := (xs:string(&quot;a&quot;) , (), &quot;xyz&quot;) ; $x</test>
-    <result-string>xs:string('a xyz')</result-string>
+    <result-string>xs:string(&quot;a xyz&quot;)</result-string>
     <result>
       <assert-string-value>a xyz</assert-string-value>
     </result>
@@ -481,7 +481,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := (xs:string(&quot;a&quot;) , xs:anyURI(&quot;www.example.com&quot;)) ; $x</test>
-    <result-string>xs:string('a www.example.com')</result-string>
+    <result-string>xs:string(&quot;a www.example.com&quot;)</result-string>
     <result>
       <assert-string-value>a www.example.com</assert-string-value>
     </result>
@@ -490,7 +490,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := (xs:float(&quot;INF&quot;) , xs:double(&quot;NaN&quot;)) ; $x</test>
-    <result-string>xs:string('INF NaN')</result-string>
+    <result-string>xs:string(&quot;INF NaN&quot;)</result-string>
     <result>
       <assert-string-value>INF NaN</assert-string-value>
     </result>
@@ -499,7 +499,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := (xs:boolean(&quot;true&quot;) , xs:boolean(&quot;0&quot;), xs:integer(&quot;0&quot;)) ; $x</test>
-    <result-string>xs:string('true false 0')</result-string>
+    <result-string>xs:string(&quot;true false 0&quot;)</result-string>
     <result>
       <assert-string-value>true false 0</assert-string-value>
     </result>
@@ -508,7 +508,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := (xs:date(&quot;1993-03-31&quot;) , xs:boolean(&quot;true&quot;), xs:string(&quot;abc&quot;)) ; $x</test>
-    <result-string>xs:string('1993-03-31 true abc')</result-string>
+    <result-string>xs:string(&quot;1993-03-31 true abc&quot;)</result-string>
     <result>
       <assert-string-value>1993-03-31 true abc</assert-string-value>
     </result>
@@ -517,7 +517,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := (xs:time(&quot;12:30:00&quot;) , xs:string(&quot; &quot;) , xs:decimal(&quot;2.000000000000002&quot;)) ; $x</test>
-    <result-string>xs:string('12:30:00   2.000000000000002')</result-string>
+    <result-string>xs:string(&quot;12:30:00   2.000000000000002&quot;)</result-string>
     <result>
       <assert-string-value>12:30:00   2.000000000000002</assert-string-value>
     </result>
@@ -526,7 +526,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := ((1+1), (2-2)) ; $x</test>
-    <result-string>xs:string('2 0')</result-string>
+    <result-string>xs:string(&quot;2 0&quot;)</result-string>
     <result>
       <assert-string-value>2 0</assert-string-value>
     </result>
@@ -535,7 +535,7 @@
     <description>Purpose - Variable with no type definition </description>
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <test>declare variable $x := ((1,2,2),(1,2,3),(123,&quot;&quot;),(),(&quot;&quot;)) ; $x</test>
-    <result-string>xs:string('1 2 2 1 2 3 123  ')</result-string>
+    <result-string>xs:string(&quot;1 2 2 1 2 3 123  &quot;)</result-string>
     <result>
       <assert-string-value>1 2 2 1 2 3 123  </assert-string-value>
     </result>
@@ -557,7 +557,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-30"/>
     <environment ref="bib"/>
     <test>declare variable $x := //Price/text() ; $x</test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -596,7 +596,7 @@
         declare variable $y := 17;
         $x + 5
       </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;25&quot;)</result-string>
     <result>
       <assert-eq>25</assert-eq>
     </result>
@@ -637,7 +637,7 @@
     <description> Evaluates an external variable named &quot;$local:var&quot; declared with no type and multiple embedded comments. </description>
     <created by="Carmelo Montanez" on="2006-06-29"/>
     <test>(::)declare(::)variable(::)$var(::):=(::)1(::);(::) 1(::)eq(::)1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -842,7 +842,7 @@
     <description> Function arguments shadow global variables. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare variable $local:myVar := local:myFunc(3); declare function local:myFunc($local:myVar) { $local:myVar }; local:myFunc(6)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;6&quot;)</result-string>
     <result>
       <assert-eq>6</assert-eq>
     </result>
@@ -872,7 +872,7 @@
     <description> A prolog containing 20 variable declarations. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare variable $local:var1 := 1; declare variable $local:var2 := 2; declare variable $local:var3 := 3; declare variable $local:var4 := 4; declare variable $local:var5 := 5; declare variable $local:var6 := 6; declare variable $local:var7 := 7; declare variable $local:var8 := 8; declare variable $local:var9 := 9; declare variable $local:var10 := 10; declare variable $local:var11 := 11; declare variable $local:var12 := 12; declare variable $local:var13 := 13; declare variable $local:var14 := 14; declare variable $local:var15 := 15; declare variable $local:var16 := 16; declare variable $local:var17 := 17; declare variable $local:var18 := 18; declare variable $local:var19 := 19; declare variable $local:var20 := 20; deep-equal((1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20), ($local:var1, $local:var2, $local:var3, $local:var4, $local:var5, $local:var6, $local:var7, $local:var8, $local:var9, $local:var10, $local:var11, $local:var12, $local:var13, $local:var14, $local:var15, $local:var16, $local:var17, $local:var18, $local:var19, $local:var20))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -902,7 +902,7 @@
     <description> Evaluates an internal variable declaration with type Use type xs:string. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>declare variable $var as xs:string := &quot;abc&quot;; declare variable $input-context1 external; $var</test>
-    <result-string>xs:string('abc')</result-string>
+    <result-string>xs:string(&quot;abc&quot;)</result-string>
     <result>
       <assert-string-value>abc</assert-string-value>
     </result>
@@ -911,7 +911,7 @@
     <description> Evaluates an internal variable declaration with type Use type xs:integer. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>declare variable $var as xs:integer := 100; declare variable $input-context1 external; $var</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;100&quot;)</result-string>
     <result>
       <assert-eq>100</assert-eq>
     </result>
@@ -920,7 +920,7 @@
     <description> Evaluates an internal variable declaration with type Use type xs:decimal. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>declare variable $var as xs:decimal := 100; declare variable $input-context1 external; $var</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;100&quot;)</result-string>
     <result>
       <assert-eq>100</assert-eq>
     </result>
@@ -929,7 +929,7 @@
     <description> Evaluates an internal variable declaration with type Use type xs:boolean (true value). </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>declare variable $var as xs:boolean := fn:true(); declare variable $input-context1 external; $var</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -938,7 +938,7 @@
     <description> Evaluates an internal variable declaration with type Use type xs:boolean (false value). </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>declare variable $var as xs:boolean := fn:false(); declare variable $input-context1 external; $var</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -947,7 +947,7 @@
     <description> Evaluates an internal variable declaration with type Use type xs:float </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>declare variable $var as xs:float := xs:float(12.5E10); declare variable $input-context1 external; $var</test>
-    <result-string>xs:string('1.25E11')</result-string>
+    <result-string>xs:string(&quot;1.25E11&quot;)</result-string>
     <result>
       <assert-string-value>1.25E11</assert-string-value>
     </result>
@@ -956,7 +956,7 @@
     <description> Evaluates an internal variable declaration with type Use type xs:double </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>declare variable $var as xs:double := xs:double(1267.43233E12); declare variable $input-context1 external; $var</test>
-    <result-string>xs:string('1.26743233E15')</result-string>
+    <result-string>xs:string(&quot;1.26743233E15&quot;)</result-string>
     <result>
       <assert-string-value>1.26743233E15</assert-string-value>
     </result>
@@ -965,7 +965,7 @@
     <description> Evaluates an internal variable declaration with type Use type xs:anyURI </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>declare variable $var as xs:anyURI := xs:anyURI(&quot;http://example.com&quot;); declare variable $input-context1 external; $var</test>
-    <result-string>xs:string('http://example.com')</result-string>
+    <result-string>xs:string(&quot;http://example.com&quot;)</result-string>
     <result>
       <assert-string-value>http://example.com</assert-string-value>
     </result>
@@ -974,7 +974,7 @@
     <description> Evaluates an internal variable declaration with type Use type xs:dateTime </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>declare variable $var as xs:dateTime := xs:dateTime(&quot;1999-11-28T09:00:00Z&quot;); declare variable $input-context1 external; $var</test>
-    <result-string>xs:string('1999-11-28T09:00:00Z')</result-string>
+    <result-string>xs:string(&quot;1999-11-28T09:00:00Z&quot;)</result-string>
     <result>
       <assert-string-value>1999-11-28T09:00:00Z</assert-string-value>
     </result>
@@ -983,7 +983,7 @@
     <description> Evaluates an internal variable declaration with type Use type xs:time </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>declare variable $var as xs:time := xs:time(&quot;11:12:00Z&quot;); declare variable $input-context1 external; $var</test>
-    <result-string>xs:string('11:12:00Z')</result-string>
+    <result-string>xs:string(&quot;11:12:00Z&quot;)</result-string>
     <result>
       <assert-string-value>11:12:00Z</assert-string-value>
     </result>
@@ -992,7 +992,7 @@
     <description> Evaluates an internal variable declaration with type Use type xs:date </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>declare variable $var as xs:date := xs:date(&quot;1999-11-28Z&quot;); declare variable $input-context1 external; $var</test>
-    <result-string>xs:string('1999-11-28Z')</result-string>
+    <result-string>xs:string(&quot;1999-11-28Z&quot;)</result-string>
     <result>
       <assert-string-value>1999-11-28Z</assert-string-value>
     </result>
@@ -1019,7 +1019,7 @@
     <description> Evaluates an internal variable declaration with type and expression. Expression uses a previously defined variable. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>declare variable $x as xs:integer := 10; declare variable $var as xs:integer := $x +1; declare variable $input-context1 external; $var</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;11&quot;)</result-string>
     <result>
       <assert-eq>11</assert-eq>
     </result>
@@ -1049,7 +1049,7 @@
       declare variable $var as xs:integer := $e +1; 
       declare variable $e as xs:integer := 10;  
       $var</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;11&quot;)</result-string>
     <result>
       <assert-eq>11</assert-eq>
     </result>
@@ -1058,7 +1058,7 @@
     <description> Evaluates an internal variable declaration with type that uses a declared namesapce. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>declare namespace p1 = &quot;http://www.example.com&quot;; declare variable $p1:var as xs:integer := 10; declare variable $input-context1 external; $p1:var</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -1067,7 +1067,7 @@
     <description> Evaluates an internal variable declaration with type that uses a declared namespace. Two variable with same name declared in two deferent namespaces. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>declare namespace p1 = &quot;http://www.example.com&quot;; declare namespace p2 = &quot;http://www.example.com/examples&quot;; declare variable $p1:var as xs:integer := 10; declare variable $p2:var as xs:integer := 20; declare variable $input-context1 external; $p2:var</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;20&quot;)</result-string>
     <result>
       <assert-eq>20</assert-eq>
     </result>
@@ -1085,7 +1085,7 @@
     <description> Evaluates an internal variable declaration with type that uses the fn:count function . </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>declare variable $var as xs:integer := fn:count((10,2)); declare variable $input-context1 external; $var</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -1094,7 +1094,7 @@
     <description> Evaluates an internal variable declaration with type that uses the fn:string-length function . </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>declare variable $var as xs:integer := fn:string-length(&quot;ABC&quot;); declare variable $input-context1 external; $var</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -1103,7 +1103,7 @@
     <description> Evaluates an internal variable declaration with type that uses the fn:not function . </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>declare variable $var as xs:boolean := fn:not(fn:true()); declare variable $input-context1 external; $var</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1112,7 +1112,7 @@
     <description> Evaluates an internal variable declaration with type that uses the fn:empty function . </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>declare variable $var as xs:boolean := fn:empty((1,2,3)); declare variable $input-context1 external; $var</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1121,7 +1121,7 @@
     <description> Evaluates an external variable named &quot;$local:var&quot; declared as &quot;item()*&quot; and multiple embedded comments. </description>
     <created by="Carmelo Montanez" on="2006-06-29"/>
     <test>declare(::)variable(::)$var(::)as(::)item((: :))*(::):=(::)1(::);(::) 1(::)eq(::)1(::)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1130,7 +1130,7 @@
     <description> A variable declaration involving assignment and type declaration, and many comments. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare(::)variable(::)$local:var(::)as(::)item((: :))* :=3(::);(::)1(::)eq(::)1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1139,7 +1139,7 @@
     <description> A variable declaration involving assignment, and many comments. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(::)declare(::)variable(::)$local:var(::):=(::)3;(::)1(::)eq(::)1(::)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1193,7 +1193,7 @@
     <modified by="Michael Kay" change="see bug 15790" on="2012-05-18"/>
     <dependency type="spec" value="XQ30+"/>
     <test>declare variable $var1 := $var2; declare variable $var2 := 2; true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1233,7 +1233,7 @@
     <modified by="Michael Kay" change="see bug 15790" on="2012-05-18"/>
     <dependency type="spec" value="XQ30+"/>
     <test>declare variable $var1 := $var2; declare variable $var2 := 2; $var1</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -1254,7 +1254,7 @@
     <description> One prolog variable initialized via another. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare variable $var1 := 2; declare variable $var2 := $var1; $var2 eq 2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1263,7 +1263,7 @@
     <description> One prolog variable depending on a user function appearing after it. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare variable $var1 := local:myFunc(); declare function local:myFunc() { 1 }; $var1 eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1425,7 +1425,7 @@
     <description> A variable declaration involving assignment and type declaration, demonstrating a parsing problem. </description>
     <created by="Michael Kay" on="2011-07-12"/>
     <test>declare variable $local:var as item() *:=3; true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

@@ -6,7 +6,7 @@
     <description>Test codepoints-to-string with variety of characters </description>
     <created by="Joanne Tong" on="2005-09-23"/>
     <test>codepoints-to-string((98,223,1682,12365,63744))</test>
-    <result-string>xs:string('b')</result-string>
+    <result-string>xs:string(&quot;b&quot;)</result-string>
     <result>
       <assert-string-value>b</assert-string-value>
     </result>
@@ -15,7 +15,7 @@
     <description>Test codepoints-to-string with an empty sequence argument </description>
     <created by="Joanne Tong" on="2005-09-23"/>
     <test>codepoints-to-string(())</test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluation of an &quot;fn:codepoints-to-string&quot; with argument set to codepoint 49 (single character ('1')). </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>fn:codepoints-to-string(49)</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluation of an &quot;fn-codepoints-to-string&quot; with argument set to codepoint 97 (a single character 'a'). </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>fn:codepoints-to-string(97)</test>
-    <result-string>xs:string('a')</result-string>
+    <result-string>xs:string(&quot;a&quot;)</result-string>
     <result>
       <assert-string-value>a</assert-string-value>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluation of an &quot;fn:codepoints-to-string&quot; with argument set to codepoints 49, 97 (combination of number/character '1a'). </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>fn:codepoints-to-string((49,97))</test>
-    <result-string>xs:string('1a')</result-string>
+    <result-string>xs:string(&quot;1a&quot;)</result-string>
     <result>
       <assert-string-value>1a</assert-string-value>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluation of an &quot;fn:codepoints-to-string&quot; with argument set to the codepoints 35, 42, 94 36 (characters &quot;#*^$&quot;). </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>fn:codepoints-to-string((35, 42, 94, 36))</test>
-    <result-string>xs:string('#*^$')</result-string>
+    <result-string>xs:string(&quot;#*^$&quot;)</result-string>
     <result>
       <assert-string-value>#*^$</assert-string-value>
     </result>
@@ -97,7 +97,7 @@
         99 111 100 101 112 111 105 110 116 115 45 116 111 45 115 116 114 105 110 103 (string &quot;codepoints-to-string&quot;). </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>fn:codepoints-to-string((99,111,100,101,112,111,105,110,116,115,45,116,111,45,115,116,114,105,110,103))</test>
-    <result-string>xs:string('codepoints-to-string')</result-string>
+    <result-string>xs:string(&quot;codepoints-to-string&quot;)</result-string>
     <result>
       <assert-string-value>codepoints-to-string</assert-string-value>
     </result>
@@ -107,7 +107,7 @@
         codepoints 65, 32, 83 116, 114, 105, 110, 103 (&quot;A String&quot;) . </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>xs:string(fn:codepoints-to-string((65,32,83,116,114,105,110,103)))</test>
-    <result-string>xs:string('A String')</result-string>
+    <result-string>xs:string(&quot;A String&quot;)</result-string>
     <result>
       <assert-string-value>A String</assert-string-value>
     </result>
@@ -117,7 +117,7 @@
         codepoints 65,32,83,84,82,73,78,71 (string &quot;A STRING&quot;). </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>fn:upper-case(fn:codepoints-to-string((65,32,83,84,82,73,78,71)))</test>
-    <result-string>xs:string('A STRING')</result-string>
+    <result-string>xs:string(&quot;A STRING&quot;)</result-string>
     <result>
       <assert-string-value>A STRING</assert-string-value>
     </result>
@@ -127,7 +127,7 @@
         codepoints 97,32,115,116,114,105,110,103 (String &quot;a string&quot;). </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>fn:lower-case(fn:codepoints-to-string((97,32,115,116,114,105,110,103)))</test>
-    <result-string>xs:string('a string')</result-string>
+    <result-string>xs:string(&quot;a string&quot;)</result-string>
     <result>
       <assert-string-value>a string</assert-string-value>
     </result>
@@ -136,7 +136,7 @@
     <description> Evaluation of an &quot;fn:codepoints-to-string&quot; that uses xs:integer as argument and codepoints 97. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>fn:codepoints-to-string(xs:integer(97))</test>
-    <result-string>xs:string('a')</result-string>
+    <result-string>xs:string(&quot;a&quot;)</result-string>
     <result>
       <assert-string-value>a</assert-string-value>
     </result>
@@ -145,7 +145,7 @@
     <description> Evaluation of an &quot;fn:codepoints-to-string&quot; that uses fn:avg/xs:integer function and codepoints 65,32,83,116,114,105,110,103. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>fn:codepoints-to-string(xs:integer(fn:avg((65,32,83,116,114,105,110,103))))</test>
-    <result-string>xs:string('[')</result-string>
+    <result-string>xs:string(&quot;[&quot;)</result-string>
     <result>
       <assert-string-value>[</assert-string-value>
     </result>
@@ -154,7 +154,7 @@
     <description> Evaluation of an &quot;fn:codepoints-to-string&quot; that is used as argument to fn:concat function. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>fn:concat(fn:codepoints-to-string((49,97)),&quot;1a&quot;)</test>
-    <result-string>xs:string('1a1a')</result-string>
+    <result-string>xs:string(&quot;1a1a&quot;)</result-string>
     <result>
       <assert-string-value>1a1a</assert-string-value>
     </result>
@@ -172,7 +172,7 @@
     <description> Evaluation of an &quot;fn:codepoints-to-string&quot; that is used as argument to fn:string-length function. </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>fn:string-length(fn:codepoints-to-string((49,97)))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -181,7 +181,7 @@
     <description> Evaluation of an &quot;fn:codepoints-to-string&quot; that is used as argument to fn:string-join function. </description>
     <created by="Carmelo Montanez" on="2005-11-25"/>
     <test>fn:string-join((fn:codepoints-to-string((49,97)),'ab'),'')</test>
-    <result-string>xs:string('1aab')</result-string>
+    <result-string>xs:string(&quot;1aab&quot;)</result-string>
     <result>
       <assert-string-value>1aab</assert-string-value>
     </result>
@@ -208,7 +208,7 @@
     <description> A test whose essence is: `codepoints-to-string(()) eq &quot;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoints-to-string(()) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -217,7 +217,7 @@
     <description> A test whose essence is: `codepoints-to-string((87, 36, 56, 87, 102, 96)) eq &quot;W$8Wf`&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoints-to-string((87, 36, 56, 87, 102, 96)) eq &quot;W$8Wf`&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -265,7 +265,7 @@
     <description> A test whose essence is: `codepoints-to-string(9) eq &quot;#x9;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoints-to-string(9) eq &quot;	&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -275,7 +275,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoints-to-string(10) eq &quot;
 &quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -295,7 +295,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="xml-version" value="1.1"/>
     <test>string-to-codepoints(codepoints-to-string(11))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;11&quot;)</result-string>
     <result>
       <assert-eq>11</assert-eq>
     </result>
@@ -315,7 +315,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="xml-version" value="1.1"/>
     <test>string-to-codepoints(codepoints-to-string(12))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;12&quot;)</result-string>
     <result>
       <assert-eq>12</assert-eq>
     </result>
@@ -329,7 +329,7 @@
     <test>
       <![CDATA[codepoints-to-string(13) eq "&#xD;"]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -362,7 +362,7 @@
     <description> A test whose essence is: `codepoints-to-string(32) eq &quot;#x20;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoints-to-string(32) eq &quot; &quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -371,7 +371,7 @@
     <description> A test whose essence is: `codepoints-to-string(27637) eq &quot;#x6bf5;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoints-to-string(27637) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -380,7 +380,7 @@
     <description> A test whose essence is: `codepoints-to-string(55295) eq &quot;#xD7FF;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoints-to-string(55295) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -407,7 +407,7 @@
     <description> A test whose essence is: `codepoints-to-string(57344) eq &quot;#xE000;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoints-to-string(57344) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -416,7 +416,7 @@
     <description> A test whose essence is: `codepoints-to-string(61438) eq &quot;#xEFFE;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoints-to-string(61438) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -425,7 +425,7 @@
     <description> A test whose essence is: `codepoints-to-string(65533) eq &quot;#xFFFD;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoints-to-string(65533) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -452,7 +452,7 @@
     <description> A test whose essence is: `codepoints-to-string(65536) eq &quot;#x10000;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoints-to-string(65536) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -461,7 +461,7 @@
     <description> A test whose essence is: `codepoints-to-string(589823) eq &quot;#x8FFFF;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoints-to-string(589823) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -470,7 +470,7 @@
     <description> A test whose essence is: `codepoints-to-string(1114111) eq &quot;#x10FFFF;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoints-to-string(1114111) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -588,7 +588,7 @@
     <description> test fn:boolean on fn:codepoints-to-string </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <test>fn:boolean(fn:codepoints-to-string( 65 to 76 ))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -615,7 +615,7 @@
     <description> test fn:boolean on fn:codepoints-to-string </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <test>fn:boolean(fn:codepoints-to-string( 65 ))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -624,7 +624,7 @@
     <description> test fn:boolean on fn:codepoints-to-string </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <test>fn:boolean(fn:codepoints-to-string( () ))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -633,7 +633,7 @@
     <description> fn:codepoints-to-string on multibyte ranges </description>
     <created by="Oliver Hallam" on="2008-04-15"/>
     <test>deep-equal( fn:string-to-codepoints(fn:codepoints-to-string(65536 to 66000)), 65536 to 66000 )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -642,7 +642,7 @@
     <description> fn:codepoints-to-string on multibyte ranges </description>
     <created by="Oliver Hallam" on="2008-04-15"/>
     <test>deep-equal( fn:string-to-codepoints(fn:codepoints-to-string(65536 to 100000)), 65536 to 100000 )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -651,7 +651,7 @@
     <description> Test codepoints to string on a range, returning a boolean </description>
     <created by="Nick Jones" on="2008-06-12"/>
     <test>for $x in 32 to 64 return boolean(codepoints-to-string($x to $x + 10))</test>
-    <result-string>xs:string('true true true true true true true true true true true true true true true true true true true true true true true true true true true true true true true true true')</result-string>
+    <result-string>xs:string(&quot;true true true true true true true true true true true true true true true true true true true true true true true true true true true true true true true true true&quot;)</result-string>
     <result>
       <assert-string-value>true true true true true true true true true true true true true true true true true true true true true true true true true true true true true true true true true</assert-string-value>
     </result>
@@ -663,7 +663,7 @@
     <test>
       <![CDATA[if(5 < exactly-one((1 to 10)[. div 2 = 5])) then codepoints-to-string(32 to exactly-one((1 to 100)[. div 2 = 40])) else ()]]>
     </test>
-    <result-string>xs:string(' !&quot;#$%'()*+,-./0123456789:;=?@ABCDEFGHIJKLMNOP')</result-string>
+    <result-string>xs:string(&quot; !&quot;#$%'()*+,-./0123456789:;=?@ABCDEFGHIJKLMNOP&quot;)</result-string>
     <result>
       <assert-string-value> !&quot;#$%'()*+,-./0123456789:;=?@ABCDEFGHIJKLMNOP</assert-string-value>
     </result>
@@ -672,7 +672,7 @@
     <description> Tests for calling EvaluateToOptionalItem </description>
     <created by="Nick Jones" on="2008-06-16"/>
     <test>for $x in 65 to 75 return string-length(codepoints-to-string($x to $x+10))</test>
-    <result-string>xs:string('11 11 11 11 11 11 11 11 11 11 11')</result-string>
+    <result-string>xs:string(&quot;11 11 11 11 11 11 11 11 11 11 11&quot;)</result-string>
     <result>
       <assert-string-value>11 11 11 11 11 11 11 11 11 11 11</assert-string-value>
     </result>
@@ -681,7 +681,7 @@
     <description> Tests false returns from TryArguments </description>
     <created by="Nick Jones" on="2008-06-16"/>
     <test>for $x in 65 to 75 return boolean(codepoints-to-string($x[. mod 2 = 0] to ($x+9)[. mod 2 = 0]))</test>
-    <result-string>xs:string('false false false false false false false false false false false')</result-string>
+    <result-string>xs:string(&quot;false false false false false false false false false false false&quot;)</result-string>
     <result>
       <assert-string-value>false false false false false false false false false false false</assert-string-value>
     </result>
@@ -732,7 +732,7 @@
     <description> Tests valid codepoints 0x9, 0xA </description>
     <created by="Nick Jones" on="2008-06-16"/>
     <test>for $x in 9 to 9 return codepoints-to-string($x to $x+1)</test>
-    <result-string/>
+    <result-string>xs:string(&quot;''&quot;)</result-string>
     <result>
       <assert-eq>''</assert-eq>
     </result>
@@ -741,7 +741,7 @@
     <description> Tests valid codepoint 0xD </description>
     <created by="Nick Jones" on="2008-06-16"/>
     <test>for $x in 13 to 13 return codepoints-to-string($x to $x)</test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -750,7 +750,7 @@
     <description> Tests last lower codepoint case </description>
     <created by="Nick Jones" on="2008-06-16"/>
     <test>for $x in (13), $y in (13,9,10) return codepoints-to-string($x to $y)</test>
-    <result-string>xs:string('  ')</result-string>
+    <result-string>xs:string(&quot;  &quot;)</result-string>
     <result>
       <assert-string-value>
         </assert-string-value>

@@ -16,7 +16,7 @@ $arg2 = xs:yearMonthDuration(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) gt xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -35,7 +35,7 @@ $arg2 = xs:yearMonthDuration(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration(&quot;P1000Y6M&quot;) gt xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -54,7 +54,7 @@ $arg2 = xs:yearMonthDuration(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration(&quot;P2030Y12M&quot;) gt xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -73,7 +73,7 @@ $arg2 = xs:yearMonthDuration(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) gt xs:yearMonthDuration(&quot;P1000Y6M&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -92,7 +92,7 @@ $arg2 = xs:yearMonthDuration(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) gt xs:yearMonthDuration(&quot;P2030Y12M&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -111,7 +111,7 @@ $arg2 = xs:yearMonthDuration(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) le xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -130,7 +130,7 @@ $arg2 = xs:yearMonthDuration(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration(&quot;P1000Y6M&quot;) le xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -149,7 +149,7 @@ $arg2 = xs:yearMonthDuration(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration(&quot;P2030Y12M&quot;) le xs:yearMonthDuration(&quot;P0Y0M&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -168,7 +168,7 @@ $arg2 = xs:yearMonthDuration(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) le xs:yearMonthDuration(&quot;P1000Y6M&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -187,7 +187,7 @@ $arg2 = xs:yearMonthDuration(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration(&quot;P0Y0M&quot;) le xs:yearMonthDuration(&quot;P2030Y12M&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -204,7 +204,7 @@ return true and used together with fn:not (gt operator)
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>fn:not((xs:yearMonthDuration(&quot;P20Y123M&quot;) gt xs:yearMonthDuration(&quot;P20Y11M&quot;)))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -221,7 +221,7 @@ return true and used together with fn:not (ge operator)
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>fn:not(xs:yearMonthDuration(&quot;P20Y10M&quot;) ge xs:yearMonthDuration(&quot;P20Y10M&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -238,7 +238,7 @@ return false and used together with fn:not (gt operator)
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>fn:not(xs:yearMonthDuration(&quot;P20Y09M&quot;) gt xs:yearMonthDuration(&quot;P20Y10M&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -255,7 +255,7 @@ return false and used together with fn:not(ge operator)
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>fn:not(xs:yearMonthDuration(&quot;P10Y07M&quot;) ge xs:yearMonthDuration(&quot;P10Y09M&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -272,7 +272,7 @@ together with &quot;and&quot; expression (gt operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>(xs:yearMonthDuration(&quot;P10Y09M&quot;) gt xs:yearMonthDuration(&quot;P09Y10M&quot;)) and (xs:yearMonthDuration(&quot;P10Y01M&quot;) gt xs:yearMonthDuration(&quot;P08Y06M&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -289,7 +289,7 @@ together with &quot;and&quot; expression (ge operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>(xs:yearMonthDuration(&quot;P10Y09M&quot;) ge xs:yearMonthDuration(&quot;P10Y01M&quot;)) and (xs:yearMonthDuration(&quot;P02Y04M&quot;) ge xs:yearMonthDuration(&quot;P09Y07M&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -306,7 +306,7 @@ together with &quot;or&quot; expression (gt operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>(xs:yearMonthDuration(&quot;P10Y08M&quot;) gt xs:yearMonthDuration(&quot;P10Y07M&quot;)) or (xs:yearMonthDuration(&quot;P10Y09M&quot;) gt xs:yearMonthDuration(&quot;P10Y09M&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -323,7 +323,7 @@ together with &quot;or&quot; expression (ge operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>(xs:yearMonthDuration(&quot;P10Y01M&quot;) ge xs:yearMonthDuration(&quot;P09Y06M&quot;)) or (xs:yearMonthDuration(&quot;P15Y01M&quot;) ge xs:yearMonthDuration(&quot;P02Y04M&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -340,7 +340,7 @@ together with &quot;fn:true&quot;/or expression (gt operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>(xs:yearMonthDuration(&quot;P10Y02M&quot;) gt xs:yearMonthDuration(&quot;P01Y10M&quot;)) or (fn:true())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -357,7 +357,7 @@ together with &quot;fn:true&quot;/or expression (ge operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>(xs:yearMonthDuration(&quot;P10Y01M&quot;) ge xs:yearMonthDuration(&quot;P09Y05M&quot;)) or (fn:true())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -374,7 +374,7 @@ together with &quot;fn:false&quot;/or expression (gt operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>(xs:yearMonthDuration(&quot;P30Y10M&quot;) gt xs:yearMonthDuration(&quot;P01Y02M&quot;)) or (fn:false())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -391,7 +391,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
 </description>
     <created by="Carmelo Montanez" on="2005-06-13"/>
     <test>(xs:yearMonthDuration(&quot;P10Y05M&quot;) ge xs:yearMonthDuration(&quot;P20Y10M&quot;)) or (fn:false())</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -407,7 +407,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:yearMonthDuration(&quot;P1999Y10M&quot;) gt xs:yearMonthDuration(&quot;P1999Y9M&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -423,7 +423,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:yearMonthDuration(&quot;P1999Y10M&quot;) gt xs:yearMonthDuration(&quot;P1999Y10M&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -439,7 +439,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:yearMonthDuration(&quot;P1999Y10M&quot;) gt xs:yearMonthDuration(&quot;P1999Y11M&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -455,7 +455,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:yearMonthDuration(&quot;P1999Y11M&quot;) ge xs:yearMonthDuration(&quot;P1999Y10M&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -471,7 +471,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:yearMonthDuration(&quot;P1999Y10M&quot;) ge xs:yearMonthDuration(&quot;P1999Y10M&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -487,7 +487,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:yearMonthDuration(&quot;P1999Y9M&quot;) ge xs:yearMonthDuration(&quot;P1999Y10M&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -499,7 +499,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
     <test>
         declare function local:yearMonthDuration($years as xs:integer, $months as xs:integer ) { xs:yearMonthDuration(concat('P', $years, 'Y', $months, 'M')) };
         not(local:yearMonthDuration(1, 1) gt xs:yearMonthDuration(&quot;P0Y&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -511,7 +511,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
     <test>
         declare function local:yearMonthDuration($years as xs:integer, $months as xs:integer ) { xs:yearMonthDuration(concat('P', $years, 'Y', $months, 'M')) };
         not(local:yearMonthDuration(1, 1) ge xs:yearMonthDuration(&quot;P0Y&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -523,7 +523,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
     <test>
         declare function local:yearMonthDuration($yearMonthDuration as xs:yearMonthDuration, $null as xs:boolean) { if ($null) then () else $yearMonthDuration };
         exists(local:yearMonthDuration(xs:yearMonthDuration(&quot;P0Y&quot;), fn:true()) gt xs:yearMonthDuration(&quot;P0Y&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -535,7 +535,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
     <test>
         declare function local:yearMonthDuration($yearMonthDuration as xs:yearMonthDuration, $null as xs:boolean) { if ($null) then () else $yearMonthDuration };
         local:yearMonthDuration(xs:yearMonthDuration(&quot;P0Y&quot;), fn:false()) gt xs:yearMonthDuration(&quot;P0Y&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -547,7 +547,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
     <test>
         declare function local:yearMonthDuration($yearMonthDuration as xs:yearMonthDuration, $null as xs:boolean) { if ($null) then () else $yearMonthDuration };
         exists(local:yearMonthDuration(xs:yearMonthDuration(&quot;P0Y&quot;), fn:true()) le xs:yearMonthDuration(&quot;P0Y&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -559,7 +559,7 @@ together with &quot;fn:false&quot;/or expression (ge operator).
     <test>
         declare function local:yearMonthDuration($yearMonthDuration as xs:yearMonthDuration, $null as xs:boolean) { if ($null) then () else $yearMonthDuration };
         local:yearMonthDuration(xs:yearMonthDuration(&quot;P0Y&quot;), fn:false()) le xs:yearMonthDuration(&quot;P0Y&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

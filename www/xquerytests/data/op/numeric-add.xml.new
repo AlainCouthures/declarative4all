@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:int(mid range) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;-1873914410&quot;) + xs:int(&quot;-273569238&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-2147483648&quot;)</result-string>
     <result>
       <assert-eq>-2147483648</assert-eq>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:int(upper bound) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;2147483647&quot;) + xs:int(&quot;-2147483648&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;-273569238&quot;) + xs:int(&quot;-1873914410&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-2147483648&quot;)</result-string>
     <result>
       <assert-eq>-2147483648</assert-eq>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int(&quot;-2147483648&quot;) + xs:int(&quot;2147483647&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:integer(mid range) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;830993497117024304&quot;) + xs:integer(&quot;-999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-169006502882975695&quot;)</result-string>
     <result>
       <assert-eq>-169006502882975695</assert-eq>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:integer(upper bound) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;999999999999999999&quot;) + xs:integer(&quot;-999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;-999999999999999999&quot;) + xs:integer(&quot;830993497117024304&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-169006502882975695&quot;)</result-string>
     <result>
       <assert-eq>-169006502882975695</assert-eq>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer(&quot;-999999999999999999&quot;) + xs:integer(&quot;999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:decimal(mid range) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;617375191608514839&quot;) + xs:decimal(&quot;-999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-382624808391485160&quot;)</result-string>
     <result>
       <assert-eq>-382624808391485160</assert-eq>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:decimal(upper bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;999999999999999999&quot;) + xs:decimal(&quot;-999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;-999999999999999999&quot;) + xs:decimal(&quot;617375191608514839&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-382624808391485160&quot;)</result-string>
     <result>
       <assert-eq>-382624808391485160</assert-eq>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal(&quot;-999999999999999999&quot;) + xs:decimal(&quot;999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:double(mid range) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;0&quot;) + xs:double(&quot;-1.7976931348623157E308&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:double(upper bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;1.7976931348623157E308&quot;) + xs:double(&quot;-1.7976931348623157E308&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;-1.7976931348623157E308&quot;) + xs:double(&quot;0&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1.7976931348623157E308&quot;)</result-string>
     <result>
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double(&quot;-1.7976931348623157E308&quot;) + xs:double(&quot;1.7976931348623157E308&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:float(mid range) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;0&quot;) + xs:float(&quot;-3.4028235E38&quot;)</test>
-    <result-string/>
+    <result-string>xs:float(-3.4028235E38)</result-string>
     <result>
       <assert-eq>xs:float(-3.4028235E38)</assert-eq>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:float(upper bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;3.4028235E38&quot;) + xs:float(&quot;-3.4028235E38&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;-3.4028235E38&quot;) + xs:float(&quot;0&quot;)</test>
-    <result-string/>
+    <result-string>xs:float(-3.4028235E38)</result-string>
     <result>
       <assert-eq>xs:float(-3.4028235E38)</assert-eq>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float(&quot;-3.4028235E38&quot;) + xs:float(&quot;3.4028235E38&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -186,7 +186,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:long(mid range) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;-47175562203048468&quot;) + xs:long(&quot;-45058158165499290&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-92233720368547758&quot;)</result-string>
     <result>
       <assert-eq>-92233720368547758</assert-eq>
     </result>
@@ -195,7 +195,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:long(upper bound) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;92233720368547758&quot;) + xs:long(&quot;-92233720368547758&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -204,7 +204,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;-45058158165499290&quot;) + xs:long(&quot;-47175562203048468&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-92233720368547758&quot;)</result-string>
     <result>
       <assert-eq>-92233720368547758</assert-eq>
     </result>
@@ -213,7 +213,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long(&quot;-92233720368547758&quot;) + xs:long(&quot;92233720368547758&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -222,7 +222,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;0&quot;) + xs:unsignedShort(&quot;0&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -231,7 +231,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:unsignedShort(mid range) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;44633&quot;) + xs:unsignedShort(&quot;0&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;44633&quot;)</result-string>
     <result>
       <assert-eq>44633</assert-eq>
     </result>
@@ -240,7 +240,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:unsignedShort(upper bound) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;65535&quot;) + xs:unsignedShort(&quot;0&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;65535&quot;)</result-string>
     <result>
       <assert-eq>65535</assert-eq>
     </result>
@@ -249,7 +249,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;0&quot;) + xs:unsignedShort(&quot;44633&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;44633&quot;)</result-string>
     <result>
       <assert-eq>44633</assert-eq>
     </result>
@@ -258,7 +258,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort(&quot;0&quot;) + xs:unsignedShort(&quot;65535&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;65535&quot;)</result-string>
     <result>
       <assert-eq>65535</assert-eq>
     </result>
@@ -267,7 +267,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:negativeInteger(mid range) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-297014075999096793&quot;) + xs:negativeInteger(&quot;-702985924000903206&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -276,7 +276,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:negativeInteger(upper bound) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-1&quot;) + xs:negativeInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1000000000000000000&quot;)</result-string>
     <result>
       <assert-eq>-1000000000000000000</assert-eq>
     </result>
@@ -285,7 +285,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-702985924000903206&quot;) + xs:negativeInteger(&quot;-297014075999096793&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -294,7 +294,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger(&quot;-999999999999999999&quot;) + xs:negativeInteger(&quot;-1&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1000000000000000000&quot;)</result-string>
     <result>
       <assert-eq>-1000000000000000000</assert-eq>
     </result>
@@ -303,7 +303,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;1&quot;) + xs:positiveInteger(&quot;1&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -312,7 +312,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(mid range) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;52704602390610033&quot;) + xs:positiveInteger(&quot;1&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;52704602390610034&quot;)</result-string>
     <result>
       <assert-eq>52704602390610034</assert-eq>
     </result>
@@ -321,7 +321,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(upper bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;999999999999999998&quot;) + xs:positiveInteger(&quot;1&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -330,7 +330,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;1&quot;) + xs:positiveInteger(&quot;52704602390610033&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;52704602390610034&quot;)</result-string>
     <result>
       <assert-eq>52704602390610034</assert-eq>
     </result>
@@ -339,7 +339,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger(&quot;1&quot;) + xs:positiveInteger(&quot;999999999999999998&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -348,7 +348,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;0&quot;) + xs:unsignedLong(&quot;0&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -357,7 +357,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:unsignedLong(mid range) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;130747108607674654&quot;) + xs:unsignedLong(&quot;0&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;130747108607674654&quot;)</result-string>
     <result>
       <assert-eq>130747108607674654</assert-eq>
     </result>
@@ -366,7 +366,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:unsignedLong(upper bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;184467440737095516&quot;) + xs:unsignedLong(&quot;0&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;184467440737095516&quot;)</result-string>
     <result>
       <assert-eq>184467440737095516</assert-eq>
     </result>
@@ -375,7 +375,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;0&quot;) + xs:unsignedLong(&quot;130747108607674654&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;130747108607674654&quot;)</result-string>
     <result>
       <assert-eq>130747108607674654</assert-eq>
     </result>
@@ -384,7 +384,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong(&quot;0&quot;) + xs:unsignedLong(&quot;184467440737095516&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;184467440737095516&quot;)</result-string>
     <result>
       <assert-eq>184467440737095516</assert-eq>
     </result>
@@ -393,7 +393,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(mid range) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;-475688437271870490&quot;) + xs:nonPositiveInteger(&quot;-524311562728129509&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -402,7 +402,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(upper bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;0&quot;) + xs:nonPositiveInteger(&quot;-999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -411,7 +411,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;-524311562728129509&quot;) + xs:nonPositiveInteger(&quot;-475688437271870490&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -420,7 +420,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger(&quot;-999999999999999999&quot;) + xs:nonPositiveInteger(&quot;0&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -429,7 +429,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;0&quot;) + xs:nonNegativeInteger(&quot;0&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -438,7 +438,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(mid range) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;303884545991464527&quot;) + xs:nonNegativeInteger(&quot;0&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;303884545991464527&quot;)</result-string>
     <result>
       <assert-eq>303884545991464527</assert-eq>
     </result>
@@ -447,7 +447,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(upper bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;999999999999999999&quot;) + xs:nonNegativeInteger(&quot;0&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -456,7 +456,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;0&quot;) + xs:nonNegativeInteger(&quot;303884545991464527&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;303884545991464527&quot;)</result-string>
     <result>
       <assert-eq>303884545991464527</assert-eq>
     </result>
@@ -465,7 +465,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger(&quot;0&quot;) + xs:nonNegativeInteger(&quot;999999999999999999&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;999999999999999999&quot;)</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -474,7 +474,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:short(mid range) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;-5324&quot;) + xs:short(&quot;-27444&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-32768&quot;)</result-string>
     <result>
       <assert-eq>-32768</assert-eq>
     </result>
@@ -483,7 +483,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:short(upper bound) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;32767&quot;) + xs:short(&quot;-32768&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -492,7 +492,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;-27444&quot;) + xs:short(&quot;-5324&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-32768&quot;)</result-string>
     <result>
       <assert-eq>-32768</assert-eq>
     </result>
@@ -501,7 +501,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short(&quot;-32768&quot;) + xs:short(&quot;32767&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -531,7 +531,7 @@
     <description> Simple addition test, second operator cast string to integer </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <test>1 + xs:integer('1')</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -543,7 +543,7 @@
     <test>
       <![CDATA[1 + <a> 2 </a>]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -555,7 +555,7 @@
     <test>
       <![CDATA[1+<a> <b> 2 </b> </a>]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -579,7 +579,7 @@
     <test>
       <![CDATA[<a> 1 </a> + <b> 2 </b>]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -612,7 +612,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the operators set as follows $arg1 = xs:long $arg2 = xs:unsignedLong </description>
     <created by="Carmelo Montanez" on="2006-07-10"/>
     <test>xs:long(10) + xs:unsignedLong(35)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;45&quot;)</result-string>
     <result>
       <assert-eq>45</assert-eq>
     </result>
@@ -621,7 +621,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the operators set as follows $arg1 = xs:positiveInteger $arg2 = xs:nonPositiveInteger </description>
     <created by="Carmelo Montanez" on="2006-07-10"/>
     <test>xs:positiveInteger(10) + xs:nonPositiveInteger(-15)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-5&quot;)</result-string>
     <result>
       <assert-eq>-5</assert-eq>
     </result>
@@ -630,7 +630,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the operators set as follows $arg1 = xs:nonNegativeInteger $arg2 = xs:short </description>
     <created by="Carmelo Montanez" on="2006-07-10"/>
     <test>xs:nonNegativeInteger(10) + xs:short(15)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;25&quot;)</result-string>
     <result>
       <assert-eq>25</assert-eq>
     </result>
@@ -639,7 +639,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the operators set as follows $arg1 = xs:short $arg2 = xs:long </description>
     <created by="Carmelo Montanez" on="2006-07-10"/>
     <test>xs:short(10) + xs:long(145)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;155&quot;)</result-string>
     <result>
       <assert-eq>155</assert-eq>
     </result>
@@ -648,7 +648,7 @@
     <description> Evaluates The &quot;op:numeric-add&quot; operator with the operators set as follows $arg1 = xs:positiveInteger $arg2 = xs:negativeInteger </description>
     <created by="Carmelo Montanez" on="2006-07-10"/>
     <test>xs:positiveInteger(10) + xs:negativeInteger(-5)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;5&quot;)</result-string>
     <result>
       <assert-eq>5</assert-eq>
     </result>
@@ -657,7 +657,7 @@
     <description> A test whose essence is: `xs:double(6) + xs:double(2) eq 8`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(6) + xs:double(2) eq 8</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -666,7 +666,7 @@
     <description> A test whose essence is: `xs:decimal(6) + xs:decimal(2) eq 8`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:decimal(6) + xs:decimal(2) eq 8</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -675,7 +675,7 @@
     <description> A test whose essence is: `xs:decimal(6.1) + xs:decimal(2.1) eq 8.2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:decimal(6.1) + xs:decimal(2.1) eq 8.2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -684,7 +684,7 @@
     <description> A test whose essence is: `1.1 + 2.2 eq 3.3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1.1 + 2.2 eq 3.3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -693,7 +693,7 @@
     <description> A test whose essence is: `xs:double(1.1) + xs:double(2.2) ne 3.3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(1.1) + xs:double(2.2) ne 3.3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -702,7 +702,7 @@
     <description> A test whose essence is: `xs:float(1.1) + xs:float(2.2) ne 3.3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(1.1) + xs:float(2.2) ne 3.3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -711,7 +711,7 @@
     <description> A test whose essence is: `xs:integer(6) + xs:integer(2) eq 8`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:integer(6) + xs:integer(2) eq 8</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -720,7 +720,7 @@
     <description> A test whose essence is: `xs:float(6) + xs:float(2) eq 8`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(6) + xs:float(2) eq 8</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -729,7 +729,7 @@
     <description> A test whose essence is: `string(xs:float(&quot;NaN&quot;) + 3) eq &quot;NaN&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(xs:float(&quot;NaN&quot;) + 3) eq &quot;NaN&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -738,7 +738,7 @@
     <description> A test whose essence is: `string(xs:double(&quot;NaN&quot;) + 3) eq &quot;NaN&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(xs:double(&quot;NaN&quot;) + 3) eq &quot;NaN&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -747,7 +747,7 @@
     <description> A test whose essence is: `string(3 + xs:float(&quot;NaN&quot;)) eq &quot;NaN&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(3 + xs:float(&quot;NaN&quot;)) eq &quot;NaN&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -756,7 +756,7 @@
     <description> A test whose essence is: `string(3 + xs:double(&quot;NaN&quot;)) eq &quot;NaN&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(3 + xs:double(&quot;NaN&quot;)) eq &quot;NaN&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -765,7 +765,7 @@
     <description> A test whose essence is: `(xs:decimal(6) + xs:integer(2)) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) + xs:integer(2)) instance of xs:decimal</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -774,7 +774,7 @@
     <description> A test whose essence is: `(xs:integer(6) + xs:decimal(2)) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) + xs:decimal(2)) instance of xs:decimal</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -783,7 +783,7 @@
     <description> A test whose essence is: `(xs:integer(6) + xs:integer(2)) instance of xs:integer`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) + xs:integer(2)) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -792,7 +792,7 @@
     <description> A test whose essence is: `(xs:decimal(6) + xs:decimal(2)) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) + xs:decimal(2)) instance of xs:decimal</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -801,7 +801,7 @@
     <description> A test whose essence is: `(xs:decimal(6) + xs:float(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) + xs:float(2)) instance of xs:float</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -810,7 +810,7 @@
     <description> A test whose essence is: `(xs:float(6) + xs:decimal(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) + xs:decimal(2)) instance of xs:float</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -819,7 +819,7 @@
     <description> A test whose essence is: `(xs:float(6) + xs:integer(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) + xs:integer(2)) instance of xs:float</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -828,7 +828,7 @@
     <description> A test whose essence is: `(xs:integer(6) + xs:float(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) + xs:float(2)) instance of xs:float</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -837,7 +837,7 @@
     <description> A test whose essence is: `(xs:float(6) + xs:float(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) + xs:float(2)) instance of xs:float</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -846,7 +846,7 @@
     <description> A test whose essence is: `(xs:decimal(6) + xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) + xs:double(2)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -855,7 +855,7 @@
     <description> A test whose essence is: `(xs:double(6) + xs:decimal(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) + xs:decimal(2)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -864,7 +864,7 @@
     <description> A test whose essence is: `(xs:double(6) + xs:float(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) + xs:float(2)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -873,7 +873,7 @@
     <description> A test whose essence is: `(xs:float(6) + xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) + xs:double(2)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -882,7 +882,7 @@
     <description> A test whose essence is: `(xs:double(6) + xs:integer(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) + xs:integer(2)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -891,7 +891,7 @@
     <description> A test whose essence is: `(xs:integer(6) + xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) + xs:double(2)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -900,7 +900,7 @@
     <description> A test whose essence is: `(xs:double(6) + xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) + xs:double(2)) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -909,7 +909,7 @@
     <description> Test parser handles '+' operator with critical whitespace. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1+1 eq 2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -918,7 +918,7 @@
     <description> Test parser handles '+' operator with critical whitespace(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>2 eq 1+1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1072,7 +1072,7 @@
     <description> A test whose essence is: `(3 + xs:untypedAtomic(&quot;3&quot;)) eq 6`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(3 + xs:untypedAtomic(&quot;3&quot;)) eq 6</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1081,7 +1081,7 @@
     <description> A test whose essence is: `(xs:untypedAtomic(&quot;3&quot;) + 3.0) eq 6`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:untypedAtomic(&quot;3&quot;) + 3.0) eq 6</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1090,7 +1090,7 @@
     <description> Complex combination of numeric arithmetics in order to stress operator precedence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(2 + 4) * 5 eq 30</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1099,7 +1099,7 @@
     <description> Complex combination of numeric arithmetics in order to stress operator precedence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>2 + 4 * 5 eq 22</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1108,7 +1108,7 @@
     <description> Complex combination of numeric arithmetics in order to stress operator precedence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 + 2 * 4 + (1 + 2 + 3 * 4) eq 24</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1225,7 +1225,7 @@
     <description> A test whose essence is: `xs:untypedAtomic(&quot;3&quot;) + 3 eq 6`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:untypedAtomic(&quot;3&quot;) + 3 eq 6</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1234,7 +1234,7 @@
     <description> A test whose essence is: `(xs:untypedAtomic(&quot;3&quot;) + 3) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:untypedAtomic(&quot;3&quot;) + 3) instance of xs:double</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1315,7 +1315,7 @@
     <test>
       <![CDATA[<a>1</a> + <b>2</b>]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -1327,7 +1327,7 @@
     <test>
       <![CDATA[<a foo="1"/>/@foo + <b foo="2"/>/@foo]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -1337,7 +1337,7 @@
     <created by="Oliver Hallam" on="2010-03-16"/>
     <dependency type="spec" value="XQ10+"/>
     <test>for $x in (1, xs:decimal(2), xs:float(3), xs:double(4), xs:untypedAtomic(5)) for $y in (1, xs:decimal(2), xs:float(3), xs:double(4), xs:untypedAtomic(5)) return typeswitch ($x + $y) case xs:integer return &quot;integer&quot; case xs:decimal return &quot;decimal&quot; case xs:float return &quot;float&quot; case xs:double return &quot;double&quot; default return error()</test>
-    <result-string>xs:string('integer decimal float double double decimal decimal float double double float float float double double double double double double double double double double double double')</result-string>
+    <result-string>xs:string(&quot;integer decimal float double double decimal decimal float double double float float float double double double double double double double double double double double double&quot;)</result-string>
     <result>
       <assert-string-value>integer decimal float double double decimal decimal float double double float float float double double double double double double double double double double double double</assert-string-value>
     </result>

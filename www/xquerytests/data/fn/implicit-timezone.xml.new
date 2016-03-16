@@ -33,7 +33,7 @@
     <description> Evaluation of &quot;fn:implicit-timezone&quot; as part of a subtraction operation. </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>fn:string(fn:implicit-timezone() - fn:implicit-timezone())</test>
-    <result-string>xs:string('PT0S')</result-string>
+    <result-string>xs:string(&quot;PT0S&quot;)</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluation of &quot;fn:implicit-timezone&quot; as part of a multiplication operation. Second argument is 0 </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>fn:string(fn:implicit-timezone() * 0)</test>
-    <result-string>xs:string('PT0S')</result-string>
+    <result-string>xs:string(&quot;PT0S&quot;)</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluation of &quot;fn:implicit-timezone&quot; as part of a multiplication operation. Second argument is -0 </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>fn:string(fn:implicit-timezone() * -0)</test>
-    <result-string>xs:string('PT0S')</result-string>
+    <result-string>xs:string(&quot;PT0S&quot;)</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluation of &quot;fn:implicit-timezone&quot; as part of a division operation. Both operands includes the fn:implicit-timezone. </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>(implicit-timezone() + xs:dayTimeDuration('PT1S')) div (implicit-timezone() + xs:dayTimeDuration('PT1S'))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -213,7 +213,7 @@
     <description>Test that implicit timezone is in range -14h to +14h</description>
     <created by="Michael Kay" on="2011-06-30"/>
     <test>implicit-timezone() ge xs:dayTimeDuration('-PT14H') and implicit-timezone() le xs:dayTimeDuration('PT14H')</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -231,7 +231,7 @@
     <description> Simple test of implicit-timezone(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>seconds-from-duration(implicit-timezone()) le 0 or seconds-from-duration(implicit-timezone()) gt 0</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -240,7 +240,7 @@
     <description> Test that implicit-timezone() do return a value. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>exists(seconds-from-duration(implicit-timezone()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

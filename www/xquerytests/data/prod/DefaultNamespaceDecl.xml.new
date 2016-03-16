@@ -26,7 +26,7 @@
     <description> Demonstrates Default namespace declaration, facilitates the use of unprefixed QNames </description>
     <created by="Pulkita Tyagi" on="2005-09-02"/>
     <test>declare default function namespace &quot;http://www..oracle.com/xquery/test&quot;; declare function price ($b as element()) as element()* { $b/price }; 1</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -94,7 +94,7 @@
       	declare function mysum($i as xs:integer, $j as xs:integer) { let $j := $i + $j return $j }; 
       	declare function invoke_mysum() { let $s := 1 for $d in (1,2,3,4,5) let $s := mysum($s, $d) return $s }; 
       	invoke_mysum()</test>
-    <result-string>xs:string('2 3 4 5 6')</result-string>
+    <result-string>xs:string(&quot;2 3 4 5 6&quot;)</result-string>
     <result>
       <assert-string-value>2 3 4 5 6</assert-string-value>
     </result>
@@ -108,7 +108,7 @@
       	declare function invoke_mysum($st) { for $d in (1,2,3,4,5) let $st := mysum($d, $st) return $st }; 
       	invoke_mysum(0)
       </test>
-    <result-string>xs:string('1 2 3 4 5')</result-string>
+    <result-string>xs:string(&quot;1 2 3 4 5&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3 4 5</assert-string-value>
     </result>
@@ -122,7 +122,7 @@
       	declare function foo($a as xs:integer) { if ($a  100) then $a else let $a := $a + 1 return foo($a) }; 
       	foo($a)
       </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;101&quot;)</result-string>
     <result>
       <assert-eq>101</assert-eq>
     </result>
@@ -192,7 +192,7 @@
       	declare function fn1 ($n as xs:integer) as xs:integer { fn2($n) }; 
       	declare function fn2 ($n as xs:integer) as xs:integer { if ($n = 1) then 1 else $n + fn1($n - 1) }; 
       	fn1(4)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -205,7 +205,7 @@
       	declare function fn1 ($n as xs:integer) as xs:integer { fn2($n) }; 
       	declare function fn2 ($n as xs:integer) as xs:integer { if ($n = 1) then 1 else $n + fn1($n - 1) }; 
       	fn1(4)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -218,7 +218,7 @@
       	declare function foo2($i as xs:string) as xs:string {foo($i)}; 
       	declare function foo($i as xs:string) as xs:string {$i}; 
       	foo2(&quot;abc&quot;)</test>
-    <result-string>xs:string('abc')</result-string>
+    <result-string>xs:string(&quot;abc&quot;)</result-string>
     <result>
       <assert-string-value>abc</assert-string-value>
     </result>
@@ -231,7 +231,7 @@
       	declare function odd($x as xs:integer) as xs:boolean {if ($x = 0) then fn:false() else even($x - 1)}; 
       	declare function even($x as xs:integer) as xs:boolean {if ($x = 0) then fn:true() else odd($x - 1)}; 
       	even(4)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -244,7 +244,7 @@
       	declare function odd($x as xs:integer) as xs:boolean {if ($x = 0) then fn:false() else even($x - 1)}; 
       	declare function even($x as xs:integer) as xs:boolean {if ($x = 0) then fn:true() else odd($x - 1)}; 
       	even(3)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -336,7 +336,7 @@
       	declare function price ($x as xs:integer, $y as xs:integer, $z as xs:integer) as xs:integer+ { $x+$y+$z }; 
       	price(), price(1), price(2,3), price(4,5,6)
       </test>
-    <result-string>xs:string('100 1 2 3 15')</result-string>
+    <result-string>xs:string(&quot;100 1 2 3 15&quot;)</result-string>
     <result>
       <assert-string-value>100 1 2 3 15</assert-string-value>
     </result>
@@ -348,7 +348,7 @@
         declare default element namespace &quot;http:/www.oracle.com/xquery&quot;; 
         declare variable $x := 7.5; 
         $x + 2</test>
-    <result-string>xs:string('9.5')</result-string>
+    <result-string>xs:string(&quot;9.5&quot;)</result-string>
     <result>
       <assert-string-value>9.5</assert-string-value>
     </result>
@@ -485,7 +485,7 @@
     <description> A 'declare default element namespace' expression containing many comments, using apostrophes for the URILiteral. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare(:..:)default(:..:)element(:..:)namespace(:..:)'http://example.com/'(:..:);(:..:)1(:..:)eq(:..:)1(:..:)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -494,7 +494,7 @@
     <description> A 'declare default element namespace' expression containing many comments, using quotes for the URILiteral. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare(:..:)default(:..:)element(:..:)namespace(:..:)&quot;http://example.com/&quot;(:..:);(:..:)1(:..:)eq(:..:)1(:..:)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -503,7 +503,7 @@
     <description> A 'declare default function namespace' expression containing many comments, using apostrophes for the URILiteral. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare(:..:)default(:..:)function(:..:)namespace(:..:)'http://example.com/'(:..:);(:..:)1(:..:)eq(:..:)1(:..:)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -512,7 +512,7 @@
     <description> A 'declare default function namespace' expression containing many comments, using quotes for the URILiteral. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare(:..:)default(:..:)function(:..:)namespace(:..:)&quot;http://example.com/&quot;(:..:);(:..:)1(:..:)eq(:..:)1(:..:)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -587,7 +587,7 @@
     <test>
       <![CDATA[declare default element namespace "http://example.com/defelementns"; namespace-uri(<foo/>)]]>
     </test>
-    <result-string>xs:string('http://example.com/defelementns')</result-string>
+    <result-string>xs:string(&quot;http://example.com/defelementns&quot;)</result-string>
     <result>
       <assert-string-value>http://example.com/defelementns</assert-string-value>
     </result>
@@ -599,7 +599,7 @@
     <test>
       <![CDATA[declare default element namespace "http://example.com/defelementns"; namespace-uri(<foo xmlns="http://example.com/overriden"/>)]]>
     </test>
-    <result-string>xs:string('http://example.com/overriden')</result-string>
+    <result-string>xs:string(&quot;http://example.com/overriden&quot;)</result-string>
     <result>
       <assert-string-value>http://example.com/overriden</assert-string-value>
     </result>
@@ -789,7 +789,7 @@
          return data($test)
       ]]>
     </test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>

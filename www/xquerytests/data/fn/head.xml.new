@@ -7,7 +7,7 @@
     <description> head() of a simple sequence </description>
     <created by="Michael Kay" on="2010-02-18"/>
     <test>head(3 to 10)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;3&quot;)</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
@@ -16,7 +16,7 @@
     <description> head() of a simple sequence </description>
     <created by="Michael Kay" on="2010-02-18"/>
     <test>head((&quot;a&quot;, &quot;b&quot;, current-dateTime()))</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;a&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;a&quot;</assert-eq>
     </result>
@@ -26,7 +26,7 @@
     <created by="Michael Kay" on="2010-02-18"/>
     <environment ref="works-mod"/>
     <test>let $a := /works return head($a/*)/string(@name)</test>
-    <result-string>xs:string('Jane Doe 1')</result-string>
+    <result-string>xs:string(&quot;Jane Doe 1&quot;)</result-string>
     <result>
       <assert-string-value>Jane Doe 1</assert-string-value>
     </result>
@@ -36,7 +36,7 @@
     <created by="Michael Kay" on="2010-02-18"/>
     <environment ref="works-mod"/>
     <test>let $a := /works return name(head($a))</test>
-    <result-string>xs:string('works')</result-string>
+    <result-string>xs:string(&quot;works&quot;)</result-string>
     <result>
       <assert-string-value>works</assert-string-value>
     </result>
@@ -46,7 +46,7 @@
     <created by="Michael Kay" on="2010-02-18"/>
     <environment ref="works-mod"/>
     <test>head(/works/cucumber)</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -56,7 +56,7 @@
     <created by="Michael Kay" on="2010-02-18"/>
     <environment ref="works-mod"/>
     <test>let $a := /works/* return (head($a) is $a[1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

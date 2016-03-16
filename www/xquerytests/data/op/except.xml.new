@@ -19,7 +19,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>/bib/book[1]/title except /bib/book[1]/title</test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -41,7 +41,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>(/bib/book[3] except root(exactly-one(/bib/book[3]/title)))/string(@year)</test>
-    <result-string>xs:string('2000')</result-string>
+    <result-string>xs:string(&quot;2000&quot;)</result-string>
     <result>
       <assert-string-value>2000</assert-string-value>
     </result>
@@ -51,7 +51,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>/bib/book[3]/title/text() except /bib/book/title/text()</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -61,7 +61,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>/processing-instruction() except /processing-instruction()</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -71,7 +71,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>(/processing-instruction() except /processing-instruction(PI1))/name()</test>
-    <result-string>xs:string('PI2')</result-string>
+    <result-string>xs:string(&quot;PI2&quot;)</result-string>
     <result>
       <assert-string-value>PI2</assert-string-value>
     </result>
@@ -81,7 +81,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>/comment() except /comment()</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -91,7 +91,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>string-join((for $node in /bib/book/title/text() except /bib/book[3]/title/text() return $node/string()), &quot;|&quot;)</test>
-    <result-string>xs:string('TCP/IP Illustrated|Advanced Programming in the Unix environment|The Economics of Technology and Content for Digital TV')</result-string>
+    <result-string>xs:string(&quot;TCP/IP Illustrated|Advanced Programming in the Unix environment|The Economics of Technology and Content for Digital TV&quot;)</result-string>
     <result>
       <assert-string-value>TCP/IP Illustrated|Advanced Programming in the Unix environment|The Economics of Technology and Content for Digital TV</assert-string-value>
     </result>
@@ -101,7 +101,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>(/processing-instruction() except /bib/book[2]/title)/name()</test>
-    <result-string>xs:string('PI1 PI2')</result-string>
+    <result-string>xs:string(&quot;PI1 PI2&quot;)</result-string>
     <result>
       <assert-string-value>PI1 PI2</assert-string-value>
     </result>
@@ -111,7 +111,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>(/processing-instruction(PI1) except /bib/book)/name()</test>
-    <result-string>xs:string('PI1')</result-string>
+    <result-string>xs:string(&quot;PI1&quot;)</result-string>
     <result>
       <assert-string-value>PI1</assert-string-value>
     </result>
@@ -197,7 +197,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="atomic"/>
     <test>number( (/atomic:root/atomic:integer) except (/atomic:root/atomic:string))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;12678967543233&quot;)</result-string>
     <result>
       <assert-eq>12678967543233</assert-eq>
     </result>
@@ -207,7 +207,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="atomic"/>
     <test>(/atomic:root/atomic:duration/text()) except (/atomic:root/atomic:duration/text())</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -217,7 +217,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="atomic"/>
     <test>(/atomic:root/atomic:date/text()) except (/atomic:root/atomic:date/text())</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -227,7 +227,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="atomic"/>
     <test>(/atomic:root/atomic:base64Binary/text()) except (/atomic:root/atomic:base64Binary/text())</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -237,7 +237,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="atomic"/>
     <test>(/atomic:root/atomic:QName/text()) except (/atomic:root/atomic:QName/text())</test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -247,7 +247,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>string-join((for $node in ((//price/text()) , (//price/text())) except (//price) return $node)/string(), &quot;|&quot;)</test>
-    <result-string>xs:string(' 65.95|65.95| 39.95|129.95')</result-string>
+    <result-string>xs:string(&quot; 65.95|65.95| 39.95|129.95&quot;)</result-string>
     <result>
       <assert-string-value> 65.95|65.95| 39.95|129.95</assert-string-value>
     </result>
@@ -257,7 +257,7 @@
     <created by="Ravindranath Chennoju" on="2005-06-14"/>
     <environment ref="bib2"/>
     <test>((//price/text()) , (//price/text())) except (//price/text())</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -278,7 +278,7 @@
     <test>
       <![CDATA[empty(<e/>/(author except text))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -290,7 +290,7 @@
     <test>
       <![CDATA[empty(<e/>/(author except node))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -302,7 +302,7 @@
     <test>
       <![CDATA[empty(<e/>/(author except element))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -314,7 +314,7 @@
     <test>
       <![CDATA[empty(<e/>/(author except attribute))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -326,7 +326,7 @@
     <test>
       <![CDATA[empty(<e/>/(author except document-node))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -338,7 +338,7 @@
     <test>
       <![CDATA[empty(<e/>/(author except comment))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -350,7 +350,7 @@
     <test>
       <![CDATA[empty(<e/>/(author except processing-instruction))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -362,7 +362,7 @@
     <test>
       <![CDATA[empty(<e/>/(author except item))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -374,7 +374,7 @@
     <test>
       <![CDATA[empty(<e/>/(author except document))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -386,7 +386,7 @@
     <test>
       <![CDATA[empty(<e/>/(author except if))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -398,7 +398,7 @@
     <test>
       <![CDATA[empty(<e/>/(author except then))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -410,7 +410,7 @@
     <test>
       <![CDATA[empty(<e/>/(author except mod))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -422,7 +422,7 @@
     <test>
       <![CDATA[empty(<e/>/(author except div))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -434,7 +434,7 @@
     <test>
       <![CDATA[empty(<e/>/(author except empty-sequence))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -446,7 +446,7 @@
     <test>
       <![CDATA[empty(<e/>/(author except schema-attribute))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -458,7 +458,7 @@
     <test>
       <![CDATA[empty(<e/>/(author except schema-element))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -470,7 +470,7 @@
     <test>
       <![CDATA[count(<e/>/(a except attribute {"name"} {()}))]]>
     </test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -482,7 +482,7 @@
     <test>
       <![CDATA[count(<e/>/(a except attribute name {()}))]]>
     </test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -524,7 +524,7 @@
     <test>
       <![CDATA[count(<e/>/(a except processing-instruction {"name"} {()}))]]>
     </test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -536,7 +536,7 @@
     <test>
       <![CDATA[count(<e/>/(a except processing-instruction name {}))]]>
     </test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -548,7 +548,7 @@
     <test>
       <![CDATA[count(<e/>/(a except comment {()}))]]>
     </test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -560,7 +560,7 @@
     <test>
       <![CDATA[count(<e/>/(a except text {()}))]]>
     </test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -572,7 +572,7 @@
     <test>
       <![CDATA[empty(<e/>/(a except descendant))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -584,7 +584,7 @@
     <test>
       <![CDATA[empty(<e/>/(a except attribute))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -596,7 +596,7 @@
     <test>
       <![CDATA[empty(<e/>/(a except self))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -608,7 +608,7 @@
     <test>
       <![CDATA[empty(<e/>/(a except descendant-or-self))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -620,7 +620,7 @@
     <test>
       <![CDATA[empty(<e/>/(a except following-sibling))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -632,7 +632,7 @@
     <test>
       <![CDATA[empty(<e/>/(a except following))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -644,7 +644,7 @@
     <test>
       <![CDATA[empty(<e/>/(a except preceding-sibling))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -656,7 +656,7 @@
     <test>
       <![CDATA[empty(<e/>/(a except preceding))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -668,7 +668,7 @@
     <test>
       <![CDATA[empty(<e/>/(a except parent))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -680,7 +680,7 @@
     <test>
       <![CDATA[empty(<e/>/(a except ancestor))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -692,7 +692,7 @@
     <test>
       <![CDATA[empty(<e/>/(a except ancestor))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -704,7 +704,7 @@
     <test>
       <![CDATA[empty(<e/>/(a except ancestor-or-self))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -716,7 +716,7 @@
     <test>
       <![CDATA[empty(<e/>/(a except declare))]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -726,7 +726,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="acme_corp"/>
     <test>boolean(//employee[location = &quot;Denver&quot;] except //employee[last()])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -833,7 +833,7 @@
     <environment ref="works"/>
     <dependency type="spec" value="XQ10+"/>
     <test>for $h in ( count((//hours) except (//hours))) order by number($h) return $h</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -844,7 +844,7 @@
     <environment ref="works-and-staff"/>
     <dependency type="spec" value="XQ10+"/>
     <test>for $h in ( count(($works//hours) except ($staff//grade,$works//hours))) order by number($h) return $h</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>

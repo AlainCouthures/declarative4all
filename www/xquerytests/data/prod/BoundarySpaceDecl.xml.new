@@ -341,7 +341,7 @@ declare boundary-space preserve;
     <description> Demonstrates stripping/preserving of boundary spaces by element constructors during processing of the query </description>
     <created by="Pulkita Tyagi" on="2005-10-06"/>
     <test>declare boundary-space strip; (&quot; &quot;,10, 20, 30, 40,&quot; &quot;)</test>
-    <result-string>xs:string('  10 20 30 40  ')</result-string>
+    <result-string>xs:string(&quot;  10 20 30 40  &quot;)</result-string>
     <result>
       <assert-string-value>  10 20 30 40  </assert-string-value>
     </result>
@@ -350,7 +350,7 @@ declare boundary-space preserve;
     <description> Demonstrates stripping/preserving of boundary spaces by element constructors during processing of the query </description>
     <created by="Pulkita Tyagi" on="2005-10-06"/>
     <test>declare boundary-space preserve; (&quot; &quot;,10, 20, 30, 40,&quot; &quot;)</test>
-    <result-string>xs:string('  10 20 30 40  ')</result-string>
+    <result-string>xs:string(&quot;  10 20 30 40  &quot;)</result-string>
     <result>
       <assert-string-value>  10 20 30 40  </assert-string-value>
     </result>
@@ -368,7 +368,7 @@ declare boundary-space preserve;
     <description> A simple 'declare boundary-space' declaration, specifying 'preserve'. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(::)declare(::)boundary-space(::)strip(::); 1 eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -377,7 +377,7 @@ declare boundary-space preserve;
     <description> A simple 'declare boundary-space' declaration, specifying 'strip'. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(::)declare(::)boundary-space(::)strip(::); 1 eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

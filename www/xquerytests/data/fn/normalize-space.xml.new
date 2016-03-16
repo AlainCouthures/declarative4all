@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;normalize-space&quot; function with the arguments set as follows: $arg = notNormalizedString(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:normalize-space(&quot;This is a charac&quot;)</test>
-    <result-string>xs:string('This is a charac')</result-string>
+    <result-string>xs:string(&quot;This is a charac&quot;)</result-string>
     <result>
       <assert-string-value>This is a charac</assert-string-value>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;normalize-space&quot; function with the arguments set as follows: $arg = notNormalizedString(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:normalize-space(&quot;This is a ch&quot;)</test>
-    <result-string>xs:string('This is a ch')</result-string>
+    <result-string>xs:string(&quot;This is a ch&quot;)</result-string>
     <result>
       <assert-string-value>This is a ch</assert-string-value>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;normalize-space&quot; function with the arguments set as follows: $arg = notNormalizedString(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:normalize-space(&quot;This is a charac&quot;)</test>
-    <result-string>xs:string('This is a charac')</result-string>
+    <result-string>xs:string(&quot;This is a charac&quot;)</result-string>
     <result>
       <assert-string-value>This is a charac</assert-string-value>
     </result>
@@ -52,7 +52,7 @@
       </source>
     </environment>
     <test>//doc/normalize-space(zero-or-one(a[normalize-space() = 'Hello, How are you?']))</test>
-    <result-string>xs:string('Hello, How are you?')</result-string>
+    <result-string>xs:string(&quot;Hello, How are you?&quot;)</result-string>
     <result>
       <assert-string-value>Hello, How are you?</assert-string-value>
     </result>
@@ -61,7 +61,7 @@
     <description> Evaluation of fn-normalize-space function as per example 1 for this function from the Functions and Operators specs. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:normalize-space(&quot; The wealthy curled darlings of our nation. &quot;)</test>
-    <result-string>xs:string('The wealthy curled darlings of our nation.')</result-string>
+    <result-string>xs:string(&quot;The wealthy curled darlings of our nation.&quot;)</result-string>
     <result>
       <assert-string-value>The wealthy curled darlings of our nation.</assert-string-value>
     </result>
@@ -80,7 +80,7 @@
     <description> Evaluation of fn-normalize-space function with argument containing one tab character. </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space(&quot;This	text should contains no tabs&quot;)</test>
-    <result-string>xs:string('This text should contains no tabs')</result-string>
+    <result-string>xs:string(&quot;This text should contains no tabs&quot;)</result-string>
     <result>
       <assert-string-value>This text should contains no tabs</assert-string-value>
     </result>
@@ -90,7 +90,7 @@
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space(&quot;This text should contains
 no newline characters.&quot;)</test>
-    <result-string>xs:string('This text should contains no newline characters.')</result-string>
+    <result-string>xs:string(&quot;This text should contains no newline characters.&quot;)</result-string>
     <result>
       <assert-string-value>This text should contains no newline characters.</assert-string-value>
     </result>
@@ -99,7 +99,7 @@ no newline characters.&quot;)</test>
     <description> Evaluation of fn-normalize-space function with argument containing multiple tab character. </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space(&quot;This	text	should	contains	no	tab	characters.&quot;)</test>
-    <result-string>xs:string('This text should contains no tab characters.')</result-string>
+    <result-string>xs:string(&quot;This text should contains no tab characters.&quot;)</result-string>
     <result>
       <assert-string-value>This text should contains no tab characters.</assert-string-value>
     </result>
@@ -114,7 +114,7 @@ contains
 no
 newline
 characters.&quot;)</test>
-    <result-string>xs:string('This text should contains no newline characters.')</result-string>
+    <result-string>xs:string(&quot;This text should contains no newline characters.&quot;)</result-string>
     <result>
       <assert-string-value>This text should contains no newline characters.</assert-string-value>
     </result>
@@ -124,7 +124,7 @@ characters.&quot;)</test>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space(&quot;This text	should contains no tabs or
 newline characters.&quot;)</test>
-    <result-string>xs:string('This text should contains no tabs or newline characters.')</result-string>
+    <result-string>xs:string(&quot;This text should contains no tabs or newline characters.&quot;)</result-string>
     <result>
       <assert-string-value>This text should contains no tabs or newline characters.</assert-string-value>
     </result>
@@ -134,7 +134,7 @@ newline characters.&quot;)</test>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space(&quot;This	 text	 should	 contains
  no tabs or newline characters.&quot;)</test>
-    <result-string>xs:string('This text should contains no tabs or newline characters.')</result-string>
+    <result-string>xs:string(&quot;This text should contains no tabs or newline characters.&quot;)</result-string>
     <result>
       <assert-string-value>This text should contains no tabs or newline characters.</assert-string-value>
     </result>
@@ -268,7 +268,7 @@ newline characters.&quot;)</test>
     <description> Evaluation of fn-normalize-space function with argument string containing tabs and numerical characters. Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space(&quot;	12345&quot;)</test>
-    <result-string>xs:string('12345')</result-string>
+    <result-string>xs:string(&quot;12345&quot;)</result-string>
     <result>
       <assert-string-value>12345</assert-string-value>
     </result>
@@ -277,7 +277,7 @@ newline characters.&quot;)</test>
     <description> Evaluation of fn-normalize-space function with argument referencing fn:string function. </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space(fn:string(&quot; ABC &quot;))</test>
-    <result-string>xs:string('ABC')</result-string>
+    <result-string>xs:string(&quot;ABC&quot;)</result-string>
     <result>
       <assert-string-value>ABC</assert-string-value>
     </result>
@@ -286,7 +286,7 @@ newline characters.&quot;)</test>
     <description> Evaluation of fn-normalize-space function with argument set to another fn:normalize-space function. </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space(fn:normalize-space(&quot; ABC&quot;))</test>
-    <result-string>xs:string('ABC')</result-string>
+    <result-string>xs:string(&quot;ABC&quot;)</result-string>
     <result>
       <assert-string-value>ABC</assert-string-value>
     </result>
@@ -297,7 +297,7 @@ newline characters.&quot;)</test>
     <environment ref="qname"/>
     <dependency type="feature" value="schemaValidation"/>
     <test>/*/normalize-space()</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;ns:barns:bar2ns:barDerivurn1test1test2&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;ns:barns:bar2ns:barDerivurn1test1test2&quot;</assert-eq>
     </result>
@@ -363,7 +363,7 @@ newline characters.&quot;)</test>
     <description> A test whose essence is: `normalize-space(&quot;foo&quot;) eq &quot;foo&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-space(&quot;foo&quot;) eq &quot;foo&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -372,7 +372,7 @@ newline characters.&quot;)</test>
     <description> A test whose essence is: `normalize-space(&quot; foo&quot;) eq &quot;foo&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-space(&quot; foo&quot;) eq &quot;foo&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -381,7 +381,7 @@ newline characters.&quot;)</test>
     <description> A test whose essence is: `normalize-space(&quot;foo &quot;) eq &quot;foo&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-space(&quot;foo &quot;) eq &quot;foo&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -390,7 +390,7 @@ newline characters.&quot;)</test>
     <description> A test whose essence is: `normalize-space(()) eq &quot;&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-space(()) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -399,7 +399,7 @@ newline characters.&quot;)</test>
     <description> A test whose essence is: `normalize-space(&quot;f o o &quot;) eq &quot;f o o&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-space(&quot;f o o &quot;) eq &quot;f o o&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -408,7 +408,7 @@ newline characters.&quot;)</test>
     <description> A test whose essence is: `normalize-space(&quot; 143 1239 fhjkls &quot;) eq &quot;143 1239 fhjkls&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-space(&quot; 143 1239 fhjkls &quot;) eq &quot;143 1239 fhjkls&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

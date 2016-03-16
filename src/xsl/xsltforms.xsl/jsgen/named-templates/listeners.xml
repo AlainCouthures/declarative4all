@@ -20,7 +20,7 @@
 		</xsl:choose>
 	</xsl:variable>
 	<xsl:for-each select="node()">
-		<xsl:if test="namespace-uri() = 'http://www.w3.org/2002/xforms' and contains(':setvalue:split:insert:load:delete:action:toggle:send:setfocus:setnode:dispatch:message:show:hide:script:unload:',concat(':',local-name(),':'))">
+		<xsl:if test="namespace-uri() = 'http://www.w3.org/2002/xforms' and contains(':setvalue:split:insert:load:delete:action:toggle:send:setfocus:setnode:dispatch:message:show:hide:script:unload:wrap:',concat(':',local-name(),':'))">
 			<js xmlns="">
 				<xsl:text>new XsltForms_listener(</xsl:text>
 				<xsl:value-of select="$vn_subform"/>

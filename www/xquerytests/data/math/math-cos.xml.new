@@ -8,7 +8,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:cos(())</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -18,7 +18,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:cos(0)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;1.0e0&quot;)</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
@@ -28,7 +28,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:cos(-0.0e0)</test>
-    <result-string/>
+    <result-string>xs:double(&quot;1.0e0&quot;)</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
@@ -58,7 +58,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:cos(math:pi())</test>
-    <result-string/>
+    <result-string>xs:double(&quot;-1.0e0&quot;)</result-string>
     <result>
       <assert-eq>-1.0e0</assert-eq>
     </result>
@@ -68,7 +68,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:cos(xs:double('NaN'))</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -78,7 +78,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:cos(xs:double('INF'))</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -88,7 +88,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:cos(xs:double('-INF'))</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>

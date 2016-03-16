@@ -7,7 +7,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword and addition expression. Returns false </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>some $x in (1, 2) satisfies $x + $x = 3</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -16,7 +16,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword and addition expression. Returns true </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>some $x in (1, 2) satisfies $x + $x = 2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -25,7 +25,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword and a subtraction expression. Returns false </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>some $x in (1, 2) satisfies $x - 2 = 2</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -34,7 +34,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword and a subtraction expression. Returns true </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>some $x in (1, 2) satisfies $x - 2 = 0</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -43,7 +43,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword and a multiplication expression. </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>some $x in (1, 2) satisfies $x * 2 = 4</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -52,7 +52,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword and a division expression. </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>some $x in (1, 2) satisfies $x div 2 = 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -61,7 +61,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword and a division (idiv) expression. </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>some $x in (1, 2) satisfies $x idiv 2 = 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -70,7 +70,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword and usage of avg function expression. </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>some $x in (1, 2) satisfies fn:avg(($x, 1)) = 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -79,7 +79,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword and usage of string function expression. </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>some $x in (1, 2) satisfies fn:string($x) = &quot;1&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -88,7 +88,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword and usage of string-length function expression. </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>some $x in (1, 2) satisfies fn:string-length(xs:string($x)) = 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -97,7 +97,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword and usage of &quot;fn:count&quot; function expression. </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>some $x in (1, 2) satisfies fn:count(($x)) = 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -106,7 +106,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword and usage of &quot;fn:true&quot; function expression. </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>some $x in (1, 2) satisfies fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -115,7 +115,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword and usage of &quot;fn:false&quot; function expression. </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>some $x in (1, 2) satisfies fn:false()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -124,7 +124,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword and usage of &quot;fn:not&quot; function expression. </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>some $x in (1, 2) satisfies fn:not($x)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -133,7 +133,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword and use of lofical expression (or). </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>some $x in (1, 2) satisfies $x = 1 or $x = 2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -142,7 +142,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword and use of lofical expression (and). </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>some $x in (1, 2) satisfies $x = 1 and ($x +1) = 2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -151,7 +151,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword and and use of string data. </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>some $x in (&quot;A&quot;,&quot;B&quot;,&quot;C&quot;) satisfies $x = &quot;A&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -160,7 +160,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword with multiple variables and addition expression </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>some $x in (1,2,3), $y in (4,5,6) satisfies $x + $y = 5</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -169,7 +169,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword with multiple variables and subtraction expression </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>some $x in (1,2,3), $y in (4,5,6) satisfies $x - $y = 5</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -178,7 +178,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword with multiple variables and multiplication expression </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>some $x in (1,2,3), $y in (4,5,6) satisfies $x * $y = 10</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -187,7 +187,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword with multiple variables and division (div) operation. </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>some $x in (1,2,3), $y in (4,5,6) satisfies $x div $y = 2</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -196,7 +196,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword with multiple variables and division (idiv) operation. </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>some $x in (1,2,3), $y in (4,5,6) satisfies $x idiv $y = 2</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -205,7 +205,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword with multiple variables, and string function. </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>some $x in (1,2,3), $y in (4,5,6) satisfies fn:string($x) = fn:string($y)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -214,7 +214,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword, use of multiple variable and the xs:integer type </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>some $x in (1,2,3), $y in (4,5,6) satisfies xs:integer($x) = xs:integer($y)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -223,7 +223,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword, use of multiple variable and the xs:decimal type </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>some $x in (1,2,3), $y in (4,5,6) satisfies xs:decimal($x) = xs:decimal($y)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -232,7 +232,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword, use of multiple variable and the xs:float type </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>some $x in (1,2,3), $y in (4,5,6) satisfies xs:float($x) = xs:float($y)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -241,7 +241,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword, use of multiple variable and the xs:double type </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>some $x in (1,2,3), $y in (4,5,6) satisfies xs:double($x) = xs:double($y)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -250,7 +250,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword, use of multiple variable and the xs:boolean type </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>some $x in (&quot;true&quot;, &quot;false&quot;), $y in (&quot;false&quot;,&quot;true&quot;) satisfies xs:boolean($x) = xs:boolean($y)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -259,7 +259,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword, use of multiple variable and the xs:dateTime type </description>
     <created by="Carmelo Montanez" on="2005-08-22"/>
     <test>some $x in (&quot;1980-05-05T13:13:13Z&quot;, &quot;1980-05-05T13:13:13Z&quot;), $y in (&quot;1980-05-05T13:13:13Z&quot;,&quot;1980-05-05T13:13:13Z&quot;) satisfies xs:dateTime($x) = xs:dateTime($y)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -268,7 +268,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword, use of multiple variable and the xs:date type </description>
     <created by="Carmelo Montanez" on="2005-08-22"/>
     <test>some $x in (&quot;1985-07-05Z&quot;, &quot;1985-07-05Z&quot;), $y in (&quot;1985-07-05Z&quot;,&quot;1985-07-05Z&quot;) satisfies xs:date($x) = xs:date($y)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -277,7 +277,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword and addition expression. Returns false </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>every $x in (1, 2) satisfies $x + $x = 3</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -286,7 +286,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword and addition expression. Returns true </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>every $x in (1, 1) satisfies $x + $x = 2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -295,7 +295,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword and a subtraction expression. Returns false </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>every $x in (1, 2) satisfies $x - 2 = 2</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -304,7 +304,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword and a subtraction expression. Returns true </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>every $x in (2, 2) satisfies $x - 2 = 0</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -313,7 +313,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword and a multiplication expression. </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>every $x in (1, 2) satisfies $x * 2 = 4</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -322,7 +322,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword and a division expression. </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>every $x in (1, 2) satisfies $x div 2 = 1</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -331,7 +331,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword and a division (idiv) expression. </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>every $x in (1, 2) satisfies $x idiv 2 = 1</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -340,7 +340,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword and usage of avg function expression. </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>every $x in (1, 2) satisfies fn:avg(($x, 1)) = 1</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -349,7 +349,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword and usage of string function expression. </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>every $x in (1, 2) satisfies fn:string($x) = &quot;1&quot;</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -358,7 +358,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword and usage of string-length function expression. </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>every $x in (1, 2) satisfies fn:string-length(xs:string($x)) = 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -367,7 +367,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword and usage of &quot;fn:count&quot; function expression. </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>every $x in (1, 2) satisfies fn:count(($x)) = 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -376,7 +376,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword and usage of &quot;fn:true&quot; function expression. </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>every $x in (1, 2) satisfies fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -385,7 +385,7 @@
     <description> Simple quantified expression using &quot;some&quot; keyword and usage of &quot;fn:false&quot; function expression. </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>some $x in (1, 2) satisfies fn:false()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -394,7 +394,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword and usage of &quot;fn:not&quot; function expression. </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>every $x in (1, 2) satisfies fn:not($x)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -403,7 +403,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword and use of lofical expression (or). </description>
     <created by="Carmelo Montanez" on="2005-08-18"/>
     <test>every $x in (1, 2) satisfies $x = 1 or $x = 2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -412,7 +412,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword and use of lofical expression (and). </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>every $x in (1, 2) satisfies $x = 1 and ($x +1) = 2</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -421,7 +421,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword and and use of string data. </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>every $x in (&quot;A&quot;,&quot;B&quot;,&quot;C&quot;) satisfies $x = &quot;A&quot;</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -430,7 +430,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword with multiple variables and addition expression </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>every $x in (1,2,3), $y in (4,5,6) satisfies $x + $y = 5</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -439,7 +439,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword with multiple variables and subtraction expression </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>every $x in (1,2,3), $y in (4,5,6) satisfies $x - $y = 5</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -448,7 +448,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword with multiple variables and multiplication expression </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>every $x in (1,2,3), $y in (4,5,6) satisfies $x * $y = 10</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -457,7 +457,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword with multiple variables and division (div) operation. </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>every $x in (1,2,3), $y in (4,5,6) satisfies $x div $y = 2</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -466,7 +466,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword with multiple variables and division (idiv) operation. </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>every $x in (1,2,3), $y in (4,5,6) satisfies $x idiv $y = 2</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -475,7 +475,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword with multiple variables, and string function. </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>every $x in (1,2,3), $y in (4,5,6) satisfies fn:string($x) = fn:string($y)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -484,7 +484,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword, use of multiple variable and the xs:integer type </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>every $x in (1,2,3), $y in (4,5,6) satisfies xs:integer($x) = xs:integer($y)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -493,7 +493,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword, use of multiple variable and the xs:decimal type </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>every $x in (1,2,3), $y in (4,5,6) satisfies xs:decimal($x) = xs:decimal($y)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -502,7 +502,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword, use of multiple variable and the xs:float type </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>every $x in (1,2,3), $y in (4,5,6) satisfies xs:float($x) = xs:float($y)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -511,7 +511,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword, use of multiple variable and the xs:double type </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>every $x in (1,2,3), $y in (4,5,6) satisfies xs:double($x) = xs:double($y)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -520,7 +520,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword, use of multiple variable and the xs:boolean type </description>
     <created by="Carmelo Montanez" on="2005-08-19"/>
     <test>every $x in (&quot;true&quot;, &quot;false&quot;), $y in (&quot;false&quot;,&quot;true&quot;) satisfies xs:boolean($x) = xs:boolean($y)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -529,7 +529,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword, use of multiple variable and the xs:dateTime type </description>
     <created by="Carmelo Montanez" on="2005-08-22"/>
     <test>every $x in (&quot;1980-05-05T13:13:13Z&quot;, &quot;1980-05-05T13:13:13Z&quot;), $y in (&quot;1980-05-05T13:13:13Z&quot;,&quot;1980-05-05T13:13:13Z&quot;) satisfies xs:dateTime($x) = xs:dateTime($y)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -538,7 +538,7 @@
     <description> Simple quantified expression using &quot;every&quot; keyword, use of multiple variable and the xs:date type </description>
     <created by="Carmelo Montanez" on="2005-08-22"/>
     <test>every $x in (&quot;1985-07-05Z&quot;, &quot;1985-07-05Z&quot;), $y in (&quot;1985-07-05Z&quot;,&quot;1985-07-05Z&quot;) satisfies xs:date($x) = xs:date($y)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -548,7 +548,7 @@
     <created by="Carmelo Montanez" on="2006-05-23"/>
     <dependency type="spec" value="XQ10+"/>
     <test>some $x as xs:integer in (1, 2, 3) , $y as xs:integer in (2, 3, 4) satisfies $x + $y = 4</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -558,7 +558,7 @@
     <created by="Carmelo Montanez" on="2006-05-23"/>
     <dependency type="spec" value="XQ10+"/>
     <test>some $x as xs:string in (&quot;cat&quot;,&quot;dog&quot;,&quot;rat&quot;) satisfies fn:string-length($x) = 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -568,7 +568,7 @@
     <created by="Carmelo Montanez" on="2006-05-23"/>
     <dependency type="spec" value="XQ10+"/>
     <test>every $x as xs:string in (&quot;cat&quot;,&quot;dog&quot;,&quot;rat&quot;) satisfies fn:string-length($x) = 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -578,7 +578,7 @@
     <created by="Carmelo Montanez" on="2006-05-23"/>
     <dependency type="spec" value="XQ10+"/>
     <test>every $x as xs:string in (&quot;cat&quot;,&quot;dog&quot;,&quot;rat&quot;), $y as xs:integer in (3, 3, 3) satisfies fn:string-length($x) = $y</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -588,7 +588,7 @@
     <created by="Carmelo Montanez" on="2006-05-23"/>
     <dependency type="spec" value="XQ10+"/>
     <test>some $x as xs:integer in (1, 2, 3), $y as xs:float in (xs:float(2), xs:float(3)) satisfies $x + $y = 5</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -633,7 +633,7 @@
     <description> A some-quantification applied on fn:count(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>some $i in (0, 2, 3) satisfies count($i)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -642,7 +642,7 @@
     <description> A some-quantification applied on fn:count(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>every $i in (1, 2, 3) satisfies count($i)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -651,7 +651,7 @@
     <description> some-quantification combined with fn:boolean(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>some $i in subsequence((0, 1, 2, current-time()), 1, 3) satisfies boolean($i treat as xs:integer)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -660,7 +660,7 @@
     <description> every-quantification combined with fn:boolean(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>every $i in subsequence((1, 2, 3, current-time()), 1, 3) satisfies boolean($i treat as xs:integer)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -669,7 +669,7 @@
     <description> every-quantification combined with empty variable binding. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>every $i in () satisfies $i</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -678,7 +678,7 @@
     <description> some-quantification combined with empty variable binding. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(some $i in () satisfies $i)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -687,7 +687,7 @@
     <description> A test whose essence is: `some $foo in 1 satisfies true()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>some $foo in 1 satisfies true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -696,7 +696,7 @@
     <description> A test whose essence is: `every $foo in 1 satisfies true()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>every $foo in 1 satisfies true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -705,7 +705,7 @@
     <description> A test whose essence is: `not(some $foo in 1 satisfies false())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(some $foo in 1 satisfies false())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -714,7 +714,7 @@
     <description> A test whose essence is: `not(every $foo in 1 satisfies false())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(every $foo in 1 satisfies false())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -723,7 +723,7 @@
     <description> A test whose essence is: `some $foo in 1 satisfies 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>some $foo in 1 satisfies 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -732,7 +732,7 @@
     <description> A test whose essence is: `every $foo in 1 satisfies 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>every $foo in 1 satisfies 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -741,7 +741,7 @@
     <description> A test whose essence is: `some $foo in 1 satisfies &quot;a string&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>some $foo in 1 satisfies &quot;a string&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -750,7 +750,7 @@
     <description> A test whose essence is: `every $foo in 1 satisfies &quot;a string&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>every $foo in 1 satisfies &quot;a string&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -759,7 +759,7 @@
     <description> A test whose essence is: `every $var in (true(), true(), true()) satisfies $var`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>every $var in (true(), true(), true()) satisfies $var</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -768,7 +768,7 @@
     <description> A test whose essence is: `not(every $var in (true(), false(), true()) satisfies $var)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(every $var in (true(), false(), true()) satisfies $var)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -777,7 +777,7 @@
     <description> A test whose essence is: `not(every $var in (false(), true(), true()) satisfies $var)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(every $var in (false(), true(), true()) satisfies $var)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -786,7 +786,7 @@
     <description> A test whose essence is: `not(every $var in (true(), true(), false()) satisfies $var)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(every $var in (true(), true(), false()) satisfies $var)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -795,7 +795,7 @@
     <description> A test whose essence is: `some $var in (true(), true(), true()) satisfies $var`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>some $var in (true(), true(), true()) satisfies $var</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -804,7 +804,7 @@
     <description> A test whose essence is: `some $var in (true(), false(), true()) satisfies $var`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>some $var in (true(), false(), true()) satisfies $var</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -813,7 +813,7 @@
     <description> A test whose essence is: `some $var in (false(), true(), true()) satisfies $var`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>some $var in (false(), true(), true()) satisfies $var</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -822,7 +822,7 @@
     <description> A test whose essence is: `some $var in (true(), true(), false()) satisfies $var`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>some $var in (true(), true(), false()) satisfies $var</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -831,7 +831,7 @@
     <description> A test whose essence is: `not(some $var in (false(), false(), false()) satisfies $var)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(some $var in (false(), false(), false()) satisfies $var)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -897,7 +897,7 @@
     <description> A test whose essence is: `not(every $var in (false(), true(), true()) satisfies $var)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(every $var in (false(), true(), true()) satisfies $var)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -906,7 +906,7 @@
     <description> A test whose essence is: `not(every $var in (true(), false(), true()) satisfies $var)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(every $var in (true(), false(), true()) satisfies $var)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -915,7 +915,7 @@
     <description> A test whose essence is: `not(every $var in (true(), true(), false()) satisfies $var)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(every $var in (true(), true(), false()) satisfies $var)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -924,7 +924,7 @@
     <description> A test whose essence is: `some $var in (true(), true(), true()) satisfies $var`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>some $var in (true(), true(), true()) satisfies $var</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -933,7 +933,7 @@
     <description> A test whose essence is: `some $var in (true(), false(), true()) satisfies $var`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>some $var in (true(), false(), true()) satisfies $var</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -942,7 +942,7 @@
     <description> A test whose essence is: `some $var in (false(), true(), true()) satisfies $var`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>some $var in (false(), true(), true()) satisfies $var</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -951,7 +951,7 @@
     <description> A test whose essence is: `some $var in (true(), true(), false()) satisfies $var`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>some $var in (true(), true(), false()) satisfies $var</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -960,7 +960,7 @@
     <description> A test whose essence is: `not(some $var in (false(), false(), false()) satisfies $var)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(some $var in (false(), false(), false()) satisfies $var)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -972,7 +972,7 @@
     <test>
         declare variable $i := false(); 
         some $i in (true(), true(), true()) satisfies $i</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -985,7 +985,7 @@
         declare variable $i := false(); 
         declare variable $t := false(); 
         some $i in (true(), true()), $t in (true(), true()) satisfies $i eq $t</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -998,7 +998,7 @@
         declare variable $i := false(); 
         declare variable $t := false(); 
         some $i in (true(), true()), $t in (true(), true()) satisfies ($i eq $t)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1010,7 +1010,7 @@
     <test>
         declare variable $i := false(); 
         every $i in (true(), true()) satisfies $i</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1019,7 +1019,7 @@
     <description> A test whose essence is: `some $var in (1, 2, 3) satisfies $var eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>some $var in (1, 2, 3) satisfies $var eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1028,7 +1028,7 @@
     <description> A test whose essence is: `not(every $var in (1, 2, 3) satisfies $var eq 3)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(every $var in (1, 2, 3) satisfies $var eq 3)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1037,7 +1037,7 @@
     <description> A test whose essence is: `every $var in (1, 2, 3) satisfies $var eq 1 or $var eq 2 or $var eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>every $var in (1, 2, 3) satisfies $var eq 1 or $var eq 2 or $var eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1046,7 +1046,7 @@
     <description> A test whose essence is: `some $var in (1, 2, 3) satisfies $var eq 1 or $var eq 2 or $var eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>some $var in (1, 2, 3) satisfies $var eq 1 or $var eq 2 or $var eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1055,7 +1055,7 @@
     <description> A test whose essence is: `some $aaa in (1, 2, 3), $bbb in (3, 2, 1) satisfies $aaa + $bbb eq 4`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>some $aaa in (1, 2, 3), $bbb in (3, 2, 1) satisfies $aaa + $bbb eq 4</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1064,7 +1064,7 @@
     <description> A test whose essence is: `every $aaa in (3, 3, 3), $bbb in (3, 3, 3) satisfies $aaa + $bbb eq 6`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>every $aaa in (3, 3, 3), $bbb in (3, 3, 3) satisfies $aaa + $bbb eq 6</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1073,7 +1073,7 @@
     <description> A test whose essence is: `not(every $var in (1, 2, 3) satisfies $var eq 3)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(every $var in (1, 2, 3) satisfies $var eq 3)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1082,7 +1082,7 @@
     <description> A test whose essence is: `some $var in (1, 2, 3) satisfies $var eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>some $var in (1, 2, 3) satisfies $var eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1091,7 +1091,7 @@
     <description> A test whose essence is: `true() eq (some $a in 1 satisfies $a)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>true() eq (some $a in 1 satisfies $a)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1100,7 +1100,7 @@
     <description> A test whose essence is: `true() eq (every $a in 1 satisfies $a)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>true() eq (every $a in 1 satisfies $a)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1109,7 +1109,7 @@
     <description> A test whose essence is: `true() eq (some $fn:name in (1, 2) satisfies $fn:name)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>true() eq (some $fn:name in (1, 2) satisfies $fn:name)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1118,7 +1118,7 @@
     <description> A test whose essence is: `true() eq (some $xs:name in (1, 2) satisfies $xs:name)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>true() eq (some $xs:name in (1, 2) satisfies $xs:name)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1127,7 +1127,7 @@
     <description> A test whose essence is: `true() eq (every $fn:name in (1, 2) satisfies $fn:name)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>true() eq (every $fn:name in (1, 2) satisfies $fn:name)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1136,7 +1136,7 @@
     <description> A test whose essence is: `true() eq (every $xs:name in (1, 2) satisfies $xs:name)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>true() eq (every $xs:name in (1, 2) satisfies $xs:name)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1406,7 +1406,7 @@
     <description> Nested variable bindings can reference each other. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>every $a in (1, 2, 3), $b in ($a, 4) satisfies $b gt 0</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1415,7 +1415,7 @@
     <description> Nested variable bindings can reference each other. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>some $a in (1, 2, 3), $b in ($a, 4) satisfies $b gt 0</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1424,7 +1424,7 @@
     <description> Nested variable bindings can reference each other. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>every $a in (1, 2), $b in $a satisfies $b</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1433,7 +1433,7 @@
     <description> Nested variable bindings can reference each other. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>some $a in (1, 2), $b in $a satisfies $b</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1442,7 +1442,7 @@
     <description> Nested variable bindings can reference each other. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((for $a in 1, $b in $a, $c in $a, $d in $c return ($a, $b, $c, $d)), (1, 1, 1, 1))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1526,7 +1526,7 @@
     <test>
       <![CDATA[<people id=""/>/(some $id in @id satisfies true())]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1547,7 +1547,7 @@
     <test>
       <![CDATA[<e/>/(some $v in self::node() satisfies $v)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1559,7 +1559,7 @@
     <test>
       <![CDATA[<e/>/(every $v in self::node() satisfies $v)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1571,7 +1571,7 @@
     <test>
       <![CDATA[<e/>/(every $b in 1, $v in self::node() satisfies $v)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1583,7 +1583,7 @@
     <test>
       <![CDATA[<e/>/(some $b in 1, $v in self::node() satisfies $v)]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1595,7 +1595,7 @@
     <test>
       <![CDATA[let $firstSeq := (<a/>, <b/>, <e><c/></e>) let $secondSeq := (<a attr=""/>, <b>text</b>, <e><c/></e>) return some $i in $firstSeq satisfies $secondSeq[deep-equal(.,$i)]]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1605,7 +1605,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>every $a as item()* in (1, 2), $b as item()* in $a satisfies $b</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1615,7 +1615,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>some $a as item()* in (1, 2), $b as item()* in $a satisfies $b</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1625,7 +1625,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>every $a as item()? in (1, 2), $b as item()? in $a satisfies $b</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1635,7 +1635,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>some $a as item()? in (1, 2), $b as item()? in $a satisfies $b</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1645,7 +1645,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>every $a as item()+ in (1, 2), $b as item()+ in $a satisfies $b</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1655,7 +1655,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>some $a as item()+ in (1, 2), $b as item()+ in $a satisfies $b</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1765,7 +1765,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>every $a as xs:integer+ in (1, 2), $b as xs:integer in $a satisfies $b</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1775,7 +1775,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>every $a as item()* in (1, 2), $b as xs:integer in $a satisfies $b</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1831,7 +1831,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>every $a as xs:integer in (1, 2), $b as xs:integer in $a satisfies $b</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1841,7 +1841,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>some $a as xs:integer in (1, 2), $b as xs:integer in $a satisfies $b</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1850,7 +1850,7 @@
     <description> Test optimization when the domain may be empty and return type is a value </description>
     <created by="Nick Jones" on="2008-06-05"/>
     <test>every $x in (1 to 10)[. div 2 = 11] satisfies false()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -1859,7 +1859,7 @@
     <description> Test optimization where the domain may be empty and the return type a value </description>
     <created by="Nick Jones" on="2008-06-05"/>
     <test>some $x in (1 to 10)[. div 2 = 11] satisfies true()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -1868,7 +1868,7 @@
     <description> Tests optimization of every $x in .... satisfies true() </description>
     <created by="Nick Jones" on="2008-06-20"/>
     <test>every $x in (1 to 10)[. mod 2 = 0] satisfies true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

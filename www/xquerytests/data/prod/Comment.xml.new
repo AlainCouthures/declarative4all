@@ -190,7 +190,7 @@ if (:test (: yada (: neato :) :) :) (/fs:MyComputer)
 	then (: yada :) &quot;true&quot;
 	else &quot;false&quot;
 </test>
-    <result-string>xs:string('true')</result-string>
+    <result-string>xs:string(&quot;true&quot;)</result-string>
     <result>
       <assert-string-value>true</assert-string-value>
     </result>
@@ -210,7 +210,7 @@ else (: this is the else case :) ( false() )
 
 ]]>
     </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -229,7 +229,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
 	else &quot;false&quot;
 
 </test>
-    <result-string>xs:string('true')</result-string>
+    <result-string>xs:string(&quot;true&quot;)</result-string>
     <result>
       <assert-string-value>true</assert-string-value>
     </result>
@@ -262,7 +262,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
 (1, 2, (: comment :) 3, 4)
 
 </test>
-    <result-string>xs:string('1 2 3 4')</result-string>
+    <result-string>xs:string(&quot;1 2 3 4&quot;)</result-string>
     <result>
       <assert-string-value>1 2 3 4</assert-string-value>
     </result>
@@ -277,7 +277,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
 &quot;10&quot; cast as (: type comment :) xs:integer ?
 
 </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;10&quot;)</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
@@ -396,7 +396,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
 (: Purpose: A test whose essence is: `(3(: comment inbetween :)- 1) eq 2`. :)
 (:*******************************************************:)
 (3(: comment inbetween :)- 1) eq 2</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -411,7 +411,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
 (: Purpose: A test whose essence is: `1 (: a (: nested :) comment :) eq 1`. :)
 (:*******************************************************:)
 1 (: a (: nested :) comment :) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -426,7 +426,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
 (: Purpose: A test whose essence is: `1 (: comment (: inside :) comment :) eq 1`. :)
 (:*******************************************************:)
 1 (: comment (: inside :) comment :) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -442,7 +442,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
 (:*******************************************************:)
 &quot;reminds of a comment :)&quot; eq
 		    &quot;reminds of a comment :)&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -457,7 +457,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
 (: Purpose: A test whose essence is: `5 instance (: strange place for a comment :) of item()`. :)
 (:*******************************************************:)
 5 instance (: strange place for a comment :) of item()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -472,7 +472,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
 (: Purpose: A test whose essence is: `1 (: simple comment :) eq 1`. :)
 (:*******************************************************:)
 1 (: simple comment :) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -488,7 +488,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
 (:*******************************************************:)
 1 (: comment (: inside :)
 				NEW LINE comment :) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -519,7 +519,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
 (: Purpose: An empty comment inbetween the 'eq' operator and a number literal. :)
 (:*******************************************************:)
 1 eq (::)1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -534,7 +534,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
 (: Purpose: An empty comment at the very beginning of an expression. :)
 (:*******************************************************:)
 (::) 1 eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -549,7 +549,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
 (: Purpose: An empty comment after a function's paranteses. :)
 (:*******************************************************:)
 true()(::)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -564,7 +564,7 @@ true()(::)</test>
 (: Purpose: A for loop with a comment inbetween.         :)
 (:*******************************************************:)
 for (: set up loop :) $i in 3 return $i eq 3</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -639,7 +639,7 @@ if((: comment inbetween :)) then 1 else 1</test>
 (: Purpose: Colons and paranteses appearing freely in comment content. :)
 (:*******************************************************:)
 1(: ((( : )) ))ladl:  :(): ()()(dahsi ()()( dad: ) :) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -655,7 +655,7 @@ if((: comment inbetween :)) then 1 else 1</test>
 (:*******************************************************:)
 1(: (:one comment:) content (:another comment:) content (:a third:):)
 			   eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -670,7 +670,7 @@ if((: comment inbetween :)) then 1 else 1</test>
 (: Purpose: A test stressing many nested comments.       :)
 (:*******************************************************:)
 1(:(:(:(:(:(:(:(::):):):):):):):) eq 1</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

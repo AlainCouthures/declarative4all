@@ -15,7 +15,7 @@
     <description> Evaluation of an &quot;fn:codepoint-equal&quot; with arguments set to empty sequence </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal((),())</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluation of an &quot;fn:codepoint-equal&quot; with one argument set to empty sequence Use fn:count to avoid empty file. </description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>fn:codepoint-equal(&quot;abc&quot;,())</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluation of an &quot;fn:codepoint-equal&quot; with one argument set to empty sequence Use fn:count to avoid empty file. </description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>fn:codepoint-equal((), &quot;&quot;)</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluation of an &quot;fn:codepoint-equal&quot; with arguments set to zero length string. </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal(&quot;&quot;,&quot;&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluation of an &quot;fn:codepoint-equal&quot; with arguments set to same value &quot;a&quot;. </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal(&quot;a&quot;,&quot;a&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluation of an &quot;fn:codepoint-equal&quot; with arguments set to different values &quot;a&quot;, &quot;b&quot; respectively. </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal(&quot;a&quot;,&quot;b&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluation of an &quot;fn:codepoint-equal&quot; as argument to fn:not. Returns true </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:not(fn:codepoint-equal(&quot;a&quot;,&quot;b&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluation of an &quot;fn:codepoint-equal&quot; as argument to fn:not. Returns false </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:not(fn:codepoint-equal(&quot;a&quot;,&quot;a&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluation of an &quot;fn:codepoint-equal&quot; whose arguments use fn:string() for a number </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal(fn:string(1),fn:string(1))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluation of an &quot;fn:codepoint-equal&quot; whose arguments use fn:string() for a string. </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal(fn:string(&quot;aa&quot;),fn:string(&quot;aa&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluation of an &quot;fn:codepoint-equal&quot; with arguments set to &quot;aa&quot; and &quot;AA&quot; respectively. </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal(&quot;aa&quot;,&quot;AA&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluation of an &quot;fn:codepoint-equal&quot; with arguments set to &quot;aa&quot; and lower-case(&quot;AA&quot;) respectively. </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal(&quot;aa&quot;,fn:lower-case(&quot;AA&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluation of an &quot;fn:codepoint-equal&quot; with arguments set to &quot;aa&quot; and upper-case(&quot;aa&quot;) respectively. </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal(&quot;aa&quot;,fn:upper-case(&quot;aa&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluation of an &quot;fn:codepoint-equal&quot; as an argument to xs:boolean. </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>xs:boolean(fn:codepoint-equal(&quot;aa&quot;,&quot;aa&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluation of an &quot;fn:codepoint-equal&quot; as part of boolean expression (&quot;and&quot; and fn:true()). </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal(&quot;aa&quot;,&quot;aa&quot;) and fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluation of an &quot;fn:codepoint-equal&quot; as part of boolean expression (&quot;and&quot; and fn:false()). </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal(&quot;aa&quot;,&quot;aa&quot;) and fn:false()</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluation of an &quot;fn:codepoint-equal&quot; as part of boolean expression (&quot;or&quot; and fn:true()). </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal(&quot;aa&quot;,&quot;aa&quot;) or fn:true()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -186,7 +186,7 @@
     <description> Evaluation of an &quot;fn:codepoint-equal&quot; as part of boolean expression (&quot;or&quot; and fn:false()). </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal(&quot;aa&quot;,&quot;aa&quot;) or fn:false()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -195,7 +195,7 @@
     <description> Evaluation of an &quot;fn:codepoint-equal&quot; as part of boolean expression involving two fn:codepoint-equal (&quot;and&quot; operator). </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal(&quot;aa&quot;,&quot;aa&quot;) and fn:codepoint-equal(&quot;aa&quot;,&quot;aa&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -204,7 +204,7 @@
     <description> Evaluation of an &quot;fn:codepoint-equal&quot; as part of boolean expression involving two fn:codepoint-equal (&quot;or&quot; operator). </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal(&quot;aa&quot;,&quot;aa&quot;) or fn:codepoint-equal(&quot;aa&quot;,&quot;aa&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -213,7 +213,7 @@
     <description> Different normalization forms of the same string are not codepoint-equal </description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>fn:codepoint-equal(normalize-unicode(&quot;garon&quot;, &quot;NFC&quot;), normalize-unicode(&quot;garon&quot;, &quot;NFD&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -224,7 +224,7 @@
     <test>codepoint-equal(lower-case(concat(&quot;B STRING&quot;, current-time())), 
                             lower-case(concat(&quot;b string&quot;, current-time())))
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -235,7 +235,7 @@
     <test>codepoint-equal(upper-case(concat(&quot;B STRING&quot;, current-time())), 
                             upper-case(concat(&quot;b string&quot;, current-time())))
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -245,7 +245,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoint-equal(lower-case(concat(&quot;B STRING&quot;, current-time())), 
                             lower-case(concat(&quot;no match&quot;, current-time())))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -256,7 +256,7 @@
     <test>codepoint-equal(upper-case(concat(&quot;B STRING&quot;, current-time())), 
                             upper-case(concat(&quot;no match&quot;, current-time())))
       </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -267,7 +267,7 @@
     <test>codepoint-equal(upper-case(concat(&quot;B STRING&quot;, current-time())), 
                             lower-case(concat(&quot;no match&quot;, current-time())))
       </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -278,7 +278,7 @@
     <test>codepoint-equal(lower-case(concat(&quot;B STRING&quot;, current-time())), 
                             upper-case(concat(&quot;no match&quot;, current-time())))
       </test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -289,7 +289,7 @@
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:yes-empty($arg as xs:boolean) as xs:string? { if ($arg) then 'yes' else () }; 
       empty(fn:codepoint-equal( local:yes-empty(fn:false()), local:yes-empty(fn:true()) ) )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -300,7 +300,7 @@
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:yes-empty($arg as xs:boolean) as xs:string? { if ($arg) then 'yes' else () }; 
       empty(fn:codepoint-equal( local:yes-empty(fn:true()), local:yes-empty(fn:false()) ) )</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -311,7 +311,7 @@
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:yes-no($arg as xs:boolean) as xs:string { if ($arg) then 'yes' else 'no' }; 
       fn:codepoint-equal( local:yes-no(fn:true()), local:yes-no(fn:false()) ) = false()</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -322,7 +322,7 @@
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:yes-empty($arg as xs:boolean) as xs:string? { if ($arg) then 'yes' else () }; 
       boolean(fn:codepoint-equal( local:yes-empty(fn:true()), local:yes-empty(fn:false()) ) )</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -333,7 +333,7 @@
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:yes-empty($arg as xs:boolean) as xs:string? { if ($arg) then 'yes' else () }; 
       boolean(fn:codepoint-equal( local:yes-empty(fn:false()), local:yes-empty(fn:true()) ) )</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -344,7 +344,7 @@
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:yes-no($arg as xs:boolean) as xs:string { if ($arg) then 'yes' else 'no' }; 
       fn:index-of( (fn:true(), fn:false()), fn:codepoint-equal( local:yes-no(fn:false()), local:yes-no(fn:true()) ) )</test>
-    <result-string>xs:string('2')</result-string>
+    <result-string>xs:string(&quot;2&quot;)</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>

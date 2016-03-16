@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;contains&quot; function with the arguments set as follows: $arg1 = xs:string(lower bound) $arg2 = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:contains(xs:string(&quot;This is a characte&quot;),xs:string(&quot;This is a characte&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;contains&quot; function with the arguments set as follows: $arg1 = xs:string(mid range) $arg2 = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:contains(xs:string(&quot;This is a characte&quot;),xs:string(&quot;This is a characte&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;contains&quot; function with the arguments set as follows: $arg1 = xs:string(upper bound) $arg2 = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:contains(xs:string(&quot;This is a characte&quot;),xs:string(&quot;This is a characte&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluates The &quot;contains&quot; function with the arguments set as follows: $arg1 = xs:string(lower bound) $arg2 = xs:string(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:contains(xs:string(&quot;This is a characte&quot;),xs:string(&quot;This is a characte&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluates The &quot;contains&quot; function with the arguments set as follows: $arg1 = xs:string(lower bound) $arg2 = xs:string(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:contains(xs:string(&quot;This is a characte&quot;),xs:string(&quot;This is a characte&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluates The &quot;contains&quot; function with the arguments set as follows: $arg1 = &quot;&quot; $arg2 = &quot;&quot; </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains(&quot;&quot;,&quot;&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluates The &quot;contains&quot; function with the arguments set as follows: $arg1 = &quot;&quot; $arg2 = &quot;A Character String&quot; </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains(&quot;&quot;,&quot;A Character String&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluates The &quot;contains&quot; function with the arguments set as follows: $arg1 = &quot;&quot; $arg2 = &quot;A Character String&quot; </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains(&quot;A Character String&quot;,&quot;&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluates The &quot;contains&quot; function with the arguments set as follows: $arg1 = () $arg2 = &quot;&quot; </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains((),&quot;&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluates The &quot;contains&quot; function with the arguments set as follows: $arg1 = &quot;&quot; $arg2 = () </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains(&quot;&quot;,())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluates The &quot;contains&quot; function with the arguments set as follows: $arg1 = &quot;A Character String&quot; $arg2 = () </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains(&quot;A Character String&quot;,())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluates The &quot;contains&quot; function with the arguments set as follows: $arg1 = () $arg2 = &quot;A Character String&quot; </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains((),&quot;A Character String&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluates The &quot;contains&quot; function with the arguments set as follows: $arg1 = &quot;AAAAABBBBBCCCCC&quot; $arg2 = &quot;BBBBB&quot; </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains(&quot;AAAAABBBBBCCCCC&quot;,&quot;BBBBB&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluates The &quot;contains&quot; function with the arguments set as follows: $arg1 = &quot;AAAAABBBBB&quot; $arg2 = &quot; &quot; </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains(&quot;AAAAABBBBB&quot;,&quot; &quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluates The &quot;contains&quot; function with the arguments set as follows: $arg1 = &quot; &quot; $arg2 = &quot; AAAAABBBBB&quot; </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains(&quot; &quot;,&quot;AAAAABBBBB&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluates The &quot;contains&quot; function using it as a argument of a fn:not - returns false </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:not(fn:contains(&quot;A&quot;,&quot;A&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluates The &quot;contains&quot; function using it as a argument of a fn:not - returns true </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:not(fn:contains(&quot;A&quot;,&quot;B&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluates The &quot;contains&quot; function with the arguments set as follows: $arg1 = xs:string(&quot;A&quot;) $arg2 = &quot;A&quot; </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains(xs:string(&quot;A&quot;),&quot;A&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluates The &quot;contains&quot; function with the arguments set as follows: $arg1 = &quot;A&quot; $arg2 = xs:string(&quot;A&quot;) </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains(&quot;A&quot;,xs:string(&quot;A&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluates The &quot;contains&quot; function with the arguments set as follows: $arg1 = &quot;A&quot; $arg2 = &quot;a&quot; </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains(&quot;A&quot;,&quot;a&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -186,7 +186,7 @@
     <description> Evaluates The &quot;contains&quot; function with the arguments set as follows: $arg1 = &quot;a&quot; $arg2 = &quot;A&quot; </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains(&quot;a&quot;,&quot;A&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -231,7 +231,7 @@
     <description> A test whose essence is: `contains(&quot;foo&quot;, &quot;foo&quot;, &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>contains(&quot;foo&quot;, &quot;foo&quot;, &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -240,7 +240,7 @@
     <description> A test whose essence is: `contains(&quot;tattoo&quot;, &quot;t&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>contains(&quot;tattoo&quot;, &quot;t&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -249,7 +249,7 @@
     <description> A test whose essence is: `not(contains(&quot;tattoo&quot;, &quot;ttt&quot;))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(contains(&quot;tattoo&quot;, &quot;ttt&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -258,7 +258,7 @@
     <description> A test whose essence is: `contains(&quot;&quot;, ())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>contains(&quot;&quot;, ())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -267,7 +267,7 @@
     <description> A test whose essence is: `contains(&quot;a string&quot;, ())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>contains(&quot;a string&quot;, ())</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -276,7 +276,7 @@
     <description> A test whose essence is: `contains(&quot;foo&quot;, &quot;foo&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>contains(&quot;foo&quot;, &quot;foo&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -285,7 +285,7 @@
     <description> A test whose essence is: `not(contains(&quot;&quot;, &quot;a string&quot;))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(contains(&quot;&quot;, &quot;a string&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -297,7 +297,7 @@
     <test>let $vA := (&quot;B STRING&quot;, current-time(), string(&quot;content&quot;))[1] treat as xs:string,
                 $vB  := (&quot;b string&quot;, current-time(), string(&quot;content&quot;))[1] treat as xs:string
          return contains(lower-case($vA), lower-case($vB))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -309,7 +309,7 @@
     <test>let $vA := (&quot;B STRING&quot;, current-time(), string(&quot;content&quot;))[1] treat as xs:string,
                 $vB := (&quot;b string&quot;, current-time(), string(&quot;content&quot;))[1] treat as xs:string
          return contains(upper-case($vA), upper-case($vB))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -321,7 +321,7 @@
     <test>let $vA  := (&quot;B STRING&quot;, current-time(), string(&quot;content&quot;))[1] treat as xs:string,
                 $vB := (&quot;no match&quot;, current-time(), string(&quot;content&quot;))[1] treat as xs:string
          return contains(lower-case($vA), lower-case($vB))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -333,7 +333,7 @@
     <test>let $vA := (&quot;B STRING&quot;, current-time(), string(&quot;content&quot;))[1] treat as xs:string,
                 $vB  := (&quot;no match&quot;, current-time(), string(&quot;content&quot;))[1] treat as xs:string
         return contains(upper-case($vA), upper-case($vB))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -345,7 +345,7 @@
     <test>let $vA := (&quot;B STRING&quot;, current-time(), string(&quot;content&quot;))[1] treat as xs:string,
                 $vB := (&quot;b string&quot;, current-time(), string(&quot;content&quot;))[1] treat as xs:string
          return contains(upper-case($vA), lower-case($vB))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -357,7 +357,7 @@
     <test>let $vA := (&quot;B STRING&quot;, current-time(), string(&quot;content&quot;))[1] treat as xs:string,
                 $vB := (&quot;b string&quot;, current-time(), string(&quot;content&quot;))[1] treat as xs:string
          return contains(lower-case($vA), upper-case($vB))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -366,7 +366,7 @@
     <description> test fn:contains with collation and $arg2 as empty string </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <test>fn:boolean(fn:contains('input', '', 'http://www.w3.org/2005/xpath-functions/collation/codepoint'))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -375,7 +375,7 @@
     <description> test fn:contains with collation and $arg1 as empty string Author: Tim Mills </description>
     <created by="Oliver Hallam" on="2008-04-11"/>
     <test>fn:boolean(fn:contains('', 'empty', 'http://www.w3.org/2005/xpath-functions/collation/codepoint'))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -384,7 +384,7 @@
     <description> test evaluation of fn:contains to exactly one item Author: Tim Mills </description>
     <created by="Oliver Hallam" on="2008-04-11"/>
     <test>fn:index-of( ( fn:true(), fn:false()), fn:contains('input', 'in', 'http://www.w3.org/2005/xpath-functions/collation/codepoint'))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>

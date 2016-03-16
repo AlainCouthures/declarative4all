@@ -23,7 +23,7 @@
     <dependency type="feature" value="higherOrderFunctions"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:exists(environment-variable#1)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -37,7 +37,7 @@
     <test>not(fn:empty(fn:function-lookup(
 	  fn:QName('http://www.w3.org/2005/xpath-functions',
 	  'environment-variable') , 1)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -78,7 +78,7 @@
     <test>let $all := fn:available-environment-variables()
 	  return empty($all) or ($all = &quot;QTTEST&quot; and fn:environment-variable(&quot;QTTEST&quot;) eq &quot;42&quot;)
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -95,7 +95,7 @@
 	       and (fn:environment-variable(&quot;QTTEST2&quot;) eq &quot;other&quot;)
 	       and (not(&quot;other&quot; eq &quot;42&quot;)))
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -107,7 +107,7 @@
     <test>let $all := fn:available-environment-variables()
 	  return empty($all) or ($all = &quot;QTTESTEMPTY&quot; and fn:environment-variable(&quot;QTTESTEMPTY&quot;) eq &quot;&quot;)
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -171,7 +171,7 @@
 	) 
 	return empty(fn:environment-variable($var))
       </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

@@ -7,7 +7,7 @@
     <description> Conditional and typeswitch expressions must not raise a dynamic error in respect of subexpressions occurring in a branch that is not selected </description>
     <created by="Jonathan Robie" on="2010-02-18"/>
     <test>if (true()) then 1 else error(QName('http://www.example.com/errors', 'err:oops'), &quot;Oops, this error should not be raised!&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -28,7 +28,7 @@
     <test>
       <![CDATA[count( let $N := <n x="this ain't no date"/> return $N[if (@x castable as xs:date) then xs:date(@x) gt xs:date("2000-01-01") else false()] )]]>
     </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>

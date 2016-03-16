@@ -7,7 +7,7 @@
     <description>Collation of empty map</description>
     <created by="Michael Kay, Saxonica" on="2011-03-29"/>
     <test>map:collation(map{})</test>
-    <result-string>xs:string('http://www.w3.org/2005/xpath-functions/collation/codepoint')</result-string>
+    <result-string>xs:string(&quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;)</result-string>
     <result>
       <assert-string-value>http://www.w3.org/2005/xpath-functions/collation/codepoint</assert-string-value>
     </result>
@@ -16,7 +16,7 @@
     <description>Collation of empty map</description>
     <created by="Michael Kay, Saxonica" on="2011-03-29"/>
     <test>map:collation(map:new(()))</test>
-    <result-string>xs:string('http://www.w3.org/2005/xpath-functions/collation/codepoint')</result-string>
+    <result-string>xs:string(&quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;)</result-string>
     <result>
       <assert-string-value>http://www.w3.org/2005/xpath-functions/collation/codepoint</assert-string-value>
     </result>
@@ -25,7 +25,7 @@
     <description>Collation of singleton map</description>
     <created by="Michael Kay, Saxonica" on="2011-03-29"/>
     <test>map:collation(map:new(map:entry(&quot;a&quot;,&quot;x&quot;)))</test>
-    <result-string>xs:string('http://www.w3.org/2005/xpath-functions/collation/codepoint')</result-string>
+    <result-string>xs:string(&quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;)</result-string>
     <result>
       <assert-string-value>http://www.w3.org/2005/xpath-functions/collation/codepoint</assert-string-value>
     </result>
@@ -34,7 +34,7 @@
     <description>Collation of singleton map</description>
     <created by="Michael Kay, Saxonica" on="2011-03-29"/>
     <test>map:collation(map:entry(&quot;a&quot;,&quot;x&quot;))</test>
-    <result-string>xs:string('http://www.w3.org/2005/xpath-functions/collation/codepoint')</result-string>
+    <result-string>xs:string(&quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;)</result-string>
     <result>
       <assert-string-value>http://www.w3.org/2005/xpath-functions/collation/codepoint</assert-string-value>
     </result>
@@ -43,7 +43,7 @@
     <description>Collation of 2-entry map</description>
     <created by="Michael Kay, Saxonica" on="2011-03-29"/>
     <test>map:collation(map{&quot;a&quot;:=1,&quot;b&quot;:=2})</test>
-    <result-string>xs:string('http://www.w3.org/2005/xpath-functions/collation/codepoint')</result-string>
+    <result-string>xs:string(&quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;)</result-string>
     <result>
       <assert-string-value>http://www.w3.org/2005/xpath-functions/collation/codepoint</assert-string-value>
     </result>
@@ -52,7 +52,7 @@
     <description>Collation of 2-entry map</description>
     <created by="Michael Kay, Saxonica" on="2011-03-29"/>
     <test>map:collation(map:new((map:entry(&quot;a&quot;,&quot;x&quot;),map:entry(&quot;b&quot;,&quot;y&quot;))))</test>
-    <result-string>xs:string('http://www.w3.org/2005/xpath-functions/collation/codepoint')</result-string>
+    <result-string>xs:string(&quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;)</result-string>
     <result>
       <assert-string-value>http://www.w3.org/2005/xpath-functions/collation/codepoint</assert-string-value>
     </result>
@@ -61,7 +61,7 @@
     <description>Collation of empty map given explicitly</description>
     <created by="Michael Kay, Saxonica" on="2011-03-29"/>
     <test>map:collation(map:new((), &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;))</test>
-    <result-string>xs:string('http://www.w3.org/2005/xpath-functions/collation/codepoint')</result-string>
+    <result-string>xs:string(&quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;)</result-string>
     <result>
       <assert-string-value>http://www.w3.org/2005/xpath-functions/collation/codepoint</assert-string-value>
     </result>
@@ -70,7 +70,7 @@
     <description>Collation of non-empty map given explicitly</description>
     <created by="Michael Kay, Saxonica" on="2011-03-29"/>
     <test>map:collation(map:new(map{&quot;a&quot;:=1,&quot;b&quot;:=2}, &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;))</test>
-    <result-string>xs:string('http://www.w3.org/2005/xpath-functions/collation/codepoint')</result-string>
+    <result-string>xs:string(&quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;)</result-string>
     <result>
       <assert-string-value>http://www.w3.org/2005/xpath-functions/collation/codepoint</assert-string-value>
     </result>
@@ -82,7 +82,7 @@
       <static-base-uri uri="http://www.w3.org/2005/"/>
     </environment>
     <test>map:collation(map:new(map{&quot;a&quot;:=1,&quot;b&quot;:=2}, &quot;xpath-functions/collation/codepoint&quot;))</test>
-    <result-string>xs:string('http://www.w3.org/2005/xpath-functions/collation/codepoint')</result-string>
+    <result-string>xs:string(&quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;)</result-string>
     <result>
       <assert-string-value>http://www.w3.org/2005/xpath-functions/collation/codepoint</assert-string-value>
     </result>
@@ -94,7 +94,7 @@
       <collation uri="http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind"/>
     </environment>
     <test>map:collation(map:new(map{&quot;a&quot;:=1,&quot;b&quot;:=2}, &quot;http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind&quot;))</test>
-    <result-string>xs:string('http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind')</result-string>
+    <result-string>xs:string(&quot;http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind&quot;)</result-string>
     <result>
       <assert-string-value>http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind</assert-string-value>
     </result>
@@ -107,7 +107,7 @@
       <collation uri="http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind"/>
     </environment>
     <test>map:collation(map:new(map{&quot;a&quot;:=1,&quot;b&quot;:=2}, &quot;qt-fots-catalog/collation/caseblind&quot;))</test>
-    <result-string>xs:string('http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind')</result-string>
+    <result-string>xs:string(&quot;http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind&quot;)</result-string>
     <result>
       <assert-string-value>http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind</assert-string-value>
     </result>
@@ -119,7 +119,7 @@
       <collation default="true" uri="http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind"/>
     </environment>
     <test>map:collation(map:new(map{&quot;a&quot;:=1,&quot;b&quot;:=2}))</test>
-    <result-string>xs:string('http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind')</result-string>
+    <result-string>xs:string(&quot;http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind&quot;)</result-string>
     <result>
       <assert-string-value>http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind</assert-string-value>
     </result>
@@ -131,7 +131,7 @@
       <collation default="true" uri="http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind"/>
     </environment>
     <test>map:collation(map{&quot;a&quot;:=1,&quot;b&quot;:=2})</test>
-    <result-string>xs:string('http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind')</result-string>
+    <result-string>xs:string(&quot;http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind&quot;)</result-string>
     <result>
       <assert-string-value>http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind</assert-string-value>
     </result>
@@ -143,7 +143,7 @@
       <collation default="true" uri="http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind"/>
     </environment>
     <test>map:collation(map:entry(&quot;a&quot;,1))</test>
-    <result-string>xs:string('http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind')</result-string>
+    <result-string>xs:string(&quot;http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind&quot;)</result-string>
     <result>
       <assert-string-value>http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind</assert-string-value>
     </result>
@@ -155,7 +155,7 @@
       <collation default="true" uri="http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind"/>
     </environment>
     <test>map:collation(map:new(()))</test>
-    <result-string>xs:string('http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind')</result-string>
+    <result-string>xs:string(&quot;http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind&quot;)</result-string>
     <result>
       <assert-string-value>http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind</assert-string-value>
     </result>

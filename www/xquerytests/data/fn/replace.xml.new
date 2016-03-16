@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;replace&quot; function with the arguments set as follows: $input = xs:string(lower bound) $pattern = xs:string(lower bound) $replacement = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:replace(&quot;This is a characte&quot;,&quot;This is a characte&quot;,&quot;This is a characte&quot;)</test>
-    <result-string>xs:string('This is a characte')</result-string>
+    <result-string>xs:string(&quot;This is a characte&quot;)</result-string>
     <result>
       <assert-string-value>This is a characte</assert-string-value>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;replace&quot; function with the arguments set as follows: $input = xs:string(mid range) $pattern = xs:string(lower bound) $replacement = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:replace(&quot;This is a characte&quot;,&quot;This is a characte&quot;,&quot;This is a characte&quot;)</test>
-    <result-string>xs:string('This is a characte')</result-string>
+    <result-string>xs:string(&quot;This is a characte&quot;)</result-string>
     <result>
       <assert-string-value>This is a characte</assert-string-value>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;replace&quot; function with the arguments set as follows: $input = xs:string(upper bound) $pattern = xs:string(lower bound) $replacement = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:replace(&quot;This is a characte&quot;,&quot;This is a characte&quot;,&quot;This is a characte&quot;)</test>
-    <result-string>xs:string('This is a characte')</result-string>
+    <result-string>xs:string(&quot;This is a characte&quot;)</result-string>
     <result>
       <assert-string-value>This is a characte</assert-string-value>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluates The &quot;replace&quot; function with the arguments set as follows: $input = xs:string(lower bound) $pattern = xs:string(mid range) $replacement = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:replace(&quot;This is a characte&quot;,&quot;This is a characte&quot;,&quot;This is a characte&quot;)</test>
-    <result-string>xs:string('This is a characte')</result-string>
+    <result-string>xs:string(&quot;This is a characte&quot;)</result-string>
     <result>
       <assert-string-value>This is a characte</assert-string-value>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluates The &quot;replace&quot; function with the arguments set as follows: $input = xs:string(lower bound) $pattern = xs:string(upper bound) $replacement = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:replace(&quot;This is a characte&quot;,&quot;This is a characte&quot;,&quot;This is a characte&quot;)</test>
-    <result-string>xs:string('This is a characte')</result-string>
+    <result-string>xs:string(&quot;This is a characte&quot;)</result-string>
     <result>
       <assert-string-value>This is a characte</assert-string-value>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluates The &quot;replace&quot; function with the arguments set as follows: $input = xs:string(lower bound) $pattern = xs:string(lower bound) $replacement = xs:string(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:replace(&quot;This is a characte&quot;,&quot;This is a characte&quot;,&quot;This is a characte&quot;)</test>
-    <result-string>xs:string('This is a characte')</result-string>
+    <result-string>xs:string(&quot;This is a characte&quot;)</result-string>
     <result>
       <assert-string-value>This is a characte</assert-string-value>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluates The &quot;replace&quot; function with the arguments set as follows: $input = xs:string(lower bound) $pattern = xs:string(lower bound) $replacement = xs:string(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:replace(xs:string(&quot;This is a characte&quot;),xs:string(&quot;This is a characte&quot;),xs:string(&quot;This is a characte&quot;))</test>
-    <result-string>xs:string('This is a characte')</result-string>
+    <result-string>xs:string(&quot;This is a characte&quot;)</result-string>
     <result>
       <assert-string-value>This is a characte</assert-string-value>
     </result>
@@ -96,7 +96,7 @@
     <description>Evaluation of replace function with replacement = &quot;*&quot; as an example 1 for this function. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>replace(&quot;abracadabra&quot;, &quot;bra&quot;, &quot;*&quot;)</test>
-    <result-string>xs:string('a*cada*')</result-string>
+    <result-string>xs:string(&quot;a*cada*&quot;)</result-string>
     <result>
       <assert-string-value>a*cada*</assert-string-value>
     </result>
@@ -105,7 +105,7 @@
     <description>Evaluation of replace function with pattern = &quot;a.*a&quot; and replacement = &quot;*&quot; as an example 2 for this function. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>replace(&quot;abracadabra&quot;, &quot;a.*a&quot;, &quot;*&quot;)</test>
-    <result-string>xs:string('*')</result-string>
+    <result-string>xs:string(&quot;*&quot;)</result-string>
     <result>
       <assert-string-value>*</assert-string-value>
     </result>
@@ -114,7 +114,7 @@
     <description>Evaluation of replace function with pattern = &quot;a.*?a&quot; and replacement = &quot;*&quot; as an example 3 for this function. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>replace(&quot;abracadabra&quot;, &quot;a.*?a&quot;, &quot;*&quot;)</test>
-    <result-string>xs:string('*c*bra')</result-string>
+    <result-string>xs:string(&quot;*c*bra&quot;)</result-string>
     <result>
       <assert-string-value>*c*bra</assert-string-value>
     </result>
@@ -123,7 +123,7 @@
     <description>Evaluation of replace function with pattern = &quot;a&quot; and replacement = &quot;&quot; as an example 4 for this function. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>replace(&quot;abracadabra&quot;, &quot;a&quot;, &quot;&quot;)</test>
-    <result-string>xs:string('brcdbr')</result-string>
+    <result-string>xs:string(&quot;brcdbr&quot;)</result-string>
     <result>
       <assert-string-value>brcdbr</assert-string-value>
     </result>
@@ -132,7 +132,7 @@
     <description>Evaluation of replace function with pattern = &quot;a(.)&quot; and replacement = &quot;a$1$1&quot; as an example 5 for this function. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>replace(&quot;abracadabra&quot;, &quot;a(.)&quot;, &quot;a$1$1&quot;)</test>
-    <result-string>xs:string('abbraccaddabbra')</result-string>
+    <result-string>xs:string(&quot;abbraccaddabbra&quot;)</result-string>
     <result>
       <assert-string-value>abbraccaddabbra</assert-string-value>
     </result>
@@ -150,7 +150,7 @@
     <description>Evaluation of replace function with pattern = &quot;A+&quot; and replacement = &quot;b&quot; as an example 7 for this function. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>replace(&quot;AAAA&quot;, &quot;A+&quot;, &quot;b&quot;)</test>
-    <result-string>xs:string('b')</result-string>
+    <result-string>xs:string(&quot;b&quot;)</result-string>
     <result>
       <assert-string-value>b</assert-string-value>
     </result>
@@ -159,7 +159,7 @@
     <description>Evaluation of replace function with pattern = &quot;A+?&quot; and replacement = &quot;b&quot; as an example 8 for this function. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>replace(&quot;AAAA&quot;, &quot;A+?&quot;, &quot;b&quot;)</test>
-    <result-string>xs:string('bbbb')</result-string>
+    <result-string>xs:string(&quot;bbbb&quot;)</result-string>
     <result>
       <assert-string-value>bbbb</assert-string-value>
     </result>
@@ -168,7 +168,7 @@
     <description>Evaluation of replace function with pattern = &quot;^(.*?)d(.*)&quot; and replacement = &quot;$1c$2&quot; as an example 9 for this function. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>replace(&quot;darted&quot;, &quot;^(.*?)d(.*)$&quot;, &quot;$1c$2&quot;)</test>
-    <result-string>xs:string('carted')</result-string>
+    <result-string>xs:string(&quot;carted&quot;)</result-string>
     <result>
       <assert-string-value>carted</assert-string-value>
     </result>
@@ -177,7 +177,7 @@
     <description>Two alternatives within the pattern both match at the same position in the $input. The first one is chosen. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:replace(&quot;abcd&quot;, &quot;(ab)|(a)&quot;, &quot;[1=$1][2=$2]&quot;)</test>
-    <result-string>xs:string('[1=ab][2=]cd')</result-string>
+    <result-string>xs:string(&quot;[1=ab][2=]cd&quot;)</result-string>
     <result>
       <assert-string-value>[1=ab][2=]cd</assert-string-value>
     </result>
@@ -186,7 +186,7 @@
     <description>Evaluation of fn:replace function with input set to empty sequence. Uses the fn:count function to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:count(fn:replace((), &quot;bra&quot;, &quot;*&quot;))</test>
-    <result-string>xs:string('1')</result-string>
+    <result-string>xs:string(&quot;1&quot;)</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -195,7 +195,7 @@
     <description>Evaluate that calling function with flags omitted is same as flags being the zero length string. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>replace(&quot;abracadabra&quot;, &quot;bra&quot;, &quot;*&quot;, &quot;&quot;)</test>
-    <result-string>xs:string('a*cada*')</result-string>
+    <result-string>xs:string(&quot;a*cada*&quot;)</result-string>
     <result>
       <assert-string-value>a*cada*</assert-string-value>
     </result>
@@ -204,7 +204,7 @@
     <description>Evaluation of replace function with pattern set to &quot;\?&quot; for an input string that contains &quot;?&quot;. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:replace(&quot;abracadabra?abracadabra&quot;, &quot;\?&quot;, &quot;with&quot;)</test>
-    <result-string>xs:string('abracadabrawithabracadabra')</result-string>
+    <result-string>xs:string(&quot;abracadabrawithabracadabra&quot;)</result-string>
     <result>
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
@@ -213,7 +213,7 @@
     <description>Evaluation of replace function with pattern set to &quot;\*&quot; for an input string that contains &quot;*&quot;. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:replace(&quot;abracadabra*abracadabra&quot;, &quot;\*&quot;, &quot;with&quot;)</test>
-    <result-string>xs:string('abracadabrawithabracadabra')</result-string>
+    <result-string>xs:string(&quot;abracadabrawithabracadabra&quot;)</result-string>
     <result>
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
@@ -222,7 +222,7 @@
     <description>Evaluation of replace function with pattern set to &quot;\+&quot; for an input string that contains &quot;+&quot;. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:replace(&quot;abracadabra+abracadabra&quot;, &quot;\+&quot;, &quot;with&quot;)</test>
-    <result-string>xs:string('abracadabrawithabracadabra')</result-string>
+    <result-string>xs:string(&quot;abracadabrawithabracadabra&quot;)</result-string>
     <result>
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
@@ -231,7 +231,7 @@
     <description>Evaluation of replace function with pattern set to &quot;\{&quot; for an input string that contains &quot;}&quot;. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:replace(&quot;abracadabra{abracadabra&quot;, &quot;\{&quot;, &quot;with&quot;)</test>
-    <result-string>xs:string('abracadabrawithabracadabra')</result-string>
+    <result-string>xs:string(&quot;abracadabrawithabracadabra&quot;)</result-string>
     <result>
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
@@ -240,7 +240,7 @@
     <description>Evaluation of replace function with pattern set to &quot;\}&quot; for an input string that contains &quot;}&quot;. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:replace(&quot;abracadabra}abracadabra&quot;, &quot;\}&quot;, &quot;with&quot;)</test>
-    <result-string>xs:string('abracadabrawithabracadabra')</result-string>
+    <result-string>xs:string(&quot;abracadabrawithabracadabra&quot;)</result-string>
     <result>
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
@@ -249,7 +249,7 @@
     <description>Evaluation of replace function with pattern set to &quot;\(&quot; for an input string that contains &quot;(&quot;. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:replace(&quot;abracadabra(abracadabra&quot;, &quot;\(&quot;, &quot;with&quot;)</test>
-    <result-string>xs:string('abracadabrawithabracadabra')</result-string>
+    <result-string>xs:string(&quot;abracadabrawithabracadabra&quot;)</result-string>
     <result>
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
@@ -258,7 +258,7 @@
     <description>Evaluation of replace function with pattern set to &quot;\)&quot; for an input string that contains &quot;)&quot;. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:replace(&quot;abracadabra)abracadabra&quot;, &quot;\)&quot;, &quot;with&quot;)</test>
-    <result-string>xs:string('abracadabrawithabracadabra')</result-string>
+    <result-string>xs:string(&quot;abracadabrawithabracadabra&quot;)</result-string>
     <result>
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
@@ -267,7 +267,7 @@
     <description>Evaluation of replace function with pattern set to &quot;\[&quot; for an input string that contains &quot;[&quot;. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:replace(&quot;abracadabra[abracadabra&quot;, &quot;\[&quot;, &quot;with&quot;)</test>
-    <result-string>xs:string('abracadabrawithabracadabra')</result-string>
+    <result-string>xs:string(&quot;abracadabrawithabracadabra&quot;)</result-string>
     <result>
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
@@ -276,7 +276,7 @@
     <description>Evaluation of replace function with pattern set to &quot;\]&quot; for an input string that contains &quot;]&quot;. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:replace(&quot;abracadabra]abracadabra&quot;, &quot;\]&quot;, &quot;with&quot;)</test>
-    <result-string>xs:string('abracadabrawithabracadabra')</result-string>
+    <result-string>xs:string(&quot;abracadabrawithabracadabra&quot;)</result-string>
     <result>
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
@@ -285,7 +285,7 @@
     <description>Evaluation of replace function with pattern set to &quot;\-&quot; for an input string that contains &quot;-&quot;. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace(&quot;abracadabra-abracadabra&quot;, &quot;\-&quot;,&quot;with&quot;)</test>
-    <result-string>xs:string('abracadabrawithabracadabra')</result-string>
+    <result-string>xs:string(&quot;abracadabrawithabracadabra&quot;)</result-string>
     <result>
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
@@ -294,7 +294,7 @@
     <description>Evaluation of replace function with pattern set to &quot;\.&quot; for an input string that contains &quot;.&quot;. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace(&quot;abracadabra.abracadabra&quot;, &quot;\.&quot;,&quot;with&quot;)</test>
-    <result-string>xs:string('abracadabrawithabracadabra')</result-string>
+    <result-string>xs:string(&quot;abracadabrawithabracadabra&quot;)</result-string>
     <result>
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
@@ -303,7 +303,7 @@
     <description>Evaluation of replace function with pattern set to &quot;\|&quot; for an input string that contains &quot;|&quot;. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace(&quot;abracadabra|abracadabra&quot;, &quot;\|&quot;,&quot;with&quot;)</test>
-    <result-string>xs:string('abracadabrawithabracadabra')</result-string>
+    <result-string>xs:string(&quot;abracadabrawithabracadabra&quot;)</result-string>
     <result>
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
@@ -312,7 +312,7 @@
     <description>Evaluation of replace function with pattern set to &quot;\\&quot; for an input string that contains &quot;\&quot;. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace(&quot;abracadabra\abracadabra&quot;, &quot;\\&quot;,&quot;with&quot;)</test>
-    <result-string>xs:string('abracadabrawithabracadabra')</result-string>
+    <result-string>xs:string(&quot;abracadabrawithabracadabra&quot;)</result-string>
     <result>
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
@@ -321,7 +321,7 @@
     <description>Evaluation of replace function with pattern set to &quot;\t&quot; for an input string that contains the tab character. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace(&quot;abracadabra	abracadabra&quot;, &quot;\t&quot;,&quot;with&quot;)</test>
-    <result-string>xs:string('abracadabrawithabracadabra')</result-string>
+    <result-string>xs:string(&quot;abracadabrawithabracadabra&quot;)</result-string>
     <result>
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
@@ -331,7 +331,7 @@
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace(&quot;abracadabra
 abracadabra&quot;, &quot;\n&quot;,&quot;with&quot;)</test>
-    <result-string>xs:string('abracadabrawithabracadabra')</result-string>
+    <result-string>xs:string(&quot;abracadabrawithabracadabra&quot;)</result-string>
     <result>
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
@@ -340,7 +340,7 @@ abracadabra&quot;, &quot;\n&quot;,&quot;with&quot;)</test>
     <description>Evaluation of replace function with pattern set to &quot;aa{1}&quot; (exact quantity) for an input string that contains the &quot;aa&quot; string. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace(&quot;abracadabraabracadabra&quot;, &quot;aa{1}&quot;,&quot;with&quot;)</test>
-    <result-string>xs:string('abracadabrwithbracadabra')</result-string>
+    <result-string>xs:string(&quot;abracadabrwithbracadabra&quot;)</result-string>
     <result>
       <assert-string-value>abracadabrwithbracadabra</assert-string-value>
     </result>
@@ -349,7 +349,7 @@ abracadabra&quot;, &quot;\n&quot;,&quot;with&quot;)</test>
     <description>Evaluation of replace function with pattern set to &quot;aa{1,}&quot; (min quantity) for an input string that contains the &quot;aa&quot; string twice. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace(&quot;abracadabraabracadabraabracadabra&quot;, &quot;aa{1,}&quot;,&quot;with&quot;)</test>
-    <result-string>xs:string('abracadabrwithbracadabrwithbracadabra')</result-string>
+    <result-string>xs:string(&quot;abracadabrwithbracadabrwithbracadabra&quot;)</result-string>
     <result>
       <assert-string-value>abracadabrwithbracadabrwithbracadabra</assert-string-value>
     </result>
@@ -358,7 +358,7 @@ abracadabra&quot;, &quot;\n&quot;,&quot;with&quot;)</test>
     <description>Evaluation of replace function with pattern set to &quot;aa{1,2}&quot; (range quantity) for an input string that contains the &quot;aa&quot; string twice. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace(&quot;abracadabraabracadabraabracadabra&quot;, &quot;aa{1,2}&quot;,&quot;with&quot;)</test>
-    <result-string>xs:string('abracadabrwithbracadabrwithbracadabra')</result-string>
+    <result-string>xs:string(&quot;abracadabrwithbracadabrwithbracadabra&quot;)</result-string>
     <result>
       <assert-string-value>abracadabrwithbracadabrwithbracadabra</assert-string-value>
     </result>
@@ -367,7 +367,7 @@ abracadabra&quot;, &quot;\n&quot;,&quot;with&quot;)</test>
     <description>Evaluation of replace function with pattern set to &quot;\^&quot;. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace(&quot;abracadabra^abracadabra&quot;, &quot;\^&quot;,&quot;with&quot;)</test>
-    <result-string>xs:string('abracadabrawithabracadabra')</result-string>
+    <result-string>xs:string(&quot;abracadabrawithabracadabra&quot;)</result-string>
     <result>
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
@@ -376,7 +376,7 @@ abracadabra&quot;, &quot;\n&quot;,&quot;with&quot;)</test>
     <description>Evaluation of replace function with pattern set to &quot;^a&quot;. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace(&quot;abracadabra&quot;, &quot;^a&quot;,&quot;with&quot;)</test>
-    <result-string>xs:string('withbracadabra')</result-string>
+    <result-string>xs:string(&quot;withbracadabra&quot;)</result-string>
     <result>
       <assert-string-value>withbracadabra</assert-string-value>
     </result>
@@ -385,7 +385,7 @@ abracadabra&quot;, &quot;\n&quot;,&quot;with&quot;)</test>
     <description>Evaluation of replace function with pattern that does not match the input string. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace(&quot;abracadabra&quot;, &quot;ww&quot;,&quot;with&quot;)</test>
-    <result-string>xs:string('abracadabra')</result-string>
+    <result-string>xs:string(&quot;abracadabra&quot;)</result-string>
     <result>
       <assert-string-value>abracadabra</assert-string-value>
     </result>
@@ -395,7 +395,7 @@ abracadabra&quot;, &quot;\n&quot;,&quot;with&quot;)</test>
     <created by="Michael Kay" on="2012-01-08"/>
     <dependency type="spec" value="XP30+"/>
     <test>fn:replace(&quot;abracadabra&quot;, &quot;a&quot;, &quot;$1&quot;, &quot;q&quot;)</test>
-    <result-string>xs:string('$1br$1c$1d$1br$1')</result-string>
+    <result-string>xs:string(&quot;$1br$1c$1d$1br$1&quot;)</result-string>
     <result>
       <assert-string-value>$1br$1c$1d$1br$1</assert-string-value>
     </result>
@@ -405,7 +405,7 @@ abracadabra&quot;, &quot;\n&quot;,&quot;with&quot;)</test>
     <created by="Michael Kay" on="2012-01-08"/>
     <dependency type="spec" value="XP30+"/>
     <test>fn:replace(&quot;a?bracadabra?&quot;, &quot;a?&quot;, &quot;\$1&quot;, &quot;q&quot;)</test>
-    <result-string>xs:string('\$1bracadabr\$1')</result-string>
+    <result-string>xs:string(&quot;\$1bracadabr\$1&quot;)</result-string>
     <result>
       <assert-string-value>\$1bracadabr\$1</assert-string-value>
     </result>
@@ -415,7 +415,7 @@ abracadabra&quot;, &quot;\n&quot;,&quot;with&quot;)</test>
     <created by="Michael Kay" on="2012-01-08"/>
     <dependency type="spec" value="XP30+"/>
     <test>fn:replace(&quot;abracadabra&quot;, &quot;([aA])(?:br)([aA])&quot;, &quot;$1**$2&quot;)</test>
-    <result-string>xs:string('a**acada**a')</result-string>
+    <result-string>xs:string(&quot;a**acada**a&quot;)</result-string>
     <result>
       <assert-string-value>a**acada**a</assert-string-value>
     </result>
@@ -424,7 +424,7 @@ abracadabra&quot;, &quot;\n&quot;,&quot;with&quot;)</test>
     <description>Evaluation of replace function with escaped $ sign in replacement string.</description>
     <created by="Michael Kay" on="2012-01-08"/>
     <test>fn:replace(&quot;abracadabra&quot;, &quot;a&quot;, &quot;\$&quot;)</test>
-    <result-string>xs:string('$br$c$d$br$')</result-string>
+    <result-string>xs:string(&quot;$br$c$d$br$&quot;)</result-string>
     <result>
       <assert-string-value>$br$c$d$br$</assert-string-value>
     </result>
@@ -433,7 +433,7 @@ abracadabra&quot;, &quot;\n&quot;,&quot;with&quot;)</test>
     <description>Evaluation of replace function with escaped $ sign in replacement string.</description>
     <created by="Michael Kay" on="2012-01-08"/>
     <test>fn:replace(&quot;abracadabra&quot;, &quot;(a)&quot;, &quot;\$$1&quot;)</test>
-    <result-string>xs:string('$abr$ac$ad$abr$a')</result-string>
+    <result-string>xs:string(&quot;$abr$ac$ad$abr$a&quot;)</result-string>
     <result>
       <assert-string-value>$abr$ac$ad$abr$a</assert-string-value>
     </result>
@@ -442,7 +442,7 @@ abracadabra&quot;, &quot;\n&quot;,&quot;with&quot;)</test>
     <description>Evaluation of replace function with escaped \ sign in replacement string.</description>
     <created by="Michael Kay" on="2012-01-08"/>
     <test>fn:replace(&quot;abracadabra&quot;, &quot;a&quot;, &quot;\\&quot;)</test>
-    <result-string>xs:string('\br\c\d\br\')</result-string>
+    <result-string>xs:string(&quot;\br\c\d\br\&quot;)</result-string>
     <result>
       <assert-string-value>\br\c\d\br\</assert-string-value>
     </result>
@@ -451,7 +451,7 @@ abracadabra&quot;, &quot;\n&quot;,&quot;with&quot;)</test>
     <description>Evaluation of replace with double-digit capture</description>
     <created by="Michael Kay" on="2012-01-08"/>
     <test>fn:replace(&quot;abracadabra&quot;, &quot;((((( ((((( (((((a))))) ))))) )))))&quot;, &quot;|$1$15|&quot;, &quot;x&quot;)</test>
-    <result-string>xs:string('|aa|br|aa|c|aa|d|aa|br|aa|')</result-string>
+    <result-string>xs:string(&quot;|aa|br|aa|c|aa|d|aa|br|aa|&quot;)</result-string>
     <result>
       <assert-string-value>|aa|br|aa|c|aa|d|aa|br|aa|</assert-string-value>
     </result>
@@ -460,7 +460,7 @@ abracadabra&quot;, &quot;\n&quot;,&quot;with&quot;)</test>
     <description>Evaluation of replace with double-digit capture</description>
     <created by="Michael Kay" on="2012-01-08"/>
     <test>fn:replace(&quot;abracadabra&quot;, &quot;((((( ((((( (((((a))))) ))))) )))))&quot;, &quot;$1520&quot;, &quot;x&quot;)</test>
-    <result-string>xs:string('a20bra20ca20da20bra20')</result-string>
+    <result-string>xs:string(&quot;a20bra20ca20da20bra20&quot;)</result-string>
     <result>
       <assert-string-value>a20bra20ca20da20bra20</assert-string-value>
     </result>
@@ -469,7 +469,7 @@ abracadabra&quot;, &quot;\n&quot;,&quot;with&quot;)</test>
     <description>Evaluation of replace with double-digit capture beyond max capture value</description>
     <created by="Michael Kay" on="2012-01-08"/>
     <test>fn:replace(&quot;abracadabra&quot;, &quot;((((( ((((( (((((a)(b))))) ))))) )))))&quot;, &quot;($14.$15.$16.$17)&quot;, &quot;x&quot;)</test>
-    <result-string>xs:string('(ab.a.b.ab7)racad(ab.a.b.ab7)ra')</result-string>
+    <result-string>xs:string(&quot;(ab.a.b.ab7)racad(ab.a.b.ab7)ra&quot;)</result-string>
     <result>
       <assert-string-value>(ab.a.b.ab7)racad(ab.a.b.ab7)ra</assert-string-value>
     </result>
@@ -478,7 +478,7 @@ abracadabra&quot;, &quot;\n&quot;,&quot;with&quot;)</test>
     <description> &quot;.&quot; does NOT match CR in default mode</description>
     <created by="Tim Mills" on="2012-09-25"/>
     <test>fn:replace(concat('Mary', codepoints-to-string(13), 'Jones'), 'Mary.Jones', 'Jacob Jones')</test>
-    <result-string/>
+    <result-string>xs:string(&quot;concat('Mary', codepoints-to-string(13), 'Jones')&quot;)</result-string>
     <result>
       <assert-eq>concat('Mary', codepoints-to-string(13), 'Jones')</assert-eq>
     </result>
@@ -487,7 +487,7 @@ abracadabra&quot;, &quot;\n&quot;,&quot;with&quot;)</test>
     <description> &quot;.&quot; does match CR in dot-all mode</description>
     <created by="Tim Mills" on="2012-09-25"/>
     <test>fn:replace(concat('Mary', codepoints-to-string(13), 'Jones'), 'Mary.Jones', 'Jacob Jones', 's')</test>
-    <result-string/>
+    <result-string>xs:string(&quot;'Jacob Jones'&quot;)</result-string>
     <result>
       <assert-eq>'Jacob Jones'</assert-eq>
     </result>
@@ -496,7 +496,7 @@ abracadabra&quot;, &quot;\n&quot;,&quot;with&quot;)</test>
     <description>fn:replace, using $0</description>
     <created by="Andrew Eisenberg" on="2013-05-24"/>
     <test>replace(&quot;Now, let's SEND OUT for QUICHE!!&quot;, &quot;[A-Z][A-Z]+&quot;, &quot;$0$0&quot;)</test>
-    <result-string/>
+    <result-string>xs:string(&quot;&quot;Now, let's SENDSEND OUTOUT for QUICHEQUICHE!!&quot;&quot;)</result-string>
     <result>
       <assert-eq>&quot;Now, let's SENDSEND OUTOUT for QUICHEQUICHE!!&quot;</assert-eq>
     </result>
@@ -665,7 +665,7 @@ abracadabra&quot;, &quot;\n&quot;,&quot;with&quot;)</test>
     <test>
       boolean(replace(if(exists((1 to 10)[. mod 2 = 0])) then &quot;blah&quot; else (),&quot;a&quot;,&quot;e&quot;,&quot;m&quot;))
    </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

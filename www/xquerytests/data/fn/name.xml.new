@@ -7,7 +7,7 @@
     <created by="Carmelo Montanez" on="2005-09-07"/>
     <environment ref="empty"/>
     <test>fn:string-length(fn:name(()))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -17,7 +17,7 @@
     <created by="Carmelo Montanez" on="2005-09-07"/>
     <environment ref="works-mod"/>
     <test>(fn:name(./works[1]/employee[1]))</test>
-    <result-string>xs:string('employee')</result-string>
+    <result-string>xs:string(&quot;employee&quot;)</result-string>
     <result>
       <assert-string-value>employee</assert-string-value>
     </result>
@@ -27,7 +27,7 @@
     <created by="Carmelo Montanez" on="2005-09-07"/>
     <environment ref="works-mod"/>
     <test>(fn:name(./works[1]/employee[1]/@name))</test>
-    <result-string>xs:string('name')</result-string>
+    <result-string>xs:string(&quot;name&quot;)</result-string>
     <result>
       <assert-string-value>name</assert-string-value>
     </result>
@@ -37,7 +37,7 @@
     <created by="Carmelo Montanez" on="2005-09-07"/>
     <environment ref="works-mod"/>
     <test>fn:string-length(fn:name(.))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -47,7 +47,7 @@
     <created by="Carmelo Montanez" on="2005-09-07"/>
     <environment ref="works-mod"/>
     <test>fn:string-length(fn:name(./works[1]/nonexistent[1]))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -58,7 +58,7 @@
     <environment ref="works-mod"/>
     <test>for $h in ./works[1]/employee[2] return
          fn:string-length(fn:name($h/child::text()[last()]))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -78,7 +78,7 @@
     <created by="Carmelo Montanez" on="2005-09-07"/>
     <environment ref="works-mod"/>
     <test>for $h in (./works/employee[2]) return fn:upper-case(fn:name($h))</test>
-    <result-string>xs:string('EMPLOYEE')</result-string>
+    <result-string>xs:string(&quot;EMPLOYEE&quot;)</result-string>
     <result>
       <assert-string-value>EMPLOYEE</assert-string-value>
     </result>
@@ -88,7 +88,7 @@
     <created by="Carmelo Montanez" on="2005-09-07"/>
     <environment ref="works-mod"/>
     <test>for $h in (./works/employee[2]) return fn:lower-case(fn:name($h))</test>
-    <result-string>xs:string('employee')</result-string>
+    <result-string>xs:string(&quot;employee&quot;)</result-string>
     <result>
       <assert-string-value>employee</assert-string-value>
     </result>
@@ -98,7 +98,7 @@
     <created by="Carmelo Montanez" on="2005-09-07"/>
     <environment ref="works-mod"/>
     <test>for $h in (./works/employee[2]) return fn:name($h/parent::node())</test>
-    <result-string>xs:string('works')</result-string>
+    <result-string>xs:string(&quot;works&quot;)</result-string>
     <result>
       <assert-string-value>works</assert-string-value>
     </result>
@@ -109,7 +109,7 @@
     <environment ref="works-mod"/>
     <test>for $h in (./works/employee[2]) return fn:name($h/descendant::empnum[position() =
          1])</test>
-    <result-string>xs:string('empnum')</result-string>
+    <result-string>xs:string(&quot;empnum&quot;)</result-string>
     <result>
       <assert-string-value>empnum</assert-string-value>
     </result>
@@ -120,7 +120,7 @@
     <environment ref="works-mod"/>
     <test>for $h in (./works/employee[2]) return fn:name($h/descendant-or-self::empnum[position()
          = 1])</test>
-    <result-string>xs:string('empnum')</result-string>
+    <result-string>xs:string(&quot;empnum&quot;)</result-string>
     <result>
       <assert-string-value>empnum</assert-string-value>
     </result>
@@ -130,7 +130,7 @@
     <created by="Carmelo Montanez" on="2005-09-07"/>
     <environment ref="works-mod"/>
     <test>for $h in (./works/employee[2]) return fn:substring(fn:name($h),2)</test>
-    <result-string>xs:string('mployee')</result-string>
+    <result-string>xs:string(&quot;mployee&quot;)</result-string>
     <result>
       <assert-string-value>mployee</assert-string-value>
     </result>
@@ -140,7 +140,7 @@
     <created by="Carmelo Montanez" on="2005-09-07"/>
     <environment ref="works-mod"/>
     <test>for $h in (/works/employee[2]) return fn:concat(fn:name($h),&quot;A String&quot;)</test>
-    <result-string>xs:string('employeeA String')</result-string>
+    <result-string>xs:string(&quot;employeeA String&quot;)</result-string>
     <result>
       <assert-string-value>employeeA String</assert-string-value>
     </result>
@@ -150,7 +150,7 @@
     <created by="Carmelo Montanez" on="2005-09-07"/>
     <environment ref="works-mod"/>
     <test>for $h in (./works/employee[2]) return fn:name($h/self::employee)</test>
-    <result-string>xs:string('employee')</result-string>
+    <result-string>xs:string(&quot;employee&quot;)</result-string>
     <result>
       <assert-string-value>employee</assert-string-value>
     </result>
@@ -173,7 +173,7 @@
     <created by="Carmelo Montanez" on="2005-09-07"/>
     <environment ref="works-mod"/>
     <test> for $h in (/works/employee[2]/@name) return fn:name($h/parent::node())</test>
-    <result-string>xs:string('employee')</result-string>
+    <result-string>xs:string(&quot;employee&quot;)</result-string>
     <result>
       <assert-string-value>employee</assert-string-value>
     </result>
@@ -183,7 +183,7 @@
     <created by="Carmelo Montanez" on="2005-09-07"/>
     <environment ref="works-mod"/>
     <test>fn:string-length(fn:name(./works[1]/employee[2]/@name))</test>
-    <result-string>xs:string('4')</result-string>
+    <result-string>xs:string(&quot;4&quot;)</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -196,7 +196,7 @@
     <test>
       <![CDATA[fn:name(<anElement>Content</anElement>)]]>
     </test>
-    <result-string>xs:string('anElement')</result-string>
+    <result-string>xs:string(&quot;anElement&quot;)</result-string>
     <result>
       <assert-string-value>anElement</assert-string-value>
     </result>
@@ -209,7 +209,7 @@
     <test>
       <![CDATA[fn:name(<anElement name="attribute1">Content</anElement>)]]>
     </test>
-    <result-string>xs:string('anElement')</result-string>
+    <result-string>xs:string(&quot;anElement&quot;)</result-string>
     <result>
       <assert-string-value>anElement</assert-string-value>
     </result>
@@ -219,7 +219,7 @@
     <created by="Carmelo Montanez" on="2005-09-07"/>
     <environment ref="works-mod"/>
     <test>(fn:name(./works[1]/employee[1]),fn:name(./works[1]/employee[2]))</test>
-    <result-string>xs:string('employee employee')</result-string>
+    <result-string>xs:string(&quot;employee employee&quot;)</result-string>
     <result>
       <assert-string-value>employee employee</assert-string-value>
     </result>
@@ -229,7 +229,7 @@
     <created by="Carmelo Montanez" on="2005-09-07"/>
     <environment ref="works-mod"/>
     <test>fn:count(((fn:name(/works[1]/employee[1]),fn:name(/works[1]/employee[2]))))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;2&quot;)</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
@@ -249,7 +249,7 @@
     <created by="Michael Kay" on="2010-12-10"/>
     <environment ref="auction"/>
     <test>name(/*)</test>
-    <result-string>xs:string('ma:AuctionWatchList')</result-string>
+    <result-string>xs:string(&quot;ma:AuctionWatchList&quot;)</result-string>
     <result>
       <assert-string-value>ma:AuctionWatchList</assert-string-value>
     </result>
@@ -259,7 +259,7 @@
     <created by="Michael Kay" on="2010-12-10"/>
     <environment ref="auction"/>
     <test>name((//*:Start)[1]/@*)</test>
-    <result-string>xs:string('ma:currency')</result-string>
+    <result-string>xs:string(&quot;ma:currency&quot;)</result-string>
     <result>
       <assert-string-value>ma:currency</assert-string-value>
     </result>
@@ -269,7 +269,7 @@
     <created by="Michael Kay" on="2010-12-10"/>
     <environment ref="auction"/>
     <test>name((//@xml:*)[1])</test>
-    <result-string>xs:string('xml:lang')</result-string>
+    <result-string>xs:string(&quot;xml:lang&quot;)</result-string>
     <result>
       <assert-string-value>xml:lang</assert-string-value>
     </result>
@@ -281,7 +281,7 @@
     <dependency type="feature" value="namespace-axis"/>
     <dependency type="spec" value="XP20+"/>
     <test>name((//namespace::*[.='http://www.w3.org/1999/xlink'])[1])</test>
-    <result-string>xs:string('xlink')</result-string>
+    <result-string>xs:string(&quot;xlink&quot;)</result-string>
     <result>
       <assert-string-value>xlink</assert-string-value>
     </result>
@@ -291,7 +291,7 @@
     <created by="Michael Kay" on="2010-12-10"/>
     <environment ref="auction"/>
     <test>name((//processing-instruction())[1])</test>
-    <result-string>xs:string('xml-stylesheet')</result-string>
+    <result-string>xs:string(&quot;xml-stylesheet&quot;)</result-string>
     <result>
       <assert-string-value>xml-stylesheet</assert-string-value>
     </result>
@@ -301,7 +301,7 @@
     <created by="Michael Kay" on="2010-12-10"/>
     <environment ref="auction"/>
     <test>name((//*[.='1983'])[1])</test>
-    <result-string>xs:string('recorded')</result-string>
+    <result-string>xs:string(&quot;recorded&quot;)</result-string>
     <result>
       <assert-string-value>recorded</assert-string-value>
     </result>
@@ -311,7 +311,7 @@
     <created by="Michael Kay" on="2010-12-10"/>
     <environment ref="auction"/>
     <test>name((//comment())[1]) = ''</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -321,7 +321,7 @@
     <created by="Michael Kay" on="2010-12-10"/>
     <environment ref="auction"/>
     <test>name((//text())[1]) = ''</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -354,7 +354,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>name(()) eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>

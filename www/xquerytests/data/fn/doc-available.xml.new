@@ -57,7 +57,7 @@
     <created by="Michael Kay" on="2010-01-04"/>
     <environment ref="works-mod"/>
     <test>fn:doc-available(document-uri(/))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -66,7 +66,7 @@
     <description> Evaluation of fn:doc-available function using a URI that does not exist. </description>
     <created by="Michael Kay" on="2010-01-04"/>
     <test>fn:doc-available(&quot;file:///a/b/c/wefdobqciyvdsoihnfcpinads.xml&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -75,7 +75,7 @@
     <description> Evaluation of fn:doc-available function using an empty sequence. </description>
     <created by="Andrew Eisenberg" on="2010-01-04"/>
     <test>fn:doc-available(())</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -84,7 +84,7 @@
     <description> Evaluation of fn:doc-available function using a URI that exists but is not XML. </description>
     <created by="Michael Kay" on="2011-07-12"/>
     <test>fn:doc-available(&quot;../prod/ModuleImport/module1-lib.xq&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -105,7 +105,7 @@
     <description> test fn:doc-available on () </description>
     <created by="Tim Mills" on="2008-04-10"/>
     <test>fn:doc-available( () )</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -127,7 +127,7 @@
     <description> test fn:doc-available on a URI which is not that of a document </description>
     <created by="Tim Mills" on="2008-04-10"/>
     <test>fn:doc-available( 'collection1' )</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

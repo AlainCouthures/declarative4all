@@ -24,7 +24,7 @@
     <description> Evaluation of tokenize function with pattern set to &quot;\s+&quot; as per example 1 for this functions from the Func and Ops specs. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:tokenize(&quot;The cat sat on the mat&quot;, &quot;\s+&quot;)</test>
-    <result-string>xs:string('The cat sat on the mat')</result-string>
+    <result-string>xs:string(&quot;The cat sat on the mat&quot;)</result-string>
     <result>
       <assert-string-value>The cat sat on the mat</assert-string-value>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluation of tokenize function with pattern set to &quot;\s*&quot; as per example 2 for this functions from the Func and Ops specs. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:tokenize(&quot;1, 15, 24, 50&quot;, &quot;,\s*&quot;)</test>
-    <result-string>xs:string('1 15 24 50')</result-string>
+    <result-string>xs:string(&quot;1 15 24 50&quot;)</result-string>
     <result>
       <assert-string-value>1 15 24 50</assert-string-value>
     </result>
@@ -64,7 +64,7 @@
     <description> Evaluation of tokenize function with $input set to empty sequence Uses fn:count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:count(fn:tokenize((), &quot;\s+&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -73,7 +73,7 @@
     <description> Evaluation of tokenize function with $input set to zero length string. Uses fn:count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:count(fn:tokenize(&quot;&quot;, &quot;\s+&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -82,7 +82,7 @@
     <description> Evaluation of tokenize function with two patterms matching the input string. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>string-join(fn:tokenize(&quot;abracadabra&quot;, &quot;(ab)|(a)&quot;), '#')</test>
-    <result-string>xs:string('#r#c#d#r#')</result-string>
+    <result-string>xs:string(&quot;#r#c#d#r#&quot;)</result-string>
     <result>
       <assert-string-value>#r#c#d#r#</assert-string-value>
     </result>
@@ -91,7 +91,7 @@
     <description> Evaluation of tokenize function with pattern that does not match the input string. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:tokenize(&quot;abracadabra&quot;, &quot;ww&quot;)</test>
-    <result-string>xs:string('abracadabra')</result-string>
+    <result-string>xs:string(&quot;abracadabra&quot;)</result-string>
     <result>
       <assert-string-value>abracadabra</assert-string-value>
     </result>
@@ -311,7 +311,7 @@ abracadabra&quot;, &quot;\n&quot;)</test>
     <description> &quot;.&quot; does NOT match CR in default mode</description>
     <created by="Tim Mills" on="2012-09-25"/>
     <test>fn:tokenize(concat('Mary', codepoints-to-string(13), 'Jones'), 'y.J')</test>
-    <result-string/>
+    <result-string>xs:string(&quot;concat('Mary', codepoints-to-string(13), 'Jones')&quot;)</result-string>
     <result>
       <assert-eq>concat('Mary', codepoints-to-string(13), 'Jones')</assert-eq>
     </result>
@@ -401,7 +401,7 @@ abracadabra&quot;, &quot;\n&quot;)</test>
     <description> fn:tokenize with a positional predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:tokenize((&quot;abracadabra&quot;, current-time())[1] treat as xs:string, &quot;(ab)|(a)&quot;)[last()] eq &quot;&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -410,7 +410,7 @@ abracadabra&quot;, &quot;\n&quot;)</test>
     <description> fn:tokenize with a positional predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(fn:tokenize((&quot;abracadabra&quot;, current-time())[1] treat as xs:string, &quot;(ab)|(a)&quot;)[last() + 1])</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -419,7 +419,7 @@ abracadabra&quot;, &quot;\n&quot;)</test>
     <description> fn:tokenize with a positional predicate(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:tokenize((&quot;abracadabra&quot;, current-time())[1] treat as xs:string, &quot;(ab)|(a)&quot;)[last() - 1]</test>
-    <result-string>xs:string('r')</result-string>
+    <result-string>xs:string(&quot;r&quot;)</result-string>
     <result>
       <assert-string-value>r</assert-string-value>
     </result>
@@ -428,7 +428,7 @@ abracadabra&quot;, &quot;\n&quot;)</test>
     <description> fn:tokenize with a positional predicate(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:tokenize((&quot;abracadabra&quot;, current-time())[1] treat as xs:string, &quot;(ab)|(a)&quot;)[last() - 3]</test>
-    <result-string>xs:string('c')</result-string>
+    <result-string>xs:string(&quot;c&quot;)</result-string>
     <result>
       <assert-string-value>c</assert-string-value>
     </result>
@@ -437,7 +437,7 @@ abracadabra&quot;, &quot;\n&quot;)</test>
     <description> Tokenize a sequence of words. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(fn:tokenize(&quot;The cat sat on the mat&quot;, &quot;\s+&quot;), (&quot;The&quot;, &quot;cat&quot;, &quot;sat&quot;, &quot;on&quot;, &quot;the&quot;, &quot;mat&quot;)), count(fn:tokenize(&quot;The cat sat on the mat&quot;, &quot;\s+&quot;)), count(fn:tokenize(&quot; The cat sat on the mat &quot;, &quot;\s+&quot;)), fn:tokenize(&quot;The cat sat on the mat&quot;, &quot;\s+&quot;)</test>
-    <result-string>xs:string('true 6 8 The cat sat on the mat')</result-string>
+    <result-string>xs:string(&quot;true 6 8 The cat sat on the mat&quot;)</result-string>
     <result>
       <assert-string-value>true 6 8 The cat sat on the mat</assert-string-value>
     </result>
@@ -446,7 +446,7 @@ abracadabra&quot;, &quot;\n&quot;)</test>
     <description> A regexp that some Java versions have trouble with. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>replace('APXterms6', '\w{3}\d*([^TKR0-9]+).*$', '$1')</test>
-    <result-string>xs:string('terms')</result-string>
+    <result-string>xs:string(&quot;terms&quot;)</result-string>
     <result>
       <assert-string-value>terms</assert-string-value>
     </result>
@@ -455,7 +455,7 @@ abracadabra&quot;, &quot;\n&quot;)</test>
     <description> Tokenize on a single whitespace. </description>
     <created by="Frans Englich" on="2008-05-08"/>
     <test>count(tokenize(&quot;a b&quot;, &quot; &quot;)), count(tokenize(&quot;a b&quot;, &quot;\s&quot;)), string-join(tokenize(&quot;a b&quot;, &quot; &quot;), '|'), string-join(tokenize(&quot;a b&quot;, &quot;\s&quot;), '|'), tokenize(&quot;a b&quot;, &quot; &quot;), tokenize(&quot;a b&quot;, &quot;\s&quot;)</test>
-    <result-string>xs:string('2 2 a|b a|b a b a b')</result-string>
+    <result-string>xs:string(&quot;2 2 a|b a|b a b a b&quot;)</result-string>
     <result>
       <assert-string-value>2 2 a|b a|b a b a b</assert-string-value>
     </result>
@@ -466,7 +466,7 @@ abracadabra&quot;, &quot;\n&quot;)</test>
     <test>
       for $x in xs:string(zero-or-one((1 to 10)[. mod 2 = -1])) return tokenize($x,',')
       </test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>
@@ -491,7 +491,7 @@ abracadabra&quot;, &quot;\n&quot;)</test>
       tokenize(string-join(for $x in (1 to 10)[. mod 2 < 0] return string($x),','),',')
       ]]>
     </test>
-    <result-string>xs:string('')</result-string>
+    <result-string>xs:string(&quot;&quot;)</result-string>
     <result>
       <assert-string-value/>
     </result>

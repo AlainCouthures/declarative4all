@@ -6,7 +6,7 @@
     <description> Evaluates The &quot;timezone-from-date&quot; function As per example 1 of the FO specs </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-date(xs:date(&quot;1999-05-31-05:00&quot;))</test>
-    <result-string>xs:string('-PT5H')</result-string>
+    <result-string>xs:string(&quot;-PT5H&quot;)</result-string>
     <result>
       <assert-string-value>-PT5H</assert-string-value>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The &quot;timezone-from-date&quot; function As per example 2 of the FO specs. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-date(xs:date(&quot;2000-06-12Z&quot;))</test>
-    <result-string>xs:string('PT0S')</result-string>
+    <result-string>xs:string(&quot;PT0S&quot;)</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The &quot;timezone-from-date&quot; function involving a &quot;numeric-less-than&quot; operation (lt operator) </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-date(xs:date(&quot;1999-12-31+05:00&quot;)) lt fn:timezone-from-date(xs:date(&quot;1999-12-31+06:00&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluates The &quot;timezone-from-date&quot; function involving a &quot;numeric-less-than&quot; operation (le operator) </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-date(xs:date(&quot;1999-12-31+01:00&quot;)) le fn:timezone-from-date(xs:date(&quot;1999-12-31+01:00&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluates The &quot;timezone-from-date&quot; function using the empty sequence as an argument. Use count function to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:count(fn:timezone-from-date(()))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluates The &quot;timezone-from-date&quot; function that returns a dayTimeDuration of 0. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-date(xs:date(&quot;1999-05-31+00:00&quot;))</test>
-    <result-string>xs:string('PT0S')</result-string>
+    <result-string>xs:string(&quot;PT0S&quot;)</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluates The &quot;timezone-from-date&quot; function that uses a timezone of -0. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-date(xs:date(&quot;1999-12-31-00:00&quot;))</test>
-    <result-string>xs:string('PT0S')</result-string>
+    <result-string>xs:string(&quot;PT0S&quot;)</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluates The &quot;timezone-from-date&quot; function as part of a &quot;+&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-date(xs:date(&quot;1970-01-01+08:00&quot;)) + fn:timezone-from-date(xs:date(&quot;1970-01-01+03:00&quot;))</test>
-    <result-string>xs:string('PT11H')</result-string>
+    <result-string>xs:string(&quot;PT11H&quot;)</result-string>
     <result>
       <assert-string-value>PT11H</assert-string-value>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluates The &quot;timezone-from-date&quot; function as part of a &quot;-&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-date(xs:date(&quot;1970-01-01+09:00&quot;)) - fn:timezone-from-date(xs:date(&quot;1970-01-01+10:00&quot;))</test>
-    <result-string>xs:string('-PT1H')</result-string>
+    <result-string>xs:string(&quot;-PT1H&quot;)</result-string>
     <result>
       <assert-string-value>-PT1H</assert-string-value>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluates The &quot;timezone-from-date&quot; function as as an argument to the &quot;not&quot; function. Uses the &quot;fn:string&quot; function to account for new EBV rules. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:not(fn:string(fn:timezone-from-date(xs:date(&quot;1970-01-03+02:00&quot;))))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluates The &quot;timezone-from-date&quot; function as part of a &quot;div&quot; expression. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-date(xs:date(&quot;1970-01-02+10:00&quot;)) div fn:timezone-from-date(xs:date(&quot;1970-01-01+05:00&quot;))</test>
-    <result-string>xs:string('2')</result-string>
+    <result-string>xs:string(&quot;2&quot;)</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluates The &quot;timezone-from-date&quot; function as an argument to the fn:number function. returns &quot;NaN&quot;. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:number(fn:timezone-from-date(xs:date(&quot;1970-01-02+10:00&quot;)))</test>
-    <result-string>xs:string('NaN')</result-string>
+    <result-string>xs:string(&quot;NaN&quot;)</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluates The &quot;timezone-from-date&quot; function as an argument to the &quot;fn:boolean&quot; function. Uses the &quot;fn:string&quot; function to account for new EBV rules. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:boolean(fn:string(fn:timezone-from-date(xs:date(&quot;1970-01-02+10:00&quot;))))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluates The &quot;timezone-from-date&quot; function as argument to the &quot;fn:string&quot; function. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:string(fn:timezone-from-date(xs:date(&quot;1970-01-01Z&quot;)))</test>
-    <result-string>xs:string('PT0S')</result-string>
+    <result-string>xs:string(&quot;PT0S&quot;)</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluates The &quot;timezone-from-date&quot; function as part of an &quot;and&quot; expression. Uses the &quot;fn:string&quot; function to account for new EBV rules. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:string(fn:timezone-from-date(xs:date(&quot;1970-01-01Z&quot;))) and fn:string(fn:timezone-from-date(xs:date(&quot;1970-01-01Z&quot;)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluates The &quot;timezone-from-date&quot; function as part of a &quot;numeric-equal&quot; expression (eq operator) </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-date(xs:date(&quot;1970-01-02+10:00&quot;)) eq fn:timezone-from-date(xs:date(&quot;1970-01-01+10:00&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluates The &quot;month-from-date&quot; function as part of a &quot;numeric-equal&quot; expression (ne operator) </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:month-from-date(xs:date(&quot;1970-01-01+05:00&quot;)) ne fn:month-from-date(xs:date(&quot;1970-01-03+03:00&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluates The &quot;timezone-from-date&quot; function as part of a &quot;numeric-equal&quot; expression (le operator) </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-date(xs:date(&quot;1970-01-01+04:00&quot;)) le fn:timezone-from-date(xs:date(&quot;1970-01-02+02:00&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluates The &quot;timezone-from-date&quot; function as part of a &quot;numeric-equal&quot; expression (ge operator) </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:timezone-from-date(xs:date(&quot;1970-01-03+02:00&quot;)) ge fn:timezone-from-date(xs:date(&quot;1970-01-01+01:00&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluates The &quot;timezone-from-date&quot; function as part of an &quot;or&quot; expression. Uses the &quot;fn:string&quot; function to account for new EBV rules. </description>
     <created by="Carmelo Montanez" on="2005-06-27"/>
     <test>fn:string(fn:timezone-from-date(xs:date(&quot;1970-01-01Z&quot;))) or fn:string(fn:timezone-from-date(xs:date(&quot;1970-01-01Z&quot;)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -204,7 +204,7 @@
     <description> A test whose essence is: `empty(timezone-from-date(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(timezone-from-date(()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -213,7 +213,7 @@
     <description> A test whose essence is: `timezone-from-date(()) instance of xs:dayTimeDuration?`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>timezone-from-date(()) instance of xs:dayTimeDuration?</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -222,7 +222,7 @@
     <description> A test whose essence is: `timezone-from-date(xs:date(&quot;2004-10-12Z&quot;)) eq xs:dayTimeDuration(&quot;PT0S&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>timezone-from-date(xs:date(&quot;2004-10-12Z&quot;)) eq xs:dayTimeDuration(&quot;PT0S&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -231,7 +231,7 @@
     <description> A test whose essence is: `timezone-from-date(xs:date(&quot;2004-10-12-08:23&quot;)) eq xs:dayTimeDuration(&quot;-PT8H23M&quot;)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>timezone-from-date(xs:date(&quot;2004-10-12-08:23&quot;)) eq xs:dayTimeDuration(&quot;-PT8H23M&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -240,7 +240,7 @@
     <description> A test whose essence is: `empty(timezone-from-date(xs:date(&quot;2004-10-12&quot;)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(timezone-from-date(xs:date(&quot;2004-10-12&quot;)))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -251,7 +251,7 @@
     <test>
       timezone-from-date(adjust-date-to-timezone(xs:date(&quot;1997-01-01&quot;))) = implicit-timezone()
    </test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -275,7 +275,7 @@
     <test>
         declare function local:timezone($arg as xs:integer) { if ($arg gt 0) then xs:dayTimeDuration(concat('PT', $arg, 'H')) else if ($arg lt 0) then xs:dayTimeDuration(concat('-PT', -$arg, 'H')) else xs:dayTimeDuration('PT0H') };
         timezone-from-date( adjust-date-to-timezone( fn:current-date(), local:timezone(14)))</test>
-    <result-string>xs:string('PT14H')</result-string>
+    <result-string>xs:string(&quot;PT14H&quot;)</result-string>
     <result>
       <assert-string-value>PT14H</assert-string-value>
     </result>
@@ -287,7 +287,7 @@
     <test>
         declare function local:timezone($arg as xs:integer) { if ($arg gt 0) then xs:dayTimeDuration(concat('PT', $arg, 'H')) else if ($arg lt 0) then xs:dayTimeDuration(concat('-PT', -$arg, 'H')) else xs:dayTimeDuration('PT0H') };
         timezone-from-date( adjust-date-to-timezone( fn:current-date(), timezone-from-date( adjust-date-to-timezone( xs:date('1970-01-01'), local:timezone(-12)))))</test>
-    <result-string>xs:string('-PT12H')</result-string>
+    <result-string>xs:string(&quot;-PT12H&quot;)</result-string>
     <result>
       <assert-string-value>-PT12H</assert-string-value>
     </result>
@@ -299,7 +299,7 @@
     <test>
         declare function local:date($arg as xs:boolean) { if ($arg) then xs:date('1970-01-01Z') else fn:current-date() };
         timezone-from-date( adjust-date-to-timezone( xs:date('2008-08-01'), timezone-from-date(local:date(true()))))</test>
-    <result-string>xs:string('PT0S')</result-string>
+    <result-string>xs:string(&quot;PT0S&quot;)</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
@@ -311,7 +311,7 @@
     <test>
         declare function local:dateTime($arg as xs:boolean) { if ($arg) then xs:dateTime('1970-01-01T00:00:00Z') else fn:current-dateTime() };
         timezone-from-date( adjust-date-to-timezone( xs:date('2008-08-01'), timezone-from-dateTime(local:dateTime(true()))))</test>
-    <result-string>xs:string('PT0S')</result-string>
+    <result-string>xs:string(&quot;PT0S&quot;)</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
@@ -323,7 +323,7 @@
     <test>
         declare function local:time($arg as xs:boolean) { if ($arg) then xs:time('12:00:00Z') else fn:current-time() };
         timezone-from-date( adjust-date-to-timezone( xs:date('2008-08-01'), timezone-from-time(local:time(true()))))</test>
-    <result-string>xs:string('PT0S')</result-string>
+    <result-string>xs:string(&quot;PT0S&quot;)</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>

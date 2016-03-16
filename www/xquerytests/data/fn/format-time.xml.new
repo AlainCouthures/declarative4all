@@ -10,7 +10,7 @@
       <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
     </environment>
     <test>format-time($t,&quot;[H01]:[m01]&quot;)</test>
-    <result-string>xs:string('09:15')</result-string>
+    <result-string>xs:string(&quot;09:15&quot;)</result-string>
     <result>
       <assert-string-value>09:15</assert-string-value>
     </result>
@@ -22,7 +22,7 @@
       <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
     </environment>
     <test>format-time($t,&quot;[H]:[m]&quot;)</test>
-    <result-string>xs:string('9:15')</result-string>
+    <result-string>xs:string(&quot;9:15&quot;)</result-string>
     <result>
       <assert-string-value>9:15</assert-string-value>
     </result>
@@ -34,7 +34,7 @@
       <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
     </environment>
     <test>format-time($t,&quot;[H01]:[m01]:[s01]&quot;)</test>
-    <result-string>xs:string('09:15:06')</result-string>
+    <result-string>xs:string(&quot;09:15:06&quot;)</result-string>
     <result>
       <assert-string-value>09:15:06</assert-string-value>
     </result>
@@ -46,7 +46,7 @@
       <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
     </environment>
     <test>format-time($t,&quot;[H]:[m]:[s]&quot;)</test>
-    <result-string>xs:string('9:15:06')</result-string>
+    <result-string>xs:string(&quot;9:15:06&quot;)</result-string>
     <result>
       <assert-string-value>9:15:06</assert-string-value>
     </result>
@@ -58,7 +58,7 @@
       <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
     </environment>
     <test>format-time($t,&quot;[H]:[m]:[s1]&quot;)</test>
-    <result-string>xs:string('9:15:6')</result-string>
+    <result-string>xs:string(&quot;9:15:6&quot;)</result-string>
     <result>
       <assert-string-value>9:15:6</assert-string-value>
     </result>
@@ -70,7 +70,7 @@
       <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
     </environment>
     <test>format-time($t,&quot;[H]:[m]:[s01]:[f001]&quot;)</test>
-    <result-string>xs:string('9:15:06:456')</result-string>
+    <result-string>xs:string(&quot;9:15:06:456&quot;)</result-string>
     <result>
       <assert-string-value>9:15:06:456</assert-string-value>
     </result>
@@ -82,7 +82,7 @@
       <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
     </environment>
     <test>format-time($t,&quot;[H]:[m]:[s].[f,1-1]&quot;)</test>
-    <result-string>xs:string('9:15:06.5')</result-string>
+    <result-string>xs:string(&quot;9:15:06.5&quot;)</result-string>
     <result>
       <assert-string-value>9:15:06.5</assert-string-value>
     </result>
@@ -94,7 +94,7 @@
       <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
     </environment>
     <test>format-time($t,&quot;[H]:[m]:[s].[f1,1-1]&quot;)</test>
-    <result-string>xs:string('9:15:06.5')</result-string>
+    <result-string>xs:string(&quot;9:15:06.5&quot;)</result-string>
     <result>
       <assert-string-value>9:15:06.5</assert-string-value>
     </result>
@@ -106,7 +106,7 @@
       <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
     </environment>
     <test>format-time($t,&quot;[H]:[m]:[s].[f01]&quot;)</test>
-    <result-string>xs:string('9:15:06.46')</result-string>
+    <result-string>xs:string(&quot;9:15:06.46&quot;)</result-string>
     <result>
       <assert-string-value>9:15:06.46</assert-string-value>
     </result>
@@ -118,7 +118,7 @@
       <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
     </environment>
     <test>format-time($t,&quot;[H]:[m]:[s].[f001]&quot;)</test>
-    <result-string>xs:string('9:15:06.456')</result-string>
+    <result-string>xs:string(&quot;9:15:06.456&quot;)</result-string>
     <result>
       <assert-string-value>9:15:06.456</assert-string-value>
     </result>
@@ -132,10 +132,10 @@
     <test>
         for $i in 1 to 24 return
         format-time($t + xs:dayTimeDuration('PT1H')*$i, '[h].[m]')</test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
          10.15 11.15 12.15 1.15 2.15 3.15 4.15 5.15 6.15 7.15 8.15 9.15 10.15 11.15 
          12.15 1.15 2.15 3.15 4.15 5.15 6.15 7.15 8.15 9.15
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
          10.15 11.15 12.15 1.15 2.15 3.15 4.15 5.15 6.15 7.15 8.15 9.15 10.15 11.15 
@@ -150,7 +150,7 @@
       <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
     </environment>
     <test>format-time($t, '[m,3]')</test>
-    <result-string>xs:string('015')</result-string>
+    <result-string>xs:string(&quot;015&quot;)</result-string>
     <result>
       <assert-string-value>015</assert-string-value>
     </result>
@@ -162,7 +162,7 @@
       <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
     </environment>
     <test>format-time($t, '[f,4-4]')</test>
-    <result-string>xs:string('4560')</result-string>
+    <result-string>xs:string(&quot;4560&quot;)</result-string>
     <result>
       <assert-string-value>4560</assert-string-value>
     </result>
@@ -174,7 +174,7 @@
       <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
     </environment>
     <test>format-time($t, '[f,1-4]')</test>
-    <result-string>xs:string('456')</result-string>
+    <result-string>xs:string(&quot;456&quot;)</result-string>
     <result>
       <assert-string-value>456</assert-string-value>
     </result>
@@ -186,7 +186,7 @@
       <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
     </environment>
     <test>format-time($t, '[f,2-5]')</test>
-    <result-string>xs:string('456')</result-string>
+    <result-string>xs:string(&quot;456&quot;)</result-string>
     <result>
       <assert-string-value>456</assert-string-value>
     </result>
@@ -198,7 +198,7 @@
       <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
     </environment>
     <test>format-time($t, '[f,2-2]')</test>
-    <result-string>xs:string('46')</result-string>
+    <result-string>xs:string(&quot;46&quot;)</result-string>
     <result>
       <assert-string-value>46</assert-string-value>
     </result>
@@ -210,7 +210,7 @@
       <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
     </environment>
     <test>format-time($t, '[f,1-*]')</test>
-    <result-string>xs:string('456')</result-string>
+    <result-string>xs:string(&quot;456&quot;)</result-string>
     <result>
       <assert-string-value>456</assert-string-value>
     </result>
@@ -222,7 +222,7 @@
       <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
     </environment>
     <test>format-time($t, '[f,*-2]')</test>
-    <result-string>xs:string('46')</result-string>
+    <result-string>xs:string(&quot;46&quot;)</result-string>
     <result>
       <assert-string-value>46</assert-string-value>
     </result>
@@ -234,7 +234,7 @@
       <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
     </environment>
     <test>format-time($t, '[f,3]')</test>
-    <result-string>xs:string('456')</result-string>
+    <result-string>xs:string(&quot;456&quot;)</result-string>
     <result>
       <assert-string-value>456</assert-string-value>
     </result>
@@ -250,7 +250,7 @@
                for $z in -28 to +28
                return format-time(adjust-time-to-timezone(
                $t, $z*xs:dayTimeDuration('PT30M')), '[h01][m01][Z]'), '; ')</test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
              0715-14:00; 0745-13:30; 0815-13:00; 0845-12:30; 0915-12:00; 0945-11:30; 1015-11:00; 1045-10:30; 1115-10:00; 
              1145-09:30; 1215-09:00; 1245-08:30; 0115-08:00; 0145-07:30; 0215-07:00; 0245-06:30; 0315-06:00; 0345-05:30; 
              0415-05:00; 0445-04:30; 0515-04:00; 0545-03:30; 0615-03:00; 0645-02:30; 0715-02:00; 0745-01:30; 0815-01:00; 
@@ -258,7 +258,7 @@
              0115+04:00; 0145+04:30; 0215+05:00; 0245+05:30; 0315+06:00; 0345+06:30; 0415+07:00; 0445+07:30; 0515+08:00; 
              0545+08:30; 0615+09:00; 0645+09:30; 0715+10:00; 0745+10:30; 0815+11:00; 0845+11:30; 0915+12:00; 0945+12:30; 
              1015+13:00; 1045+13:30; 1115+14:00
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
              0715-14:00; 0745-13:30; 0815-13:00; 0845-12:30; 0915-12:00; 0945-11:30; 1015-11:00; 1045-10:30; 1115-10:00; 
@@ -282,7 +282,7 @@
                for $z in -28 to +28
                return format-time(adjust-time-to-timezone(
                         $t, $z*xs:dayTimeDuration('PT30M')), '[h01][m01][z]'), '; ')</test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
             0715GMT-14:00; 0745GMT-13:30; 0815GMT-13:00; 0845GMT-12:30; 0915GMT-12:00; 0945GMT-11:30; 1015GMT-11:00; 1045GMT-10:30;
             1115GMT-10:00; 1145GMT-09:30; 1215GMT-09:00; 1245GMT-08:30; 0115GMT-08:00; 0145GMT-07:30; 0215GMT-07:00; 0245GMT-06:30;
             0315GMT-06:00; 0345GMT-05:30; 0415GMT-05:00; 0445GMT-04:30; 0515GMT-04:00; 0545GMT-03:30; 0615GMT-03:00; 0645GMT-02:30;
@@ -291,7 +291,7 @@
             0345GMT+06:30; 0415GMT+07:00; 0445GMT+07:30; 0515GMT+08:00; 0545GMT+08:30; 0615GMT+09:00; 0645GMT+09:30; 0715GMT+10:00;
             0745GMT+10:30; 0815GMT+11:00; 0845GMT+11:30; 0915GMT+12:00; 0945GMT+12:30; 1015GMT+13:00; 1045GMT+13:30;
             1115GMT+14:00
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
             0715GMT-14:00; 0745GMT-13:30; 0815GMT-13:00; 0845GMT-12:30; 0915GMT-12:00; 0945GMT-11:30; 1015GMT-11:00; 1045GMT-10:30;
@@ -316,7 +316,7 @@
                for $z in -28 to +28
                return format-time(adjust-time-to-timezone(
                         $t, $z*xs:dayTimeDuration('PT30M')), '[h01][m01][z,6-6]'), '; ')</test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
              0715GMT-14:00; 0745GMT-13:30; 0815GMT-13:00; 0845GMT-12:30; 0915GMT-12:00; 0945GMT-11:30; 1015GMT-11:00; 1045GMT-10:30;
             1115GMT-10:00; 1145GMT-09:30; 1215GMT-09:00; 1245GMT-08:30; 0115GMT-08:00; 0145GMT-07:30; 0215GMT-07:00; 0245GMT-06:30;
             0315GMT-06:00; 0345GMT-05:30; 0415GMT-05:00; 0445GMT-04:30; 0515GMT-04:00; 0545GMT-03:30; 0615GMT-03:00; 0645GMT-02:30;
@@ -325,7 +325,7 @@
             0345GMT+06:30; 0415GMT+07:00; 0445GMT+07:30; 0515GMT+08:00; 0545GMT+08:30; 0615GMT+09:00; 0645GMT+09:30; 0715GMT+10:00;
             0745GMT+10:30; 0815GMT+11:00; 0845GMT+11:30; 0915GMT+12:00; 0945GMT+12:30; 1015GMT+13:00; 1045GMT+13:30;
             1115GMT+14:00
-        ')</result-string>
+        &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
              0715GMT-14:00; 0745GMT-13:30; 0815GMT-13:00; 0845GMT-12:30; 0915GMT-12:00; 0945GMT-11:30; 1015GMT-11:00; 1045GMT-10:30;
@@ -349,7 +349,7 @@
     <test>string-join(
                for $z in -28 to +28
                return format-time(adjust-time-to-timezone($t, $z*xs:dayTimeDuration('PT30M')), '[h01][m01][z,5-6]'), '; ')</test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
              0715GMT-14:00; 0745GMT-13:30; 0815GMT-13:00; 0845GMT-12:30; 0915GMT-12:00; 0945GMT-11:30; 1015GMT-11:00; 1045GMT-10:30;
             1115GMT-10:00; 1145GMT-09:30; 1215GMT-09:00; 1245GMT-08:30; 0115GMT-08:00; 0145GMT-07:30; 0215GMT-07:00; 0245GMT-06:30;
             0315GMT-06:00; 0345GMT-05:30; 0415GMT-05:00; 0445GMT-04:30; 0515GMT-04:00; 0545GMT-03:30; 0615GMT-03:00; 0645GMT-02:30;
@@ -358,7 +358,7 @@
             0345GMT+06:30; 0415GMT+07:00; 0445GMT+07:30; 0515GMT+08:00; 0545GMT+08:30; 0615GMT+09:00; 0645GMT+09:30; 0715GMT+10:00;
             0745GMT+10:30; 0815GMT+11:00; 0845GMT+11:30; 0915GMT+12:00; 0945GMT+12:30; 1015GMT+13:00; 1045GMT+13:30;
             1115GMT+14:00
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
              0715GMT-14:00; 0745GMT-13:30; 0815GMT-13:00; 0845GMT-12:30; 0915GMT-12:00; 0945GMT-11:30; 1015GMT-11:00; 1045GMT-10:30;
@@ -382,7 +382,7 @@
     <test>string-join(
                for $z in -28 to +28
                return format-time(adjust-time-to-timezone($t, $z*xs:dayTimeDuration('PT30M')), '[h01][m01][z,2-6]'), '; ')</test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
               0715GMT-14:00; 0745GMT-13:30; 0815GMT-13:00; 0845GMT-12:30; 0915GMT-12:00; 0945GMT-11:30; 1015GMT-11:00; 1045GMT-10:30;
             1115GMT-10:00; 1145GMT-09:30; 1215GMT-09:00; 1245GMT-08:30; 0115GMT-08:00; 0145GMT-07:30; 0215GMT-07:00; 0245GMT-06:30;
             0315GMT-06:00; 0345GMT-05:30; 0415GMT-05:00; 0445GMT-04:30; 0515GMT-04:00; 0545GMT-03:30; 0615GMT-03:00; 0645GMT-02:30;
@@ -391,7 +391,7 @@
             0345GMT+06:30; 0415GMT+07:00; 0445GMT+07:30; 0515GMT+08:00; 0545GMT+08:30; 0615GMT+09:00; 0645GMT+09:30; 0715GMT+10:00;
             0745GMT+10:30; 0815GMT+11:00; 0845GMT+11:30; 0915GMT+12:00; 0945GMT+12:30; 1015GMT+13:00; 1045GMT+13:30;
             1115GMT+14:00
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
               0715GMT-14:00; 0745GMT-13:30; 0815GMT-13:00; 0845GMT-12:30; 0915GMT-12:00; 0945GMT-11:30; 1015GMT-11:00; 1045GMT-10:30;

@@ -7,7 +7,7 @@
     <description>Integer key, data is present</description>
     <created by="Michael Kay, Saxonica" on="2011-03-25"/>
     <test>map:contains(map{1:=&quot;Sunday&quot;,2:=&quot;Monday&quot;,3:=&quot;Tuesday&quot;,4:=&quot;Wednesday&quot;,5:=&quot;Thursday&quot;,6:=&quot;Friday&quot;,7:=&quot;Saturday&quot;}, 4)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -16,7 +16,7 @@
     <description>Integer key, data is absent</description>
     <created by="Michael Kay, Saxonica" on="2011-03-25"/>
     <test>map:contains(map{1:=&quot;Sunday&quot;,2:=&quot;Monday&quot;,3:=&quot;Tuesday&quot;,4:=&quot;Wednesday&quot;,5:=&quot;Thursday&quot;,6:=&quot;Friday&quot;,7:=&quot;Saturday&quot;}, 23)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -25,7 +25,7 @@
     <description>Empty map, data is absent</description>
     <created by="Michael Kay, Saxonica" on="2011-03-25"/>
     <test>map:contains(map{}, 23)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -34,7 +34,7 @@
     <description>Singleton map, data is absent</description>
     <created by="Michael Kay, Saxonica" on="2011-03-25"/>
     <test>map:contains(map:entry(&quot;foo&quot;, &quot;bar&quot;), &quot;baz&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -43,7 +43,7 @@
     <description>Singleton map, data is present</description>
     <created by="Michael Kay, Saxonica" on="2011-03-25"/>
     <test>map:contains(map:entry(&quot;foo&quot;, &quot;bar&quot;), &quot;foo&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -52,7 +52,7 @@
     <description>Singleton map, untyped atomic search key, data is present</description>
     <created by="Michael Kay, Saxonica" on="2011-03-25"/>
     <test>map:contains(map:entry(&quot;foo&quot;, &quot;bar&quot;), xs:untypedAtomic(&quot;foo&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -61,7 +61,7 @@
     <description>Singleton map, untyped atomic data, data is present</description>
     <created by="Michael Kay, Saxonica" on="2011-03-25"/>
     <test>map:contains(map:entry(xs:untypedAtomic(&quot;foo&quot;), &quot;bar&quot;), &quot;foo&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -70,7 +70,7 @@
     <description>Singleton map, untyped atomic data, does not match numeric key</description>
     <created by="Michael Kay, Saxonica" on="2011-03-25"/>
     <test>map:contains(map:entry(xs:untypedAtomic(&quot;12&quot;), &quot;bar&quot;), 12)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -79,7 +79,7 @@
     <description>Singleton map, untyped atomic search key, does not match numeric data</description>
     <created by="Michael Kay, Saxonica" on="2011-03-25"/>
     <test>map:contains(map:entry(12, &quot;bar&quot;), xs:untypedAtomic(&quot;12&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -88,7 +88,7 @@
     <description>Integer key in data, double in search key</description>
     <created by="Michael Kay, Saxonica" on="2011-03-25"/>
     <test>map:contains(map{1:=&quot;Sunday&quot;,2:=&quot;Monday&quot;,3:=&quot;Tuesday&quot;,4:=&quot;Wednesday&quot;,5:=&quot;Thursday&quot;,6:=&quot;Friday&quot;,7:=&quot;Saturday&quot;}, 4.0e0)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -97,7 +97,7 @@
     <description>Double key in data, integer in search key</description>
     <created by="Michael Kay, Saxonica" on="2011-03-25"/>
     <test>map:contains(map{1:=&quot;Sunday&quot;,2:=&quot;Monday&quot;,3:=&quot;Tuesday&quot;,4.0e0:=&quot;Wednesday&quot;,5:=&quot;Thursday&quot;,6:=&quot;Friday&quot;,7:=&quot;Saturday&quot;}, 4)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -106,7 +106,7 @@
     <description>String key in data, uri in search key</description>
     <created by="Michael Kay, Saxonica" on="2011-03-25"/>
     <test>map:contains(map{1:=&quot;Sunday&quot;,2:=&quot;Monday&quot;,3:=&quot;Tuesday&quot;,&quot;urn:weds&quot;:=&quot;Wednesday&quot;,5:=&quot;Thursday&quot;,6:=&quot;Friday&quot;,7:=&quot;Saturday&quot;}, xs:anyURI(&quot;urn:weds&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -115,7 +115,7 @@
     <description>URI key in data, string in search key</description>
     <created by="Michael Kay, Saxonica" on="2011-03-25"/>
     <test>map:contains(map{1:=&quot;Sunday&quot;,2:=&quot;Monday&quot;,3:=&quot;Tuesday&quot;,xs:anyURI(&quot;urn:weds&quot;):=&quot;Wednesday&quot;,5:=&quot;Thursday&quot;,6:=&quot;Friday&quot;,7:=&quot;Saturday&quot;}, &quot;urn:weds&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -124,7 +124,7 @@
     <description>NaN as search key</description>
     <created by="Michael Kay, Saxonica" on="2011-03-25"/>
     <test>map:contains(map{1:=&quot;Sunday&quot;,2:=&quot;Monday&quot;,3:=&quot;Tuesday&quot;,xs:anyURI(&quot;urn:weds&quot;):=&quot;Wednesday&quot;,5:=&quot;Thursday&quot;,6:=&quot;Friday&quot;,7:=&quot;Saturday&quot;}, number('NaN'))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -133,7 +133,7 @@
     <description>NaN in data and as search key</description>
     <created by="Michael Kay, Saxonica" on="2011-03-25"/>
     <test>map:contains(map{1:=&quot;Sunday&quot;,2:=&quot;Monday&quot;,3:=&quot;Tuesday&quot;,number('NaN'):=&quot;Wednesday&quot;,5:=&quot;Thursday&quot;,6:=&quot;Friday&quot;,7:=&quot;Saturday&quot;}, number('NaN'))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -146,7 +146,7 @@
                          (for $i in 2000 to 3000 return map:entry($i, $i+30)),
                          (for $i in 2500 to 3500 return map:entry($i, $i+30)))),
                          3260)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -155,7 +155,7 @@
     <description>duration as search key</description>
     <created by="Michael Kay, Saxonica" on="2011-03-25"/>
     <test>map:contains(map{1:=&quot;Sunday&quot;,2:=&quot;Monday&quot;,3:=&quot;Tuesday&quot;,xs:duration('P1Y'):=&quot;Wednesday&quot;,5:=&quot;Thursday&quot;,6:=&quot;Friday&quot;,7:=&quot;Saturday&quot;}, xs:yearMonthDuration('P12M'))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -164,7 +164,7 @@
     <description>QName as search key</description>
     <created by="Michael Kay, Saxonica" on="2011-03-25"/>
     <test>map:contains(map{1:=&quot;Sunday&quot;,2:=&quot;Monday&quot;,3:=&quot;Tuesday&quot;,function-name(abs#1):=&quot;Wednesday&quot;,5:=&quot;Thursday&quot;,6:=&quot;Friday&quot;,7:=&quot;Saturday&quot;}, xs:QName('fn:abs'))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -173,7 +173,7 @@
     <description>contains() returns true even if the value is empty</description>
     <created by="Michael Kay, Saxonica" on="2011-03-25"/>
     <test>map:contains(map{1:=&quot;Sunday&quot;,2:=&quot;Monday&quot;,3:=&quot;Tuesday&quot;,4:=(),5:=&quot;Thursday&quot;,6:=&quot;Friday&quot;,7:=&quot;Saturday&quot;}, 4)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -182,7 +182,7 @@
     <description>default collation is not case-blind</description>
     <created by="Michael Kay, Saxonica" on="2011-03-25"/>
     <test>map:contains(map{&quot;su&quot;:=&quot;Sunday&quot;,&quot;mo&quot;:=&quot;Monday&quot;,&quot;tu&quot;:=&quot;Tuesday&quot;,&quot;we&quot;:=&quot;Wednesday&quot;,&quot;th&quot;:=&quot;Thursday&quot;,&quot;fr&quot;:=&quot;Friday&quot;,&quot;sa&quot;:=&quot;Saturday&quot;}, &quot;TH&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -192,7 +192,7 @@
     <created by="Michael Kay, Saxonica" on="2011-03-25"/>
     <test>map:contains(map:new(map{&quot;su&quot;:=&quot;Sunday&quot;,&quot;mo&quot;:=&quot;Monday&quot;,&quot;tu&quot;:=&quot;Tuesday&quot;,&quot;we&quot;:=&quot;Wednesday&quot;,&quot;th&quot;:=&quot;Thursday&quot;,&quot;fr&quot;:=&quot;Friday&quot;,&quot;sa&quot;:=&quot;Saturday&quot;}, 
             &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;), &quot;TH&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -204,7 +204,7 @@
       <collation default="true" uri="http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind"/>
     </environment>
     <test>map:contains(map{&quot;su&quot;:=&quot;Sunday&quot;,&quot;mo&quot;:=&quot;Monday&quot;,&quot;tu&quot;:=&quot;Tuesday&quot;,&quot;we&quot;:=&quot;Wednesday&quot;,&quot;th&quot;:=&quot;Thursday&quot;,&quot;fr&quot;:=&quot;Friday&quot;,&quot;sa&quot;:=&quot;Saturday&quot;}, &quot;TH&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -217,7 +217,7 @@
     </environment>
     <test>map:contains(map:new(map{&quot;su&quot;:=&quot;Sunday&quot;,&quot;mo&quot;:=&quot;Monday&quot;,&quot;tu&quot;:=&quot;Tuesday&quot;,&quot;we&quot;:=&quot;Wednesday&quot;,&quot;th&quot;:=&quot;Thursday&quot;,&quot;fr&quot;:=&quot;Friday&quot;,&quot;sa&quot;:=&quot;Saturday&quot;}, 
             &quot;http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind&quot;), &quot;TH&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -231,7 +231,7 @@
     </environment>
     <test>map:contains(map:new(map{&quot;su&quot;:=&quot;Sunday&quot;,&quot;mo&quot;:=&quot;Monday&quot;,&quot;tu&quot;:=&quot;Tuesday&quot;,&quot;we&quot;:=&quot;Wednesday&quot;,&quot;th&quot;:=&quot;Thursday&quot;,&quot;fr&quot;:=&quot;Friday&quot;,&quot;sa&quot;:=&quot;Saturday&quot;}, 
             &quot;qt-fots-catalog/collation/caseblind&quot;), &quot;Mo&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -245,7 +245,7 @@
     </environment>
     <test>map:contains(map:new(map{&quot;su&quot;:=&quot;Sunday&quot;,&quot;mo&quot;:=&quot;Monday&quot;,&quot;tu&quot;:=&quot;Tuesday&quot;,&quot;we&quot;:=&quot;Wednesday&quot;,&quot;th&quot;:=&quot;Thursday&quot;,&quot;fr&quot;:=&quot;Friday&quot;,&quot;sa&quot;:=&quot;Saturday&quot;}, 
             &quot;qt-fots-catalog/collation/caseblind&quot;), &quot;MON&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>

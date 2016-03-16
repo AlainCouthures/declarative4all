@@ -10,7 +10,7 @@
       <param as="xs:date" name="d" select="xs:date('2003-09-07')"/>
     </environment>
     <test>format-date($d,&quot;[Y]-[M01]-[D]&quot;)</test>
-    <result-string>xs:string('2003-09-7')</result-string>
+    <result-string>xs:string(&quot;2003-09-7&quot;)</result-string>
     <result>
       <assert-string-value>2003-09-7</assert-string-value>
     </result>
@@ -22,7 +22,7 @@
       <param as="xs:date" name="d" select="xs:date('2003-09-07')"/>
     </environment>
     <test>format-date($d,&quot;[M]-[D]-[Y]&quot;)</test>
-    <result-string>xs:string('9-7-2003')</result-string>
+    <result-string>xs:string(&quot;9-7-2003&quot;)</result-string>
     <result>
       <assert-string-value>9-7-2003</assert-string-value>
     </result>
@@ -34,7 +34,7 @@
       <param as="xs:date" name="d" select="xs:date('2003-09-07')"/>
     </environment>
     <test>format-date($d,&quot;[D]-[M]-[Y]&quot;)</test>
-    <result-string>xs:string('7-9-2003')</result-string>
+    <result-string>xs:string(&quot;7-9-2003&quot;)</result-string>
     <result>
       <assert-string-value>7-9-2003</assert-string-value>
     </result>
@@ -46,7 +46,7 @@
       <param as="xs:date" name="d" select="xs:date('2003-09-07')"/>
     </environment>
     <test>format-date($d,&quot;[D1] [MI] [Y]&quot;)</test>
-    <result-string>xs:string('7 IX 2003')</result-string>
+    <result-string>xs:string(&quot;7 IX 2003&quot;)</result-string>
     <result>
       <assert-string-value>7 IX 2003</assert-string-value>
     </result>
@@ -58,7 +58,7 @@
       <param as="xs:date" name="d" select="xs:date('2003-09-07')"/>
     </environment>
     <test>format-date($d,&quot;[[[Y]-[M01]-[D01]]]&quot;)</test>
-    <result-string>xs:string('[2003-09-07]')</result-string>
+    <result-string>xs:string(&quot;[2003-09-07]&quot;)</result-string>
     <result>
       <assert-string-value>[2003-09-07]</assert-string-value>
     </result>
@@ -70,7 +70,7 @@
       <param as="xs:date" name="d" select="xs:date('2003-09-07')"/>
     </environment>
     <test>format-date($d,&quot;[[[Y0001]-[M01]-[D01]]]&quot;)</test>
-    <result-string>xs:string('[2003-09-07]')</result-string>
+    <result-string>xs:string(&quot;[2003-09-07]&quot;)</result-string>
     <result>
       <assert-string-value>[2003-09-07]</assert-string-value>
     </result>
@@ -82,7 +82,7 @@
       <param as="xs:date" name="d" select="xs:date('2003-09-07')"/>
     </environment>
     <test>format-date($d,&quot;([Y01]-[M01]-[D01])&quot;)</test>
-    <result-string>xs:string('(03-09-07)')</result-string>
+    <result-string>xs:string(&quot;(03-09-07)&quot;)</result-string>
     <result>
       <assert-string-value>(03-09-07)</assert-string-value>
     </result>
@@ -95,7 +95,7 @@
     </environment>
     <test> string-join( for $i in 1 to 100 return format-date($t + xs:yearMonthDuration('P1Y')*$i,
          '[YI]'), ' ')</test>
-    <result-string>xs:string('MCMLI MCMLII MCMLIII MCMLIV MCMLV MCMLVI MCMLVII MCMLVIII
+    <result-string>xs:string(&quot;MCMLI MCMLII MCMLIII MCMLIV MCMLV MCMLVI MCMLVII MCMLVIII
             MCMLIX MCMLX MCMLXI MCMLXII MCMLXIII MCMLXIV MCMLXV MCMLXVI MCMLXVII MCMLXVIII
             MCMLXIX MCMLXX MCMLXXI MCMLXXII MCMLXXIII MCMLXXIV MCMLXXV MCMLXXVI MCMLXXVII
             MCMLXXVIII MCMLXXIX MCMLXXX MCMLXXXI MCMLXXXII MCMLXXXIII MCMLXXXIV MCMLXXXV
@@ -105,7 +105,7 @@
             MMXVIII MMXIX MMXX MMXXI MMXXII MMXXIII MMXXIV MMXXV MMXXVI MMXXVII MMXXVIII
             MMXXIX MMXXX MMXXXI MMXXXII MMXXXIII MMXXXIV MMXXXV MMXXXVI MMXXXVII MMXXXVIII
             MMXXXIX MMXL MMXLI MMXLII MMXLIII MMXLIV MMXLV MMXLVI MMXLVII MMXLVIII MMXLIX
-            MML')</result-string>
+            MML&quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">MCMLI MCMLII MCMLIII MCMLIV MCMLV MCMLVI MCMLVII MCMLVIII
             MCMLIX MCMLX MCMLXI MCMLXII MCMLXIII MCMLXIV MCMLXV MCMLXVI MCMLXVII MCMLXVIII
@@ -128,7 +128,7 @@
     </environment>
     <test> string-join( for $i in 1 to 100 return format-date($t +
          xs:yearMonthDuration('P17Y')*$i, '[Yi,4-4]'), ' ')</test>
-    <result-string>xs:string('dcccxvii dcccxxxiv dcccli dccclxviii dccclxxxv cmii cmxix
+    <result-string>xs:string(&quot;dcccxvii dcccxxxiv dcccli dccclxviii dccclxxxv cmii cmxix
             cmxxxvi cmliii cmlxx cmlxxxvii miv mxxi mxxxviii mlv mlxxii mlxxxix mcvi
             mcxxiii mcxl mclvii mclxxiv mcxci mccviii mccxxv mccxlii mcclix mcclxxvi
             mccxciii mcccx mcccxxvii mcccxliv mccclxi mccclxxviii mcccxcv mcdxii mcdxxix
@@ -139,7 +139,7 @@
             mmlviii mmlxxv mmxcii mmcix mmcxxvi mmcxliii mmclx mmclxxvii mmcxciv mmccxi
             mmccxxviii mmccxlv mmcclxii mmcclxxix mmccxcvi mmcccxiii mmcccxxx mmcccxlvii
             mmccclxiv mmccclxxxi mmcccxcviii mmcdxv mmcdxxxii mmcdxlix mmcdlxvi mmcdlxxxiii
-            mmd')</result-string>
+            mmd&quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">dcccxvii dcccxxxiv dcccli dccclxviii dccclxxxv cmii cmxix
             cmxxxvi cmliii cmlxx cmlxxxvii miv mxxi mxxxviii mlv mlxxii mlxxxix mcvi
@@ -162,7 +162,7 @@
       <param as="xs:date" name="d" select="xs:date('2003-09-07')"/>
     </environment>
     <test>format-date($d,&quot;[Y]-[M]-[D]&quot;)</test>
-    <result-string>xs:string('--')</result-string>
+    <result-string>xs:string(&quot;--&quot;)</result-string>
     <result>
       <assert-string-value>--</assert-string-value>
     </result>
@@ -174,7 +174,7 @@
       <param as="xs:date" name="d" select="xs:date('2003-09-07')"/>
     </environment>
     <test>format-date($d,&quot;[M]-[D]-[Y]&quot;)</test>
-    <result-string>xs:string('--')</result-string>
+    <result-string>xs:string(&quot;--&quot;)</result-string>
     <result>
       <assert-string-value>--</assert-string-value>
     </result>
@@ -186,7 +186,7 @@
       <param as="xs:date" name="d" select="xs:date('2003-09-07')"/>
     </environment>
     <test>format-date($d,&quot;([Y]-[M]-[D])&quot;)</test>
-    <result-string>xs:string('(--)')</result-string>
+    <result-string>xs:string(&quot;(--)&quot;)</result-string>
     <result>
       <assert-string-value>(--)</assert-string-value>
     </result>
@@ -198,7 +198,7 @@
       <param as="xs:date" name="d" select="xs:date('2003-09-07')"/>
     </environment>
     <test>format-date($d,&quot;[Y]-[M]-[D]&quot;)</test>
-    <result-string>xs:string('--')</result-string>
+    <result-string>xs:string(&quot;--&quot;)</result-string>
     <result>
       <assert-string-value>--</assert-string-value>
     </result>
@@ -210,7 +210,7 @@
       <param as="xs:date" name="d" select="xs:date('2003-09-07')"/>
     </environment>
     <test>format-date($d,&quot;[M]-[D]-[Y]&quot;)</test>
-    <result-string>xs:string('--')</result-string>
+    <result-string>xs:string(&quot;--&quot;)</result-string>
     <result>
       <assert-string-value>--</assert-string-value>
     </result>
@@ -222,7 +222,7 @@
       <param as="xs:date" name="d" select="xs:date('2003-09-07')"/>
     </environment>
     <test>format-date($d,&quot;([Y]-[M]-[D])&quot;)</test>
-    <result-string>xs:string('(--)')</result-string>
+    <result-string>xs:string(&quot;(--)&quot;)</result-string>
     <result>
       <assert-string-value>(--)</assert-string-value>
     </result>
@@ -237,7 +237,7 @@
         for $i in 1 to 48, $d in $t + xs:yearMonthDuration('P1M')*$i 
         return concat(&quot;[&quot;, $d, &quot;:&quot;, format-date($d, '[W]', (), 'ISO', ()), &quot;]&quot;)
       </test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
             [2004-05-01:18] [2004-06-01:23] [2004-07-01:27] [2004-08-01:31] [2004-09-01:36] [2004-10-01:40] [2004-11-01:45] 
             [2004-12-01:49] [2005-01-01:53] [2005-02-01:5] [2005-03-01:9] [2005-04-01:13] [2005-05-01:17] [2005-06-01:22] 
             [2005-07-01:26] [2005-08-01:31] [2005-09-01:35] [2005-10-01:39] [2005-11-01:44] [2005-12-01:48] [2006-01-01:52] 
@@ -245,7 +245,7 @@
             [2006-09-01:35] [2006-10-01:39] [2006-11-01:44] [2006-12-01:48] [2007-01-01:1] [2007-02-01:5] [2007-03-01:9] 
             [2007-04-01:13] [2007-05-01:18] [2007-06-01:22] [2007-07-01:26] [2007-08-01:31] [2007-09-01:35] [2007-10-01:40] 
             [2007-11-01:44] [2007-12-01:48] [2008-01-01:1] [2008-02-01:5] [2008-03-01:9] [2008-04-01:14]
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
             [2004-05-01:18] [2004-06-01:23] [2004-07-01:27] [2004-08-01:31] [2004-09-01:36] [2004-10-01:40] [2004-11-01:45] 
@@ -268,7 +268,7 @@
     <test>for $i in 1 to 48, $d in $t + xs:yearMonthDuration('P1M')*$i 
             return concat(&quot;[&quot;, $d, &quot;:&quot;, format-date($d, '[F01]', (), 'Q{}ISO', ()), ']')
       </test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
             [2004-01-01:04] [2004-02-01:07] [2004-03-01:01] [2004-04-01:04] [2004-05-01:06] [2004-06-01:02] 
             [2004-07-01:04] [2004-08-01:07] [2004-09-01:03] [2004-10-01:05] [2004-11-01:01] [2004-12-01:03] 
             [2005-01-01:06] [2005-02-01:02] [2005-03-01:02] [2005-04-01:05] [2005-05-01:07] [2005-06-01:03] 
@@ -277,7 +277,7 @@
             [2006-07-01:06] [2006-08-01:02] [2006-09-01:05] [2006-10-01:07] [2006-11-01:03] [2006-12-01:05] 
             [2007-01-01:01] [2007-02-01:04] [2007-03-01:04] [2007-04-01:07] [2007-05-01:02] [2007-06-01:05] 
             [2007-07-01:07] [2007-08-01:03] [2007-09-01:06] [2007-10-01:01] [2007-11-01:04] [2007-12-01:06]             
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
             [2004-01-01:04] [2004-02-01:07] [2004-03-01:01] [2004-04-01:04] [2004-05-01:06] [2004-06-01:02] 
@@ -300,7 +300,7 @@
     <test>
         for $i in 1 to 48, $d in $t + xs:dayTimeDuration('P3D')*$i 
         return concat(&quot;[&quot;, $d, &quot;:&quot;, format-date($d, '[w]', (), 'ISO', ()), ']')</test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
             [2005-12-04:1] [2005-12-07:2] [2005-12-10:2] [2005-12-13:3] [2005-12-16:3] [2005-12-19:4] [2005-12-22:4] 
             [2005-12-25:4] [2005-12-28:5] [2005-12-31:5] [2006-01-03:1] [2006-01-06:1] [2006-01-09:2] [2006-01-12:2] 
             [2006-01-15:2] [2006-01-18:3] [2006-01-21:3] [2006-01-24:4] [2006-01-27:4] [2006-01-30:5] [2006-02-02:1] 
@@ -308,7 +308,7 @@
             [2006-02-26:4] [2006-03-01:1] [2006-03-04:1] [2006-03-07:2] [2006-03-10:2] [2006-03-13:3] [2006-03-16:3] 
             [2006-03-19:3] [2006-03-22:4] [2006-03-25:4] [2006-03-28:5] [2006-03-31:5] [2006-04-03:1] [2006-04-06:1] 
             [2006-04-09:1] [2006-04-12:2] [2006-04-15:2] [2006-04-18:3] [2006-04-21:3] [2006-04-24:4]            
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
             [2005-12-04:1] [2005-12-07:2] [2005-12-10:2] [2005-12-13:3] [2005-12-16:3] [2005-12-19:4] [2005-12-22:4] 
@@ -328,7 +328,7 @@
       <param as="xs:date" name="t" select="xs:date('0985-03-01')"/>
     </environment>
     <test>format-date($t, '[Y,4-4]')</test>
-    <result-string>xs:string('0985')</result-string>
+    <result-string>xs:string(&quot;0985&quot;)</result-string>
     <result>
       <assert-string-value>0985</assert-string-value>
     </result>
@@ -340,7 +340,7 @@
       <param as="xs:date" name="t" select="xs:date('0985-03-01')"/>
     </environment>
     <test>format-date($t, '[Y,3-4]')</test>
-    <result-string>xs:string('985')</result-string>
+    <result-string>xs:string(&quot;985&quot;)</result-string>
     <result>
       <assert-string-value>985</assert-string-value>
     </result>
@@ -352,7 +352,7 @@
       <param as="xs:date" name="t" select="xs:date('0985-03-01')"/>
     </environment>
     <test>format-date($t, '[Y,2-5]')</test>
-    <result-string>xs:string('985')</result-string>
+    <result-string>xs:string(&quot;985&quot;)</result-string>
     <result>
       <assert-string-value>985</assert-string-value>
     </result>
@@ -364,7 +364,7 @@
       <param as="xs:date" name="t" select="xs:date('0985-03-01')"/>
     </environment>
     <test>format-date($t, '[Y,2-2]')</test>
-    <result-string>xs:string('85')</result-string>
+    <result-string>xs:string(&quot;85&quot;)</result-string>
     <result>
       <assert-string-value>85</assert-string-value>
     </result>
@@ -376,7 +376,7 @@
       <param as="xs:date" name="t" select="xs:date('0985-03-01')"/>
     </environment>
     <test>format-date($t, '[Y,2-*]')</test>
-    <result-string>xs:string('985')</result-string>
+    <result-string>xs:string(&quot;985&quot;)</result-string>
     <result>
       <assert-string-value>985</assert-string-value>
     </result>
@@ -388,7 +388,7 @@
       <param as="xs:date" name="t" select="xs:date('0985-03-01')"/>
     </environment>
     <test>format-date($t, '[Y,*-4]')</test>
-    <result-string>xs:string('985')</result-string>
+    <result-string>xs:string(&quot;985&quot;)</result-string>
     <result>
       <assert-string-value>985</assert-string-value>
     </result>
@@ -400,7 +400,7 @@
       <param as="xs:date" name="t" select="xs:date('0985-03-01')"/>
     </environment>
     <test>format-date($t, '[Y,3]')</test>
-    <result-string>xs:string('985')</result-string>
+    <result-string>xs:string(&quot;985&quot;)</result-string>
     <result>
       <assert-string-value>985</assert-string-value>
     </result>
@@ -412,7 +412,7 @@
       <param as="xs:date" name="t" select="xs:date('0985-03-01')"/>
     </environment>
     <test>format-date($t, '[M,4-4]')</test>
-    <result-string>xs:string('0003')</result-string>
+    <result-string>xs:string(&quot;0003&quot;)</result-string>
     <result>
       <assert-string-value>0003</assert-string-value>
     </result>
@@ -424,7 +424,7 @@
       <param as="xs:date" name="t" select="xs:date('0985-03-01')"/>
     </environment>
     <test>format-date($t, '[M,1-4]')</test>
-    <result-string>xs:string('3')</result-string>
+    <result-string>xs:string(&quot;3&quot;)</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>
@@ -436,7 +436,7 @@
       <param as="xs:date" name="t" select="xs:date('0985-03-01')"/>
     </environment>
     <test>format-date($t, '[M,2-5]')</test>
-    <result-string>xs:string('03')</result-string>
+    <result-string>xs:string(&quot;03&quot;)</result-string>
     <result>
       <assert-string-value>03</assert-string-value>
     </result>
@@ -448,7 +448,7 @@
       <param as="xs:date" name="t" select="xs:date('0985-03-01')"/>
     </environment>
     <test>format-date($t, '[M,2-2]')</test>
-    <result-string>xs:string('03')</result-string>
+    <result-string>xs:string(&quot;03&quot;)</result-string>
     <result>
       <assert-string-value>03</assert-string-value>
     </result>
@@ -460,7 +460,7 @@
       <param as="xs:date" name="t" select="xs:date('0985-03-01')"/>
     </environment>
     <test>format-date($t, '[M,1-*]')</test>
-    <result-string>xs:string('3')</result-string>
+    <result-string>xs:string(&quot;3&quot;)</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>
@@ -472,7 +472,7 @@
       <param as="xs:date" name="t" select="xs:date('0985-03-01')"/>
     </environment>
     <test>format-date($t, '[M,*-2]')</test>
-    <result-string>xs:string('3')</result-string>
+    <result-string>xs:string(&quot;3&quot;)</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>
@@ -484,7 +484,7 @@
       <param as="xs:date" name="t" select="xs:date('0985-03-01')"/>
     </environment>
     <test>format-date($t, '[M,3]')</test>
-    <result-string>xs:string('003')</result-string>
+    <result-string>xs:string(&quot;003&quot;)</result-string>
     <result>
       <assert-string-value>003</assert-string-value>
     </result>
@@ -498,12 +498,12 @@
     </environment>
     <test>string-join( for $z in -28 to +28 return format-date(adjust-date-to-timezone($t,
          $z*xs:dayTimeDuration('PT30M')), '[Z]'), ' ')</test>
-    <result-string>xs:string('-14:00 -13:30 -13:00 -12:30 -12:00 -11:30 -11:00 -10:30 -10:00
+    <result-string>xs:string(&quot;-14:00 -13:30 -13:00 -12:30 -12:00 -11:30 -11:00 -10:30 -10:00
             -09:30 -09:00 -08:30 -08:00 -07:30 -07:00 -06:30 -06:00 -05:30 -05:00 -04:30
             -04:00 -03:30 -03:00 -02:30 -02:00 -01:30 -01:00 -00:30 +00:00 +00:30 +01:00
             +01:30 +02:00 +02:30 +03:00 +03:30 +04:00 +04:30 +05:00 +05:30 +06:00 +06:30
             +07:00 +07:30 +08:00 +08:30 +09:00 +09:30 +10:00 +10:30 +11:00 +11:30 +12:00
-            +12:30 +13:00 +13:30 +14:00')</result-string>
+            +12:30 +13:00 +13:30 +14:00&quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">-14:00 -13:30 -13:00 -12:30 -12:00 -11:30 -11:00 -10:30 -10:00
             -09:30 -09:00 -08:30 -08:00 -07:30 -07:00 -06:30 -06:00 -05:30 -05:00 -04:30
@@ -523,13 +523,13 @@
     </environment>
     <test>string-join( for $z in -28 to +28 return format-date(adjust-date-to-timezone($t,
          $z*xs:dayTimeDuration('PT30M')), '[z0]'), '; ')</test>
-    <result-string>xs:string('GMT-14; GMT-13:30; GMT-13; GMT-12:30; GMT-12; GMT-11:30; GMT-11;
+    <result-string>xs:string(&quot;GMT-14; GMT-13:30; GMT-13; GMT-12:30; GMT-12; GMT-11:30; GMT-11;
             GMT-10:30; GMT-10; GMT-9:30; GMT-9; GMT-8:30; GMT-8; GMT-7:30; GMT-7; GMT-6:30; GMT-6;
             GMT-5:30; GMT-5; GMT-4:30; GMT-4; GMT-3:30; GMT-3; GMT-2:30; GMT-2; GMT-1:30; GMT-1;
             GMT-0:30; GMT+0; GMT+0:30; GMT+1; GMT+1:30; GMT+2; GMT+2:30; GMT+3; GMT+3:30; GMT+4;
             GMT+4:30; GMT+5; GMT+5:30; GMT+6; GMT+6:30; GMT+7; GMT+7:30; GMT+8; GMT+8:30; GMT+9;
             GMT+9:30; GMT+10; GMT+10:30; GMT+11; GMT+11:30; GMT+12; GMT+12:30; GMT+13; GMT+13:30;
-            GMT+14')</result-string>
+            GMT+14&quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">GMT-14; GMT-13:30; GMT-13; GMT-12:30; GMT-12; GMT-11:30; GMT-11;
             GMT-10:30; GMT-10; GMT-9:30; GMT-9; GMT-8:30; GMT-8; GMT-7:30; GMT-7; GMT-6:30; GMT-6;
@@ -549,7 +549,7 @@
     </environment>
     <test>string-join( for $z in -28 to +28 return format-date(adjust-date-to-timezone($t,
          $z*xs:dayTimeDuration('PT30M')), '[z]'), '; ')</test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
          	GMT-14:00; GMT-13:30; GMT-13:00; GMT-12:30; GMT-12:00; GMT-11:30; GMT-11:00;
 			GMT-10:30; GMT-10:00; GMT-09:30; GMT-09:00; GMT-08:30; GMT-08:00; GMT-07:30;
 			GMT-07:00; GMT-06:30; GMT-06:00; GMT-05:30; GMT-05:00; GMT-04:30; GMT-04:00;
@@ -559,7 +559,7 @@
 			GMT+07:00; GMT+07:30; GMT+08:00; GMT+08:30; GMT+09:00; GMT+09:30; GMT+10:00;
 			GMT+10:30; GMT+11:00; GMT+11:30; GMT+12:00; GMT+12:30; GMT+13:00; GMT+13:30;
 			GMT+14:00
-		 ')</result-string>
+		 &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
          	GMT-14:00; GMT-13:30; GMT-13:00; GMT-12:30; GMT-12:00; GMT-11:30; GMT-11:00;
@@ -582,9 +582,9 @@
     </environment>
     <test>string-join( for $z in -12 to +12 return format-date(adjust-date-to-timezone($t,
          $z*xs:dayTimeDuration('PT1H')), '[ZZ]'), ' ')</test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
          	Y X W V U T S R Q P O N Z A B C D E F G H I K L M
-		 ')</result-string>
+		 &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
          	Y X W V U T S R Q P O N Z A B C D E F G H I K L M
@@ -598,7 +598,7 @@
       <param as="xs:date" name="t" select="xs:date('1985-03-01Z')"/>
     </environment>
     <test>format-date(xs:date('1987-12-13'), '[ZZ]')</test>
-    <result-string>xs:string('J')</result-string>
+    <result-string>xs:string(&quot;J&quot;)</result-string>
     <result>
       <assert-string-value>J</assert-string-value>
     </result>
@@ -607,7 +607,7 @@
     <description>test format-date(): non-integral timezone in military notation</description>
     <created by="Michael Kay, Saxonica" on="2012-05-18"/>
     <test>format-date(xs:date('1987-12-13+05:30'), '[ZZ]')</test>
-    <result-string>xs:string('+05:30')</result-string>
+    <result-string>xs:string(&quot;+05:30&quot;)</result-string>
     <result>
       <assert-string-value>+05:30</assert-string-value>
     </result>
@@ -616,7 +616,7 @@
     <description>test format-date(): extreme timezone in military notation</description>
     <created by="Michael Kay, Saxonica" on="2012-05-18"/>
     <test>format-date(xs:date('1987-12-13+13:00'), '[ZZ]')</test>
-    <result-string>xs:string('+13:00')</result-string>
+    <result-string>xs:string(&quot;+13:00&quot;)</result-string>
     <result>
       <assert-string-value>+13:00</assert-string-value>
     </result>
@@ -629,7 +629,7 @@
     </environment>
     <test>string-join( for $z in -28 to +28 return format-date(adjust-date-to-timezone($t,
          $z*xs:dayTimeDuration('PT30M')), '[z00~00]'), '; ')</test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
          	GMT-14~00; GMT-13~30; GMT-13~00; GMT-12~30; GMT-12~00; GMT-11~30; GMT-11~00; GMT-10~30; 
          	GMT-10~00; GMT-09~30; GMT-09~00; GMT-08~30; GMT-08~00; GMT-07~30; GMT-07~00; GMT-06~30; 
          	GMT-06~00; GMT-05~30; GMT-05~00; GMT-04~30; GMT-04~00; GMT-03~30; GMT-03~00; GMT-02~30; 
@@ -638,7 +638,7 @@
          	GMT+06~00; GMT+06~30; GMT+07~00; GMT+07~30; GMT+08~00; GMT+08~30; GMT+09~00; GMT+09~30; 
          	GMT+10~00; GMT+10~30; GMT+11~00; GMT+11~30; GMT+12~00; GMT+12~30; GMT+13~00; GMT+13~30; 
          	GMT+14~00
-		 ')</result-string>
+		 &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
          	GMT-14~00; GMT-13~30; GMT-13~00; GMT-12~30; GMT-12~00; GMT-11~30; GMT-11~00; GMT-10~30; 
@@ -659,7 +659,7 @@
       <param as="xs:date" name="t" select="xs:date('1985-03-01Z')"/>
     </environment>
     <test>format-date(xs:date('2012-05-18+05:30'), '[Z:]')</test>
-    <result-string>xs:string('+:')</result-string>
+    <result-string>xs:string(&quot;+:&quot;)</result-string>
     <result>
       <assert-string-value>+:</assert-string-value>
     </result>
@@ -672,13 +672,13 @@
     </environment>
     <test>string-join( for $z in -28 to +28 return format-date(adjust-date-to-timezone($t,
          $z*xs:dayTimeDuration('PT30M')), '[Z0:01]'), '; ')</test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
          	-14:00; -13:30; -13:00; -12:30; -12:00; -11:30; -11:00; -10:30; -10:00; -9:30; -9:00;
          	-8:30; -8:00; -7:30; -7:00; -6:30; -6:00; -5:30; -5:00; -4:30; -4:00; -3:30; -3:00;
          	-2:30; -2:00; -1:30; -1:00; -0:30; +0:00; +0:30; +1:00; +1:30; +2:00; +2:30; +3:00;
          	+3:30; +4:00; +4:30; +5:00; +5:30; +6:00; +6:30; +7:00; +7:30; +8:00; +8:30; +9:00;
          	+9:30; +10:00; +10:30; +11:00; +11:30; +12:00; +12:30; +13:00; +13:30; +14:00
-		 ')</result-string>
+		 &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
          	-14:00; -13:30; -13:00; -12:30; -12:00; -11:30; -11:00; -10:30; -10:00; -9:30; -9:00;
@@ -697,13 +697,13 @@
     </environment>
     <test>string-join( for $z in -28 to +28 return format-date(adjust-date-to-timezone($t,
          $z*xs:dayTimeDuration('PT30M')), '[Z999]'), '; ')</test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
          	-1400; -1330; -1300; -1230; -1200; -1130; -1100; -1030; -1000; -930; -900; -830; 
          	-800; -730; -700; -630; -600; -530; -500; -430; -400; -330; -300; -230; -200; 
          	-130; -100; -030; +000; +030; +100; +130; +200; +230; +300; +330; +400; +430; 
          	+500; +530; +600; +630; +700; +730; +800; +830; +900; +930; +1000; +1030; +1100; 
          	+1130; +1200; +1230; +1300; +1330; +1400
-		 ')</result-string>
+		 &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
          	-1400; -1330; -1300; -1230; -1200; -1130; -1100; -1030; -1000; -930; -900; -830; 
@@ -723,13 +723,13 @@
     </environment>
     <test>string-join( for $z in -28 to +28 return format-date(adjust-date-to-timezone($t,
          $z*xs:dayTimeDuration('PT30M')), '[Z99]'), '; ')</test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
          	-14; -13:30; -13; -12:30; -12; -11:30; -11; -10:30; -10; -09:30; -09; -08:30; -08;
          	-07:30; -07; -06:30; -06; -05:30; -05; -04:30; -04; -03:30; -03; -02:30; -02; -01:30;
          	-01; -00:30; +00; +00:30; +01; +01:30; +02; +02:30; +03; +03:30; +04; +04:30; +05;
          	+05:30; +06; +06:30; +07; +07:30; +08; +08:30; +09; +09:30; +10; +10:30; +11; +11:30;
          	+12; +12:30; +13; +13:30; +14
-		 ')</result-string>
+		 &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
          	-14; -13:30; -13; -12:30; -12; -11:30; -11; -10:30; -10; -09:30; -09; -08:30; -08;
@@ -749,13 +749,13 @@
     </environment>
     <test>string-join( for $z in -28 to +28 return format-date(adjust-date-to-timezone($t,
          $z*xs:dayTimeDuration('PT30M')), '[Z0t]'), '; ')</test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
          	-14; -13:30; -13; -12:30; -12; -11:30; -11; -10:30; -10; -9:30; -9; -8:30; -8;
          	-7:30; -7; -6:30; -6; -5:30; -5; -4:30; -4; -3:30; -3; -2:30; -2; -1:30; -1; -0:30;
          	Z; +0:30; +1; +1:30; +2; +2:30; +3; +3:30; +4; +4:30; +5; +5:30; +6; +6:30; +7;
          	+7:30; +8; +8:30; +9; +9:30; +10; +10:30; +11; +11:30; +12; +12:30; +13;
          	+13:30; +14
-		 ')</result-string>
+		 &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
          	-14; -13:30; -13; -12:30; -12; -11:30; -11; -10:30; -10; -9:30; -9; -8:30; -8;
@@ -773,7 +773,7 @@
       <param as="xs:date" name="t" select="xs:date('1985-03-01Z')"/>
     </environment>
     <test>format-date(xs:date('2012-05-18+05:30'), '[Z:]')</test>
-    <result-string>xs:string('+:')</result-string>
+    <result-string>xs:string(&quot;+:&quot;)</result-string>
     <result>
       <assert-string-value>+:</assert-string-value>
     </result>
@@ -884,9 +884,9 @@
     <dependency type="language" value="en"/>
     <test>for $i in 1 to 12 return let $d2 := $d + xs:yearMonthDuration('P1M')*$i return
          format-date($d2, '[MN]', 'en', (), ()) </test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
             JANUARY FEBRUARY MARCH APRIL MAY JUNE JULY AUGUST SEPTEMBER OCTOBER NOVEMBER DECEMBER
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
             JANUARY FEBRUARY MARCH APRIL MAY JUNE JULY AUGUST SEPTEMBER OCTOBER NOVEMBER DECEMBER
@@ -902,9 +902,9 @@
     <dependency type="language" value="en"/>
     <test>for $i in 1 to 12 return let $d2 := $d + xs:yearMonthDuration('P1M')*$i return
          format-date($d2, '[Mn]', 'en', (), ()) </test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
             january february march april may june july august september october november december
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
             january february march april may june july august september october november december
@@ -922,9 +922,9 @@
         for $i in 1 to 12 
         return let $d2 := $d + xs:yearMonthDuration('P1M')*$i 
         return format-date($d2, '[MNn]', 'en', (), ()) </test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
             January February March April May June July August September October November December
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
             January February March April May June July August September October November December
@@ -943,7 +943,7 @@
         return let $d2 := $d + xs:yearMonthDuration('P1M')*$i 
         return format-date($d2, '[MN,3-3]', 'en', (), ()) 
       </test>
-    <result-string>xs:string('JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC')</result-string>
+    <result-string>xs:string(&quot;JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC&quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">JAN FEB MAR APR MAY JUN JUL AUG SEP OCT NOV DEC</assert-string-value>
     </result>
@@ -960,7 +960,7 @@
         return let $d2 := $d + xs:yearMonthDuration('P1M')*$i 
         return format-date($d2, '[Mn,3-3]', 'en', (), ()) 
       </test>
-    <result-string>xs:string('jan feb mar apr may jun jul aug sep oct nov dec')</result-string>
+    <result-string>xs:string(&quot;jan feb mar apr may jun jul aug sep oct nov dec&quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">jan feb mar apr may jun jul aug sep oct nov dec</assert-string-value>
     </result>
@@ -977,7 +977,7 @@
         return let $d2 := $d + xs:yearMonthDuration('P1M')*$i 
         return format-date($d2, '[MNn,3-3]', 'en', (), ()) 
       </test>
-    <result-string>xs:string('Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec')</result-string>
+    <result-string>xs:string(&quot;Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec&quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec</assert-string-value>
     </result>
@@ -991,9 +991,9 @@
     <dependency type="language" value="en"/>
     <test>for $i in 1 to 7 return let $d2 := $d + xs:dayTimeDuration('P1D')*$i return
          format-date($d2, '[FN]', 'en', (), ()) </test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
              MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY SUNDAY
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
              MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY SATURDAY SUNDAY
@@ -1009,9 +1009,9 @@
     <dependency type="language" value="en"/>
     <test>for $i in 1 to 7 return let $d2 := $d + xs:dayTimeDuration('P1D')*$i return
          format-date($d2, '[Fn]', 'en', (), ()) </test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
              monday tuesday wednesday thursday friday saturday sunday
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
              monday tuesday wednesday thursday friday saturday sunday
@@ -1027,9 +1027,9 @@
     <dependency type="language" value="en"/>
     <test>for $i in 1 to 7 return let $d2 := $d + xs:dayTimeDuration('P1D')*$i return
          format-date($d2, '[FNn]', 'en', (), ()) </test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
             Monday Tuesday Wednesday Thursday Friday Saturday Sunday
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
             Monday Tuesday Wednesday Thursday Friday Saturday Sunday
@@ -1045,7 +1045,7 @@
     <dependency type="language" value="en"/>
     <test>for $i in 1 to 7 return let $d2 := $d + xs:dayTimeDuration('P1D')*$i return
          format-date($d2, '[FN,3-3]', 'en', (), ()) </test>
-    <result-string>xs:string('MON TUE WED THU FRI SAT SUN')</result-string>
+    <result-string>xs:string(&quot;MON TUE WED THU FRI SAT SUN&quot;)</result-string>
     <result>
       <assert-string-value>MON TUE WED THU FRI SAT SUN</assert-string-value>
     </result>
@@ -1059,7 +1059,7 @@
     <dependency type="language" value="en"/>
     <test>for $i in 1 to 7 return let $d2 := $d + xs:dayTimeDuration('P1D')*$i return
          format-date($d2, '[Fn,3-3]', 'en', (), ()) </test>
-    <result-string>xs:string('mon tue wed thu fri sat sun')</result-string>
+    <result-string>xs:string(&quot;mon tue wed thu fri sat sun&quot;)</result-string>
     <result>
       <assert-string-value>mon tue wed thu fri sat sun</assert-string-value>
     </result>
@@ -1073,7 +1073,7 @@
     <dependency type="language" value="en"/>
     <test>for $i in 1 to 7 return let $d2 := $d + xs:dayTimeDuration('P1D')*$i return
          format-date($d2, '[FNn,3-3]', 'en', (), ()) </test>
-    <result-string>xs:string('Mon Tue Wed Thu Fri Sat Sun')</result-string>
+    <result-string>xs:string(&quot;Mon Tue Wed Thu Fri Sat Sun&quot;)</result-string>
     <result>
       <assert-string-value>Mon Tue Wed Thu Fri Sat Sun</assert-string-value>
     </result>
@@ -1094,9 +1094,9 @@
          	substring($abb, 1, 3), 
          	starts-with($expected[$i], $abb) and string-length($abb) le 4 and string-length($abb) ge 3) 
       </test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
             Mon true Tue true Wed true Thu true Fri true Sat true Sun true
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
             Mon true Tue true Wed true Thu true Fri true Sat true Sun true
@@ -1114,9 +1114,9 @@
          format-date($d2, '[FNn,3-5]', 'en', (), ()) return let $expected := ('Mon', 'Tues', 'Weds',
          'Thurs', 'Fri', 'Sat', 'Sun') return (substring($abb, 1, 3), starts-with($expected[$i],
          $abb) and string-length($abb) le 5 and string-length($abb) ge 3) </test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
             Mon true Tue true Wed true Thu true Fri true Sat true Sun true
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
             Mon true Tue true Wed true Thu true Fri true Sat true Sun true
@@ -1132,11 +1132,11 @@
     <dependency type="language" value="en"/>
     <test>for $i in 0 to 30 return let $d2 := $d + xs:dayTimeDuration('P1D')*$i return
          format-date($d2, '[D1o]', 'en', (), ()) </test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
             1st 2nd 3rd 4th 5th 6th 7th 8th 9th 10th 11th 12th 13th 14th 15th
             16th 17th 18th 19th 20th 21st 22nd 23rd 24th 25th 26th 27th 28th 29th 30th
             31st
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
             1st 2nd 3rd 4th 5th 6th 7th 8th 9th 10th 11th 12th 13th 14th 15th
@@ -1154,11 +1154,11 @@
     <dependency type="language" value="en"/>
     <test>for $i in 0 to 30 return let $d2 := $d + xs:yearMonthDuration('P1Y')*$i return
          format-date($d2, '[Y1o]', 'en', (), ()) </test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
             1990th 1991st 1992nd 1993rd 1994th 1995th 1996th 1997th 1998th 1999th
             2000th 2001st 2002nd 2003rd 2004th 2005th 2006th 2007th 2008th 2009th 2010th 2011th
             2012th 2013th 2014th 2015th 2016th 2017th 2018th 2019th 2020th
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
             1990th 1991st 1992nd 1993rd 1994th 1995th 1996th 1997th 1998th 1999th
@@ -1176,12 +1176,12 @@
     <dependency type="language" value="en"/>
     <test> string-join( for $i in 0 to 30 return let $d2 := $d + xs:dayTimeDuration('P1D')*$i
          return format-date($d2, '[DW]', 'en', (), ()), ' ') </test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
             ONE TWO THREE FOUR FIVE SIX SEVEN EIGHT NINE TEN ELEVEN
             TWELVE THIRTEEN FOURTEEN FIFTEEN SIXTEEN SEVENTEEN EIGHTEEN NINETEEN TWENTY
             TWENTY ONE TWENTY TWO TWENTY THREE TWENTY FOUR TWENTY FIVE TWENTY SIX TWENTY
             SEVEN TWENTY EIGHT TWENTY NINE THIRTY THIRTY ONE
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
             ONE TWO THREE FOUR FIVE SIX SEVEN EIGHT NINE TEN ELEVEN
@@ -1200,12 +1200,12 @@
     <dependency type="language" value="en"/>
     <test> string-join( for $i in 0 to 30 return let $d2 := $d + xs:dayTimeDuration('P1D')*$i
          return format-date($d2, '[Dw]', 'en', (), ()), ' ') </test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
             one two three four five six seven eight nine ten eleven
             twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty
             twenty one twenty two twenty three twenty four twenty five twenty six twenty
             seven twenty eight twenty nine thirty thirty one
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
             one two three four five six seven eight nine ten eleven
@@ -1224,12 +1224,12 @@
     <dependency type="language" value="en"/>
     <test> string-join( for $i in 0 to 30 return let $d2 := $d + xs:dayTimeDuration('P1D')*$i
          return format-date($d2, '[DWw]', 'en', (), ()), '; ') </test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
             One; Two; Three; Four; Five; Six; Seven; Eight; Nine; Ten; Eleven;
             Twelve; Thirteen; Fourteen; Fifteen; Sixteen; Seventeen; Eighteen; Nineteen; Twenty;
             Twenty One; Twenty Two; Twenty Three; Twenty Four; Twenty Five; Twenty Six; Twenty
             Seven; Twenty Eight; Twenty Nine; Thirty; Thirty One
-        ')</result-string>
+        &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
             One; Two; Three; Four; Five; Six; Seven; Eight; Nine; Ten; Eleven;
@@ -1252,7 +1252,7 @@
             for $i in 0 to 30 return let $d2 := $d + xs:yearMonthDuration('P1Y')*$i
               return replace(format-date($d2, '[YW]', 'en', (), ()), ' AND ', ' '),
             '; ') </test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
             ONE THOUSAND NINE HUNDRED NINETY; ONE THOUSAND NINE HUNDRED
             NINETY ONE; ONE THOUSAND NINE HUNDRED NINETY TWO; ONE THOUSAND NINE HUNDRED
             NINETY THREE; ONE THOUSAND NINE HUNDRED NINETY FOUR; ONE THOUSAND NINE HUNDRED
@@ -1265,7 +1265,7 @@
             FOURTEEN; TWO THOUSAND FIFTEEN; TWO THOUSAND SIXTEEN; TWO THOUSAND
             SEVENTEEN; TWO THOUSAND EIGHTEEN; TWO THOUSAND NINETEEN; TWO THOUSAND
             TWENTY
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
             ONE THOUSAND NINE HUNDRED NINETY; ONE THOUSAND NINE HUNDRED
@@ -1293,7 +1293,7 @@
     <dependency type="language" value="en"/>
     <test> string-join( for $i in 0 to 30 return let $d2 := $d + xs:yearMonthDuration('P1Y')*$i
          return replace(format-date($d2, '[Yw]', 'en', (), ()), ' and ', ' '), '; ') </test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
             one thousand nine hundred ninety; one thousand nine hundred 
             ninety one; one thousand nine hundred ninety two; one thousand nine hundred 
             ninety three; one thousand nine hundred ninety four; one thousand nine hundred 
@@ -1306,7 +1306,7 @@
             fourteen; two thousand fifteen; two thousand sixteen; two thousand 
             seventeen; two thousand eighteen; two thousand nineteen; two thousand 
             twenty
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
             one thousand nine hundred ninety; one thousand nine hundred 
@@ -1334,7 +1334,7 @@
     <dependency type="language" value="en"/>
     <test> string-join( for $i in 0 to 30 return let $d2 := $d + xs:yearMonthDuration('P1Y')*$i
          return replace(format-date($d2, '[YWw]', 'en', (), ()), ' [Aa]nd ', ' '), '; ') </test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
             One Thousand Nine Hundred Ninety; One Thousand Nine Hundred 
             Ninety One; One Thousand Nine Hundred Ninety Two; One Thousand Nine Hundred 
             Ninety Three; One Thousand Nine Hundred Ninety Four; One Thousand Nine Hundred 
@@ -1347,7 +1347,7 @@
             Fourteen; Two Thousand Fifteen; Two Thousand Sixteen; Two Thousand 
             Seventeen; Two Thousand Eighteen; Two Thousand Nineteen; Two Thousand 
             Twenty         
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
             One Thousand Nine Hundred Ninety; One Thousand Nine Hundred 
@@ -1374,13 +1374,13 @@
     <dependency type="language" value="en"/>
     <test> string-join( for $i in 0 to 30 return let $d2 := $d + xs:dayTimeDuration('P1D')*$i
          return translate(format-date($d2, '[DWo]', 'en', (), ()), '- ', ''), '; ') </test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
             FIRST; SECOND; THIRD; FOURTH; FIFTH; SIXTH; SEVENTH; EIGHTH; NINTH;
             TENTH; ELEVENTH; TWELFTH; THIRTEENTH; FOURTEENTH; FIFTEENTH; SIXTEENTH; SEVENTEENTH;
             EIGHTEENTH; NINETEENTH; TWENTIETH; TWENTYFIRST; TWENTYSECOND; TWENTYTHIRD; TWENTYFOURTH;
             TWENTYFIFTH; TWENTYSIXTH; TWENTYSEVENTH; TWENTYEIGHTH; TWENTYNINTH; THIRTIETH;
             THIRTYFIRST
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
             FIRST; SECOND; THIRD; FOURTH; FIFTH; SIXTH; SEVENTH; EIGHTH; NINTH;
@@ -1400,13 +1400,13 @@
     <dependency type="language" value="en"/>
     <test> string-join( for $i in 0 to 30 return let $d2 := $d + xs:dayTimeDuration('P1D')*$i
          return translate(format-date($d2, '[Dwo]', 'en', (), ()), '- ', ''), '; ') </test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
             first; second; third; fourth; fifth; sixth; seventh; eighth; ninth;
             tenth; eleventh; twelfth; thirteenth; fourteenth; fifteenth; sixteenth; seventeenth;
             eighteenth; nineteenth; twentieth; twentyfirst; twentysecond; twentythird; twentyfourth;
             twentyfifth; twentysixth; twentyseventh; twentyeighth; twentyninth; thirtieth;
             thirtyfirst
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
             first; second; third; fourth; fifth; sixth; seventh; eighth; ninth;
@@ -1426,13 +1426,13 @@
     <dependency type="language" value="en"/>
     <test> string-join( for $i in 0 to 30 return let $d2 := $d + xs:dayTimeDuration('P1D')*$i
          return translate(format-date($d2, '[DWwo]', 'en', (), ()), '- ', ''), '; ') </test>
-    <result-string>xs:string('
+    <result-string>xs:string(&quot;
             First; Second; Third; Fourth; Fifth; Sixth; Seventh; Eighth; Ninth;
             Tenth; Eleventh; Twelfth; Thirteenth; Fourteenth; Fifteenth; Sixteenth; Seventeenth;
             Eighteenth; Nineteenth; Twentieth; TwentyFirst; TwentySecond; TwentyThird; TwentyFourth;
             TwentyFifth; TwentySixth; TwentySeventh; TwentyEighth; TwentyNinth; Thirtieth;
             ThirtyFirst
-         ')</result-string>
+         &quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">
             First; Second; Third; Fourth; Fifth; Sixth; Seventh; Eighth; Ninth;
@@ -1453,7 +1453,7 @@
     <dependency type="language" value="en"/>
     <test> string-join( for $i in 0 to 30 return let $d2 := $d + xs:yearMonthDuration('P1Y')*$i
          return translate(replace(format-date($d2, '[YWo]', 'en', (), ()), ' AND ', ' '), '- ', ''), '; ') </test>
-    <result-string>xs:string('ONETHOUSANDNINEHUNDREDNINETIETH;
+    <result-string>xs:string(&quot;ONETHOUSANDNINEHUNDREDNINETIETH;
             ONETHOUSANDNINEHUNDREDNINETYFIRST; ONETHOUSANDNINEHUNDREDNINETYSECOND;
             ONETHOUSANDNINEHUNDREDNINETYTHIRD; ONETHOUSANDNINEHUNDREDNINETYFOURTH;
             ONETHOUSANDNINEHUNDREDNINETYFIFTH; ONETHOUSANDNINEHUNDREDNINETYSIXTH;
@@ -1464,7 +1464,7 @@
             TWOTHOUSANDTENTH; TWOTHOUSANDELEVENTH; TWOTHOUSANDTWELFTH;
             TWOTHOUSANDTHIRTEENTH; TWOTHOUSANDFOURTEENTH; TWOTHOUSANDFIFTEENTH;
             TWOTHOUSANDSIXTEENTH; TWOTHOUSANDSEVENTEENTH; TWOTHOUSANDEIGHTEENTH;
-            TWOTHOUSANDNINETEENTH; TWOTHOUSANDTWENTIETH')</result-string>
+            TWOTHOUSANDNINETEENTH; TWOTHOUSANDTWENTIETH&quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">ONETHOUSANDNINEHUNDREDNINETIETH;
             ONETHOUSANDNINEHUNDREDNINETYFIRST; ONETHOUSANDNINEHUNDREDNINETYSECOND;
@@ -1490,7 +1490,7 @@
     <dependency type="language" value="en"/>
     <test> string-join( for $i in 0 to 30 return let $d2 := $d + xs:yearMonthDuration('P1Y')*$i
          return translate(replace(format-date($d2, '[Ywo]', 'en', (), ()), ' and ', ' '), '- ', ''), '; ') </test>
-    <result-string>xs:string('onethousandninehundredninetieth;
+    <result-string>xs:string(&quot;onethousandninehundredninetieth;
             onethousandninehundredninetyfirst; onethousandninehundredninetysecond;
             onethousandninehundredninetythird; onethousandninehundredninetyfourth;
             onethousandninehundredninetyfifth; onethousandninehundredninetysixth;
@@ -1501,7 +1501,7 @@
             twothousandtenth; twothousandeleventh; twothousandtwelfth;
             twothousandthirteenth; twothousandfourteenth; twothousandfifteenth;
             twothousandsixteenth; twothousandseventeenth; twothousandeighteenth;
-            twothousandnineteenth; twothousandtwentieth')</result-string>
+            twothousandnineteenth; twothousandtwentieth&quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">onethousandninehundredninetieth;
             onethousandninehundredninetyfirst; onethousandninehundredninetysecond;
@@ -1527,7 +1527,7 @@
     <dependency type="language" value="en"/>
     <test> string-join( for $i in 0 to 30 return let $d2 := $d + xs:yearMonthDuration('P1Y')*$i
          return translate(replace(format-date($d2, '[YWwo]', 'en', (), ()), ' [Aa]nd ', ' '), '- ', ''), '; ') </test>
-    <result-string>xs:string('OneThousandNineHundredNinetieth;
+    <result-string>xs:string(&quot;OneThousandNineHundredNinetieth;
             OneThousandNineHundredNinetyFirst; OneThousandNineHundredNinetySecond;
             OneThousandNineHundredNinetyThird; OneThousandNineHundredNinetyFourth;
             OneThousandNineHundredNinetyFifth; OneThousandNineHundredNinetySixth;
@@ -1538,7 +1538,7 @@
             TwoThousandTenth; TwoThousandEleventh; TwoThousandTwelfth;
             TwoThousandThirteenth; TwoThousandFourteenth; TwoThousandFifteenth;
             TwoThousandSixteenth; TwoThousandSeventeenth; TwoThousandEighteenth;
-            TwoThousandNineteenth; TwoThousandTwentieth')</result-string>
+            TwoThousandNineteenth; TwoThousandTwentieth&quot;)</result-string>
     <result>
       <assert-string-value normalize-space="true">OneThousandNineHundredNinetieth;
             OneThousandNineHundredNinetyFirst; OneThousandNineHundredNinetySecond;
@@ -1582,7 +1582,7 @@
     </environment>
     <dependency satisfied="false" type="language" value="xib"/>
     <test>format-date($b, '[MNn]', 'xib', (), ())</test>
-    <result-string>xs:string('[Language: en]March')</result-string>
+    <result-string>xs:string(&quot;[Language: en]March&quot;)</result-string>
     <result>
       <assert-string-value>[Language: en]March</assert-string-value>
     </result>
@@ -1595,7 +1595,7 @@
     </environment>
     <dependency satisfied="false" type="calendar" value="CB"/>
     <test>format-date($b, '[M01]', 'en', 'CB', ())</test>
-    <result-string>xs:string('[Calendar: AD]03')</result-string>
+    <result-string>xs:string(&quot;[Calendar: AD]03&quot;)</result-string>
     <result>
       <assert-string-value>[Calendar: AD]03</assert-string-value>
     </result>

@@ -6,7 +6,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $comparand1 = xs:string(lower bound) $comparand2 = xs:string(lower bound)</description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:compare(xs:string(&quot;This is a characte&quot;),xs:string(&quot;This is a characte&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -15,7 +15,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $comparand1 = xs:string(mid range) $comparand2 = xs:string(lower bound)</description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:compare(xs:string(&quot;This is a characte&quot;),xs:string(&quot;This is a characte&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -24,7 +24,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $comparand1 = xs:string(upper bound) $comparand2 = xs:string(lower bound)</description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:compare(xs:string(&quot;This is a characte&quot;),xs:string(&quot;This is a characte&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -33,7 +33,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $comparand1 = xs:string(lower bound) $comparand2 = xs:string(mid range)</description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:compare(xs:string(&quot;This is a characte&quot;),xs:string(&quot;This is a characte&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -42,7 +42,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $comparand1 = xs:string(lower bound) $comparand2 = xs:string(upper bound)</description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:compare(xs:string(&quot;This is a characte&quot;),xs:string(&quot;This is a characte&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -51,7 +51,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $arg1 = &quot;&quot; $arg2 = &quot;&quot;</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare(&quot;&quot;,&quot;&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -60,7 +60,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $arg1 = &quot;&quot; $arg2 = &quot;A Character String&quot;</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare(&quot;&quot;,&quot;A Character String&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -69,7 +69,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $arg1 = &quot;A Character String&quot; $arg2 = &quot;&quot;</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare(&quot;A Character String&quot;,&quot;&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -78,7 +78,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $arg1 = () $arg2 = &quot;&quot;</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:count(fn:compare((),&quot;&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -87,7 +87,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $arg1 = &quot;&quot; $arg2 = ()</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:count(fn:compare(&quot;&quot;,()))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -96,7 +96,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $arg1 = &quot;A Character String&quot; $arg2 = ()</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:count(fn:compare(&quot;A Character String&quot;,()))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -105,7 +105,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $arg1 = () $arg2 = &quot;A Character String&quot;</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:count(fn:compare((),&quot;A Character String&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -114,7 +114,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $arg1 = &quot;AAAAABBBBBCCCCC&quot; $arg2 = &quot;BBBBB&quot;</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare(&quot;AAAAABBBBBCCCCC&quot;,&quot;BBBBB&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -123,7 +123,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $arg1 = &quot;AAAAABBBBB&quot; $arg2 = &quot; &quot;</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare(&quot;AAAAABBBBB&quot;,&quot; &quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -132,7 +132,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $arg1 = &quot; &quot; $arg2 = &quot; AAAAABBBBB&quot;</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare(&quot; &quot;,&quot;AAAAABBBBB&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -141,7 +141,7 @@
     <description>Evaluates The &quot;compare&quot; function using it as a argument of a fn:not - returns true</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:not(fn:compare(&quot;A&quot;,&quot;A&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -150,7 +150,7 @@
     <description>Evaluates The &quot;compare&quot; function using it as a argument of a fn:not - returns false</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:not(fn:compare(&quot;A&quot;,&quot;B&quot;))</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -159,7 +159,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $arg1 = xs:string(&quot;A&quot;) $arg2 = &quot;A&quot;</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare(xs:string(&quot;A&quot;),&quot;A&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -168,7 +168,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $arg1 = &quot;A&quot; $arg2 = xs:string(&quot;A&quot;)</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare(&quot;A&quot;,xs:string(&quot;A&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -177,7 +177,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $arg1 = &quot;A&quot; $arg2 = &quot;a&quot;</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare(&quot;A&quot;,&quot;a&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -186,7 +186,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $arg1 = &quot;a&quot; $arg2 = &quot;A&quot;</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare(&quot;a&quot;,&quot;A&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -195,7 +195,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $arg1 = &quot;compare&quot; $arg2 = &quot;compare&quot;</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare(&quot;compare&quot;,&quot;compare&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -204,7 +204,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $arg1 = &quot;comparecompare&quot; $arg2 = &quot;compare&quot;</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare(&quot;comparecompare&quot;,&quot;compare&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -213,7 +213,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $arg1 = &quot;****&quot; $arg2 = &quot;***&quot;</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare(&quot;****&quot;,&quot;***&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -222,7 +222,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $arg1 = &quot;12345&quot; $arg2 = &quot;1234&quot;</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare(&quot;12345&quot;,&quot;1234&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -231,7 +231,7 @@
     <description>Evaluates The &quot;compare&quot; function with the arguments set as follows: $arg1 = &quot;compare&quot; $arg2 = &quot;erapmoc&quot; (&quot;compare&quot; backwards)</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare(&quot;compare&quot;,&quot;erapmoc&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -276,7 +276,7 @@
     <description>A test whose essence is: `empty(codepoint-equal((), &quot;a string&quot;))`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(codepoint-equal((), &quot;a string&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -285,7 +285,7 @@
     <description>A test whose essence is: `empty(codepoint-equal(&quot;a string&quot;, ()))`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(codepoint-equal(&quot;a string&quot;, ()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -294,7 +294,7 @@
     <description>A test whose essence is: `codepoint-equal(&quot;a string&quot;, &quot;a string&quot;)`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoint-equal(&quot;a string&quot;, &quot;a string&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -303,7 +303,7 @@
     <description>A test whose essence is: `not(codepoint-equal(&quot;cow&quot;, &quot;a string&quot;))`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(codepoint-equal(&quot;cow&quot;, &quot;a string&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -339,7 +339,7 @@
     <description>A test whose essence is: `empty(compare((), &quot;a string&quot;))`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(compare((), &quot;a string&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -348,7 +348,7 @@
     <description>A test whose essence is: `empty(compare(&quot;a string&quot;, ()))`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(compare(&quot;a string&quot;, ()))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -357,7 +357,7 @@
     <description>A test whose essence is: `empty(compare(&quot;a string&quot;, (), &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;))`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(compare(&quot;a string&quot;, (), &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -366,7 +366,7 @@
     <description>A test whose essence is: `compare(&quot;str&quot;, &quot;str&quot;) instance of xs:integer`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>compare(&quot;str&quot;, &quot;str&quot;) instance of xs:integer</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -399,7 +399,7 @@
     <description>Simple use of compare to compare strings</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>compare(&quot;b&quot;, &quot;a&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -408,7 +408,7 @@
     <description>Simple use of compare to compare strings</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>compare(&quot;b&quot;, &quot;b&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -417,7 +417,7 @@
     <description>compare() with empty sequence as argument</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>compare(&quot;b&quot;, ())</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -426,7 +426,7 @@
     <description>compare() with empty sequence as argument</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>compare((), &quot;b&quot;)</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -435,7 +435,7 @@
     <description>compare() with empty sequence as argument</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>compare((), ())</test>
-    <result-string/>
+    <result-string>()</result-string>
     <result>
       <assert-empty/>
     </result>
@@ -444,7 +444,7 @@
     <description>compare() with non-BMP characters</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>compare(&quot;&quot;, &quot;&quot;, &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -453,7 +453,7 @@
     <description>check that Unicode codepoint collation is used, not comparison of UTF16 surrogates</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>compare(&quot;&quot;, &quot;&quot;, &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -462,7 +462,7 @@
     <description>check that Unicode codepoint collation is used, not comparison of UTF16 surrogates</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>compare(&quot;&quot;, &quot;&quot;, &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -474,7 +474,7 @@
       <collation uri="http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind"/>
     </environment>
     <test>compare(&quot;a&quot;, &quot;A&quot;, &quot;http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind&quot;)</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -492,7 +492,7 @@
     <description>compare() only works on strings, but xs:anyURI gets promoted</description>
     <created by="Michael Kay" on="2012-05-30"/>
     <test>compare(xs:anyURI('http://www.example.com/'), 'http://www.example.com/')</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -501,7 +501,7 @@
     <description>compare() only works on strings, but xs:untypedAtomic gets promoted</description>
     <created by="Michael Kay" on="2012-05-30"/>
     <test>compare(xs:untypedAtomic('http://www.example.com/'), 'http://www.example.com/')</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -510,7 +510,7 @@
     <description>Use a complex collation argument.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>compare(&quot;a&quot;, &quot;a&quot;, (&quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;, ()))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -519,7 +519,7 @@
     <description>Use a complex collation argument.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>compare(&quot;a&quot;, &quot;a&quot;, ((), &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -528,7 +528,7 @@
     <description> Use a complex collation argument. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>compare(&quot;a&quot;, &quot;a&quot;, ((), &quot;http://www.w3.org/2005/xpath-functions/collation/codepoint&quot;, ()))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -540,7 +540,7 @@
     <test>let $vA := (&quot;B STRING&quot;, current-time())[1] treat as xs:string, 
         $vB  := (&quot;b string&quot;, current-time())[1] treat as xs:string
         return compare(lower-case($vA), lower-case($vB))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -552,7 +552,7 @@
     <test>let $vA := (&quot;B STRING&quot;, current-time())[1] treat as xs:string, 
                 $vB  := (&quot;b string&quot;, current-time())[1] treat as xs:string 
         return compare(upper-case($vA), upper-case($vB))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;0&quot;)</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -564,7 +564,7 @@
     <test>let $vA  := (&quot;B STRING&quot;, current-time())[1] treat as xs:string, 
                 $vB  := (&quot;no match&quot;, current-time())[1] treat as xs:string 
         return compare(lower-case($vA), lower-case($vB))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -576,7 +576,7 @@
     <test>let $vA  := (&quot;B STRING&quot;, current-time())[1] treat as xs:string, 
                 $vB  := (&quot;no match&quot;, current-time())[1] treat as xs:string 
         return compare(upper-case($vA), upper-case($vB))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -588,7 +588,7 @@
     <test>let $vA  := (&quot;B STRING&quot;, current-time())[1] treat as xs:string, 
                 $vB  := (&quot;no match&quot;, current-time())[1] treat as xs:string 
         return compare(upper-case($vA), lower-case($vB))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;-1&quot;)</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -600,7 +600,7 @@
     <test>let $vA  := (&quot;B STRING&quot;, current-time())[1] treat as xs:string, 
                 $vB  := (&quot;no match&quot;, current-time())[1] treat as xs:string 
         return compare(lower-case($vA), upper-case($vB))</test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>

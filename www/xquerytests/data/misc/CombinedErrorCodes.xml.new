@@ -2702,7 +2702,7 @@
       	import module namespace foo=&quot;http://www.example.org/foo&quot;; 
       	$foo:variable2
       </test>
-    <result-string/>
+    <result-string>xs:decimal(&quot;1&quot;)</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>

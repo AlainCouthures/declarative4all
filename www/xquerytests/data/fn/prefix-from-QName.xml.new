@@ -24,7 +24,7 @@
     <description> Evaluation of fn-prefix-fromQName function as argument to fn:string function and no prefix. Uses fn:count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:count(fn:prefix-from-QName(xs:QName(&quot;name&quot;)))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluation of fn-prefix-fromQName function as argument to xs:string function and no prefix Uses fn:count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:string-length(xs:string(fn:prefix-from-QName(xs:QName(&quot;name&quot;))))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -45,7 +45,7 @@
       <namespace prefix="foo" uri="http://example.org"/>
     </environment>
     <test>xs:string(fn:prefix-from-QName(xs:QName(&quot;foo:name&quot;)))</test>
-    <result-string>xs:string('foo')</result-string>
+    <result-string>xs:string(&quot;foo&quot;)</result-string>
     <result>
       <assert-string-value>foo</assert-string-value>
     </result>
@@ -57,7 +57,7 @@
       <namespace prefix="foo" uri="http://example.org"/>
     </environment>
     <test>fn:string(fn:prefix-from-QName(xs:QName(&quot;foo:name&quot;)))</test>
-    <result-string>xs:string('foo')</result-string>
+    <result-string>xs:string(&quot;foo&quot;)</result-string>
     <result>
       <assert-string-value>foo</assert-string-value>
     </result>
@@ -66,7 +66,7 @@
     <description> Evaluation of fn-prefix-fromQName function with argument set to empty sequence. Uses fn:count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:count(fn:prefix-from-QName(()))</test>
-    <result-string>xs:string('0')</result-string>
+    <result-string>xs:string(&quot;0&quot;)</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -87,7 +87,7 @@
       <namespace prefix="foo" uri="http://example.org"/>
     </environment>
     <test>fn:upper-case(fn:prefix-from-QName(xs:QName(&quot;foo:bar&quot;)))</test>
-    <result-string>xs:string('FOO')</result-string>
+    <result-string>xs:string(&quot;FOO&quot;)</result-string>
     <result>
       <assert-string-value>FOO</assert-string-value>
     </result>
@@ -99,7 +99,7 @@
       <namespace prefix="FOO" uri="http://example.org"/>
     </environment>
     <test>fn:lower-case(fn:prefix-from-QName(xs:QName(&quot;FOO:bar&quot;)))</test>
-    <result-string>xs:string('foo')</result-string>
+    <result-string>xs:string(&quot;foo&quot;)</result-string>
     <result>
       <assert-string-value>foo</assert-string-value>
     </result>
@@ -111,7 +111,7 @@
       <namespace prefix="foo" uri="http://example.org"/>
     </environment>
     <test>fn:concat(fn:prefix-from-QName(xs:QName(&quot;foo:bar&quot;)),&quot;:bar&quot;)</test>
-    <result-string>xs:string('foo:bar')</result-string>
+    <result-string>xs:string(&quot;foo:bar&quot;)</result-string>
     <result>
       <assert-string-value>foo:bar</assert-string-value>
     </result>
@@ -123,7 +123,7 @@
       <namespace prefix="foo" uri="http://example.org"/>
     </environment>
     <test>fn:substring-before(fn:prefix-from-QName(xs:QName(&quot;foo:bar&quot;)),&quot;oo&quot;)</test>
-    <result-string>xs:string('f')</result-string>
+    <result-string>xs:string(&quot;f&quot;)</result-string>
     <result>
       <assert-string-value>f</assert-string-value>
     </result>
@@ -135,7 +135,7 @@
       <namespace prefix="foo" uri="http://example.org"/>
     </environment>
     <test>fn:substring-after(fn:prefix-from-QName(xs:QName(&quot;foo:bar&quot;)),&quot;f&quot;)</test>
-    <result-string>xs:string('oo')</result-string>
+    <result-string>xs:string(&quot;oo&quot;)</result-string>
     <result>
       <assert-string-value>oo</assert-string-value>
     </result>
@@ -147,7 +147,7 @@
       <namespace prefix="foo" uri="http://example.org"/>
     </environment>
     <test>fn:string-length(fn:prefix-from-QName(xs:QName(&quot;foo:bar&quot;)))</test>
-    <result-string>xs:string('3')</result-string>
+    <result-string>xs:string(&quot;3&quot;)</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>
@@ -159,7 +159,7 @@
       <namespace prefix="foo" uri="http://example.org"/>
     </environment>
     <test>fn:substring(fn:prefix-from-QName(xs:QName(&quot;foo:bar&quot;)),2)</test>
-    <result-string>xs:string('oo')</result-string>
+    <result-string>xs:string(&quot;oo&quot;)</result-string>
     <result>
       <assert-string-value>oo</assert-string-value>
     </result>
@@ -171,7 +171,7 @@
       <namespace prefix="foo" uri="http://example.org"/>
     </environment>
     <test>fn:string-join((fn:prefix-from-QName(xs:QName(&quot;foo:bar&quot;)),&quot;:bar&quot;),&quot;&quot;)</test>
-    <result-string>xs:string('foo:bar')</result-string>
+    <result-string>xs:string(&quot;foo:bar&quot;)</result-string>
     <result>
       <assert-string-value>foo:bar</assert-string-value>
     </result>
@@ -183,7 +183,7 @@
       <namespace prefix="foo" uri="http://example.org"/>
     </environment>
     <test>fn:starts-with(fn:prefix-from-QName(xs:QName(&quot;foo:bar&quot;)),&quot;f&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -195,7 +195,7 @@
       <namespace prefix="foo" uri="http://example.org"/>
     </environment>
     <test>fn:ends-with(fn:prefix-from-QName(xs:QName(&quot;foo:bar&quot;)),&quot;f&quot;)</test>
-    <result-string>xs:boolean('false')</result-string>
+    <result-string>xs:boolean(&quot;false&quot;)</result-string>
     <result>
       <assert-false/>
     </result>
@@ -207,7 +207,7 @@
       <namespace prefix="foo" uri="http://example.org"/>
     </environment>
     <test>fn:contains(fn:prefix-from-QName(xs:QName(&quot;foo:bar&quot;)),&quot;f&quot;)</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -220,7 +220,7 @@
       <namespace prefix="FOO" uri="http://example.org"/>
     </environment>
     <test>fn:prefix-from-QName(xs:QName(&quot;foo:bar&quot;))</test>
-    <result-string>xs:string('foo')</result-string>
+    <result-string>xs:string(&quot;foo&quot;)</result-string>
     <result>
       <assert-string-value>foo</assert-string-value>
     </result>
@@ -247,7 +247,7 @@
     <description> A test whose essence is: `empty(prefix-from-QName( () ))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(prefix-from-QName( () ))</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
@@ -256,7 +256,7 @@
     <description> A test whose essence is: `prefix-from-QName( QName(&quot;example.com/&quot;, &quot;pre:lname&quot;)) eq &quot;pre&quot;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>prefix-from-QName( QName(&quot;example.com/&quot;, &quot;pre:lname&quot;)) eq &quot;pre&quot;</test>
-    <result-string>xs:boolean('true')</result-string>
+    <result-string>xs:boolean(&quot;true&quot;)</result-string>
     <result>
       <assert-true/>
     </result>
