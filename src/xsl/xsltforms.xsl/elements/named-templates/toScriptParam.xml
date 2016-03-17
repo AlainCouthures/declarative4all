@@ -7,6 +7,16 @@
 	<xsl:param name="p"/>
 	<xsl:param name="default"/>
 	<xsl:choose>
+		<xsl:when test="contains($p, '{')">
+			<xsl:variable name="avt">
+				<xsl:call-template name="avtparser">
+					<xsl:with-param name="s" select="$p"/>
+				</xsl:call-template>
+			</xsl:variable>
+			<xsl:if test="starts-with($avt,'1:')">
+				<xsl:call-template name="toScriptBinding"><xsl:with-param name="p" select="substring($avt,3)"/><xsl:with-param name="type" select="'xsd:string'"/></xsl:call-template>
+			</xsl:if>
+		</xsl:when>
 		<xsl:when test="$p">"<xsl:call-template name="toXPathExpr"><xsl:with-param name="p" select="$p"/></xsl:call-template>"</xsl:when>
 		<xsl:when test="$default != ''"><xsl:value-of select="$default"/></xsl:when>
 		<xsl:otherwise>null</xsl:otherwise>
