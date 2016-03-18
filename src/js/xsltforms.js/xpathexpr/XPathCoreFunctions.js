@@ -376,6 +376,14 @@ var XsltForms_xpathFunctionExceptions = {
 		name : "itext() : Invalid number of arguments",
 		message : "itext() function must have one argument"
 	},
+	selectionInvalidArgumentsNumber : {
+		name : "selection() : Invalid number of arguments",
+		message : "selection() function must have one argument exactly"
+	},
+	controlPropertyInvalidArgumentsNumber : {
+		name : "control-property() : Invalid number of arguments",
+		message : "control-property() function must have two arguments exactly"
+	},
 	encodeForUriInvalidArgumentsNumber : {
 		name : "encode-for-uri() : Invalid number of arguments",
 		message : "encode-for-uri() function must have one argument exactly"
@@ -2221,6 +2229,49 @@ var XsltForms_xpathCoreFunctions = {
 
 		
 /**
+ * * '''selection(ctrlid)'''
+ */
+
+	"http://www.w3.org/2005/xpath-functions selection" : new XsltForms_xpathFunction(false, XsltForms_xpathFunction.DEFAULT_NONE, false,
+		function(ctrlid) { 
+			if (arguments.length !== 1) {
+				throw XsltForms_xpathFunctionExceptions.selectionInvalidArgumentsNumber;
+			}
+			var controlid = XsltForms_globals.stringValue(ctrlid);
+			var control = XsltForms_idManager.find(controlid);
+			if (control && control.xfElement) {
+				control = control.xfElement;
+				var input = control.input;
+				return input.value.substring(input.selectionStart, input.selectionEnd);
+			}
+			return "";
+		}),
+
+		
+/**
+ * * '''control-property(crtlid, property)'''
+ */
+
+	"http://www.w3.org/2005/xpath-functions control-property" : new XsltForms_xpathFunction(false, XsltForms_xpathFunction.DEFAULT_NONE, false,
+		function(ctrlid, property) { 
+			if (arguments.length !== 2) {
+				throw XsltForms_xpathFunctionExceptions.controlPropertyJoinInvalidArgumentsNumber;
+			}
+			var controlid = XsltForms_globals.stringValue(ctrlid);
+			var control = XsltForms_idManager.find(controlid);
+			if (control && control.xfElement) {
+				control = control.xfElement;
+				var input = control.input;
+				property = XsltForms_globals.stringValue(property);
+				if (input[property]) {
+					return input[property];
+				}
+			}
+			return "";
+		}),
+
+		
+/**
  * * '''encode-for-uri(string?)'''
  */
 
@@ -2230,7 +2281,7 @@ var XsltForms_xpathCoreFunctions = {
 				throw XsltForms_xpathFunctionExceptions.encodeForUriInvalidArgumentsNumber;
 			}
 			return encodeURIComponent(XsltForms_globals.stringValue(rawString));
-		} ),
+		}),
 
 		
 /**
@@ -2244,7 +2295,7 @@ var XsltForms_xpathCoreFunctions = {
 				res.push({nodeType:Fleur.Node.DOCUMENT_NODE,localName:"repeatitem",text:i+"",documentElement:"dummy",getUserData:function(){return "";}});
 			}
 			return res;
-		} ),
+		}),
 
 		
 /**
@@ -2261,7 +2312,7 @@ var XsltForms_xpathCoreFunctions = {
 				tokens.push({localName:"#text",text:res[i],documentElement:"dummy"});
 			}
 			return tokens;
-		} ),
+		}),
 
 		
 /**

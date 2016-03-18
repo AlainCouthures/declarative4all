@@ -21,7 +21,7 @@
 					<xsl:if test="(substring-before($s,&quot;'&quot;)!= &quot;&quot; or $state != 0) and not(starts-with(substring($t,3),&quot;concat(&quot;))">concat(</xsl:if>
 					<xsl:value-of select="substring($t,3)"/>
 					<xsl:if test="$state = 2">,</xsl:if>
-					<xsl:if test="$state != 1 and substring-before($s,&quot;'&quot;)">'</xsl:if>
+					<xsl:if test="$state != 1 and substring-before($s,&quot;'&quot;) != ''">'</xsl:if>
 					<xsl:value-of select="substring-before($s,&quot;'&quot;)"/>
 					<xsl:if test="substring-before($s,&quot;'&quot;)">',</xsl:if>
 					<xsl:text>"'"</xsl:text>

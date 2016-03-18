@@ -33,6 +33,7 @@
 		"setfocus.xml",
 		"setindex.xml",
 		"setnode.xml",
+		"setselection.xml",
 		"setvalue.xml",
 		"setvar.xml",
 		"show-hide.xml",

@@ -25,7 +25,7 @@
 		<xsl:call-template name="toScriptParam"><xsl:with-param name="p" select="@iterate"/></xsl:call-template>
 		<xsl:text>)</xsl:text>
 		<xsl:for-each select="node()">
-			<xsl:if test="contains(':var:wrap:setvalue:split:insert:delete:action:toggle:send:setfocus:setindex:setnode:load:message:dispatch:rebuild:recalculate:refresh:reset:revalidate:show:hide:script:unload:',concat(':',local-name(),':'))">
+			<xsl:if test="contains(':var:wrap:setselection:setvalue:split:insert:delete:action:toggle:send:setfocus:setindex:setnode:load:message:dispatch:rebuild:recalculate:refresh:reset:revalidate:show:hide:script:unload:',concat(':',local-name(),':'))">
 				<xsl:text>.add(</xsl:text>
 				<xsl:value-of select="$vn_pf"/>
 				<xsl:value-of select="local-name()"/>
