@@ -1,784 +1,832 @@
-<?xml version="1.0" encoding="us-ascii"?>
-<test-set xmlns="http://www.w3.org/2010/09/qt-fots-catalog" name="prod-LetClause">
-   <description>Tests for the LetClause production (or the LetExpr in XPath 3.0)</description>
-   <link type="spec" document="http://www.w3.org/TR/xquery-30/"
-         idref="doc-xquery30-LetClause"/>
-   <link type="spec" document="XQuery" section-number="3.8.1" idref="id-for-let"/>
-   
-   <environment name="acme_corp">
-      <source role="." file="../op/union/acme_corp.xml">
-         <description>Source document for Function Declaration tests</description>
-         <created by="Ravindranath Chennoju" on="2000-01-01"/>
-      </source>
-   </environment> 
-
-   <test-case name="letexprwith-1">
-      <description> Evaluation of let clause bound to variable used in expression that raises error. </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $salary as xs:decimal := "cat" return $salary * 2</test>
-      <result>
-         <error code="XPTY0004"/>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-2">
-      <description> Let clause used decimal type. </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:decimal := 100 return $var</test>
-      <result>
-         <assert-eq>100</assert-eq>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-3">
-      <description> Let clause using integer type. </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:integer := 100 return $var</test>
-      <result>
-         <assert-eq>100</assert-eq>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-4">
-      <description> Let clause using double type. </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:double := 100E1 return $var</test>
-      <result>
-         <assert-eq>1000</assert-eq>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-5">
-      <description> Let clause using double type. </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:string := "A String" return $var</test>
-      <result>
-         <assert-string-value>A String</assert-string-value>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-6">
-      <description> Let clause using boolean (true) type. </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:boolean := fn:true() return $var</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-7">
-      <description> Let clause using boolean (false) type. </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:boolean := fn:false() return $var</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-8">
-      <description> Let clause using date type. </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:date := xs:date("1999-05-31Z") return $var</test>
-      <result>
-         <assert-string-value>1999-05-31Z</assert-string-value>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-9">
-      <description> Let clause using time type. </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:time := xs:time("21:23:00Z") return $var</test>
-      <result>
-         <assert-string-value>21:23:00Z</assert-string-value>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-10">
-      <description> Let clause using dateTime type. </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:dateTime := xs:dateTime("1999-05-31T13:20:00Z") return $var</test>
-      <result>
-         <assert-string-value>1999-05-31T13:20:00Z</assert-string-value>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-11">
-      <description> Let clause using float type. </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:float := xs:float(100) return $var</test>
-      <result>
-         <assert-eq>100</assert-eq>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-12">
-      <description> Let clause using an ineteger expression type. </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:integer := 100+200 return $var</test>
-      <result>
-         <assert-eq>300</assert-eq>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-13">
-      <description> Let clause using the fn:count function. </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:integer := fn:count((100,200)) return $var</test>
-      <result>
-         <assert-eq>2</assert-eq>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-14">
-      <description> Let clause using the fn:not function. </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:boolean := fn:not(fn:true()) return $var</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-15">
-      <description> Let clause using the "and" operator function. </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:boolean := fn:true() and fn:true() return $var</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-16">
-      <description> Let clause using the "or" operator function. </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:boolean := fn:true() and fn:true() return $var</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-17">
-      <description> Let clause using the "string-length" function. </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:integer := fn:string-length("A String") return $var</test>
-      <result>
-         <assert-eq>8</assert-eq>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-18">
-      <description> Let clause using a casting from integer to string </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:string := xs:string((xs:integer(100))) return $var</test>
-      <result>
-         <assert-string-value>100</assert-string-value>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-19">
-      <description> Let clause using a casting from decimal to string </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:string := xs:string((xs:decimal(100))) return $var</test>
-      <result>
-         <assert-string-value>100</assert-string-value>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-20">
-      <description> Let clause using a casting from double to string </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:string := xs:string((xs:double(100E2))) return $var</test>
-      <result>
-         <assert-string-value>10000</assert-string-value>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-21">
-      <description> Let clause using a casting from boolean to string </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:string := xs:string(fn:true()) return $var</test>
-      <result>
-         <assert-string-value>true</assert-string-value>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-22">
-      <description> Let clause using a integer type and addition expression on return clause </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:integer := 100 return $var + 1</test>
-      <result>
-         <assert-eq>101</assert-eq>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-23">
-      <description> Let clause using an "if" expression </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:boolean := if (fn:true()) then fn:true() else fn:false() return $var</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-
-   <test-case name="letexprwith-24">
-      <description> Let clause using a "typeswitch" expression </description>
-      <created by="Carmelo Montanez" on="2005-11-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $var as xs:string := typeswitch(fn:true()) case $i as xs:boolean return "Test Passed" default return "Test failed" return $var</test>
-      <result>
-         <assert-string-value>Test Passed</assert-string-value>
-      </result>
-   </test-case>
-   
-   <test-case name="LetExpr001" covers="let-in-xpath">
-      <description>Purpose : Assign a simple string using let </description>
-      <created by="Ravindranath Chennoju" on="2005-05-11"/>
-      <dependency type="spec" value="XP30+ XQ10+"/>
-      <test>let $x := "92233720368547758" return $x</test>
-      <result>
-         <assert-string-value>92233720368547758</assert-string-value>
-      </result>
-   </test-case>
-
-   <test-case name="LetExpr002" covers="let-in-xpath">
-      <description>Purpose : Assign a simple integer using let </description>
-      <created by="Ravindranath Chennoju" on="2005-05-11"/>
-      <dependency type="spec" value="XP30+ XQ10+"/>
-      <test>let $x := 92233720368547758 return $x</test>
-      <result>
-         <assert-eq>92233720368547758</assert-eq>
-      </result>
-   </test-case>
-
-   <test-case name="LetExpr003" covers="let-in-xpath">
-      <description>Purpose : Use an arithmetic operator with let </description>
-      <created by="Ravindranath Chennoju" on="2005-05-11"/>
-      <dependency type="spec" value="XP30+ XQ10+"/>
-      <test>let $x := 92233720368547758+1 return $x</test>
-      <result>
-         <assert-eq>92233720368547759</assert-eq>
-      </result>
-   </test-case>
-
-   <test-case name="LetExpr004" covers="let-in-xpath">
-      <description>Purpose : Use xs:long(upper bound) </description>
-      <created by="Ravindranath Chennoju" on="2005-05-11"/>
-      <dependency type="spec" value="XP30+ XQ10+"/>
-      <test>let $x := xs:long("92233720368547758") return $x</test>
-      <result>
-         <assert-eq>92233720368547758</assert-eq>
-      </result>
-   </test-case>
-
-   <test-case name="LetExpr005" covers="let-in-xpath">
-      <description>Purpose : Use xs:long(lower bound) +1 </description>
-      <created by="Ravindranath Chennoju" on="2005-05-11"/>
-      <dependency type="spec" value="XP30+ XQ10+"/>
-      <test>let $x := xs:long("-92233720368547758")+1 return $x</test>
-      <result>
-         <assert-eq>-92233720368547757</assert-eq>
-      </result>
-   </test-case>
-
-   <test-case name="LetExpr006" covers="let-in-xpath">
-      <description>Purpose : Use xs:double(upper bound) </description>
-      <created by="Ravindranath Chennoju" on="2005-05-11"/>
-      <dependency type="spec" value="XP30+ XQ10+"/>
-      <test>let $x := xs:double("1.7976931348623157E308") return $x</test>
-      <result>
-         <assert-string-value>1.7976931348623157E308</assert-string-value>
-      </result>
-   </test-case>
-
-   <test-case name="LetExpr007">
-      <description>Purpose : A node with an expression in curly braces </description>
-      <created by="Ravindranath Chennoju" on="2005-05-11"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test><![CDATA[let $x:=<a>{1+1}</a> return $x]]></test>
-      <result>
-         <assert-xml><![CDATA[<a>2</a>]]></assert-xml>
-      </result>
-   </test-case>
-
-   <test-case name="LetExpr008" covers="let-in-xpath">
-      <description>Purpose : More than one variable cross referencing compatible values </description>
-      <created by="Ravindranath Chennoju" on="2005-05-11"/>
-      <dependency type="spec" value="XP30+ XQ10+"/>
-      <test>let $x:=1, $y:=$x+1 return $x</test>
-      <result>
-         <assert-eq>1</assert-eq>
-      </result>
-   </test-case>
-
-   <test-case name="LetExpr009">
-      <description>Purpose : More than one variable cross referencing compatible values </description>
-      <created by="Ravindranath Chennoju" on="2005-05-11"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test><![CDATA[let $x:=1, $y:=<a>{$x+1}</a> return $y]]></test>
-      <result>
-         <assert-xml><![CDATA[<a>2</a>]]></assert-xml>
-      </result>
-   </test-case>
-
-   <test-case name="LetExpr010" covers="let-in-xpath">
-      <description>Purpose : More than one variable cross referencing incompatible values </description>
-      <created by="Ravindranath Chennoju" on="2005-05-11"/>
-      <dependency type="spec" value="XP30+ XQ10+"/>
-      <test>let $x:=(1,2,3), $y:=$x+1 return $y</test>
-      <result>
-         <error code="XPTY0004"/>
-      </result>
-   </test-case>
-
-   <test-case name="LetExpr011" covers="let-in-xpath">
-      <description>Purpose : Use sequences with filter expressions </description>
-      <created by="Ravindranath Chennoju" on="2005-05-11"/>
-      <dependency type="spec" value="XP30+ XQ10+"/>
-      <test>let $x :=(1 to 100)[. mod 5 eq 0] return $x</test>
-      <result>
-         <assert-string-value>5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100</assert-string-value>
-      </result>
-   </test-case>
-
-   <test-case name="LetExpr012" covers="let-in-xpath">
-      <description>Purpose : Use sequences with filter expressions with more than one variable </description>
-      <created by="Ravindranath Chennoju" on="2005-05-11"/>
-      <dependency type="spec" value="XP30+ XQ10+"/>
-      <test>let $x :=(1 to 100)[. mod 5 eq 0], $y := $x[. mod 10 eq 0] return $y</test>
-      <result>
-         <assert-string-value>10 20 30 40 50 60 70 80 90 100</assert-string-value>
-      </result>
-   </test-case>
-
-   <test-case name="LetExpr013" covers="let-in-xpath">
-      <description>Purpose : Use a function in the let </description>
-      <created by="Ravindranath Chennoju" on="2005-05-11"/>
-      <dependency type="spec" value="XP30+ XQ10+"/>
-      <test>let $x:="hello", $y:=concat($x," there") return $y</test>
-      <result>
-         <assert-string-value>hello there</assert-string-value>
-      </result>
-   </test-case>
-
-   <test-case name="LetExpr014" covers="let-in-xpath">
-      <description>Purpose : Use incompatible types in let </description>
-      <created by="Ravindranath Chennoju" on="2005-05-11"/>
-      <dependency type="spec" value="XP30+ XQ10+"/>
-      <test>let $x := "1", $y := $x+1 return $y</test>
-      <result>
-         <error code="XPTY0004"/>
-      </result>
-   </test-case>
-
-   <test-case name="LetExpr015" covers="let-in-xpath">
-      <description>Purpose : Use a sequence of different types of scalars </description>
-      <created by="Ravindranath Chennoju" on="2005-05-11"/>
-      <dependency type="spec" value="XP30+ XQ10+"/>
-      <test>let $x := (0,0.1e-1,2.0,'a',"cat",'',true()) return $x</test>
-      <result>
-         <assert-string-value>0 0.01 2 a cat  true</assert-string-value>
-      </result>
-   </test-case>
-
-   <test-case name="LetExpr016">
-      <description>Purpose : Use a sequence of nodes </description>
-      <created by="Ravindranath Chennoju" on="2005-05-11"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test><![CDATA[let $a := (<elem1/>, <elem2/>, <elem3 att="test"/>) return <root>{$a}</root>]]></test>
-      <result>
-         <assert-xml><![CDATA[<root><elem1/><elem2/><elem3 att="test"/></root>]]></assert-xml>
-      </result>
-   </test-case>
-
-   <test-case name="LetExpr017">
-      <description>Purpose : Use a sequence with step </description>
-      <created by="Ravindranath Chennoju" on="2005-05-11"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test><![CDATA[let $x := (<a> <b> <c> 123 </c> </b> </a>) return $x]]></test>
-      <result>
-         <assert-xml><![CDATA[<a><b><c> 123 </c></b></a>]]></assert-xml>
-      </result>
-   </test-case>
-
-   <test-case name="LetExpr018">
-      <description>Purpose : Use a sequence of different values </description>
-      <created by="Ravindranath Chennoju" on="2005-05-11"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test><![CDATA[let $x := (0,0.1e-1,2.0,'a',"cat",'',true(), ('<a> <b> <c> 123 </c> </b> </a>')/a/b) return $x]]></test>
-      <result>
-         <error code="XPTY0019"/>
-      </result>
-   </test-case>
-
-   <test-case name="LetExpr019">
-      <description>Purpose : combine two 'Let' exprs in one 'Return' </description>
-      <created by="Ravindranath Chennoju" on="2005-05-11"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test><![CDATA[let $a := <elem/> let $b := <elem2/> return ($a,$b)]]></test>
-      <result>
-         <assert-xml><![CDATA[<elem/><elem2/>]]></assert-xml>
-      </result>
-   </test-case>
-
-   <test-case name="LetExpr020">
-      <description>Purpose : Use three variables </description>
-      <created by="Ravindranath Chennoju" on="2005-05-11"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $a := 1 let $b := $a let $c := $a+$b return ($c)</test>
-      <result>
-         <assert-eq>2</assert-eq>
-      </result>
-   </test-case>
-   
-   <test-case name="LetExpr020a" covers="let-in-xpath">
-      <description>Purpose : Use three variables - invalid in XPath 3.0 </description>
-      <created by="Michael Kay" on="2011-07-06"/>
-      <dependency type="spec" value="XP30+"/>
-      <test>let $a := 1 let $b := $a let $c := $a+$b return ($c)</test>
-      <result>
-         <error code="XPST0003"/>
-      </result>
-   </test-case>
-
-   <test-case name="LetExpr021" covers="let-in-xpath">
-      <description>Purpose : Refer to an undefined variable </description>
-      <created by="Ravindranath Chennoju" on="2005-05-11"/>
-      <dependency type="spec" value="XP30+ XQ10+"/>
-      <test>let $a := $b return ($a)</test>
-      <result>
-         <error code="XPST0008"/>
-      </result>
-   </test-case>
-
-   <test-case name="K-LetExprWithout-1" covers="let-in-xpath">
-      <description> A 'let' variable is out-of-scope due to FLWOR has higher precendence than the comma operator. </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XP30+ XQ10+"/>
-      <test>let $i := 5, $j := 20 * $i return $i, $j</test>
-      <result>
-         <error code="XPST0008"/>
-      </result>
-   </test-case>
-
-   <test-case name="K-LetExprWithout-2" covers="let-in-xpath">
-      <description> A value in a 'let' variable cannot be assigned to with '=', it must be ':='. </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XP30+ XQ10+"/>
-      <test>let $i = 5 return 3</test>
-      <result>
-         <error code="XPST0003"/>
-      </result>
-   </test-case>
-
-   <test-case name="K-LetExprWithout-3" covers="let-in-xpath">
-      <description> A value in a 'let' variable cannot be assigned to with 'in', it must be ':='. </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XP30+ XQ10+"/>
-      <test>let $i in 5 return 3</test>
-      <result>
-         <error code="XPST0003"/>
-      </result>
-   </test-case>
-
-   <test-case name="K-LetExprWithout-4">
-      <description> A binding in a let-expression shadows global variables. </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="prod-LetClause" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the LetClause production (or the LetExpr in XPath 3.0)</description>
+  <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-LetClause" type="spec"/>
+  <link document="XQuery" idref="id-for-let" section-number="3.8.1" type="spec"/>
+  <environment name="acme_corp">
+    <source file="../op/union/acme_corp.xml" role=".">
+      <description>Source document for Function Declaration tests</description>
+      <created by="Ravindranath Chennoju" on="2000-01-01"/>
+    </source>
+  </environment>
+  <test-case name="letexprwith-1">
+    <description> Evaluation of let clause bound to variable used in expression that raises error. </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $salary as xs:decimal := "cat" return $salary * 2</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-2">
+    <description> Let clause used decimal type. </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:decimal := 100 return $var</test>
+    <result-string>xs:integer("100")</result-string>
+    <result>
+      <assert-eq>100</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-3">
+    <description> Let clause using integer type. </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:integer := 100 return $var</test>
+    <result-string>xs:integer("100")</result-string>
+    <result>
+      <assert-eq>100</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-4">
+    <description> Let clause using double type. </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:double := 100E1 return $var</test>
+    <result-string>xs:integer("1000")</result-string>
+    <result>
+      <assert-eq>1000</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-5">
+    <description> Let clause using double type. </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:string := "A String" return $var</test>
+    <result-string>xs:string("A String")</result-string>
+    <result>
+      <assert-string-value>A String</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-6">
+    <description> Let clause using boolean (true) type. </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:boolean := fn:true() return $var</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-7">
+    <description> Let clause using boolean (false) type. </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:boolean := fn:false() return $var</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-8">
+    <description> Let clause using date type. </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:date := xs:date("1999-05-31Z") return $var</test>
+    <result-string>xs:string("1999-05-31Z")</result-string>
+    <result>
+      <assert-string-value>1999-05-31Z</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-9">
+    <description> Let clause using time type. </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:time := xs:time("21:23:00Z") return $var</test>
+    <result-string>xs:string("21:23:00Z")</result-string>
+    <result>
+      <assert-string-value>21:23:00Z</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-10">
+    <description> Let clause using dateTime type. </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:dateTime := xs:dateTime("1999-05-31T13:20:00Z") return $var</test>
+    <result-string>xs:string("1999-05-31T13:20:00Z")</result-string>
+    <result>
+      <assert-string-value>1999-05-31T13:20:00Z</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-11">
+    <description> Let clause using float type. </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:float := xs:float(100) return $var</test>
+    <result-string>xs:integer("100")</result-string>
+    <result>
+      <assert-eq>100</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-12">
+    <description> Let clause using an ineteger expression type. </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:integer := 100+200 return $var</test>
+    <result-string>xs:integer("300")</result-string>
+    <result>
+      <assert-eq>300</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-13">
+    <description> Let clause using the fn:count function. </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:integer := fn:count((100,200)) return $var</test>
+    <result-string>xs:integer("2")</result-string>
+    <result>
+      <assert-eq>2</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-14">
+    <description> Let clause using the fn:not function. </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:boolean := fn:not(fn:true()) return $var</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-15">
+    <description> Let clause using the "and" operator function. </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:boolean := fn:true() and fn:true() return $var</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-16">
+    <description> Let clause using the "or" operator function. </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:boolean := fn:true() and fn:true() return $var</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-17">
+    <description> Let clause using the "string-length" function. </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:integer := fn:string-length("A String") return $var</test>
+    <result-string>xs:integer("8")</result-string>
+    <result>
+      <assert-eq>8</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-18">
+    <description> Let clause using a casting from integer to string </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:string := xs:string((xs:integer(100))) return $var</test>
+    <result-string>xs:string("100")</result-string>
+    <result>
+      <assert-string-value>100</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-19">
+    <description> Let clause using a casting from decimal to string </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:string := xs:string((xs:decimal(100))) return $var</test>
+    <result-string>xs:string("100")</result-string>
+    <result>
+      <assert-string-value>100</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-20">
+    <description> Let clause using a casting from double to string </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:string := xs:string((xs:double(100E2))) return $var</test>
+    <result-string>xs:string("10000")</result-string>
+    <result>
+      <assert-string-value>10000</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-21">
+    <description> Let clause using a casting from boolean to string </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:string := xs:string(fn:true()) return $var</test>
+    <result-string>xs:string("true")</result-string>
+    <result>
+      <assert-string-value>true</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-22">
+    <description> Let clause using a integer type and addition expression on return clause </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:integer := 100 return $var + 1</test>
+    <result-string>xs:integer("101")</result-string>
+    <result>
+      <assert-eq>101</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-23">
+    <description> Let clause using an "if" expression </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:boolean := if (fn:true()) then fn:true() else fn:false() return $var</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="letexprwith-24">
+    <description> Let clause using a "typeswitch" expression </description>
+    <created by="Carmelo Montanez" on="2005-11-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $var as xs:string := typeswitch(fn:true()) case $i as xs:boolean return "Test Passed" default return "Test failed" return $var</test>
+    <result-string>xs:string("Test Passed")</result-string>
+    <result>
+      <assert-string-value>Test Passed</assert-string-value>
+    </result>
+  </test-case>
+  <test-case covers="let-in-xpath" name="LetExpr001">
+    <description>Purpose : Assign a simple string using let </description>
+    <created by="Ravindranath Chennoju" on="2005-05-11"/>
+    <dependency type="spec" value="XP30+ XQ10+"/>
+    <test>let $x := "92233720368547758" return $x</test>
+    <result-string>xs:string("92233720368547758")</result-string>
+    <result>
+      <assert-string-value>92233720368547758</assert-string-value>
+    </result>
+  </test-case>
+  <test-case covers="let-in-xpath" name="LetExpr002">
+    <description>Purpose : Assign a simple integer using let </description>
+    <created by="Ravindranath Chennoju" on="2005-05-11"/>
+    <dependency type="spec" value="XP30+ XQ10+"/>
+    <test>let $x := 92233720368547758 return $x</test>
+    <result-string>xs:integer("92233720368547758")</result-string>
+    <result>
+      <assert-eq>92233720368547758</assert-eq>
+    </result>
+  </test-case>
+  <test-case covers="let-in-xpath" name="LetExpr003">
+    <description>Purpose : Use an arithmetic operator with let </description>
+    <created by="Ravindranath Chennoju" on="2005-05-11"/>
+    <dependency type="spec" value="XP30+ XQ10+"/>
+    <test>let $x := 92233720368547758+1 return $x</test>
+    <result-string>xs:integer("92233720368547759")</result-string>
+    <result>
+      <assert-eq>92233720368547759</assert-eq>
+    </result>
+  </test-case>
+  <test-case covers="let-in-xpath" name="LetExpr004">
+    <description>Purpose : Use xs:long(upper bound) </description>
+    <created by="Ravindranath Chennoju" on="2005-05-11"/>
+    <dependency type="spec" value="XP30+ XQ10+"/>
+    <test>let $x := xs:long("92233720368547758") return $x</test>
+    <result-string>xs:integer("92233720368547758")</result-string>
+    <result>
+      <assert-eq>92233720368547758</assert-eq>
+    </result>
+  </test-case>
+  <test-case covers="let-in-xpath" name="LetExpr005">
+    <description>Purpose : Use xs:long(lower bound) +1 </description>
+    <created by="Ravindranath Chennoju" on="2005-05-11"/>
+    <dependency type="spec" value="XP30+ XQ10+"/>
+    <test>let $x := xs:long("-92233720368547758")+1 return $x</test>
+    <result-string>xs:integer("-92233720368547757")</result-string>
+    <result>
+      <assert-eq>-92233720368547757</assert-eq>
+    </result>
+  </test-case>
+  <test-case covers="let-in-xpath" name="LetExpr006">
+    <description>Purpose : Use xs:double(upper bound) </description>
+    <created by="Ravindranath Chennoju" on="2005-05-11"/>
+    <dependency type="spec" value="XP30+ XQ10+"/>
+    <test>let $x := xs:double("1.7976931348623157E308") return $x</test>
+    <result-string>xs:string("1.7976931348623157E308")</result-string>
+    <result>
+      <assert-string-value>1.7976931348623157E308</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="LetExpr007">
+    <description>Purpose : A node with an expression in curly braces </description>
+    <created by="Ravindranath Chennoju" on="2005-05-11"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[let $x:=<a>{1+1}</a> return $x]]>
+    </test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<a>2</a>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case covers="let-in-xpath" name="LetExpr008">
+    <description>Purpose : More than one variable cross referencing compatible values </description>
+    <created by="Ravindranath Chennoju" on="2005-05-11"/>
+    <dependency type="spec" value="XP30+ XQ10+"/>
+    <test>let $x:=1, $y:=$x+1 return $x</test>
+    <result-string>xs:integer("1")</result-string>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="LetExpr009">
+    <description>Purpose : More than one variable cross referencing compatible values </description>
+    <created by="Ravindranath Chennoju" on="2005-05-11"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[let $x:=1, $y:=<a>{$x+1}</a> return $y]]>
+    </test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<a>2</a>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case covers="let-in-xpath" name="LetExpr010">
+    <description>Purpose : More than one variable cross referencing incompatible values </description>
+    <created by="Ravindranath Chennoju" on="2005-05-11"/>
+    <dependency type="spec" value="XP30+ XQ10+"/>
+    <test>let $x:=(1,2,3), $y:=$x+1 return $y</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case covers="let-in-xpath" name="LetExpr011">
+    <description>Purpose : Use sequences with filter expressions </description>
+    <created by="Ravindranath Chennoju" on="2005-05-11"/>
+    <dependency type="spec" value="XP30+ XQ10+"/>
+    <test>let $x :=(1 to 100)[. mod 5 eq 0] return $x</test>
+    <result-string>xs:string("5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100")</result-string>
+    <result>
+      <assert-string-value>5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100</assert-string-value>
+    </result>
+  </test-case>
+  <test-case covers="let-in-xpath" name="LetExpr012">
+    <description>Purpose : Use sequences with filter expressions with more than one variable </description>
+    <created by="Ravindranath Chennoju" on="2005-05-11"/>
+    <dependency type="spec" value="XP30+ XQ10+"/>
+    <test>let $x :=(1 to 100)[. mod 5 eq 0], $y := $x[. mod 10 eq 0] return $y</test>
+    <result-string>xs:string("10 20 30 40 50 60 70 80 90 100")</result-string>
+    <result>
+      <assert-string-value>10 20 30 40 50 60 70 80 90 100</assert-string-value>
+    </result>
+  </test-case>
+  <test-case covers="let-in-xpath" name="LetExpr013">
+    <description>Purpose : Use a function in the let </description>
+    <created by="Ravindranath Chennoju" on="2005-05-11"/>
+    <dependency type="spec" value="XP30+ XQ10+"/>
+    <test>let $x:="hello", $y:=concat($x," there") return $y</test>
+    <result-string>xs:string("hello there")</result-string>
+    <result>
+      <assert-string-value>hello there</assert-string-value>
+    </result>
+  </test-case>
+  <test-case covers="let-in-xpath" name="LetExpr014">
+    <description>Purpose : Use incompatible types in let </description>
+    <created by="Ravindranath Chennoju" on="2005-05-11"/>
+    <dependency type="spec" value="XP30+ XQ10+"/>
+    <test>let $x := "1", $y := $x+1 return $y</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case covers="let-in-xpath" name="LetExpr015">
+    <description>Purpose : Use a sequence of different types of scalars </description>
+    <created by="Ravindranath Chennoju" on="2005-05-11"/>
+    <dependency type="spec" value="XP30+ XQ10+"/>
+    <test>let $x := (0,0.1e-1,2.0,'a',"cat",'',true()) return $x</test>
+    <result-string>xs:string("0 0.01 2 a cat  true")</result-string>
+    <result>
+      <assert-string-value>0 0.01 2 a cat  true</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="LetExpr016">
+    <description>Purpose : Use a sequence of nodes </description>
+    <created by="Ravindranath Chennoju" on="2005-05-11"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[let $a := (<elem1/>, <elem2/>, <elem3 att="test"/>) return <root>{$a}</root>]]>
+    </test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<root><elem1/><elem2/><elem3 att="test"/></root>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="LetExpr017">
+    <description>Purpose : Use a sequence with step </description>
+    <created by="Ravindranath Chennoju" on="2005-05-11"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[let $x := (<a> <b> <c> 123 </c> </b> </a>) return $x]]>
+    </test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<a><b><c> 123 </c></b></a>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="LetExpr018">
+    <description>Purpose : Use a sequence of different values </description>
+    <created by="Ravindranath Chennoju" on="2005-05-11"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[let $x := (0,0.1e-1,2.0,'a',"cat",'',true(), ('<a> <b> <c> 123 </c> </b> </a>')/a/b) return $x]]>
+    </test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0019"))</result-string>
+    <result>
+      <error code="XPTY0019"/>
+    </result>
+  </test-case>
+  <test-case name="LetExpr019">
+    <description>Purpose : combine two 'Let' exprs in one 'Return' </description>
+    <created by="Ravindranath Chennoju" on="2005-05-11"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[let $a := <elem/> let $b := <elem2/> return ($a,$b)]]>
+    </test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<elem/><elem2/>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="LetExpr020">
+    <description>Purpose : Use three variables </description>
+    <created by="Ravindranath Chennoju" on="2005-05-11"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $a := 1 let $b := $a let $c := $a+$b return ($c)</test>
+    <result-string>xs:integer("2")</result-string>
+    <result>
+      <assert-eq>2</assert-eq>
+    </result>
+  </test-case>
+  <test-case covers="let-in-xpath" name="LetExpr020a">
+    <description>Purpose : Use three variables - invalid in XPath 3.0 </description>
+    <created by="Michael Kay" on="2011-07-06"/>
+    <dependency type="spec" value="XP30+"/>
+    <test>let $a := 1 let $b := $a let $c := $a+$b return ($c)</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result>
+      <error code="XPST0003"/>
+    </result>
+  </test-case>
+  <test-case covers="let-in-xpath" name="LetExpr021">
+    <description>Purpose : Refer to an undefined variable </description>
+    <created by="Ravindranath Chennoju" on="2005-05-11"/>
+    <dependency type="spec" value="XP30+ XQ10+"/>
+    <test>let $a := $b return ($a)</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0008"))</result-string>
+    <result>
+      <error code="XPST0008"/>
+    </result>
+  </test-case>
+  <test-case covers="let-in-xpath" name="K-LetExprWithout-1">
+    <description> A 'let' variable is out-of-scope due to FLWOR has higher precendence than the comma operator. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XP30+ XQ10+"/>
+    <test>let $i := 5, $j := 20 * $i return $i, $j</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0008"))</result-string>
+    <result>
+      <error code="XPST0008"/>
+    </result>
+  </test-case>
+  <test-case covers="let-in-xpath" name="K-LetExprWithout-2">
+    <description> A value in a 'let' variable cannot be assigned to with '=', it must be ':='. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XP30+ XQ10+"/>
+    <test>let $i = 5 return 3</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result>
+      <error code="XPST0003"/>
+    </result>
+  </test-case>
+  <test-case covers="let-in-xpath" name="K-LetExprWithout-3">
+    <description> A value in a 'let' variable cannot be assigned to with 'in', it must be ':='. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XP30+ XQ10+"/>
+    <test>let $i in 5 return 3</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result>
+      <error code="XPST0003"/>
+    </result>
+  </test-case>
+  <test-case name="K-LetExprWithout-4">
+    <description> A binding in a let-expression shadows global variables. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
         declare variable $i := false(); 
         declare variable $t := false(); 
         deep-equal((let $i := true(), $t := true() return ($i, $t)), (true(), true()))</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-1">
-      <description> fn:deep-equal combined with a for/let expression. </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test><![CDATA[deep-equal((<b/>, <b/>, <b/>, <b/>), (for $v1 in (1, 2, 3, 4) let $v2 := <b/> return ($v2))/.)]]></test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-2">
-      <description> fn:deep-equal combined with a for/let expression(#2). </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test><![CDATA[deep-equal((<b/>, <b/>, <b/>, <b/>), (for $v1 in (1, 2, 3, 4) let $v2 := <b/> return ($v2)))]]></test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-3">
-      <description> The focus is undefined inside the initializing expression for a 'let' variable. </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>declare function local:myFunc() { let $v := . return $v }; local:myFunc()</test>
-      <result>
-         <error code="XPDY0002"/>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-4">
-      <description> The focus is undefined inside the initializing expression for a 'let' variable(#2). </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test><![CDATA[declare function local:myFunc($arg as node()) { let $v := . return $arg/$v }; local:myFunc(<e/>)]]></test>
-      <result>
-         <error code="XPDY0002"/>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-5">
-      <description> The focus is undefined inside the initializing expression for a 'let' variable(#3). </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test><![CDATA[declare function local:myFunc($arg as node()) { let $v := aNameTest return $arg/$v }; local:myFunc(<e/>)]]></test>
-      <result>
-         <error code="XPDY0002"/>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-6">
-      <description> The focus is undefined inside the initializing expression for a 'let' variable(#4). </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>declare function local:myFunc($arg as node()) { let $v := aNameTest return $arg/$v }; 1</test>
-      <result>
-         <any-of>
-            <assert-eq>1</assert-eq>
-            <error code="XPDY0002"/>
-         </any-of>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-7">
-      <description> let-declarations doesn't cause type conversion. </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $i as xs:integer := xs:untypedAtomic("1") return $i</test>
-      <result>
-         <error code="XPTY0004"/>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-8">
-      <description> A single return statement is syntactically incorrect. </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <test>return 1</test>
-      <result>
-         <error code="XPST0003"/>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-9">
-      <description> let-declarations doesn't cause numeric promotion. </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $i as xs:float := 1.1 return $i</test>
-      <result>
-         <error code="XPTY0004"/>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-10">
-      <description> let-declarations doesn't cause numeric promotion(#2). </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $i as xs:double := 1.1 return $i</test>
-      <result>
-         <error code="XPTY0004"/>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-11">
-      <description> let-declarations doesn't cause numeric promotion(#3). </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $i as xs:float := 1 return $i</test>
-      <result>
-         <error code="XPTY0004"/>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-12">
-      <description> let-declarations doesn't cause numeric promotion(#4). </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $i as xs:double := 1 return $i</test>
-      <result>
-         <error code="XPTY0004"/>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-13">
-      <description> let-declarations doesn't cause numeric promotion(#5). </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $i as xs:double := xs:float(3) return $i</test>
-      <result>
-         <error code="XPTY0004"/>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-14">
-      <description> let-declarations doesn't cause string promotion conversion. </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $i as xs:string := xs:untypedAtomic("a string") return $i</test>
-      <result>
-         <error code="XPTY0004"/>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-15">
-      <description> let-declarations doesn't cause URI promotion conversion. </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $i as xs:string := xs:anyURI("http://www.example.com/") return $i</test>
-      <result>
-         <error code="XPTY0004"/>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-16">
-      <description> Ensure node identity is properly handled through a for binding. </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test><![CDATA[declare variable $e := <e/>; for $i in (<a/>, $e, <c/>) return $i is $e]]></test>
-      <result>
-         <assert-string-value>false true false</assert-string-value>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-17">
-      <description> Ensure a name test is reported for using the undefined focus, when appearing as a child of a let binding. However, since the let body is the empty sequence, it does not have to be evaluated. </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>declare function local:function() { let $b := (i/a) return () }; empty(local:function())</test>
-      <result>
-         <any-of>
-            <assert-true/>
-            <error code="XPDY0002"/>
-            <error code="XPST0005"/>
-         </any-of>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-18">
-      <description> Use a let-variable that acts as an alias for a function argument. </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>declare function local:foo($a as xs:integer) { if($a = 3) then $a else let $a := $a return local:foo($a + 1) }; local:foo(1)</test>
-      <result>
-         <assert-eq>3</assert-eq>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-19">
-      <description> Use an undefined focus in a let binding. </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <environment ref="empty"/>
-      <dependency type="spec" value="XP30+ XQ10+"/>
-      <test>let $v := . return 1</test>
-      <result>
-         <any-of>
-            <assert-eq>1</assert-eq>
-            <error code="XPDY0002"/>
-         </any-of>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-20">
-      <description> Bind to let and subsequently use the for expression. </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <environment ref="acme_corp"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test><![CDATA[
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-1">
+    <description> fn:deep-equal combined with a for/let expression. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[deep-equal((<b/>, <b/>, <b/>, <b/>), (for $v1 in (1, 2, 3, 4) let $v2 := <b/> return ($v2))/.)]]>
+    </test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-2">
+    <description> fn:deep-equal combined with a for/let expression(#2). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[deep-equal((<b/>, <b/>, <b/>, <b/>), (for $v1 in (1, 2, 3, 4) let $v2 := <b/> return ($v2)))]]>
+    </test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-3">
+    <description> The focus is undefined inside the initializing expression for a 'let' variable. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:myFunc() { let $v := . return $v }; local:myFunc()</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0002"))</result-string>
+    <result>
+      <error code="XPDY0002"/>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-4">
+    <description> The focus is undefined inside the initializing expression for a 'let' variable(#2). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[declare function local:myFunc($arg as node()) { let $v := . return $arg/$v }; local:myFunc(<e/>)]]>
+    </test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0002"))</result-string>
+    <result>
+      <error code="XPDY0002"/>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-5">
+    <description> The focus is undefined inside the initializing expression for a 'let' variable(#3). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[declare function local:myFunc($arg as node()) { let $v := aNameTest return $arg/$v }; local:myFunc(<e/>)]]>
+    </test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0002"))</result-string>
+    <result>
+      <error code="XPDY0002"/>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-6">
+    <description> The focus is undefined inside the initializing expression for a 'let' variable(#4). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:myFunc($arg as node()) { let $v := aNameTest return $arg/$v }; 1</test>
+    <result-string>xs:integer("1")</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0002"))</result-string>
+    <result>
+      <any-of>
+        <assert-eq>1</assert-eq>
+        <error code="XPDY0002"/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-7">
+    <description> let-declarations doesn't cause type conversion. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $i as xs:integer := xs:untypedAtomic("1") return $i</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-8">
+    <description> A single return statement is syntactically incorrect. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <test>return 1</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result>
+      <error code="XPST0003"/>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-9">
+    <description> let-declarations doesn't cause numeric promotion. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $i as xs:float := 1.1 return $i</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-10">
+    <description> let-declarations doesn't cause numeric promotion(#2). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $i as xs:double := 1.1 return $i</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-11">
+    <description> let-declarations doesn't cause numeric promotion(#3). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $i as xs:float := 1 return $i</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-12">
+    <description> let-declarations doesn't cause numeric promotion(#4). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $i as xs:double := 1 return $i</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-13">
+    <description> let-declarations doesn't cause numeric promotion(#5). </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $i as xs:double := xs:float(3) return $i</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-14">
+    <description> let-declarations doesn't cause string promotion conversion. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $i as xs:string := xs:untypedAtomic("a string") return $i</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-15">
+    <description> let-declarations doesn't cause URI promotion conversion. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $i as xs:string := xs:anyURI("http://www.example.com/") return $i</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-16">
+    <description> Ensure node identity is properly handled through a for binding. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[declare variable $e := <e/>; for $i in (<a/>, $e, <c/>) return $i is $e]]>
+    </test>
+    <result-string>xs:string("false true false")</result-string>
+    <result>
+      <assert-string-value>false true false</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-17">
+    <description> Ensure a name test is reported for using the undefined focus, when appearing as a child of a let binding. However, since the let body is the empty sequence, it does not have to be evaluated. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:function() { let $b := (i/a) return () }; empty(local:function())</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0002"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0005"))</result-string>
+    <result>
+      <any-of>
+        <assert-true/>
+        <error code="XPDY0002"/>
+        <error code="XPST0005"/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-18">
+    <description> Use a let-variable that acts as an alias for a function argument. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:foo($a as xs:integer) { if($a = 3) then $a else let $a := $a return local:foo($a + 1) }; local:foo(1)</test>
+    <result-string>xs:integer("3")</result-string>
+    <result>
+      <assert-eq>3</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-19">
+    <description> Use an undefined focus in a let binding. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="empty"/>
+    <dependency type="spec" value="XP30+ XQ10+"/>
+    <test>let $v := . return 1</test>
+    <result-string>xs:integer("1")</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0002"))</result-string>
+    <result>
+      <any-of>
+        <assert-eq>1</assert-eq>
+        <error code="XPDY0002"/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-20">
+    <description> Bind to let and subsequently use the for expression. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <environment ref="acme_corp"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[
         let $emps := //employee[location = "Denver"] 
         for $d in distinct-values($emps/deptno) 
         let $e := $emps[deptno = $d] 
         return <dept> <deptno>{$d}</deptno> <headcount> {count($e)} </headcount> <payroll> {sum($e/salary)} </payroll> </dept>
-      ]]></test>
-      <result>
-         <assert-xml><![CDATA[<dept><deptno>1</deptno><headcount>2</headcount><payroll>130000</payroll></dept><dept><deptno>2</deptno><headcount>1</headcount><payroll>80000</payroll></dept>]]></assert-xml>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-21">
-      <description> Use a focus within a LET tail expression. </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test><![CDATA[<e/>/(for $b in 1, $i in self::node() return $i)]]></test>
-      <result>
-         <assert-xml><![CDATA[<e/>]]></assert-xml>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-22">
-      <description> Use a focus within a LET expression. </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test><![CDATA[<e/>/(for $i in self::node() return $i)]]></test>
-      <result>
-         <assert-xml><![CDATA[<e/>]]></assert-xml>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-23">
-      <description> Bind the context item to a variable. </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test><![CDATA[count(<e/>/(let $i := . return (string($i), data($i))))]]></test>
-      <result>
-         <assert-eq>2</assert-eq>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-24">
-      <description> Ensure a name test is reported for using the undefined focus, when appearing as a child of a let binding. </description>
-      <created by="Frans Englich" on="2007-11-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>declare function local:function() { let $b := (i/a) return 1 }; local:function()</test>
-      <result>
-         <any-of>
-            <assert-eq>1</assert-eq>
-            <error code="XPDY0002"/>
-         </any-of>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-25" covers="let-in-xpath">
-      <description> A combination of expressions that triggers a bug in some parsers. </description>
-      <created by="Frans Englich" on="2008-05-08"/>
-      <dependency type="spec" value="XP30+ XQ10+"/>
-      <test>let $a := 1 return 
+      ]]>
+    </test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<dept><deptno>1</deptno><headcount>2</headcount><payroll>130000</payroll></dept><dept><deptno>2</deptno><headcount>1</headcount><payroll>80000</payroll></dept>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-21">
+    <description> Use a focus within a LET tail expression. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[<e/>/(for $b in 1, $i in self::node() return $i)]]>
+    </test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<e/>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-22">
+    <description> Use a focus within a LET expression. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[<e/>/(for $i in self::node() return $i)]]>
+    </test>
+    <result-string/>
+    <result>
+      <assert-xml>
+        <![CDATA[<e/>]]>
+      </assert-xml>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-23">
+    <description> Bind the context item to a variable. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[count(<e/>/(let $i := . return (string($i), data($i))))]]>
+    </test>
+    <result-string>xs:integer("2")</result-string>
+    <result>
+      <assert-eq>2</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-24">
+    <description> Ensure a name test is reported for using the undefined focus, when appearing as a child of a let binding. </description>
+    <created by="Frans Englich" on="2007-11-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:function() { let $b := (i/a) return 1 }; local:function()</test>
+    <result-string>xs:integer("1")</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0002"))</result-string>
+    <result>
+      <any-of>
+        <assert-eq>1</assert-eq>
+        <error code="XPDY0002"/>
+      </any-of>
+    </result>
+  </test-case>
+  <test-case covers="let-in-xpath" name="K2-LetExprWithout-25">
+    <description> A combination of expressions that triggers a bug in some parsers. </description>
+    <created by="Frans Englich" on="2008-05-08"/>
+    <dependency type="spec" value="XP30+ XQ10+"/>
+    <test>let $a := 1 return 
                 for $b in 1 return 
                     if ($b) then 1 
                             else if ($b) then 1 
@@ -806,26 +854,28 @@
                             else if ($b) then 1 
                             else if ($b) then 1 
                             else ()</test>
-      <result>
-         <assert-eq>1</assert-eq>
-      </result>
-   </test-case>
-
-   <test-case name="K2-LetExprWithout-26">
-      <description> An element() test whose cardinality doesn't match. </description>
-      <created by="Frans Englich" on="2009-02-05"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test><![CDATA[let $e := <element/>, $outer as element() := $e/element() return $outer]]></test>
-      <result>
-         <error code="XPTY0004"/>
-      </result>
-   </test-case>
-
-   <test-case name="xquery10keywords">
-      <description>Purpose : keywords can be used as variable names </description>
-      <created by="Andrew Eisenberg" on="2009-05-06"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>let $ancestor-or-self := 1 
+    <result-string>xs:integer("1")</result-string>
+    <result>
+      <assert-eq>1</assert-eq>
+    </result>
+  </test-case>
+  <test-case name="K2-LetExprWithout-26">
+    <description> An element() test whose cardinality doesn't match. </description>
+    <created by="Frans Englich" on="2009-02-05"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[let $e := <element/>, $outer as element() := $e/element() return $outer]]>
+    </test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="xquery10keywords">
+    <description>Purpose : keywords can be used as variable names </description>
+    <created by="Andrew Eisenberg" on="2009-05-06"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>let $ancestor-or-self := 1 
       let $ancestor := 1 
       let $and := 1 
       let $as := 1 
@@ -870,17 +920,18 @@
       let $text := 1 let $then := 1 let $to := 1 let $treat := 1 let $typeswitch := 1 
       let $union := 1 let $unordered := 1 let $validate := 1 let $variable := 1 let $version := 1 
       let $where := 1 let $xquery := 1 return 2</test>
-      <result>
-         <assert-eq>2</assert-eq>
-      </result>
-   </test-case>
-
-   <test-case name="xquery10keywords2" covers="let-in-xpath">
-      <description>Purpose : keywords can be used as element name tests </description>
-      <created by="Andrew Eisenberg" on="2009-11-09"/>
-      <environment ref="works-mod"/>
-      <dependency type="spec" value="XP30+ XQ10+"/>
-      <test><![CDATA[
+    <result-string>xs:integer("2")</result-string>
+    <result>
+      <assert-eq>2</assert-eq>
+    </result>
+  </test-case>
+  <test-case covers="let-in-xpath" name="xquery10keywords2">
+    <description>Purpose : keywords can be used as element name tests </description>
+    <created by="Andrew Eisenberg" on="2009-11-09"/>
+    <environment ref="works-mod"/>
+    <dependency type="spec" value="XP30+ XQ10+"/>
+    <test>
+      <![CDATA[
       let $x := (/) 
       return $x /ancestor-or-self /ancestor /and /as /ascending /at /attribute 
       /base-uri /boundary-space /by 
@@ -901,17 +952,19 @@
        /union /unordered 
        /validate /variable /version 
        /where
-       /xquery]]></test>
-      <result>
-         <assert-empty/>
-      </result>
-   </test-case>
-
-   <test-case name="xquery10keywords3">
-      <description>Purpose : keywords can be used as element names </description>
-      <created by="Andrew Eisenberg" on="2009-11-09"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test><![CDATA[
+       /xquery]]>
+    </test>
+    <result-string>()</result-string>
+    <result>
+      <assert-empty/>
+    </result>
+  </test-case>
+  <test-case name="xquery10keywords3">
+    <description>Purpose : keywords can be used as element names </description>
+    <created by="Andrew Eisenberg" on="2009-11-09"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[
       <keywords> <ancestor-or-self/> <ancestor/> <and/> <as/> <ascending/> <at/> <attribute/> 
       <base-uri/> <boundary-space/> <by/> 
       <case/> <cast/> <castable/> <child/> <collation/> <comment/> <construction/> <copy-namespaces/> 
@@ -931,18 +984,19 @@
       <union/> <unordered/> 
       <validate/> <variable/> <version/> 
       <where/> 
-      <xquery/> </keywords>/name()]]></test>
-      <result>
-         <assert-string-value>keywords</assert-string-value>
-      </result>
-   </test-case>
-
-   <test-case name="xquery30keywords">
-      <description>Purpose : keywords can be used as variable names </description>
-      <created by="Andrew Eisenberg" on="2009-10-29"/>
-      <modified by="Andrew Eisenberg" on="2012-07-06" change="used latest grammar, changed name from xquery11keywords"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+      <xquery/> </keywords>/name()]]>
+    </test>
+    <result-string>xs:string("keywords")</result-string>
+    <result>
+      <assert-string-value>keywords</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="xquery30keywords">
+    <description>Purpose : keywords can be used as variable names </description>
+    <created by="Andrew Eisenberg" on="2009-10-29"/>
+    <modified by="Andrew Eisenberg" change="used latest grammar, changed name from xquery11keywords" on="2012-07-06"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
         let $NaN := 1
         let $allowing := 1
         let $ancestor-or-self := 1
@@ -1070,18 +1124,19 @@
         let $zero-digit := 1
         return 2
       </test>
-      <result>
-         <assert-eq>2</assert-eq>
-      </result>
-   </test-case>
-
-   <test-case name="xquery30keywords2" covers="let-in-xpath">
-      <description>Purpose : keywords can be used as element name tests </description>
-      <created by="Andrew Eisenberg" on="2009-11-09"/>
-      <modified by="Andrew Eisenberg" on="2012-07-06" change="used latest grammar, changed name from xquery11keywords2"/>
-      <environment ref="works-mod"/>
-      <dependency type="spec" value="XP30+ XQ10+"/>
-      <test><![CDATA[
+    <result-string>xs:integer("2")</result-string>
+    <result>
+      <assert-eq>2</assert-eq>
+    </result>
+  </test-case>
+  <test-case covers="let-in-xpath" name="xquery30keywords2">
+    <description>Purpose : keywords can be used as element name tests </description>
+    <created by="Andrew Eisenberg" on="2009-11-09"/>
+    <modified by="Andrew Eisenberg" change="used latest grammar, changed name from xquery11keywords2" on="2012-07-06"/>
+    <environment ref="works-mod"/>
+    <dependency type="spec" value="XP30+ XQ10+"/>
+    <test>
+      <![CDATA[
         let $x := (/)
         return $x
         /NaN
@@ -1209,18 +1264,20 @@
         /window
         /xquery
         /zero-digit
-      ]]></test>
-      <result>
-         <assert-empty/>
-      </result>
-   </test-case>
-
-   <test-case name="xquery30keywords3">
-      <description>Purpose : keywords can be used as element names </description>
-      <created by="Andrew Eisenberg" on="2009-11-09"/>
-      <modified by="Andrew Eisenberg" on="2012-07-06" change="used latest grammar, changed name from xquery11keywords3"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test><![CDATA[
+      ]]>
+    </test>
+    <result-string>()</result-string>
+    <result>
+      <assert-empty/>
+    </result>
+  </test-case>
+  <test-case name="xquery30keywords3">
+    <description>Purpose : keywords can be used as element names </description>
+    <created by="Andrew Eisenberg" on="2009-11-09"/>
+    <modified by="Andrew Eisenberg" change="used latest grammar, changed name from xquery11keywords3" on="2012-07-06"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[
         <keywords>
            <NaN/>
            <allowing/>
@@ -1348,16 +1405,19 @@
            <xquery/>
            <zero-digit/>
         </keywords>/name()
-      ]]></test>
-      <result>
-         <assert-string-value>keywords</assert-string-value>
-      </result>
-   </test-case>   
-   <test-case name="xquery30keywords4">
-      <description>Purpose : keywords can be used as fn-prefixed function names </description>
-      <created by="Andrew Eisenberg" on="2013-05-10"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test><![CDATA[
+      ]]>
+    </test>
+    <result-string>xs:string("keywords")</result-string>
+    <result>
+      <assert-string-value>keywords</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="xquery30keywords4">
+    <description>Purpose : keywords can be used as fn-prefixed function names </description>
+    <created by="Andrew Eisenberg" on="2013-05-10"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[
          declare function local:NaN () {1};
          declare function local:allowing () {2};
          declare function local:ancestor-or-self () {3};
@@ -1610,16 +1670,19 @@
          local:xquery() +
          local:zero-digit()
          eq (125 * (125 + 1)) div 2
-      ]]></test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>   
-   <test-case name="xquery30keywords5">
-      <description>Purpose : keywords can be used as unprefixed function names </description>
-      <created by="Andrew Eisenberg" on="2013-05-10"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test><![CDATA[
+      ]]>
+    </test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="xquery30keywords5">
+    <description>Purpose : keywords can be used as unprefixed function names </description>
+    <created by="Andrew Eisenberg" on="2013-05-10"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[
          declare default function namespace "http://www.w3.org/2005/xquery-local-functions";
          
          declare function NaN () {1};
@@ -1842,9 +1905,11 @@
          xquery() +
          zero-digit()
          eq (109 * (109 + 1)) div 2
-      ]]></test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>   
+      ]]>
+    </test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
 </test-set>

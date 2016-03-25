@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_xpathCoreFunctions XsltForms_globals*/
+/*globals XsltForms_xpathCoreFunctions XsltForms_globals XsltForms_context:true*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -47,6 +47,7 @@ XsltForms_functionCallExpr.prototype.evaluate = function(ctx) {
 		for (var i2 = 0, len2 = this.args.length; i2 < len2; i2++) {
 			arguments_[i2] = XsltForms_globals.stringValue(this.args[i2].evaluate(ctx));
 		}
+		XsltForms_context = {ctx: ctx};
 		return this.func.apply(null,arguments_);
 	}
 };

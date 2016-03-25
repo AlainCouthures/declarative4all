@@ -15,6 +15,31 @@
 				<xf:resource value="concat('data/',.)"/>
 			</xf:submission>
 		</xf:model>
+		<script type="text/javascript">
+			var parser = new Fleur.DOMParser();
+			function xqeval(envfile, xexpr) {
+				try {
+				    var xmlBuf = "\x3cdummy/\x3e";
+					var xmldoc = parser.parseFromString(xmlBuf, "application/xml");
+					var nsResolver = function(element) {
+						return {
+							defaultNamespace: element.getAttribute("xmlns"),
+							nsresolver: element.ownerDocument.createNSResolver(element),
+							lookupNamespaceURI: function(prefix) {
+								if (prefix === "_") {
+									return this.defaultNamespace;
+								}
+								return this.nsresolver.lookupNamespaceURI(prefix);
+							}
+						};
+					};
+					var res = xmldoc.evaluate(xexpr, xmldoc, nsResolver(xmldoc.documentElement), Fleur.XPathResult.ANY_TYPE, null).toXQuery();
+					return res;
+				} catch(e) {
+					return "Exception!\n" + e.stack;
+				}
+			}
+		</script>
 	</head>
 	<body>
 		<xf:select1 ref=".">
@@ -27,10 +52,22 @@
 		</xf:select1>
 		<table border="1">
 			<tbody>
-				<xf:repeat ref="instance('test-set')/qt:test-case">
+				<xf:repeat id="tests" ref="instance('test-set')/qt:test-case">
 					<tr>
-						<td width="30%"><xf:output value="qt:test"/></td>
-						<td><xf:output value="qt:result"/></td>
+						<td style="width:100px"><xf:output value="qt:test"/></td>
+						<td>
+							<xf:trigger>
+								<xf:label>Run</xf:label>
+								<xf:load ev:event="DOMActivate" show="new">
+									<xf:resource value="concat('runtest.htm?test=', encodeURIComponent(qt:test), '&amp;resultstring=', encodeURIComponent(qt:result-string), '&amp;environment=', encodeURIComponent(../qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file))"/>
+								</xf:load>
+							</xf:trigger>
+						</td>
+						<td style="width:100px">
+							<xf:var name="xqres" value="xqeval(../qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file, qt:test)"/>
+							<span style="color:{choose($xqres = qt:result-string, 'green', 'red')}"><xf:output value="$xqres"/></span>
+						</td>
+						<td style="width:100px"><xf:output value="qt:result-string"/></td>
 					</tr>
 				</xf:repeat>
 			</tbody>

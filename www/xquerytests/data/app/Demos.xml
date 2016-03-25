@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="us-ascii"?>
-<test-set xmlns="http://www.w3.org/2010/09/qt-fots-catalog" name="app-Demos">
-   <description>Some XQuery demonstration programs from CBCL</description>
-
-
-   <test-case name="sudoku">
-      <description> A sudoku solver </description>
-      <created by="Nick Jones" on="2008-10-30"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test><![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<test-set name="app-Demos" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Some XQuery demonstration programs from CBCL</description>
+  <test-case name="sudoku">
+    <description> A sudoku solver </description>
+    <created by="Nick Jones" on="2008-10-30"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[
         declare namespace fn = "sudoku";
         declare variable $board as xs:integer+ := 
         	( 1,0,0, 3,0,0, 6,0,0, 0,2,0, 5,0,0, 0,0,4, 0,0,9, 0,0,0, 
@@ -73,31 +72,32 @@
         			  }</tr> }</table> 
         };
         fn:drawResult(fn:solveSudoku($board))
-      ]]></test>
-      <result>
-         <assert-xml file="Demos/sudoku-result.xml"/>
-      </result>
-   </test-case>
-
-   <test-case name="currencysvg">
-      <description>Draw an SVG of currency exchange data.</description>
-      <created by="Nick Jones" on="2008-10-30"/>
-      <modified by="Michael Kay" on="2013-01-03" change="remove dependency on decimal precision (bug 20556)"/>
-      <environment>
-         <source role="." file="Demos/GBPNoon.xml">
-            <description></description>
-            <created by="Nick Jones" on="2008-10-30"/>
-         </source>
-      </environment> 
-      <dependency type="spec" value="XQ10+"/>
-      <test file="Demos/currencysvg.xq"/>
-      <result>
-         <assert-xml file="Demos/currencysvg-result.xml"/>
-      </result>   
-   </test-case>
-
-   <test-case name="itunes">
-      <description>
+      ]]>
+    </test>
+    <result-string/>
+    <result>
+      <assert-xml file="Demos/sudoku-result.xml"/>
+    </result>
+  </test-case>
+  <test-case name="currencysvg">
+    <description>Draw an SVG of currency exchange data.</description>
+    <created by="Nick Jones" on="2008-10-30"/>
+    <modified by="Michael Kay" change="remove dependency on decimal precision (bug 20556)" on="2013-01-03"/>
+    <environment>
+      <source file="Demos/GBPNoon.xml" role=".">
+        <description/>
+        <created by="Nick Jones" on="2008-10-30"/>
+      </source>
+    </environment>
+    <dependency type="spec" value="XQ10+"/>
+    <test file="Demos/currencysvg.xq"/>
+    <result-string/>
+    <result>
+      <assert-xml file="Demos/currencysvg-result.xml"/>
+    </result>
+  </test-case>
+  <test-case name="itunes">
+    <description>
       	Bind the prefix 'svg' to the SVG namespace 
         Import a schema for the iTunes Music Library 
         Validate the iTunes Music Library against the schema 
@@ -107,43 +107,44 @@
         Looks up a key returning a string element 
         Looks up a track returning the release date 
         Marks the years on the timeline </description>
-      <created by="Nick Jones" on="2008-10-30"/>
-      <modified by="Michael Kay" on="2013-01-03" change="remove dependency on decimal precision (bug 20556)"/>
-      <environment>
-         <source role="." file="Demos/iTunesMusicLibrary.xml" validation="strict">
-            <description></description>
-            <created by="Nick Jones" on="2008-10-30"/>
-         </source>
-         <schema uri="" file="Demos/iTunes.xsd">
-         	<description>A Schema for iTunesMusicLibrary.xml</description>
-         	<created by="Nick Jones" on="2008-10-30"/>
-      	</schema>
-      </environment> 
-      <dependency type="spec" value="XQ10+"/>
-      <dependency type="feature" value="schemaImport"/>
-      <test file="Demos/iTunes3.xq"/>
-      <result>
-         <assert-xml file="Demos/iTunes3-result.xml"/>
-      </result>
-   </test-case>
-
-   <test-case name="raytracer">
-      <description>Magic number identifying the file as a "plain" ppm file width and height Maximum color value : Now the pixel data. We take each pixel in the image, and recenter it, so that the : y co-ordinate ($y-recentered) ranges from -0.5 at the bottom of the image, to 0.5 : at the top of the image. : : The aspect ratio is used to "stretch" the range of x-coordinate values to stop the : image from being skewed. plot-pixel returns us the rgb values of the color of this pixel. We convert these to an integer value in the range [0, 255], and output them. </description>
-      <created by="Nick Jones" on="2008-10-30"/>
-      <environment>
-         <source role="." file="Demos/scene.xml">
-            <description></description>
-            <created by="Nick Jones" on="2008-10-30"/>
-         </source>
-      </environment>
-      <module uri="http://www.xqsharp.com/raytracer" file="Demos/raytracer.xq"/>
-      <module uri="http://www.xqsharp.com/raytracer/scene" file="Demos/scene.xq"/>
-      <module uri="http://www.xqsharp.com/raytracer/vector" file="Demos/vector.xq"/>
-      <module uri="http://www.xqsharp.com/raytracer/shapes" file="Demos/shapes.xq"/>
-      <module uri="http://www.xqsharp.com/raytracer/materials" file="Demos/materials.xq"/>
-      <module uri="http://www.xqsharp.com/raytracer/math" file="Demos/math.xq"/>
-      <dependency type="spec" value="XQ10+"/> 
-      <test><![CDATA[
+    <created by="Nick Jones" on="2008-10-30"/>
+    <modified by="Michael Kay" change="remove dependency on decimal precision (bug 20556)" on="2013-01-03"/>
+    <environment>
+      <source file="Demos/iTunesMusicLibrary.xml" role="." validation="strict">
+        <description/>
+        <created by="Nick Jones" on="2008-10-30"/>
+      </source>
+      <schema file="Demos/iTunes.xsd" uri="">
+        <description>A Schema for iTunesMusicLibrary.xml</description>
+        <created by="Nick Jones" on="2008-10-30"/>
+      </schema>
+    </environment>
+    <dependency type="spec" value="XQ10+"/>
+    <dependency type="feature" value="schemaImport"/>
+    <test file="Demos/iTunes3.xq"/>
+    <result-string/>
+    <result>
+      <assert-xml file="Demos/iTunes3-result.xml"/>
+    </result>
+  </test-case>
+  <test-case name="raytracer">
+    <description>Magic number identifying the file as a "plain" ppm file width and height Maximum color value : Now the pixel data. We take each pixel in the image, and recenter it, so that the : y co-ordinate ($y-recentered) ranges from -0.5 at the bottom of the image, to 0.5 : at the top of the image. : : The aspect ratio is used to "stretch" the range of x-coordinate values to stop the : image from being skewed. plot-pixel returns us the rgb values of the color of this pixel. We convert these to an integer value in the range [0, 255], and output them. </description>
+    <created by="Nick Jones" on="2008-10-30"/>
+    <environment>
+      <source file="Demos/scene.xml" role=".">
+        <description/>
+        <created by="Nick Jones" on="2008-10-30"/>
+      </source>
+    </environment>
+    <module file="Demos/raytracer.xq" uri="http://www.xqsharp.com/raytracer"/>
+    <module file="Demos/scene.xq" uri="http://www.xqsharp.com/raytracer/scene"/>
+    <module file="Demos/vector.xq" uri="http://www.xqsharp.com/raytracer/vector"/>
+    <module file="Demos/shapes.xq" uri="http://www.xqsharp.com/raytracer/shapes"/>
+    <module file="Demos/materials.xq" uri="http://www.xqsharp.com/raytracer/materials"/>
+    <module file="Demos/math.xq" uri="http://www.xqsharp.com/raytracer/math"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
+      <![CDATA[
         import module namespace raytracer="http://www.xqsharp.com/raytracer";
         import module namespace scene="http://www.xqsharp.com/raytracer/scene";
         declare variable $width := 64;
@@ -160,12 +161,14 @@
         		  We convert these to an integer value in the range [0, 255], and output them. :) 
         	string-join( for $channel in raytracer:plot-pixel($scene, $x-recentered, $y-recentered) 
         			     return string(floor($channel * 255)), " ") ), "&#xA;" )
-      ]]></test>
-      <result>
-         <all-of>
-           <assert>starts-with(normalize-space(string-join($result, ' ')), 'P3 64 64 255 0 0 0')</assert>
-           <assert>ends-with(normalize-space(string-join($result, ' ')), '125 119 179 125 118 178 124 118 177 124 117 176')</assert>
-         </all-of>
-      </result>
-   </test-case>
+      ]]>
+    </test>
+    <result-string/>
+    <result>
+      <all-of>
+        <assert>starts-with(normalize-space(string-join($result, ' ')), 'P3 64 64 255 0 0 0')</assert>
+        <assert>ends-with(normalize-space(string-join($result, ' ')), '125 119 179 125 118 178 124 118 177 124 117 176')</assert>
+      </all-of>
+    </result>
+  </test-case>
 </test-set>

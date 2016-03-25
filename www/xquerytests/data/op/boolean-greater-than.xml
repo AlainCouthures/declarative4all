@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<test-set xmlns="http://www.w3.org/2010/09/qt-fots-catalog" name="op-boolean-greater-than">
-   <description>Tests for the boolean-greater-than() function</description>
-   <link type="spec" document="http://www.w3.org/TR/xpath-functions-30/"
-         idref="func-boolean-greater-than"/>
-   <test-case name="op-boolean-greater-than2args-1">
-      <description>
+<test-set name="op-boolean-greater-than" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the boolean-greater-than() function</description>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-boolean-greater-than" type="spec"/>
+  <test-case name="op-boolean-greater-than2args-1">
+    <description>
 *******************************************************
 Test: op-boolean-greater-than2args-1                    
 Written By: Carmelo Montanez                            
@@ -15,14 +14,15 @@ $arg1 = xs:boolean(lower bound)
 $arg2 = xs:boolean(lower bound)                        
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:boolean("false") gt xs:boolean("false")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than2args-2">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:boolean("false") gt xs:boolean("false")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than2args-2">
+    <description>
 *******************************************************
 Test: op-boolean-greater-than2args-2                    
 Written By: Carmelo Montanez                            
@@ -33,14 +33,15 @@ $arg1 = xs:boolean(mid range)
 $arg2 = xs:boolean(lower bound)                        
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:boolean("1") gt xs:boolean("false")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than2args-3">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:boolean("1") gt xs:boolean("false")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than2args-3">
+    <description>
 *******************************************************
 Test: op-boolean-greater-than2args-3                    
 Written By: Carmelo Montanez                            
@@ -51,14 +52,15 @@ $arg1 = xs:boolean(upper bound)
 $arg2 = xs:boolean(lower bound)                        
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:boolean("0") gt xs:boolean("false")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than2args-4">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:boolean("0") gt xs:boolean("false")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than2args-4">
+    <description>
 *******************************************************
 Test: op-boolean-greater-than2args-4                    
 Written By: Carmelo Montanez                            
@@ -69,14 +71,15 @@ $arg1 = xs:boolean(lower bound)
 $arg2 = xs:boolean(mid range)                          
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:boolean("false") gt xs:boolean("1")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than2args-5">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:boolean("false") gt xs:boolean("1")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than2args-5">
+    <description>
 *******************************************************
 Test: op-boolean-greater-than2args-5                    
 Written By: Carmelo Montanez                            
@@ -87,14 +90,15 @@ $arg1 = xs:boolean(lower bound)
 $arg2 = xs:boolean(upper bound)                        
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:boolean("false") gt xs:boolean("0")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than2args-6">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:boolean("false") gt xs:boolean("0")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than2args-6">
+    <description>
 *******************************************************
 Test: op-boolean-greater-than2args-6                    
 Written By: Carmelo Montanez                            
@@ -105,14 +109,15 @@ $arg1 = xs:boolean(lower bound)
 $arg2 = xs:boolean(lower bound)                        
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:boolean("false") le xs:boolean("false")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than2args-7">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:boolean("false") le xs:boolean("false")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than2args-7">
+    <description>
 *******************************************************
 Test: op-boolean-greater-than2args-7                    
 Written By: Carmelo Montanez                            
@@ -123,14 +128,15 @@ $arg1 = xs:boolean(mid range)
 $arg2 = xs:boolean(lower bound)                        
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:boolean("1") le xs:boolean("false")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than2args-8">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:boolean("1") le xs:boolean("false")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than2args-8">
+    <description>
 *******************************************************
 Test: op-boolean-greater-than2args-8                    
 Written By: Carmelo Montanez                            
@@ -141,14 +147,15 @@ $arg1 = xs:boolean(upper bound)
 $arg2 = xs:boolean(lower bound)                        
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:boolean("0") le xs:boolean("false")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than2args-9">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:boolean("0") le xs:boolean("false")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than2args-9">
+    <description>
 *******************************************************
 Test: op-boolean-greater-than2args-9                    
 Written By: Carmelo Montanez                            
@@ -159,14 +166,15 @@ $arg1 = xs:boolean(lower bound)
 $arg2 = xs:boolean(mid range)                          
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:boolean("false") le xs:boolean("1")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than2args-10">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:boolean("false") le xs:boolean("1")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than2args-10">
+    <description>
 *******************************************************
 Test: op-boolean-greater-than2args-10                   
 Written By: Carmelo Montanez                            
@@ -177,14 +185,15 @@ $arg1 = xs:boolean(lower bound)
 $arg2 = xs:boolean(upper bound)                        
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:boolean("false") le xs:boolean("0")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-1">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:boolean("false") le xs:boolean("0")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-1">
+    <description>
 *******************************************************
 Test: op-boolean-greater-than-1                        
 Written By: Carmelo Montanez                           
@@ -194,14 +203,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Use of gt operator.                                   
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-16"/>
-      <test>fn:not(xs:boolean("true")) gt xs:boolean("true")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-2">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-16"/>
+    <test>fn:not(xs:boolean("true")) gt xs:boolean("true")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-2">
+    <description>
 *******************************************************
 Test: op-boolean-greater-than-2                        
 Written By: Carmelo Montanez                           
@@ -211,14 +221,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Use of le operator.                                   
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-16"/>
-      <test>fn:not(xs:boolean("true")) le xs:boolean("true")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-3">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-16"/>
+    <test>fn:not(xs:boolean("true")) le xs:boolean("true")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-3">
+    <description>
 *******************************************************
 Test: op-boolean-greater-than-3                        
 Written By: Carmelo Montanez                           
@@ -228,14 +239,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Use of gt operator.                                   
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-16"/>
-      <test>fn:not(xs:boolean("true")) gt xs:boolean("false")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-4">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-16"/>
+    <test>fn:not(xs:boolean("true")) gt xs:boolean("false")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-4">
+    <description>
 *******************************************************
 Test: op-boolean-greater-than-4                        
 Written By: Carmelo Montanez                           
@@ -245,14 +257,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Use of le operator.                                   
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-16"/>
-      <test>fn:not(xs:boolean("true")) le xs:boolean("false")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-5">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-16"/>
+    <test>fn:not(xs:boolean("true")) le xs:boolean("false")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-5">
+    <description>
 *******************************************************
 Test: op-boolean-greater-than-5                        
 Written By: Carmelo Montanez                           
@@ -262,14 +275,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Use of gt operator.                                   
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-16"/>
-      <test>fn:not(xs:boolean("false")) gt xs:boolean("true")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-6">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-16"/>
+    <test>fn:not(xs:boolean("false")) gt xs:boolean("true")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-6">
+    <description>
 *******************************************************
 Test: op-boolean-greater-than-6                        
 Written By: Carmelo Montanez                           
@@ -279,14 +293,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Use of le operator.                                   
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-16"/>
-      <test>fn:not(xs:boolean("false")) le xs:boolean("true")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-7">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-16"/>
+    <test>fn:not(xs:boolean("false")) le xs:boolean("true")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-7">
+    <description>
 *******************************************************
 Test: op-boolean-greater-than-7                        
 Written By: Carmelo Montanez                           
@@ -296,14 +311,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Use of gt operator.                                   
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-16"/>
-      <test>fn:not(xs:boolean("false")) gt xs:boolean("false")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-8">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-16"/>
+    <test>fn:not(xs:boolean("false")) gt xs:boolean("false")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-8">
+    <description>
 *******************************************************
 Test: op-boolean-greater-than-8                        
 Written By: Carmelo Montanez                           
@@ -313,14 +329,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Use of le operator.                                   
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-16"/>
-      <test>fn:not(xs:boolean("false")) le xs:boolean("false")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-9">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-16"/>
+    <test>fn:not(xs:boolean("false")) le xs:boolean("false")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-9">
+    <description>
 *******************************************************
 Test: op-boolean-greater-than-9                        
 Written By: Carmelo Montanez                           
@@ -330,14 +347,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Use of gt operator.                                   
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-16"/>
-      <test>(7 eq 7) gt xs:boolean("true")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-10">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-16"/>
+    <test>(7 eq 7) gt xs:boolean("true")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-10">
+    <description>
 *******************************************************
 Test: op-boolean-greater-than-10                       
 Written By: Carmelo Montanez                           
@@ -347,14 +365,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Use of le operator.                                   
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-16"/>
-      <test>(7 eq 7) le xs:boolean("true")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-11">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-16"/>
+    <test>(7 eq 7) le xs:boolean("true")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-11">
+    <description>
 *******************************************************
 Test: op-boolean-greater-than-11                       
 Written By: Carmelo Montanez                           
@@ -364,14 +383,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Use of gt operator.                                   
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-16"/>
-      <test>(7 eq 7) gt xs:boolean("false")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-12">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-16"/>
+    <test>(7 eq 7) gt xs:boolean("false")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-12">
+    <description>
 *******************************************************
 Test: op-boolean-greater-than-12                       
 Written By: Carmelo Montanez                           
@@ -381,14 +401,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Use of le operator.                                   
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-16"/>
-      <test>(7 eq 7) le xs:boolean("false")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-more-args-001">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-16"/>
+    <test>(7 eq 7) le xs:boolean("false")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-more-args-001">
+    <description>
 *******************************************************
  Test: op-boolean-greater-than-more-args-001.xq          
  Written By: Pulkita Tyagi                             
@@ -396,14 +417,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Purpose: To check if arg1: Boolean is greater than arg2:Boolean 
 *****************************************************************
 </description>
-      <created by="Pulkita Tyagi" on="2005-06-30"/>
-      <test>xs:boolean("true") gt xs:boolean("true")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-more-args-002">
-      <description>
+    <created by="Pulkita Tyagi" on="2005-06-30"/>
+    <test>xs:boolean("true") gt xs:boolean("true")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-more-args-002">
+    <description>
 *******************************************************
  Test: op-boolean-greater-than-more-args-002.xq          
  Written By: Pulkita Tyagi                             
@@ -411,14 +433,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Purpose: To check if arg1: Boolean is greater than arg2:Boolean 
 *****************************************************************
 </description>
-      <created by="Pulkita Tyagi" on="2005-06-30"/>
-      <test>xs:boolean("1") gt xs:boolean("true")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-more-args-003">
-      <description>
+    <created by="Pulkita Tyagi" on="2005-06-30"/>
+    <test>xs:boolean("1") gt xs:boolean("true")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-more-args-003">
+    <description>
 *******************************************************
  Test: op-boolean-greater-than-more-args-003.xq          
  Written By: Pulkita Tyagi                             
@@ -426,14 +449,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Purpose: To check if arg1: Boolean is greater than arg2:Boolean 
 *****************************************************************
 </description>
-      <created by="Pulkita Tyagi" on="2005-06-30"/>
-      <test>xs:boolean("0") gt xs:boolean("true")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-more-args-004">
-      <description>
+    <created by="Pulkita Tyagi" on="2005-06-30"/>
+    <test>xs:boolean("0") gt xs:boolean("true")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-more-args-004">
+    <description>
 *******************************************************
  Test: op-boolean-greater-than-more-args-004.xq          
  Written By: Pulkita Tyagi                             
@@ -441,14 +465,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Purpose: To check if arg1: Boolean is greater than arg2:Boolean 
 *****************************************************************
 </description>
-      <created by="Pulkita Tyagi" on="2005-06-30"/>
-      <test>xs:boolean("true") gt xs:boolean("1")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-more-args-005">
-      <description>
+    <created by="Pulkita Tyagi" on="2005-06-30"/>
+    <test>xs:boolean("true") gt xs:boolean("1")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-more-args-005">
+    <description>
 *******************************************************
  Test: op-boolean-greater-than-more-args-005.xq          
  Written By: Pulkita Tyagi                             
@@ -456,14 +481,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Purpose: To check if arg1: Boolean is greater than arg2:Boolean 
 *****************************************************************
 </description>
-      <created by="Pulkita Tyagi" on="2005-06-30"/>
-      <test>xs:boolean("true") gt xs:boolean("0")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-more-args-006">
-      <description>
+    <created by="Pulkita Tyagi" on="2005-06-30"/>
+    <test>xs:boolean("true") gt xs:boolean("0")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-more-args-006">
+    <description>
 *******************************************************
  Test: op-boolean-greater-than-more-args-006.xq          
  Written By: Pulkita Tyagi                             
@@ -471,14 +497,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Purpose: To check if arg1: Boolean is greater than arg2:Boolean 
 *****************************************************************
 </description>
-      <created by="Pulkita Tyagi" on="2005-06-30"/>
-      <test>xs:boolean("true") gt xs:boolean("false")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-more-args-007">
-      <description>
+    <created by="Pulkita Tyagi" on="2005-06-30"/>
+    <test>xs:boolean("true") gt xs:boolean("false")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-more-args-007">
+    <description>
 *******************************************************
  Test: op-boolean-greater-than-more-args-007.xq          
  Written By: Pulkita Tyagi                             
@@ -486,14 +513,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Purpose: To check if arg1: Boolean is greater than arg2:Boolean 
 *****************************************************************
 </description>
-      <created by="Pulkita Tyagi" on="2005-06-30"/>
-      <test>xs:boolean("false") gt xs:boolean("true")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-more-args-008">
-      <description>
+    <created by="Pulkita Tyagi" on="2005-06-30"/>
+    <test>xs:boolean("false") gt xs:boolean("true")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-more-args-008">
+    <description>
 *******************************************************
  Test: op-boolean-greater-than-more-args-008.xq          
  Written By: Pulkita Tyagi                             
@@ -501,14 +529,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Purpose: To check if arg1: Boolean is less or equal to arg2:Boolean 
 *********************************************************************
 </description>
-      <created by="Pulkita Tyagi" on="2005-06-30"/>
-      <test>xs:boolean("true") le xs:boolean("true")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-more-args-009">
-      <description>
+    <created by="Pulkita Tyagi" on="2005-06-30"/>
+    <test>xs:boolean("true") le xs:boolean("true")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-more-args-009">
+    <description>
 *******************************************************
  Test: op-boolean-greater-than-more-args-009.xq          
  Written By: Pulkita Tyagi                             
@@ -516,14 +545,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Purpose: To check if arg1: Boolean is less or equal to arg2:Boolean 
 *********************************************************************
 </description>
-      <created by="Pulkita Tyagi" on="2005-06-30"/>
-      <test>xs:boolean("1") le xs:boolean("true")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-more-args-010">
-      <description>
+    <created by="Pulkita Tyagi" on="2005-06-30"/>
+    <test>xs:boolean("1") le xs:boolean("true")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-more-args-010">
+    <description>
 *******************************************************
  Test: op-boolean-greater-than-more-args-010.xq          
  Written By: Pulkita Tyagi                             
@@ -531,14 +561,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Purpose: To check if arg1: Boolean is less or equal to arg2:Boolean 
 *********************************************************************
 </description>
-      <created by="Pulkita Tyagi" on="2005-06-30"/>
-      <test>xs:boolean("0") le xs:boolean("true")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-more-args-011">
-      <description>
+    <created by="Pulkita Tyagi" on="2005-06-30"/>
+    <test>xs:boolean("0") le xs:boolean("true")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-more-args-011">
+    <description>
 *******************************************************
  Test: op-boolean-greater-than-more-args-011.xq          
  Written By: Pulkita Tyagi                             
@@ -546,14 +577,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Purpose: To check if arg1: Boolean is less or equal to arg2:Boolean 
 *********************************************************************
 </description>
-      <created by="Pulkita Tyagi" on="2005-06-30"/>
-      <test>xs:boolean("true") le xs:boolean("1")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-more-args-012">
-      <description>
+    <created by="Pulkita Tyagi" on="2005-06-30"/>
+    <test>xs:boolean("true") le xs:boolean("1")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-more-args-012">
+    <description>
 *******************************************************
  Test: op-boolean-greater-than-more-args-012.xq          
  Written By: Pulkita Tyagi                             
@@ -561,14 +593,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Purpose: To check if arg1: Boolean is less or equal to arg2:Boolean 
 *********************************************************************
 </description>
-      <created by="Pulkita Tyagi" on="2005-06-30"/>
-      <test>xs:boolean("true") le xs:boolean("0")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-more-args-013">
-      <description>
+    <created by="Pulkita Tyagi" on="2005-06-30"/>
+    <test>xs:boolean("true") le xs:boolean("0")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-more-args-013">
+    <description>
 *******************************************************
  Test: op-boolean-greater-than-more-args-013.xq          
  Written By: Pulkita Tyagi                             
@@ -576,14 +609,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Purpose: To check if arg1: Boolean is less or equal to arg2:Boolean 
 *********************************************************************
 </description>
-      <created by="Pulkita Tyagi" on="2005-06-30"/>
-      <test>xs:boolean("true") le xs:boolean("false")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-boolean-greater-than-more-args-014">
-      <description>
+    <created by="Pulkita Tyagi" on="2005-06-30"/>
+    <test>xs:boolean("true") le xs:boolean("false")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-boolean-greater-than-more-args-014">
+    <description>
 *******************************************************
  Test: op-boolean-greater-than-more-args-014.xq          
  Written By: Pulkita Tyagi                             
@@ -591,14 +625,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Purpose: To check if arg1: Boolean is less or equal to arg2:Boolean 
 *********************************************************************
 </description>
-      <created by="Pulkita Tyagi" on="2005-06-30"/>
-      <test>xs:boolean("false") le xs:boolean("true")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="K-BooleanGT-1">
-      <description>
+    <created by="Pulkita Tyagi" on="2005-06-30"/>
+    <test>xs:boolean("false") le xs:boolean("true")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-BooleanGT-1">
+    <description>
 *******************************************************
  Test: K-BooleanGT-1                                   
  Written by: Frans Englich                             
@@ -606,14 +641,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Purpose: Compare two xs:boolean values.               
 *******************************************************
 </description>
-      <created by="Frans Englich" on="2007-11-26+01:00"/>
-      <test>true() gt false()</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="K-BooleanGT-2">
-      <description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>true() gt false()</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-BooleanGT-2">
+    <description>
 *******************************************************
  Test: K-BooleanGT-2                                   
  Written by: Frans Englich                             
@@ -621,14 +657,15 @@ Purpose: Evaluates The "boolean-greater-than" function
  Purpose: Compare two xs:boolean values.               
 *******************************************************
 </description>
-      <created by="Frans Englich" on="2007-11-26+01:00"/>
-      <test>true() ge false()</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="K-BooleanGT-3">
-      <description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>true() ge false()</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-BooleanGT-3">
+    <description>
 *******************************************************
  Test: K-BooleanGT-3                                   
  Written by: Frans Englich                             
@@ -636,123 +673,130 @@ Purpose: Evaluates The "boolean-greater-than" function
  Purpose: Compare two xs:boolean values.               
 *******************************************************
 </description>
-      <created by="Frans Englich" on="2007-11-26+01:00"/>
-      <test>true() ge true()</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-
-
-   <test-case name="cbcl-boolean-greater-than-001">
-      <description></description>
-      <created by="Tim Mills" on="2008-05-14"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>true() ge true()</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-boolean-greater-than-001">
+    <description/>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
       declare function local:is-even($arg as xs:integer) as xs:boolean { (($arg mod 2) eq 0) }; 
       not(local:is-even(15) ge local:is-even(17))</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="cbcl-boolean-greater-than-002">
-      <description></description>
-      <created by="Tim Mills" on="2008-05-14"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-boolean-greater-than-002">
+    <description/>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
       declare function local:is-even($arg as xs:integer) as xs:boolean { (($arg mod 2) eq 0) }; 
       fn:true() ge local:is-even(17)</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="cbcl-boolean-greater-than-003">
-      <description></description>
-      <created by="Tim Mills" on="2008-05-14"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-boolean-greater-than-003">
+    <description/>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
       declare function local:is-even($arg as xs:integer) as xs:boolean { (($arg mod 2) eq 0) }; 
       fn:false() ge local:is-even(17)</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="cbcl-boolean-greater-than-004">
-      <description></description>
-      <created by="Tim Mills" on="2008-05-14"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-boolean-greater-than-004">
+    <description/>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
       declare function local:is-even($arg as xs:integer) as xs:boolean { (($arg mod 2) eq 0) }; 
       not(local:is-even(15) gt local:is-even(17))</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="cbcl-boolean-greater-than-005">
-      <description></description>
-      <created by="Tim Mills" on="2008-05-14"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-boolean-greater-than-005">
+    <description/>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
       declare function local:is-even($arg as xs:integer) as xs:boolean { (($arg mod 2) eq 0) }; 
       fn:true() gt local:is-even(17)</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="cbcl-boolean-greater-than-006">
-      <description></description>
-      <created by="Tim Mills" on="2008-05-14"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-boolean-greater-than-006">
+    <description/>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
       declare function local:is-even($arg as xs:integer) as xs:boolean { (($arg mod 2) eq 0) }; 
       fn:false() gt local:is-even(17)</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="cbcl-boolean-greater-than-007">
-      <description></description>
-      <created by="Tim Mills" on="2008-05-14"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-boolean-greater-than-007">
+    <description/>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
       declare function local:is-even($arg as xs:integer) as xs:boolean { (($arg mod 2) eq 0) }; 
       local:is-even(17) ge fn:true()</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="cbcl-boolean-greater-than-008">
-      <description></description>
-      <created by="Tim Mills" on="2008-05-14"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-boolean-greater-than-008">
+    <description/>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
       declare function local:is-even($arg as xs:integer) as xs:boolean { (($arg mod 2) eq 0) }; 
       local:is-even(17) ge fn:false()</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="cbcl-boolean-greater-than-009">
-      <description></description>
-      <created by="Tim Mills" on="2008-05-14"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>declare function local:is-even($arg as xs:integer) as xs:boolean { (($arg mod 2) eq 0) }; 
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-boolean-greater-than-009">
+    <description/>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:is-even($arg as xs:integer) as xs:boolean { (($arg mod 2) eq 0) }; 
       local:is-even(17) gt fn:true()</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="cbcl-boolean-greater-than-010">
-      <description></description>
-      <created by="Tim Mills" on="2008-05-14"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-boolean-greater-than-010">
+    <description/>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
       declare function local:is-even($arg as xs:integer) as xs:boolean { (($arg mod 2) eq 0) }; 
       local:is-even(17) gt fn:false()</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
 </test-set>
-   

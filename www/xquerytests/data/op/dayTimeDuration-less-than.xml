@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<test-set xmlns="http://www.w3.org/2010/09/qt-fots-catalog"
-          name="op-dayTimeDuration-less-than">
-   <description>Tests for the dayTimeDuration-less-than() function</description>
-   <link type="spec" document="http://www.w3.org/TR/xpath-functions-30/"
-         idref="func-dayTimeDuration-less-than"/>
-   <test-case name="op-dayTimeDuration-less-than2args-1">
-      <description>
+<test-set name="op-dayTimeDuration-less-than" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the dayTimeDuration-less-than() function</description>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-dayTimeDuration-less-than" type="spec"/>
+  <test-case name="op-dayTimeDuration-less-than2args-1">
+    <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than2args-1               
 Written By: Carmelo Montanez                            
@@ -16,14 +14,15 @@ $arg1 = xs:dayTimeDuration(lower bound)
 $arg2 = xs:dayTimeDuration(lower bound)               
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:dayTimeDuration("P0DT0H0M0S") lt xs:dayTimeDuration("P0DT0H0M0S")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-dayTimeDuration-less-than2args-2">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration("P0DT0H0M0S") lt xs:dayTimeDuration("P0DT0H0M0S")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-less-than2args-2">
+    <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than2args-2               
 Written By: Carmelo Montanez                            
@@ -34,14 +33,15 @@ $arg1 = xs:dayTimeDuration(mid range)
 $arg2 = xs:dayTimeDuration(lower bound)               
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:dayTimeDuration("P15DT11H59M59S") lt xs:dayTimeDuration("P0DT0H0M0S")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-dayTimeDuration-less-than2args-3">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration("P15DT11H59M59S") lt xs:dayTimeDuration("P0DT0H0M0S")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-less-than2args-3">
+    <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than2args-3               
 Written By: Carmelo Montanez                            
@@ -52,14 +52,15 @@ $arg1 = xs:dayTimeDuration(upper bound)
 $arg2 = xs:dayTimeDuration(lower bound)               
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:dayTimeDuration("P31DT23H59M59S") lt xs:dayTimeDuration("P0DT0H0M0S")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-dayTimeDuration-less-than2args-4">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration("P31DT23H59M59S") lt xs:dayTimeDuration("P0DT0H0M0S")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-less-than2args-4">
+    <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than2args-4               
 Written By: Carmelo Montanez                            
@@ -70,14 +71,15 @@ $arg1 = xs:dayTimeDuration(lower bound)
 $arg2 = xs:dayTimeDuration(mid range)                 
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:dayTimeDuration("P0DT0H0M0S") lt xs:dayTimeDuration("P15DT11H59M59S")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-dayTimeDuration-less-than2args-5">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration("P0DT0H0M0S") lt xs:dayTimeDuration("P15DT11H59M59S")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-less-than2args-5">
+    <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than2args-5               
 Written By: Carmelo Montanez                            
@@ -88,14 +90,15 @@ $arg1 = xs:dayTimeDuration(lower bound)
 $arg2 = xs:dayTimeDuration(upper bound)               
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:dayTimeDuration("P0DT0H0M0S") lt xs:dayTimeDuration("P31DT23H59M59S")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-dayTimeDuration-less-than2args-6">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration("P0DT0H0M0S") lt xs:dayTimeDuration("P31DT23H59M59S")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-less-than2args-6">
+    <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than2args-6               
 Written By: Carmelo Montanez                            
@@ -106,14 +109,15 @@ $arg1 = xs:dayTimeDuration(lower bound)
 $arg2 = xs:dayTimeDuration(lower bound)               
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:dayTimeDuration("P0DT0H0M0S") ge xs:dayTimeDuration("P0DT0H0M0S")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-dayTimeDuration-less-than2args-7">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration("P0DT0H0M0S") ge xs:dayTimeDuration("P0DT0H0M0S")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-less-than2args-7">
+    <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than2args-7               
 Written By: Carmelo Montanez                            
@@ -124,14 +128,15 @@ $arg1 = xs:dayTimeDuration(mid range)
 $arg2 = xs:dayTimeDuration(lower bound)               
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:dayTimeDuration("P15DT11H59M59S") ge xs:dayTimeDuration("P0DT0H0M0S")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-dayTimeDuration-less-than2args-8">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration("P15DT11H59M59S") ge xs:dayTimeDuration("P0DT0H0M0S")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-less-than2args-8">
+    <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than2args-8               
 Written By: Carmelo Montanez                            
@@ -142,14 +147,15 @@ $arg1 = xs:dayTimeDuration(upper bound)
 $arg2 = xs:dayTimeDuration(lower bound)               
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:dayTimeDuration("P31DT23H59M59S") ge xs:dayTimeDuration("P0DT0H0M0S")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-dayTimeDuration-less-than2args-9">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration("P31DT23H59M59S") ge xs:dayTimeDuration("P0DT0H0M0S")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-less-than2args-9">
+    <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than2args-9               
 Written By: Carmelo Montanez                            
@@ -160,14 +166,15 @@ $arg1 = xs:dayTimeDuration(lower bound)
 $arg2 = xs:dayTimeDuration(mid range)                 
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:dayTimeDuration("P0DT0H0M0S") ge xs:dayTimeDuration("P15DT11H59M59S")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-dayTimeDuration-less-than2args-10">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration("P0DT0H0M0S") ge xs:dayTimeDuration("P15DT11H59M59S")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-less-than2args-10">
+    <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than2args-10              
 Written By: Carmelo Montanez                            
@@ -178,14 +185,15 @@ $arg1 = xs:dayTimeDuration(lower bound)
 $arg2 = xs:dayTimeDuration(upper bound)               
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:dayTimeDuration("P0DT0H0M0S") ge xs:dayTimeDuration("P31DT23H59M59S")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-dayTimeDuration-less-than-3">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:dayTimeDuration("P0DT0H0M0S") ge xs:dayTimeDuration("P31DT23H59M59S")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-less-than-3">
+    <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-3                   
 Written By: Carmelo Montanez                           
@@ -194,14 +202,15 @@ Purpose: Evaluates The "dayTimeDuration-less-than" function that
 return true and used together with fn:not (lt operator)
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-15"/>
-      <test>fn:not((xs:dayTimeDuration("P13DT12H") lt xs:dayTimeDuration("P14DT11H")))</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-dayTimeDuration-less-than-4">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-15"/>
+    <test>fn:not((xs:dayTimeDuration("P13DT12H") lt xs:dayTimeDuration("P14DT11H")))</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-less-than-4">
+    <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-4                   
 Written By: Carmelo Montanez                           
@@ -210,14 +219,15 @@ Purpose: Evaluates The "dayTimeDuration-less-than" function that
 return true and used together with fn:not (le operator)
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-15"/>
-      <test>fn:not(xs:dayTimeDuration("P10DT110H") le xs:dayTimeDuration("P10DT11H"))</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-dayTimeDuration-less-than-5">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-15"/>
+    <test>fn:not(xs:dayTimeDuration("P10DT110H") le xs:dayTimeDuration("P10DT11H"))</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-less-than-5">
+    <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-5                   
 Written By: Carmelo Montanez                           
@@ -226,14 +236,15 @@ Purpose: Evaluates The "dayTimeDuration-less-than" function that
 return false and used together with fn:not (lt operator)
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-15"/>
-      <test>fn:not(xs:dayTimeDuration("P10DT10H") lt xs:dayTimeDuration("P9DT09H"))</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-dayTimeDuration-less-than-6">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-15"/>
+    <test>fn:not(xs:dayTimeDuration("P10DT10H") lt xs:dayTimeDuration("P9DT09H"))</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-less-than-6">
+    <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-6                   
 Written By: Carmelo Montanez                           
@@ -242,14 +253,15 @@ Purpose: Evaluates The "dayTimeDuration-less-than" function that
 return false and used together with fn:not(le operator)
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-15"/>
-      <test>fn:not(xs:dayTimeDuration("P10DT09H") le xs:dayTimeDuration("P09DT09H"))</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-dayTimeDuration-less-than-7">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-15"/>
+    <test>fn:not(xs:dayTimeDuration("P10DT09H") le xs:dayTimeDuration("P09DT09H"))</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-less-than-7">
+    <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-7                   
 Written By: Carmelo Montanez                           
@@ -258,14 +270,15 @@ Purpose: Evaluates The "dayTimeDuration-less-than" function used
 together with "and" expression (lt operator).          
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-15"/>
-      <test>(xs:dayTimeDuration("P10DT09H") lt xs:dayTimeDuration("P09DT10H")) and (xs:dayTimeDuration("P10DT01H") lt xs:dayTimeDuration("P08DT06H"))</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-dayTimeDuration-less-than-8">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-15"/>
+    <test>(xs:dayTimeDuration("P10DT09H") lt xs:dayTimeDuration("P09DT10H")) and (xs:dayTimeDuration("P10DT01H") lt xs:dayTimeDuration("P08DT06H"))</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-less-than-8">
+    <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-8                   
 Written By: Carmelo Montanez                           
@@ -274,14 +287,15 @@ Purpose: Evaluates The "dayTimeDuration-less-than" function used
 together with "and" expression (le operator).          
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-15"/>
-      <test>(xs:dayTimeDuration("P10DT09H") le xs:dayTimeDuration("P10DT01H")) and (xs:dayTimeDuration("P02DT04H") le xs:dayTimeDuration("P09DT07H"))</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-dayTimeDuration-less-than-9">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-15"/>
+    <test>(xs:dayTimeDuration("P10DT09H") le xs:dayTimeDuration("P10DT01H")) and (xs:dayTimeDuration("P02DT04H") le xs:dayTimeDuration("P09DT07H"))</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-less-than-9">
+    <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-9                   
 Written By: Carmelo Montanez                           
@@ -290,14 +304,15 @@ Purpose: Evaluates The "dayTimeDuration-less-than" function used
 together with "or" expression (lt operator).           
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-15"/>
-      <test>(xs:dayTimeDuration("P10DT08H") lt xs:dayTimeDuration("P10DT07H")) or (xs:dayTimeDuration("P10DT09H") lt xs:dayTimeDuration("P10DT09H"))</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-dayTimeDuration-less-than-10">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-15"/>
+    <test>(xs:dayTimeDuration("P10DT08H") lt xs:dayTimeDuration("P10DT07H")) or (xs:dayTimeDuration("P10DT09H") lt xs:dayTimeDuration("P10DT09H"))</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-less-than-10">
+    <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-10                  
 Written By: Carmelo Montanez                           
@@ -306,14 +321,15 @@ Purpose: Evaluates The "dayTimeDuration-less-than" function used
 together with "or" expression (le operator).           
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-15"/>
-      <test>(xs:dayTimeDuration("P10DT01H") le xs:dayTimeDuration("P09DT06H")) or (xs:dayTimeDuration("P15DT01H") le xs:dayTimeDuration("P02DT04H"))</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-dayTimeDuration-less-than-11">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-15"/>
+    <test>(xs:dayTimeDuration("P10DT01H") le xs:dayTimeDuration("P09DT06H")) or (xs:dayTimeDuration("P15DT01H") le xs:dayTimeDuration("P02DT04H"))</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-less-than-11">
+    <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-11                  
 Written By: Carmelo Montanez                           
@@ -322,14 +338,15 @@ Purpose: Evaluates The "dayTimeDuration-less-than" function used
 together with "fn:true"/or expression (lt operator).   
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-15"/>
-      <test>(xs:dayTimeDuration("P10DT02H") lt xs:dayTimeDuration("P01DT10H")) or (fn:true())</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-dayTimeDuration-less-than-12">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-15"/>
+    <test>(xs:dayTimeDuration("P10DT02H") lt xs:dayTimeDuration("P01DT10H")) or (fn:true())</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-less-than-12">
+    <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-12                  
 Written By: Carmelo Montanez                           
@@ -338,14 +355,15 @@ Purpose: Evaluates The "dayTimeDuration-less-than" function used
 together with "fn:true"/or expression (le operator).   
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-15"/>
-      <test>(xs:dayTimeDuration("P10DT01H") le xs:dayTimeDuration("P09DT05H")) or (fn:true())</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-dayTimeDuration-less-than-13">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-15"/>
+    <test>(xs:dayTimeDuration("P10DT01H") le xs:dayTimeDuration("P09DT05H")) or (fn:true())</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-less-than-13">
+    <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-13                  
 Written By: Carmelo Montanez                           
@@ -354,14 +372,15 @@ Purpose: Evaluates The "dayTimeDuration-less-than" function used
 together with "fn:false"/or expression (lt operator).  
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-15"/>
-      <test>(xs:dayTimeDuration("P30DT10H") lt xs:dayTimeDuration("P01DT02H")) or (fn:false())</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-dayTimeDuration-less-than-14">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-15"/>
+    <test>(xs:dayTimeDuration("P30DT10H") lt xs:dayTimeDuration("P01DT02H")) or (fn:false())</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-dayTimeDuration-less-than-14">
+    <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-14                  
 Written By: Carmelo Montanez                           
@@ -370,14 +389,15 @@ Purpose: Evaluates The "dayTimeDuration-less-than" function used
 together with "fn:false"/or expression (le operator).  
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-15"/>
-      <test>(xs:dayTimeDuration("P10DT05H") le xs:dayTimeDuration("P20DT10H")) or (fn:false())</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="K-DayTimeDurationLT-1">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-15"/>
+    <test>(xs:dayTimeDuration("P10DT05H") le xs:dayTimeDuration("P20DT10H")) or (fn:false())</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DayTimeDurationLT-1">
+    <description>
 *******************************************************
  Test: K-DayTimeDurationLT-1                           
  Written by: Frans Englich                             
@@ -385,14 +405,15 @@ together with "fn:false"/or expression (le operator).
  Purpose: Simple test of 'lt' for xs:dayTimeDuration.  
 *******************************************************
 </description>
-      <created by="Frans Englich" on="2007-11-26+01:00"/>
-      <test>xs:dayTimeDuration("P3DT08H34M12.142S") lt xs:dayTimeDuration("P3DT08H34M12.143S")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="K-DayTimeDurationLT-2">
-      <description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dayTimeDuration("P3DT08H34M12.142S") lt xs:dayTimeDuration("P3DT08H34M12.143S")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DayTimeDurationLT-2">
+    <description>
 *******************************************************
  Test: K-DayTimeDurationLT-2                           
  Written by: Frans Englich                             
@@ -400,14 +421,15 @@ together with "fn:false"/or expression (le operator).
  Purpose: Simple test of 'lt' for xs:dayTimeDuration, evaluating to false. 
 *******************************************************
 </description>
-      <created by="Frans Englich" on="2007-11-26+01:00"/>
-      <test>not(xs:dayTimeDuration("P3DT08H34M12.143S") lt xs:dayTimeDuration("P3DT08H34M12.143S"))</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="K-DayTimeDurationLT-3">
-      <description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>not(xs:dayTimeDuration("P3DT08H34M12.143S") lt xs:dayTimeDuration("P3DT08H34M12.143S"))</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DayTimeDurationLT-3">
+    <description>
 *******************************************************
  Test: K-DayTimeDurationLT-3                           
  Written by: Frans Englich                             
@@ -415,14 +437,15 @@ together with "fn:false"/or expression (le operator).
  Purpose: Simple test of 'lt' for xs:dayTimeDuration, evaluating to false. 
 *******************************************************
 </description>
-      <created by="Frans Englich" on="2007-11-26+01:00"/>
-      <test>not(xs:dayTimeDuration("P3DT08H34M12.144S") lt xs:dayTimeDuration("P3DT08H34M12.143S"))</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="K-DayTimeDurationLT-4">
-      <description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>not(xs:dayTimeDuration("P3DT08H34M12.144S") lt xs:dayTimeDuration("P3DT08H34M12.143S"))</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DayTimeDurationLT-4">
+    <description>
 *******************************************************
  Test: K-DayTimeDurationLT-4                           
  Written by: Frans Englich                             
@@ -430,14 +453,15 @@ together with "fn:false"/or expression (le operator).
  Purpose: Simple test of 'le' for xs:dayTimeDuration.  
 *******************************************************
 </description>
-      <created by="Frans Englich" on="2007-11-26+01:00"/>
-      <test>xs:dayTimeDuration("P3DT08H34M12.143S") le xs:dayTimeDuration("P3DT08H34M12.143S")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="K-DayTimeDurationLT-5">
-      <description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dayTimeDuration("P3DT08H34M12.143S") le xs:dayTimeDuration("P3DT08H34M12.143S")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DayTimeDurationLT-5">
+    <description>
 *******************************************************
  Test: K-DayTimeDurationLT-5                           
  Written by: Frans Englich                             
@@ -445,14 +469,15 @@ together with "fn:false"/or expression (le operator).
  Purpose: Simple test of 'le' for xs:dayTimeDuration.  
 *******************************************************
 </description>
-      <created by="Frans Englich" on="2007-11-26+01:00"/>
-      <test>xs:dayTimeDuration("P3DT08H34M12.143S") le xs:dayTimeDuration("P3DT08H34M12.143S")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="K-DayTimeDurationLT-6">
-      <description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:dayTimeDuration("P3DT08H34M12.143S") le xs:dayTimeDuration("P3DT08H34M12.143S")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-DayTimeDurationLT-6">
+    <description>
 *******************************************************
  Test: K-DayTimeDurationLT-6                           
  Written by: Frans Englich                             
@@ -460,226 +485,215 @@ together with "fn:false"/or expression (le operator).
  Purpose: Simple test of 'le' for xs:dayTimeDuration, evaluating to false. 
 *******************************************************
 </description>
-      <created by="Frans Englich" on="2007-11-26+01:00"/>
-      <test>not(xs:dayTimeDuration("P3DT08H34M12.143S") le xs:dayTimeDuration("P3DT08H34M12.142S"))</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   
-   
-   <test-case name="cbcl-dayTimeDuration-less-than-001">
-      <description> test comparison of dayTimeDurations </description>
-      <created by="Tim Mills" on="2008-05-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      
-      <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat('P', $days, 'DT', $hours, 'H')) }; not(local:dayTimeDuration(1, 1) lt xs:dayTimeDuration("P0D"))</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   
-
-   <test-case name="cbcl-dayTimeDuration-less-than-002">
-      <description> test comparison of dayTimeDurations </description>
-      <created by="Tim Mills" on="2008-05-16"/>
-      <dependency type="spec" value="XQ10+"/>
-      
-      <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat('P', $days, 'DT', $hours, 'H')) }; not(local:dayTimeDuration(1, 1) le xs:dayTimeDuration("P0D"))</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   
-
-   <test-case name="cbcl-dayTimeDuration-less-than-003">
-      <description> test comparison of xs:dayTimeDuration </description>
-      <created by="Tim Mills" on="2008-05-21"/>
-      <dependency type="spec" value="XQ10+"/>
-      
-      <test>declare function local:dayTimeDuration($dayTimeDuration as xs:dayTimeDuration, $null as xs:boolean) { if ($null) then () else $dayTimeDuration }; exists(local:dayTimeDuration(xs:dayTimeDuration("P0D"), fn:true()) lt xs:dayTimeDuration("P0D"))</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   
-
-   <test-case name="cbcl-dayTimeDuration-less-than-004">
-      <description> test comparison of xs:dayTimeDuration </description>
-      <created by="Tim Mills" on="2008-05-21"/>
-      <dependency type="spec" value="XQ10+"/>
-      
-      <test>declare function local:dayTimeDuration($dayTimeDuration as xs:dayTimeDuration, $null as xs:boolean) { if ($null) then () else $dayTimeDuration }; local:dayTimeDuration(xs:dayTimeDuration("P0D"), fn:false()) lt xs:dayTimeDuration("P0D")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   
-
-   <test-case name="cbcl-dayTimeDuration-less-than-005">
-      <description> test comparison of xs:dayTimeDuration </description>
-      <created by="Tim Mills" on="2008-05-21"/>
-      <dependency type="spec" value="XQ10+"/>
-      
-      <test>declare function local:dayTimeDuration($dayTimeDuration as xs:dayTimeDuration, $null as xs:boolean) { if ($null) then () else $dayTimeDuration }; exists(local:dayTimeDuration(xs:dayTimeDuration("P0D"), fn:true()) le xs:dayTimeDuration("P0D"))</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   
-
-   <test-case name="cbcl-dayTimeDuration-less-than-006">
-      <description> test comparison of xs:dayTimeDuration </description>
-      <created by="Tim Mills" on="2008-05-21"/>
-      <dependency type="spec" value="XQ10+"/>
-      
-      <test>declare function local:dayTimeDuration($dayTimeDuration as xs:dayTimeDuration, $null as xs:boolean) { if ($null) then () else $dayTimeDuration }; local:dayTimeDuration(xs:dayTimeDuration("P0D"), fn:false()) le xs:dayTimeDuration("P0D")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   
-   <test-case name="cbcl-value-less-equal-001">
-      <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
-      <created by="Oliver Hallam" on="2010-02-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>not(xs:dayTimeDuration("P3DT08H34M12.143S") le xs:dayTimeDuration("P3DT08H34M12.142S"))</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dayTimeDuration-less-than-001">
+    <description> test comparison of dayTimeDurations </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat('P', $days, 'DT', $hours, 'H')) }; not(local:dayTimeDuration(1, 1) lt xs:dayTimeDuration("P0D"))</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dayTimeDuration-less-than-002">
+    <description> test comparison of dayTimeDurations </description>
+    <created by="Tim Mills" on="2008-05-16"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat('P', $days, 'DT', $hours, 'H')) }; not(local:dayTimeDuration(1, 1) le xs:dayTimeDuration("P0D"))</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dayTimeDuration-less-than-003">
+    <description> test comparison of xs:dayTimeDuration </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:dayTimeDuration($dayTimeDuration as xs:dayTimeDuration, $null as xs:boolean) { if ($null) then () else $dayTimeDuration }; exists(local:dayTimeDuration(xs:dayTimeDuration("P0D"), fn:true()) lt xs:dayTimeDuration("P0D"))</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dayTimeDuration-less-than-004">
+    <description> test comparison of xs:dayTimeDuration </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:dayTimeDuration($dayTimeDuration as xs:dayTimeDuration, $null as xs:boolean) { if ($null) then () else $dayTimeDuration }; local:dayTimeDuration(xs:dayTimeDuration("P0D"), fn:false()) lt xs:dayTimeDuration("P0D")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dayTimeDuration-less-than-005">
+    <description> test comparison of xs:dayTimeDuration </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:dayTimeDuration($dayTimeDuration as xs:dayTimeDuration, $null as xs:boolean) { if ($null) then () else $dayTimeDuration }; exists(local:dayTimeDuration(xs:dayTimeDuration("P0D"), fn:true()) le xs:dayTimeDuration("P0D"))</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-dayTimeDuration-less-than-006">
+    <description> test comparison of xs:dayTimeDuration </description>
+    <created by="Tim Mills" on="2008-05-21"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>declare function local:dayTimeDuration($dayTimeDuration as xs:dayTimeDuration, $null as xs:boolean) { if ($null) then () else $dayTimeDuration }; local:dayTimeDuration(xs:dayTimeDuration("P0D"), fn:false()) le xs:dayTimeDuration("P0D")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-value-less-equal-001">
+    <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
+    <created by="Oliver Hallam" on="2010-02-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") };
         local:f(false()) le xs:yearMonthDuration("P1Y")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-
-   <test-case name="cbcl-value-less-equal-002">
-      <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
-      <created by="Oliver Hallam" on="2010-02-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-value-less-equal-002">
+    <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
+    <created by="Oliver Hallam" on="2010-02-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") };
         local:f(true()) le xs:yearMonthDuration("P1Y")</test>
-      <result>
-         <error code="XPTY0004"/>
-      </result>
-   </test-case>
-
-   <test-case name="cbcl-value-less-equal-003">
-      <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
-      <created by="Oliver Hallam" on="2010-02-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-value-less-equal-003">
+    <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
+    <created by="Oliver Hallam" on="2010-02-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:dayTimeDuration("PT1H") };
         local:f(false()) le xs:dayTimeDuration("P1D")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-
-   <test-case name="cbcl-value-less-equal-004">
-      <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
-      <created by="Oliver Hallam" on="2010-02-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-value-less-equal-004">
+    <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
+    <created by="Oliver Hallam" on="2010-02-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:dayTimeDuration("PT1H") };
         local:f(true()) le xs:dayTimeDuration("P1D")</test>
-      <result>
-         <error code="XPTY0004"/>
-      </result>
-   </test-case>
-
-   <test-case name="cbcl-value-less-equal-005">
-      <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
-      <created by="Oliver Hallam" on="2010-02-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-value-less-equal-005">
+    <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
+    <created by="Oliver Hallam" on="2010-02-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") };
         xs:yearMonthDuration("P1Y") le local:f(false())</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-
-   <test-case name="cbcl-value-less-equal-006">
-      <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
-      <created by="Oliver Hallam" on="2010-02-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-value-less-equal-006">
+    <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
+    <created by="Oliver Hallam" on="2010-02-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") };
         xs:yearMonthDuration("P1Y") le local:f(true())</test>
-      <result>
-         <error code="XPTY0004"/>
-      </result>
-   </test-case>
-
-   <test-case name="cbcl-value-less-equal-007">
-      <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
-      <created by="Oliver Hallam" on="2010-02-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-value-less-equal-007">
+    <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
+    <created by="Oliver Hallam" on="2010-02-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:dayTimeDuration("PT1H") };
         xs:dayTimeDuration("P1D") le local:f(false())</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-
-   <test-case name="cbcl-value-less-equal-008">
-      <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
-      <created by="Oliver Hallam" on="2010-02-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-value-less-equal-008">
+    <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
+    <created by="Oliver Hallam" on="2010-02-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:dayTimeDuration("PT1H") };
         xs:dayTimeDuration("P1D") le local:f(true())</test>
-      <result>
-         <error code="XPTY0004"/>
-      </result>
-   </test-case>
-
-   <test-case name="cbcl-value-less-equal-009">
-      <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
-      <created by="Oliver Hallam" on="2010-02-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-value-less-equal-009">
+    <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
+    <created by="Oliver Hallam" on="2010-02-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") };
         local:f(false()) le local:f(false())</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-
-   <test-case name="cbcl-value-less-equal-010">
-      <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
-      <created by="Oliver Hallam" on="2010-02-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-value-less-equal-010">
+    <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
+    <created by="Oliver Hallam" on="2010-02-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") };
         local:f(true()) le local:f(false())</test>
-      <result>
-         <error code="XPTY0004"/>
-      </result>
-   </test-case>
-
-   <test-case name="cbcl-value-less-equal-011">
-      <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
-      <created by="Oliver Hallam" on="2010-02-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-value-less-equal-011">
+    <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
+    <created by="Oliver Hallam" on="2010-02-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:dayTimeDuration("PT1H") };
         local:f(false()) le local:f(false())</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-
-   <test-case name="cbcl-value-less-equal-012">
-      <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
-      <created by="Oliver Hallam" on="2010-02-26"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-value-less-equal-012">
+    <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
+    <created by="Oliver Hallam" on="2010-02-26"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:dayTimeDuration("PT1H") };
         local:f(false()) le local:f(true())</test>
-      <result>
-         <error code="XPTY0004"/>
-      </result>
-   </test-case>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result>
+      <error code="XPTY0004"/>
+    </result>
+  </test-case>
 </test-set>

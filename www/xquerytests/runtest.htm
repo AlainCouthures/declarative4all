@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Run XQuery Test</title>
+		<script type="text/javascript" src="js/fleur.js"></script>
+	</head>
+	<body>
+		<pre id="test"></pre>
+		<hr>
+		<pre id="resultstring"></pre>
+		<hr>
+		<pre id="effectiveresult"></pre>
+		<script type="text/javascript">
+			/*globals Fleur */
+			var testcase = {};
+			window.location.search.substr(1).split("&").reduce(function(result, param) {
+			    var item = param.split("=");
+			    result[item[0]] = decodeURIComponent(item[1]);
+			    return result;
+  			}, testcase);
+			var parser = new Fleur.DOMParser();
+			var xqeval = function (envfile, xexpr) {
+				try {
+				    var xmlBuf = "\x3cdummy/\x3e";
+					var xmldoc = parser.parseFromString(xmlBuf, "application/xml");
+					var nsResolver = function(element) {
+						return {
+							defaultNamespace: element.getAttribute("xmlns"),
+							nsresolver: element.ownerDocument.createNSResolver(element),
+							lookupNamespaceURI: function(prefix) {
+								if (prefix === "_") {
+									return this.defaultNamespace;
+								}
+								return this.nsresolver.lookupNamespaceURI(prefix);
+							}
+						};
+					};
+					var res = xmldoc.evaluate(xexpr, xmldoc, nsResolver(xmldoc.documentElement), Fleur.XPathResult.ANY_TYPE, null).toXQuery();
+					return res;
+				} catch(e) {
+					return "Exception!\n" + e.stack;
+				}
+			};
+			var effectiveresult = xqeval(testcase.environment, testcase.test);
+			document.getElementById("test").innerHTML = testcase.test;
+			document.getElementById("resultstring").innerHTML = testcase.resultstring;
+			document.getElementById("effectiveresult").innerHTML = effectiveresult;
+		</script>
+	</body>
+</html>

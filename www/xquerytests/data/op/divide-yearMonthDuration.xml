@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<test-set xmlns="http://www.w3.org/2010/09/qt-fots-catalog"
-          name="op-divide-yearMonthDuration">
-   <description>Tests for the divide-yearMonthDuration() function</description>
-   <link type="spec" document="http://www.w3.org/TR/xpath-functions-30/"
-         idref="func-divide-yearMonthDuration"/>
-   <test-case name="op-divide-yearMonthDuration2args-1">
-      <description>
+<test-set name="op-divide-yearMonthDuration" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
+  <description>Tests for the divide-yearMonthDuration() function</description>
+  <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-divide-yearMonthDuration" type="spec"/>
+  <test-case name="op-divide-yearMonthDuration2args-1">
+    <description>
 *******************************************************
 Test: op-divide-yearMonthDuration2args-1                
 Written By: Carmelo Montanez                            
@@ -16,14 +14,15 @@ $arg1 = xs:yearMonthDuration(lower bound)
 $arg2 = xs:double(lower bound)                         
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:yearMonthDuration("P0Y0M") div xs:double("-1.7976931348623157E308")</test>
-      <result>
-         <assert-string-value>P0M</assert-string-value>
-      </result>
-   </test-case>
-   <test-case name="op-divide-yearMonthDuration2args-2">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration("P0Y0M") div xs:double("-1.7976931348623157E308")</test>
+    <result-string>xs:string("P0M")</result-string>
+    <result>
+      <assert-string-value>P0M</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="op-divide-yearMonthDuration2args-2">
+    <description>
 *******************************************************
 Test: op-divide-yearMonthDuration2args-2                
 Written By: Carmelo Montanez                            
@@ -34,14 +33,15 @@ $arg1 = xs:yearMonthDuration(mid range)
 $arg2 = xs:double(lower bound)                         
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:yearMonthDuration("P1000Y6M") div xs:double("-1.7976931348623157E308")</test>
-      <result>
-         <assert-string-value>P0M</assert-string-value>
-      </result>
-   </test-case>
-   <test-case name="op-divide-yearMonthDuration2args-3">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration("P1000Y6M") div xs:double("-1.7976931348623157E308")</test>
+    <result-string>xs:string("P0M")</result-string>
+    <result>
+      <assert-string-value>P0M</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="op-divide-yearMonthDuration2args-3">
+    <description>
 *******************************************************
 Test: op-divide-yearMonthDuration2args-3                
 Written By: Carmelo Montanez                            
@@ -52,14 +52,15 @@ $arg1 = xs:yearMonthDuration(upper bound)
 $arg2 = xs:double(lower bound)                         
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:yearMonthDuration("P2030Y12M") div xs:double("-1.7976931348623157E308")</test>
-      <result>
-         <assert-string-value>P0M</assert-string-value>
-      </result>
-   </test-case>
-   <test-case name="op-divide-yearMonthDuration2args-4">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration("P2030Y12M") div xs:double("-1.7976931348623157E308")</test>
+    <result-string>xs:string("P0M")</result-string>
+    <result>
+      <assert-string-value>P0M</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="op-divide-yearMonthDuration2args-4">
+    <description>
 *******************************************************
 Test: op-divide-yearMonthDuration2args-4                
 Written By: Carmelo Montanez                            
@@ -70,14 +71,15 @@ $arg1 = xs:yearMonthDuration(lower bound)
 $arg2 = xs:double(mid range)                           
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:yearMonthDuration("P0Y0M") div xs:double("0.1")</test>
-      <result>
-         <assert-string-value>P0M</assert-string-value>
-      </result>
-   </test-case>
-   <test-case name="op-divide-yearMonthDuration2args-5">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration("P0Y0M") div xs:double("0.1")</test>
+    <result-string>xs:string("P0M")</result-string>
+    <result>
+      <assert-string-value>P0M</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="op-divide-yearMonthDuration2args-5">
+    <description>
 *******************************************************
 Test: op-divide-yearMonthDuration2args-5                
 Written By: Carmelo Montanez                            
@@ -88,30 +90,32 @@ $arg1 = xs:yearMonthDuration(lower bound)
 $arg2 = xs:double(upper bound)                         
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2004-12-13"/>
-      <test>xs:yearMonthDuration("P0Y0M") div xs:double("1.7976931348623157E308")</test>
-      <result>
-         <assert-string-value>P0M</assert-string-value>
-      </result>
-   </test-case>
-   <test-case name="op-divide-yearMonthDuration-1">
-      <description>
+    <created by="Carmelo Montanez" on="2004-12-13"/>
+    <test>xs:yearMonthDuration("P0Y0M") div xs:double("1.7976931348623157E308")</test>
+    <result-string>xs:string("P0M")</result-string>
+    <result>
+      <assert-string-value>P0M</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="op-divide-yearMonthDuration-1">
+    <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-1                    
 Written By: Carmelo Montanez                           
 Date: June 30, 2005                                    
 Purpose: Evaluates The "divide-yearMonthDuration" operator 
-As per example 1 (for this function)of the F&amp;O specs.  
+As per example 1 (for this function)of the FO specs.  
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-30"/>
-      <test>(xs:yearMonthDuration("P2Y11M") div 1.5)</test>
-      <result>
-         <assert-string-value>P1Y11M</assert-string-value>
-      </result>
-   </test-case>
-   <test-case name="op-divide-yearMonthDuration-2">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>(xs:yearMonthDuration("P2Y11M") div 1.5)</test>
+    <result-string>xs:string("P1Y11M")</result-string>
+    <result>
+      <assert-string-value>P1Y11M</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="op-divide-yearMonthDuration-2">
+    <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-2                    
 Written By: Carmelo Montanez                           
@@ -120,14 +124,15 @@ Purpose: Evaluates The "divide-yearMonthDuration" operator
 used as part of a boolean expression (and operator) and the "fn:false" function. 
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-30"/>
-      <test>fn:string((xs:yearMonthDuration("P10Y11M") div 2.0)) and fn:false()</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-divide-yearMonthDuration-3">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>fn:string((xs:yearMonthDuration("P10Y11M") div 2.0)) and fn:false()</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-divide-yearMonthDuration-3">
+    <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-3                    
 Written By: Carmelo Montanez                           
@@ -136,14 +141,15 @@ Purpose: Evaluates The "divide-yearMonthDuration" operator as
 part of a boolean expression (or operator) and the "fn:boolean" function. 
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-30"/>
-      <test>fn:string((xs:yearMonthDuration("P20Y10M") div 2.0)) or fn:false()</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-divide-yearMonthDuration-4">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>fn:string((xs:yearMonthDuration("P20Y10M") div 2.0)) or fn:false()</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-divide-yearMonthDuration-4">
+    <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-4                    
 Written By: Carmelo Montanez                           
@@ -152,14 +158,15 @@ Purpose: Evaluates The "divide-yearMonthDuration" operator that
 return true and used together with fn:not.             
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-30"/>
-      <test>fn:not(fn:string(xs:yearMonthDuration("P11Y04M") div 2.0))</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-divide-yearMonthDuration-5">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>fn:not(fn:string(xs:yearMonthDuration("P11Y04M") div 2.0))</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-divide-yearMonthDuration-5">
+    <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-5                    
 Written By: Carmelo Montanez                           
@@ -169,14 +176,15 @@ is used as an argument to the fn:boolean function.
  Apply "fn:string" function to account for new EBV.     
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-30"/>
-      <test>fn:boolean(fn:string(xs:yearMonthDuration("P05Y08M") div 2.0))</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-divide-yearMonthDuration-6">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>fn:boolean(fn:string(xs:yearMonthDuration("P05Y08M") div 2.0))</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-divide-yearMonthDuration-6">
+    <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-6                    
 Date: June 30, 2005                                    
@@ -184,14 +192,15 @@ Purpose: Evaluates The "divide-yearMonthDuration" operator that
 is used as an argument to the fn:number function.      
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-30"/>
-      <test>fn:number(xs:yearMonthDuration("P02Y09M") div 2.0)</test>
-      <result>
-         <assert-string-value>NaN</assert-string-value>
-      </result>
-   </test-case>
-   <test-case name="op-divide-yearMonthDuration-7">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>fn:number(xs:yearMonthDuration("P02Y09M") div 2.0)</test>
+    <result-string>xs:string("NaN")</result-string>
+    <result>
+      <assert-string-value>NaN</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="op-divide-yearMonthDuration-7">
+    <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-7                    
 Written By: Carmelo Montanez                           
@@ -200,14 +209,15 @@ Purpose: Evaluates The "divide-yearMonthDuration" operator used
 as an argument to the "fn:string" function).           
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-30"/>
-      <test>fn:string(xs:yearMonthDuration("P03Y08M") div 2.0)</test>
-      <result>
-         <assert-string-value>P1Y10M</assert-string-value>
-      </result>
-   </test-case>
-   <test-case name="op-divide-yearMonthDuration-8">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>fn:string(xs:yearMonthDuration("P03Y08M") div 2.0)</test>
+    <result-string>xs:string("P1Y10M")</result-string>
+    <result>
+      <assert-string-value>P1Y10M</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="op-divide-yearMonthDuration-8">
+    <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-8                    
 Written By: Carmelo Montanez                           
@@ -216,14 +226,15 @@ Purpose: Evaluates The "divide-yearMonthDuration" operator that
 returns a negative value.                              
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-30"/>
-      <test>(xs:yearMonthDuration("P10Y01M") div -2.0)</test>
-      <result>
-         <assert-string-value>-P5Y</assert-string-value>
-      </result>
-   </test-case>
-   <test-case name="op-divide-yearMonthDuration-9">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>(xs:yearMonthDuration("P10Y01M") div -2.0)</test>
+    <result-string>xs:string("-P5Y")</result-string>
+    <result>
+      <assert-string-value>-P5Y</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="op-divide-yearMonthDuration-9">
+    <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-9                    
 Written By: Carmelo Montanez                           
@@ -233,14 +244,15 @@ together with and "and" expression.
  Apply "fn:string" function to account for new EBV.     
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-30"/>
-      <test>fn:string((xs:yearMonthDuration("P01Y01M") div 2.0)) and fn:string((xs:yearMonthDuration("P02Y03M") div 2.0))</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-divide-yearMonthDuration-10">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>fn:string((xs:yearMonthDuration("P01Y01M") div 2.0)) and fn:string((xs:yearMonthDuration("P02Y03M") div 2.0))</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-divide-yearMonthDuration-10">
+    <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-10                   
 Written By: Carmelo Montanez                           
@@ -250,14 +262,15 @@ together with an "or" expression.
  Apply "fn:string" function to account for new EBV.     
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-30"/>
-      <test>fn:string((xs:yearMonthDuration("P05Y02M") div 2.0)) or fn:string((xs:yearMonthDuration("P05Y03M") div 2.0))</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-divide-yearMonthDuration-11">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>fn:string((xs:yearMonthDuration("P05Y02M") div 2.0)) or fn:string((xs:yearMonthDuration("P05Y03M") div 2.0))</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-divide-yearMonthDuration-11">
+    <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-11                   
 Written By: Carmelo Montanez                           
@@ -266,14 +279,15 @@ Purpose: Evaluates The "divide-yearMonthDuration" operator used
 together with a multiple "div" expressions.            
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-30"/>
-      <test>(xs:yearMonthDuration("P20Y11M") div 2.0) div (xs:yearMonthDuration("P20Y11M") div 2.0)</test>
-      <result>
-         <assert-string-value>1</assert-string-value>
-      </result>
-   </test-case>
-   <test-case name="op-divide-yearMonthDuration-12">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>(xs:yearMonthDuration("P20Y11M") div 2.0) div (xs:yearMonthDuration("P20Y11M") div 2.0)</test>
+    <result-string>xs:string("1")</result-string>
+    <result>
+      <assert-string-value>1</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="op-divide-yearMonthDuration-12">
+    <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-12                   
 Written By: Carmelo Montanez                           
@@ -283,14 +297,15 @@ with a boolean expression and the "fn:true" function.
  Apply "fn:string" function to account for new EBV.     
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-30"/>
-      <test>fn:string((xs:yearMonthDuration("P10Y11M") div 2.0)) and (fn:true())</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-divide-yearMonthDuration-13">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>fn:string((xs:yearMonthDuration("P10Y11M") div 2.0)) and (fn:true())</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-divide-yearMonthDuration-13">
+    <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-13                   
 Written By: Carmelo Montanez                           
@@ -299,14 +314,15 @@ Purpose: Evaluates The "divide-yearMonthDuration" operator used
 together with the numeric-equal- operator "eq".        
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-30"/>
-      <test>(xs:yearMonthDuration("P23Y11M") div 2.0) eq xs:yearMonthDuration("P23Y11M")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-divide-yearMonthDuration-14">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>(xs:yearMonthDuration("P23Y11M") div 2.0) eq xs:yearMonthDuration("P23Y11M")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-divide-yearMonthDuration-14">
+    <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-14                   
 Written By: Carmelo Montanez                           
@@ -315,14 +331,15 @@ Purpose: Evaluates The "divide-yearMonthDuration" operator used
 together with the numeric-equal operator "ne".         
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-30"/>
-      <test>(xs:yearMonthDuration("P21Y12M") div 2.0) ne xs:yearMonthDuration("P08Y05M")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-divide-yearMonthDuration-15">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>(xs:yearMonthDuration("P21Y12M") div 2.0) ne xs:yearMonthDuration("P08Y05M")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-divide-yearMonthDuration-15">
+    <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-15                   
 Written By: Carmelo Montanez                           
@@ -331,14 +348,15 @@ Purpose: Evaluates The "divide-yearMonthDuration" operator used
 together with the numeric-equal operator "le".         
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-30"/>
-      <test>(xs:yearMonthDuration("P10Y01M") div 2.0) le xs:yearMonthDuration("P17Y02M")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="op-divide-yearMonthDuration-16">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>(xs:yearMonthDuration("P10Y01M") div 2.0) le xs:yearMonthDuration("P17Y02M")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="op-divide-yearMonthDuration-16">
+    <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-16                   
 Written By: Carmelo Montanez                           
@@ -347,14 +365,15 @@ Purpose: Evaluates The "divide-yearMonthDuration" operator used
 together with the numeric-equal operator "ge".         
 *******************************************************
 </description>
-      <created by="Carmelo Montanez" on="2005-06-30"/>
-      <test>(xs:yearMonthDuration("P13Y09M") div 2.0) ge xs:yearMonthDuration("P18Y02M")</test>
-      <result>
-         <assert-false/>
-      </result>
-   </test-case>
-   <test-case name="op-divide-yearMonthDuration-17">
-      <description>
+    <created by="Carmelo Montanez" on="2005-06-30"/>
+    <test>(xs:yearMonthDuration("P13Y09M") div 2.0) ge xs:yearMonthDuration("P18Y02M")</test>
+    <result-string>xs:boolean("false")</result-string>
+    <result>
+      <assert-false/>
+    </result>
+  </test-case>
+  <test-case name="op-divide-yearMonthDuration-17">
+    <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-17                   
 Written By: Michael Kay                                
@@ -363,14 +382,15 @@ Purpose: Tests rounding performed by the "divide-yearMonthDuration" operator
 See Erratum FO.E12                           .         
 *******************************************************
 </description>
-      <created by="Michael Kay" on="2009-03-05"/>
-      <test>for $i in (-2, -4, -10, -50, +50, +10, +4, +2) return (xs:yearMonthDuration("P5M") div $i)</test>
-      <result>
-         <assert-string-value>-P2M -P1M P0M P0M P0M P1M P1M P3M</assert-string-value>
-      </result>
-   </test-case>
-   <test-case name="K-YearMonthDurationDivide-1">
-      <description>
+    <created by="Michael Kay" on="2009-03-05"/>
+    <test>for $i in (-2, -4, -10, -50, +50, +10, +4, +2) return (xs:yearMonthDuration("P5M") div $i)</test>
+    <result-string>xs:string("-P2M -P1M P0M P0M P0M P1M P1M P3M")</result-string>
+    <result>
+      <assert-string-value>-P2M -P1M P0M P0M P0M P1M P1M P3M</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="K-YearMonthDurationDivide-1">
+    <description>
 *******************************************************
  Test: K-YearMonthDurationDivide-1                     
  Written by: Frans Englich                             
@@ -378,14 +398,15 @@ See Erratum FO.E12                           .
  Purpose: Simple test of dividing a xs:yearMonthDuration with 3. 
 *******************************************************
 </description>
-      <created by="Frans Englich" on="2007-11-26+01:00"/>
-      <test>xs:yearMonthDuration("P3Y36M") div 3 eq xs:yearMonthDuration("P2Y")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="K-YearMonthDurationDivide-2">
-      <description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:yearMonthDuration("P3Y36M") div 3 eq xs:yearMonthDuration("P2Y")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-YearMonthDurationDivide-2">
+    <description>
 *******************************************************
  Test: K-YearMonthDurationDivide-2                     
  Written by: Frans Englich                             
@@ -393,14 +414,15 @@ See Erratum FO.E12                           .
  Purpose: Simple test of dividing a xs:yearMonthDuration with xs:double('-INF'). 
 *******************************************************
 </description>
-      <created by="Frans Englich" on="2007-11-26+01:00"/>
-      <test>xs:yearMonthDuration("P3Y36M") div xs:double("-INF") eq xs:yearMonthDuration("P0M")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="K-YearMonthDurationDivide-3">
-      <description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:yearMonthDuration("P3Y36M") div xs:double("-INF") eq xs:yearMonthDuration("P0M")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-YearMonthDurationDivide-3">
+    <description>
 *******************************************************
  Test: K-YearMonthDurationDivide-3                     
  Written by: Frans Englich                             
@@ -408,14 +430,15 @@ See Erratum FO.E12                           .
  Purpose: Simple test of dividing a xs:yearMonthDuration with xs:double('INF'). 
 *******************************************************
 </description>
-      <created by="Frans Englich" on="2007-11-26+01:00"/>
-      <test>xs:yearMonthDuration("P3Y36M") div xs:double("INF") eq xs:yearMonthDuration("P0M")</test>
-      <result>
-         <assert-true/>
-      </result>
-   </test-case>
-   <test-case name="K-YearMonthDurationDivide-4">
-      <description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:yearMonthDuration("P3Y36M") div xs:double("INF") eq xs:yearMonthDuration("P0M")</test>
+    <result-string>xs:boolean("true")</result-string>
+    <result>
+      <assert-true/>
+    </result>
+  </test-case>
+  <test-case name="K-YearMonthDurationDivide-4">
+    <description>
 *******************************************************
  Test: K-YearMonthDurationDivide-4                     
  Written by: Frans Englich                             
@@ -423,14 +446,15 @@ See Erratum FO.E12                           .
  Purpose: Simple test of dividing a xs:yearMonthDuration with 0. 
 *******************************************************
 </description>
-      <created by="Frans Englich" on="2007-11-26+01:00"/>
-      <test>xs:yearMonthDuration("P3Y36M") div 0</test>
-      <result>
-         <error code="FODT0002"/>
-      </result>
-   </test-case>
-   <test-case name="K-YearMonthDurationDivide-5">
-      <description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:yearMonthDuration("P3Y36M") div 0</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FODT0002"))</result-string>
+    <result>
+      <error code="FODT0002"/>
+    </result>
+  </test-case>
+  <test-case name="K-YearMonthDurationDivide-5">
+    <description>
 *******************************************************
  Test: K-YearMonthDurationDivide-5                     
  Written by: Frans Englich                             
@@ -438,14 +462,15 @@ See Erratum FO.E12                           .
  Purpose: Simple test of dividing a xs:yearMonthDuration with NaN. 
 *******************************************************
 </description>
-      <created by="Frans Englich" on="2007-11-26+01:00"/>
-      <test>xs:yearMonthDuration("P3Y36M") div xs:double("NaN")</test>
-      <result>
-         <error code="FOCA0005"/>
-      </result>
-   </test-case>
-   <test-case name="K-YearMonthDurationDivide-6">
-      <description>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:yearMonthDuration("P3Y36M") div xs:double("NaN")</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOCA0005"))</result-string>
+    <result>
+      <error code="FOCA0005"/>
+    </result>
+  </test-case>
+  <test-case name="K-YearMonthDurationDivide-6">
+    <description>
 *******************************************************
  Test: K-YearMonthDurationDivide-6                     
  Written by: Frans Englich                             
@@ -453,47 +478,47 @@ See Erratum FO.E12                           .
  Purpose: Simple test of dividing a xs:yearMonthDuration with xs:double('-0'). 
 *******************************************************
 </description>
-      <created by="Frans Englich" on="2007-11-26+01:00"/>
-      <test>xs:yearMonthDuration("P3Y36M") div xs:double("-0")</test>
-      <result>
-         <error code="FODT0002"/>
-      </result>
-   </test-case>
-   
-   
-   <test-case name="cbcl-divide-yearMonthDuration-001">
-      <description> test division of xs:yearMonthDuration by 0 </description>
-      <created by="Tim Mills" on="2008-05-14"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <created by="Frans Englich" on="2007-11-26+01:00"/>
+    <test>xs:yearMonthDuration("P3Y36M") div xs:double("-0")</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FODT0002"))</result-string>
+    <result>
+      <error code="FODT0002"/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-divide-yearMonthDuration-001">
+    <description> test division of xs:yearMonthDuration by 0 </description>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
         declare function local:yearMonthDuration($years as xs:integer) as xs:yearMonthDuration { xs:yearMonthDuration(concat("P", $years, "Y")) };
         local:yearMonthDuration(2) div 0</test>
-      <result>
-         <error code="FODT0002"/>
-      </result>
-   </test-case>
-
-   <test-case name="cbcl-divide-yearMonthDuration-002">
-      <description> test division of xs:yearMonthDuration by 1 </description>
-      <created by="Tim Mills" on="2008-05-14"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FODT0002"))</result-string>
+    <result>
+      <error code="FODT0002"/>
+    </result>
+  </test-case>
+  <test-case name="cbcl-divide-yearMonthDuration-002">
+    <description> test division of xs:yearMonthDuration by 1 </description>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
         declare function local:yearMonthDuration($years as xs:integer) as xs:yearMonthDuration { xs:yearMonthDuration(concat("P", $years, "Y")) };
         local:yearMonthDuration(2) div 1</test>
-      <result>
-         <assert-string-value>P2Y</assert-string-value>
-      </result>
-   </test-case>
-
-   <test-case name="cbcl-divide-yearMonthDuration-003">
-      <description> test possible overflow in division of xs:yearMonthDuration </description>
-      <created by="Tim Mills" on="2008-05-14"/>
-      <dependency type="spec" value="XQ10+"/>
-      <test>
+    <result-string>xs:string("P2Y")</result-string>
+    <result>
+      <assert-string-value>P2Y</assert-string-value>
+    </result>
+  </test-case>
+  <test-case name="cbcl-divide-yearMonthDuration-003">
+    <description> test possible overflow in division of xs:yearMonthDuration </description>
+    <created by="Tim Mills" on="2008-05-14"/>
+    <dependency type="spec" value="XQ10+"/>
+    <test>
         declare function local:yearMonthDuration($years as xs:integer) as xs:yearMonthDuration { xs:yearMonthDuration(concat("P", $years, "Y")) };
         local:yearMonthDuration(768614336404564650) div 0.5</test>
-      <result>
-         <error code="FODT0002"/>
-      </result>
-   </test-case>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FODT0002"))</result-string>
+    <result>
+      <error code="FODT0002"/>
+    </result>
+  </test-case>
 </test-set>

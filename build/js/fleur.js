@@ -2855,7 +2855,7 @@ Fleur.Sequence = function() {
 };
 Fleur.Sequence.prototype = new Fleur.Node();
 Fleur.Serializer = function() {};
-Fleur.Serializer.escapeXML = function(s) {
+Fleur.Serializer.escapeXML = function(s, quotes) {
 	var i = 0, c, code, l = s.length, r = "";
 	while (i < l) {
 		c = s.charAt(i);
@@ -2870,7 +2870,7 @@ Fleur.Serializer.escapeXML = function(s) {
 				r += '&gt;';
 				break;
 			case '"':
-				r += '&quot;';
+				r += quotes ? '&quot;' : '"';
 				break;
 			default:
 				code = c.charCodeAt(0);
@@ -2896,11 +2896,11 @@ Fleur.Serializer._serializeXMLToString = function(node, indent, offset) {
 				}
 				names.sort();
 				for (i = 0, l = names.length; i < l; i++) {
-					s += " " + names[i] + "=\"" + Fleur.Serializer.escapeXML(node.getAttribute(names[i])) + "\"";
+					s += " " + names[i] + "=\"" + Fleur.Serializer.escapeXML(node.getAttribute(names[i]), true) + "\"";
 				}
 			} else {
 				for (i = 0, l = node.attributes.length; i < l; i++) {
-					s += " " + node.attributes[i].nodeName + "=\"" + Fleur.Serializer.escapeXML(node.attributes[i].nodeValue) + "\"";
+					s += " " + node.attributes[i].nodeName + "=\"" + Fleur.Serializer.escapeXML(node.attributes[i].nodeValue, true) + "\"";
 				}
 			}
 			if (node.childNodes.length === 0) {
