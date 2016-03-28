@@ -1,6 +1,6 @@
 /*
-Fleur rev.2 (2)
-XQuery Result Serialization
+Fleur rev.3 (3)
+Entity parsing, xs:string support, to precedence
 
 Copyright (C) 2016 agenceXML - Alain COUTHURES
 Contact at : info@agencexml.com
@@ -1394,6 +1394,7 @@ Fleur.DOMParser._appendFromXMLString = function(node, s) {
 		c = s.charAt(offset);
 		while (c !== "<" && offset !== end) {
 			if (c === "&") {
+				c = s.charAt(++offset);
 				entstart = offset;
 				entityname = "";
 				while (c !== ";" && offset !== end) {
@@ -4155,7 +4156,7 @@ Fleur.XPathFunctions_fn["codepoints-to-string"] = function(ctx, children) {
 };
 Fleur.XPathFunctions_fn["concat"] = function(ctx, children) {
 	var i, l, res;
-	if (children.length === 0) {
+	if (children.length < 2) {
 		Fleur.error(ctx, "XPST0017");
 		return;
 	}
@@ -4165,11 +4166,17 @@ Fleur.XPathFunctions_fn["concat"] = function(ctx, children) {
 	while (i < l) {
 		Fleur.XQueryEngine[children[i][0]](ctx, children[i][1]);
 		Fleur.Atomize(ctx);
-		if (ctx._result.schemaTypeInfo === Fleur.Type_error) {
-			return;
-		}
-		if (ctx._result.schemaTypeInfo) {
-			res += ctx._result.data;
+		if (ctx._result) {
+			if (ctx._result.schemaTypeInfo === Fleur.Type_error) {
+				return;
+			}
+			if (ctx._result.nodeType === Fleur.Node.SEQUENCE_NODE) {
+				Fleur.error(ctx, "XPTY0004");
+				return;
+			}
+			if (ctx._result.schemaTypeInfo) {
+				res += ctx._result.data;
+			}
 		}
 		i++;
 	}
@@ -4801,7 +4808,7 @@ Fleur.XPathFunctions_math["tan"] = function(ctx, children) {
 	Fleur.XPathNumberFunction(ctx, children, Math.tan, Fleur.Type_double);
 };
 Fleur.XPathFunctions_xs["base64Binary"] = function(ctx, children) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_base64Binary, /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/, function() {}, function() {
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["base64Binary"], /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/, function() {}, function() {
 		return false;
 	});
 };
@@ -4823,19 +4830,19 @@ Fleur.XPathFunctions_xs["boolean"] = function(ctx, children) {
 	});
 };
 Fleur.XPathFunctions_xs["byte"] = function(ctx, children) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_byte, /^[\-+]?[0-9]+$/, function() {}, function(node) {
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["byte"], /^[\-+]?[0-9]+$/, function() {}, function(node) {
 		var value = parseInt(node.data, 10);
 		node.data = "" + value;
 		return value < -128 || value > 127;
 	});
 };
 Fleur.XPathFunctions_xs["date"] = function(ctx, children) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_date, /^([12][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])?$/, function() {}, function() {
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["date"], /^([12][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])?$/, function() {}, function() {
 		return false;
 	});
 };
 Fleur.XPathFunctions_xs["dateTime"] = function(ctx, children) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_dateTime, /^([12][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])?$/, function() {}, function() {
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["dateTime"], /^([12][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])?$/, function() {}, function() {
 		return false;
 	});
 };
@@ -4847,44 +4854,44 @@ Fleur.XPathFunctions_xs["decimal"] = function(ctx, children) {
 Fleur.XPathFunctions_xs["double"] = function(ctx, children) {
 	Fleur.XPathConstructor(ctx, children, Fleur.Type_double, /^(([\-+]?([0-9]+(\.[0-9]*)?)|(\.[0-9]+))([eE][-+]?[0-9]+)?|-?INF|NaN)$/, function() {}, function(node) {
 		var value = parseFloat(node.data);
-		node.data = "" + value;
+		node.data = ("" + value).replace("e+", "e");
 		return false;
 	});
 };
 Fleur.XPathFunctions_xs["duration"] = function(ctx, children) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_duration, /^-?P(?!$)([0-9]+Y)?([0-9]+M)?([0-9]+D)?(T(?!$)([0-9]+H)?([0-9]+M)?([0-9]+(\.[0-9]+)?S)?)?$/, function() {}, function() {
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["duration"], /^-?P(?!$)([0-9]+Y)?([0-9]+M)?([0-9]+D)?(T(?!$)([0-9]+H)?([0-9]+M)?([0-9]+(\.[0-9]+)?S)?)?$/, function() {}, function() {
 		return false;
 	});
 };
 Fleur.XPathFunctions_xs["float"] = function(ctx, children) {
 	Fleur.XPathConstructor(ctx, children, Fleur.Type_float, /^(([\-+]?([0-9]+(\.[0-9]*)?)|(\.[0-9]+))([eE][\-+]?[0-9]+)?|-?INF|NaN)$/, function() {}, function(node) {
 		var value = parseFloat(node.data);
-		node.data = "" + value;
+		node.data = ("" + value).replace("e+", "e");
 		return false;
 	});
 };
 Fleur.XPathFunctions_xs["gDay"] = function(ctx, children) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_gDay, /^---(0[1-9]|[12][0-9]|3[01])$/, function() {}, function() {
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gDay"], /^---(0[1-9]|[12][0-9]|3[01])$/, function() {}, function() {
 		return false;
 	});
 };
 Fleur.XPathFunctions_xs["gMonth"] = function(ctx, children) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_gMonth, /^--(0[1-9]|1[012])$/, function() {}, function() {
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gMonth"], /^--(0[1-9]|1[012])$/, function() {}, function() {
 		return false;
 	});
 };
 Fleur.XPathFunctions_xs["gMonthDay"] = function(ctx, children) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_gMonthDay, /^--(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/, function() {}, function() {
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gMonthDay"], /^--(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/, function() {}, function() {
 		return false;
 	});
 };
 Fleur.XPathFunctions_xs["gYear"] = function(ctx, children) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_gYear, /^([\-+]?([0-9]{4}|[1-9][0-9]{4,}))?$/, function() {}, function() {
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gYear"], /^([\-+]?([0-9]{4}|[1-9][0-9]{4,}))?$/, function() {}, function() {
 		return false;
 	});
 };
 Fleur.XPathFunctions_xs["gYearMonth"] = function(ctx, children) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_gYearMonth, /^([12][0-9]{3})-(0[1-9]|1[012])$/, function() {}, function() {
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gYearMonth"], /^([12][0-9]{3})-(0[1-9]|1[012])$/, function() {}, function() {
 		return false;
 	});
 };
@@ -4903,35 +4910,35 @@ Fleur.XPathFunctions_xs["integer"] = function(ctx, children) {
 	});
 };
 Fleur.XPathFunctions_xs["long"] = function(ctx, children) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_long, /^[\-+]?[0-9]+$/, function() {}, function(node) {
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["long"], /^[\-+]?[0-9]+$/, function() {}, function(node) {
 		var value = parseInt(node.data, 10);
 		node.data = "" + value;
 		return value < -9223372036854775808 || value > 9223372036854775807;
 	});
 };
 Fleur.XPathFunctions_xs["negativeInteger"] = function(ctx, children) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_negativeInteger, /^-0*[1-9][0-9]*$/, function() {}, function(node) {
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["negativeInteger"], /^-0*[1-9][0-9]*$/, function() {}, function(node) {
 		var value = parseInt(node.data, 10);
 		node.data = "" + value;
 		return false;
 	});
 };
 Fleur.XPathFunctions_xs["nonNegativeInteger"] = function(ctx, children) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_nonNegativeInteger, /^\+?[0-9]+$/, function() {}, function(node) {
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["nonNegativeInteger"], /^\+?[0-9]+$/, function() {}, function(node) {
 		var value = parseInt(node.data, 10);
 		node.data = "" + value;
 		return false;
 	});
 };
 Fleur.XPathFunctions_xs["nonPositiveInteger"] = function(ctx, children) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_nonPositiveInteger, /^(-[0-9]+|0)$/, function() {}, function(node) {
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["nonPositiveInteger"], /^(-[0-9]+|0)$/, function() {}, function(node) {
 		var value = parseInt(node.data, 10);
 		node.data = "" + value;
 		return false;
 	});
 };
 Fleur.XPathFunctions_xs["positiveInteger"] = function(ctx, children) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_positiveInteger, /^\+?0*[1-9][0-9]*$/, function() {}, function(node) {
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["positiveInteger"], /^\+?0*[1-9][0-9]*$/, function() {}, function(node) {
 		var value = parseInt(node.data, 10);
 		node.data = "" + value;
 		return false;
@@ -4948,40 +4955,45 @@ Fleur.XPathFunctions_xs["QName"] = function(ctx, children) {
 	ctx._result._setNodeNameLocalNamePrefix(namespaceURI, qualifiedName);
 };
 Fleur.XPathFunctions_xs["short"] = function(ctx, children) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_short, /^[\-+]?[0-9]+$/, function() {}, function(node) {
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["short"], /^[\-+]?[0-9]+$/, function() {}, function(node) {
 		var value = parseInt(node.data, 10);
 		node.data = "" + value;
 		return value < -32768 || value > 32767;
 	});
 };
+Fleur.XPathFunctions_xs["string"] = function(ctx, children) {
+	Fleur.XPathConstructor(ctx, children, Fleur.Type_string, null, function() {}, function() {
+		return false;
+	});
+};
 Fleur.XPathFunctions_xs["time"] = function(ctx, children) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_time, /^([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\.[0-9]+)?(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?$/, function() {}, function() {
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["time"], /^([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\.[0-9]+)?(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?$/, function() {}, function() {
 		return false;
 	});
 };
 Fleur.XPathFunctions_xs["unsignedByte"] = function(ctx, children) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_unsignedByte, /^\+?[0-9]+$/, function() {}, function(node) {
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedByte"], /^\+?[0-9]+$/, function() {}, function(node) {
 		var value = parseInt(node.data, 10);
 		node.data = "" + value;
 		return value > 255;
 	});
 };
 Fleur.XPathFunctions_xs["unsignedInt"] = function(ctx, children) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_unsignedInt, /^\+?[0-9]+$/, function() {}, function(node) {
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedInt"], /^\+?[0-9]+$/, function() {}, function(node) {
 		var value = parseInt(node.data, 10);
 		node.data = "" + value;
 		return value > 4294967295;
 	});
 };
 Fleur.XPathFunctions_xs["unsignedLong"] = function(ctx, children) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_unsignedLong, /^\+?[0-9]+$/, function() {}, function(node) {
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedLong"], /^\+?[0-9]+$/, function() {}, function(node) {
 		var value = parseInt(node.data, 10);
 		node.data = "" + value;
 		return value > 18446744073709551615;
 	});
 };
 Fleur.XPathFunctions_xs["unsignedShort"] = function(ctx, children) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_unsignedShort, /^\+?[0-9]+$/, function() {}, function(node) {
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedShort"], /^\+?[0-9]+$/, function() {}, function(node) {
 		var value = parseInt(node.data, 10);
 		node.data = "" + value;
 		return value > 65535;
@@ -4999,7 +5011,6 @@ Fleur.XPathFunctions_xs["dayTimeDuration"] = function(ctx, children) {};
 Fleur.XPathFunctions_xs["hexBinary"] = function(ctx, children) {};
 Fleur.XPathFunctions_xs["language"] = function(ctx, children) {};
 Fleur.XPathFunctions_xs["normalizedString"] = function(ctx, children) {};
-Fleur.XPathFunctions_xs["string"] = function(ctx, children) {};
 Fleur.XPathFunctions_xs["token"] = function(ctx, children) {};
 Fleur.XPathFunctions_xs["untypedAtomic"] = function(ctx, children) {};
 Fleur.XPathFunctions_xs["yearMonthDuration"] = function(ctx, children) {};
@@ -5045,7 +5056,7 @@ Fleur._Atomize = function(a, n) {
 			if (n.childNodes.length === 0) {
 				return null;
 			}
-			for (i = 0, l < n.childNodes.length; i < l; i++) {
+			for (i = 0, l = n.childNodes.length; i < l; i++) {
 				n2 = Fleur._Atomize(a, n.childNodes[i]);
 				if (n2) {
 					if (!a) {
@@ -5085,7 +5096,7 @@ Fleur.XPathConstructor = function(ctx, children, schemaType, stringreg, others, 
 		return;
 	}
 	if (ctx._result.schemaTypeInfo === Fleur.Type_string || ctx._result.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-		if (!ctx._result.data || !(stringreg.test(ctx._result.data))) {
+		if (!ctx._result.data || (stringreg && !(stringreg.test(ctx._result.data)))) {
 			Fleur.error(ctx, "FORG0001");
 			return;
 		}
@@ -5241,7 +5252,7 @@ Fleur.XPathTestOpFunction = function(ctx, children, f) {
 	ctx._result.schemaTypeInfo = Fleur.Type_boolean;
 };
 Fleur.XPathEvaluator = function() {};
-Fleur.XPathEvaluator._precedence = "././/.;0.!.;1.~+.~-.;2.cast as.;3.castable as.;4.treat as.;5.instance of.;6.intersect.except.;7.|.union.;8.div.mod.*.idiv.;9.+.-.;10.to;11.||.;12.eq.ne.lt.le.gt.ge.<.>.<=.>=.is.<<.>>.=.!=.;13.and.;14.or.;15.for.let.some.every.then.else.in.:=.return.satisfies.;16.,.;17.";
+Fleur.XPathEvaluator._precedence = "././/.;0.!.;1.~+.~-.;2.cast as.;3.castable as.;4.treat as.;5.instance of.;6.intersect.except.;7.|.union.;8.div.mod.*.idiv.;9.+.-.;10.to.;11.||.;12.eq.ne.lt.le.gt.ge.<.>.<=.>=.is.<<.>>.=.!=.;13.and.;14.or.;15.for.let.some.every.then.else.in.:=.return.satisfies.;16.,.;17.";
 Fleur.XPathEvaluator._opcodes = "./;stepExpr.|;unionOp.union;unionOp.div;divOp.mod;modOp.*;multiplyOp.idiv;idivOp.+;addOp.-;subtractOp.to;toOp.||;stringConcatenateOp.eq;eqOp.ne;neOp.lt;ltOp.le;leOp.gt;gtOp.ge;geOp.<;lessThanOp.>;greaterThanOp.<=;lessThanOrEqualOp.>=;greaterThanOrEqualOp.is;isOp.<<;nodeBeforeOp.>>;nodeAfterOp.=;equalOp.!=;notEqualOp.and;andOp.or;orOp.,;argExpr.";
 Fleur.XPathEvaluator._skipComment = function(s, offset) {
 	var i = offset;
@@ -6556,7 +6567,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.stepExpr] = function(ctx, children) {
 };
 Fleur.XQueryEngine[Fleur.XQueryX.stringConstantExpr] = function(ctx, children) {
 	ctx._result = new Fleur.Text();
-	ctx._result.appendData(children[0][1][0]);
+	ctx._result.appendData(children[0][1][0] || "");
 	ctx._result.schemaTypeInfo = Fleur.Type_string;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.textTest] = function(ctx, children) {
@@ -6975,17 +6986,17 @@ Fleur.XQueryEngine[Fleur.XQueryX.divOp] = function(ctx, children) {
 };
 Fleur.XQueryEngine[Fleur.XQueryX.eqOp] = function(ctx, children) {
 	Fleur.XPathTestOpFunction(ctx, children, function(op1, op2) {
-		return op1.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2) === 0 : parseFloat(op1.data) === parseFloat(op2.data);
+		return op1.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2.data) === 0 : parseFloat(op1.data) === parseFloat(op2.data);
 	});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.geOp] = function(ctx, children) {
 	Fleur.XPathTestOpFunction(ctx, children, function(op1, op2) {
-		return op1.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2) >= 0 : parseFloat(op1.data) >= parseFloat(op2.data);
+		return op1.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2.data) >= 0 : parseFloat(op1.data) >= parseFloat(op2.data);
 	});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.gtOp] = function(ctx, children) {
 	Fleur.XPathTestOpFunction(ctx, children, function(op1, op2) {
-		return op1.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2) > 0 : parseFloat(op1.data) > parseFloat(op2.data);
+		return op1.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2.data) > 0 : parseFloat(op1.data) > parseFloat(op2.data);
 	});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.idivOp] = function(ctx, children) {
@@ -7008,12 +7019,12 @@ Fleur.XQueryEngine[Fleur.XQueryX.idivOp] = function(ctx, children) {
 };
 Fleur.XQueryEngine[Fleur.XQueryX.leOp] = function(ctx, children) {
 	Fleur.XPathTestOpFunction(ctx, children, function(op1, op2) {
-		return op1.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2) <= 0 : parseFloat(op1.data) <= parseFloat(op2.data);
+		return op1.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2.data) <= 0 : parseFloat(op1.data) <= parseFloat(op2.data);
 	});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.ltOp] = function(ctx, children) {
 	Fleur.XPathTestOpFunction(ctx, children, function(op1, op2) {
-		return op1.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2) < 0 : parseFloat(op1.data) < parseFloat(op2.data);
+		return op1.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2.data) < 0 : parseFloat(op1.data) < parseFloat(op2.data);
 	});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.modOp] = function(ctx, children) {
@@ -7053,7 +7064,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.multiplyOp] = function(ctx, children) {
 };
 Fleur.XQueryEngine[Fleur.XQueryX.neOp] = function(ctx, children) {
 	Fleur.XPathTestOpFunction(ctx, children, function(op1, op2) {
-		return op1.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2) !== 0 : parseFloat(op1.data) !== parseFloat(op2.data);
+		return op1.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2.data) !== 0 : parseFloat(op1.data) !== parseFloat(op2.data);
 	});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.orOp] = function(ctx, children) {

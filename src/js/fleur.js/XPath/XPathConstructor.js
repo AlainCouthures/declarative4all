@@ -18,7 +18,7 @@ Fleur.XPathConstructor = function(ctx, children, schemaType, stringreg, others, 
 		return;
 	}
 	if (ctx._result.schemaTypeInfo === Fleur.Type_string || ctx._result.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-		if (!ctx._result.data || !(stringreg.test(ctx._result.data))) {
+		if (!ctx._result.data || (stringreg && !(stringreg.test(ctx._result.data)))) {
 			Fleur.error(ctx, "FORG0001");
 			return;
 		}

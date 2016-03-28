@@ -52,7 +52,7 @@ Fleur._Atomize = function(a, n) {
 			if (n.childNodes.length === 0) {
 				return null;
 			}
-			for (i = 0, l < n.childNodes.length; i < l; i++) {
+			for (i = 0, l = n.childNodes.length; i < l; i++) {
 				n2 = Fleur._Atomize(a, n.childNodes[i]);
 				if (n2) {
 					if (!a) {

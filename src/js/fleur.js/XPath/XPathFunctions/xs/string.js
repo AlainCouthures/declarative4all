@@ -7,8 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_xs["gDay"] = function(ctx, children) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gDay"], /^---(0[1-9]|[12][0-9]|3[01])$/, function() {}, function() {
+Fleur.XPathFunctions_xs["string"] = function(ctx, children) {
+	Fleur.XPathConstructor(ctx, children, Fleur.Type_string, null, function() {}, function() {
 		return false;
 	});
 };

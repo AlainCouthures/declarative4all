@@ -141,7 +141,7 @@
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:double("-1.7976931348623157E308"),xs:double("-1.7976931348623157E308"))</test>
-    <result-string>xs:string("-1.7976931348623157E308-1.7976931348623157E308")</result-string>
+    <result-string>xs:string("-1.7976931348623157e308-1.7976931348623157e308")</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E308-1.7976931348623157E308</assert-string-value>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:double(mid range) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:double("0"),xs:double("-1.7976931348623157E308"))</test>
-    <result-string>xs:string("0-1.7976931348623157E308")</result-string>
+    <result-string>xs:string("0-1.7976931348623157e308")</result-string>
     <result>
       <assert-string-value>0-1.7976931348623157E308</assert-string-value>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:double(upper bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:double("1.7976931348623157E308"),xs:double("-1.7976931348623157E308"))</test>
-    <result-string>xs:string("1.7976931348623157E308-1.7976931348623157E308")</result-string>
+    <result-string>xs:string("1.7976931348623157e308-1.7976931348623157e308")</result-string>
     <result>
       <assert-string-value>1.7976931348623157E308-1.7976931348623157E308</assert-string-value>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:double("-1.7976931348623157E308"),xs:double("0"))</test>
-    <result-string>xs:string("-1.7976931348623157E3080")</result-string>
+    <result-string>xs:string("-1.7976931348623157e3080")</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E3080</assert-string-value>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:double("-1.7976931348623157E308"),xs:double("1.7976931348623157E308"))</test>
-    <result-string>xs:string("-1.7976931348623157E3081.7976931348623157E308")</result-string>
+    <result-string>xs:string("-1.7976931348623157e3081.7976931348623157e308")</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E3081.7976931348623157E308</assert-string-value>
     </result>
@@ -186,7 +186,7 @@
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:float("-3.4028235E38"),xs:float("-3.4028235E38"))</test>
-    <result-string>xs:string("-3.4028235E38-3.4028235E38")</result-string>
+    <result-string>xs:string("-3.4028235e38-3.4028235e38")</result-string>
     <result>
       <assert-string-value>-3.4028235E38-3.4028235E38</assert-string-value>
     </result>
@@ -195,7 +195,7 @@
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:float(mid range) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:float("0"),xs:float("-3.4028235E38"))</test>
-    <result-string>xs:string("0-3.4028235E38")</result-string>
+    <result-string>xs:string("0-3.4028235e38")</result-string>
     <result>
       <assert-string-value>0-3.4028235E38</assert-string-value>
     </result>
@@ -204,7 +204,7 @@
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:float(upper bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:float("3.4028235E38"),xs:float("-3.4028235E38"))</test>
-    <result-string>xs:string("3.4028235E38-3.4028235E38")</result-string>
+    <result-string>xs:string("3.4028235e38-3.4028235e38")</result-string>
     <result>
       <assert-string-value>3.4028235E38-3.4028235E38</assert-string-value>
     </result>
@@ -213,7 +213,7 @@
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:float("-3.4028235E38"),xs:float("0"))</test>
-    <result-string>xs:string("-3.4028235E380")</result-string>
+    <result-string>xs:string("-3.4028235e380")</result-string>
     <result>
       <assert-string-value>-3.4028235E380</assert-string-value>
     </result>
@@ -222,7 +222,7 @@
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:float("-3.4028235E38"),xs:float("3.4028235E38"))</test>
-    <result-string>xs:string("-3.4028235E383.4028235E38")</result-string>
+    <result-string>xs:string("-3.4028235e383.4028235e38")</result-string>
     <result>
       <assert-string-value>-3.4028235E383.4028235E38</assert-string-value>
     </result>
@@ -654,7 +654,7 @@
     <description>Evaluation of concat function that uses the empty string as part of argument Uses "fn:count" to avoid the empty file </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:count(fn:concat("",""))</test>
-    <result-string>xs:string("1")</result-string>
+    <result-string>xs:integer("1")</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -747,7 +747,7 @@
     <dependency type="feature" value="higherOrderFunctions"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:concat("abc","abc", fn:concat#3)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOTY0013"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOTY0013"))</result-string>
     <result>
       <error code="FOTY0013"/>
     </result>
@@ -756,7 +756,7 @@
     <description> A test whose essence is: `concat()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -765,7 +765,7 @@
     <description> A test whose essence is: `concat("a string")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat("a string")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -837,7 +837,7 @@
     <description> Invalid amount of arguments to fn:concat(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat(("a", "b"), "c")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -846,7 +846,7 @@
     <description> Invalid amount of arguments to fn:concat(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat("1", "2", "3", ("a", "b"), "c")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -855,7 +855,7 @@
     <description> Invalid arguments to fn:concat(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat("1", "2", "3", "c", ("a", "b"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>

@@ -19,7 +19,6 @@ Fleur.XPathFunctions_xs["dayTimeDuration"] = function(ctx, children) {};
 Fleur.XPathFunctions_xs["hexBinary"] = function(ctx, children) {};
 Fleur.XPathFunctions_xs["language"] = function(ctx, children) {};
 Fleur.XPathFunctions_xs["normalizedString"] = function(ctx, children) {};
-Fleur.XPathFunctions_xs["string"] = function(ctx, children) {};
 Fleur.XPathFunctions_xs["token"] = function(ctx, children) {};
 Fleur.XPathFunctions_xs["untypedAtomic"] = function(ctx, children) {};
 Fleur.XPathFunctions_xs["yearMonthDuration"] = function(ctx, children) {};

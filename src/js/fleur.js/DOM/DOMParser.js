@@ -568,6 +568,7 @@ Fleur.DOMParser._appendFromXMLString = function(node, s) {
 		c = s.charAt(offset);
 		while (c !== "<" && offset !== end) {
 			if (c === "&") {
+				c = s.charAt(++offset);
 				entstart = offset;
 				entityname = "";
 				while (c !== ";" && offset !== end) {

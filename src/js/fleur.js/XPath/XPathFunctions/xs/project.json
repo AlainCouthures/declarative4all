@@ -23,6 +23,7 @@
 		"positiveInteger.js",
 		"QName.js",
 		"short.js",
+		"string.js",
 		"time.js",
 		"unsignedByte.js",
 		"unsignedInt.js",

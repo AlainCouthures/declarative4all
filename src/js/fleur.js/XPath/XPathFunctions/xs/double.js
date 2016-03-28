@@ -10,7 +10,7 @@
 Fleur.XPathFunctions_xs["double"] = function(ctx, children) {
 	Fleur.XPathConstructor(ctx, children, Fleur.Type_double, /^(([\-+]?([0-9]+(\.[0-9]*)?)|(\.[0-9]+))([eE][-+]?[0-9]+)?|-?INF|NaN)$/, function() {}, function(node) {
 		var value = parseFloat(node.data);
-		node.data = "" + value;
+		node.data = ("" + value).replace("e+", "e");
 		return false;
 	});
 };

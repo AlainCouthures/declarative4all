@@ -9,7 +9,7 @@
  */
 Fleur.XPathFunctions_fn["concat"] = function(ctx, children) {
 	var i, l, res;
-	if (children.length === 0) {
+	if (children.length < 2) {
 		Fleur.error(ctx, "XPST0017");
 		return;
 	}
@@ -19,11 +19,17 @@ Fleur.XPathFunctions_fn["concat"] = function(ctx, children) {
 	while (i < l) {
 		Fleur.XQueryEngine[children[i][0]](ctx, children[i][1]);
 		Fleur.Atomize(ctx);
-		if (ctx._result.schemaTypeInfo === Fleur.Type_error) {
-			return;
-		}
-		if (ctx._result.schemaTypeInfo) {
-			res += ctx._result.data;
+		if (ctx._result) {
+			if (ctx._result.schemaTypeInfo === Fleur.Type_error) {
+				return;
+			}
+			if (ctx._result.nodeType === Fleur.Node.SEQUENCE_NODE) {
+				Fleur.error(ctx, "XPTY0004");
+				return;
+			}
+			if (ctx._result.schemaTypeInfo) {
+				res += ctx._result.data;
+			}
 		}
 		i++;
 	}
