@@ -7,12 +7,13 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["false"] = function(ctx, children) {
+Fleur.XPathFunctions_fn["false"] = function(ctx, children, callback) {
 	if (children.length !== 0) {
-		Fleur.error(ctx, "XPST0017");
+		callback(Fleur.error(ctx, "XPST0017"));
 		return;
 	}
-	ctx._result = new Fleur.Text();
-	ctx._result.schemaTypeInfo = Fleur.Type_boolean;
-	ctx._result.data = "false";
+	var result = new Fleur.Text();
+	result.schemaTypeInfo = Fleur.Type_boolean;
+	result.data = "false";
+	callback(result);
 };

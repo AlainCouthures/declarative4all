@@ -7,6 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_math["log10"] = function(ctx, children) {
-	Fleur.XPathNumberFunction(ctx, children, Math.log10, Fleur.Type_double);
+Fleur.XPathFunctions_math["log10"] = function(ctx, children, callback) {
+	Fleur.XPathNumberFunction(ctx, children, Math.log10, Fleur.Type_double, callback);
 };

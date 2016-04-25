@@ -7,21 +7,14 @@
  * @module 
  * @description 
  */
-Fleur.XQueryEngine[Fleur.XQueryX.Wildcard] = function(ctx, children) {
+Fleur.XQueryEngine[Fleur.XQueryX.Wildcard] = function(ctx, children, callback) {
 	if (children[0]) {
 		if (children[0][0] === Fleur.XQueryX.star && children[1][0] === Fleur.XQueryX.NCName) {
-			if (ctx._stepctx.curr.localName !== children[1][1][0]) {
-				if (ctx._stepctx.curr.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
-					ctx._stepctx.curr = ctx._stepctx.curr.ownerElement.getAttributeNode(children[1][1][0]);
-					ctx._stepctx.continue = null;
-					return;
-				}
-				ctx._stepctx.ignore = true;
+			if (ctx._curr.localName !== children[1][1][0]) {
+				callback(Fleur.EmptySequence);
 				return;
 			}
 		}
 	}
-	if (ctx._stepctx.curr.nodeType !== Fleur.Node.ELEMENT_NODE && ctx._stepctx.curr.nodeType !== Fleur.Node.ATTRIBUTE_NODE && ctx._stepctx.curr.nodeType !== Fleur.Node.ENTRY_NODE) {
-		ctx._stepctx.ignore = true;
-	}
+	callback(ctx._curr.nodeType !== Fleur.Node.ELEMENT_NODE && ctx._curr.nodeType !== Fleur.Node.ATTRIBUTE_NODE && ctx._curr.nodeType !== Fleur.Node.ENTRY_NODE ? Fleur.EmptySequence : ctx._curr);
 };

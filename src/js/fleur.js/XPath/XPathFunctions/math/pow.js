@@ -7,6 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_math["pow"] = function(ctx, children) {
-	Fleur.XPathNumberFunction(ctx, children, Math.pow, Fleur.Type_double);
+Fleur.XPathFunctions_math["pow"] = function(ctx, children, callback) {
+	Fleur.XPathNumberFunction(ctx, children, Math.pow, Fleur.Type_double, callback);
 };

@@ -7,8 +7,9 @@
  * @module 
  * @description 
  */
-Fleur.XQueryEngine[Fleur.XQueryX.eqOp] = function(ctx, children) {
+Fleur.XQueryEngine[Fleur.XQueryX.eqOp] = function(ctx, children, callback) {
 	Fleur.XPathTestOpFunction(ctx, children, function(op1, op2) {
-		return op1.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2.data) === 0 : parseFloat(op1.data) === parseFloat(op2.data);
-	});
+		return op1.schemaTypeInfo === Fleur.Type_string && op2.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2.data) === 0 :
+			op1.schemaTypeInfo === op2.schemaTypeInfo && op1.data === op2.data;
+	}, callback);
 };

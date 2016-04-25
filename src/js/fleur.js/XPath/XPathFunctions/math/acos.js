@@ -7,6 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_math["acos"] = function(ctx, children) {
-	Fleur.XPathNumberFunction(ctx, children, Math.acos, Fleur.Type_double);
+Fleur.XPathFunctions_math["acos"] = function(ctx, children, callback) {
+	Fleur.XPathNumberFunction(ctx, children, Math.acos, Fleur.Type_double, callback);
 };

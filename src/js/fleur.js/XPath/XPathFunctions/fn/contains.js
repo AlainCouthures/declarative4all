@@ -7,8 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["contains"] = function(ctx, children) {
+Fleur.XPathFunctions_fn["contains"] = function(ctx, children, callback) {
 	Fleur.XPathStringContentFunction(ctx, children, function(a, b) {
 		return a.indexOf(b) !== -1;
-	}, Fleur.Type_boolean);
+	}, Fleur.Type_boolean, callback);
 };

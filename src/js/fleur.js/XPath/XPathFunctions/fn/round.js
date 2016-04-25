@@ -7,6 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["round"] = function(ctx, children) {
-	Fleur.XPathNumberFunction(ctx, children, Math.round, Fleur.Type_integer);
+Fleur.XPathFunctions_fn["round"] = function(ctx, children, callback) {
+	Fleur.XPathNumberFunction(ctx, children, Math.round, Fleur.Type_integer, callback);
 };

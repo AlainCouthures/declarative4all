@@ -5,7 +5,7 @@
 		<script type="text/javascript" src="js/fleur.js"></script>
 	</head>
 	<body>
-		<button onclick="run()">Run</button>
+		<button id="run" disabled onclick="run()">Run</button>
 		<pre id="xexpr"></pre>
 		<pre id="result"></pre>
 		<pre id="doc"></pre>
@@ -14,53 +14,61 @@
 			var req = new XMLHttpRequest();
 			var parser = new Fleur.DOMParser();
 			var ser = new Fleur.XMLSerializer();
-			var parser2 = new DOMParser();
-			//ser = new XMLSerializer();
 			var xml;
 			var xmldoc;
-			var xmldoc2;
-			//var xexpr = "count(/_:test-set/_:test-case/_:result)";
-			var xexpr = "translate('AAAA', 'A', 'B')";
+			var xexpr = "declare default element namespace 'http://www.toto.com';\ndeclare copy-namespaces preserve, no-inherit;\ndeclare default function namespace 'http://www.titi.com';\nmath:pi() div 2";
+			xexpr = "/data/c";
+			xexpr = "4 + count(prof:sleep(2000)) + 5";
+			xexpr = "concat('A','B',prof:sleep(2000),'CD',prof:sleep(5000),'EFG')";
+			xexpr = "doc('data/data.xml')/data/a";
+			xexpr = "doc('data/data.xml')/data/a[@id eq 'a2']";
+			xexpr = "doc('data/data.xml')/data/a[position() ne 3]";
 			document.getElementById("xexpr").innerHTML = xexpr;
-//			req.open('GET', '../xquerytests/data/fn/matches.re.xml', true);
-			req.open('GET', 'data/data.xml', true);
-			req.onreadystatechange = function() {
-				if (req.readyState === 4) {
+			var getp = new Promise(function(resolve, reject) {
+				req.open('GET', 'data/data.xml', true);
+				req.onload = function() {
 					if (req.status === 200) {
-						xml = req.responseText;
+						resolve(req.responseText);
 					} else {
-			      		document.getElementById("doc").innerHTML = "Not loaded!";
+						reject("Not loaded!");
 			      	}
-				}
-			};
-			req.send(null);
-			function run() {
-				var d1 = new Date();
-				xmldoc = parser.parseFromString(xml, "application/xml");
-				var d2 = new Date();
-				xmldoc2 = parser2.parseFromString(xml, "application/xml");
-				var d3 = new Date();
-				document.getElementById("result").innerHTML = "<p>Fleur: " + (d2 - d1) + "</p><p>Native: " + (d3 - d2) + "</p><p>*" + ((d2 - d1)/(d3 - d2)) + "</p>" ;
-				//document.getElementById("doc").innerHTML = ser.serializeToString(xmldoc, true).replace(/</mg, "&lt;");
-				var nsResolver = {
-					defaultNamespace: xmldoc2.documentElement.getAttribute("xmlns"),
-					nsresolver: xmldoc2.createNSResolver(xmldoc2.documentElement),
-					lookupNamespaceURI: function(prefix) {
-						if (prefix === "_") {
-							return this.defaultNamespace;
-						}
-						return this.nsresolver.lookupNamespaceURI(prefix);
-						}
 				};
-				/*
-				var res = xmldoc.evaluate(xexpr, xmldoc, nsResolver, Fleur.XPathResult.ANY_TYPE, null).toArray().reduce(
-					function(s, n, index) {
-						return s + (index !== 0 ? " ": "") + n.textContent;
-					}, ""
+				req.send(null);
+			});
+			getp.then(
+				function(s) {
+					xml = s; 
+					document.getElementById("run").disabled = false;
+				},
+				function(s) {
+					document.getElementById("doc").innerHTML = s;
+				}
+			);
+			function run() {
+				document.getElementById("result").innerHTML = "";
+				document.getElementById("doc").innerHTML = "";
+				xmldoc = parser.parseFromString(xml, "application/xml");
+				var nsResolver = function(element) {
+					return {
+						defaultNamespace: element.getAttribute("xmlns"),
+						nsresolver: element.ownerDocument.createNSResolver(element),
+						lookupNamespaceURI: function(prefix) {
+							if (prefix === "_") {
+								return this.defaultNamespace;
+							}
+							return this.nsresolver.lookupNamespaceURI(prefix);
+						}
+					};
+				};
+				document.getElementById("doc").innerHTML = ser.serializeToString(xmldoc, true).replace(/</mg, "&lt;");
+				xmldoc.evaluate(xexpr, xmldoc, nsResolver(xmldoc.documentElement), Fleur.XPathResult.ANY_TYPE, null).then(
+					function(res) {
+						document.getElementById("result").innerHTML = res.toXQuery().replace(/</mg, "&lt;");
+					},
+					function(err) {
+						document.getElementById("result").innerHTML = "Error " + err.code;
+					}
 				);
-				*/
-				var res = xmldoc2.evaluate(xexpr, xmldoc2, nsResolver, Fleur.XPathResult.ANY_TYPE, null).stringValue;
-				document.getElementById("result").innerHTML = res;
 			}
 		</script>
 	</body>

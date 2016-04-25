@@ -51,7 +51,7 @@
     <description>Test encode-for-uri with invalid argument type </description>
     <created by="Joanne Tong" on="2005-09-29"/>
     <test>encode-for-uri(12)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -60,7 +60,7 @@
     <description>Test encode-for-uri with incorrect arity </description>
     <created by="Joanne Tong" on="2005-09-29"/>
     <test>encode-for-uri('',())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -213,7 +213,7 @@
     <description> A test whose essence is: `encode-for-uri()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>encode-for-uri()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -222,7 +222,7 @@
     <description> A test whose essence is: `encode-for-uri("http://example.com/", "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>encode-for-uri("http://example.com/", "wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>

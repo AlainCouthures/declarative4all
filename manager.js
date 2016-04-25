@@ -28,6 +28,7 @@ const contentTypesByExtension = {
 	'.json': 'application/json',
 	'.png':  'image/png',
 	'.svg':  'image/svg+xml',
+	'.txt':  'text/plain',
 	'.xml':  'application/xml; charset=utf-8',
 	'.xsl':  'text/xsl'
 };
@@ -55,6 +56,49 @@ http.createServer(function(request, response) {
 		if (newfilename) {
 	        fs.writeFile(newfilename, file, err => { if (err) console.log(err);});
 		}
+	};
+	var execfile = function(err, file) {
+		if (err) {        
+			response.writeHead(err.errno === 34 ? 404 : 500, {'Content-Type': 'text/plain'});
+			response.end(err.errno === 34 ? '404 Not Found' : '500 Internal server error - ' + err);
+			return;
+		}
+		var moduri = uri.split('/');
+		moduri.pop();
+		moduri = moduri.join('/') + '/js/fleur.js';
+		headers = {};
+		var genext = '.txt';
+		contentType = contentTypesByExtension[genext];
+		if (contentType) {
+			headers['Content-Type'] = contentType;
+		}
+		lastmodified = (new Date()).toUTCString();
+		headers['Last-Modified'] = lastmodified;
+		response.writeHead(200, headers);
+		http.get({
+			host: 'localhost',
+			port: port,
+			path: moduri
+		}, function(modresp) {
+	        var modbody = '';
+	        modresp.on('data', function(d) {
+	            modbody += d;
+	        });
+	        modresp.on('end', function() {
+	        	var fleursrc = './tmp/fleur.js';
+	        	fs.writeFile(fleursrc, modbody, err => {
+	        		if (err) {
+	        			console.log(err);
+	        		} else {
+	        			var Fleur = require(fleursrc);
+	        			var doc = new Fleur.Document();
+						var res = doc.evaluate(file, doc, new Fleur.XPathNSResolver(), Fleur.XPathResult.ANY_TYPE, null).toXQuery();
+						response.end(res, 'binary');
+						delete require.cache[require.resolve(fleursrc)];
+	        		}
+	        	});
+	        });
+		});
 	};
 	var composeResponse = function(components) {
 		var fname, descriptor, newcomponents;
@@ -246,14 +290,18 @@ http.createServer(function(request, response) {
 		}
 		switch(method) {
 			case 'GET':
-				ifmodifiedsince = request.headers['if-modified-since'];
-				if (ifmodifiedsince && (new Date(ifmodifiedsince)).getTime() >= filestats.mtime.getTime()) {
-					response.writeHead(304, {'Content-Type': 'text/plain'});
-					response.end('304 Not Modified');
-					return;
+				if (filename.endsWith('.xqy')) {
+					fs.readFile(filename, 'binary', execfile);
+				} else {
+					ifmodifiedsince = request.headers['if-modified-since'];
+					if (ifmodifiedsince && (new Date(ifmodifiedsince)).getTime() >= filestats.mtime.getTime()) {
+						response.writeHead(304, {'Content-Type': 'text/plain'});
+						response.end('304 Not Modified');
+						return;
+					}
+					lastmodified = filestats.mtime.toUTCString();
+					fs.readFile(filename, 'binary', sendfile);
 				}
-				lastmodified = filestats.mtime.toUTCString();
-				fs.readFile(filename, 'binary', sendfile);
 				break;
 			default:
 				response.writeHead(405, {'Content-Type': 'text/plain'});

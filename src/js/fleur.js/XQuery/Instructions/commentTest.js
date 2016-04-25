@@ -7,11 +7,6 @@
  * @module 
  * @description 
  */
-/**
- * @callback
- */
-Fleur.XQueryEngine[Fleur.XQueryX.commentTest] = function(ctx, children) {
-	if (ctx._stepctx.curr.nodeType !== Fleur.Node.COMMENT_NODE) {
-		ctx._stepctx.ignore = true;
-	}
+Fleur.XQueryEngine[Fleur.XQueryX.commentTest] = function(ctx, children, callback) {
+	callback(ctx._curr.nodeType !== Fleur.Node.COMMENT_NODE ? Fleur.EmptySequence : ctx._curr);
 };

@@ -7,50 +7,59 @@
  * @module 
  * @description 
  */
-Fleur.XQueryEngine[Fleur.XQueryX.pathExpr] = function(ctx, children) {
-	var i, l, curr, prevstep, result, seq;
-	ctx._result = null;
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1]);
-	if (ctx._result && children.length > 1) {
-		curr = ctx._curr;
-		if (ctx._result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-			ctx._curr = ctx._result;
-			ctx._result = null;
-			Fleur.XQueryEngine[Fleur.XQueryX.pathExpr](ctx, children.slice(1));
-			result = ctx._result;
-		} else {
-			l = ctx._result.childNodes.length;
-			i = 0;
-			prevstep = ctx._result.childNodes.slice(0);
-			result = ctx._result = null;
-			while (i < l) {
-				ctx._curr = prevstep[i];
-				Fleur.XQueryEngine[Fleur.XQueryX.pathExpr](ctx, children.slice(1));
-				if (ctx._result) {
-					if (!result) {
-						result = ctx._result;
+Fleur.XQueryEngine[Fleur.XQueryX.pathExpr] = function(ctx, children, callback) {
+	console.log("pathExpr - " + Fleur.Serializer._serializeNodeToXQuery(ctx._curr, false, ""));
+	var next;
+	var result = Fleur.EmptySequence;
+	var cb = function(n, eob) {
+	console.log("pathExpr - cb - " + Fleur.Serializer._serializeNodeToXQuery(n, false, "") + (eob ? " - " + (eob === Fleur.XQueryX.pathExpr ? "pathExpr" : "stepExpr") : ""));
+		if (eob === Fleur.XQueryX.pathExpr) {
+			if (n !== Fleur.EmptySequence) {
+				if (result === Fleur.EmptySequence) {
+					result = n;
+				} else {
+					if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+						var seq = new Fleur.Sequence();
+						seq.childNodes = new Fleur.NodeList();
+						seq.children = new Fleur.NodeList();
+						seq.textContent = "";
+						seq.appendChild(result);
+						result = seq;
+					}
+					if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+						result.appendChild(n);
 					} else {
-						if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-							seq = new Fleur.Sequence();
-							seq.childNodes = new Fleur.NodeList();
-							seq.children = new Fleur.NodeList();
-							seq.textContent = "";
-							seq.appendChild(result);
-							result = seq;
-						}
-						if (ctx._result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-							result.appendChild(ctx._result);
-						} else {
-							ctx._result.childNodes.forEach(function(n) {
-								result.appendChild(n);
-							});
-						}
+						n.childNodes.forEach(function(node) {
+							result.appendChild(node);
+						});
 					}
 				}
-				i++;
 			}
+			n = next;
 		}
-		ctx._result = result;
-		ctx._curr = curr;
-	}
+		if (n === Fleur.EmptySequence) {
+			callback(result, Fleur.XQueryX.pathExpr);
+			return;
+		}
+		if (children.length === 1) {
+			callback(n, Fleur.XQueryX.pathExpr);
+			return;
+		}
+		var subcurr;
+		if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+			subcurr = n.childNodes.shift();
+			if (n.childNodes.length === 1) {
+				n = n.childNodes[0];
+			}
+		} else {
+			subcurr = n;
+			n = Fleur.EmptySequence;
+		}
+		next = n;
+		Fleur.XQueryEngine[Fleur.XQueryX.pathExpr]({
+				_curr: subcurr,
+				nsresolver: ctx.nsresolver
+			}, children.slice(1), cb);
+	};
+	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
 };

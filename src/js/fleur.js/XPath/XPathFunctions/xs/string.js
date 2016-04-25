@@ -7,8 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_xs["string"] = function(ctx, children) {
+Fleur.XPathFunctions_xs["string"] = function(ctx, children, callback) {
 	Fleur.XPathConstructor(ctx, children, Fleur.Type_string, null, function() {}, function() {
 		return false;
-	});
+	}, callback);
 };

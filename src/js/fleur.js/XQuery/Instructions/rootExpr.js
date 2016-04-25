@@ -10,6 +10,6 @@
 /**
  * @callback
  */
-Fleur.XQueryEngine[Fleur.XQueryX.rootExpr] = function(ctx, children) {
-	ctx._result = ctx._curr.ownerDocument || ctx._curr;
+Fleur.XQueryEngine[Fleur.XQueryX.rootExpr] = function(ctx, children, callback) {
+	callback(ctx._curr.ownerDocument || ctx._curr);
 };

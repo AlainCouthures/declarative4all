@@ -1,5 +1,6 @@
 {
 	"Components":[
+		"anyURI.js",
 		"base64Binary.js",
 		"boolean.js",
 		"byte.js",
@@ -29,6 +30,7 @@
 		"unsignedInt.js",
 		"unsignedLong.js",
 		"unsignedShort.js",
+		"untypedAtomic.js",
 		"todo.js"
 	]
 }

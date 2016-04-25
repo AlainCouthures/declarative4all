@@ -7,6 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XQueryEngine[Fleur.XQueryX.contextItemExpr] = function(ctx, children) {
-	ctx._result = ctx._curr;
+Fleur.XQueryEngine[Fleur.XQueryX.contextItemExpr] = function(ctx, children, callback) {
+	callback(ctx._curr);
 };

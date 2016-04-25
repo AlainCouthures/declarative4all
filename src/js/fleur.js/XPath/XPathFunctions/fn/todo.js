@@ -102,7 +102,6 @@ Fleur.XPathFunctions_fn["seconds-from-time"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["serialize"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["sort"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["static-base-uri"] = function(ctx, children) {};
-Fleur.XPathFunctions_fn["string"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["string-join"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["string-to-codepoints"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["subsequence"] = function(ctx, children) {};

@@ -7,8 +7,9 @@
  * @module 
  * @description 
  */
-Fleur.XQueryEngine[Fleur.XQueryX.stringConstantExpr] = function(ctx, children) {
-	ctx._result = new Fleur.Text();
-	ctx._result.appendData(children[0][1][0] || "");
-	ctx._result.schemaTypeInfo = Fleur.Type_string;
+Fleur.XQueryEngine[Fleur.XQueryX.stringConstantExpr] = function(ctx, children, callback) {
+	var n = new Fleur.Text();
+	n.appendData(children[0][1][0] || "");
+	n.schemaTypeInfo = Fleur.Type_string;
+	callback(n);
 };

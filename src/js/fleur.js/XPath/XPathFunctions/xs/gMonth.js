@@ -7,8 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_xs["gMonth"] = function(ctx, children) {
+Fleur.XPathFunctions_xs["gMonth"] = function(ctx, children, callback) {
 	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gMonth"], /^--(0[1-9]|1[012])$/, function() {}, function() {
 		return false;
-	});
+	}, callback);
 };

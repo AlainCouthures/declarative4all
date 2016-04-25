@@ -7,6 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_math["tan"] = function(ctx, children) {
-	Fleur.XPathNumberFunction(ctx, children, Math.tan, Fleur.Type_double);
+Fleur.XPathFunctions_math["tan"] = function(ctx, children, callback) {
+	Fleur.XPathNumberFunction(ctx, children, Math.tan, Fleur.Type_double, callback);
 };

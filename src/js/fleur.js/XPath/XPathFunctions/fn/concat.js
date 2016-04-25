@@ -7,33 +7,32 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["concat"] = function(ctx, children) {
-	var i, l, res;
+Fleur.XPathFunctions_fn["concat"] = function(ctx, children, callback) {
+	var result = new Fleur.Text();
+	result.schemaTypeInfo = Fleur.Type_string;
+/*
 	if (children.length < 2) {
 		Fleur.error(ctx, "XPST0017");
 		return;
 	}
-	i = 0;
-	l = children.length;
-	res = "";
-	while (i < l) {
-		Fleur.XQueryEngine[children[i][0]](ctx, children[i][1]);
-		Fleur.Atomize(ctx);
-		if (ctx._result) {
-			if (ctx._result.schemaTypeInfo === Fleur.Type_error) {
-				return;
+*/
+	var cb = function(n, eob) {
+		var a = Fleur.Atomize(n);
+		if (eob) {
+			if (n !== Fleur.EmptySequence) {
+				result.data += a.data;
 			}
-			if (ctx._result.nodeType === Fleur.Node.SEQUENCE_NODE) {
-				Fleur.error(ctx, "XPTY0004");
-				return;
-			}
-			if (ctx._result.schemaTypeInfo) {
-				res += ctx._result.data;
-			}
+			callback(result, true);
+			return;
 		}
-		i++;
-	}
-	ctx._result = new Fleur.Text();
-	ctx._result.schemaTypeInfo = Fleur.Type_string;
-	ctx._result.data = res;
+		if (children.length === 1) {
+			callback(n, true);
+			return;
+		}
+		if (a.data) {
+			result.data = a.data;
+		}
+		Fleur.XPathFunctions_fn["concat"](ctx, children.slice(1), cb);
+	};
+	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
 };

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Promise Test Page</title>
+		<script type="text/javascript" src="js/fleur.js"></script>
+	</head>
+	<body>
+		<button onclick="run()">Run</button>
+		<pre id="result"></pre>
+		<script type="text/javascript">
+			/*globals Promise */
+			function run() {
+				var res = "nothing";
+				var p = new Promise(function(resolve, reject) {
+					if (false) {
+						resolve('Success!');
+					} else {
+						reject('Failure!');
+					}
+				});
+				p.then(function(s) { 
+					document.getElementById("result").innerHTML = s;
+				})['catch'](function(s) {
+					document.getElementById("result").innerHTML = s;
+				});
+			}
+		</script>
+	</body>
+</html>

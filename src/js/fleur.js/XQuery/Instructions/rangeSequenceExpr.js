@@ -7,40 +7,47 @@
  * @module 
  * @description 
  */
-Fleur.XQueryEngine[Fleur.XQueryX.rangeSequenceExpr] = function(ctx, children) {
-	var op1, op2;
-	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1]);
-	Fleur.Atomize(ctx);
-	if (!ctx._result) {
-		return;
-	}
-	op1 = Fleur.toJSNumber(ctx);
-	if (op1[0] !== 0) {
-		return;
-	}
-	Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1]);
-	Fleur.Atomize(ctx);
-	if (!ctx._result) {
-		return;
-	}
-	op2 = Fleur.toJSNumber(ctx);
-	if (op2[0] !== 0) {
-		return;
-	}
-	if (op1[1] > op2[1]) {
-		ctx._result = null;
-		return;
-	}
-	if (op1[1] === op2[1]) {
-		return;
-	}
-	ctx._result = new Fleur.Sequence();
-	ctx._result.nodeType = Fleur.Node.SEQUENCE_NODE;
-	while (op1[1] <= op2[1]) {
-		var n = new Fleur.Text();
-		n.schemaTypeInfo = Fleur.Type_integer;
-		n.data = "" + op1[1];
-		ctx._result.appendChild(n);
-		op1[1]++;
-	}
+Fleur.XQueryEngine[Fleur.XQueryX.rangeSequenceExpr] = function(ctx, children, callback) {
+	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+		var op1;
+		var a1 = Fleur.Atomize(n);
+		if (a1 === Fleur.EmptySequence) {
+			callback(a1);
+			return;
+		}
+		op1 = Fleur.toJSNumber(a1);
+		if (op1[0] !== 0) {
+			return;
+		}
+		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+			var op2;
+			var a2 = Fleur.Atomize(n);
+			if (a2 === Fleur.EmptySequence) {
+				callback(a2);
+				return;
+			}
+			op2 = Fleur.toJSNumber(a2);
+			if (op2[0] !== 0) {
+				return;
+			}
+			if (op1[1] > op2[1]) {
+				callback(Fleur.EmptySequence);
+				return;
+			}
+			if (op1[1] === op2[1]) {
+				callback(a2);
+				return;
+			}
+			var result = new Fleur.Sequence();
+			result.nodeType = Fleur.Node.SEQUENCE_NODE;
+			while (op1[1] <= op2[1]) {
+				var i = new Fleur.Text();
+				i.schemaTypeInfo = Fleur.Type_integer;
+				i.data = "" + op1[1];
+				result.appendChild(i);
+				op1[1]++;
+			}
+			callback(result);
+		});
+	});
 };

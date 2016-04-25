@@ -1,12 +1,14 @@
 {
 	"Components":[
 		"abs.js",
+		"avg.js",
 		"boolean.js",
 		"ceiling.js",
 		"codepoints-to-string.js",
 		"concat.js",
 		"contains.js",
 		"count.js",
+		"doc.js",
 		"empty.js",
 		"ends-with.js",
 		"error.js",
@@ -25,6 +27,7 @@
 		"reverse.js",
 		"round.js",
 		"starts-with.js",
+		"string.js",
 		"string-length.js",
 		"substring-after.js",
 		"substring-before.js",

@@ -357,7 +357,7 @@
     <description> A test whose essence is: `empty(1, 2)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(1, 2)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -366,7 +366,7 @@
     <description> A test whose essence is: `empty()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>

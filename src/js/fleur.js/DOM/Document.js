@@ -330,19 +330,22 @@ Fleur.Document.prototype.compileXslt = function() {
 	return this.documentElement.compileXslt();
 };
 Fleur.Document.prototype.evaluate = function(expression, contextNode, nsResolver, type, xpresult) {
-	var compiled = eval(Fleur.XPathEvaluator._xp2js(expression, "", ""));
-	var ctx = {_curr: contextNode || this, nsresolver: nsResolver};
-	Fleur.XQueryEngine[compiled[0]](ctx, compiled[1]);
 	if (!xpresult) {
-		xpresult = new Fleur.XPathResult(type);
+		return new Fleur.XPathResult(this, expression, contextNode, nsResolver, type);
+	} else {
+		xpresult.document = this;
+		xpresult.expression = expression;
+		xpresult.contextNode = contextNode;
+		xpresult.nsResolver = nsResolver;
+		xpresult.resultType = type;
+		xpresult._index = 0;
+		return xpresult;
 	}
-	xpresult._result = ctx._result;
-	return xpresult;
 };
 Fleur.Document.prototype.createExpression = function(expression) {
 	expression = expression || "";
 //	return '[Fleur.XQueryX.module,[[Fleur.XQueryX.mainModule,[[Fleur.XQueryX.queryBody,[' + Fleur.XPathEvaluator._xp2js(expression, "", "") + ']]]],[Fleur.XQueryX.xqx,"http://www.w3.org/2005/XQueryX"],[Fleur.XQueryX.schemaLocation,"http://www.w3.org/2005/XQueryX http://www.w3.org/2005/XQueryX/xqueryx.xsd"],[Fleur.XQueryX.xsi,"http://www.w3.org/2001/XMLSchema-instance"]]]';
-	return '[Fleur.XQueryX.module,[[Fleur.XQueryX.mainModule,[[Fleur.XQueryX.queryBody,[' + Fleur.XPathEvaluator._xp2js(expression, "", "") + ']]]],[Fleur.XQueryX.xqx,"http://www.w3.org/2005/XQueryX"]]]';
+	return Fleur.XPathEvaluator._xq2js(expression);
 };
 Fleur.Document.prototype.createNSResolver = function(node) {
 	return new Fleur.XPathNSResolver(node);

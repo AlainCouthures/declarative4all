@@ -7,29 +7,46 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["boolean"] = function(ctx, children) {
+Fleur.XPathFunctions_fn["boolean"] = function(ctx, children, callback) {
 	if (children.length !== 1) {
-		Fleur.error(ctx, "XPST0017");
+		callback(Fleur.error(ctx, "XPST0017"));
 		return;
 	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1]);
-	if (ctx._result.schemaTypeInfo === Fleur.Type_error) {
-		return;
-	}
-	var boolean;
-	if (ctx._result.schemaTypeInfo === Fleur.Type_boolean) {
-		boolean = ctx._result.data;
-	} else if (ctx._result.nodeType === Fleur.Node.SEQUENCE_NODE) {
-		boolean = ctx._result.childNodes.length === 0 ? "false" : "true";
-	} else if (ctx._result.schemaTypeInfo === Fleur.Type_string || ctx._result.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-		boolean = (!ctx._result.data || !ctx._result.data.length === 0) ? "false" : "true";
-	} else if (ctx._result.schemaTypeInfo === Fleur.Type_integer || ctx._result.schemaTypeInfo === Fleur.Type_decimal || ctx._result.schemaTypeInfo === Fleur.Type_float || ctx._result.schemaTypeInfo === Fleur.Type_double) {
-		boolean = (ctx._result.data === "0" || ctx._result.data === "NaN") ? "false" : "true";
-	} else {
-		Fleur.error(ctx, "FORG0006");
-		return;
-	}
-	ctx._result = new Fleur.Text();
-	ctx._result.data = boolean;
-	ctx._result.schemaTypeInfo = Fleur.Type_boolean;
+	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+		var boolean;
+		if (n === Fleur.EmptySequence) {
+			boolean = "false";
+		} else if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+			if (n.childNodes.length === 0) {
+				boolean = "false";
+			} else if (n.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || n.childNodes[0].ownerDocument) {
+				boolean = "true";
+			} else {
+				callback(Fleur.error(ctx, "FORG0006"));
+				return;
+			}
+		} else if (n.schemaTypeInfo === Fleur.Type_error) {
+			callback(n);
+			return;
+		} else if (n.schemaTypeInfo === Fleur.Type_boolean) {
+			boolean = n.data;
+		} else if (n.schemaTypeInfo === Fleur.Type_string || n.schemaTypeInfo === Fleur.Type_untypedAtomic || n.schemaTypeInfo === Fleur.Type_anyURI) {
+			boolean = (!n.data || !n.data.length === 0) ? "false" : "true";
+		} else if (n.schemaTypeInfo === Fleur.Type_integer || n.schemaTypeInfo === Fleur.Type_decimal || n.schemaTypeInfo === Fleur.Type_float || n.schemaTypeInfo === Fleur.Type_double) {
+			boolean = (n.data === "0" || n.data === "0.0" || n.data === "0.0e0" || n.data === "NaN") ? "false" : "true";
+		} else if (n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "boolean", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+			boolean = n.data;
+		} else if (n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION) || n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+			boolean = (!n.data || n.data.length === 0) ? "false" : "true";
+		} else if (n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION) || n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || n.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+			boolean = (n.data === "0" || n.data === "0.0" || n.data === "0.0e0" || n.data === "NaN") ? "false" : "true";
+		} else {
+			callback(Fleur.error(ctx, "FORG0006"));
+			return;
+		}
+		n = new Fleur.Text();
+		n.data = boolean;
+		n.schemaTypeInfo = Fleur.Type_boolean;
+		callback(n);
+	});
 };

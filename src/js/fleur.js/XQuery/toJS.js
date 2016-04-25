@@ -7,77 +7,78 @@
  * @module 
  * @description 
  */
-Fleur.toJSNumber = function(ctx) {
-	if (ctx._result.nodeType === Fleur.Node.TEXT_NODE) {
-		if (ctx._result.schemaTypeInfo === Fleur.Type_integer) {
-			return [0, parseInt(ctx._result.data, 10)];
-		} else if (ctx._result.schemaTypeInfo === Fleur.Type_decimal) {
-			return [1, parseFloat(ctx._result.data)];
-		} else if (ctx._result.schemaTypeInfo === Fleur.Type_float) {
-			return [2, parseFloat(ctx._result.data)];
-		} else if (ctx._result.schemaTypeInfo === Fleur.Type_double || ctx._result.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-			return [3, parseFloat(ctx._result.data)];
-		} else if (ctx._result.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-			return [0, parseInt(ctx._result.data, 10)];
-		} else if (ctx._result.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-			return [1, parseFloat(ctx._result.data)];
-		} else if (ctx._result.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-			return [2, parseFloat(ctx._result.data)];
-		} else if (ctx._result.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-			return [3, parseFloat(ctx._result.data)];
-		} else if (ctx._result.schemaTypeInfo === Fleur.Type_error) {
+Fleur.toJSNumber = function(a) {
+	if (a.nodeType === Fleur.Node.TEXT_NODE) {
+		if (a.schemaTypeInfo === Fleur.Type_integer) {
+			return [0, parseInt(a.data, 10)];
+		} else if (a.schemaTypeInfo === Fleur.Type_decimal) {
+			return [1, parseFloat(a.data)];
+		} else if (a.schemaTypeInfo === Fleur.Type_float) {
+			return [2, parseFloat(a.data)];
+		} else if (a.schemaTypeInfo === Fleur.Type_double || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
+			return [3, parseFloat(a.data)];
+		} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+			return [0, parseInt(a.data, 10)];
+		} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+			return [1, parseFloat(a.data)];
+		} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+			return [2, parseFloat(a.data)];
+		} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+			return [3, parseFloat(a.data)];
+		} else if (a.schemaTypeInfo === Fleur.Type_error) {
 			return [-1];
 		}
-		Fleur.error(ctx, "XPTY0004");
+		a.schemaTypeInfo = Fleur.Type_error;
+		a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
 		return [-1];
-	} else if (ctx._result.nodeType === Fleur.Node.SEQUENCE_NODE) {
-		Fleur.error(ctx, "XPST0005");
+	} else if (a.nodeType === Fleur.Node.SEQUENCE_NODE) {
+		a.schemaTypeInfo = Fleur.Type_error;
+		a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPST0005");
 		return [-1];
 	}
-	Fleur.error(ctx, "XPTY0004");
+	a.schemaTypeInfo = Fleur.Type_error;
+	a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
 	return [-1];
 };
-Fleur.toJSString = function(ctx) {
-	if (!ctx._result) {
+Fleur.toJSString = function(a) {
+	if (a === Fleur.EmptySequence) {
 		return [0];
 	}
-	if (ctx._result.schemaTypeInfo === Fleur.Type_string || ctx._result.schemaTypeInfo === Fleur.Type_anyURI || ctx._result.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-		return [0, ctx._result.data];
-	} else if (ctx._result.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || ctx._result.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION) || ctx._result.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-		return [0, ctx._result.data];
+	if (a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_anyURI || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
+		return [0, a.data];
+	} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+		return [0, a.data];
 	}
-	ctx._result = new Fleur.Text();
-	ctx._result.schemaTypeInfo = Fleur.Type_error;
-	ctx._result.data = "XPTY0004";
+	a.schemaTypeInfo = Fleur.Type_error;
+	a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
 	return [-1];
 };
-Fleur.toJSBoolean = function(ctx) {
+Fleur.toJSBoolean = function(a) {
 	var value;
-	if (ctx._result.nodeType === Fleur.Node.SEQUENCE_NODE) {
-		return [0, ctx._result.childNodes.length !== 0];
-	} else if (ctx._result.schemaTypeInfo === Fleur.Type_boolean) {
-		return [0, ctx._result.data === "true"];
-	} else if (ctx._result.schemaTypeInfo === Fleur.Type_string || ctx._result.schemaTypeInfo === Fleur.Type_anyURI || ctx._result.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-		return [0, ctx._result.data.length !== 0];
-	} else if (ctx._result.schemaTypeInfo === Fleur.Type_integer) {
-		value = parseInt(ctx._result.data, 10);
+	if (a.nodeType === Fleur.Node.SEQUENCE_NODE) {
+		return [0, a.childNodes.length !== 0];
+	} else if (a.schemaTypeInfo === Fleur.Type_boolean) {
+		return [0, a.data === "true"];
+	} else if (a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_anyURI || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
+		return [0, a.data.length !== 0];
+	} else if (a.schemaTypeInfo === Fleur.Type_integer) {
+		value = parseInt(a.data, 10);
 		return [0, !isNaN(value) && value !== 0];
-	} else if (ctx._result.schemaTypeInfo === Fleur.Type_decimal || ctx._result.schemaTypeInfo === Fleur.Type_float || ctx._result.schemaTypeInfo === Fleur.Type_double) {
-		value = parseFloat(ctx._result.data);
+	} else if (a.schemaTypeInfo === Fleur.Type_decimal || a.schemaTypeInfo === Fleur.Type_float || a.schemaTypeInfo === Fleur.Type_double) {
+		value = parseFloat(a.data);
 		return [0, !isNaN(value) && value !== 0];
-	} else if (ctx._result.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "boolean", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-		return [0, ctx._result.data === "true"];
-	} else if (ctx._result.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || ctx._result.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION) || ctx._result.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-		return [0, ctx._result.data.length !== 0];
-	} else if (ctx._result.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-		value = parseInt(ctx._result.data, 10);
+	} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "boolean", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+		return [0, a.data === "true"];
+	} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+		return [0, a.data.length !== 0];
+	} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+		value = parseInt(a.data, 10);
 		return [0, !isNaN(value) && value !== 0];
-	} else if (ctx._result.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || ctx._result.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || ctx._result.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-		value = parseFloat(ctx._result.data);
+	} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+		value = parseFloat(a.data);
 		return [0, !isNaN(value) && value !== 0];
 	}
-	ctx._result = new Fleur.Text();
-	ctx._result.schemaTypeInfo = Fleur.Type_error;
-	ctx._result.data = "XPTY0004";
+	a.schemaTypeInfo = Fleur.Type_error;
+	a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
 	return [-1];
 };

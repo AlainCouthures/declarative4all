@@ -7,6 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_math["sqrt"] = function(ctx, children) {
-	Fleur.XPathNumberFunction(ctx, children, Math.sqrt, Fleur.Type_double);
+Fleur.XPathFunctions_math["sqrt"] = function(ctx, children, callback) {
+	Fleur.XPathNumberFunction(ctx, children, Math.sqrt, Fleur.Type_double, callback);
 };

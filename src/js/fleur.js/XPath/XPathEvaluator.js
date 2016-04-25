@@ -37,6 +37,7 @@ Fleur.XPathEvaluator._skipSpaces = function(s, offset) {
 		}
 		c = s.charAt(++i);
 	} while (i < l);
+	return i;
 };
 Fleur.XPathEvaluator._getName = function(s) {
 	var i = 0;
@@ -237,6 +238,9 @@ Fleur.XPathEvaluator._getPredParam = function(c, s, l, arg) {
 			var fargs2 = fargs.substr(0, 26) === "[Fleur.XQueryX.arguments,[" ? fargs.substr(26, fargs.length - 28) : fargs;
 			var parg0, parg;
 			switch (fname) {
+				case "'array'":
+					p = plen + "." + arg.substr(0, arg.indexOf("[Fleur.XQueryX.nameTest,['array']]]]")) + "[Fleur.XQueryX.arrayTest,[]]]]]]";
+					break;
 				case "'attribute'":
 					parg = Fleur.XPathEvaluator._testFormat(fargs2, "Fleur.XQueryX.attributeName");
 					p = plen + "." + "[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['attribute']],[Fleur.XQueryX.attributeTest,[" + parg + "]]]]]]";
@@ -257,8 +261,15 @@ Fleur.XPathEvaluator._getPredParam = function(c, s, l, arg) {
 					parg = Fleur.XPathEvaluator._testFormat(fargs2, "Fleur.XQueryX.elementName");
 					p = plen + "." + arg.substr(0, arg.indexOf("[Fleur.XQueryX.nameTest,['element']]]]")) + "[Fleur.XQueryX.elementTest,[" + parg + "]]]]]]";
 					break;
+				case "'entry'":
+					parg = Fleur.XPathEvaluator._testFormat(fargs2, "Fleur.XQueryX.entryName");
+					p = plen + "." + "[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['entry']],[Fleur.XQueryX.entryTest,[" + parg + "]]]]]]";
+					break;
 				case "'function'":
 					p = plen + "." + arg.substr(0, arg.indexOf("[Fleur.XQueryX.nameTest,['function']]]]")) + "[33,[]]]]]]";
+					break;
+				case "'map'":
+					p = plen + "." + arg.substr(0, arg.indexOf("[Fleur.XQueryX.nameTest,['map']]]]")) + "[Fleur.XQueryX.mapTest,[]]]]]]";
 					break;
 				case "'namespace-node'":
 					p = plen + "." + arg.substr(0, arg.indexOf("[Fleur.XQueryX.nameTest,['namespace-node']]]]")) + "[Fleur.XQueryX.namespaceTest,[]]]]]]";
@@ -340,16 +351,47 @@ Fleur.XPathEvaluator._getPredParams = function(s, len, arg) {
 	}
 	return (len + i) + "." + arg;
 };
+Fleur.XPathEvaluator._getStringLiteral = function(s) {
+	var i = Fleur.XPathEvaluator._skipSpaces(s, 0);
+	var d = s.substr(i + 1);
+	if (s.charAt(i) === "'") {
+		var sep2 = d.indexOf("'");
+		var t2 = d.substr(0, d.indexOf("'"));
+		while (d.substr(sep2 + 1, 1) === "'") {
+			var d2 = d.substr(sep2 + 2);
+			t2 += "\\'" + d2.substr(0, d2.indexOf("'"));
+			sep2 += 2 + d2.indexOf("'");
+		}
+		var t2b = "'" + Fleur.DocumentType.resolveEntities(null, t2) + "'";
+		if (t2b === "''") {
+			t2b = "";
+		}
+		return (sep2 + 2) + "." + t2b;
+	} else if (s.charAt(i) === '"') {
+		var sep3 = d.indexOf('"');
+		var t3 = d.substr(0, d.indexOf('"'));
+		while (d.substr(sep3 + 1, 1) === '"') {
+			var d3 = d.substr(sep3 + 2);
+			t3 += '\\"' + d3.substr(0, d3.indexOf('"'));
+			sep3 += 2 + d3.indexOf('"');
+		}
+		var t3b = '"' + Fleur.DocumentType.resolveEntities(null, t3) + '"';
+		if (t3b === '""') {
+			t3b = "";
+		}
+		return (sep3 + 2) + "." + t3b;
+	}
+};
 Fleur.XPathEvaluator._getNumber = function(s, r) {
 	r = r || "";
 	if (s === "") {
 		return r;
 	}
 	var c = s.charAt(0);
-	if (c === "e") {
-		c = "E";
+	if (c === "E") {
+		c = "e";
 	}
-	if ("0123456789".indexOf(c) !== -1 || ((c === "." || c === "E") && r.indexOf(c) === -1)) {
+	if ("0123456789".indexOf(c) !== -1 || ((c === "." || c === "e") && r.indexOf(c) === -1)) {
 		return Fleur.XPathEvaluator._getNumber(s.substr(1), r + c);
 	}
 	return r;
@@ -372,7 +414,7 @@ Fleur.XPathEvaluator._xp2js = function(xp, args, ops) {
 		r = "0.";
 	} else if (c === "/") {
 		//rootExpr
-		r = (d.charAt(0) === "" || "/*@.(_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".indexOf(d.charAt(0)) === -1 ? "1" : "0") + ".[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.rootExpr,[]]]]";
+		r = (d.charAt(0) === "" || "/@*.(_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ \n\r\t".indexOf(d.charAt(0)) === -1 ? "1" : "0") + ".[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.rootExpr,[]]]]";
 	} else if (c === "@") {
 		r = Fleur.XPathEvaluator._getNameStep(d, 1);
 	} else if (c === "'") {
@@ -537,4 +579,255 @@ Fleur.XPathEvaluator._xp2js = function(xp, args, ops) {
 		return Fleur.XPathEvaluator._xp2js(xp3, args3, (opprec.length + 1 + op.length) + "." + opprec + "." + op + ops3);
 	}
 	return "~~~~Unknown operator at '" + f + "'~#~#";
+};
+Fleur.XPathEvaluator._getVersion = function(xq) {
+	var i = Fleur.XPathEvaluator._skipSpaces(xq, 0);
+	var c = xq.charAt(i);
+	var d = xq.substr(i + 1);
+	var r = "";
+	var v, e;
+	if (c === "" || "abcdefghijklmnopqrstuvwxyz".indexOf(c) === -1) {
+		return i + ".";
+	}
+	r = Fleur.XPathEvaluator._getName(c + d);
+	if (r === "xquery") {
+		var j = Fleur.XPathEvaluator._skipSpaces(xq, i + r.length);
+		c = xq.charAt(j);
+		d = xq.substr(j + 1);
+		if (c === "" || "abcdefghijklmnopqrstuvwxyz".indexOf(c) === -1) {
+			return i + ".";
+		}
+		r = Fleur.XPathEvaluator._getName(c + d);
+		if (r === "version") {
+			j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+			c = xq.charAt(j);
+			d = xq.substr(j + 1);
+			if (c !== "'" && c !== '"') {
+				return i + ".";
+			}
+			r = Fleur.XPathEvaluator._getStringLiteral(c + d);
+			var vl = r.substr(0, r.indexOf("."));
+			v = r.substr(vl.length + 1);
+			j = Fleur.XPathEvaluator._skipSpaces(xq, j + parseInt(vl, 10));
+			c = xq.charAt(j);
+			if (c === ";") {
+				return (j + 1) + ".[Fleur.XQueryX.versionDecl,[[Fleur.XQueryX.version,[" + v + "]]]],";
+			}
+			d = xq.substr(j + 1);
+			r = Fleur.XPathEvaluator._getName(c + d);
+		}
+		if (r === "encoding") {
+			j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+			c = xq.charAt(j);
+			d = xq.substr(j + 1);
+			if (c !== "'" && c !== '"') {
+				return i + ".";
+			}
+			r = Fleur.XPathEvaluator._getStringLiteral(c + d);
+			var el = r.substr(0, r.indexOf("."));
+			e = r.substr(el.length + 1);
+			j = Fleur.XPathEvaluator._skipSpaces(xq, j + parseInt(el, 10));
+			c = xq.charAt(j);
+			if (c === ";") {
+				return (j + 1) + ".[Fleur.XQueryX.versionDecl,[" + (v ? "[Fleur.XQueryX.version,[" + v + "]]," : "") + "[Fleur.XQueryX.encoding,[" + e + "]]]],";
+			}
+		}
+	}
+	return i + ".";
+};
+Fleur.XPathEvaluator._getProlog = function(xq, i) {
+	i = Fleur.XPathEvaluator._skipSpaces(xq, i);
+	var c = xq.charAt(i);
+	var d = xq.substr(i + 1);
+	var r = "", v, vl;
+	var res = i + ".";
+	if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+		r = Fleur.XPathEvaluator._getName(c + d);
+		switch (r) {
+			case "declare":
+				var j = Fleur.XPathEvaluator._skipSpaces(xq, i + r.length);
+				c = xq.charAt(j);
+				d = xq.substr(j + 1);
+				if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+					r = Fleur.XPathEvaluator._getName(c + d);
+					switch (r) {
+						case "default":
+							j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+							c = xq.charAt(j);
+							d = xq.substr(j + 1);
+							if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+								r = Fleur.XPathEvaluator._getName(c + d);
+								switch (r) {
+									case "element":
+									case "function":
+										var category = r;
+										j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+										c = xq.charAt(j);
+										d = xq.substr(j + 1);
+										if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+											r = Fleur.XPathEvaluator._getName(c + d);
+											if (r === "namespace") {
+												j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+												c = xq.charAt(j);
+												d = xq.substr(j + 1);
+												if (c === "'" || c === '"') {
+													r = Fleur.XPathEvaluator._getStringLiteral(c + d);
+													vl = r.substr(0, r.indexOf("."));
+													v = r.substr(vl.length + 1);
+													j = Fleur.XPathEvaluator._skipSpaces(xq, j + parseInt(vl, 10));
+													c = xq.charAt(j);
+													if (c === ";") {
+														return (j + 1) + ".[Fleur.XQueryX.defaultNamespaceDecl,[[Fleur.XQueryX.defaultNamespaceCategory,['" + category + "']],[Fleur.XQueryX.uri,[" + v + "]]]],";
+													}
+												}
+											}
+										}
+										break;
+									case "collation":
+										j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+										c = xq.charAt(j);
+										d = xq.substr(j + 1);
+										if (c === "'" || c === '"') {
+											r = Fleur.XPathEvaluator._getStringLiteral(c + d);
+											vl = r.substr(0, r.indexOf("."));
+											v = r.substr(vl.length + 1);
+											j = Fleur.XPathEvaluator._skipSpaces(xq, j + parseInt(vl, 10));
+											c = xq.charAt(j);
+											if (c === ";") {
+												return (j + 1) + ".[Fleur.XQueryX.defaultCollationDecl,[" + v + "]],";
+											}
+										}
+										break;
+									case "order":
+										j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+										c = xq.charAt(j);
+										d = xq.substr(j + 1);
+										if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+											r = Fleur.XPathEvaluator._getName(c + d);
+											if (r === "empty") {
+												j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+												c = xq.charAt(j);
+												d = xq.substr(j + 1);
+												if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+													r = Fleur.XPathEvaluator._getName(c + d);
+													if (r === "greatest" || r === "least") {
+														j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+														c = xq.charAt(j);
+														if (c === ";") {
+															return (j + 1) + ".[Fleur.XQueryX.emptyOrderingDecl,['empty " + r + "']],";
+														}
+													}
+												}
+											}
+										}
+										break;
+									case "decimal-format":
+								}
+							}
+							break;
+						case "boundary-space":
+						case "construction":
+							var decl = r === "boundary-space" ? "boundarySpaceDecl" : "constructionDecl";
+							j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+							c = xq.charAt(j);
+							d = xq.substr(j + 1);
+							if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+								r = Fleur.XPathEvaluator._getName(c + d);
+								if (r === "strip" || r === "preserve") {
+									j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+									c = xq.charAt(j);
+									if (c === ";") {
+										return (j + 1) + ".[Fleur.XQueryX." + decl + ",['" + r + "']],";
+									}
+								}
+							}
+							break;
+						case "base-uri":
+							j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+							c = xq.charAt(j);
+							d = xq.substr(j + 1);
+							if (c === "'" || c === '"') {
+								r = Fleur.XPathEvaluator._getStringLiteral(c + d);
+								vl = r.substr(0, r.indexOf("."));
+								v = r.substr(vl.length + 1);
+								j = Fleur.XPathEvaluator._skipSpaces(xq, j + parseInt(vl, 10));
+								c = xq.charAt(j);
+								if (c === ";") {
+									return (j + 1) + ".[Fleur.XQueryX.baseUriDecl,[" + v + "]],";
+								}
+							}
+							break;
+						case "ordering":
+							j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+							c = xq.charAt(j);
+							d = xq.substr(j + 1);
+							if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+								r = Fleur.XPathEvaluator._getName(c + d);
+								if (r === "ordered" || r === "unordered") {
+									j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+									c = xq.charAt(j);
+									if (c === ";") {
+										return (j + 1) + ".[Fleur.XQueryX.orderingModeDecl,['" + r + "']],";
+									}
+								}
+							}
+							break;
+						case "copy-namespaces":
+							j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+							c = xq.charAt(j);
+							d = xq.substr(j + 1);
+							if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+								r = Fleur.XPathEvaluator._getName(c + d);
+								if (r === "preserve" || r === "no-preserve") {
+									var preserve = r;
+									j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+									c = xq.charAt(j);
+									if (c === ",") {
+										j = Fleur.XPathEvaluator._skipSpaces(xq, j + 1);
+										c = xq.charAt(j);
+										d = xq.substr(j + 1);
+										if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+											r = Fleur.XPathEvaluator._getName(c + d);
+											if (r === "inherit" || r === "no-inherit") {
+												j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+												c = xq.charAt(j);
+												if (c === ";") {
+													return (j + 1) + ".[Fleur.XQueryX.copyNamespacesDecl,[[Fleur.XQueryX.preserveMode,['" + preserve + "']],[Fleur.XQueryX.inheritMode,['" + r + "']]]],";
+												}
+											}
+										}
+									}
+								}
+							}
+							break;
+						case "decimal-format":
+							break;
+						case "namespace":
+							break;
+						case "context":
+							break;
+						case "variable":
+							break;
+						case "function":
+							break;
+						case "option":
+					}
+				}
+				break;
+			case "import":
+		}
+	}
+	return res;
+};
+Fleur.XPathEvaluator._xq2js = function(xq) {
+	var v = Fleur.XPathEvaluator._getVersion(xq);
+	var vl = v.substr(0, v.indexOf("."));
+	var prolog = "", p, pc, pl = parseInt(vl, 10);
+	do {
+		p = Fleur.XPathEvaluator._getProlog(xq, pl);
+		pl = parseInt(p.substr(0, p.indexOf(".")), 10);
+		pc = p.substr(p.indexOf(".") + 1);
+		prolog += pc;
+	} while (pc !== "")
+	return "[Fleur.XQueryX.module,[" + v.substr(v.indexOf(".") + 1) + "[Fleur.XQueryX.mainModule,[" + prolog + "[Fleur.XQueryX.queryBody,[" + Fleur.XPathEvaluator._xp2js(xq.substr(pl), "", "") + ']]]],[Fleur.XQueryX.xqx,"http://www.w3.org/2005/XQueryX"],[Fleur.XQueryX.schemaLocation,"http://www.w3.org/2005/XQueryX http://www.w3.org/2005/XQueryX/xqueryx.xsd"],[Fleur.XQueryX.xsi,"http://www.w3.org/2001/XMLSchema-instance"]]]';
 };

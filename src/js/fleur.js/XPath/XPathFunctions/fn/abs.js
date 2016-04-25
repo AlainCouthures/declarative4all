@@ -7,6 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["abs"] = function(ctx, children) {
-	Fleur.XPathNumberFunction(ctx, children, Math.abs);
+Fleur.XPathFunctions_fn["abs"] = function(ctx, children, callback) {
+	Fleur.XPathNumberFunction(ctx, children, Math.abs, callback);
 };

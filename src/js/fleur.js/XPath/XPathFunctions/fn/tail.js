@@ -7,20 +7,21 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["tail"] = function(ctx, children) {
-	var i;
+Fleur.XPathFunctions_fn["tail"] = function(ctx, children, callback) {
 	if (children.length !== 1) {
-		Fleur.error(ctx, "XPST0017");
+		callback(Fleur.error(ctx, "XPST0017"));
 		return;
 	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1]);
-	if (ctx._result.nodeType === Fleur.Node.SEQUENCE_NODE) {
-		if (ctx._result.childNodes.length > 1) {
-			ctx._result.childNodes.shift();
+	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+		if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+			if (n.childNodes.length > 1) {
+				n.childNodes.shift();
+			} else {
+				n = n.childNodes[0];
+			}
 		} else {
-			ctx._result = ctx._result.childNodes[0];
+			n = Fleur.EmptySequence;
 		}
-	} else {
-		ctx._result = null;
-	}
+		callback(n);
+	});
 };

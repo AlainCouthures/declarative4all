@@ -6,7 +6,7 @@
     <description> Evaluation of "fn:error" function with no arguments </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <error code="FOER0000"/>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluation of "fn:error" function as per example 2 from the Funcs. and Ops. Specifications. </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.example.com/HR', 'myerr:toohighsal'), 'Does not apply because salary is too high')</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "*"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:*"))</result-string>
     <result>
       <error code="*"/>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluation of "fn:error" function with wrong argument type. </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error('Wrong Argument Type')</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluation of "fn:error" for error code "FOCH0004". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FOCH0004'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOCH0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0004"))</result-string>
     <result>
       <error code="FOCH0004"/>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluation of "fn:error" with first argument set to empty string for 3rd signature. </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error((), 'err:FOER0000')</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <error code="FOER0000"/>
     </result>
@@ -51,7 +51,7 @@
     <description> Evaluation of "fn:error" with first argument set to empty string for 4rd signature. </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error((), 'err:FOER0000','error raised by this test by setting first argument to empty sequence')</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <error code="FOER0000"/>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluation of "fn:error" set to raise error "FODT0001". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FODT0001'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FODT0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODT0001"))</result-string>
     <result>
       <error code="FODT0001"/>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluation of "fn:error" set to raise error "FORG0009". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0009'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0009"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0009"))</result-string>
     <result>
       <error code="FORG0009"/>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluation of "fn:error" set to raise error "FOTY0012". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FOTY0012'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOTY0012"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOTY0012"))</result-string>
     <result>
       <error code="FOTY0012"/>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluation of "fn:error" set to raise error "SENR0001". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SENR0001'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "SENR0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SENR0001"))</result-string>
     <result>
       <error code="SENR0001"/>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluation of "fn:error" set to raise error "SEPM0004". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SEPM0004'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "SEPM0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SEPM0004"))</result-string>
     <result>
       <error code="SEPM0004"/>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluation of "fn:error" set to raise error "SEPM0009". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SEPM0009'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "SEPM0009"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SEPM0009"))</result-string>
     <result>
       <error code="SEPM0009"/>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluation of "fn:error" set to raise error "SEPM0010". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SEPM0010'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "SEPM0010"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SEPM0010"))</result-string>
     <result>
       <error code="SEPM0010"/>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluation of "fn:error" set to raise error "SEPM0016". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SEPM0016'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "SEPM0016"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SEPM0016"))</result-string>
     <result>
       <error code="SEPM0016"/>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluation of "fn:error" set to raise error "SERE0003". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SERE0003'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "SERE0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SERE0003"))</result-string>
     <result>
       <error code="SERE0003"/>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluation of "fn:error" set to raise error "SERE0005". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SERE0005'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "SERE0005"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SERE0005"))</result-string>
     <result>
       <error code="SERE0005"/>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluation of "fn:error" set to raise error "SERE0006". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SERE0006'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "SERE0006"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SERE0006"))</result-string>
     <result>
       <error code="SERE0006"/>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluation of "fn:error" set to raise error "SERE0008". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SERE0008'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "SERE0008"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SERE0008"))</result-string>
     <result>
       <error code="SERE0008"/>
     </result>
@@ -168,7 +168,7 @@
     <description> Evaluation of "fn:error" set to raise error "SERE0012". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SERE0012'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "SERE0012"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SERE0012"))</result-string>
     <result>
       <error code="SERE0012"/>
     </result>
@@ -177,7 +177,7 @@
     <description> Evaluation of "fn:error" set to raise error "SERE0014". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SERE0014'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "SERE0014"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SERE0014"))</result-string>
     <result>
       <error code="SERE0014"/>
     </result>
@@ -186,7 +186,7 @@
     <description> Evaluation of "fn:error" set to raise error "SESU0007". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SESU0007'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "SESU0007"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SESU0007"))</result-string>
     <result>
       <error code="SESU0007"/>
     </result>
@@ -195,7 +195,7 @@
     <description> Evaluation of "fn:error" set to raise error "SESU0011". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SESU0011'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "SESU0011"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SESU0011"))</result-string>
     <result>
       <error code="SESU0011"/>
     </result>
@@ -204,7 +204,7 @@
     <description> Evaluation of "fn:error" set to raise error "XPDY0002". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XPDY0002'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0002"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0002"))</result-string>
     <result>
       <error code="XPDY0002"/>
     </result>
@@ -213,7 +213,7 @@
     <description> Evaluation of "fn:error" set to raise error "XPST0010". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XPST0010'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0010"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0010"))</result-string>
     <result>
       <error code="XPST0010"/>
     </result>
@@ -222,7 +222,7 @@
     <description> Evaluation of "fn:error" set to raise error "XPST0080". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XPST0080'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0080"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0080"))</result-string>
     <result>
       <error code="XPST0080"/>
     </result>
@@ -231,7 +231,7 @@
     <description> Evaluation of "fn:error" set to raise error "XPTY0018". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XPTY0018'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0018"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0018"))</result-string>
     <result>
       <error code="XPTY0018"/>
     </result>
@@ -240,7 +240,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQDY0027". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQDY0027'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQDY0027"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQDY0027"))</result-string>
     <result>
       <error code="XQDY0027"/>
     </result>
@@ -249,7 +249,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQDY0061". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQDY0061'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQDY0061"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQDY0061"))</result-string>
     <result>
       <error code="XQDY0061"/>
     </result>
@@ -258,7 +258,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQDY0084". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQDY0084'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQDY0084"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQDY0084"))</result-string>
     <result>
       <error code="XQDY0084"/>
     </result>
@@ -267,7 +267,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQST0009". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0009'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQST0009"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0009"))</result-string>
     <result>
       <error code="XQST0009"/>
     </result>
@@ -276,7 +276,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQST0012". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0012'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQST0012"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0012"))</result-string>
     <result>
       <error code="XQST0012"/>
     </result>
@@ -285,7 +285,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQST0013". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0013'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQST0013"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0013"))</result-string>
     <result>
       <error code="XQST0013"/>
     </result>
@@ -294,7 +294,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQST0016". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0016'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQST0016"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0016"))</result-string>
     <result>
       <error code="XQST0016"/>
     </result>
@@ -303,7 +303,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQST0035". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0035'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQST0035"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0035"))</result-string>
     <result>
       <error code="XQST0035"/>
     </result>
@@ -312,7 +312,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQST0036". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0036'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQST0036"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0036"))</result-string>
     <result>
       <error code="XQST0036"/>
     </result>
@@ -321,7 +321,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQST0046". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0046'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQST0046"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0046"))</result-string>
     <result>
       <error code="XQST0046"/>
     </result>
@@ -330,7 +330,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQST0047". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0047'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQST0047"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0047"))</result-string>
     <result>
       <error code="XQST0047"/>
     </result>
@@ -339,7 +339,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQST0048". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0048'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQST0048"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0048"))</result-string>
     <result>
       <error code="XQST0048"/>
     </result>
@@ -348,7 +348,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQST0054". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0054'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQST0054"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0054"))</result-string>
     <result>
       <error code="XQST0054"/>
     </result>
@@ -357,7 +357,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQST0055". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0055'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQST0055"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0055"))</result-string>
     <result>
       <error code="XQST0055"/>
     </result>
@@ -366,7 +366,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQST0057". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0057'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQST0057"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0057"))</result-string>
     <result>
       <error code="XQST0057"/>
     </result>
@@ -375,7 +375,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQST0058". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0058'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQST0058"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0058"))</result-string>
     <result>
       <error code="XQST0058"/>
     </result>
@@ -384,7 +384,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQST0060". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0060'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQST0060"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0060"))</result-string>
     <result>
       <error code="XQST0060"/>
     </result>
@@ -393,7 +393,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQST0073. </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0073'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQST0073"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0073"))</result-string>
     <result>
       <error code="XQST0073"/>
     </result>
@@ -402,7 +402,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQST0075". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0075'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQST0075"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0075"))</result-string>
     <result>
       <error code="XQST0075"/>
     </result>
@@ -411,7 +411,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQST0076". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0076'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQST0076"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0076"))</result-string>
     <result>
       <error code="XQST0076"/>
     </result>
@@ -420,7 +420,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQST0079". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0079'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQST0079"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0079"))</result-string>
     <result>
       <error code="XQST0079"/>
     </result>
@@ -429,7 +429,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQST0087". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0087'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQST0087"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0087"))</result-string>
     <result>
       <error code="XQST0087"/>
     </result>
@@ -438,7 +438,7 @@
     <description> Evaluation of "fn:error" set to raise error "XQTY0030". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQTY0030'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQTY0030"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQTY0030"))</result-string>
     <result>
       <error code="XQTY0030"/>
     </result>
@@ -465,7 +465,7 @@
     <description> A test whose essence is: `error(QName("", "local"), "description", "object", "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>error(QName("", "local"), "description", "object", "wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -474,7 +474,7 @@
     <description> A test whose essence is: `error( () )`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>error( () )</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -483,7 +483,7 @@
     <description> A test whose essence is: `error(QName('http://www.w3.org/2005/xqt-errors', 'err:FOER0000'))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>error(QName('http://www.w3.org/2005/xqt-errors', 'err:FOER0000'))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <error code="FOER0000"/>
     </result>
@@ -492,7 +492,7 @@
     <description> When fn:error() is passed a description, the first argument may be an empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>error((), "description")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <error code="FOER0000"/>
     </result>
@@ -510,7 +510,7 @@
     <description> A test whose essence is: `error()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>error()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <error code="FOER0000"/>
     </result>
@@ -519,7 +519,7 @@
     <description> A test whose essence is: `error(QName("", "XPDY6666"), "description", "error object")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>error(QName("", "XPDY6666"), "description", "error object")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "*"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:*"))</result-string>
     <result>
       <error code="*"/>
     </result>
@@ -528,7 +528,7 @@
     <description> A test whose essence is: `exactly-one((true(), error()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>exactly-one((true(), error()))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <error code="FOER0000"/>
     </result>
@@ -538,7 +538,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, error())[2]</test>
     <result-string>xs:string("2")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-string-value>2</assert-string-value>
@@ -551,7 +551,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare default element namespace ""; fn:error(xs:QName("onlyAnNCName"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "*"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:*"))</result-string>
     <result>
       <error code="*"/>
     </result>
@@ -560,7 +560,7 @@
     <description> Use a QName with no namespace URI. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>error(QName("", "FOO"), "DESCRIPTION")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "*"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:*"))</result-string>
     <result>
       <error code="*"/>
     </result>
@@ -571,7 +571,7 @@
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:ignore($arg) { true() }; local:ignore( fn:error() )</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -584,7 +584,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(() + fn:error())</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -597,7 +597,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(fn:error() + ())</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -610,7 +610,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(() eq fn:error())</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -623,7 +623,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(fn:error() eq ())</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -636,7 +636,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>fn:error() = ()</test>
     <result-string>xs:boolean("false")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-false/>
@@ -649,7 +649,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>() = fn:error()</test>
     <result-string>xs:boolean("false")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-false/>
@@ -662,7 +662,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(fn:error() is ())</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -675,7 +675,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(() is fn:error())</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -688,7 +688,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>fn:error() and false()</test>
     <result-string>xs:boolean("false")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-false/>
@@ -701,7 +701,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>false() and fn:error()</test>
     <result-string>xs:boolean("false")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-false/>
@@ -714,7 +714,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>fn:error() or true()</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -727,7 +727,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>true() or fn:error()</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -740,7 +740,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>for $x in fn:error() return true()</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -754,7 +754,7 @@
     <dependency type="spec" value="XQ10+"/>
     <test>for $x at $p in fn:error() return true()</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -768,7 +768,7 @@
     <dependency type="spec" value="XQ10+ XP30+"/>
     <test>let $x := fn:error() return true()</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -781,7 +781,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>if (fn:error()) then true() else true()</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -794,7 +794,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>some $x in fn:error() satisfies false()</test>
     <result-string>xs:boolean("false")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-false/>
@@ -807,7 +807,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>every $x in fn:error() satisfies true()</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -820,7 +820,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>fn:error() instance of xs:integer</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -834,7 +834,7 @@
     <dependency type="spec" value="XQ10+"/>
     <test>typeswitch ( fn:error() ) case xs:integer return true() default return false()</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -848,7 +848,7 @@
     <dependency type="spec" value="XQ10+"/>
     <test>typeswitch ( fn:error() ) case xs:integer return true() default return false()</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -861,7 +861,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(fn:error()[2])</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -874,7 +874,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(fn:error()[false()])</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -887,7 +887,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty((1 div 0)[false()])</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOAR0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOAR0001"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -900,7 +900,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty( if (current-date() lt xs:date('2009-01-01')) then fn:error() else ())</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -913,7 +913,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty( if (current-date() lt xs:date('2009-01-01')) then () else fn:error())</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -927,7 +927,7 @@
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:item() { if (current-date() lt xs:date('2012-10-10')) then 1 else "one" }; empty( typeswitch ( local:item() ) case xs:integer return fn:error() default return ())</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -950,7 +950,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(fn:remove( fn:error(), 1))</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -963,7 +963,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(fn:subsequence( fn:error(), 2, 2))</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -976,7 +976,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(fn:error() except fn:error() )</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -989,7 +989,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(fn:error() intersect fn:error() )</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -1002,7 +1002,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty( fn:zero-or-one(fn:error()) )</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -1015,7 +1015,7 @@
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty( fn:error() treat as empty-sequence() )</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>

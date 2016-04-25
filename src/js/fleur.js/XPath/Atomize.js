@@ -76,8 +76,6 @@ Fleur._Atomize = function(a, n) {
 			return a;
 	}
 };
-Fleur.Atomize = function(ctx) {
-	if (ctx._result) {
-		ctx._result = Fleur._Atomize(null, ctx._result);
-	}
+Fleur.Atomize = function(n) {
+	return n === Fleur.EmptySequence ? Fleur.EmptySequence : Fleur._Atomize(null, n);
 };

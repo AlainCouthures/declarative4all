@@ -7,20 +7,20 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["avg"] = function(ctx, children) {
+Fleur.XPathFunctions_fn["avg"] = function(ctx, children, callback) {
 	if (children.length !== 1) {
-		Fleur.error(ctx, "XPST0017");
+		callback(Fleur.error(ctx, "XPST0017"));
 		return;
 	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1]);
-	var sum = 0, val, t = 0, l = 1;
-	if (ctx._result) {
-		if (ctx._result.schemaTypeInfo === Fleur.Type_error) {
+	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+		var sum = 0, val, t = 0, l = 1, a;
+		if (n === Fleur.EmptySequence || n.schemaTypeInfo === Fleur.Type_error) {
+			callback(n);
 			return;
 		}
-		if (ctx._result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-			Fleur.Atomize(ctx);
-			val = Fleur.toJSNumber(ctx);
+		if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+			a = Fleur.Atomize(n);
+			val = Fleur.toJSNumber(a);
 			t = val[0];
 			if (t < 0) {
 				sum = NaN;
@@ -29,15 +29,15 @@ Fleur.XPathFunctions_fn["avg"] = function(ctx, children) {
 				sum = val[1];
 			}
 		} else {
-			var items = ctx._result.childNodes.slice(0);
+			var items = n.childNodes.slice(0);
 			var i;
 			i = 0;
 			l = items.length;
 			t = 3;
 			while (i < l) {
-				ctx._result = items[i];
-				Fleur.Atomize(ctx);
-				val = Fleur.toJSNumber(ctx);
+				n = items[i];
+				a = Fleur.Atomize(n);
+				val = Fleur.toJSNumber(a);
 				if (val[0] < 0) {
 					sum = NaN;
 					break;
@@ -46,9 +46,8 @@ Fleur.XPathFunctions_fn["avg"] = function(ctx, children) {
 				i++;
 			}
 		}
-	} else {
-		ctx._result = new Fleur.Text();
-	}
-	ctx._result.data = "" + (sum / l);
-	ctx._result.schemaTypeInfo = Fleur.numericTypes[t];
+		a.data = ("" + (sum / l)).replace("e+", "e");
+		a.schemaTypeInfo = Fleur.numericTypes[t];
+		callback(a);
+	});
 };

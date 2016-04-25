@@ -7,14 +7,10 @@
  * @module 
  * @description 
  */
-Fleur.XQueryEngine[Fleur.XQueryX.nameTest] = function(ctx, children) {
-	if (ctx._stepctx.curr.localName !== children[0]) {
-		if (ctx._stepctx.curr.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
-			ctx._stepctx.curr = ctx._stepctx.curr.ownerElement.getAttributeNode(children[0]);
-			ctx._stepctx.continue = null;
-			return;
-		}
-		ctx._stepctx.ignore = true;
+Fleur.XQueryEngine[Fleur.XQueryX.nameTest] = function(ctx, children, callback) {
+	console.log("nameTest - " + Fleur.Serializer._serializeNodeToXQuery(ctx._curr, false, ""));
+	if (ctx._curr.localName !== children[0]) {
+		callback(Fleur.EmptySequence);
 		return;
 	}
 	var nsURI;
@@ -23,14 +19,10 @@ Fleur.XQueryEngine[Fleur.XQueryX.nameTest] = function(ctx, children) {
 	} else {
 		nsURI = children[1][1][0];
 	}
-	var currURI = ctx._stepctx.curr.namespaceURI || null;
+	var currURI = ctx._curr.namespaceURI || null;
 	if (currURI !== ctx.nsresolver.lookupNamespaceURI(nsURI)) {
-		if (ctx._stepctx.curr.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
-			ctx._stepctx.curr = ctx._stepctx.curr.ownerElement.getAttributeNode(children[0]);
-			ctx._stepctx.continue = null;
-			return;
-		}
-		ctx._stepctx.ignore = true;
+		callback(Fleur.EmptySequence);
 		return;
 	}
+	callback(ctx._curr);
 };

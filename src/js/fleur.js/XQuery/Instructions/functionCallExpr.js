@@ -7,7 +7,7 @@
  * @module 
  * @description 
  */
-Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children) {
+Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, callback) {
 	var fname = children[0][1][0];
 	var uri = "http://www.w3.org/2005/xpath-functions";
 	if (children[0][1][1]) {
@@ -18,8 +18,8 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children) {
 		}
 	}
 	if (!uri || !Fleur.XPathFunctions[uri][fname]) {
-		Fleur.error(ctx, "XPST0017");
+		callback(Fleur.error(ctx, "XPST0017"));
 		return;
 	}
-	Fleur.XPathFunctions[uri][fname](ctx, children[1][1]);
+	Fleur.XPathFunctions[uri][fname](ctx, children[1][1], callback);
 };

@@ -844,7 +844,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:decimal("-INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -854,7 +854,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:decimal("INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -864,7 +864,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:decimal("-NaN"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -874,7 +874,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:decimal("NaN"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -884,7 +884,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:int("-INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -894,7 +894,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:int("INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -904,7 +904,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:int("-NaN"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -914,7 +914,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:int("NaN"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -924,7 +924,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:integer("-INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -934,7 +934,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:integer("INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -944,7 +944,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:integer("-NaN"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -954,7 +954,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:integer("NaN"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -964,7 +964,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:long("-INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -974,7 +974,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:long("INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -984,7 +984,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:long("-NaN"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -994,7 +994,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:long("NaN"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1004,7 +1004,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:negativeInteger("-0"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1014,7 +1014,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:negativeInteger("0"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1024,7 +1024,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:negativeInteger("2"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1034,7 +1034,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:negativeInteger("-INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1044,7 +1044,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:negativeInteger("INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1054,7 +1054,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:negativeInteger("-NaN"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1064,7 +1064,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:negativeInteger("NaN"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1074,7 +1074,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonNegativeInteger("-2"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1084,7 +1084,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonNegativeInteger("-INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1094,7 +1094,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonNegativeInteger("INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1104,7 +1104,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonNegativeInteger("-NaN"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1114,7 +1114,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonNegativeInteger("NaN"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1124,7 +1124,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonPositiveInteger("2"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1134,7 +1134,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonPositiveInteger("-INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1144,7 +1144,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonPositiveInteger("INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1154,7 +1154,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonPositiveInteger("-NaN"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1164,7 +1164,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonPositiveInteger("NaN"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1174,7 +1174,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:positiveInteger("0"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1184,7 +1184,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:positiveInteger("-0"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1194,7 +1194,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:positiveInteger("-2"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1204,7 +1204,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:positiveInteger("-INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1214,7 +1214,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:positiveInteger("INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1224,7 +1224,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:positiveInteger("-NaN"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1234,7 +1234,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:positiveInteger("NaN"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1244,7 +1244,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:short("-INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1254,7 +1254,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:short("INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1264,7 +1264,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:short("-NaN"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1274,7 +1274,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:short("NaN"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1284,7 +1284,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedLong("-INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1294,7 +1294,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedLong("INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1304,7 +1304,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedLong("-NaN"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1314,7 +1314,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedLong("NaN"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1324,7 +1324,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedShort("-INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1334,7 +1334,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedShort("INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1344,7 +1344,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedShort("-NaN"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1354,7 +1354,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedShort("NaN"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
@@ -1364,7 +1364,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:string("1"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -1374,7 +1374,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:string("hello"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -1384,7 +1384,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:boolean("1"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -1394,7 +1394,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:boolean("0"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -1404,7 +1404,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:boolean(fn:true()))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -1414,7 +1414,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:boolean(fn:false()))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -1424,7 +1424,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:date("2002-10-09"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -1434,7 +1434,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:time("13:20:00-05:00"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -1444,7 +1444,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:dateTime("2002-10-10T12:00:00-05:00"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -1454,7 +1454,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:anyURI("www.examples.org"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -1464,7 +1464,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>abs()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -1474,7 +1474,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>abs(1, 2)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -1514,7 +1514,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>abs("a string")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>

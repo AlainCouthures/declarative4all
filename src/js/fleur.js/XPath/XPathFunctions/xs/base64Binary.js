@@ -7,8 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_xs["base64Binary"] = function(ctx, children) {
+Fleur.XPathFunctions_xs["base64Binary"] = function(ctx, children, callback) {
 	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["base64Binary"], /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/, function() {}, function() {
 		return false;
-	});
+	}, callback);
 };

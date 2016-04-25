@@ -7,6 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["ceiling"] = function(ctx, children) {
-	Fleur.XPathNumberFunction(ctx, children, Math.ceil, Fleur.Type_integer);
+Fleur.XPathFunctions_fn["ceiling"] = function(ctx, children, callback) {
+	Fleur.XPathNumberFunction(ctx, children, Math.ceil, Fleur.Type_integer, callback);
 };

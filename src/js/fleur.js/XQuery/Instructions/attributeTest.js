@@ -7,11 +7,7 @@
  * @module 
  * @description 
  */
-/**
- * @callback
- */
-Fleur.XQueryEngine[Fleur.XQueryX.attributeTest] = function(ctx, children) {
-	if (ctx._stepctx.curr.nodeType !== Fleur.Node.ATTRIBUTE_NODE) {
-		ctx._stepctx.ignore = true;
-	}
+Fleur.XQueryEngine[Fleur.XQueryX.attributeTest] = function(ctx, children, callback) {
+	console.log("attributeTest - " + Fleur.Serializer._serializeNodeToXQuery(ctx._curr, false, ""));
+	callback(ctx._curr.nodeType !== Fleur.Node.ATTRIBUTE_NODE ? Fleur.EmptySequence : ctx._curr);
 };

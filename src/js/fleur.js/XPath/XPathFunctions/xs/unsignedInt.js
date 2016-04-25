@@ -7,10 +7,10 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_xs["unsignedInt"] = function(ctx, children) {
+Fleur.XPathFunctions_xs["unsignedInt"] = function(ctx, children, callback) {
 	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedInt"], /^\+?[0-9]+$/, function() {}, function(node) {
 		var value = parseInt(node.data, 10);
 		node.data = "" + value;
 		return value > 4294967295;
-	});
+	}, callback);
 };

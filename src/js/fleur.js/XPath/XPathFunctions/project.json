@@ -5,6 +5,7 @@
 		"fn/project.json",
 		"map/project.json",
 		"math/project.json",
+		"prof/project.json",
 		"xs/project.json"
 	]
 }

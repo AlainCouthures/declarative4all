@@ -7,29 +7,36 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["not"] = function(ctx, children) {
+Fleur.XPathFunctions_fn["not"] = function(ctx, children, callback) {
 	if (children.length !== 1) {
-		Fleur.error(ctx, "XPST0017");
+		callback(Fleur.error(ctx, "XPST0017"));
 		return;
 	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1]);
-	if (ctx._result.schemaTypeInfo === Fleur.Type_error) {
-		return;
-	}
-	var boolean;
-	if (ctx._result.schemaTypeInfo === Fleur.Type_boolean) {
-		boolean = ctx._result.data === "true" ? "false" : "true";
-	} else if (ctx._result.nodeType === Fleur.Node.SEQUENCE_NODE) {
-		boolean = ctx._result.childNodes.length !== 0 ? "false" : "true";
-	} else if (ctx._result.schemaTypeInfo === Fleur.Type_string || ctx._result.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-		boolean = (ctx._result.data && ctx._result.data.length !== 0) ? "false" : "true";
-	} else if (ctx._result.schemaTypeInfo === Fleur.Type_integer || ctx._result.schemaTypeInfo === Fleur.Type_decimal || ctx._result.schemaTypeInfo === Fleur.Type_float || ctx._result.schemaTypeInfo === Fleur.Type_double) {
-		boolean = (ctx._result.data !== "0" && ctx._result.data !== "NaN") ? "false" : "true";
-	} else {
-		Fleur.error(ctx, "FORG0006");
-		return;
-	}
-	ctx._result = new Fleur.Text();
-	ctx._result.data = boolean;
-	ctx._result.schemaTypeInfo = Fleur.Type_boolean;
+	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+		var boolean;
+		if (n === Fleur.EmptySequence) {
+			boolean = "true";
+		} else {
+			if (n.schemaTypeInfo === Fleur.Type_error) {
+				callback(n);
+				return;
+			}
+			var a = Fleur.Atomize(n);
+			if (a.schemaTypeInfo === Fleur.Type_boolean) {
+				boolean = a.data === "true" ? "false" : "true";
+			} else if (a.nodeType === Fleur.Node.SEQUENCE_NODE) {
+				boolean = a.childNodes.length !== 0 ? "false" : "true";
+			} else if (a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
+				boolean = (a.data && a.data.length !== 0) ? "false" : "true";
+			} else if (a.schemaTypeInfo === Fleur.Type_integer || a.schemaTypeInfo === Fleur.Type_decimal || a.schemaTypeInfo === Fleur.Type_float || a.schemaTypeInfo === Fleur.Type_double) {
+				boolean = (a.data !== "0" && a.data !== "0.0" && a.data !== "0.0e0" && a.data !== "NaN") ? "false" : "true";
+			} else {
+				callback(Fleur.error(ctx, "FORG0006"));
+				return;
+			}
+		}
+		a.data = boolean;
+		a.schemaTypeInfo = Fleur.Type_boolean;
+		callback(a);
+	});
 };

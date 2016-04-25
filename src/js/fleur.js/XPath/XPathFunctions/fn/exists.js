@@ -7,13 +7,15 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["exists"] = function(ctx, children) {
+Fleur.XPathFunctions_fn["exists"] = function(ctx, children, callback) {
 	if (children.length !== 1) {
-		Fleur.error(ctx, "XPST0017");
+		callback(Fleur.error(ctx, "XPST0017"));
 		return;
 	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1]);
-	ctx._result = new Fleur.Text();
-	ctx._result.data = "" + !!ctx._result;
-	ctx._result.schemaTypeInfo = Fleur.Type_boolean;
+	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+		var result = new Fleur.Text();
+		result.data = "" + (n !== Fleur.EmptySequence);
+		result.schemaTypeInfo = Fleur.Type_boolean;
+		callback(result);
+	});
 };

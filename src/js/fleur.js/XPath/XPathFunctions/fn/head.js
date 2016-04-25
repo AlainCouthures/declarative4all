@@ -7,16 +7,16 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["head"] = function(ctx, children) {
+Fleur.XPathFunctions_fn["head"] = function(ctx, children, callback) {
 	if (children.length !== 1) {
-		Fleur.error(ctx, "XPST0017");
+		callback(Fleur.error(ctx, "XPST0017"));
 		return;
 	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1]);
-	if (!ctx._result) {
-		return;
-	} else if (ctx._result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-		return;
-	}
-	ctx._result = ctx._result.childNodes[0];
+	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+		if (n === Fleur.EmptySequence || n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+			callback(n);
+		} else  {
+			callback(n.childNodes[0]);
+		}
+	});
 };

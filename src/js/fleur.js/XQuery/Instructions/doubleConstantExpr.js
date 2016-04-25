@@ -7,8 +7,9 @@
  * @module 
  * @description 
  */
-Fleur.XQueryEngine[Fleur.XQueryX.doubleConstantExpr] = function(ctx, children) {
-	ctx._result = new Fleur.Text();
-	ctx._result.appendData(children[0][1][0]);
-	ctx._result.schemaTypeInfo = Fleur.Type_double;
+Fleur.XQueryEngine[Fleur.XQueryX.doubleConstantExpr] = function(ctx, children, callback) {
+	var a = new Fleur.Text();
+	a.appendData(children[0][1][0]);
+	a.schemaTypeInfo = Fleur.Type_double;
+	callback(a);
 };

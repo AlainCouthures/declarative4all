@@ -10,8 +10,6 @@
 /**
  * @callback
  */
-Fleur.XQueryEngine[Fleur.XQueryX.piTest] = function(ctx, children) {
-	if (ctx._stepctx.curr.nodeType !== Fleur.Node.PROCESSING_INSTRUCTION_NODE) {
-		ctx._stepctx.ignore = true;
-	}
+Fleur.XQueryEngine[Fleur.XQueryX.piTest] = function(ctx, children, callback) {
+	callback(ctx._curr.nodeType !== Fleur.Node.PROCESSING_INSTRUCTION_NODE ? Fleur.EmptySequence : ctx._curr);
 };

@@ -13,3 +13,4 @@ Fleur.Sequence = function() {
 	this.nodeName = "#sequence";
 };
 Fleur.Sequence.prototype = new Fleur.Node();
+Fleur.EmptySequence = new Fleur.Sequence();

@@ -7,21 +7,24 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["reverse"] = function(ctx, children) {
+Fleur.XPathFunctions_fn["reverse"] = function(ctx, children, callback) {
 	var i;
 	if (children.length !== 1) {
-		Fleur.error(ctx, "XPST0017");
+		callback(Fleur.error(ctx, "XPST0017"));
 		return;
 	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1]);
-	if (ctx._result.nodeType === Fleur.Node.SEQUENCE_NODE) {
-		var seq = new Fleur.Sequence();
-		seq.nodeType = Fleur.Node.SEQUENCE_NODE;
-		i = ctx._result.childNodes.length - 1;
-		while (i >= 0) {
-			seq.appendChild(ctx._result.childNodes[i]);
-			i--;
+	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+		if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+			var result = new Fleur.Sequence();
+			result.nodeType = Fleur.Node.SEQUENCE_NODE;
+			i = n.childNodes.length - 1;
+			while (i >= 0) {
+				result.appendChild(n.childNodes[i]);
+				i--;
+			}
+			callback(result);
+		} else {
+			callback(n);
 		}
-		ctx._result = seq;
-	}
+	});
 };

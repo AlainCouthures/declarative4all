@@ -7,8 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["starts-with"] = function(ctx, children) {
+Fleur.XPathFunctions_fn["starts-with"] = function(ctx, children, callback) {
 	Fleur.XPathStringContentFunction(ctx, children, function(a, b) {
 		return a.startsWith(b);
-	}, Fleur.Type_boolean);
+	}, Fleur.Type_boolean, callback);
 };

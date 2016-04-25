@@ -10,27 +10,27 @@
 Fleur.XQueryEngine[Fleur.XQueryX.simpleMapExpr] = function(ctx, children) {
 	var curr, result, newresult, seq, i, l;
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1]);
-	if (!ctx._result || ctx._result.schemaTypeInfo === Fleur.Type_error) {
+	if (ctx._result === Fleur.EmptySequence || ctx._result.schemaTypeInfo === Fleur.Type_error) {
 		return;
 	}
 	curr = ctx._curr;
 	result = ctx._result;
 	if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
 		ctx._curr = result;
-		ctx._result = null;
+		ctx._result = Fleur.EmptySequence;
 		ctx._pos = ctx._last = 1;
 		Fleur.XQueryEngine[children[1][0]](ctx, children[1][1]);
 	} else {
 		l = result.childNodes.length;
 		i = 0;
-		newresult = null;
+		newresult = Fleur.EmptySequence;
 		ctx._last = l;
 		while (i < l) {
 			ctx._pos = i + 1;
 			ctx._curr = result.childNodes[i];
-			ctx._result = null;
+			ctx._result = Fleur.EmptySequence;
 			Fleur.XQueryEngine[children[1][0]](ctx, children[1][1]);
-			if (!ctx._result) {
+			if (ctx._result === Fleur.EmptySequence) {
 				i++;
 				continue;
 			}

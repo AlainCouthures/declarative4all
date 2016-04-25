@@ -7,7 +7,11 @@
  * @module 
  * @description 
  */
-Fleur.XPathResult = function(resultType) {
+Fleur.XPathResult = function(doc, expression, contextNode, nsResolver, resultType) {
+	this.document = doc;
+	this.expression = expression;
+	this.contextNode = contextNode;
+	this.nsResolver = nsResolver;
 	this.resultType = resultType;
 	this._index = 0;
 };
@@ -26,7 +30,7 @@ Object.defineProperties(Fleur.XPathResult.prototype, {
 		get: function() {
 			var jsNumber = Fleur.toJSNumber(this);
 			if (jsNumber[0] === -1) {
-				throw new Fleur.XPathException(Fleur.XPathException.TYPE_ERR, this._result && this._result.schemaTypeInfo === Fleur.Type_error ? this._result.nodeName : null);
+				throw new Fleur.XPathException(Fleur.XPathException.TYPE_ERR, this._result.schemaTypeInfo === Fleur.Type_error ? this._result.nodeName : null);
 			}
 			return jsNumber[1];
 		}
@@ -35,7 +39,7 @@ Object.defineProperties(Fleur.XPathResult.prototype, {
 		get: function() {
 			var jsString = Fleur.toJSString(this);
 			if (jsString[0] === -1) {
-				throw new Fleur.XPathException(Fleur.XPathException.TYPE_ERR, this._result && this._result.schemaTypeInfo === Fleur.Type_error ? this._result.nodeName : null);
+				throw new Fleur.XPathException(Fleur.XPathException.TYPE_ERR, this._result.schemaTypeInfo === Fleur.Type_error ? this._result.nodeName : null);
 			}
 			return jsString[1];
 		}
@@ -44,7 +48,7 @@ Object.defineProperties(Fleur.XPathResult.prototype, {
 		get: function() {
 			var jsBoolean = Fleur.toJSBoolean(this);
 			if (jsBoolean[0] === -1) {
-				throw new Fleur.XPathException(Fleur.XPathException.TYPE_ERR, this._result && this._result.schemaTypeInfo === Fleur.Type_error ? this._result.nodeName : null);
+				throw new Fleur.XPathException(Fleur.XPathException.TYPE_ERR, this._result.schemaTypeInfo === Fleur.Type_error ? this._result.nodeName : null);
 			}
 			return jsBoolean[1];
 		}
@@ -64,11 +68,23 @@ Object.defineProperties(Fleur.XPathResult.prototype, {
 		}
 	}
 });
+Fleur.XPathResult.prototype.evaluate = function(resolve, reject) {
+	var compiled = eval(Fleur.XPathEvaluator._xq2js(this.expression));
+	var ctx = {
+		_curr: this.contextNode || this.document,
+		nsresolver: this.nsResolver,
+		xpresult: this
+	};
+	Fleur.XQueryEngine[compiled[0]](ctx, compiled[1], function(n) {
+		ctx.xpresult._result = n;
+		resolve(ctx.xpresult);
+	});
+};
 Fleur.XPathResult.prototype.iterateNext = function() {
 	if (this.resultType !== Fleur.XPathResult.ANY_TYPE && this.resultType !== Fleur.XPathResult.UNORDERED_NODE_ITERATOR_TYPE && this.resultType !== Fleur.XPathResult.ORDERED_NODE_ITERATOR_TYPE) {
 		throw new Fleur.XPathException(Fleur.XPathException.TYPE_ERR, this._result && this._result.schemaTypeInfo === Fleur.Type_error ? this._result.nodeName : null);
 	}
-	if (!this._result) {
+	if (this._result === Fleur.EmptySequence) {
 		return null;
 	}
 	if (this._result.schemaTypeInfo === Fleur.Type_error) {
@@ -87,17 +103,20 @@ Fleur.XPathResult.prototype.iterateNext = function() {
 	return this._result.childNodes[this._index++];
 };
 Fleur.XPathResult.prototype.toXQuery = function(indent) {
-	if (!this._result) {
+	if (this._result === Fleur.EmptySequence) {
 		return "()";
 	}
 	return Fleur.Serializer._serializeNodeToXQuery(this._result, indent, "");
 };
 Fleur.XPathResult.prototype.toArray = function() {
-	if (!this._result) {
+	if (this._result === Fleur.EmptySequence) {
 		return [];
 	}
 	if (this._result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
 		return [this._result];
 	}
 	return this._result.childNodes;
+};
+Fleur.XPathResult.prototype.then = function(resolve, reject) {
+	this.evaluate(resolve, reject);
 };

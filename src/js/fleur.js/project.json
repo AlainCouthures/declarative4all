@@ -8,6 +8,7 @@
 		"XPath/project.json",
 		"XQuery/project.json",
 		"XSLT/project.json",
+		"envdetect.js",
 		["\n})(typeof exports === 'undefined'? this.Fleur = {}: exports);"],
 		"polyfills.js"
 	],

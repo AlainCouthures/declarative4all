@@ -7,11 +7,6 @@
  * @module 
  * @description 
  */
-/**
- * @callback
- */
-Fleur.XQueryEngine[Fleur.XQueryX.textTest] = function(ctx, children) {
-	if (ctx._stepctx.curr.nodeType !== Fleur.Node.TEXT_NODE) {
-		ctx._stepctx.curr = null;
-	}
+Fleur.XQueryEngine[Fleur.XQueryX.textTest] = function(ctx, children, callback) {
+	callback(ctx._curr.nodeType !== Fleur.Node.TEXT_NODE ? Fleur.EmptySequence : ctx._curr);
 };

@@ -7,10 +7,10 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_xs["integer"] = function(ctx, children) {
+Fleur.XPathFunctions_xs["integer"] = function(ctx, children, callback) {
 	Fleur.XPathConstructor(ctx, children, Fleur.Type_integer, /^[\-+]?[0-9]+$/, function() {}, function(node) {
 		var value = parseInt(node.data, 10);
 		node.data = "" + value;
 		return false;
-	});
+	}, callback);
 };

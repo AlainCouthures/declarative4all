@@ -910,7 +910,7 @@
          Purpose: Raise error condition FORG0006 for fn:boolean. </description>
     <created by="Carmelo Montanez" on="2006-12-06"/>
     <test>fn:boolean(xs:dateTime("1999-12-31T00:00:00"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0006"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</result-string>
     <result>
       <error code="FORG0006"/>
     </result>
@@ -921,7 +921,7 @@
     <created by="Carmelo Montanez" on="2006-12-06"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>let $f := function() { fn:boolean(.) } return $f()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0002"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0002"))</result-string>
     <result>
       <error code="XPDY0002"/>
     </result>
@@ -930,7 +930,7 @@
     <description> Test: K-SeqBooleanFunc-1 Purpose: A test whose essence is: `boolean()`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>boolean()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -940,7 +940,7 @@
          param")`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>boolean(1, "wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -949,7 +949,7 @@
     <description> Test: K-SeqBooleanFunc-3 Purpose: A test whose essence is: `boolean((1, 2))`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>boolean((1, 2))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0006"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</result-string>
     <result>
       <error code="FORG0006"/>
     </result>
@@ -959,7 +959,7 @@
          `boolean(xs:QName("valid-local-name"))`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>boolean(xs:QName("valid-local-name"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0006"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</result-string>
     <result>
       <error code="FORG0006"/>
     </result>
@@ -969,7 +969,7 @@
          `boolean(xs:hexBinary("03"))`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>boolean(xs:hexBinary("03"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0006"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</result-string>
     <result>
       <error code="FORG0006"/>
     </result>
@@ -979,7 +979,7 @@
          `boolean(xs:base64Binary("aaaa"))`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>boolean(xs:base64Binary("aaaa"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0006"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</result-string>
     <result>
       <error code="FORG0006"/>
     </result>
@@ -1258,7 +1258,7 @@
     <created by="Michael Kay" on="2011-06-29"/>
     <environment ref="auction"/>
     <test>boolean((93.7, /))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0006"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</result-string>
     <result>
       <error code="FORG0006"/>
     </result>
@@ -1267,7 +1267,7 @@
     <description>boolean() applied to a sequence of two booleans</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>boolean((true(), false()))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0006"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</result-string>
     <result>
       <error code="FORG0006"/>
     </result>
@@ -1276,7 +1276,7 @@
     <description>boolean() applied to a sequence of two integers</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>boolean((1, 0))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0006"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</result-string>
     <result>
       <error code="FORG0006"/>
     </result>
@@ -1285,7 +1285,7 @@
     <description>boolean() applied to a sequence of two strings</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>boolean(("", "a"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0006"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</result-string>
     <result>
       <error code="FORG0006"/>
     </result>
@@ -1360,7 +1360,7 @@
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:f() { (a/, "a") }; boolean(local:f())</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0006"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</result-string>
     <result>
       <any-of>
         <assert-true/>
@@ -1372,7 +1372,7 @@
     <description>Tests negation of fn:boolean </description>
     <created by="Nick Jones" on="2008-06-02"/>
     <test>not(boolean(for $x in 1 to 10 return $x * $x))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0006"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</result-string>
     <result>
       <error code="FORG0006"/>
     </result>

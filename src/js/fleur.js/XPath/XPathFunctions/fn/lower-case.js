@@ -7,6 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["lower-case"] = function(ctx, children) {
-	Fleur.XPathStringFunction(ctx, children, function(s) {return s.toLowerCase();});
+Fleur.XPathFunctions_fn["lower-case"] = function(ctx, children, callback) {
+	Fleur.XPathStringFunction(ctx, children, function(s) {return s.toLowerCase();}, callback);
 };

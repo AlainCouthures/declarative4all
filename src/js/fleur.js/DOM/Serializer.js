@@ -15,7 +15,7 @@ Fleur.Serializer = function() {};
  * @param s {string}
  * @returns {string}
  */
-Fleur.Serializer.escapeXML = function(s, quotes) {
+Fleur.Serializer.escapeXML = function(s, quotes, inline) {
 	var i = 0, c, code, l = s.length, r = "";
 	while (i < l) {
 		c = s.charAt(i);
@@ -34,7 +34,7 @@ Fleur.Serializer.escapeXML = function(s, quotes) {
 				break;
 			default:
 				code = c.charCodeAt(0);
-				if (code === 9 || code === 10 || code === 13 || (code > 31 && code < 127)) {
+				if ((!inline && (code === 9 || code === 10 || code === 13)) || (code > 31 && code < 127)) {
 					r += c;
 				} else {
 					r += '&#' + code + ';';
@@ -111,7 +111,7 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 				}
 			}
 			if (node.childNodes.length === 0) {
-				return s + (indent ? "/>\n" : "/>");
+				return s + (indent ? "/>" + postfix + "\n" : "/>" + postfix);
 			}
 			s += indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? ">\n" : ">";
 			for (i = 0, l = node.childNodes.length; i < l; i++) {
@@ -135,12 +135,31 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 				if (indent && node.data.match(/^[ \t\n\r]*$/) && node.parentNode.childNodes.length !== 1) {
 					return "";
 				}
-				return Fleur.Serializer.escapeXML(node.data);
+				return Fleur.Serializer.escapeXML(node.data, !indent, !indent);
 			}
 			if (node.schemaTypeInfo === Fleur.Type_error) {
 				return "fn:error(fn:QName(\"" + node.namespaceURI + "\", \"" + node.nodeName + "\"))" + postfix;
 			}
-			return (indent ? offset : "") + "xs:" + node.schemaTypeInfo.typeName + "(\"" + Fleur.Serializer.escapeXML(node.data).replace(/"/gm, "\"\"") + "\")" + postfix + (indent ? "\n" : "");
+			var fdata = node.data;
+			if (node.schemaTypeInfo === Fleur.Type_float || node.schemaTypeInfo === Fleur.Type_double) {
+				if (fdata.indexOf("e") === -1) {
+					var exp = 0;
+					if (fdata.indexOf(".") === -1 && fdata !== "0") {
+						while (fdata.substring(fdata.length - 1) === "0") {
+							fdata = fdata.substring(0, fdata.length - 1);
+							exp++;
+						}
+					}
+					fdata += "e" + exp;
+				}
+				if (fdata.indexOf(".") === -1) {
+					fdata = fdata.split("e");
+					fdata = fdata[0] + ".0e" + fdata[1];
+				}
+			} else if (node.schemaTypeInfo === Fleur.Type_decimal) {
+				fdata += ".0";
+			}
+			return (indent ? offset : "") + "xs:" + node.schemaTypeInfo.typeName + "(\"" + Fleur.Serializer.escapeXML(fdata, !indent, !indent).replace(/"/gm, "\"\"") + "\")" + postfix + (indent ? "\n" : "");
 		case Fleur.Node.CDATA_NODE:
 			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
 		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:

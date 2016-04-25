@@ -7,6 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["floor"] = function(ctx, children) {
-	Fleur.XPathNumberFunction(ctx, children, Math.floor, Fleur.Type_integer);
+Fleur.XPathFunctions_fn["floor"] = function(ctx, children, callback) {
+	Fleur.XPathNumberFunction(ctx, children, Math.floor, Fleur.Type_integer, callback);
 };

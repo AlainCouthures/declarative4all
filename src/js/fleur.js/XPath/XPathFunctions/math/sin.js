@@ -7,6 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_math["sin"] = function(ctx, children) {
-	Fleur.XPathNumberFunction(ctx, children, Math.sin, Fleur.Type_double);
+Fleur.XPathFunctions_math["sin"] = function(ctx, children, callback) {
+	Fleur.XPathNumberFunction(ctx, children, Math.sin, Fleur.Type_double, callback);
 };

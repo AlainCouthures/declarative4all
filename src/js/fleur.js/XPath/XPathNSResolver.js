@@ -13,7 +13,11 @@ Fleur.XPathNSResolver = function(node) {
 		"xmlns": "http://www.w3.org/2000/xmlns/",
 		"xs": "http://www.w3.org/2001/XMLSchema",
 		"fn": "http://www.w3.org/2005/xpath-functions",
-		"err": "http://www.w3.org/2005/xqt-errors"
+		"math": "http://www.w3.org/2005/xpath-functions/math",
+		"map": "http://www.w3.org/2005/xpath-functions/map",
+		"array": "http://www.w3.org/2005/xpath-functions/array",
+		"err": "http://www.w3.org/2005/xqt-errors",
+		"prof": "http://basex.org/modules/prof"
 	};
 	this.node = node;
 };
@@ -22,9 +26,11 @@ Fleur.XPathNSResolver.prototype.lookupNamespaceURI = function(prefix) {
 	if (this.pf2uri[prefix]) {
 		return this.pf2uri[prefix];
 	}
-	uri = this.node.lookupNamespaceURI(prefix);
-	if (uri) {
-		this.pf2uri[prefix] = uri;
+	if (this.node) {
+		uri = this.node.lookupNamespaceURI(prefix);
+		if (uri) {
+			this.pf2uri[prefix] = uri;
+		}
 	}
 	return uri;
 };

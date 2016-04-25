@@ -7,6 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["string-length"] = function(ctx, children) {
-	Fleur.XPathStringFunction(ctx, children, function(s) {return s.length;}, Fleur.Type_integer);
+Fleur.XPathFunctions_fn["string-length"] = function(ctx, children, callback) {
+	Fleur.XPathStringFunction(ctx, children, function(s) {return s.length;}, Fleur.Type_integer, callback);
 };
