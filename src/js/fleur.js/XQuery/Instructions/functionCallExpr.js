@@ -21,5 +21,5 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 		callback(Fleur.error(ctx, "XPST0017"));
 		return;
 	}
-	Fleur.XPathFunctions[uri][fname](ctx, children[1][1], callback);
+	Fleur.XPathFunctions[uri][fname](ctx, children[1][1], function(n) {callback(n);});
 };

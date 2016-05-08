@@ -39,8 +39,7 @@
     <modified by="Michael Kay, Saxonica" change="add alternative result, see bug 15233" on="2012-05-29"/>
     <environment ref="math"/>
     <test>math:exp10(0.5)</test>
-    <result-string>xs:decimal("3.1622776601683795")</result-string>
-    <result-string>xs:decimal("3.162277660168379")</result-string>
+    <result-string>xs:double("3.1622776601683795e0")</result-string>
     <result>
       <any-of>
         <assert-eq>3.1622776601683795</assert-eq>
@@ -65,7 +64,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:exp10(xs:double('NaN'))</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -75,7 +74,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:exp10(xs:double('INF'))</test>
-    <result-string>xs:double('INF')</result-string>
+    <result-string>xs:double("INF")</result-string>
     <result>
       <assert-eq>xs:double('INF')</assert-eq>
     </result>

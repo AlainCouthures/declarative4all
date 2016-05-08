@@ -8,7 +8,7 @@
  * @description 
  */
 Fleur.XQueryEngine[Fleur.XQueryX.nameTest] = function(ctx, children, callback) {
-	console.log("nameTest - " + Fleur.Serializer._serializeNodeToXQuery(ctx._curr, false, ""));
+	//console.log("nameTest - " + Fleur.Serializer._serializeNodeToXQuery(ctx._curr, false, ""));
 	if (ctx._curr.localName !== children[0]) {
 		callback(Fleur.EmptySequence);
 		return;

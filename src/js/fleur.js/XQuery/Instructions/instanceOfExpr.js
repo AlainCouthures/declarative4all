@@ -12,6 +12,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.instanceOfExpr] = function(ctx, children, callb
 		var seqtype = children[1][1];
 		var occurrence = "1";
 		var res = true;
+		var a;
 		if (seqtype.length === 2) {
 			occurrence = seqtype[1][0];
 		}
@@ -22,21 +23,21 @@ Fleur.XQueryEngine[Fleur.XQueryX.instanceOfExpr] = function(ctx, children, callb
 				} else {
 				}
 			} else {
-				var prevstep = ctx._stepctx;
-				if (!prevstep) {
-					ctx._stepctx = {};
-				}
-				ctx._stepctx.curr = ctx._result;
-				Fleur.XQueryEngine[seqtype[0][0]](ctx, seqtype[0][1]);
-				if (ctx._stepctx.ignore) {
-					res = false;
-				}
-				ctx._stepctx = prevstep;
+				Fleur.XQueryEngine[seqtype[0][0]]({
+					_curr: n,
+					nsresolver: ctx.nsresolver
+				}, seqtype[0][1], function(n) {
+					a = new Fleur.Text();
+					a.data = "" + (n !== Fleur.EmptySequence);
+					a.schemaTypeInfo = Fleur.Type_boolean;
+					callback(a);
+				});
+				return;
 			}
 		} else if (occurrence === "1" || occurrence === "+") {
 				res = false;
 		}
-		var a = new Fleur.Text();
+		a = new Fleur.Text();
 		a.data = "" + res;
 		a.schemaTypeInfo = Fleur.Type_boolean;
 		callback(a);

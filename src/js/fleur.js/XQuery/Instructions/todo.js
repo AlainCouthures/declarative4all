@@ -16,7 +16,6 @@ Fleur.XQueryEngine[Fleur.XQueryX.annotationName] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.anyElementTest] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.anyFunctionTest] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.anyItemType] = function(ctx, children) {};
-Fleur.XQueryEngine[Fleur.XQueryX.anyKindTest] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.argExpr] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.argumentPlaceholder] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.arguments] = function(ctx, children) {};

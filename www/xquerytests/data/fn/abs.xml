@@ -25,7 +25,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:int("-2147483648"))</test>
-    <result-string/>
+    <result-string>xs:long("2147483648")</result-string>
     <result>
       <all-of>
         <assert-eq>2147483648</assert-eq>
@@ -38,7 +38,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:int("-1873914410"))</test>
-    <result-string/>
+    <result-string>xs:int("1873914410")</result-string>
     <result>
       <all-of>
         <assert-eq>1873914410</assert-eq>
@@ -51,7 +51,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:int("2147483647"))</test>
-    <result-string/>
+    <result-string>xs:int("2147483647")</result-string>
     <result>
       <all-of>
         <assert-eq>2147483647</assert-eq>
@@ -64,7 +64,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:integer("-999999999999999999"))</test>
-    <result-string/>
+    <result-string>xs:integer("999999999999999999")</result-string>
     <result>
       <all-of>
         <assert-eq>999999999999999999</assert-eq>
@@ -77,7 +77,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:integer("830993497117024304"))</test>
-    <result-string/>
+    <result-string>xs:integer("830993497117024304")</result-string>
     <result>
       <all-of>
         <assert-eq>830993497117024304</assert-eq>
@@ -90,7 +90,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:integer("999999999999999999"))</test>
-    <result-string/>
+    <result-string>xs:integer("999999999999999999")</result-string>
     <result>
       <all-of>
         <assert-eq>999999999999999999</assert-eq>
@@ -103,7 +103,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:decimal("-999999999999999999"))</test>
-    <result-string/>
+    <result-string>xs:decimal("999999999999999999.0")</result-string>
     <result>
       <all-of>
         <assert-eq>999999999999999999</assert-eq>
@@ -116,7 +116,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:decimal("617375191608514839"))</test>
-    <result-string/>
+    <result-string>xs:decimal("617375191608514839.0")</result-string>
     <result>
       <all-of>
         <assert-eq>617375191608514839</assert-eq>
@@ -129,7 +129,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:decimal("999999999999999999"))</test>
-    <result-string/>
+    <result-string>xs:decimal("999999999999999999.0")</result-string>
     <result>
       <all-of>
         <assert-eq>999999999999999999</assert-eq>
@@ -142,7 +142,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:double("-1.7976931348623157E308"))</test>
-    <result-string/>
+    <result-string>xs:double("1.7976931348623157e308")</result-string>
     <result>
       <all-of>
         <assert-eq>1.7976931348623157E308</assert-eq>
@@ -155,7 +155,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:double("0"))</test>
-    <result-string/>
+    <result-string>xs:double("0.0e0")</result-string>
     <result>
       <all-of>
         <assert-eq>0.0e0</assert-eq>
@@ -168,7 +168,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:double("1.7976931348623157E308"))</test>
-    <result-string/>
+    <result-string>xs:double("1.7976931348623157e308")</result-string>
     <result>
       <all-of>
         <assert-eq>1.7976931348623157E308</assert-eq>
@@ -181,7 +181,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:float("-3.4028235E38"))</test>
-    <result-string/>
+    <result-string>xs:float("3.4028235e38")</result-string>
     <result>
       <all-of>
         <assert-eq>xs:float(3.4028235E38)</assert-eq>
@@ -194,7 +194,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:float("0"))</test>
-    <result-string/>
+    <result-string>xs:float("0.0e0")</result-string>
     <result>
       <all-of>
         <assert-eq>0.0e0</assert-eq>
@@ -207,7 +207,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:float("3.4028235E38"))</test>
-    <result-string/>
+    <result-string>xs:float("3.4028235e38")</result-string>
     <result>
       <all-of>
         <assert-eq>xs:float(3.4028235E38)</assert-eq>
@@ -220,7 +220,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:long("-92233720368547758"))</test>
-    <result-string/>
+    <result-string>xs:long("92233720368547758")</result-string>
     <result>
       <all-of>
         <assert-eq>92233720368547758</assert-eq>
@@ -233,7 +233,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:long("-47175562203048468"))</test>
-    <result-string/>
+    <result-string>xs:long("47175562203048468")</result-string>
     <result>
       <all-of>
         <assert-eq>47175562203048468</assert-eq>
@@ -246,7 +246,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:long("92233720368547758"))</test>
-    <result-string/>
+    <result-string>xs:long("92233720368547758")</result-string>
     <result>
       <all-of>
         <assert-eq>92233720368547758</assert-eq>
@@ -259,7 +259,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedShort("0"))</test>
-    <result-string/>
+    <result-string>xs:unsignedShort("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -272,7 +272,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedShort("44633"))</test>
-    <result-string/>
+    <result-string>xs:unsignedShort("44633")</result-string>
     <result>
       <all-of>
         <assert-eq>44633</assert-eq>
@@ -285,7 +285,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedShort("65535"))</test>
-    <result-string/>
+    <result-string>xs:unsignedShort("65535")</result-string>
     <result>
       <all-of>
         <assert-eq>65535</assert-eq>
@@ -298,7 +298,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:negativeInteger("-999999999999999999"))</test>
-    <result-string/>
+    <result-string>xs:positiveInteger("999999999999999999")</result-string>
     <result>
       <all-of>
         <assert-eq>999999999999999999</assert-eq>
@@ -311,7 +311,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:negativeInteger("-297014075999096793"))</test>
-    <result-string/>
+    <result-string>xs:positiveInteger("297014075999096793")</result-string>
     <result>
       <all-of>
         <assert-eq>297014075999096793</assert-eq>
@@ -324,7 +324,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:negativeInteger("-1"))</test>
-    <result-string/>
+    <result-string>xs:positiveInteger("1")</result-string>
     <result>
       <all-of>
         <assert-eq>1</assert-eq>
@@ -337,7 +337,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:positiveInteger("1"))</test>
-    <result-string/>
+    <result-string>xs:positiveInteger("1")</result-string>
     <result>
       <all-of>
         <assert-eq>1</assert-eq>
@@ -350,7 +350,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:positiveInteger("52704602390610033"))</test>
-    <result-string/>
+    <result-string>xs:positiveInteger("52704602390610033")</result-string>
     <result>
       <all-of>
         <assert-eq>52704602390610033</assert-eq>
@@ -363,7 +363,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:positiveInteger("999999999999999999"))</test>
-    <result-string/>
+    <result-string>xs:positiveInteger("999999999999999999")</result-string>
     <result>
       <all-of>
         <assert-eq>999999999999999999</assert-eq>
@@ -376,7 +376,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedLong("0"))</test>
-    <result-string/>
+    <result-string>xs:unsignedLong("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -389,7 +389,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedLong("130747108607674654"))</test>
-    <result-string/>
+    <result-string>xs:unsignedLong("130747108607674654")</result-string>
     <result>
       <all-of>
         <assert-eq>130747108607674654</assert-eq>
@@ -402,7 +402,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedLong("184467440737095516"))</test>
-    <result-string/>
+    <result-string>xs:unsignedLong("184467440737095516")</result-string>
     <result>
       <all-of>
         <assert-eq>184467440737095516</assert-eq>
@@ -415,7 +415,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonPositiveInteger("-999999999999999999"))</test>
-    <result-string/>
+    <result-string>xs:nonNegativeInteger("999999999999999999")</result-string>
     <result>
       <all-of>
         <assert-eq>999999999999999999</assert-eq>
@@ -428,7 +428,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonPositiveInteger("-475688437271870490"))</test>
-    <result-string/>
+    <result-string>xs:nonNegativeInteger("475688437271870490")</result-string>
     <result>
       <all-of>
         <assert-eq>475688437271870490</assert-eq>
@@ -441,7 +441,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonPositiveInteger("0"))</test>
-    <result-string/>
+    <result-string>xs:nonNegativeInteger("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -454,7 +454,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonNegativeInteger("0"))</test>
-    <result-string/>
+    <result-string>xs:nonNegativeInteger("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -467,7 +467,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonNegativeInteger("303884545991464527"))</test>
-    <result-string/>
+    <result-string>xs:nonNegativeInteger("303884545991464527")</result-string>
     <result>
       <all-of>
         <assert-eq>303884545991464527</assert-eq>
@@ -480,7 +480,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonNegativeInteger("999999999999999999"))</test>
-    <result-string/>
+    <result-string>xs:nonNegativeInteger("999999999999999999")</result-string>
     <result>
       <all-of>
         <assert-eq>999999999999999999</assert-eq>
@@ -493,7 +493,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:short("-32768"))</test>
-    <result-string/>
+    <result-string>xs:int("32768")</result-string>
     <result>
       <all-of>
         <assert-eq>32768</assert-eq>
@@ -506,7 +506,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:short("-5324"))</test>
-    <result-string/>
+    <result-string>xs:short("5324")</result-string>
     <result>
       <all-of>
         <assert-eq>5324</assert-eq>
@@ -519,7 +519,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:short("32767"))</test>
-    <result-string/>
+    <result-string>xs:short("32767")</result-string>
     <result>
       <all-of>
         <assert-eq>32767</assert-eq>
@@ -532,7 +532,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:double("-0"))</test>
-    <result-string/>
+    <result-string>xs:double("0.0e0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -545,7 +545,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:double("-INF"))</test>
-    <result-string/>
+    <result-string>xs:double("INF")</result-string>
     <result>
       <all-of>
         <assert-string-value>INF</assert-string-value>
@@ -558,7 +558,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:double("INF"))</test>
-    <result-string/>
+    <result-string>xs:double("INF")</result-string>
     <result>
       <all-of>
         <assert-string-value>INF</assert-string-value>
@@ -571,7 +571,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:double("NaN"))</test>
-    <result-string/>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <all-of>
         <assert-string-value>NaN</assert-string-value>
@@ -584,7 +584,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:double("NaN"))</test>
-    <result-string/>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <all-of>
         <assert-string-value>NaN</assert-string-value>
@@ -597,7 +597,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:decimal("-0"))</test>
-    <result-string/>
+    <result-string>xs:decimal("0.0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -610,7 +610,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:decimal("0"))</test>
-    <result-string/>
+    <result-string>xs:decimal("0.0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -623,7 +623,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:float("-0"))</test>
-    <result-string/>
+    <result-string>xs:float("0.0e0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -636,7 +636,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:float("-INF"))</test>
-    <result-string/>
+    <result-string>xs:float("INF")</result-string>
     <result>
       <all-of>
         <assert-string-value>INF</assert-string-value>
@@ -649,7 +649,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:float("INF"))</test>
-    <result-string/>
+    <result-string>xs:float("INF")</result-string>
     <result>
       <all-of>
         <assert-string-value>INF</assert-string-value>
@@ -662,7 +662,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:float("NaN"))</test>
-    <result-string/>
+    <result-string>xs:float("NaN")</result-string>
     <result>
       <all-of>
         <assert-string-value>NaN</assert-string-value>
@@ -675,7 +675,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:float("NaN"))</test>
-    <result-string/>
+    <result-string>xs:float("NaN")</result-string>
     <result>
       <all-of>
         <assert-string-value>NaN</assert-string-value>
@@ -688,7 +688,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:int("0"))</test>
-    <result-string/>
+    <result-string>xs:int("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -701,7 +701,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:int("-0"))</test>
-    <result-string/>
+    <result-string>xs:int("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -714,7 +714,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:integer("0"))</test>
-    <result-string/>
+    <result-string>xs:integer("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -727,7 +727,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:integer("-0"))</test>
-    <result-string/>
+    <result-string>xs:integer("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -740,7 +740,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:long("0"))</test>
-    <result-string/>
+    <result-string>xs:long("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -753,7 +753,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:long("-0"))</test>
-    <result-string/>
+    <result-string>xs:long("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -766,7 +766,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonNegativeInteger("-0"))</test>
-    <result-string/>
+    <result-string>xs:nonNegativeInteger("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -779,7 +779,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonPositiveInteger("-0"))</test>
-    <result-string/>
+    <result-string>xs:nonNegativeInteger("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -792,7 +792,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:short("0"))</test>
-    <result-string/>
+    <result-string>xs:short("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -805,7 +805,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:short("-0"))</test>
-    <result-string/>
+    <result-string>xs:short("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -818,7 +818,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedLong("-0"))</test>
-    <result-string/>
+    <result-string>xs:unsignedLong("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -831,7 +831,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedShort("-0"))</test>
-    <result-string/>
+    <result-string>xs:unsignedShort("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -1524,7 +1524,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:integer(-4))</test>
-    <result-string>xs:string("4")</result-string>
+    <result-string>xs:integer("4")</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1534,7 +1534,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonPositiveInteger(-4))</test>
-    <result-string>xs:string("4")</result-string>
+    <result-string>xs:nonNegativeInteger("4")</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1544,7 +1544,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:negativeInteger(-4))</test>
-    <result-string>xs:string("4")</result-string>
+    <result-string>xs:positiveInteger("4")</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1554,7 +1554,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:long(-4))</test>
-    <result-string>xs:string("4")</result-string>
+    <result-string>xs:long("4")</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1564,7 +1564,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:int(-4))</test>
-    <result-string>xs:string("4")</result-string>
+    <result-string>xs:int("4")</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1574,7 +1574,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:short(-4))</test>
-    <result-string>xs:string("4")</result-string>
+    <result-string>xs:short("4")</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1584,7 +1584,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:byte(-4))</test>
-    <result-string>xs:string("4")</result-string>
+    <result-string>xs:byte("4")</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1594,7 +1594,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:nonNegativeInteger(4))</test>
-    <result-string>xs:string("4")</result-string>
+    <result-string>xs:nonNegativeInteger("4")</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1604,7 +1604,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedLong(4))</test>
-    <result-string>xs:string("4")</result-string>
+    <result-string>xs:unsignedLong("4")</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1614,7 +1614,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedInt(4))</test>
-    <result-string>xs:string("4")</result-string>
+    <result-string>xs:unsignedInt("4")</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1624,7 +1624,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedShort(4))</test>
-    <result-string>xs:string("4")</result-string>
+    <result-string>xs:unsignedShort("4")</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1634,7 +1634,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:unsignedByte(4))</test>
-    <result-string>xs:string("4")</result-string>
+    <result-string>xs:unsignedByte("4")</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1644,7 +1644,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:positiveInteger(4))</test>
-    <result-string>xs:string("4")</result-string>
+    <result-string>xs:positiveInteger("4")</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
@@ -1864,7 +1864,6 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
     <test>abs(xs:unsignedShort(.)) instance of xs:unsignedShort</test>
-    <result-string>xs:boolean("false")</result-string>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
@@ -1878,7 +1877,6 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
     <test>abs(xs:unsignedLong(.)) instance of xs:unsignedLong</test>
-    <result-string>xs:boolean("false")</result-string>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
@@ -1892,7 +1890,6 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
     <test>abs(xs:unsignedInt(.)) instance of xs:unsignedInt</test>
-    <result-string>xs:boolean("false")</result-string>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
@@ -1906,7 +1903,6 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
     <test>abs(xs:unsignedByte(.)) instance of xs:unsignedByte</test>
-    <result-string>xs:boolean("false")</result-string>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
@@ -1920,7 +1916,6 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e1"/>
     <test>abs(xs:positiveInteger(.)) instance of xs:positiveInteger</test>
-    <result-string>xs:boolean("false")</result-string>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
@@ -1936,7 +1931,6 @@
     <test>abs(xs:nonPositiveInteger(.)) instance of
          xs:nonPositiveInteger</test>
     <result-string>xs:boolean("false")</result-string>
-    <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
         <assert-false/>
@@ -1950,7 +1944,6 @@
     <environment ref="e0"/>
     <test>abs(xs:nonNegativeInteger(.)) instance of
          xs:nonNegativeInteger</test>
-    <result-string>xs:boolean("false")</result-string>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
@@ -1965,7 +1958,6 @@
     <environment ref="e-1"/>
     <test>abs(xs:negativeInteger(.)) instance of xs:negativeInteger</test>
     <result-string>xs:boolean("false")</result-string>
-    <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
         <assert-false/>
@@ -1978,7 +1970,6 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
     <test>abs(xs:long(.)) instance of xs:long</test>
-    <result-string>xs:boolean("false")</result-string>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
@@ -1992,7 +1983,6 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
     <test>abs(xs:int(.)) instance of xs:int</test>
-    <result-string>xs:boolean("false")</result-string>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
@@ -2006,7 +1996,6 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
     <test>abs(xs:short(.)) instance of xs:short</test>
-    <result-string>xs:boolean("false")</result-string>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
@@ -2020,7 +2009,6 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
     <test>abs(xs:byte(.)) instance of xs:byte</test>
-    <result-string>xs:boolean("false")</result-string>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <any-of>
@@ -2034,7 +2022,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:float("-INF"))</test>
-    <result-string>xs:string("INF")</result-string>
+    <result-string>xs:float("INF")</result-string>
     <result>
       <assert-string-value>INF</assert-string-value>
     </result>
@@ -2044,7 +2032,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:double("-INF"))</test>
-    <result-string>xs:string("INF")</result-string>
+    <result-string>xs:double("INF")</result-string>
     <result>
       <assert-string-value>INF</assert-string-value>
     </result>
@@ -2054,7 +2042,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:float("INF"))</test>
-    <result-string>xs:string("INF")</result-string>
+    <result-string>xs:float("INF")</result-string>
     <result>
       <assert-string-value>INF</assert-string-value>
     </result>
@@ -2064,7 +2052,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:double("INF"))</test>
-    <result-string>xs:string("INF")</result-string>
+    <result-string>xs:double("INF")</result-string>
     <result>
       <assert-string-value>INF</assert-string-value>
     </result>
@@ -2087,7 +2075,7 @@
     <description>test fn:abs where input type is uncertain</description>
     <created by="Tim Mills" on="2008-04-11"/>
     <test>fn:abs( fn:reverse( (1, xs:decimal(2.2), xs:float(3.3), xs:double(4.4)) )[2] )</test>
-    <result-string>xs:string("3.3")</result-string>
+    <result-string>xs:float("3.3e0")</result-string>
     <result>
       <assert-string-value>3.3</assert-string-value>
     </result>

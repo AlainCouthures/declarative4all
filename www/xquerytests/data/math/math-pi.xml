@@ -19,7 +19,7 @@
     <modified by="O'Neil Delpratt" change="Bug #19783 - change expected result" on="2012-11-08"/>
     <environment ref="math"/>
     <test>60 * (math:pi() div 180)</test>
-    <result-string/>
+    <result-string>xs:double("1.0471975511965976e0")</result-string>
     <result>
       <assert>abs($result - 1.0471975511965976e0) lt 1e-14</assert>
     </result>

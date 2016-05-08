@@ -67,7 +67,7 @@ XsltForms_insert.prototype.run = function(element, ctx) {
 			}
 		}
 		XsltForms_browser.debugConsole.write("insert " + node.nodeName + " in " + parentNode.nodeName + " at " + index + " - " + ctx.nodeName);
-		var clone = node.cloneNode(true);
+		var clone = parentNode.ownerDocument ? parentNode.ownerDocument.importNode(node, true) : parentNode.importNode(node, true);
 		XsltForms_browser.clearMeta(clone);
 		if (node.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
 			XsltForms_browser.setAttributeNS(parentNode, node.namespaceURI, node.nodeName, node.nodeValue);

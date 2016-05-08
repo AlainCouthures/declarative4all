@@ -7,61 +7,77 @@
  * @module 
  * @description 
  */
-Fleur.XQueryEngine[Fleur.XQueryX.simpleMapExpr] = function(ctx, children) {
-	var curr, result, newresult, seq, i, l;
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1]);
-	if (ctx._result === Fleur.EmptySequence || ctx._result.schemaTypeInfo === Fleur.Type_error) {
-		return;
-	}
-	curr = ctx._curr;
-	result = ctx._result;
-	if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-		ctx._curr = result;
-		ctx._result = Fleur.EmptySequence;
-		ctx._pos = ctx._last = 1;
-		Fleur.XQueryEngine[children[1][0]](ctx, children[1][1]);
-	} else {
-		l = result.childNodes.length;
-		i = 0;
-		newresult = Fleur.EmptySequence;
-		ctx._last = l;
-		while (i < l) {
-			ctx._pos = i + 1;
-			ctx._curr = result.childNodes[i];
-			ctx._result = Fleur.EmptySequence;
-			Fleur.XQueryEngine[children[1][0]](ctx, children[1][1]);
-			if (ctx._result === Fleur.EmptySequence) {
-				i++;
-				continue;
-			}
-			if (ctx._result.nodeType === Fleur.Node.SEQUENCE_NODE) {
-				if (ctx._result.childNodes.length === 0) {
-					i++;
-					continue;
-				}
-			}
-			if (!newresult) {
-				newresult = ctx._result;
-			} else {
-				if (newresult.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-					seq = new Fleur.Sequence();
-					seq.childNodes = new Fleur.NodeList();
-					seq.children = new Fleur.NodeList();
-					seq.textContent = "";
-					seq.appendChild(newresult);
-					newresult = seq;
-				}
-				if (ctx._result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-					newresult.appendChild(ctx._result);
-				} else {
-					ctx._result.childNodes.forEach(function(n) {
-						newresult.appendChild(n);
-					});
-				}
-			}
-			i++;
+Fleur.XQueryEngine[Fleur.XQueryX.simpleMapExpr] = function(ctx, children, callback) {
+	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+		//console.log("simpleMapExpr - " + Fleur.Serializer._serializeNodeToXQuery(n, false, ""));
+		var subcurr, next, last, pos, result = Fleur.EmptySequence;
+		if (n === Fleur.EmptySequence || n.schemaTypeInfo === Fleur.Type_error) {
+			callback(n);
+			return;
 		}
-		ctx._curr = curr;
-		ctx._result = newresult;
-	}
+		next = n;
+		if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
+			last = next.childNodes.length;
+			subcurr = next.childNodes.shift();
+			if (next.childNodes.length === 1) {
+				next = next.childNodes[0];
+			}
+		} else {
+			subcurr = next;
+			next = Fleur.EmptySequence;
+			last = 1;
+		}
+		var cb = function(n) {
+			//console.log("simpleMapExpr - cb - " + Fleur.Serializer._serializeNodeToXQuery(n, false, "") + (eob ? " - " + (eob === Fleur.XQueryX.simpleMapExpr ? "simpleMapExpr" : eob) : ""));
+			if (n !== Fleur.EmptySequence) {
+				if (result === Fleur.EmptySequence) {
+					result = n;
+				} else {
+					if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+						var seq = new Fleur.Sequence();
+						seq.childNodes = new Fleur.NodeList();
+						seq.children = new Fleur.NodeList();
+						seq.textContent = "";
+						seq.appendChild(result);
+						result = seq;
+					}
+					if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+						result.appendChild(n);
+					} else {
+						n.childNodes.forEach(function(node) {
+							result.appendChild(node);
+						});
+					}
+				}
+			}
+			if (next === Fleur.EmptySequence) {
+				callback(result, Fleur.XQueryX.simpleMapExpr);
+				return;
+			}
+			if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
+				subcurr = next.childNodes.shift();
+				if (next.childNodes.length === 1) {
+					next = next.childNodes[0];
+				}
+			} else {
+				subcurr = next;
+				next = Fleur.EmptySequence;
+			}
+			pos++;
+			Fleur.XQueryEngine[children[1][0]]({
+				_curr: subcurr,
+				_next: next,
+				_last: last,
+				_pos: pos,
+				nsresolver: ctx.nsresolver
+			}, children[1][1], cb);
+		};
+		Fleur.XQueryEngine[children[1][0]]({
+			_curr: subcurr,
+			_next: next,
+			_last: last,
+			_pos: pos,
+			nsresolver: ctx.nsresolver
+		}, children[1][1], cb);
+	});
 };

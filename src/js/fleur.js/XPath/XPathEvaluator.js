@@ -45,6 +45,7 @@ Fleur.XPathEvaluator._getName = function(s) {
 	while (o !== "" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:*{".indexOf(o) !== -1) {
 		if (o === "*") {
 			if (i > 0 && (s.charAt(i - 1) === ":" || s.charAt(i - 1) === "}")) {
+				i++;
 				break;
 			} else if (s.charAt(i + 1) !== ":") {
 				if (i === 0) {
@@ -391,7 +392,8 @@ Fleur.XPathEvaluator._getNumber = function(s, r) {
 	if (c === "E") {
 		c = "e";
 	}
-	if ("0123456789".indexOf(c) !== -1 || ((c === "." || c === "e") && r.indexOf(c) === -1)) {
+	if ("0123456789".indexOf(c) !== -1 || ((c === "." || c === "e") && r.indexOf(c) === -1) ||
+		(c === "-" && r.endsWith("e"))) {
 		return Fleur.XPathEvaluator._getNumber(s.substr(1), r + c);
 	}
 	return r;
@@ -453,14 +455,14 @@ Fleur.XPathEvaluator._xp2js = function(xp, args, ops) {
 	} else if (c === "-" || c === "+") {
 		if (d !== "" && "0123456789".indexOf(d.charAt(0)) !== -1) {
 			var t4 = Fleur.XPathEvaluator._getNumber(d, c);
-			r = t4.length + ".[" + (t4.indexOf("E") !== -1 ? "Fleur.XQueryX.doubleConstantExpr" : t4.indexOf(".") !== -1 ? "Fleur.XQueryX.decimalConstantExpr" : "Fleur.XQueryX.integerConstantExpr") + ",[[Fleur.XQueryX.value,['" + t4 + "']]]]";
+			r = t4.length + ".[" + (t4.indexOf("e") !== -1 ? "Fleur.XQueryX.doubleConstantExpr" : t4.indexOf(".") !== -1 ? "Fleur.XQueryX.decimalConstantExpr" : "Fleur.XQueryX.integerConstantExpr") + ",[[Fleur.XQueryX.value,['" + t4 + "']]]]";
 		} else {
 			c = "~" + c;
 			r = "0.";
 		}
 	} else if (c !== "" && "0123456789".indexOf(c) !== -1) {
 		var t5 = Fleur.XPathEvaluator._getNumber(c + d);
-		r = t5.length + ".[" + (t5.indexOf("E") !== -1 ? "Fleur.XQueryX.doubleConstantExpr" : t5.indexOf(".") !== -1 ? "Fleur.XQueryX.decimalConstantExpr" : "Fleur.XQueryX.integerConstantExpr") + ",[[Fleur.XQueryX.value,['" + t5 + "']]]]";
+		r = t5.length + ".[" + (t5.indexOf("e") !== -1 ? "Fleur.XQueryX.doubleConstantExpr" : t5.indexOf(".") !== -1 ? "Fleur.XQueryX.decimalConstantExpr" : "Fleur.XQueryX.integerConstantExpr") + ",[[Fleur.XQueryX.value,['" + t5 + "']]]]";
 	} else if (c === "$") {
 		var t51 = Fleur.XPathEvaluator._getName(d);
 		var pt51 = (t51.indexOf(":") === -1 ? ":" : "") + t51;
@@ -829,5 +831,5 @@ Fleur.XPathEvaluator._xq2js = function(xq) {
 		pc = p.substr(p.indexOf(".") + 1);
 		prolog += pc;
 	} while (pc !== "")
-	return "[Fleur.XQueryX.module,[" + v.substr(v.indexOf(".") + 1) + "[Fleur.XQueryX.mainModule,[" + prolog + "[Fleur.XQueryX.queryBody,[" + Fleur.XPathEvaluator._xp2js(xq.substr(pl), "", "") + ']]]],[Fleur.XQueryX.xqx,"http://www.w3.org/2005/XQueryX"],[Fleur.XQueryX.schemaLocation,"http://www.w3.org/2005/XQueryX http://www.w3.org/2005/XQueryX/xqueryx.xsd"],[Fleur.XQueryX.xsi,"http://www.w3.org/2001/XMLSchema-instance"]]]';
+	return "[Fleur.XQueryX.module,[" + v.substr(v.indexOf(".") + 1) + "[Fleur.XQueryX.mainModule,[" + prolog + "[Fleur.XQueryX.queryBody,[" + Fleur.XPathEvaluator._xp2js(xq.substr(pl), "", "") + ']]]],[Fleur.XQueryX.xqx,["http://www.w3.org/2005/XQueryX"]],[Fleur.XQueryX.schemaLocation,["http://www.w3.org/2005/XQueryX http://www.w3.org/2005/XQueryX/xqueryx.xsd"]],[Fleur.XQueryX.xsi,["http://www.w3.org/2001/XMLSchema-instance"]]]]';
 };

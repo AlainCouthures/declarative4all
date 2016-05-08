@@ -122,6 +122,18 @@ Fleur.Node.prototype.appendChild = function(newChild) {
 	}
 	return newChild;
 };
+Fleur.Node.prototype.appendDescendants = function(src) {
+	if (src.childNodes) {
+		var dest = this;
+		src.childNodes.forEach(function(n) {dest.appendChild(n); dest.appendDescendants(n);});
+	}
+};
+Fleur.Node.prototype.appendDescendantsRev = function(src) {
+	if (src.childNodes) {
+		var dest = this;
+		src.childNodes.forEach(function(n) {dest.appendDescendantsRev(n); dest.appendChild(n);});
+	}
+};
 Fleur.Node.prototype.clearUserData = function() {
 	this._userData = {};
 };

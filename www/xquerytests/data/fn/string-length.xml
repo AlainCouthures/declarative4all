@@ -141,7 +141,7 @@
     <description> Evaluation of string-length function as an argument to the "fn:concat" function </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat(fn:string-length("abcde"), fn:string-length("fghi"))</test>
-    <result-string>xs:string(""54"")</result-string>
+    <result-string>xs:string("54")</result-string>
     <result>
       <assert-eq>"54"</assert-eq>
     </result>
@@ -187,7 +187,7 @@
     <created by="Carmelo Montanez" on="2005-09-19"/>
     <environment ref="empty"/>
     <test>fn:string-length()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0002"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0002"))</result-string>
     <result>
       <error code="XPDY0002"/>
     </result>
@@ -197,7 +197,7 @@
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="works-mod"/>
     <test>fn:string-length(.//employee/@name )</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -205,7 +205,7 @@
   <test-case name="fn-string-length-20">
     <description>Evaluation of string-length function with non-BMP characters.</description>
     <created by="Michael Kay" on="2011-06-25"/>
-    <test>string-length("")</test>
+    <test>string-length("&#x01D538;")</test>
     <result-string>xs:integer("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
@@ -218,7 +218,7 @@
     <dependency type="spec" value="XP30+ XQ30+"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>string-length(string-length#1)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOTY0013"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOTY0013"))</result-string>
     <result>
       <error code="FOTY0013"/>
     </result>
@@ -245,7 +245,7 @@
     <environment ref="qname"/>
     <dependency type="feature" value="schemaValidation"/>
     <test>/*/string-length(.)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOTY0012"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOTY0012"))</result-string>
     <result>
       <error code="FOTY0012"/>
     </result>
@@ -265,7 +265,7 @@
     <created by="Michael Kay" on="2011-06-25"/>
     <environment ref="qname"/>
     <test>(1 to 100)[string-length(.) = 3]</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -274,7 +274,7 @@
     <description>A test whose essence is: `string-length("a string", "wrong param")`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string-length("a string", "wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -329,7 +329,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>if(false()) then string-length() else true()</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0002"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0002"))</result-string>
     <result>
       <any-of>
         <assert-true/>

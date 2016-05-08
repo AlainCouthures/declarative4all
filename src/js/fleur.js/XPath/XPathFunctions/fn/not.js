@@ -14,6 +14,7 @@ Fleur.XPathFunctions_fn["not"] = function(ctx, children, callback) {
 	}
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
 		var boolean;
+		var a;
 		if (n === Fleur.EmptySequence) {
 			boolean = "true";
 		} else {
@@ -21,7 +22,7 @@ Fleur.XPathFunctions_fn["not"] = function(ctx, children, callback) {
 				callback(n);
 				return;
 			}
-			var a = Fleur.Atomize(n);
+			a = Fleur.Atomize(n);
 			if (a.schemaTypeInfo === Fleur.Type_boolean) {
 				boolean = a.data === "true" ? "false" : "true";
 			} else if (a.nodeType === Fleur.Node.SEQUENCE_NODE) {
@@ -30,11 +31,14 @@ Fleur.XPathFunctions_fn["not"] = function(ctx, children, callback) {
 				boolean = (a.data && a.data.length !== 0) ? "false" : "true";
 			} else if (a.schemaTypeInfo === Fleur.Type_integer || a.schemaTypeInfo === Fleur.Type_decimal || a.schemaTypeInfo === Fleur.Type_float || a.schemaTypeInfo === Fleur.Type_double) {
 				boolean = (a.data !== "0" && a.data !== "0.0" && a.data !== "0.0e0" && a.data !== "NaN") ? "false" : "true";
+			} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+				boolean = (a.data !== "0" && a.data !== "0.0" && a.data !== "0.0e0" && a.data !== "NaN") ? "false" : "true";
 			} else {
 				callback(Fleur.error(ctx, "FORG0006"));
 				return;
 			}
 		}
+		a = new Fleur.Text();
 		a.data = boolean;
 		a.schemaTypeInfo = Fleur.Type_boolean;
 		callback(a);

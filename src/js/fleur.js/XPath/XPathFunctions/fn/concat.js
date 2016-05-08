@@ -10,14 +10,20 @@
 Fleur.XPathFunctions_fn["concat"] = function(ctx, children, callback) {
 	var result = new Fleur.Text();
 	result.schemaTypeInfo = Fleur.Type_string;
-/*
-	if (children.length < 2) {
-		Fleur.error(ctx, "XPST0017");
+	if (children.length === 0) {
+		callback(Fleur.error(ctx, "XPST0017"));
 		return;
 	}
-*/
 	var cb = function(n, eob) {
 		var a = Fleur.Atomize(n);
+		if (a.schemaTypeInfo === Fleur.Type_error) {
+			callback(a);
+			return;
+		}
+		if (n !== Fleur.EmptySequence && n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+			callback(Fleur.error(ctx, "XPTY0004"));
+			return;
+		}
 		if (eob) {
 			if (n !== Fleur.EmptySequence) {
 				result.data += a.data;

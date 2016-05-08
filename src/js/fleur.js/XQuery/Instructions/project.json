@@ -1,5 +1,6 @@
 {
 	"Components":[
+		"anyKindTest.js",
 		"arrayTest.js",
 		"atomicType.js",
 		"attributeTest.js",

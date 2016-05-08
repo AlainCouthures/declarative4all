@@ -141,23 +141,23 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 				return "fn:error(fn:QName(\"" + node.namespaceURI + "\", \"" + node.nodeName + "\"))" + postfix;
 			}
 			var fdata = node.data;
-			if (node.schemaTypeInfo === Fleur.Type_float || node.schemaTypeInfo === Fleur.Type_double) {
-				if (fdata.indexOf("e") === -1) {
-					var exp = 0;
-					if (fdata.indexOf(".") === -1 && fdata !== "0") {
-						while (fdata.substring(fdata.length - 1) === "0") {
-							fdata = fdata.substring(0, fdata.length - 1);
-							exp++;
+			if (fdata !== "INF" && fdata !== "-INF" && fdata !== "NaN") {
+				if (node.schemaTypeInfo === Fleur.Type_float || node.schemaTypeInfo === Fleur.Type_double) {
+					if (fdata.indexOf("e") === -1) {
+						if (fdata !== "0") {
+							var exp = Math.floor(Math.log10(Math.abs(parseFloat(fdata))));
+							fdata = "" + (parseFloat(fdata) * Math.pow(10, -exp)) + "e" + exp;
+						} else {
+							fdata = "0.0e0";
 						}
 					}
-					fdata += "e" + exp;
+					if (fdata.indexOf(".") === -1) {
+						fdata = fdata.split("e");
+						fdata = fdata[0] + ".0e" + fdata[1];
+					}
+				} else if (node.schemaTypeInfo === Fleur.Type_decimal) {
+					fdata += ".0";
 				}
-				if (fdata.indexOf(".") === -1) {
-					fdata = fdata.split("e");
-					fdata = fdata[0] + ".0e" + fdata[1];
-				}
-			} else if (node.schemaTypeInfo === Fleur.Type_decimal) {
-				fdata += ".0";
 			}
 			return (indent ? offset : "") + "xs:" + node.schemaTypeInfo.typeName + "(\"" + Fleur.Serializer.escapeXML(fdata, !indent, !indent).replace(/"/gm, "\"\"") + "\")" + postfix + (indent ? "\n" : "");
 		case Fleur.Node.CDATA_NODE:

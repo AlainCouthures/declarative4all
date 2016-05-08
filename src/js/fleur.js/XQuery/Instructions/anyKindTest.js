@@ -7,6 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["upper-case"] = function(ctx, children, callback) {
-	Fleur.XPathStringFunction(ctx, children, function(s) {return s.toUpperCase();}, null, callback);
+Fleur.XQueryEngine[Fleur.XQueryX.anyKindTest] = function(ctx, children, callback) {
+	callback(ctx._curr);
 };

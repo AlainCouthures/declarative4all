@@ -195,7 +195,7 @@
     <description> A test whose essence is: `starts-with()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>starts-with()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -204,7 +204,7 @@
     <description> A test whose essence is: `starts-with(())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>starts-with(())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -213,7 +213,7 @@
     <description> A test whose essence is: `starts-with((), (), "http://www.w3.org/2005/xpath-functions/collation/codepoint", "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>starts-with((), (), "http://www.w3.org/2005/xpath-functions/collation/codepoint", "wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -222,7 +222,7 @@
     <description> A test whose essence is: `starts-with("a string", "a string", "http://www.example.com/COLLATION/NOT/SUPPORTED")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>starts-with("a string", "a string", "http://www.example.com/COLLATION/NOT/SUPPORTED")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOCH0002"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002"))</result-string>
     <result>
       <error code="FOCH0002"/>
     </result>

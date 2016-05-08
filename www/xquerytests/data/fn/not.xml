@@ -514,7 +514,7 @@
     <description>to an "fn:string" function.</description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:string(fn:not("true"))</test>
-    <result-string>xs:string("'false'")</result-string>
+    <result-string>xs:string("false")</result-string>
     <result>
       <assert-eq>'false'</assert-eq>
     </result>
@@ -523,7 +523,7 @@
     <description>an "fn:concat" function.</description>
     <created by="Carmelo Montanez" on="2005-08-17"/>
     <test>fn:concat(xs:string(fn:not("true")),xs:string(fn:not("true")))</test>
-    <result-string>xs:string("'falsefalse'")</result-string>
+    <result-string>xs:string("falsefalse")</result-string>
     <result>
       <assert-eq>'falsefalse'</assert-eq>
     </result>
@@ -598,9 +598,9 @@
     <description>boolean</description>
     <created by="Michael Kay" on="2010-12-13"/>
     <test>not((true(), false()))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0006"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</result-string>
     <result>
-      <error code="FORG0006"/>
+      <error code="err:FORG0006"/>
     </result>
   </test-case>
   <test-case name="fn-not-28">
@@ -608,9 +608,9 @@
     <created by="Michael Kay" on="2010-12-13"/>
     <environment ref="atomic"/>
     <test>not((23, /))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0006"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</result-string>
     <result>
-      <error code="FORG0006"/>
+      <error code="err:FORG0006"/>
     </result>
   </test-case>
   <test-case name="fn-not-29">
@@ -627,18 +627,18 @@
     <description>K-NotFunc-1  A test whose essence is: `not()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
-      <error code="XPST0017"/>
+      <error code="err:XPST0017"/>
     </result>
   </test-case>
   <test-case name="K-NotFunc-2">
     <description>K-NotFunc-2  A test whose essence is: `not(1, 2, 3, 4, 5, 6)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(1, 2, 3, 4, 5, 6)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
-      <error code="XPST0017"/>
+      <error code="err:XPST0017"/>
     </result>
   </test-case>
   <test-case name="K-NotFunc-3">

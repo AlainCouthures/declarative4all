@@ -8,7 +8,7 @@
  * @description 
  */
 Fleur.XQueryEngine[Fleur.XQueryX.xpathAxis] = function(ctx, children, callback) {
-	console.log("xpathAxis - " + Fleur.Serializer._serializeNodeToXQuery(ctx._curr, false, "") + " - " + children[0]);
+	//console.log("xpathAxis - " + Fleur.Serializer._serializeNodeToXQuery(ctx._curr, false, "") + " - " + children[0]);
 	var seq, n;
 	var curr = ctx._curr;
 	switch(children[0]) {
@@ -87,10 +87,47 @@ Fleur.XQueryEngine[Fleur.XQueryX.xpathAxis] = function(ctx, children, callback) 
 			callback(seq);
 			return;
 		case "descendant":
+			if (!curr.childNodes || curr.childNodes.length === 0) {
+				callback(Fleur.EmptySequence);
+				return;
+			}
+			if (curr.childNodes.length === 1 && curr.childNodes[0].childNodes.length === 0) {
+				callback(curr.childNodes[0]);
+				return;
+			}
+			seq = new Fleur.Sequence();
+			seq.appendDescendants(curr);
+			callback(seq);
 			return;
 		case "descendant-or-self":
+			if (!curr.childNodes || curr.childNodes.length === 0) {
+				callback(curr);
+				return;
+			}
+			seq = new Fleur.Sequence();
+			seq.appendChild(curr);
+			seq.appendDescendants(curr);
+			callback(seq);
 			return;
 		case "following":
+			if (!curr.nextSibling) {
+				callback(Fleur.EmptySequence);
+				return;
+			}
+			n = curr.nextSibling;
+			if (!n.nextSibling) {
+				callback(n);
+				return;
+			}
+			seq = new Fleur.Sequence();
+			seq.appendChild(n);
+			n = n.nextSibling;
+			while (n) {
+				seq.appendChild(n);
+				seq.appendDescendants(n);
+				n = n.nextSibling;
+			}
+			callback(seq);
 			return;
 		case "following-sibling":
 			if (!curr.nextSibling) {
@@ -115,6 +152,24 @@ Fleur.XQueryEngine[Fleur.XQueryX.xpathAxis] = function(ctx, children, callback) 
 			callback(curr.parentNode || curr.ownerElement || Fleur.EmptySequence);
 			return;
 		case "preceding":
+			if (!curr.previousSibling) {
+				callback(Fleur.EmptySequence);
+				return;
+			}
+			n = curr.previousSibling;
+			if (!n.previousSibling) {
+				callback(n);
+				return;
+			}
+			seq = new Fleur.Sequence();
+			seq.appendChild(n);
+			n = n.previousSibling;
+			while (n) {
+				seq.appendDescendantsRev(n);
+				seq.appendChild(n);
+				n = n.previousSibling;
+			}
+			callback(seq);
 			return;
 		case "preceding-sibling":
 			if (!curr.previousSibling) {

@@ -38,7 +38,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:tan(math:pi() div 4)</test>
-    <result-string/>
+    <result-string>xs:double("1.0e0")</result-string>
     <result>
       <assert>abs($result - 1.0e0) lt 0.0000001</assert>
     </result>
@@ -48,7 +48,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:tan(-math:pi() div 4)</test>
-    <result-string/>
+    <result-string>xs:double("-1.0e0")</result-string>
     <result>
       <assert>abs($result - -1.0e0) lt 0.0000001</assert>
     </result>
@@ -60,7 +60,7 @@
     <modified by="Michael Kay, Saxonica" change="allow imprecision, see bug 18478" on="2013-05-01"/>
     <environment ref="math"/>
     <test>math:tan(math:pi() div 4) - 1</test>
-    <result-string/>
+    <result-string>xs:double("0.0e0")</result-string>
     <result>
       <assert>abs($result) le 1e-12</assert>
     </result>
@@ -72,7 +72,7 @@
     <modified by="Michael Kay, Saxonica" change="allow imprecision, see bug 18478" on="2013-05-01"/>
     <environment ref="math"/>
     <test>math:tan(-math:pi() div 4) + 1</test>
-    <result-string/>
+    <result-string>xs:double("0.0e0")</result-string>
     <result>
       <assert>abs($result) le 1e-12</assert>
     </result>
@@ -82,7 +82,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:tan(math:pi())</test>
-    <result-string/>
+    <result-string>xs:double("0.0e0")</result-string>
     <result>
       <assert>abs($result)  1e-12</assert>
     </result>
@@ -92,7 +92,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:tan(xs:double('NaN'))</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -102,7 +102,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:tan(xs:double('INF'))</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -112,7 +112,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:tan(xs:double('-INF'))</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>

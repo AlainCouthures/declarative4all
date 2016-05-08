@@ -19,7 +19,7 @@
     <modified by="O'Neil Delpratt" change="Bug #19782 - change expected result" on="2012-11-08"/>
     <environment ref="math"/>
     <test>math:acos(0)</test>
-    <result-string/>
+    <result-string>xs:double("1.5707963267948966e0")</result-string>
     <result>
       <assert>abs($result - 1.5707963267948966e0) lt 1e-14</assert>
     </result>
@@ -30,7 +30,7 @@
     <modified by="O'Neil Delpratt" change="Bug #19782 - change expected result" on="2012-11-08"/>
     <environment ref="math"/>
     <test>math:acos(-0.0e0)</test>
-    <result-string/>
+    <result-string>xs:double("1.5707963267948966e0")</result-string>
     <result>
       <assert>abs($result - 1.5707963267948966e0) lt 1e-14</assert>
     </result>
@@ -60,7 +60,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:acos(2.0e0)</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -70,7 +70,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:acos(xs:double('NaN'))</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -80,7 +80,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:acos(xs:double('INF'))</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -90,7 +90,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:acos(xs:double('-INF'))</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>

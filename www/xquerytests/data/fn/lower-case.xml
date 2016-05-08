@@ -42,7 +42,7 @@
     <description> Evaluation of lower-case function using the empty sequence Uses the count function to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:count(fn:lower-case(()))</test>
-    <result-string>xs:string("1")</result-string>
+    <result-string>xs:integer("1")</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluation of lower-case function that uses the empty string as part of argument Uses "fn:count" to avoid the empty file </description>
     <created by="Carmelo Montanez" on="2005-07-07"/>
     <test>fn:count(fn:lower-case(""))</test>
-    <result-string>xs:string("1")</result-string>
+    <result-string>xs:integer("1")</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -186,7 +186,7 @@
     <description> A test whose essence is: `lower-case()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>lower-case()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -195,7 +195,7 @@
     <description> A test whose essence is: `lower-case("string", "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>lower-case("string", "wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>

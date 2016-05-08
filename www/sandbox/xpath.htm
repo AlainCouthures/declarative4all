@@ -22,7 +22,7 @@
 			xexpr = "concat('A','B',prof:sleep(2000),'CD',prof:sleep(5000),'EFG')";
 			xexpr = "doc('data/data.xml')/data/a";
 			xexpr = "doc('data/data.xml')/data/a[@id eq 'a2']";
-			xexpr = "doc('data/data.xml')/data/a[position() ne 3]";
+			xexpr = "(1 to 5) ! (. * .)";
 			document.getElementById("xexpr").innerHTML = xexpr;
 			var getp = new Promise(function(resolve, reject) {
 				req.open('GET', 'data/data.xml', true);
