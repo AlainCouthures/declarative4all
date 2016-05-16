@@ -240,7 +240,7 @@
     <description>Description Evaluates The "compare" function with a nonexistent collation.</description>
     <created by="Carmelo Montanez" on="2005-11-25"/>
     <test>fn:compare("a","a","CollationA")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOCH0002"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002"))</result-string>
     <result>
       <error code="FOCH0002"/>
     </result>
@@ -249,7 +249,7 @@
     <description>A test whose essence is: `codepoint-equal()`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoint-equal()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -258,7 +258,7 @@
     <description>A test whose essence is: `codepoint-equal(())`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoint-equal(())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -267,7 +267,7 @@
     <description>A test whose essence is: `codepoint-equal((), (), ())`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoint-equal((), (), ())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -312,7 +312,7 @@
     <description>A test whose essence is: `compare()`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>compare()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -321,7 +321,7 @@
     <description>A test whose essence is: `compare(())`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>compare(())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -330,7 +330,7 @@
     <description>A test whose essence is: `compare((), (), "http://www.w3.org/2005/xpath-functions/collation/codepoint", "wrong param")`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>compare((), (), "http://www.w3.org/2005/xpath-functions/collation/codepoint", "wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -376,7 +376,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(compare("a string", "a string", "http://www.example.com/COLLATION/NOT/SUPPORTED"))</test>
     <result-string>xs:boolean("false")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOCH0002"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002"))</result-string>
     <result>
       <any-of>
         <assert-false/>
@@ -388,7 +388,7 @@
     <description>Simple use of compare to compare strings</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>compare("a", "b")</test>
-    <result-string/>
+    <result-string>xs:integer("-1")</result-string>
     <result>
       <all-of>
         <assert-eq>-1</assert-eq>
@@ -484,7 +484,7 @@
     <description>compare() only works on strings</description>
     <created by="Michael Kay" on="2012-05-30"/>
     <test>compare(123, 456)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>

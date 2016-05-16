@@ -8,7 +8,7 @@
  * @description 
  */
 Fleur.XPathFunctions_fn["ends-with"] = function(ctx, children, callback) {
-	Fleur.XPathStringContentFunction(ctx, children, function(a, b) {
+	Fleur.XPathStringContentFunction(ctx, children, false, function(a, b) {
 		return a.endsWith(b);
 	}, Fleur.Type_boolean, callback);
 };

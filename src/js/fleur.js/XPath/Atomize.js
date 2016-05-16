@@ -31,7 +31,13 @@ Fleur._Atomize = function(a, n) {
 	var i, l, n2, seq;
 	switch (n.nodeType) {
 		case Fleur.Node.TEXT_NODE:
-			return n;
+			if (n.schemaTypeInfo === Fleur.Type_error) {
+				return n
+			}
+			a = new Fleur.Text();
+			a.data = n.data;
+			a.schemaTypeInfo = n.schemaTypeInfo;
+			return a;
 		case Fleur.Node.DOCUMENT_NODE:
 			n = n.documentElement;
 		//$FALLTHROUGH$

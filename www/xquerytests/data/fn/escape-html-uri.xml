@@ -14,7 +14,7 @@
   <test-case name="fn-escape-html-uri1args-2">
     <description>Test escape-html-uri from example defined in functions and operators specification </description>
     <created by="Joanne Tong" on="2005-09-29"/>
-    <test>escape-html-uri("javascript:if (navigator.browserLanguage == 'fr') window.open('http://www.example.com/~bb');")</test>
+    <test>escape-html-uri("javascript:if (navigator.browserLanguage == 'fr') window.open('http://www.example.com/~bébé');")</test>
     <result-string>xs:string("javascript:if (navigator.browserLanguage == 'fr') window.open('http://www.example.com/~b%C3%A9b%C3%A9');")</result-string>
     <result>
       <assert-string-value>javascript:if (navigator.browserLanguage == 'fr') window.open('http://www.example.com/~b%C3%A9b%C3%A9');</assert-string-value>
@@ -42,7 +42,7 @@
     <description>Test escape-html-uri with invalid argument types </description>
     <created by="Joanne Tong" on="2005-09-29"/>
     <test>escape-html-uri(12)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -51,7 +51,7 @@
     <description>Test escape-html-uri with incorrect arity </description>
     <created by="Joanne Tong" on="2005-09-29"/>
     <test>escape-html-uri('',())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -230,7 +230,7 @@
   <test-case name="fn-escape-html-uri-20">
     <description> Examines that the fn:escape-html-uri function does escape the euro symbol. </description>
     <created by="Carmelo Montanez" on="2005-11-25"/>
-    <test>fn:escape-html-uri("exampleexample")</test>
+    <test>fn:escape-html-uri("exampleé€example")</test>
     <result-string>xs:string("example%C3%A9%E2%82%ACexample")</result-string>
     <result>
       <assert-string-value>example%C3%A9%E2%82%ACexample</assert-string-value>
@@ -239,7 +239,7 @@
   <test-case name="fn-escape-html-uri-21">
     <description> Examines that the fn:escape-html-uri function does escape the euro symbol. </description>
     <created by="Carmelo Montanez" on="2005-11-25"/>
-    <test>fn:escape-html-uri("exampleexample")</test>
+    <test>fn:escape-html-uri("example€example")</test>
     <result-string>xs:string("example%E2%82%ACexample")</result-string>
     <result>
       <assert-string-value>example%E2%82%ACexample</assert-string-value>
@@ -249,7 +249,7 @@
     <description> A test whose essence is: `escape-html-uri()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>escape-html-uri()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -258,7 +258,7 @@
     <description> A test whose essence is: `escape-html-uri("http://example.com/", "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>escape-html-uri("http://example.com/", "wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -284,7 +284,7 @@
   <test-case name="K-EscapeHTMLURIFunc-5">
     <description> Combine fn:concat and fn:escape-html-uri. </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <test>escape-html-uri("javascript:if (navigator.browserLanguage == 'fr') window.open('http://www.example.com/~bb');") eq "javascript:if (navigator.browserLanguage == 'fr') window.open('http://www.example.com/~b%C3%A9b%C3%A9');"</test>
+    <test>escape-html-uri("javascript:if (navigator.browserLanguage == 'fr') window.open('http://www.example.com/~bébé');") eq "javascript:if (navigator.browserLanguage == 'fr') window.open('http://www.example.com/~b%C3%A9b%C3%A9');"</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>

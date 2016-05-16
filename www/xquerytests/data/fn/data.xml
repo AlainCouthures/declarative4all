@@ -26,7 +26,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:int("-2147483648")))</test>
-    <result-string>xs:integer("-2147483648")</result-string>
+    <result-string>xs:int("-2147483648")</result-string>
     <result>
       <assert-eq>-2147483648</assert-eq>
     </result>
@@ -44,7 +44,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:int("2147483647")))</test>
-    <result-string>xs:integer("2147483647")</result-string>
+    <result-string>xs:int("2147483647")</result-string>
     <result>
       <assert-eq>2147483647</assert-eq>
     </result>
@@ -80,7 +80,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:decimal("-999999999999999999")))</test>
-    <result-string>xs:integer("-999999999999999999")</result-string>
+    <result-string>xs:decimal("-999999999999999999")</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -98,7 +98,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:decimal("999999999999999999")))</test>
-    <result-string>xs:integer("999999999999999999")</result-string>
+    <result-string>xs:decimal("999999999999999999.0")</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -107,7 +107,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:double("-1.7976931348623157E308")))</test>
-    <result-string>xs:string("-1.7976931348623157E308")</result-string>
+    <result-string>xs:double("-1.7976931348623157e308")</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E308</assert-string-value>
     </result>
@@ -116,7 +116,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:double("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:double("0.0e0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -125,7 +125,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:double("1.7976931348623157E308")))</test>
-    <result-string>xs:string("1.7976931348623157E308")</result-string>
+    <result-string>xs:double("1.7976931348623157e308")</result-string>
     <result>
       <assert-string-value>1.7976931348623157E308</assert-string-value>
     </result>
@@ -134,7 +134,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:float("-3.4028235E38")))</test>
-    <result-string>xs:string("-3.4028235E38")</result-string>
+    <result-string>xs:float("-3.4028235e38")</result-string>
     <result>
       <assert-string-value>-3.4028235E38</assert-string-value>
     </result>
@@ -143,7 +143,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:float("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:float("0.0e0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -152,7 +152,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:float("3.4028235E38")))</test>
-    <result-string>xs:string("3.4028235E38")</result-string>
+    <result-string>xs:float("3.4028235e38")</result-string>
     <result>
       <assert-string-value>3.4028235E38</assert-string-value>
     </result>
@@ -161,7 +161,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:long("-92233720368547758")))</test>
-    <result-string>xs:integer("-92233720368547758")</result-string>
+    <result-string>xs:long("-92233720368547758")</result-string>
     <result>
       <assert-eq>-92233720368547758</assert-eq>
     </result>
@@ -170,7 +170,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:long("-47175562203048468")))</test>
-    <result-string>xs:integer("-47175562203048468")</result-string>
+    <result-string>xs:long("-47175562203048468")</result-string>
     <result>
       <assert-eq>-47175562203048468</assert-eq>
     </result>
@@ -179,7 +179,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:long("92233720368547758")))</test>
-    <result-string>xs:integer("92233720368547758")</result-string>
+    <result-string>xs:long("92233720368547758")</result-string>
     <result>
       <assert-eq>92233720368547758</assert-eq>
     </result>
@@ -188,7 +188,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:unsignedShort("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:unsignedShort("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -197,7 +197,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:unsignedShort("44633")))</test>
-    <result-string>xs:integer("44633")</result-string>
+    <result-string>xs:unsignedShort("44633")</result-string>
     <result>
       <assert-eq>44633</assert-eq>
     </result>
@@ -206,7 +206,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:unsignedShort("65535")))</test>
-    <result-string>xs:integer("65535")</result-string>
+    <result-string>xs:unsignedShort("65535")</result-string>
     <result>
       <assert-eq>65535</assert-eq>
     </result>
@@ -215,7 +215,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:negativeInteger("-999999999999999999")))</test>
-    <result-string>xs:integer("-999999999999999999")</result-string>
+    <result-string>xs:negativeInteger("-999999999999999999")</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -224,7 +224,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:negativeInteger("-297014075999096793")))</test>
-    <result-string>xs:integer("-297014075999096793")</result-string>
+    <result-string>xs:negativeInteger("-297014075999096793")</result-string>
     <result>
       <assert-eq>-297014075999096793</assert-eq>
     </result>
@@ -233,7 +233,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:negativeInteger("-1")))</test>
-    <result-string>xs:integer("-1")</result-string>
+    <result-string>xs:negativeInteger("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -242,7 +242,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:positiveInteger("1")))</test>
-    <result-string>xs:integer("1")</result-string>
+    <result-string>xs:positiveInteger("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -251,7 +251,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:positiveInteger("52704602390610033")))</test>
-    <result-string>xs:integer("52704602390610033")</result-string>
+    <result-string>xs:positiveInteger("52704602390610033")</result-string>
     <result>
       <assert-eq>52704602390610033</assert-eq>
     </result>
@@ -260,7 +260,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:positiveInteger("999999999999999999")))</test>
-    <result-string>xs:integer("999999999999999999")</result-string>
+    <result-string>xs:positiveInteger("999999999999999999")</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -269,7 +269,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:unsignedLong("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:unsignedLong("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -278,7 +278,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:unsignedLong("130747108607674654")))</test>
-    <result-string>xs:integer("130747108607674654")</result-string>
+    <result-string>xs:unsignedLong("130747108607674654")</result-string>
     <result>
       <assert-eq>130747108607674654</assert-eq>
     </result>
@@ -287,7 +287,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:unsignedLong("184467440737095516")))</test>
-    <result-string>xs:integer("184467440737095516")</result-string>
+    <result-string>xs:unsignedLong("184467440737095516")</result-string>
     <result>
       <assert-eq>184467440737095516</assert-eq>
     </result>
@@ -296,7 +296,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:nonPositiveInteger("-999999999999999999")))</test>
-    <result-string>xs:integer("-999999999999999999")</result-string>
+    <result-string>xs:nonPositiveInteger("-999999999999999999")</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -305,7 +305,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:nonPositiveInteger("-475688437271870490")))</test>
-    <result-string>xs:integer("-475688437271870490")</result-string>
+    <result-string>xs:nonPositiveInteger("-475688437271870490")</result-string>
     <result>
       <assert-eq>-475688437271870490</assert-eq>
     </result>
@@ -314,7 +314,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:nonPositiveInteger("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:nonPositiveInteger("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -323,7 +323,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:nonNegativeInteger("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:nonNegativeInteger("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -332,7 +332,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:nonNegativeInteger("303884545991464527")))</test>
-    <result-string>xs:integer("303884545991464527")</result-string>
+    <result-string>xs:nonNegativeInteger("303884545991464527")</result-string>
     <result>
       <assert-eq>303884545991464527</assert-eq>
     </result>
@@ -341,7 +341,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:nonNegativeInteger("999999999999999999")))</test>
-    <result-string>xs:integer("999999999999999999")</result-string>
+    <result-string>xs:nonNegativeInteger("999999999999999999")</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -350,7 +350,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:short("-32768")))</test>
-    <result-string>xs:integer("-32768")</result-string>
+    <result-string>xs:short("-32768")</result-string>
     <result>
       <assert-eq>-32768</assert-eq>
     </result>
@@ -359,7 +359,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:short("-5324")))</test>
-    <result-string>xs:integer("-5324")</result-string>
+    <result-string>xs:short("-5324")</result-string>
     <result>
       <assert-eq>-5324</assert-eq>
     </result>
@@ -368,7 +368,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:short("32767")))</test>
-    <result-string>xs:integer("32767")</result-string>
+    <result-string>xs:short("32767")</result-string>
     <result>
       <assert-eq>32767</assert-eq>
     </result>
@@ -379,7 +379,7 @@
     <modified by="Michael Kay" change="see bug 16150" on="2012-02-28"/>
     <dependency type="spec" value="XP20 XQ10"/>
     <test>data()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -388,7 +388,7 @@
     <description> A test whose essence is: `data(1, "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>data(1, "wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -426,7 +426,7 @@
     <description> fn:data() must be passed at most one argument. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>data(1, 2)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -459,7 +459,7 @@
       	data()
       ]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0002"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0002"))</result-string>
     <result>
       <error code="XPDY0002"/>
     </result>
@@ -475,7 +475,7 @@
       	(1, data#0)[data()]
       ]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOTY0013"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOTY0013"))</result-string>
     <result>
       <error code="FOTY0013"/>
     </result>
@@ -490,7 +490,7 @@
       	/*/data()
       ]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOTY0012"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOTY0012"))</result-string>
     <result>
       <error code="FOTY0012"/>
     </result>
@@ -508,7 +508,7 @@
         fn:data( validate { <mc:weather> <mc:temperature>30</mc:temperature> <mc:precipitation>10</mc:precipitation> </mc:weather> } )
       ]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOTY0012"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOTY0012"))</result-string>
     <result>
       <error code="FOTY0012"/>
     </result>
@@ -524,7 +524,7 @@
         import schema namespace mc ="http://www.w3.org/XQueryTest/mixedcontent"; 
         let $node as element(*, mc:mixedType) := /* 
         return data($node)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOTY0012"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOTY0012"))</result-string>
     <result>
       <error code="FOTY0012"/>
     </result>
@@ -551,7 +551,7 @@
   87
   1.5
  ")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOTY0012"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOTY0012"))</result-string>
     <result>
       <any-of>
         <assert-string-value>
@@ -567,7 +567,7 @@
     <created by="Oliver Hallam" on="2008-04-11"/>
     <test>fn:data(fn:error()) instance of xs:integer</test>
     <result-string>xs:boolean("true")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <any-of>
         <assert-true/>

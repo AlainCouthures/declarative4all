@@ -16,7 +16,7 @@
     <description> head() of a simple sequence </description>
     <created by="Michael Kay" on="2010-02-18"/>
     <test>head(("a", "b", current-dateTime()))</test>
-    <result-string>xs:string(""a"")</result-string>
+    <result-string>xs:string("a")</result-string>
     <result>
       <assert-eq>"a"</assert-eq>
     </result>

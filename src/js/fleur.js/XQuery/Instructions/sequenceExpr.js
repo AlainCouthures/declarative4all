@@ -7,14 +7,17 @@
  * @module 
  * @description 
  */
-Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr] = function(ctx, children, callback) {
+Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr] = function(ctx, children, callback, depth) {
+	if (!depth) {
+		depth = 0;
+	}
 	if (children.length === 0) {
-		callback(Fleur.EmptySequence);
+		callback(Fleur.EmptySequence, depth);
 		return;
 	}
-	var result;
+	var result = Fleur.EmptySequence;
 	var cb = function(n, eob) {
-		if (eob) {
+		if (eob === depth) {
 			if (result === Fleur.EmptySequence) {
 				result = n;
 			} else if (n !== Fleur.EmptySequence) {
@@ -29,15 +32,15 @@ Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr] = function(ctx, children, callbac
 					n.childNodes.forEach(function(child) {result.appendChild(child);});
 				}
 			}
-			callback(result, true);
+			callback(result, depth);
 			return;
 		}
 		if (children.length === 1) {
-			callback(n, true);
+			callback(n, depth);
 			return;
 		}
 		result = n;
-		Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr](ctx, children.slice(1), cb);
+		Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr](ctx, children.slice(1), cb, depth);
 	};
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
+	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb, children[0][0] === Fleur.XQueryX.sequenceExpr ? depth + 1 : depth);
 };

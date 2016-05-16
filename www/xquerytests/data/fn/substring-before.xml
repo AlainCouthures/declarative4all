@@ -6,7 +6,7 @@
     <description>fn-substring-before-1 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "" $arg2 = "" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before("","")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -18,7 +18,7 @@
     <description>fn-substring-before-2 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "" $arg2 = "A Character String" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before("","A Character String")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -30,7 +30,7 @@
     <description>fn-substring-before-3 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "" $arg2 = "A Character String" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before("A Character String","")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -42,7 +42,7 @@
     <description>fn-substring-before-4 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = () $arg2 = "" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before((),"")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -54,7 +54,7 @@
     <description>fn-substring-before-5 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "" $arg2 = () </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before("",())</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -66,7 +66,7 @@
     <description>fn-substring-before-6 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "A Character String" $arg2 = () </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before("A Character String",())</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -78,7 +78,7 @@
     <description>fn-substring-before-7 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = () $arg2 = "A Character String" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before((),"A Character String")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -99,7 +99,7 @@
     <description>fn-substring-before-9 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "AAAAABBBBB" $arg2 = " " </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before("AAAAABBBBB"," ")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -111,7 +111,7 @@
     <description>fn-substring-before-10 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = " " $arg2 = " AAAAABBBBB" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before(" ","AAAAABBBBB")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -141,7 +141,7 @@
     <description>fn-substring-before-13 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = xs:string("A") $arg2 = "A" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before(xs:string("A"),"A")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -153,7 +153,7 @@
     <description>fn-substring-before-14 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "A" $arg2 = xs:string("A") </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before("A",xs:string("A"))</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -165,7 +165,7 @@
     <description>fn-substring-before-15 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "A" $arg2 = "a" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before("A","a")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -177,7 +177,7 @@
     <description>fn-substring-before-16 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "a" $arg2 = "A" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before("a","A")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -189,7 +189,7 @@
     <description>fn-substring-before-17 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "substring-before" $arg2 = "substring-before" </description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:substring-before("substring-before","substring-before")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -201,7 +201,7 @@
     <description>fn-substring-before-18 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "substring-beforesubstring-before" $arg2 = "substring-before" </description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:substring-before("substring-beforesubstring-before","substring-before")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -213,7 +213,7 @@
     <description>fn-substring-before-19 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "****" $arg2 = "***" </description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:substring-before("****","***")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -225,7 +225,7 @@
     <description>fn-substring-before-20 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "12345" $arg2 = "2345" </description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:substring-before("12345","2345")</test>
-    <result-string/>
+    <result-string>xs:string("1")</result-string>
     <result>
       <all-of>
         <assert-eq>"1"</assert-eq>
@@ -237,7 +237,7 @@
     <description>fn-substring-before-21 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "substring-before $arg2 = "erofeb-gnirtsbus ("substring-before" backwards) </description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:substring-before("substring-before","erofeb-gnirtsbus")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -250,7 +250,7 @@
     <created by="Michael Kay" on="2011-06-28"/>
     <test>substring-before("banana", "a",
          "http://www.w3.org/2005/xpath-functions/collation/codepoint")</test>
-    <result-string>xs:string(""b"")</result-string>
+    <result-string>xs:string("b")</result-string>
     <result>
       <assert-eq>"b"</assert-eq>
     </result>
@@ -262,7 +262,7 @@
       <static-base-uri uri="http://www.w3.org/2005/xpath-functions/"/>
     </environment>
     <test>substring-before("banana", "a", "collation/codepoint")</test>
-    <result-string>xs:string(""b"")</result-string>
+    <result-string>xs:string("b")</result-string>
     <result>
       <assert-eq>"b"</assert-eq>
     </result>
@@ -275,7 +275,7 @@
     </environment>
     <test>substring-before("banana", "A",
          "http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind")</test>
-    <result-string>xs:string(""b"")</result-string>
+    <result-string>xs:string("b")</result-string>
     <result>
       <assert-eq>"b"</assert-eq>
     </result>
@@ -284,7 +284,7 @@
     <description>Use non-BMP characters</description>
     <created by="Michael Kay" on="2011-06-28"/>
     <test>substring-before("", "")</test>
-    <result-string>xs:string("""")</result-string>
+    <result-string>xs:string("")</result-string>
     <result>
       <assert-eq>""</assert-eq>
     </result>
@@ -293,7 +293,7 @@
     <description>K-SubstringBeforeFunc-1  A test whose essence is: `substring-before()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-before()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -302,7 +302,7 @@
     <description>K-SubstringBeforeFunc-2  A test whose essence is: `substring-before(())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-before(())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -312,7 +312,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-before((), (), "http://www.w3.org/2005/xpath-functions/collation/codepoint",
          "wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -322,7 +322,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-before("a string", "a string",
          "http://www.example.com/COLLATION/NOT/SUPPORTED")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOCH0002"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002"))</result-string>
     <result>
       <error code="FOCH0002"/>
     </result>

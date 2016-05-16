@@ -6,7 +6,7 @@
     <description> Evaluates The "substring-after" function with the arguments set as follows: $arg1 = "" $arg2 = "" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-after("","")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -18,7 +18,7 @@
     <description> Evaluates The "substring-after" function with the arguments set as follows: $arg1 = "" $arg2 = "A Character String" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-after("","A Character String")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -30,7 +30,7 @@
     <description> Evaluates The "substring-after" function with the arguments set as follows: $arg1 = "" $arg2 = "A Character String" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-after("A Character String","")</test>
-    <result-string/>
+    <result-string>xs:string("A Character String")</result-string>
     <result>
       <all-of>
         <assert-eq>"A Character String"</assert-eq>
@@ -42,7 +42,7 @@
     <description> Evaluates The "substring-after" function with the arguments set as follows: $arg1 = () $arg2 = "" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-after((),"")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -54,7 +54,7 @@
     <description> Evaluates The "substring-after" function with the arguments set as follows: $arg1 = "" $arg2 = () </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-after("",())</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -66,7 +66,7 @@
     <description> Evaluates The "substring-after" function with the arguments set as follows: $arg1 = "A Character String" $arg2 = () </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-after("A Character String",())</test>
-    <result-string/>
+    <result-string>xs:string("A Character String")</result-string>
     <result>
       <all-of>
         <assert-eq>"A Character String"</assert-eq>
@@ -78,7 +78,7 @@
     <description> Evaluates The "substring-after" function with the arguments set as follows: $arg1 = () $arg2 = "A Character String" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-after((),"A Character String")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -99,7 +99,7 @@
     <description> Evaluates The "substring-after" function with the arguments set as follows: $arg1 = "AAAAABBBBB" $arg2 = " " </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-after("AAAAABBBBB"," ")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -111,7 +111,7 @@
     <description> Evaluates The "substring-after" function with the arguments set as follows: $arg1 = " " $arg2 = " AAAAABBBBB" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-after(" ","AAAAABBBBB")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -141,7 +141,7 @@
     <description> Evaluates The "substring-after" function with the arguments set as follows: $arg1 = xs:string("A") $arg2 = "A" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-after(xs:string("A"),"A")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -153,7 +153,7 @@
     <description> Evaluates The "substring-after" function with the arguments set as follows: $arg1 = "A" $arg2 = xs:string("A") </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-after("A",xs:string("A"))</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -165,7 +165,7 @@
     <description> Evaluates The "substring-after" function with the arguments set as follows: $arg1 = "A" $arg2 = "a" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-after("A","a")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -177,7 +177,7 @@
     <description> Evaluates The "substring-after" function with the arguments set as follows: $arg1 = "a" $arg2 = "A" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-after("a","A")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -189,7 +189,7 @@
     <description> Evaluates The "substring-after" function with the arguments set as follows: $arg1 = "substring-after" $arg2 = "substring-after" </description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:substring-after("substring-after","substring-after")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -228,7 +228,7 @@
     <description> Evaluates The "substring-after" function with the arguments set as follows: $arg1 = "substring-after $arg2 = "refta-gnirtsbus ("substring-after" backwards) </description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:substring-after("substring-after","refta-gnirtsbus")</test>
-    <result-string/>
+    <result-string>xs:string("")</result-string>
     <result>
       <all-of>
         <assert-eq>""</assert-eq>
@@ -240,7 +240,7 @@
     <description>Use absolute collation URI</description>
     <created by="Michael Kay" on="2011-06-28"/>
     <test>substring-after("banana", "a", "http://www.w3.org/2005/xpath-functions/collation/codepoint")</test>
-    <result-string>xs:string(""nana"")</result-string>
+    <result-string>xs:string("nana")</result-string>
     <result>
       <assert-eq>"nana"</assert-eq>
     </result>
@@ -252,7 +252,7 @@
       <static-base-uri uri="http://www.w3.org/2005/xpath-functions/"/>
     </environment>
     <test>substring-after("banana", "a", "collation/codepoint")</test>
-    <result-string>xs:string(""nana"")</result-string>
+    <result-string>xs:string("nana")</result-string>
     <result>
       <assert-eq>"nana"</assert-eq>
     </result>
@@ -264,7 +264,7 @@
       <collation uri="http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind"/>
     </environment>
     <test>substring-after("banana", "A", "http://www.w3.org/2010/09/qt-fots-catalog/collation/caseblind")</test>
-    <result-string>xs:string(""nana"")</result-string>
+    <result-string>xs:string("nana")</result-string>
     <result>
       <assert-eq>"nana"</assert-eq>
     </result>
@@ -273,7 +273,7 @@
     <description>Use non-BMP characters</description>
     <created by="Michael Kay" on="2011-06-28"/>
     <test>substring-after("", "")</test>
-    <result-string>xs:string("""")</result-string>
+    <result-string>xs:string("")</result-string>
     <result>
       <assert-eq>""</assert-eq>
     </result>
@@ -282,7 +282,7 @@
     <description> A test whose essence is: `substring-after()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-after()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -291,7 +291,7 @@
     <description> A test whose essence is: `substring-after(())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-after(())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -300,7 +300,7 @@
     <description> A test whose essence is: `substring-after((), (), "http://www.w3.org/2005/xpath-functions/collation/codepoint", "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-after((), (), "http://www.w3.org/2005/xpath-functions/collation/codepoint", "wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -309,7 +309,7 @@
     <description> A test whose essence is: `substring-after("a string", "a string", "http://www.example.com/COLLATION/NOT/SUPPORTED")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-after("a string", "a string", "http://www.example.com/COLLATION/NOT/SUPPORTED")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOCH0002"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002"))</result-string>
     <result>
       <error code="FOCH0002"/>
     </result>

@@ -7,8 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["contains"] = function(ctx, children, callback) {
-	Fleur.XPathStringContentFunction(ctx, children, false, function(a, b) {
-		return a.indexOf(b) !== -1;
-	}, Fleur.Type_boolean, callback);
+Fleur.XPathFunctions_fn["normalize-space"] = function(ctx, children, callback) {
+	Fleur.XPathStringFunction(ctx, children, function(s) {return s.replace(/^\s+|\s+$/g, "").replace(/\s+/g, " ");}, null, callback);
 };

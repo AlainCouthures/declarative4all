@@ -65,7 +65,7 @@ Fleur.XPathStringFunction = function(ctx, children, f, schemaTypeInfo, callback)
 			}
 			callback(a);
 		} else {
-			callback(Fleur.error(ctx, "XPST0017"));
+			callback(Fleur.error(ctx, "XPTY0004"));
 		}
 	};
 	if (children.length === 0) {
@@ -75,7 +75,7 @@ Fleur.XPathStringFunction = function(ctx, children, f, schemaTypeInfo, callback)
 	}
 };
 
-Fleur.XPathStringContentFunction = function(ctx, children, f, schemaTypeInfo, callback) {
+Fleur.XPathStringContentFunction = function(ctx, children, empty, f, schemaTypeInfo, callback) {
 	var arg1, arg2;
 	if (children.length === 3) {
 		callback(Fleur.error(ctx, "FOCH0002"));
@@ -86,39 +86,47 @@ Fleur.XPathStringContentFunction = function(ctx, children, f, schemaTypeInfo, ca
 		return;
 	}
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		var a = Fleur.Atomize(n);
-		if (a.schemaTypeInfo === Fleur.Type_error) {
-			callback(a);
+		var a1 = Fleur.Atomize(n);
+		if (a1.schemaTypeInfo === Fleur.Type_error) {
+			callback(a1);
 			return;
 		}
-		if (a === Fleur.EmptySequence) {
+		if (a1 === Fleur.EmptySequence) {
+			if (empty) {
+				callback(a1);
+				return;
+			}
 			arg1 = "";
 		} else {
-			if (a.schemaTypeInfo !== Fleur.Type_string && a.schemaTypeInfo !== Fleur.Type_untypedAtomic) {
-				callback(Fleur.error(ctx, "XPST0017"));
+			if (a1.schemaTypeInfo !== Fleur.Type_string && a1.schemaTypeInfo !== Fleur.Type_untypedAtomic) {
+				callback(Fleur.error(ctx, "XPTY0004"));
 				return;
 			}
-			arg1 = a.data;
+			arg1 = a1.data;
 		}
 		Fleur.XQueryEngine[children[1][0]](ctx, children[1][1], function(n) {
-			a = Fleur.Atomize(n);
-			if (a.schemaTypeInfo === Fleur.Type_error) {
-				callback(a);
+			var a2 = Fleur.Atomize(n);
+			if (a2.schemaTypeInfo === Fleur.Type_error) {
+				callback(a2);
 				return;
 			}
-			if (a === Fleur.EmptySequence) {
-				a = new Fleur.Text();
-				arg2 = "";
-			} else {
-				if (a.schemaTypeInfo !== Fleur.Type_string && a.schemaTypeInfo !== Fleur.Type_untypedAtomic) {
-					callback(Fleur.error(ctx, "XPST0017"));
+			if (a2 === Fleur.EmptySequence) {
+				if (empty) {
+					callback(a2);
 					return;
 				}
-				arg2 = a.data;
+				a2 = new Fleur.Text();
+				arg2 = "";
+			} else {
+				if (a2.schemaTypeInfo !== Fleur.Type_string && a2.schemaTypeInfo !== Fleur.Type_untypedAtomic) {
+					callback(Fleur.error(ctx, "XPTY0004"));
+					return;
+				}
+				arg2 = a2.data;
 			}
-			a.data = "" + f(arg1, arg2);
-			a.schemaTypeInfo = schemaTypeInfo;
-			callback(a);
+			a2.data = "" + f(arg1, arg2);
+			a2.schemaTypeInfo = schemaTypeInfo;
+			callback(a2);
 		});
 	});
 };

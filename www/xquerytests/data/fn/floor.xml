@@ -26,7 +26,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:int("-2147483648"))</test>
-    <result-string>xs:string("-2147483648")</result-string>
+    <result-string>xs:int("-2147483648")</result-string>
     <result>
       <assert-string-value>-2147483648</assert-string-value>
     </result>
@@ -36,7 +36,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:int("-1873914410"))</test>
-    <result-string>xs:string("-1873914410")</result-string>
+    <result-string>xs:int("-1873914410")</result-string>
     <result>
       <assert-string-value>-1873914410</assert-string-value>
     </result>
@@ -46,7 +46,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:int("2147483647"))</test>
-    <result-string>xs:string("2147483647")</result-string>
+    <result-string>xs:int("2147483647")</result-string>
     <result>
       <assert-string-value>2147483647</assert-string-value>
     </result>
@@ -56,7 +56,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:integer("-999999999999999999"))</test>
-    <result-string>xs:string("-999999999999999999")</result-string>
+    <result-string>xs:integer("-999999999999999999")</result-string>
     <result>
       <assert-string-value>-999999999999999999</assert-string-value>
     </result>
@@ -66,7 +66,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:integer("830993497117024304"))</test>
-    <result-string>xs:string("830993497117024304")</result-string>
+    <result-string>xs:integer("830993497117024304")</result-string>
     <result>
       <assert-string-value>830993497117024304</assert-string-value>
     </result>
@@ -76,7 +76,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:integer("999999999999999999"))</test>
-    <result-string>xs:string("999999999999999999")</result-string>
+    <result-string>xs:integer("999999999999999999")</result-string>
     <result>
       <assert-string-value>999999999999999999</assert-string-value>
     </result>
@@ -86,7 +86,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:decimal("-999999999999999999"))</test>
-    <result-string>xs:string("-999999999999999999")</result-string>
+    <result-string>xs:decimal("-999999999999999999.0")</result-string>
     <result>
       <assert-string-value>-999999999999999999</assert-string-value>
     </result>
@@ -96,7 +96,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:decimal("617375191608514839"))</test>
-    <result-string>xs:string("617375191608514839")</result-string>
+    <result-string>xs:decimal("617375191608514839.0")</result-string>
     <result>
       <assert-string-value>617375191608514839</assert-string-value>
     </result>
@@ -106,7 +106,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:decimal("999999999999999999"))</test>
-    <result-string>xs:string("999999999999999999")</result-string>
+    <result-string>xs:decimal("999999999999999999.0")</result-string>
     <result>
       <assert-string-value>999999999999999999</assert-string-value>
     </result>
@@ -116,7 +116,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:double("-1.7976931348623157E308"))</test>
-    <result-string>xs:string("-1.7976931348623157E308")</result-string>
+    <result-string>xs:double("-1.7976931348623157e308")</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E308</assert-string-value>
     </result>
@@ -126,7 +126,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:double("0"))</test>
-    <result-string>xs:string("0")</result-string>
+    <result-string>xs:double("0.0e0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -136,7 +136,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:double("1.7976931348623157E308"))</test>
-    <result-string>xs:string("1.7976931348623157E308")</result-string>
+    <result-string>xs:double("1.7976931348623157e308")</result-string>
     <result>
       <assert-string-value>1.7976931348623157E308</assert-string-value>
     </result>
@@ -146,7 +146,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:float("-3.4028235E38"))</test>
-    <result-string>xs:string("-3.4028235E38")</result-string>
+    <result-string>xs:float("-3.4028235e38")</result-string>
     <result>
       <assert-string-value>-3.4028235E38</assert-string-value>
     </result>
@@ -156,7 +156,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:float("0"))</test>
-    <result-string>xs:string("0")</result-string>
+    <result-string>xs:float("0.0e0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -166,7 +166,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:float("3.4028235E38"))</test>
-    <result-string>xs:string("3.4028235E38")</result-string>
+    <result-string>xs:float("3.4028235e38")</result-string>
     <result>
       <assert-string-value>3.4028235E38</assert-string-value>
     </result>
@@ -176,7 +176,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:long("-92233720368547758"))</test>
-    <result-string>xs:string("-92233720368547758")</result-string>
+    <result-string>xs:long("-92233720368547758")</result-string>
     <result>
       <assert-string-value>-92233720368547758</assert-string-value>
     </result>
@@ -186,7 +186,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:long("-47175562203048468"))</test>
-    <result-string>xs:string("-47175562203048468")</result-string>
+    <result-string>xs:long("-47175562203048468")</result-string>
     <result>
       <assert-string-value>-47175562203048468</assert-string-value>
     </result>
@@ -196,7 +196,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:long("92233720368547758"))</test>
-    <result-string>xs:string("92233720368547758")</result-string>
+    <result-string>xs:long("92233720368547758")</result-string>
     <result>
       <assert-string-value>92233720368547758</assert-string-value>
     </result>
@@ -206,7 +206,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:unsignedShort("0"))</test>
-    <result-string>xs:string("0")</result-string>
+    <result-string>xs:unsignedShort("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -216,7 +216,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:unsignedShort("44633"))</test>
-    <result-string>xs:string("44633")</result-string>
+    <result-string>xs:unsignedShort("44633")</result-string>
     <result>
       <assert-string-value>44633</assert-string-value>
     </result>
@@ -226,7 +226,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:unsignedShort("65535"))</test>
-    <result-string>xs:string("65535")</result-string>
+    <result-string>xs:unsignedShort("65535")</result-string>
     <result>
       <assert-string-value>65535</assert-string-value>
     </result>
@@ -236,7 +236,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:negativeInteger("-999999999999999999"))</test>
-    <result-string>xs:string("-999999999999999999")</result-string>
+    <result-string>xs:negativeInteger("-999999999999999999")</result-string>
     <result>
       <assert-string-value>-999999999999999999</assert-string-value>
     </result>
@@ -246,7 +246,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:negativeInteger("-297014075999096793"))</test>
-    <result-string>xs:string("-297014075999096793")</result-string>
+    <result-string>xs:negativeInteger("-297014075999096793")</result-string>
     <result>
       <assert-string-value>-297014075999096793</assert-string-value>
     </result>
@@ -256,7 +256,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:negativeInteger("-1"))</test>
-    <result-string>xs:string("-1")</result-string>
+    <result-string>xs:negativeInteger("-1")</result-string>
     <result>
       <assert-string-value>-1</assert-string-value>
     </result>
@@ -266,7 +266,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:positiveInteger("1"))</test>
-    <result-string>xs:string("1")</result-string>
+    <result-string>xs:positiveInteger("1")</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -276,7 +276,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:positiveInteger("52704602390610033"))</test>
-    <result-string>xs:string("52704602390610033")</result-string>
+    <result-string>xs:positiveInteger("52704602390610033")</result-string>
     <result>
       <assert-string-value>52704602390610033</assert-string-value>
     </result>
@@ -286,7 +286,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:positiveInteger("999999999999999999"))</test>
-    <result-string>xs:string("999999999999999999")</result-string>
+    <result-string>xs:positiveInteger("999999999999999999")</result-string>
     <result>
       <assert-string-value>999999999999999999</assert-string-value>
     </result>
@@ -296,7 +296,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:unsignedLong("0"))</test>
-    <result-string>xs:string("0")</result-string>
+    <result-string>xs:unsignedLong("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -306,7 +306,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:unsignedLong("130747108607674654"))</test>
-    <result-string>xs:string("130747108607674654")</result-string>
+    <result-string>xs:unsignedLong("130747108607674654")</result-string>
     <result>
       <assert-string-value>130747108607674654</assert-string-value>
     </result>
@@ -316,7 +316,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:unsignedLong("184467440737095516"))</test>
-    <result-string>xs:string("184467440737095516")</result-string>
+    <result-string>xs:unsignedLong("184467440737095516")</result-string>
     <result>
       <assert-string-value>184467440737095516</assert-string-value>
     </result>
@@ -326,7 +326,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:nonPositiveInteger("-999999999999999999"))</test>
-    <result-string>xs:string("-999999999999999999")</result-string>
+    <result-string>xs:nonPositiveInteger("-999999999999999999")</result-string>
     <result>
       <assert-string-value>-999999999999999999</assert-string-value>
     </result>
@@ -336,7 +336,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:nonPositiveInteger("-475688437271870490"))</test>
-    <result-string>xs:string("-475688437271870490")</result-string>
+    <result-string>xs:nonPositiveInteger("-475688437271870490")</result-string>
     <result>
       <assert-string-value>-475688437271870490</assert-string-value>
     </result>
@@ -346,7 +346,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:nonPositiveInteger("0"))</test>
-    <result-string>xs:string("0")</result-string>
+    <result-string>xs:nonPositiveInteger("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -356,7 +356,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:nonNegativeInteger("0"))</test>
-    <result-string>xs:string("0")</result-string>
+    <result-string>xs:nonNegativeInteger("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -366,7 +366,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:nonNegativeInteger("303884545991464527"))</test>
-    <result-string>xs:string("303884545991464527")</result-string>
+    <result-string>xs:nonNegativeInteger("303884545991464527")</result-string>
     <result>
       <assert-string-value>303884545991464527</assert-string-value>
     </result>
@@ -376,7 +376,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:nonNegativeInteger("999999999999999999"))</test>
-    <result-string>xs:string("999999999999999999")</result-string>
+    <result-string>xs:nonNegativeInteger("999999999999999999")</result-string>
     <result>
       <assert-string-value>999999999999999999</assert-string-value>
     </result>
@@ -386,7 +386,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:short("-32768"))</test>
-    <result-string>xs:string("-32768")</result-string>
+    <result-string>xs:short("-32768")</result-string>
     <result>
       <assert-string-value>-32768</assert-string-value>
     </result>
@@ -396,7 +396,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:short("-5324"))</test>
-    <result-string>xs:string("-5324")</result-string>
+    <result-string>xs:short("-5324")</result-string>
     <result>
       <assert-string-value>-5324</assert-string-value>
     </result>
@@ -406,7 +406,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:floor(xs:short("32767"))</test>
-    <result-string>xs:string("32767")</result-string>
+    <result-string>xs:short("32767")</result-string>
     <result>
       <assert-string-value>32767</assert-string-value>
     </result>
@@ -416,7 +416,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="emptydoc"/>
     <test>floor()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -426,7 +426,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="emptydoc"/>
     <test>floor(1, 2)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -466,7 +466,7 @@
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="emptydoc"/>
     <test>floor("a string")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -620,7 +620,7 @@
     <description>Basic test of floor(decimal)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(12.5)</test>
-    <result-string/>
+    <result-string>xs:decimal("12.0")</result-string>
     <result>
       <all-of>
         <assert-eq>12.0</assert-eq>
@@ -632,7 +632,7 @@
     <description>Basic test of floor(decimal)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(12.9)</test>
-    <result-string/>
+    <result-string>xs:decimal("12.0")</result-string>
     <result>
       <all-of>
         <assert-eq>12.0</assert-eq>
@@ -644,7 +644,7 @@
     <description>Basic test of floor(decimal)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(0.000000001)</test>
-    <result-string/>
+    <result-string>xs:decimal("0.0")</result-string>
     <result>
       <all-of>
         <assert-eq>0.0</assert-eq>
@@ -656,7 +656,7 @@
     <description>Basic test of floor(decimal)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(0.0)</test>
-    <result-string/>
+    <result-string>xs:decimal("0.0")</result-string>
     <result>
       <all-of>
         <assert-eq>0.0</assert-eq>
@@ -668,7 +668,7 @@
     <description>Basic test of floor(decimal)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(-0.1)</test>
-    <result-string/>
+    <result-string>xs:decimal("-1.0")</result-string>
     <result>
       <all-of>
         <assert-eq>-1.0</assert-eq>
@@ -680,7 +680,7 @@
     <description>Basic test of floor(decimal)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(-12345678.567890)</test>
-    <result-string/>
+    <result-string>xs:decimal("-12345679.0")</result-string>
     <result>
       <all-of>
         <assert-eq>-12345679</assert-eq>
@@ -692,7 +692,7 @@
     <description>Basic test of floor(decimal)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(-1234567891234567.2)</test>
-    <result-string/>
+    <result-string>xs:decimal("-1234567891234568.0")</result-string>
     <result>
       <all-of>
         <assert-eq>-1234567891234568.0</assert-eq>
@@ -704,7 +704,7 @@
     <description>Basic test of floor(double)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(12.5e0)</test>
-    <result-string/>
+    <result-string>xs:double("1.2e1")</result-string>
     <result>
       <all-of>
         <assert-eq>12.0e0</assert-eq>
@@ -716,7 +716,7 @@
     <description>Basic test of floor(double)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(12.9e0)</test>
-    <result-string/>
+    <result-string>xs:double("1.2e1")</result-string>
     <result>
       <all-of>
         <assert-eq>12.0e0</assert-eq>
@@ -728,7 +728,7 @@
     <description>Basic test of floor(double)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(0.000000001e0)</test>
-    <result-string/>
+    <result-string>xs:double("0.0e0")</result-string>
     <result>
       <all-of>
         <assert-eq>0.0e0</assert-eq>
@@ -740,7 +740,7 @@
     <description>Basic test of floor(double)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(0.0e0)</test>
-    <result-string/>
+    <result-string>xs:double("0.0e0")</result-string>
     <result>
       <all-of>
         <assert-eq>0.0e0</assert-eq>
@@ -752,7 +752,7 @@
     <description>Basic test of floor(double)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(-0.1e0)</test>
-    <result-string/>
+    <result-string>xs:double("-1.0e0")</result-string>
     <result>
       <all-of>
         <assert-eq>-1.0e0</assert-eq>
@@ -764,7 +764,7 @@
     <description>Basic test of floor(double)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(-12345678.567890e0)</test>
-    <result-string/>
+    <result-string>xs:double("-1.2345679e7")</result-string>
     <result>
       <all-of>
         <assert-eq>-12345679e0</assert-eq>
@@ -776,7 +776,7 @@
     <description>Basic test of floor(double)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(-1234567891234567.2e0)</test>
-    <result-string/>
+    <result-string>xs:double("-1.234567891234568e15")</result-string>
     <result>
       <all-of>
         <assert-eq>-1234567891234568.0e0</assert-eq>
@@ -788,7 +788,7 @@
     <description>Basic test of floor(double)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(xs:double('NaN'))</test>
-    <result-string/>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <all-of>
         <assert-string-value>NaN</assert-string-value>
@@ -800,7 +800,7 @@
     <description>Basic test of floor(double)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(xs:double('INF'))</test>
-    <result-string/>
+    <result-string>xs:double("INF")</result-string>
     <result>
       <all-of>
         <assert-string-value>INF</assert-string-value>
@@ -812,7 +812,7 @@
     <description>Basic test of floor(double)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(xs:double('-INF'))</test>
-    <result-string/>
+    <result-string>xs:double("-INF")</result-string>
     <result>
       <all-of>
         <assert-string-value>-INF</assert-string-value>
@@ -824,7 +824,7 @@
     <description>Basic test of floor(double)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(xs:double('-0'))</test>
-    <result-string/>
+    <result-string>xs:double("0.0e0")</result-string>
     <result>
       <all-of>
         <assert-string-value>-0</assert-string-value>
@@ -836,7 +836,7 @@
     <description>Basic test of floor(float))</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(xs:float(12.5e0))</test>
-    <result-string/>
+    <result-string>xs:float("1.2e1")</result-string>
     <result>
       <all-of>
         <assert-eq>12.0e0</assert-eq>
@@ -848,7 +848,7 @@
     <description>Basic test of floor(float))</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(xs:float(12.9e0))</test>
-    <result-string/>
+    <result-string>xs:float("1.2e1")</result-string>
     <result>
       <all-of>
         <assert-eq>12.0e0</assert-eq>
@@ -860,7 +860,7 @@
     <description>Basic test of floor(float))</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(xs:float(0.000000001e0))</test>
-    <result-string/>
+    <result-string>xs:float("0.0e0")</result-string>
     <result>
       <all-of>
         <assert-eq>0.0e0</assert-eq>
@@ -872,7 +872,7 @@
     <description>Basic test of floor(float))</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(xs:float(0.0e0))</test>
-    <result-string/>
+    <result-string>xs:float("0.0e0")</result-string>
     <result>
       <all-of>
         <assert-eq>0.0e0</assert-eq>
@@ -884,7 +884,7 @@
     <description>Basic test of floor(float))</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(xs:float(-0.1e0))</test>
-    <result-string/>
+    <result-string>xs:float("-1.0e0")</result-string>
     <result>
       <all-of>
         <assert-eq>-1.0e0</assert-eq>
@@ -896,7 +896,7 @@
     <description>Basic test of floor(float))</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(xs:float(-12345678.567890e0))</test>
-    <result-string/>
+    <result-string>xs:float("-1.2345679e7")</result-string>
     <result>
       <all-of>
         <assert-eq>-12345679e0</assert-eq>
@@ -908,7 +908,7 @@
     <description>Basic test of floor(float))</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(xs:float(-1234567.2e0))</test>
-    <result-string/>
+    <result-string>xs:float("-1.234568e6")</result-string>
     <result>
       <all-of>
         <assert-eq>-1234568e0</assert-eq>
@@ -920,7 +920,7 @@
     <description>Basic test of floor(float))</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(xs:float(xs:float('NaN')))</test>
-    <result-string/>
+    <result-string>xs:float("NaN")</result-string>
     <result>
       <all-of>
         <assert-string-value>NaN</assert-string-value>
@@ -932,7 +932,7 @@
     <description>Basic test of floor(float))</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(xs:float(xs:float('INF')))</test>
-    <result-string/>
+    <result-string>xs:float("INF")</result-string>
     <result>
       <all-of>
         <assert-string-value>INF</assert-string-value>
@@ -944,7 +944,7 @@
     <description>Basic test of floor(float))</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(xs:float(xs:float('-INF')))</test>
-    <result-string/>
+    <result-string>xs:float("-INF")</result-string>
     <result>
       <all-of>
         <assert-string-value>-INF</assert-string-value>
@@ -956,7 +956,7 @@
     <description>Basic test of floor(float))</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>floor(xs:float(xs:float('-0')))</test>
-    <result-string/>
+    <result-string>xs:float("0.0e0")</result-string>
     <result>
       <all-of>
         <assert-string-value>-0</assert-string-value>

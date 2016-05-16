@@ -8,7 +8,7 @@
  * @description 
  */
 Fleur.XPathFunctions_fn["substring-before"] = function(ctx, children, callback) {
-	Fleur.XPathStringContentFunction(ctx, children, function(a, b) {
+	Fleur.XPathStringContentFunction(ctx, children, false, function(a, b) {
 		return a.substring(0, a.indexOf(b));
 	}, Fleur.Type_string, callback);
 };

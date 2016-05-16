@@ -14,7 +14,7 @@
   <test-case name="fn-encode-for-uri1args-2">
     <description>Test encode-for-uri from example defined in functions and operators specification </description>
     <created by="Joanne Tong" on="2005-09-29"/>
-    <test>encode-for-uri("~bb")</test>
+    <test>encode-for-uri("~bébé")</test>
     <result-string>xs:string("~b%C3%A9b%C3%A9")</result-string>
     <result>
       <assert-string-value>~b%C3%A9b%C3%A9</assert-string-value>
@@ -239,7 +239,7 @@
   <test-case name="K-EncodeURIfunc-4">
     <description> Combine fn:concat and fn:encode-for-uri. </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <test>concat("http://www.example.com/", encode-for-uri("~bb")) eq "http://www.example.com/~b%C3%A9b%C3%A9"</test>
+    <test>concat("http://www.example.com/", encode-for-uri("~bébé")) eq "http://www.example.com/~b%C3%A9b%C3%A9"</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>

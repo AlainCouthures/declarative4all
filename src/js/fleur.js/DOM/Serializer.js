@@ -155,7 +155,7 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 						fdata = fdata.split("e");
 						fdata = fdata[0] + ".0e" + fdata[1];
 					}
-				} else if (node.schemaTypeInfo === Fleur.Type_decimal) {
+				} else if (node.schemaTypeInfo === Fleur.Type_decimal && fdata.indexOf(".") === -1) {
 					fdata += ".0";
 				}
 			}

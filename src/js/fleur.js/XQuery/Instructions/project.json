@@ -17,6 +17,7 @@
 		"filterExpr.js",
 		"flworExpr.js",
 		"functionCallExpr.js",
+		"ifThenElseExpr.js",
 		"instanceOfExpr.js",
 		"integerConstantExpr.js",
 		"mainModule.js",

@@ -7,8 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["contains"] = function(ctx, children, callback) {
-	Fleur.XPathStringContentFunction(ctx, children, false, function(a, b) {
-		return a.indexOf(b) !== -1;
+Fleur.XPathFunctions_fn["codepoint-equal"] = function(ctx, children, callback) {
+	Fleur.XPathStringContentFunction(ctx, children, true, function(a, b) {
+		return a === b;
 	}, Fleur.Type_boolean, callback);
 };

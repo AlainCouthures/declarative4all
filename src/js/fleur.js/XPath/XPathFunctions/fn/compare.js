@@ -7,8 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["contains"] = function(ctx, children, callback) {
-	Fleur.XPathStringContentFunction(ctx, children, false, function(a, b) {
-		return a.indexOf(b) !== -1;
-	}, Fleur.Type_boolean, callback);
+Fleur.XPathFunctions_fn["compare"] = function(ctx, children, callback) {
+	Fleur.XPathStringContentFunction(ctx, children, true, function(a, b) {
+		return a === b ? 0 : a < b ? -1 : 1;
+	}, Fleur.Type_integer, callback);
 };

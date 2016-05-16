@@ -14,12 +14,38 @@ Fleur.XPathFunctions_fn["codepoints-to-string"] = function(ctx, children, callba
 		return;
 	}
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+		var a = Fleur.Atomize(n);
+		var i, l, code;
+		if (a.nodeType === Fleur.Node.SEQUENCE_NODE) {
+			for (i = 0, l = a.childNodes.length; i < l; i++) {
+				if (a.childNodes[i].schemaTypeInfo === Fleur.Type_integer) {
+					code = parseInt(a.childNodes[i].data, 10);
+					if (code < 0 || code > 65535) {
+						callback(Fleur.error(ctx, "FOCH0001"));
+						return;
+					}
+					s += String.fromCodePoint(code);
+				} else {
+					callback(Fleur.error(ctx, "XPTY0004"));
+					return;
+				}
+			}
 		} else {
+			if (a.schemaTypeInfo === Fleur.Type_integer) {
+				code = parseInt(a.data, 10);
+				if (code < 0 || code > 65535) {
+					callback(Fleur.error(ctx, "FOCH0001"));
+					return;
+				}
+				s = String.fromCodePoint(code);
+			} else {
+				callback(Fleur.error(ctx, "XPTY0004"));
+				return;
+			}
 		}
-		n = new Fleur.Text();
-		n.schemaTypeInfo = Fleur.Type_string;
-		n.data = s;
-		callback(n);
+		a = new Fleur.Text();
+		a.schemaTypeInfo = Fleur.Type_string;
+		a.data = s;
+		callback(a);
 	});
 };

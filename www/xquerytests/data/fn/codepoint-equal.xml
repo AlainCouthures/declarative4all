@@ -6,7 +6,7 @@
     <description> Evaluation of an "fn:codepoint-equal" with wrong arity. </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal("a")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluation of an "fn:codepoint-equal" with wrong argument type. </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal(xs:integer(1),xs:integer(1))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluation of an "fn:codepoint-equal" with wrong argument type (only second argument). </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal("aa",xs:integer(1))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
