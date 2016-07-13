@@ -9,14 +9,14 @@
  */
 Fleur.XPathFunctions_fn["sum"] = function(ctx, children, callback) {
 	if (children.length !== 1 && children.length !== 2) {
-		callback(Fleur.error(ctx, "XPST0017"));
+		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
 		return;
 	}
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
 		var sum = 0, val, t = 0, a;
 		if (n !== Fleur.EmptySequence) {
 			if (n.schemaTypeInfo === Fleur.Type_error) {
-				callback(n);
+				Fleur.callback(function() {callback(n);});
 				return;
 			}
 			if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
@@ -52,12 +52,12 @@ Fleur.XPathFunctions_fn["sum"] = function(ctx, children, callback) {
 		}
 		if (sum === 0 && children.length === 2) {
 			Fleur.XQueryEngine[children[1][0]](ctx, children[1][1], function(n) {
-				callback(Fleur.Atomize(n));
+				Fleur.callback(function() {callback(Fleur.Atomize(n));});
 			});
 		} else {
 			a.data = "" + sum;
 			a.schemaTypeInfo = Fleur.numericTypes[t];
-			callback(a);
+			Fleur.callback(function() {callback(a);});
 		}
 	});
 };

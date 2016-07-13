@@ -6,6 +6,7 @@
 		"XPathEvaluator.js",
 		"XPathException.js",
 		"XPathNSResolver.js",
-		"XPathResult.js"
+		"XPathResult.js",
+		"varMgr.js"
 	]
 }

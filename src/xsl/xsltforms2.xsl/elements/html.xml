@@ -145,9 +145,12 @@
 								<xsl:value-of select="normalize-space($xsltforms_config)"/>
 							</xsl:when>
 							<xsl:otherwise>
+								<xsl:copy-of select="$script/config/properties"/>
+								<!--
 								<xsl:apply-templates select="$script/config/properties" mode="xml2string">
 									<xsl:with-param name="root" select="true()"/>
 								</xsl:apply-templates>
+								-->
 							</xsl:otherwise>
 						</xsl:choose>
 					</script>

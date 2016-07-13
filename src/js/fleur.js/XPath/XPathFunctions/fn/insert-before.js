@@ -9,12 +9,12 @@
  */
 Fleur.XPathFunctions_fn["insert-before"] = function(ctx, children, callback) {
 	if (children.length !== 3) {
-		callback(Fleur.error(ctx, "XPST0017"));
+		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
 		return;
 	}
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
 		if (n.schemaTypeInfo === Fleur.Type_error) {
-			callback(n);
+			Fleur.callback(function() {callback(n);});
 			return;
 		}
 		var seq = n;
@@ -22,22 +22,22 @@ Fleur.XPathFunctions_fn["insert-before"] = function(ctx, children, callback) {
 			var index;
 			var a1 = Fleur.Atomize(n);
 			if (a1.schemaTypeInfo === Fleur.Type_error) {
-				callback(a1);
+				Fleur.callback(function() {callback(a1);});
 				return;
 			}
 			if (a1.schemaTypeInfo !== Fleur.Type_integer) {
-				callback(Fleur.error(ctx, "XPTY0004"));
+				Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
 				return;
 			}
 			index = Math.max(parseInt(a1.data, 10) - 1, 0);
 			Fleur.XQueryEngine[children[2][0]](ctx, children[2][1], function(n) {
 				var a2 = Fleur.Atomize(n);
 				if (a2 === Fleur.EmptySequence) {
-					callback(seq);
+					Fleur.callback(function() {callback(seq);});
 					return;
 				}
 				if (seq === Fleur.EmptySequence) {
-					callback(a2);
+					Fleur.callback(function() {callback(a2);});
 					return;
 				}
 				var result = new Fleur.Sequence();
@@ -72,7 +72,7 @@ Fleur.XPathFunctions_fn["insert-before"] = function(ctx, children, callback) {
 						result.appendChild(seq);
 					}
 				}
-				callback(result);
+				Fleur.callback(function() {callback(result);});
 			});
 		});
 	});

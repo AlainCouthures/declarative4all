@@ -106,8 +106,14 @@
 			<xsl:choose>
 				<xsl:when test="$i = '0'"><xsl:value-of select="concat($l,'.',$r)"/></xsl:when>
 				<xsl:otherwise>
+					<!--
 					<xsl:variable name="s3" select="substring($s,number(substring-before($i,'.'))+1)"/>
 					<xsl:variable name="c3" select="substring(normalize-space($s3),1,1)"/>
+					<xsl:variable name="i3" select="string-length(substring-before($s3,$c3))"/>
+					<xsl:variable name="s4" select="concat($c3,substring-after($s3,$c3))"/>
+					-->
+					<xsl:variable name="s3" select="substring($s,number(substring-before($i,'.'))+1)"/>
+					<xsl:variable name="c3" select="substring($s3,1,1)"/>
 					<xsl:variable name="i3" select="string-length(substring-before($s3,$c3))"/>
 					<xsl:variable name="s4" select="concat($c3,substring-after($s3,$c3))"/>
 					<xsl:variable name="p">
@@ -120,8 +126,13 @@
 							<xsl:otherwise>0.)</xsl:otherwise>
 						</xsl:choose>
 					</xsl:variable>
+					<!--
 					<xsl:variable name="s5" select="substring($s4,number(substring-before($p,'.'))+1)"/>
 					<xsl:variable name="c5" select="substring(normalize-space($s5),1,1)"/>
+					<xsl:variable name="i5" select="string-length(substring-before($s5,$c5))"/>
+					-->
+					<xsl:variable name="s5" select="substring($s4,number(substring-before($p,'.'))+1)"/>
+					<xsl:variable name="c5" select="substring($s5,1,1)"/>
 					<xsl:variable name="i5" select="string-length(substring-before($s5,$c5))"/>
 					<xsl:call-template name="getLocationPath">
 						<xsl:with-param name="s" select="concat($c5,substring-after($s5,$c5))"/>

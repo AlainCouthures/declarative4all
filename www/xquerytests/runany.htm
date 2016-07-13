@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Run Any XQuery Test</title>
+		<script type="text/javascript" src="js/fleur.js"></script>
+	</head>
+	<body>
+		<button id="run" onclick="run()">Run</button>
+		<br>
+		<textarea id="test" style="height: 150px; width: 1300px" oninput="fclear()"></textarea>
+		<hr>
+		<pre id="effectiveresult"></pre>
+		<hr>
+		<textarea id="doc" style="height: 150px; width: 1300px" oninput="fclear()"></textarea>
+		<hr>
+		<pre id="xqueryx"></pre>
+		<hr>
+		<pre id="xqueryarr"></pre>
+		<script type="text/javascript">
+			/*globals Fleur */
+			function fclear() {
+				document.getElementById("effectiveresult").innerHTML = "";
+				//alert("clear");
+			}
+			var parser = new Fleur.DOMParser();
+			var xmldoc;
+			var xqeval = function (xexpr) {
+				try {
+					xmldoc.evaluate(xexpr).then(
+						function(res) {
+							var now = new Date();
+							var snow = ((now.getHours() < 10)?"0":"") + now.getHours() +":"+ ((now.getMinutes() < 10)?"0":"") + now.getMinutes() +":"+ ((now.getSeconds() < 10)?"0":"") + now.getSeconds();
+							document.getElementById("effectiveresult").innerHTML = snow + " - " + res.toXQuery().replace(/</mg, "&lt;");
+						},
+						function(err) {
+							var now = new Date();
+							var snow = ((now.getHours() < 10)?"0":"") + now.getHours() +":"+ ((now.getMinutes() < 10)?"0":"") + now.getMinutes() +":"+ ((now.getSeconds() < 10)?"0":"") + now.getSeconds();
+							document.getElementById("effectiveresult").innerHTML = snow + " - " + err.toXQuery().replace(/</mg, "&lt;");
+						}
+					);
+				} catch(e) {
+					document.getElementById("effectiveresult").innerHTML = "Exception!\n" + e.stack;
+				}
+			};
+			function run() {
+				try {
+					xmldoc = parser.parseFromString(document.getElementById("doc").value, "application/xml");
+					var jsret = Fleur.XPathEvaluator._xq2js(document.getElementById("test").value);
+					var arr;
+					eval("arr = " + jsret + ";");
+					var doc = parser.parseFromArray([Fleur.XQueryXNames, [arr]]);
+					var ser = new Fleur.XMLSerializer();
+					document.getElementById("xqueryx").innerHTML = ser.serializeToString(doc, true).replace(/</mg, "&lt;");
+					document.getElementById("xqueryarr").innerHTML = jsret.replace(/</mg, "&lt;");
+				} catch(e) {
+					document.getElementById("xqueryx").innerHTML = "Exception!\n" + e.message + "\n\n" + jsret;
+				}
+				xqeval(document.getElementById("test").value);
+			}
+		</script>
+	</body>
+</html>

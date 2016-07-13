@@ -14,7 +14,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.xpathAxis] = function(ctx, children, callback) 
 	switch(children[0]) {
 		case "ancestor-or-self":
 			if (!curr.parentNode && !curr.ownerElement) {
-				callback(curr);
+				Fleur.callback(function() {callback(curr);});
 				return;
 			}
 			seq = new Fleur.Sequence();
@@ -26,16 +26,16 @@ Fleur.XQueryEngine[Fleur.XQueryX.xpathAxis] = function(ctx, children, callback) 
 				seq.appendChild(n);
 				n = n.parentNode;
 			}
-			callback(seq);
+			Fleur.callback(function() {callback(seq);});
 			return;
 		case "ancestor":
 			if (!curr.parentNode && !curr.ownerElement) {
-				callback(Fleur.EmptySequence);
+				Fleur.callback(function() {callback(Fleur.EmptySequence);});
 				return;
 			}
 			n = curr.parentNode || curr.ownerElement;
 			if (!n.parentNode) {
-				callback(n);
+				Fleur.callback(function() {callback(n);});
 				return;
 			}
 			seq = new Fleur.Sequence();
@@ -45,78 +45,89 @@ Fleur.XQueryEngine[Fleur.XQueryX.xpathAxis] = function(ctx, children, callback) 
 				seq.appendChild(n);
 				n = n.parentNode;
 			}
-			callback(seq);
+			Fleur.callback(function() {callback(seq);});
 			return;
 		case "attribute":
 			if (!curr.attributes || curr.attributes.length === 0) {
-				callback(Fleur.EmptySequence);
+				Fleur.callback(function() {callback(Fleur.EmptySequence);});
 				return;
 			}
-			if (curr.attributes.length === 1) {
-				callback(curr.attributes[0]);
+			if (curr.attributes.length === 1 && curr.attributes[0].nodeName !== "xmlns" && curr.attributes[0].prefix !== "xmlns") {
+				Fleur.callback(function() {callback(curr.attributes[0]);});
 				return;
 			}
 			seq = new Fleur.Sequence();
-			curr.attributes.forEach(function(a) {seq.appendChild(a);});
-			callback(seq);
+			curr.attributes.forEach(function(a) {
+				if (a.nodeName !== "xmlns" && a.prefix !== "xmlns") {
+					seq.appendChild(a);
+				}
+			});
+			if (seq.childNodes.length === 0) {
+				Fleur.callback(function() {callback(Fleur.EmptySequence);});
+			} else {
+				if (seq.childNodes.length === 1) {
+					seq = seq.childNodes[0];
+				}
+				Fleur.callback(function() {callback(seq);});
+			}
 			return;
 		case "entry":
 			if (!curr.entries || curr.entries.length === 0) {
-				callback(Fleur.EmptySequence);
+				Fleur.callback(function() {callback(Fleur.EmptySequence);});
 				return;
 			}
 			if (curr.entries.length === 1) {
-				callback(curr.entries[0]);
+				Fleur.callback(function() {callback(curr.entries[0]);});
 				return;
 			}
 			seq = new Fleur.Sequence();
 			curr.entries.forEach(function(a) {seq.appendChild(a);});
-			callback(seq);
+			Fleur.callback(function() {callback(seq);});
 			return;
 		case "child":
 			if (!curr.childNodes || curr.childNodes.length === 0) {
-				callback(Fleur.EmptySequence);
+				Fleur.callback(function() {callback(Fleur.EmptySequence);});
 				return;
 			}
 			if (curr.childNodes.length === 1) {
-				callback(curr.childNodes[0]);
+				Fleur.callback(function() {callback(curr.childNodes[0]);});
 				return;
 			}
 			seq = new Fleur.Sequence();
 			curr.childNodes.forEach(function(a) {seq.appendChild(a);});
-			callback(seq);
+			Fleur.callback(function() {callback(seq);});
 			return;
 		case "descendant":
 			if (!curr.childNodes || curr.childNodes.length === 0) {
-				callback(Fleur.EmptySequence);
+				Fleur.callback(function() {callback(Fleur.EmptySequence);});
 				return;
 			}
 			if (curr.childNodes.length === 1 && curr.childNodes[0].childNodes.length === 0) {
-				callback(curr.childNodes[0]);
+				Fleur.callback(function() {callback(curr.childNodes[0]);});
 				return;
 			}
 			seq = new Fleur.Sequence();
 			seq.appendDescendants(curr);
-			callback(seq);
+			Fleur.callback(function() {callback(seq);});
 			return;
 		case "descendant-or-self":
 			if (!curr.childNodes || curr.childNodes.length === 0) {
-				callback(curr);
+				Fleur.callback(function() {callback(curr);});
 				return;
 			}
 			seq = new Fleur.Sequence();
 			seq.appendChild(curr);
 			seq.appendDescendants(curr);
-			callback(seq);
+			Fleur.callback(function() {callback(seq);});
 			return;
 		case "following":
 			if (!curr.nextSibling) {
-				callback(Fleur.EmptySequence);
+				Fleur.callback(function() {callback(Fleur.EmptySequence);});
 				return;
 			}
 			n = curr.nextSibling;
 			if (!n.nextSibling) {
-				callback(n);
+				Fleur.callback(function() {callback(n);});
 				return;
 			}
 			seq = new Fleur.Sequence();
@@ -127,16 +138,16 @@ Fleur.XQueryEngine[Fleur.XQueryX.xpathAxis] = function(ctx, children, callback) 
 				seq.appendDescendants(n);
 				n = n.nextSibling;
 			}
-			callback(seq);
+			Fleur.callback(function() {callback(seq);});
 			return;
 		case "following-sibling":
 			if (!curr.nextSibling) {
-				callback(Fleur.EmptySequence);
+				Fleur.callback(function() {callback(Fleur.EmptySequence);});
 				return;
 			}
 			n = curr.nextSibling;
 			if (!n.nextSibling) {
-				callback(n);
+				Fleur.callback(function() {callback(n);});
 				return;
 			}
 			seq = new Fleur.Sequence();
@@ -146,19 +157,19 @@ Fleur.XQueryEngine[Fleur.XQueryX.xpathAxis] = function(ctx, children, callback) 
 				seq.appendChild(n);
 				n = n.nextSibling;
 			}
-			callback(seq);
+			Fleur.callback(function() {callback(seq);});
 			return;
 		case "parent":
-			callback(curr.parentNode || curr.ownerElement || Fleur.EmptySequence);
+			Fleur.callback(function() {callback(curr.parentNode || curr.ownerElement || Fleur.EmptySequence);});
 			return;
 		case "preceding":
 			if (!curr.previousSibling) {
-				callback(Fleur.EmptySequence);
+				Fleur.callback(function() {callback(Fleur.EmptySequence);});
 				return;
 			}
 			n = curr.previousSibling;
 			if (!n.previousSibling) {
-				callback(n);
+				Fleur.callback(function() {callback(n);});
 				return;
 			}
 			seq = new Fleur.Sequence();
@@ -169,16 +180,16 @@ Fleur.XQueryEngine[Fleur.XQueryX.xpathAxis] = function(ctx, children, callback) 
 				seq.appendChild(n);
 				n = n.previousSibling;
 			}
-			callback(seq);
+			Fleur.callback(function() {callback(seq);});
 			return;
 		case "preceding-sibling":
 			if (!curr.previousSibling) {
-				callback(Fleur.EmptySequence);
+				Fleur.callback(function() {callback(Fleur.EmptySequence);});
 				return;
 			}
 			n = curr.previousSibling;
 			if (!n.previousSibling) {
-				callback(n);
+				Fleur.callback(function() {callback(n);});
 				return;
 			}
 			seq = new Fleur.Sequence();
@@ -188,10 +199,10 @@ Fleur.XQueryEngine[Fleur.XQueryX.xpathAxis] = function(ctx, children, callback) 
 				seq.appendChild(n);
 				n = n.previousSibling;
 			}
-			callback(seq);
+			Fleur.callback(function() {callback(seq);});
 			return;
 		case "self":
-			callback(curr);
+			Fleur.callback(function() {callback(curr);});
 			return;
 	}
 };

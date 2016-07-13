@@ -11,5 +11,5 @@
  * @callback
  */
 Fleur.XQueryEngine[Fleur.XQueryX.rootExpr] = function(ctx, children, callback) {
-	callback(ctx._curr.ownerDocument || ctx._curr);
+	Fleur.callback(function() {callback(ctx._curr.ownerDocument || ctx._curr);});
 };

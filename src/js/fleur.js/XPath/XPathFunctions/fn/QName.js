@@ -9,7 +9,7 @@
  */
 Fleur.XPathFunctions_fn["QName"] = function(ctx, children, callback) {
 	if (children.length !== 2) {
-		callback(Fleur.error(ctx, "XPST0017"));
+		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
 		return;
 	}
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
@@ -19,7 +19,7 @@ Fleur.XPathFunctions_fn["QName"] = function(ctx, children, callback) {
 			var a = new Fleur.Text();
 			a.schemaTypeInfo = Fleur.Type_QName;
 			a._setNodeNameLocalNamePrefix(namespaceURI, qualifiedName);
-			callback(a);
+			Fleur.callback(function() {callback(a);});
 		});
 	});
 };

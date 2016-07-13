@@ -9,17 +9,17 @@
  */
 Fleur.XPathFunctions_fn["distinct-values"] = function(ctx, children, callback) {
 	if (children.length === 2) {
-		callback(Fleur.error(ctx, "FOCH0002"));
+		Fleur.callback(function() {callback(Fleur.error(ctx, "FOCH0002"));});
 		return;
 	}
 	if (children.length !== 1) {
-		callback(Fleur.error(ctx, "XPST0017"));
+		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
 		return;
 	}
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
 		var a = Fleur.Atomize(n);
 		if (a === Fleur.EmptySequence) {
-			callback(a);
+			Fleur.callback(function() {callback(a);});
 			return;
 		}
 		if (a.nodeType === Fleur.Node.SEQUENCE_NODE) {
@@ -45,9 +45,9 @@ Fleur.XPathFunctions_fn["distinct-values"] = function(ctx, children, callback) {
 			if (result.childNodes.length === 1) {
 				result = result.childNodes[0];
 			}
-			callback(result);
+			Fleur.callback(function() {callback(result);});
 		} else {
-			callback(a);
+			Fleur.callback(function() {callback(a);});
 		}
 	});
 };

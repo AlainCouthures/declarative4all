@@ -13,10 +13,10 @@ Fleur.XQueryEngine[Fleur.XQueryX.unaryMinusOp] = function(ctx, children, callbac
 		var a = Fleur.Atomize(n);
 		op = Fleur.toJSNumber(a);
 		if (op[0] < 0) {
-			callback(a);
+			Fleur.callback(function() {callback(a);});
 			return;
 		}
 		a.data = "" + (- op[1]);
-		callback(a);
+		Fleur.callback(function() {callback(a);});
 	});
 };

@@ -12,6 +12,6 @@ Fleur.XQueryEngine[Fleur.XQueryX.unaryPlusOp] = function(ctx, children, callback
 		var op;
 		var a = Fleur.Atomize(n);
 		op = Fleur.toJSNumber(a);
-		callback(a);
+		Fleur.callback(function() {callback(a);});
 	});
 };

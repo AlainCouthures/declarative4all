@@ -11,5 +11,5 @@ Fleur.XQueryEngine[Fleur.XQueryX.doubleConstantExpr] = function(ctx, children, c
 	var a = new Fleur.Text();
 	a.appendData(children[0][1][0]);
 	a.schemaTypeInfo = Fleur.Type_double;
-	callback(a);
+	Fleur.callback(function() {callback(a);});
 };

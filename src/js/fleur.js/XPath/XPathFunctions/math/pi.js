@@ -10,10 +10,10 @@
 Fleur.XPathFunctions_math["pi"] = function(ctx, children, callback) {
 	var a = new Fleur.Text();
 	if (children.length !== 0) {
-		callback(Fleur.error(ctx, "XPST0017"));
+		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
 		return;
 	}
 	a.schemaTypeInfo = Fleur.Type_double;
 	a.data = "3.141592653589793e0";
-	callback(a);
+	Fleur.callback(function() {callback(a);});
 };

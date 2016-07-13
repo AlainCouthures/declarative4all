@@ -10,7 +10,7 @@
 Fleur.XPathFunctions_fn["codepoints-to-string"] = function(ctx, children, callback) {
 	var s = "";
 	if (children.length !== 1) {
-		callback(Fleur.error(ctx, "XPST0017"));
+		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
 		return;
 	}
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
@@ -21,12 +21,12 @@ Fleur.XPathFunctions_fn["codepoints-to-string"] = function(ctx, children, callba
 				if (a.childNodes[i].schemaTypeInfo === Fleur.Type_integer) {
 					code = parseInt(a.childNodes[i].data, 10);
 					if (code < 0 || code > 65535) {
-						callback(Fleur.error(ctx, "FOCH0001"));
+						Fleur.callback(function() {callback(Fleur.error(ctx, "FOCH0001"));});
 						return;
 					}
 					s += String.fromCodePoint(code);
 				} else {
-					callback(Fleur.error(ctx, "XPTY0004"));
+					Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
 					return;
 				}
 			}
@@ -34,18 +34,18 @@ Fleur.XPathFunctions_fn["codepoints-to-string"] = function(ctx, children, callba
 			if (a.schemaTypeInfo === Fleur.Type_integer) {
 				code = parseInt(a.data, 10);
 				if (code < 0 || code > 65535) {
-					callback(Fleur.error(ctx, "FOCH0001"));
+					Fleur.callback(function() {callback(Fleur.error(ctx, "FOCH0001"));});
 					return;
 				}
 				s = String.fromCodePoint(code);
 			} else {
-				callback(Fleur.error(ctx, "XPTY0004"));
+				Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
 				return;
 			}
 		}
 		a = new Fleur.Text();
 		a.schemaTypeInfo = Fleur.Type_string;
 		a.data = s;
-		callback(a);
+		Fleur.callback(function() {callback(a);});
 	});
 };

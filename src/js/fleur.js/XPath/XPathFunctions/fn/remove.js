@@ -9,12 +9,12 @@
  */
 Fleur.XPathFunctions_fn["remove"] = function(ctx, children, callback) {
 	if (children.length !== 2) {
-		callback(Fleur.error(ctx, "XPST0017"));
+		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
 		return;
 	}
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
 		if (n === Fleur.EmptySequence || n.schemaTypeInfo === Fleur.Type_error) {
-			callback(n);
+			Fleur.callback(function() {callback(n);});
 			return;
 		}
 		var seq = n;
@@ -22,11 +22,11 @@ Fleur.XPathFunctions_fn["remove"] = function(ctx, children, callback) {
 			var i, l, index, result;
 			var a = Fleur.Atomize(n);
 			if (a.schemaTypeInfo === Fleur.Type_error) {
-				callback(a);
+				Fleur.callback(function() {callback(a);});
 				return;
 			}
 			if (a.schemaTypeInfo !== Fleur.Type_integer) {
-				callback(Fleur.error(ctx, "FORG0006"));
+				Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0006"));});
 				return;
 			}
 			index = parseInt(a.data, 10) - 1;
@@ -45,6 +45,9 @@ Fleur.XPathFunctions_fn["remove"] = function(ctx, children, callback) {
 						result.appendChild(seq.childNodes[i]);
 						i++;
 					}
+					if (result.childNodes.length === 1) {
+						result = result.childNodes[0];
+					}
 				} else {
 					result = seq;
 				}
@@ -53,7 +56,7 @@ Fleur.XPathFunctions_fn["remove"] = function(ctx, children, callback) {
 			} else {
 				result = seq;
 			}
-			callback(result);
+			Fleur.callback(function() {callback(result);});
 		});
 	});
 };

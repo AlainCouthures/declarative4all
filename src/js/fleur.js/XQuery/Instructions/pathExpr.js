@@ -38,11 +38,11 @@ Fleur.XQueryEngine[Fleur.XQueryX.pathExpr] = function(ctx, children, callback) {
 			n = next;
 		}
 		if (n === Fleur.EmptySequence) {
-			callback(result, Fleur.XQueryX.pathExpr);
+			Fleur.callback(function() {callback(result, Fleur.XQueryX.pathExpr);});
 			return;
 		}
 		if (children.length === 1) {
-			callback(n, Fleur.XQueryX.pathExpr);
+			Fleur.callback(function() {callback(n, Fleur.XQueryX.pathExpr);});
 			return;
 		}
 		var subcurr;
@@ -58,7 +58,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.pathExpr] = function(ctx, children, callback) {
 		next = n;
 		Fleur.XQueryEngine[Fleur.XQueryX.pathExpr]({
 				_curr: subcurr,
-				nsresolver: ctx.nsresolver
+				env: ctx.env
 			}, children.slice(1), cb);
 	};
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);

@@ -9,13 +9,13 @@
  */
 Fleur.XPathFunctions_fn["string-to-codepoints"] = function(ctx, children, callback) {
 	if (children.length !== 1) {
-		callback(Fleur.error(ctx, "XPST0017"));
+		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
 		return;
 	}
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
 		var result, c;
 		var a = Fleur.Atomize(n);
-		if (a.schemaTypeInfo === Fleur.Type_string) {
+		if (a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
 			if (a.data.length === 0) {
 				result = Fleur.EmptySequence;
 			} else if (a.data.length === 1) {
@@ -33,9 +33,9 @@ Fleur.XPathFunctions_fn["string-to-codepoints"] = function(ctx, children, callba
 				}
 			}
 		} else {
-			callback(Fleur.error(ctx, "FOCH0001"));
+			Fleur.callback(function() {callback(Fleur.error(ctx, "FOCH0001"));});
 			return;
 		}
-		callback(result);
+		Fleur.callback(function() {callback(result);});
 	});
 };

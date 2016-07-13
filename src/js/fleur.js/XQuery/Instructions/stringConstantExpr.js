@@ -11,5 +11,5 @@ Fleur.XQueryEngine[Fleur.XQueryX.stringConstantExpr] = function(ctx, children, c
 	var n = new Fleur.Text();
 	n.appendData(children[0][1][0] || "");
 	n.schemaTypeInfo = Fleur.Type_string;
-	callback(n);
+	Fleur.callback(function() {callback(n);});
 };

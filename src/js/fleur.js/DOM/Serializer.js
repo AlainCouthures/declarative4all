@@ -103,11 +103,11 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 				}
 				names.sort();
 				for (i = 0, l = names.length; i < l; i++) {
-					s += " " + names[i] + "=\"" + Fleur.Serializer.escapeXML(node.getAttribute(names[i])) + "\"";
+					s += " " + names[i] + "=\"" + Fleur.Serializer.escapeXML(node.getAttribute(names[i]), true, false) + "\"";
 				}
 			} else {
 				for (i = 0, l = node.attributes.length; i < l; i++) {
-					s += " " + node.attributes[i].nodeName + "=\"" + Fleur.Serializer.escapeXML(node.attributes[i].nodeValue) + "\"";
+					s += " " + node.attributes[i].nodeName + "=\"" + Fleur.Serializer.escapeXML(node.attributes[i].nodeValue, true, true) + "\"";
 				}
 			}
 			if (node.childNodes.length === 0) {
@@ -138,7 +138,7 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 				return Fleur.Serializer.escapeXML(node.data, !indent, !indent);
 			}
 			if (node.schemaTypeInfo === Fleur.Type_error) {
-				return "fn:error(fn:QName(\"" + node.namespaceURI + "\", \"" + node.nodeName + "\"))" + postfix;
+				return "fn:error(fn:QName(\"" + node.namespaceURI + "\", \"" + node.nodeName + "\")" + (node.textContent ? ",\"" + Fleur.Serializer.escapeXML(node.textContent, false, false).replace(/"/gm, "\"\"") + "\"" : "") + ")" + postfix;
 			}
 			var fdata = node.data;
 			if (fdata !== "INF" && fdata !== "-INF" && fdata !== "NaN") {
@@ -171,7 +171,7 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 			for (i = 0, l = node.childNodes.length; i < l; i++) {
 				s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset, true);
 			}
-			return s;
+			return s + postfix;
 	}
 };
 Fleur.Serializer._serializeEXMLToString = function(node, indent, offset) {

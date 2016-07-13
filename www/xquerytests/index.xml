@@ -16,11 +16,14 @@
 			</xf:instance>
 			<xf:submission method="get" replace="instance" instance="test-set" serialization="none">
 				<xf:resource value="concat('data/',.)"/>
-				<xf:action ev:event="xforms-submit-done" iterate="instance('test-set')/qt:test-case">
-					<xf:insert origin="instance('response-string')"/>
-					<xf:load>
-						<xf:resource value="concat('javascript:xqeval(&quot;', @name, '&quot;,&quot;', escapeJS(concat('data/', choose(instance('catalog')/qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file, '', concat(substring-before(instance('selected'), '/') , '/')), ../qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file | instance('catalog')/qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file)), '&quot;,&quot;', escapeJS(qt:test), '&quot;)')"/>
-					</xf:load>
+				<xf:action ev:event="xforms-submit-done">
+					<xf:load resource="javascript:document.getElementById('divtests').scrollTop=0"/>
+					<xf:action iterate="instance('test-set')/qt:test-case">
+						<xf:insert origin="instance('response-string')"/>
+						<xf:load>
+							<xf:resource value="concat('javascript:xqeval(&quot;', @name, '&quot;,&quot;', escapeJS(concat('data/', choose(instance('catalog')/qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file, '', concat(substring-before(instance('selected'), '/') , '/')), ../qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file | instance('catalog')/qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file)), '&quot;,&quot;', escapeJS(qt:test), '&quot;)')"/>
+						</xf:load>
+					</xf:action>
 				</xf:action>
 			</xf:submission>
 			<xf:setvalue ev:event="evaluate-response" ref="instance('test-set')/qt:test-case[@name = event('testname')]/qt:response-string" value="event('result')"/>
@@ -43,20 +46,8 @@
 			function xqeval(testname, envfile, xexpr) {
 			    var cb = function(buf) {
 					var xmldoc = parser.parseFromString(buf, "application/xml");
-					var nsResolver = function(element) {
-						return {
-							defaultNamespace: element.getAttribute("xmlns"),
-							nsresolver: element.ownerDocument.createNSResolver(element),
-							lookupNamespaceURI: function(prefix) {
-								if (prefix === "_") {
-									return this.defaultNamespace;
-								}
-								return this.nsresolver.lookupNamespaceURI(prefix);
-							}
-						};
-					};
 					try {
-						xmldoc.evaluate(xexpr, xmldoc, nsResolver(xmldoc.documentElement), Fleur.XPathResult.ANY_TYPE, null).then(
+						xmldoc.evaluate(xexpr).then(
 							function(res) {
 								XsltForms_xmlevents.dispatch(XsltForms_globals.defaultModel, "evaluate-response", null, null, null, null,
 									{
@@ -65,6 +56,11 @@
 									});
 							},
 							function(err) {
+								XsltForms_xmlevents.dispatch(XsltForms_globals.defaultModel, "evaluate-response", null, null, null, null,
+									{
+										testname: testname,
+										result: err.toXQuery()
+									});
 							}
 						);
 					} catch(e) {
@@ -115,6 +111,7 @@
 			</xf:itemset>
 			<xf:send ev:event="xforms-value-changed"/>
 		</xf:select1>
+		<div id="divtests" style="height:640px; overflow-y: scroll;">
 		<table border="1">
 			<tbody>
 				<xf:repeat id="tests" ref="instance('test-set')/qt:test-case">
@@ -134,5 +131,6 @@
 				</xf:repeat>
 			</tbody>
 		</table>
+		</div>
 	</body>
 </html>

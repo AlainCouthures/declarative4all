@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals Fleur XsltForms_globals XsltForms_upload XsltForms_domEngine XsltForms_idManager XsltForms_schema XsltForms_xmlevents ActiveXObject XSLTProcessor XsltForms_undefined*/
+/*globals Fleur XsltForms_globals XsltForms_upload XsltForms_domEngine XsltForms_idManager XsltForms_schema XsltForms_xmlevents ActiveXObject XSLTProcessor XsltForms_undefined XsltForms_fullDomEngine*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -104,7 +104,7 @@ var XsltForms_browser = {
 
 	loadProperties : function(fname, f) {
 		var uri = this.ROOT + fname;
-		var synchr = f === null;
+		var synchr = !f;
 		var req = XsltForms_browser.openRequest("GET", uri, !synchr);
 		var func = function() {
 			if (!synchr && req.readyState !== 4) {
@@ -378,6 +378,7 @@ if (XsltForms_browser.isIE || XsltForms_browser.isIE11) {
 			try {
 				xsltProcessor.setParameter(null, "xsltforms_config", document.getElementById(XsltForms_browser.idPf + "instance-config").xfElement.srcDoc);
 				xsltProcessor.setParameter(null, "xsltforms_lang", XsltForms_globals.language);
+				xsltProcessor.setParameter(null, "xsltforms_domengine", XsltForms_fullDomEngine);
 			} catch (e) {
 			}
 			for (var i = 3, len = arguments.length-1; i < len ; i += 2) {
@@ -386,6 +387,10 @@ if (XsltForms_browser.isIE || XsltForms_browser.isIE11) {
 			try {
 				xsltProcessor.importStylesheet(xsltDoc);
 				var resultDocument = xsltProcessor.transformToDocument(xmlDoc);
+				if (!resultDocument) {
+					alert("transformToDocument: null return value");
+					return "";
+				}
 				var s = "";
 				if ((XsltForms_browser.isMozilla && resultDocument.documentElement.nodeName === "transformiix:result") ||
 				     (XsltForms_browser.isOpera && resultDocument.documentElement.nodeName === "result")) {
@@ -2005,7 +2010,7 @@ XsltForms_browser.i18n = {
 
 	asyncinit : function(f) {
 		if (XsltForms_globals.language === "navigator" || XsltForms_globals.language !== XsltForms_browser.selectSingleNodeText('language', XsltForms_browser.config)) {
-			var lan = XsltForms_globals.language === "navigator" ? (navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage || "undefined")) : XsltForms_browser.selectSingleNodeText('language', XsltForms_browser.config);
+			var lan = XsltForms_globals.language === "navigator" ? (navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage || "undefined")) : XsltForms_globals.language;
 			lan = lan.replace("-", "_").toLowerCase();
 			var found = XsltForms_browser.inArray(lan, XsltForms_browser.i18n.langs);
 			if (!found) {
@@ -2190,7 +2195,7 @@ XsltForms_browser.i18n = {
 			format = format.replace(new RegExp("yyyy"), "[12][0-9]{3}");
 			format = format.replace(new RegExp("MM"), "(?:0?[1-9](?![0-9])|1[0-2])");
 			format = format.replace(new RegExp("dd"), "(?:0?[1-9](?![0-9])|[1-2][0-9]|30|31)");
-			format = format.replace(new RegExp("hh"), "(?:0?[1-9](?![0-9])|1[0-9]|20|21|22|23)");
+			format = format.replace(new RegExp("hh"), "(?:0?[0-9](?![0-9])|1[0-9]|20|21|22|23)");
 			format = format.replace(new RegExp("mm"), "[0-5][0-9]");
 			format = format.replace(new RegExp("ss"), "[0-5][0-9]");
 			format = "^" + format.substring(0, format.indexOf(")!!!") + 1) + "[^0-9]*.*";
@@ -2473,7 +2478,7 @@ XsltForms_browser.getValueItemsetCopy = function(node) {
 
 XsltForms_browser.setValue = function(node, value) {
 	XsltForms_browser.assert(node);
-	if (node.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
+	if (node.nodeType === Fleur.Node.ATTRIBUTE_NODE || node.nodeType === Fleur.Node.TEXT_NODE) {
 		node.nodeValue = value;
 	} else if (XsltForms_browser.isIE && node.innerHTML) {
 		node.innerHTML = XsltForms_browser.escape(value);

@@ -251,6 +251,19 @@ var XsltForms_globals = {
 		}
 	},
 
+	countdesc : function(n) {
+		var r = 0;
+		if (n.attributes) {
+			r = n.attributes.length;
+		}
+		if (n.childNodes) {
+			r += n.childNodes.length;
+			for (var i = 0, l = n.childNodes.length; i < l; i++) {
+				r += XsltForms_globals.countdesc(n.childNodes[i]);
+			}
+		}
+		return r;
+	},
 		
 /**
  * * '''profiling_data''' method : displays time statistics
@@ -287,7 +300,7 @@ var XsltForms_globals = {
 			if (XsltForms_globals.models[m].element.id !== XsltForms_browser.idPf + "model-config") {
 				for (var id in XsltForms_globals.models[m].instances) {
 					if (XsltForms_globals.models[m].instances.hasOwnProperty(id)) {
-						var count = XsltForms_browser.selectNodesLength("descendant::node() | descendant::*/@*[not(starts-with(local-name(),'xsltforms_'))]", XsltForms_globals.models[m].instances[id].doc);
+						var count = 1 + XsltForms_globals.countdesc(XsltForms_globals.models[m].instances[id].doc);
 						s += '<xsltforms:instance id="' + id + '">' + count + '</xsltforms:instance>';
 						if (XsltForms_globals.models[m].instances[id].archive) {
 							for (var fn in XsltForms_globals.models[m].instances[id].archive) {
@@ -298,7 +311,7 @@ var XsltForms_globals = {
 										XsltForms_browser.setDocMeta(XsltForms_globals.models[m].instances[id].archive[fn].doc, "instance", id);
 										XsltForms_browser.setDocMeta(XsltForms_globals.models[m].instances[id].archive[fn].doc, "model", m);
 									}
-									count = XsltForms_browser.selectNodesLength("descendant::node() | descendant::*/@*[not(starts-with(local-name(),'xsltforms_'))]", XsltForms_globals.models[m].instances[id].archive[fn].doc);
+									count = 1 + XsltForms_globals.countdesc(XsltForms_globals.models[m].instances[id].archive[fn].doc);
 									s += '<xsltforms:instance id="' + id + '/' + fn + '">' + count + '</xsltforms:instance>';
 								}
 							}

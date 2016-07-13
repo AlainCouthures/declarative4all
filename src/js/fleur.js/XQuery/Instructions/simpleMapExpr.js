@@ -12,7 +12,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.simpleMapExpr] = function(ctx, children, callba
 		//console.log("simpleMapExpr - " + Fleur.Serializer._serializeNodeToXQuery(n, false, ""));
 		var subcurr, next, last, pos, result = Fleur.EmptySequence;
 		if (n === Fleur.EmptySequence || n.schemaTypeInfo === Fleur.Type_error) {
-			callback(n);
+			Fleur.callback(function() {callback(n);});
 			return;
 		}
 		next = n;
@@ -51,7 +51,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.simpleMapExpr] = function(ctx, children, callba
 				}
 			}
 			if (next === Fleur.EmptySequence) {
-				callback(result, Fleur.XQueryX.simpleMapExpr);
+				Fleur.callback(function() {callback(result, Fleur.XQueryX.simpleMapExpr);});
 				return;
 			}
 			if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
@@ -69,7 +69,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.simpleMapExpr] = function(ctx, children, callba
 				_next: next,
 				_last: last,
 				_pos: pos,
-				nsresolver: ctx.nsresolver
+				env: ctx.env
 			}, children[1][1], cb);
 		};
 		Fleur.XQueryEngine[children[1][0]]({
@@ -77,7 +77,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.simpleMapExpr] = function(ctx, children, callba
 			_next: next,
 			_last: last,
 			_pos: pos,
-			nsresolver: ctx.nsresolver
+			env: ctx.env
 		}, children[1][1], cb);
 	});
 };

@@ -31,8 +31,8 @@ Fleur._Atomize = function(a, n) {
 	var i, l, n2, seq;
 	switch (n.nodeType) {
 		case Fleur.Node.TEXT_NODE:
-			if (n.schemaTypeInfo === Fleur.Type_error) {
-				return n
+			if (n.schemaTypeInfo === Fleur.Type_error || n.nodeName !== "#text") {
+				return n;
 			}
 			a = new Fleur.Text();
 			a.data = n.data;
@@ -54,6 +54,18 @@ Fleur._Atomize = function(a, n) {
 			a.schemaTypeInfo = Fleur._schemaTypeInfoLookup(n);
 			return a;
 		case Fleur.Node.SEQUENCE_NODE:
+			a = new Fleur.Text();
+			a.data = "";
+			var nextsep = "";
+			for (i = 0, l = n.childNodes.length; i < l; i++) {
+				n2 = Fleur._Atomize(a, n.childNodes[i]);
+				if (n2.schemaTypeInfo === Fleur.Type_error || n2.nodeName !== "#text") {
+					return n2;
+				}
+				a.data += nextsep + n2.data;
+				nextsep = " ";
+			}
+			return a;
 		case Fleur.Node.ARRAY_NODE:
 			if (n.childNodes.length === 0) {
 				return null;
@@ -64,12 +76,12 @@ Fleur._Atomize = function(a, n) {
 					if (!a) {
 						a = n2;
 					} else {
-						if (a.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-							seq = new Fleur.Sequence();
+						if (a.nodeType !== Fleur.Node.ARRAY_NODE) {
+							seq = new Fleur.Array();
 							seq.appendChild(a);
 							a = seq;
 						}
-						if (n2.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+						if (n2.nodeType !== Fleur.Node.ARRAY_NODE) {
 							a.appendChild(n2);
 						} else {
 							n2.childNodes.forEach(function(n3) {

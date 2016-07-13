@@ -4,6 +4,7 @@
 		"XQueryEngine.js",
 		"Instructions/project.json",
 		"Operators/project.json",
+		"callback.js",
 		"error.js",
 		"toJS.js"
 	]

@@ -9,27 +9,27 @@
  */
 Fleur.XPathFunctions_fn["index-of"] = function(ctx, children, callback) {
 	if (children.length === 3) {
-		callback(Fleur.error(ctx, "FOCH0002"));
+		Fleur.callback(function() {callback(Fleur.error(ctx, "FOCH0002"));});
 		return;
 	}
 	if (children.length !== 2) {
-		callback(Fleur.error(ctx, "XPST0017"));
+		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
 		return;
 	}
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
 		var a1 = Fleur.Atomize(n);
 		if (a1 === Fleur.EmptySequence || a1.schemaTypeInfo === Fleur.Type_error) {
-			callback(a1);
+			Fleur.callback(function() {callback(a1);});
 			return;
 		}
 		Fleur.XQueryEngine[children[1][0]](ctx, children[1][1], function(n) {
 			var a2 = Fleur.Atomize(n);
 			if (a2.schemaTypeInfo === Fleur.Type_error) {
-				callback(a2);
+				Fleur.callback(function() {callback(a2);});
 				return;
 			}
 			if (a2.nodeType === Fleur.Node.SEQUENCE_NODE) {
-				callback(Fleur.error(ctx, "XPTY0004"));
+				Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
 				return;
 			}
 			if (Fleur.numericTypes.indexOf(a2.schemaTypeInfo) !== -1) {
@@ -48,10 +48,10 @@ Fleur.XPathFunctions_fn["index-of"] = function(ctx, children, callback) {
 					a1.schemaTypeInfo === a2.schemaTypeInfo && a1.data === a2.data) {
 					a2.schemaTypeInfo = Fleur.Type_integer;
 					a2.data = "1";
-					callback(a2);
+					Fleur.callback(function() {callback(a2);});
 					return;
 				}
-				callback(Fleur.EmptySequence);
+				Fleur.callback(function() {callback(Fleur.EmptySequence);});
 				return;
 			}
 			var result = new Fleur.Sequence();
@@ -70,7 +70,7 @@ Fleur.XPathFunctions_fn["index-of"] = function(ctx, children, callback) {
 			} else if (result.childNodes.length === 1) {
 				result = result.childNodes[0];
 			}
-			callback(result);
+			Fleur.callback(function() {callback(result);});
 		});
 	});
 };

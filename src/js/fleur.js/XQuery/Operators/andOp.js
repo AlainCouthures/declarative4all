@@ -13,25 +13,25 @@ Fleur.XQueryEngine[Fleur.XQueryX.andOp] = function(ctx, children, callback) {
 		var a1 = Fleur.Atomize(n);
 		op1 = Fleur.toJSBoolean(a1);
 		if (op1[0] < 0) {
-			callback(n);
+			Fleur.callback(function() {callback(n);});
 			return;
 		}
 		if (!op1[1]) {
 			a1.data = "false";
 			a1.schemaTypeInfo = Fleur.Type_boolean;
-			callback(a1);
+			Fleur.callback(function() {callback(a1);});
 		} else {
 			Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
 				var op2;
 				var a2 = Fleur.Atomize(n);
 				op2 = Fleur.toJSBoolean(a2);
 				if (op2[0] < 0) {
-					callback(n);
+					Fleur.callback(function() {callback(n);});
 					return;
 				}
 				a2.data = "" + op2[1];
 				a2.schemaTypeInfo = Fleur.Type_boolean;
-				callback(a2);
+				Fleur.callback(function() {callback(a2);});
 			});
 		}
 	});

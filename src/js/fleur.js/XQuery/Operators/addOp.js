@@ -17,14 +17,16 @@ Fleur.XQueryEngine[Fleur.XQueryX.addOp] = function(ctx, children, callback) {
 				var a2, op2;
 				a2 = Fleur.Atomize(n);
 				op2 = Fleur.toJSNumber(a2);
-				if (op2[0] >= 0) {
-					a1.data = "" + (op1[1] + op2[1]);
-					a1.schemaTypeInfo = Fleur.numericTypes[Math.max(op1[0], op2[0])];
+				if (op2[0] < 0) {
+					Fleur.callback(function() {callback(a2);});
+					return;
 				}
-				callback(a1);
+				a1.data = "" + (op1[1] + op2[1]);
+				a1.schemaTypeInfo = Fleur.numericTypes[Math.max(op1[0], op2[0])];
+				Fleur.callback(function() {callback(a1);});
 			});
 		} else {
-			callback(a1);
+			Fleur.callback(function() {callback(a1);});
 		}
 	});
 };

@@ -8,5 +8,5 @@
  * @description 
  */
 Fleur.XQueryEngine[Fleur.XQueryX.schemaLocation] = function(ctx, children, callback) {
-	callback(ctx._result);
+	Fleur.callback(function() {callback(ctx._result);});
 };

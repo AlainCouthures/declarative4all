@@ -8,5 +8,20 @@
  * @description 
  */
 Fleur.XPathFunctions_math["atan2"] = function(ctx, children, callback) {
-	Fleur.XPathNumberFunction(ctx, children, Math.atan2, Fleur.Type_double, callback);
+	if (children.length !== 2) {
+		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
+		return;
+	}
+	Fleur.XQueryEngine[children[1][0]](ctx, children[1][1], function(n) {
+		var a2 = Fleur.Atomize(n);
+		var op2 = Fleur.toJSNumber(a2);
+		if (op2[0] < 0) {
+			Fleur.callback(function() {callback(a2);});
+			return;
+		}
+		var x = op2[1];
+		Fleur.XPathNumberFunction(ctx, children.slice(0, 1), function(y) {
+			return Math.atan2(y, x);
+		}, Fleur.Type_double, callback);
+	});
 };

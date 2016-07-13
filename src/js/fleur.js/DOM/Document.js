@@ -329,14 +329,32 @@ Fleur.Document.prototype._serializeToString = function(indent) {
 Fleur.Document.prototype.compileXslt = function() {
 	return this.documentElement.compileXslt();
 };
-Fleur.Document.prototype.evaluate = function(expression, contextNode, nsResolver, type, xpresult) {
+Fleur.Document.prototype.evaluate = function(expression, contextNode, env, type, xpresult) {
+	contextNode = contextNode || this;
+	env = env || {};
+	if (!env.nsresolver && this.documentElement) {
+		var nsResolver = function(element) {
+			return {
+				defaultNamespace: element.getAttribute("xmlns"),
+				nsresolver: element.ownerDocument.createNSResolver(element),
+				lookupNamespaceURI: function(prefix) {
+					if (prefix === "_") {
+						return this.defaultNamespace;
+					}
+					return this.nsresolver.lookupNamespaceURI(prefix);
+				}
+			};
+		};
+		env.nsresolver = nsResolver(this.documentElement);
+	}
+	type = type || Fleur.XPathResult.ANY_TYPE;
 	if (!xpresult) {
-		return new Fleur.XPathResult(this, expression, contextNode, nsResolver, type);
+		return new Fleur.XPathResult(this, expression, contextNode, env, type);
 	} else {
 		xpresult.document = this;
 		xpresult.expression = expression;
 		xpresult.contextNode = contextNode;
-		xpresult.nsResolver = nsResolver;
+		xpresult.env = env;
 		xpresult.resultType = type;
 		xpresult._index = 0;
 		return xpresult;

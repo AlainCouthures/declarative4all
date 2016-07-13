@@ -13,13 +13,15 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 	if (children[0][1][1]) {
 		if (children[0][1][1][0] === Fleur.XQueryX.URI) {
 			uri = children[0][1][1][1][0];
-		} else if (children[0][1][1][0] === Fleur.XQueryX.prefix && ctx.nsresolver) {
-			uri = ctx.nsresolver.lookupNamespaceURI(children[0][1][1][1][0]);
+		} else if (children[0][1][1][0] === Fleur.XQueryX.prefix && ctx.env.nsresolver) {
+			uri = ctx.env.nsresolver.lookupNamespaceURI(children[0][1][1][1][0]);
 		}
 	}
 	if (!uri || !Fleur.XPathFunctions[uri][fname]) {
-		callback(Fleur.error(ctx, "XPST0017"));
+		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
 		return;
 	}
-	Fleur.XPathFunctions[uri][fname](ctx, children[1][1], function(n) {callback(n);});
+	Fleur.XPathFunctions[uri][fname](ctx, children[1][1], function(n) {
+		Fleur.callback(function() {callback(n);});
+	});
 };

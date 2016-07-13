@@ -8,5 +8,6 @@
  * @description 
  */
 Fleur.XQueryEngine[Fleur.XQueryX.anyKindTest] = function(ctx, children, callback) {
-	callback(ctx._curr);
+	//console.log("anyKindTest - " + Fleur.Serializer._serializeNodeToXQuery(ctx._curr, false, ""));
+	Fleur.callback(function() {callback(ctx._curr);});
 };

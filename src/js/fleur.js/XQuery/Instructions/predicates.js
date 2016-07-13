@@ -28,7 +28,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.predicates] = function(ctx, children, callback)
 	var cb = function(n, eob) {
 		//console.log("predicates - cb - " + Fleur.Serializer._serializeNodeToXQuery(n, false, "") + (eob ? " - " + (eob === Fleur.XQueryX.predicates ? "predicates" : eob) : ""));
 		if (eob === Fleur.XQueryX.predicates) {
-			callback(n, Fleur.XQueryX.predicates);
+			Fleur.callback(function() {callback(n, Fleur.XQueryX.predicates);});
 			return;
 		}
 		if ((n.nodeType === Fleur.Node.SEQUENCE_NODE && n.childNodes.length !== 0) ||
@@ -51,7 +51,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.predicates] = function(ctx, children, callback)
 		}
 		if (next === Fleur.EmptySequence) {
 			if (children.length === 1 || result === Fleur.EmptySequence) {
-				callback(result, Fleur.XQueryX.predicates);
+				Fleur.callback(function() {callback(result, Fleur.XQueryX.predicates);});
 				return;
 			}
 			children.shift();
@@ -74,7 +74,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.predicates] = function(ctx, children, callback)
 						_next: next,
 						_last: last,
 						_pos: pos,
-						nsresolver: ctx.nsresolver
+						env: ctx.env
 					}, children[0][1], cb);
 			return;
 		}
@@ -93,7 +93,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.predicates] = function(ctx, children, callback)
 					_next: next,
 					_last: last,
 					_pos: pos,
-					nsresolver: ctx.nsresolver
+					env: ctx.env
 				}, children[0][1], cb);
 	};
 	Fleur.XQueryEngine[children[0][0]]({
@@ -101,6 +101,6 @@ Fleur.XQueryEngine[Fleur.XQueryX.predicates] = function(ctx, children, callback)
 				_next: next,
 				_last: last,
 				_pos: pos,
-				nsresolver: ctx.nsresolver
+				env: ctx.env
 			}, children[0][1], cb);
 };

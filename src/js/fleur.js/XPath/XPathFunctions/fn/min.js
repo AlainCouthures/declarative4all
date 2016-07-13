@@ -9,17 +9,17 @@
  */
 Fleur.XPathFunctions_fn["min"] = function(ctx, children, callback) {
 	if (children.length !== 1) {
-		callback(Fleur.error(ctx, "XPST0017"));
+		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
 		return;
 	}
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
 		var min, val, t = 0, comp;
 		if (n === Fleur.EmptySequence || n.schemaTypeInfo === Fleur.Type_error) {
-			callback(n);
+			Fleur.callback(function() {callback(n);});
 			return;
 		}
 		if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-			callback(Fleur.Atomize(n));
+			Fleur.callback(function() {callback(Fleur.Atomize(n));});
 			return;
 		} else {
 			var items = n.childNodes;
@@ -68,6 +68,6 @@ Fleur.XPathFunctions_fn["min"] = function(ctx, children, callback) {
 		}
 		a.data = "" + min;
 		a.schemaTypeInfo = comp === Fleur.Type_double ? Fleur.numericTypes[t] : Fleur.Type_string;
-		callback(a);
+		Fleur.callback(function() {callback(a);});
 	});
 };

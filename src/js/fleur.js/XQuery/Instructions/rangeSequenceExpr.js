@@ -12,7 +12,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.rangeSequenceExpr] = function(ctx, children, ca
 		var op1;
 		var a1 = Fleur.Atomize(n);
 		if (a1 === Fleur.EmptySequence) {
-			callback(a1);
+			Fleur.callback(function() {callback(a1);});
 			return;
 		}
 		op1 = Fleur.toJSNumber(a1);
@@ -23,7 +23,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.rangeSequenceExpr] = function(ctx, children, ca
 			var op2;
 			var a2 = Fleur.Atomize(n);
 			if (a2 === Fleur.EmptySequence) {
-				callback(a2);
+				Fleur.callback(function() {callback(a2);});
 				return;
 			}
 			op2 = Fleur.toJSNumber(a2);
@@ -31,11 +31,11 @@ Fleur.XQueryEngine[Fleur.XQueryX.rangeSequenceExpr] = function(ctx, children, ca
 				return;
 			}
 			if (op1[1] > op2[1]) {
-				callback(Fleur.EmptySequence);
+				Fleur.callback(function() {callback(Fleur.EmptySequence);});
 				return;
 			}
 			if (op1[1] === op2[1]) {
-				callback(a2);
+				Fleur.callback(function() {callback(a2);});
 				return;
 			}
 			var result = new Fleur.Sequence();
@@ -47,7 +47,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.rangeSequenceExpr] = function(ctx, children, ca
 				result.appendChild(i);
 				op1[1]++;
 			}
-			callback(result);
+			Fleur.callback(function() {callback(result);});
 		});
 	});
 };

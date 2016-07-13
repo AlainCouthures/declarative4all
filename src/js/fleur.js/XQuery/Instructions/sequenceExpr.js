@@ -12,7 +12,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr] = function(ctx, children, callbac
 		depth = 0;
 	}
 	if (children.length === 0) {
-		callback(Fleur.EmptySequence, depth);
+		Fleur.callback(function() {callback(Fleur.EmptySequence, depth);});
 		return;
 	}
 	var result = Fleur.EmptySequence;
@@ -32,11 +32,11 @@ Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr] = function(ctx, children, callbac
 					n.childNodes.forEach(function(child) {result.appendChild(child);});
 				}
 			}
-			callback(result, depth);
+			Fleur.callback(function() {callback(result, depth);});
 			return;
 		}
 		if (children.length === 1) {
-			callback(n, depth);
+			Fleur.callback(function() {callback(n, depth);});
 			return;
 		}
 		result = n;

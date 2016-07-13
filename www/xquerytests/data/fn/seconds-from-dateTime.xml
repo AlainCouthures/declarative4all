@@ -6,7 +6,7 @@
     <description> Evaluates The "seconds-from-dateTime" function with the arguments set as follows: $arg = xs:dateTime(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:seconds-from-dateTime(xs:dateTime("1970-01-01T00:00:00Z"))</test>
-    <result-string>xs:string("0")</result-string>
+    <result-string>xs:decimal("0.0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The "seconds-from-dateTime" function with the arguments set as follows: $arg = xs:dateTime(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:seconds-from-dateTime(xs:dateTime("1996-04-07T01:40:52Z"))</test>
-    <result-string>xs:string("52")</result-string>
+    <result-string>xs:decimal("52.0")</result-string>
     <result>
       <assert-string-value>52</assert-string-value>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The "seconds-from-dateTime" function with the arguments set as follows: $arg = xs:dateTime(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:seconds-from-dateTime(xs:dateTime("2030-12-31T23:59:59Z"))</test>
-    <result-string>xs:string("59")</result-string>
+    <result-string>xs:decimal("59.0")</result-string>
     <result>
       <assert-string-value>59</assert-string-value>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluates The "seconds-from-dateTime" function As per example 1 of the FO specs. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-dateTime(xs:dateTime("1999-05-31T13:20:00-05:00"))</test>
-    <result-string>xs:string("0")</result-string>
+    <result-string>xs:decimal("0.0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -42,7 +42,7 @@
     <description> Evaluates The "seconds-from-dateTime" function as an argument to an "avg" function. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:avg((fn:seconds-from-dateTime(xs:dateTime("1999-05-31T13:30:10Z")), fn:seconds-from-dateTime(xs:dateTime("1999-05-31T13:30:15Z"))))</test>
-    <result-string>xs:string("12.5")</result-string>
+    <result-string>xs:double("1.25e1")</result-string>
     <result>
       <assert-string-value>12.5</assert-string-value>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluates The "seconds-from-dateTime" function using the empty sequence as an argument. Use count function to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:count(fn:seconds-from-dateTime(()))</test>
-    <result-string>xs:string("0")</result-string>
+    <result-string>xs:integer("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluates The "seconds-from-dateTime" function that returns 0. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-dateTime(xs:dateTime("1999-05-31T20:00:00-05:00"))</test>
-    <result-string>xs:string("0")</result-string>
+    <result-string>xs:decimal("0.0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluates The "seconds-from-dateTime" function that returns 59. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-dateTime(xs:dateTime("1999-05-31T23:59:59-05:00"))</test>
-    <result-string>xs:string("59")</result-string>
+    <result-string>xs:decimal("59.0")</result-string>
     <result>
       <assert-string-value>59</assert-string-value>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluates The "seconds-from-dateTime" function as part of a "+" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-dateTime(xs:dateTime("1970-01-01T00:00:10Z")) + fn:seconds-from-dateTime(xs:dateTime("1970-01-01T10:00:11Z"))</test>
-    <result-string>xs:string("21")</result-string>
+    <result-string>xs:decimal("21.0")</result-string>
     <result>
       <assert-string-value>21</assert-string-value>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluates The "seconds-from-dateTime" function as part of a "-" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-dateTime(xs:dateTime("1970-01-01T00:00:10Z")) - fn:seconds-from-dateTime(xs:dateTime("1970-01-01T10:00:00Z"))</test>
-    <result-string>xs:string("10")</result-string>
+    <result-string>xs:decimal("10.0")</result-string>
     <result>
       <assert-string-value>10</assert-string-value>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluates The "secondss-from-dateTime" function as part of a "*" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-dateTime(xs:dateTime("1970-01-01T02:02:02Z")) * fn:seconds-from-dateTime(xs:dateTime("1970-01-01T10:03:03Z"))</test>
-    <result-string>xs:string("6")</result-string>
+    <result-string>xs:decimal("6.0")</result-string>
     <result>
       <assert-string-value>6</assert-string-value>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluates The "seconds-from-dateTime" function as part of a "div" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-dateTime(xs:dateTime("1970-01-01T02:10:10Z")) div fn:seconds-from-dateTime(xs:dateTime("1970-01-01T10:05:05Z"))</test>
-    <result-string>xs:string("2")</result-string>
+    <result-string>xs:decimal("2.0")</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluates The "seconds-from-dateTime" function as part of a "idiv" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-dateTime(xs:dateTime("1970-01-01T10:10:10Z")) idiv fn:seconds-from-dateTime(xs:dateTime("1970-01-01T02:05:05Z"))</test>
-    <result-string>xs:string("2")</result-string>
+    <result-string>xs:integer("2")</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluates The "seconds-from-dateTime" function as part of a "mod" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-dateTime(xs:dateTime("1970-01-01T10:10:10Z")) mod fn:seconds-from-dateTime(xs:dateTime("1970-01-01T03:10:10Z"))</test>
-    <result-string>xs:string("0")</result-string>
+    <result-string>xs:decimal("0.0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluates The "seconds-from-dateTime" function as part of a "numeric-unary-plus" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>+fn:seconds-from-dateTime(xs:dateTime("1970-01-01T10:10:10Z"))</test>
-    <result-string>xs:string("10")</result-string>
+    <result-string>xs:decimal("10.0")</result-string>
     <result>
       <assert-string-value>10</assert-string-value>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluates The "seconds-from-dateTime" function as part of a "numeric-unary-minus" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>-fn:seconds-from-dateTime(xs:dateTime("1970-01-01T10:10:10Z"))</test>
-    <result-string>xs:string("-10")</result-string>
+    <result-string>xs:decimal("-10.0")</result-string>
     <result>
       <assert-string-value>-10</assert-string-value>
     </result>
@@ -204,7 +204,7 @@
     <description> A test whose essence is: `seconds-from-dateTime()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>seconds-from-dateTime()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -213,7 +213,7 @@
     <description> A test whose essence is: `seconds-from-dateTime((), "Wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>seconds-from-dateTime((), "Wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>

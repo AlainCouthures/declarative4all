@@ -6,6 +6,8 @@
 		"byte.js",
 		"date.js",
 		"dateTime.js",
+		"dateTimeStamp.js",
+		"dayTimeDuration.js",
 		"decimal.js",
 		"double.js",
 		"duration.js",
@@ -15,6 +17,7 @@
 		"gMonthDay.js",
 		"gYear.js",
 		"gYearMonth.js",
+		"hexBinary.js",
 		"int.js",
 		"integer.js",
 		"long.js",
@@ -31,6 +34,7 @@
 		"unsignedLong.js",
 		"unsignedShort.js",
 		"untypedAtomic.js",
+		"yearMonthDuration.js",
 		"todo.js"
 	]
 }

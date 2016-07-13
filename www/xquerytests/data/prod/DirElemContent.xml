@@ -88,7 +88,7 @@
       <![CDATA[<codepoints>{string-to-codepoints(<elem>1
 2</elem>)}</codepoints>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<codepoints>49 10 50</codepoints>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<codepoints>49 10 50</codepoints>]]>
@@ -102,7 +102,7 @@
     <test>
       <![CDATA[<codepoints>{string-to-codepoints(<elem>1&#xa;2</elem>) }</codepoints>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<codepoints>49 10 50</codepoints>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<codepoints>49 10 50</codepoints>]]>
@@ -116,7 +116,7 @@
     <test>
       <![CDATA[<codepoints>{string-to-codepoints(<elem>&#xD;&#xA;</elem>)}</codepoints>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<codepoints>13 10</codepoints>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<codepoints>13 10</codepoints>]]>
@@ -130,7 +130,7 @@
     <test>
       <![CDATA[<codepoints>{string-to-codepoints(<elem>&#xD;</elem>)}</codepoints>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<codepoints>13</codepoints>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<codepoints>13</codepoints>]]>
@@ -204,7 +204,7 @@
     <test>
       <![CDATA[<elem>&#x30;</elem>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<elem>0</elem>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem>0</elem>]]>
@@ -228,7 +228,7 @@
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
     <test>elem![CDATA[cdata'"lt;#x20;]]/elem</test>
-    <result-string/>
+    <result-string><![CDATA[<elem>cdata&amp;&lt;&gt;'"&amp;lt;&amp;#x20;</elem>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem>cdata&amp;&lt;&gt;'"&amp;lt;&amp;#x20;</elem>]]>
@@ -264,7 +264,7 @@
     <test>
       <![CDATA[<elem><a><b/></a><a/><c/></elem>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<elem><a><b/></a><a/><c/></elem>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem><a><b/></a><a/><c/></elem>]]>
@@ -278,7 +278,7 @@
     <test>
       <![CDATA[<elem><?pi?><?pi content?></elem>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<elem><?pi ?><?pi content?></elem>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem><?pi ?><?pi content?></elem>]]>
@@ -292,7 +292,7 @@
     <test>
       <![CDATA[<elem><!----><!--content--></elem>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<elem><!----><!--content--></elem>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem><!----><!--content--></elem>]]>
@@ -306,7 +306,7 @@
     <test>
       <![CDATA[<elem>A<a>B<?pi?>C<b/>D<!---->E</a>F<!--content-->G<a/>H<?pi content?>I<c/>J</elem>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<elem>A<a>B<?pi ?>C<b/>D<!---->E</a>F<!--content-->G<a/>H<?pi content?>I<c/>J</elem>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem>A<a>B<?pi ?>C<b/>D<!---->E</a>F<!--content-->G<a/>H<?pi content?>I<c/>J</elem>]]>
@@ -344,7 +344,7 @@
     <test>
       <![CDATA[<elem>{1,'a',3.5,4e2}</elem>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<elem>1 a 3.5 4e2</elem>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem>1 a 3.5 400</elem>]]>
@@ -359,7 +359,7 @@
     <test>
       <![CDATA[<elem>{1,//a,2,3,//comment(),4,5,//processing-instruction(),6,7,//text(),8}</elem>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<elem>1<a>text</a><a>text</a>2 3<!--comment--><!--comment-->4 5<?pi content?><?pi content?>6 7texttext8</elem>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem>1<a>text</a><a>text</a>2 3<!--comment--><!--comment-->4 5<?pi content?><?pi content?>6 7texttext8</elem>]]>
@@ -374,7 +374,7 @@
     <test>
       <![CDATA[<elem>{1, '', 2}</elem>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<elem>1  2</elem>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem>1  2</elem>]]>
@@ -389,7 +389,7 @@
     <test>
       <![CDATA[<elem>{/root}</elem>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<elem><root><child1><a>text</a><!--comment--><?pi content?></child1><child2><a>text</a><!--comment--><?pi content?></child2></root></elem>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem><root><child1><a>text</a><!--comment--><?pi content?></child1><child2><a>text</a><!--comment--><?pi content?></child2></root></elem>]]>
@@ -584,7 +584,7 @@
     <test>
       <![CDATA[declare copy-namespaces preserve, inherit; <y xmlns:inherit="http://www.example.com/inherit">{(/)}</y>/x/z]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<z xmlns:preserve="http://www.example.com/preserve" xmlns:inherit="http://www.example.com/inherit"/>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<z xmlns:preserve="http://www.example.com/preserve" xmlns:inherit="http://www.example.com/inherit"/>]]>
@@ -599,7 +599,7 @@
     <test>
       <![CDATA[declare copy-namespaces no-preserve, inherit; <y xmlns:inherit="http://www.example.com/inherit">{(/)}</y>/x/z]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<z xmlns:inherit="http://www.example.com/inherit"/>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<z xmlns:inherit="http://www.example.com/inherit"/>]]>
@@ -614,7 +614,7 @@
     <test>
       <![CDATA[declare copy-namespaces preserve, no-inherit; <y xmlns:inherit="http://www.example.com/inherit">{(/)}</y>/x/z]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<z xmlns:preserve="http://www.example.com/preserve"/>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<z xmlns:preserve="http://www.example.com/preserve"/>]]>
@@ -629,7 +629,7 @@
     <test>
       <![CDATA[declare copy-namespaces no-preserve, no-inherit; <y xmlns:inherit="http://www.example.com/inherit">{(/)}</y>/x/z]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<z/>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<z/>]]>
@@ -836,7 +836,7 @@
     <test>
       <![CDATA[<elem>{(/), (/)}</elem>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<elem><root><child1><a>text</a><!--comment--><?pi content?></child1><child2><a>text</a><!--comment--><?pi content?></child2></root><root><child1><a>text</a><!--comment--><?pi content?></child1><child2><a>text</a><!--comment--><?pi content?></child2></root></elem>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem><root><child1><a>text</a><!--comment--><?pi content?></child1><child2><a>text</a><!--comment--><?pi content?></child2></root><root><child1><a>text</a><!--comment--><?pi content?></child1><child2><a>text</a><!--comment--><?pi content?></child2></root></elem>]]>
@@ -877,7 +877,7 @@
     <test>
       <![CDATA[<elem>{()}{//west/@mark}</elem>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<elem mark="w0"/>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem mark="w0"/>]]>
@@ -953,7 +953,7 @@
     <test>
       <![CDATA[<elem>{//west/@mark, //west/@west-attr-1}</elem>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<elem mark="w0" west-attr-1="w1"/>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem mark="w0" west-attr-1="w1"/>]]>
@@ -968,7 +968,7 @@
     <test>
       <![CDATA[<elem mark="w0">{//west/@west-attr-1, //west/@west-attr-2}</elem>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<elem mark="w0" west-attr-1="w1" west-attr-2="w2"/>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem mark="w0" west-attr-1="w1" west-attr-2="w2"/>]]>
@@ -1009,7 +1009,7 @@
     <test>
       <![CDATA[<elem>{//west/@west-attr-1}{//west/@west-attr-2}</elem>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<elem west-attr-1="w1" west-attr-2="w2"/>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem west-attr-1="w1" west-attr-2="w2"/>]]>
@@ -1443,7 +1443,7 @@
     <test>
       <![CDATA[<e>{1}A{1}</e>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<e>1A1</e>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<e>1A1</e>]]>
@@ -1556,7 +1556,7 @@
     <test>
       <![CDATA[<elem>{1}{2}{3}{4}{5}</elem>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<elem>12345</elem>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem>12345</elem>]]>
@@ -1570,7 +1570,7 @@
     <test>
       <![CDATA[<elem>{1}{2}{3}{4}</elem>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<elem>1234</elem>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem>1234</elem>]]>
@@ -1584,7 +1584,7 @@
     <test>
       <![CDATA[<elem>{1}{2}{3}</elem>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<elem>123</elem>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem>123</elem>]]>
@@ -1598,7 +1598,7 @@
     <test>
       <![CDATA[<elem>{1}{2}</elem>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<elem>12</elem>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem>12</elem>]]>
@@ -1648,7 +1648,7 @@
     <test>
       <![CDATA[<e>{1}{text{()}}{2}</e>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<e>12</e>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<e>12</e>]]>
@@ -1662,7 +1662,7 @@
     <test>
       <![CDATA[<e>{1}{text{""}}{2}</e>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<e>12</e>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<e>12</e>]]>
@@ -1680,7 +1680,7 @@
       	<e xmlns="http://www.example.com/"> <a xmlns=""> <b xmlns=""/> </a> </e>
       ]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<e xmlns="http://www.example.com/"><a xmlns=""/></e>1<e xmlns="http://www.example.com/"><a xmlns=""><b/></a></e>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<e xmlns="http://www.example.com/"><a xmlns=""/></e>1<e xmlns="http://www.example.com/"><a xmlns=""><b/></a></e>]]>

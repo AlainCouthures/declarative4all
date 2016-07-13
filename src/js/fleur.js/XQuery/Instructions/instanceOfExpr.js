@@ -25,12 +25,12 @@ Fleur.XQueryEngine[Fleur.XQueryX.instanceOfExpr] = function(ctx, children, callb
 			} else {
 				Fleur.XQueryEngine[seqtype[0][0]]({
 					_curr: n,
-					nsresolver: ctx.nsresolver
+					env: ctx.env
 				}, seqtype[0][1], function(n) {
 					a = new Fleur.Text();
 					a.data = "" + (n !== Fleur.EmptySequence);
 					a.schemaTypeInfo = Fleur.Type_boolean;
-					callback(a);
+					Fleur.callback(function() {callback(a);});
 				});
 				return;
 			}
@@ -40,6 +40,6 @@ Fleur.XQueryEngine[Fleur.XQueryX.instanceOfExpr] = function(ctx, children, callb
 		a = new Fleur.Text();
 		a.data = "" + res;
 		a.schemaTypeInfo = Fleur.Type_boolean;
-		callback(a);
+		Fleur.callback(function() {callback(a);});
 	});
 };

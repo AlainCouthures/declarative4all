@@ -13,7 +13,6 @@ Fleur.XQueryEngine[Fleur.XQueryX.stepExpr] = function(ctx, children, callback) {
 	var result = Fleur.EmptySequence;
 	var cb = function(n, eob) {
 		var subcurr;
-		//console.log("stepExpr - cb - " + Fleur.Serializer._serializeNodeToXQuery(n, false, "") + (eob ? " - " + (eob === Fleur.XQueryX.stepExpr ? "stepExpr" : "predicates") : ""));
 		if (eob === Fleur.XQueryX.stepExpr) {
 			if (n !== Fleur.EmptySequence) {
 				if (result === Fleur.EmptySequence) {
@@ -38,34 +37,36 @@ Fleur.XQueryEngine[Fleur.XQueryX.stepExpr] = function(ctx, children, callback) {
 			}
 			n = next;
 		}
+		//console.log("stepExpr - cb - n=" + Fleur.Serializer._serializeNodeToXQuery(n, false, "") + " result=" + Fleur.Serializer._serializeNodeToXQuery(result, false, "") + (eob ? " - " + (eob === Fleur.XQueryX.stepExpr ? "stepExpr" : "predicates") : ""));
 		if (n === Fleur.EmptySequence) {
-			if (eob === Fleur.XQueryX.stepExpr && callback !== cb && children[children.length - 1][0] === Fleur.XQueryX.predicates) {
+			if (eob === Fleur.XQueryX.stepExpr && result !== Fleur.EmptySequence && callback !== cb && children[children.length - 1][0] === Fleur.XQueryX.predicates) {
 				Fleur.XQueryEngine[Fleur.XQueryX.predicates]({
 					_next: result,
-					nsresolver: ctx.nsresolver
+					env: ctx.env
 				}, children[children.length - 1][1], function(n) {
-					callback(n, Fleur.XQueryX.stepExpr);
+					Fleur.callback(function() {callback(n, Fleur.XQueryX.stepExpr);});
 				});
 				return;
 			}
-			callback(result, Fleur.XQueryX.stepExpr);
+			Fleur.callback(function() {callback(result, Fleur.XQueryX.stepExpr);});
 			return;
 		}
+		//console.log("children.length="+children.length);
 		if (children.length === 1) {
-			callback(n, Fleur.XQueryX.stepExpr);
+			Fleur.callback(function() {callback(n, Fleur.XQueryX.stepExpr);});
 			return;
 		}
 		if (children.length === 2 && children[1][0] === Fleur.XQueryX.predicates) {
 			if (callback !== cb) {
 				Fleur.XQueryEngine[Fleur.XQueryX.predicates]({
 					_next: n,
-					nsresolver: ctx.nsresolver
+					env: ctx.env
 				}, children[1][1], function(n) {
-					callback(n, Fleur.XQueryX.stepExpr);
+					Fleur.callback(function() {callback(n, Fleur.XQueryX.stepExpr);});
 				});
 				return;
 			}
-			callback(n, Fleur.XQueryX.stepExpr);
+			Fleur.callback(function() {callback(n, Fleur.XQueryX.stepExpr);});
 			return;
 		}
 		if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
@@ -80,7 +81,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.stepExpr] = function(ctx, children, callback) {
 		next = n;
 		Fleur.XQueryEngine[Fleur.XQueryX.stepExpr]({
 				_curr: subcurr,
-				nsresolver: ctx.nsresolver
+				env: ctx.env
 			}, children.slice(1), cb);
 	};
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);

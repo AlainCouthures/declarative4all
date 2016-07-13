@@ -10,7 +10,7 @@
 Fleur.XPathFunctions_fn["reverse"] = function(ctx, children, callback) {
 	var i;
 	if (children.length !== 1) {
-		callback(Fleur.error(ctx, "XPST0017"));
+		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
 		return;
 	}
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
@@ -22,9 +22,9 @@ Fleur.XPathFunctions_fn["reverse"] = function(ctx, children, callback) {
 				result.appendChild(n.childNodes[i]);
 				i--;
 			}
-			callback(result);
+			Fleur.callback(function() {callback(result);});
 		} else {
-			callback(n);
+			Fleur.callback(function() {callback(n);});
 		}
 	});
 };

@@ -7,11 +7,11 @@
  * @module 
  * @description 
  */
-Fleur.XPathResult = function(doc, expression, contextNode, nsResolver, resultType) {
+Fleur.XPathResult = function(doc, expression, contextNode, env, resultType) {
 	this.document = doc;
 	this.expression = expression;
 	this.contextNode = contextNode;
-	this.nsResolver = nsResolver;
+	this.env = env;
 	this.resultType = resultType;
 	this._index = 0;
 };
@@ -69,16 +69,33 @@ Object.defineProperties(Fleur.XPathResult.prototype, {
 	}
 });
 Fleur.XPathResult.prototype.evaluate = function(resolve, reject) {
-	var compiled = eval(Fleur.XPathEvaluator._xq2js(this.expression));
 	var ctx = {
 		_curr: this.contextNode || this.document,
-		nsresolver: this.nsResolver,
+		env: this.env,
 		xpresult: this
 	};
-	Fleur.XQueryEngine[compiled[0]](ctx, compiled[1], function(n) {
-		ctx.xpresult._result = n;
-		resolve(ctx.xpresult);
-	});
+	var src;
+	try {
+		src = Fleur.XPathEvaluator._xq2js(this.expression);
+	} catch (e) {
+		ctx.xpresult._result = Fleur.error(ctx, "XPST0003", e.message);
+		reject(ctx.xpresult);
+		return;
+	}
+	try {
+		var compiled = eval(src);
+		Fleur.XQueryEngine[compiled[0]](ctx, compiled[1], function(n) {
+			ctx.xpresult._result = n;
+			if (n.schemaTypeInfo === Fleur.Type_error) {
+				reject(ctx.xpresult);
+			} else {
+				resolve(ctx.xpresult);
+			}
+		});
+	} catch (e) {
+		ctx.xpresult._result = Fleur.error(ctx, "XPST0003", e.message);
+		reject(ctx.xpresult);
+	}
 };
 Fleur.XPathResult.prototype.iterateNext = function() {
 	if (this.resultType !== Fleur.XPathResult.ANY_TYPE && this.resultType !== Fleur.XPathResult.UNORDERED_NODE_ITERATOR_TYPE && this.resultType !== Fleur.XPathResult.ORDERED_NODE_ITERATOR_TYPE) {

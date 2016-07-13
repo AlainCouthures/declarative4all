@@ -6,7 +6,7 @@
     <description> Evaluates The "seconds-from-time" function with the arguments set as follows: $arg = xs:time(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:seconds-from-time(xs:time("00:00:00Z"))</test>
-    <result-string>xs:string("0")</result-string>
+    <result-string>xs:decimal("0.0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The "seconds-from-time" function with the arguments set as follows: $arg = xs:time(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:seconds-from-time(xs:time("08:03:35Z"))</test>
-    <result-string>xs:string("35")</result-string>
+    <result-string>xs:decimal("35.0")</result-string>
     <result>
       <assert-string-value>35</assert-string-value>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The "seconds-from-time" function with the arguments set as follows: $arg = xs:time(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:seconds-from-time(xs:time("23:59:59Z"))</test>
-    <result-string>xs:string("59")</result-string>
+    <result-string>xs:decimal("59.0")</result-string>
     <result>
       <assert-string-value>59</assert-string-value>
     </result>
@@ -33,7 +33,7 @@
     <description> Evaluates The "seconds-from-time" function As per example 1 of the FO specs (for this function) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time("13:20:10.5"))</test>
-    <result-string>xs:string("10.5")</result-string>
+    <result-string>xs:decimal("10.5")</result-string>
     <result>
       <assert-string-value>10.5</assert-string-value>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluates The "seconds-from-time" function used as an argument to an avg function. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:avg((fn:seconds-from-time(xs:time("01:10:20Z")), fn:seconds-from-time(xs:time("01:20:30Z"))))</test>
-    <result-string>xs:string("25")</result-string>
+    <result-string>xs:double("2.5e1")</result-string>
     <result>
       <assert-string-value>25</assert-string-value>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluates The "seconds-from-time" function using the empty sequence as an argument. Use count function to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:count(fn:seconds-from-time(()))</test>
-    <result-string>xs:string("0")</result-string>
+    <result-string>xs:integer("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluates The "seconds-from-time" function that returns 0. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:hours-from-time(xs:time("00:59:00Z"))</test>
-    <result-string>xs:string("0")</result-string>
+    <result-string>xs:decimal("0.0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -87,7 +87,7 @@
     <description> Evaluates The "seconds-from-time" function with the argument set to return 59. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time("23:20:59Z"))</test>
-    <result-string>xs:string("59")</result-string>
+    <result-string>xs:decimal("59.0")</result-string>
     <result>
       <assert-string-value>59</assert-string-value>
     </result>
@@ -96,7 +96,7 @@
     <description> Evaluates The "seconds-from-time" function as part of a "+" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time("02:00:00Z")) + fn:seconds-from-time(xs:time("10:00:10Z"))</test>
-    <result-string>xs:string("10")</result-string>
+    <result-string>xs:decimal("10.0")</result-string>
     <result>
       <assert-string-value>10</assert-string-value>
     </result>
@@ -105,7 +105,7 @@
     <description> Evaluates The "seconds-from-time" function as part of a "-" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time("10:10:10Z")) - fn:seconds-from-time(xs:time("09:02:07Z"))</test>
-    <result-string>xs:string("3")</result-string>
+    <result-string>xs:decimal("3.0")</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>
@@ -114,7 +114,7 @@
     <description> Evaluates The "seconds-from-time" function as part of a "*" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time("02:02:03Z")) * fn:seconds-from-time(xs:time("10:08:09Z"))</test>
-    <result-string>xs:string("27")</result-string>
+    <result-string>xs:decimal("27.0")</result-string>
     <result>
       <assert-string-value>27</assert-string-value>
     </result>
@@ -123,7 +123,7 @@
     <description> Evaluates The "seconds-from-time" function as part of a "div" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time("22:33:10Z")) div fn:seconds-from-time(xs:time("02:11:02Z"))</test>
-    <result-string>xs:string("5")</result-string>
+    <result-string>xs:decimal("5.0")</result-string>
     <result>
       <assert-string-value>5</assert-string-value>
     </result>
@@ -132,7 +132,7 @@
     <description> Evaluates The "seconds-from-time" function as part of a "idiv" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time("10:12:15Z")) idiv fn:seconds-from-time(xs:time("02:02:03Z"))</test>
-    <result-string>xs:string("5")</result-string>
+    <result-string>xs:integer("5")</result-string>
     <result>
       <assert-string-value>5</assert-string-value>
     </result>
@@ -141,7 +141,7 @@
     <description> Evaluates The "seconds-from-time" function as part of a "mod" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time("10:10:20Z")) mod fn:seconds-from-time(xs:time("03:03:02Z"))</test>
-    <result-string>xs:string("0")</result-string>
+    <result-string>xs:decimal("0.0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
@@ -150,7 +150,7 @@
     <description> Evaluates The "seconds-from-time" function as part of a "numeric-unary-plus" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>+fn:seconds-from-time(xs:time("10:00:01Z"))</test>
-    <result-string>xs:string("1")</result-string>
+    <result-string>xs:decimal("1.0")</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -159,7 +159,7 @@
     <description> Evaluates The "seconds-from-time" function as part of a "numeric-unary-minus" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>-fn:seconds-from-time(xs:time("10:10:01Z"))</test>
-    <result-string>xs:string("-1")</result-string>
+    <result-string>xs:decimal("-1.0")</result-string>
     <result>
       <assert-string-value>-1</assert-string-value>
     </result>
@@ -204,7 +204,7 @@
     <description> A test whose essence is: `seconds-from-time()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>seconds-from-time()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -213,7 +213,7 @@
     <description> A test whose essence is: `seconds-from-time((), "Wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>seconds-from-time((), "Wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>

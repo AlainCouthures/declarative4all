@@ -11,5 +11,5 @@ Fleur.XQueryEngine[Fleur.XQueryX.integerConstantExpr] = function(ctx, children, 
 	var a = new Fleur.Text();
 	a.appendData(children[0][1][0]);
 	a.schemaTypeInfo = Fleur.Type_integer;
-	callback(a);
+	Fleur.callback(function() {callback(a);});
 };

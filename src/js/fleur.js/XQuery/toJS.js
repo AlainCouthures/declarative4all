@@ -14,17 +14,17 @@ Fleur.toJSNumber = function(a) {
 		} else if (a.schemaTypeInfo === Fleur.Type_decimal) {
 			return [1, parseFloat(a.data)];
 		} else if (a.schemaTypeInfo === Fleur.Type_float) {
-			return [2, parseFloat(a.data)];
+			return [2, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
 		} else if (a.schemaTypeInfo === Fleur.Type_double || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-			return [3, parseFloat(a.data)];
+			return [3, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
 		} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
 			return [0, parseInt(a.data, 10)];
 		} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
 			return [1, parseFloat(a.data)];
 		} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-			return [2, parseFloat(a.data)];
+			return [2, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
 		} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-			return [3, parseFloat(a.data)];
+			return [3, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
 		} else if (a.schemaTypeInfo === Fleur.Type_error) {
 			return [-1];
 		}
@@ -32,10 +32,12 @@ Fleur.toJSNumber = function(a) {
 		a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
 		return [-1];
 	} else if (a.nodeType === Fleur.Node.SEQUENCE_NODE) {
+		a.nodeType = Fleur.Node.TEXT_NODE;
 		a.schemaTypeInfo = Fleur.Type_error;
 		a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPST0005");
 		return [-1];
 	}
+	a = new Fleur.Text();
 	a.schemaTypeInfo = Fleur.Type_error;
 	a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
 	return [-1];
@@ -49,6 +51,7 @@ Fleur.toJSString = function(a) {
 	} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
 		return [0, a.data];
 	}
+	a.nodeType = Fleur.Node.TEXT_NODE;
 	a.schemaTypeInfo = Fleur.Type_error;
 	a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
 	return [-1];
@@ -78,6 +81,7 @@ Fleur.toJSBoolean = function(a) {
 		value = parseFloat(a.data);
 		return [0, !isNaN(value) && value !== 0];
 	}
+	a.nodeType = Fleur.Node.TEXT_NODE;
 	a.schemaTypeInfo = Fleur.Type_error;
 	a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
 	return [-1];

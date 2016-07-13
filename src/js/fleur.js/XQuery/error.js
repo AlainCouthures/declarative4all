@@ -7,9 +7,12 @@
  * @module 
  * @description 
  */
-Fleur.error = function(ctx, ename) {
+Fleur.error = function(ctx, ename, emessage) {
 	var a = new Fleur.Text();
 	a.schemaTypeInfo = Fleur.Type_error;
 	a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:" + ename);
+	if (emessage) {
+		a.data = emessage;
+	}
 	return a;
 };

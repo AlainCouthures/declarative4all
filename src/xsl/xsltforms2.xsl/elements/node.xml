@@ -9,7 +9,10 @@
 			<xsl:element name="xforms-{local-name()}">
 				<xsl:apply-templates select="@*"/>
 				<script type="text/plain">
+					<xsl:copy-of select="node()"/>
+					<!--
 					<xsl:apply-templates select="node()" mode="xml2string"/>
+					-->
 				</script>
 			</xsl:element>
 		</xsl:when>

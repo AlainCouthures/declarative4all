@@ -10,6 +10,7 @@
 <xsl:param xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="xsltforms_chain"/>
 <xsl:param xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="xsltforms_config"/>
 <xsl:param xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="xsltforms_debug"/>
+<xsl:param xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="xsltforms_domengine"/>
 <xsl:param xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="xsltforms_lang"/>
 <xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="xsltformspivalue" select="translate(normalize-space(/processing-instruction('xsltforms-options')[1]), ' ', '')"/>
 <xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="lang">
@@ -35,6 +36,7 @@
 </xsl:variable>
 <xsl:variable xmlns:xsl="http://www.w3.org/1999/XSL/Transform" name="domengine">
 	<xsl:choose>
+		<xsl:when test="$xsltforms_domengine != ''"><xsl:value-of select="$xsltforms_domengine"/></xsl:when>
 		<xsl:when test="substring(substring-after($xsltformspivalue, 'domengine='), 1, 1) != ''">
 			<xsl:variable name="paramquote" select="substring(substring-after($xsltformspivalue, 'domengine='), 1, 1)"/>
 			<xsl:value-of select="substring-before(substring-after($xsltformspivalue, concat('domengine=', $paramquote)), $paramquote)"/>

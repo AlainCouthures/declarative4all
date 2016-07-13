@@ -99,6 +99,10 @@
 </xsl:text>
 				<xsl:text>var xsltforms_d0 = new Date();
 </xsl:text>
+				<xsl:text>XsltForms_fullDomEngine = "</xsl:text>
+				<xsl:value-of select="$domengine"/>
+				<xsl:text>";
+</xsl:text>
 				<xsl:text>XsltForms_domEngine = "</xsl:text>
 				<xsl:if test="$domengine != ''">
 					<xsl:value-of select="substring-before(substring-after($domengine, 'uri='), ';')"/>

@@ -11,7 +11,7 @@
     <test>
       <![CDATA[<elem/>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<elem/>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem/>]]>
@@ -25,7 +25,7 @@
     <test>
       <![CDATA[<elem></elem>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<elem/>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem/>]]>
@@ -67,7 +67,7 @@
     <test>
       <![CDATA[<elem />]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<elem/>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem/>]]>
@@ -105,7 +105,7 @@
     <test>
       <![CDATA[<elem>{{</elem>]]>
     </test>
-    <result-string/>
+    <result-string><![CDATA[<elem>{</elem>]]></result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem>{</elem>]]>

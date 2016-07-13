@@ -11,5 +11,5 @@ Fleur.XQueryEngine[Fleur.XQueryX.decimalConstantExpr] = function(ctx, children, 
 	var a = new Fleur.Text();
 	a.appendData(children[0][1][0]);
 	a.schemaTypeInfo = Fleur.Type_decimal;
-	callback(a);
+	Fleur.callback(function() {callback(a);});
 };

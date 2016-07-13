@@ -9,11 +9,11 @@
  */
 Fleur.XPathFunctions_fn["true"] = function(ctx, children, callback) {
 	if (children.length !== 0) {
-		callback(Fleur.error(ctx, "XPST0017"));
+		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
 		return;
 	}
 	var a = new Fleur.Text();
 	a.schemaTypeInfo = Fleur.Type_boolean;
 	a.data = "true";
-	callback(a);
+	Fleur.callback(function() {callback(a);});
 };

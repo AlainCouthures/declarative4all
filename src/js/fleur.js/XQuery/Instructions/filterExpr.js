@@ -9,6 +9,6 @@
  */
 Fleur.XQueryEngine[Fleur.XQueryX.filterExpr] = function(ctx, children, callback) {
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		callback(n);
+		Fleur.callback(function() {callback(n);});
 	});
 };

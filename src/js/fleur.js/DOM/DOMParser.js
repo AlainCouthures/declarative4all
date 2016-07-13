@@ -561,7 +561,7 @@ Fleur.DocumentType.resolveEntities = function(doctype, s) {
 };*/
 Fleur.DOMParser._appendFromXMLString = function(node, s) {
 	var ii, ll, text, entstart, entityname, index, offset = 0, end = s.length, nodename, attrname, attrvalue, attrs, parents = [], doc = node.ownerDocument || node, currnode = node, eltnode, attrnode, c,
-		seps_pi = " \t\n\r?", seps_dtd = " \t\n\r[>", seps_close = " \t\n\r>", seps_elt = " \t\n\r/>", seps_attr = " \t\n\r=", seps = " \t\n\r",
+		seps_pi = " \t\n\r?", seps_dtd = " \t\n\r[>", seps_close = " \t\n\r>", seps_elt = " \t\n\r/>", seps_attr = " \t\n\r=/<>", seps = " \t\n\r",
 		n, namespaces = {}, newnamespaces = {}, pindex, prefix, localName, dtdtype, dtdpublicid, dtdsystemid, entityvalue, notationvalue;
 	while (offset !== end) {
 		text = "";
@@ -945,12 +945,12 @@ Fleur.DOMParser._appendFromXMLString = function(node, s) {
 						attrname += c;
 						c = s.charAt(offset++);
 					}
-					while (seps.indexOf(c) !== -1) {
+					while (seps.indexOf(c) !== -1 && offset <= end) {
 						c = s.charAt(offset++);
 					}
 					if (c === "=") {
 						c = s.charAt(offset++);
-						while (seps.indexOf(c) !== -1) {
+						while (seps.indexOf(c) !== -1 && offset <= end) {
 							c = s.charAt(offset++);
 						}
 						attrvalue = "";

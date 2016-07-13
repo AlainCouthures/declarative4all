@@ -18,7 +18,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:atan2(-0.0e0, 0.0e0)</test>
-    <result-string>xs:double("-0.0e0")</result-string>
+    <result-string>xs:double("0.0e0")</result-string>
     <result>
       <assert-eq>-0.0e0</assert-eq>
     </result>
@@ -29,7 +29,7 @@
     <modified by="O'Neil Delpratt" change="Bug #19783 - change expected result" on="2012-11-08"/>
     <environment ref="math"/>
     <test>math:atan2(+0.0e0, -0.0e0)</test>
-    <result-string/>
+    <result-string>xs:double("3.141592653589793e0")</result-string>
     <result>
       <assert>abs($result - 3.141592653589793e0) lt 1e-14</assert>
     </result>
@@ -40,7 +40,7 @@
     <modified by="O'Neil Delpratt" change="Bug #19783 - change expected result" on="2012-11-08"/>
     <environment ref="math"/>
     <test>math:atan2(-0.0e0, -0.0e0)</test>
-    <result-string/>
+    <result-string>xs:double("-3.141592653589793e0")</result-string>
     <result>
       <assert>abs($result + 3.141592653589793e0) lt 1e-14</assert>
     </result>
@@ -51,7 +51,7 @@
     <modified by="O'Neil Delpratt" change="Bug #19783 - change expected result" on="2012-11-08"/>
     <environment ref="math"/>
     <test>math:atan2(-1, -0.0e0)</test>
-    <result-string/>
+    <result-string>xs:double("-1.5707963267948966e0")</result-string>
     <result>
       <assert>abs($result + 1.5707963267948966e0) lt 1e-14</assert>
     </result>
@@ -62,7 +62,7 @@
     <modified by="O'Neil Delpratt" change="Bug #19783 - change expected result" on="2012-11-08"/>
     <environment ref="math"/>
     <test>math:atan2(+1, 0.0e0)</test>
-    <result-string/>
+    <result-string>xs:double("1.5707963267948966e0")</result-string>
     <result>
       <assert>abs($result - 1.5707963267948966e0) lt 1e-14</assert>
     </result>
@@ -73,7 +73,7 @@
     <modified by="O'Neil Delpratt" change="Bug #19783 - change expected result" on="2012-11-08"/>
     <environment ref="math"/>
     <test>math:atan2(-0.0e0, -1)</test>
-    <result-string/>
+    <result-string>xs:double("-3.141592653589793e0")</result-string>
     <result>
       <assert>abs($result + 3.141592653589793e0) lt 1e-14</assert>
     </result>
@@ -84,7 +84,7 @@
     <modified by="O'Neil Delpratt" change="Bug #19783 - change expected result" on="2012-11-08"/>
     <environment ref="math"/>
     <test>math:atan2(+0.0e0, -1)</test>
-    <result-string/>
+    <result-string>xs:double("3.141592653589793e0")</result-string>
     <result>
       <assert>abs($result - 3.141592653589793e0) lt 1e-14</assert>
     </result>
@@ -94,7 +94,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:atan2(-0.0e0, +1)</test>
-    <result-string>xs:double("-0.0e0")</result-string>
+    <result-string>xs:double("0.0e0")</result-string>
     <result>
       <assert-eq>-0.0e0</assert-eq>
     </result>
@@ -104,7 +104,7 @@
     <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:atan2(+0.0e0, +1)</test>
-    <result-string>xs:string("+0.0e0")</result-string>
+    <result-string>xs:double("0.0e0")</result-string>
     <result>
       <assert-eq>+0.0e0</assert-eq>
     </result>

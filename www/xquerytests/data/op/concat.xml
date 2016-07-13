@@ -303,7 +303,7 @@ $arg2 = xs:double(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>(xs:double("-1.7976931348623157E308")||xs:double("-1.7976931348623157E308"))</test>
-    <result-string>xs:string("-1.7976931348623157E308-1.7976931348623157E308")</result-string>
+    <result-string>xs:string("-1.7976931348623157e308-1.7976931348623157e308")</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E308-1.7976931348623157E308</assert-string-value>
     </result>
@@ -322,7 +322,7 @@ $arg2 = xs:double(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>(xs:double("0")||xs:double("-1.7976931348623157E308"))</test>
-    <result-string>xs:string("0-1.7976931348623157E308")</result-string>
+    <result-string>xs:string("0-1.7976931348623157e308")</result-string>
     <result>
       <assert-string-value>0-1.7976931348623157E308</assert-string-value>
     </result>
@@ -341,7 +341,7 @@ $arg2 = xs:double(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>(xs:double("1.7976931348623157E308")||xs:double("-1.7976931348623157E308"))</test>
-    <result-string>xs:string("1.7976931348623157E308-1.7976931348623157E308")</result-string>
+    <result-string>xs:string("1.7976931348623157e308-1.7976931348623157e308")</result-string>
     <result>
       <assert-string-value>1.7976931348623157E308-1.7976931348623157E308</assert-string-value>
     </result>
@@ -360,7 +360,7 @@ $arg2 = xs:double(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>(xs:double("-1.7976931348623157E308") || xs:double("0"))</test>
-    <result-string>xs:string("-1.7976931348623157E3080")</result-string>
+    <result-string>xs:string("-1.7976931348623157e3080")</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E3080</assert-string-value>
     </result>
@@ -379,7 +379,7 @@ $arg2 = xs:double(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>(xs:double("-1.7976931348623157E308") || xs:double("1.7976931348623157E308"))</test>
-    <result-string>xs:string("-1.7976931348623157E3081.7976931348623157E308")</result-string>
+    <result-string>xs:string("-1.7976931348623157e3081.7976931348623157e308")</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E3081.7976931348623157E308</assert-string-value>
     </result>
@@ -398,7 +398,7 @@ $arg2 = xs:float(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>(xs:float("-3.4028235E38") || xs:float("-3.4028235E38"))</test>
-    <result-string>xs:string("-3.4028235E38-3.4028235E38")</result-string>
+    <result-string>xs:string("-3.4028235e38-3.4028235e38")</result-string>
     <result>
       <assert-string-value>-3.4028235E38-3.4028235E38</assert-string-value>
     </result>
@@ -417,7 +417,7 @@ $arg2 = xs:float(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>(xs:float("0") || xs:float("-3.4028235E38"))</test>
-    <result-string>xs:string("0-3.4028235E38")</result-string>
+    <result-string>xs:string("0-3.4028235e38")</result-string>
     <result>
       <assert-string-value>0-3.4028235E38</assert-string-value>
     </result>
@@ -436,7 +436,7 @@ $arg2 = xs:float(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>(xs:float("3.4028235E38") || xs:float("-3.4028235E38"))</test>
-    <result-string>xs:string("3.4028235E38-3.4028235E38")</result-string>
+    <result-string>xs:string("3.4028235e38-3.4028235e38")</result-string>
     <result>
       <assert-string-value>3.4028235E38-3.4028235E38</assert-string-value>
     </result>
@@ -455,7 +455,7 @@ $arg2 = xs:float(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>(xs:float("-3.4028235E38") || xs:float("0"))</test>
-    <result-string>xs:string("-3.4028235E380")</result-string>
+    <result-string>xs:string("-3.4028235e380")</result-string>
     <result>
       <assert-string-value>-3.4028235E380</assert-string-value>
     </result>
@@ -474,7 +474,7 @@ $arg2 = xs:float(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>(xs:float("-3.4028235E38") || xs:float("3.4028235E38"))</test>
-    <result-string>xs:string("-3.4028235E383.4028235E38")</result-string>
+    <result-string>xs:string("-3.4028235e383.4028235e38")</result-string>
     <result>
       <assert-string-value>-3.4028235E383.4028235E38</assert-string-value>
     </result>
@@ -1319,7 +1319,7 @@ $arg2 = xs:short(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:count(("" || ""))</test>
-    <result-string>xs:string("1")</result-string>
+    <result-string>xs:integer("1")</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -1430,7 +1430,7 @@ $arg2 = xs:short(upper bound)
     <created by="Michael Kay" on="2011-06-24"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>12 || 34 - 50</test>
-    <result-string/>
+    <result-string>xs:string("12-16")</result-string>
     <result>
       <all-of>
         <assert-eq>"12-16"</assert-eq>

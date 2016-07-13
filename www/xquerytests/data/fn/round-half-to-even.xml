@@ -6,7 +6,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:int("-2147483648"))</test>
-    <result-string>xs:integer("-2147483648")</result-string>
+    <result-string>xs:int("-2147483648")</result-string>
     <result>
       <assert-eq>-2147483648</assert-eq>
     </result>
@@ -15,7 +15,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:int("-1873914410"))</test>
-    <result-string>xs:integer("-1873914410")</result-string>
+    <result-string>xs:int("-1873914410")</result-string>
     <result>
       <assert-eq>-1873914410</assert-eq>
     </result>
@@ -24,7 +24,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:int("2147483647"))</test>
-    <result-string>xs:integer("2147483647")</result-string>
+    <result-string>xs:int("2147483647")</result-string>
     <result>
       <assert-eq>2147483647</assert-eq>
     </result>
@@ -60,7 +60,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:decimal("-999999999999999999"))</test>
-    <result-string>xs:integer("-999999999999999999")</result-string>
+    <result-string>xs:decimal("-999999999999999999.0")</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -69,7 +69,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:decimal("617375191608514839"))</test>
-    <result-string>xs:integer("617375191608514839")</result-string>
+    <result-string>xs:decimal("617375191608514839.0")</result-string>
     <result>
       <assert-eq>617375191608514839</assert-eq>
     </result>
@@ -78,7 +78,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:decimal("999999999999999999"))</test>
-    <result-string>xs:integer("999999999999999999")</result-string>
+    <result-string>xs:decimal("999999999999999999.0")</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -100,7 +100,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:double("0"))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:double("0.0e0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -110,7 +110,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:double("1.7976931348623157E308"))</test>
     <result-string>xs:double("1.7976931348623157e308")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOCA0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCA0001"))</result-string>
     <result>
       <any-of>
         <assert-eq>1.7976931348623157E308</assert-eq>
@@ -122,8 +122,8 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:float("-3.4028235E38"))</test>
-    <result-string>xs:float("-3.4028235E38")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOCA0001"))</result-string>
+    <result-string>xs:float("-3.4028235e38")</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCA0001"))</result-string>
     <result>
       <any-of>
         <assert-eq>xs:float("-3.4028235E38")</assert-eq>
@@ -135,7 +135,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:float("0"))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:float("0.0e0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -144,8 +144,8 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:float("3.4028235E38"))</test>
-    <result-string>xs:float("3.4028235E38")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOCA0001"))</result-string>
+    <result-string>xs:float("3.4028235e38")</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCA0001"))</result-string>
     <result>
       <any-of>
         <assert-eq>xs:float("3.4028235E38")</assert-eq>
@@ -157,7 +157,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:long("-92233720368547758"))</test>
-    <result-string>xs:integer("-92233720368547758")</result-string>
+    <result-string>xs:long("-92233720368547758")</result-string>
     <result>
       <assert-eq>-92233720368547758</assert-eq>
     </result>
@@ -166,7 +166,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:long("-47175562203048468"))</test>
-    <result-string>xs:integer("-47175562203048468")</result-string>
+    <result-string>xs:long("-47175562203048468")</result-string>
     <result>
       <assert-eq>-47175562203048468</assert-eq>
     </result>
@@ -175,7 +175,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:long("92233720368547758"))</test>
-    <result-string>xs:integer("92233720368547758")</result-string>
+    <result-string>xs:long("92233720368547758")</result-string>
     <result>
       <assert-eq>92233720368547758</assert-eq>
     </result>
@@ -184,7 +184,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:unsignedShort("0"))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:unsignedShort("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -193,7 +193,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:unsignedShort("44633"))</test>
-    <result-string>xs:integer("44633")</result-string>
+    <result-string>xs:unsignedShort("44633")</result-string>
     <result>
       <assert-eq>44633</assert-eq>
     </result>
@@ -202,7 +202,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:unsignedShort("65535"))</test>
-    <result-string>xs:integer("65535")</result-string>
+    <result-string>xs:unsignedShort("65535")</result-string>
     <result>
       <assert-eq>65535</assert-eq>
     </result>
@@ -211,7 +211,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:negativeInteger("-999999999999999999"))</test>
-    <result-string>xs:integer("-999999999999999999")</result-string>
+    <result-string>xs:negativeInteger("-999999999999999999")</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -220,7 +220,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:negativeInteger("-297014075999096793"))</test>
-    <result-string>xs:integer("-297014075999096793")</result-string>
+    <result-string>xs:negativeInteger("-297014075999096793")</result-string>
     <result>
       <assert-eq>-297014075999096793</assert-eq>
     </result>
@@ -229,7 +229,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:negativeInteger("-1"))</test>
-    <result-string>xs:integer("-1")</result-string>
+    <result-string>xs:negativeInteger("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
@@ -238,7 +238,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:positiveInteger("1"))</test>
-    <result-string>xs:integer("1")</result-string>
+    <result-string>xs:positiveInteger("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
@@ -247,7 +247,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:positiveInteger("52704602390610033"))</test>
-    <result-string>xs:integer("52704602390610033")</result-string>
+    <result-string>xs:positiveInteger("52704602390610033")</result-string>
     <result>
       <assert-eq>52704602390610033</assert-eq>
     </result>
@@ -256,7 +256,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:positiveInteger("999999999999999999"))</test>
-    <result-string>xs:integer("999999999999999999")</result-string>
+    <result-string>xs:positiveInteger("999999999999999999")</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -265,7 +265,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:unsignedLong("0"))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:unsignedLong("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -274,7 +274,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:unsignedLong("130747108607674654"))</test>
-    <result-string>xs:integer("130747108607674654")</result-string>
+    <result-string>xs:unsignedLong("130747108607674654")</result-string>
     <result>
       <assert-eq>130747108607674654</assert-eq>
     </result>
@@ -283,7 +283,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:unsignedLong("184467440737095516"))</test>
-    <result-string>xs:integer("184467440737095516")</result-string>
+    <result-string>xs:unsignedLong("184467440737095516")</result-string>
     <result>
       <assert-eq>184467440737095516</assert-eq>
     </result>
@@ -292,7 +292,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:nonPositiveInteger("-999999999999999999"))</test>
-    <result-string>xs:integer("-999999999999999999")</result-string>
+    <result-string>xs:nonPositiveInteger("-999999999999999999")</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
@@ -301,7 +301,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:nonPositiveInteger("-475688437271870490"))</test>
-    <result-string>xs:integer("-475688437271870490")</result-string>
+    <result-string>xs:nonPositiveInteger("-475688437271870490")</result-string>
     <result>
       <assert-eq>-475688437271870490</assert-eq>
     </result>
@@ -310,7 +310,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:nonPositiveInteger("0"))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:nonPositiveInteger("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -319,7 +319,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:nonNegativeInteger("0"))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:nonNegativeInteger("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
@@ -328,7 +328,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:nonNegativeInteger("303884545991464527"))</test>
-    <result-string>xs:integer("303884545991464527")</result-string>
+    <result-string>xs:nonNegativeInteger("303884545991464527")</result-string>
     <result>
       <assert-eq>303884545991464527</assert-eq>
     </result>
@@ -337,7 +337,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:nonNegativeInteger("999999999999999999"))</test>
-    <result-string>xs:integer("999999999999999999")</result-string>
+    <result-string>xs:nonNegativeInteger("999999999999999999")</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
@@ -346,7 +346,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:short("-32768"))</test>
-    <result-string>xs:integer("-32768")</result-string>
+    <result-string>xs:short("-32768")</result-string>
     <result>
       <assert-eq>-32768</assert-eq>
     </result>
@@ -355,7 +355,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:short("-5324"))</test>
-    <result-string>xs:integer("-5324")</result-string>
+    <result-string>xs:short("-5324")</result-string>
     <result>
       <assert-eq>-5324</assert-eq>
     </result>
@@ -364,7 +364,7 @@
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:short("32767"))</test>
-    <result-string>xs:integer("32767")</result-string>
+    <result-string>xs:short("32767")</result-string>
     <result>
       <assert-eq>32767</assert-eq>
     </result>
@@ -373,7 +373,7 @@
     <description> A test whose essence is: `round-half-to-even()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -382,7 +382,7 @@
     <description> A test whose essence is: `round-half-to-even(1.1, 3, "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(1.1, 3, "wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -409,7 +409,7 @@
     <description> A test whose essence is: `round-half-to-even("a string")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even("a string")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -490,7 +490,7 @@
     <description> Invoked fn:round-half-to-even() on xs:double -0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:double("-0"))</test>
-    <result-string>xs:integer("-0")</result-string>
+    <result-string>xs:double("0.0e0")</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
@@ -499,7 +499,7 @@
     <description> Invoked fn:round-half-to-even() on xs:float -0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:float("-0"))</test>
-    <result-string>xs:integer("-0")</result-string>
+    <result-string>xs:float("0.0e0")</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
@@ -508,7 +508,7 @@
     <description> Invoked fn:round-half-to-even() on xs:double NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:double("NaN"))</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -517,7 +517,7 @@
     <description> Invoked fn:round-half-to-even() on xs:float NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:float("NaN"))</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:float("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
@@ -526,7 +526,7 @@
     <description> Invoked fn:round-half-to-even() on xs:double -INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:double("-INF"))</test>
-    <result-string>xs:string("-INF")</result-string>
+    <result-string>xs:double("-INF")</result-string>
     <result>
       <assert-string-value>-INF</assert-string-value>
     </result>
@@ -535,7 +535,7 @@
     <description> Invoked fn:round-half-to-even() on xs:float -INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:float("-INF"))</test>
-    <result-string>xs:string("-INF")</result-string>
+    <result-string>xs:float("-INF")</result-string>
     <result>
       <assert-string-value>-INF</assert-string-value>
     </result>
@@ -544,7 +544,7 @@
     <description> Invoked fn:round-half-to-even() on xs:double INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:double("INF"))</test>
-    <result-string>xs:string("INF")</result-string>
+    <result-string>xs:double("INF")</result-string>
     <result>
       <assert-string-value>INF</assert-string-value>
     </result>
@@ -553,7 +553,7 @@
     <description> Invoked fn:round-half-to-even() on xs:float INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:float("INF"))</test>
-    <result-string>xs:string("INF")</result-string>
+    <result-string>xs:float("INF")</result-string>
     <result>
       <assert-string-value>INF</assert-string-value>
     </result>
@@ -746,7 +746,7 @@
     <description>Positive second argument - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(1.234567, 2)</test>
-    <result-string/>
+    <result-string>xs:decimal("1.23")</result-string>
     <result>
       <all-of>
         <assert-eq>1.23</assert-eq>
@@ -758,7 +758,7 @@
     <description>Positive second argument - double</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(1.000005e0, 2)</test>
-    <result-string/>
+    <result-string>xs:double("1.0e0")</result-string>
     <result>
       <all-of>
         <assert-eq>1</assert-eq>
@@ -770,7 +770,7 @@
     <description>Positive second argument - float</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(xs:float('1.000005e0'), 2)</test>
-    <result-string/>
+    <result-string>xs:float("1.0e0")</result-string>
     <result>
       <all-of>
         <assert-eq>1</assert-eq>
@@ -782,7 +782,7 @@
     <description>Negative second argument - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(4561.234567, -2)</test>
-    <result-string/>
+    <result-string>xs:decimal("4600.0")</result-string>
     <result>
       <all-of>
         <assert-eq>4600</assert-eq>
@@ -794,7 +794,7 @@
     <description>Negative second argument - double</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(4561.000005e0, -2)</test>
-    <result-string/>
+    <result-string>xs:double("4.6e2")</result-string>
     <result>
       <all-of>
         <assert-eq>4600</assert-eq>
@@ -806,7 +806,7 @@
     <description>Negative second argument - float</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(xs:float('4561.000005e0'), -2)</test>
-    <result-string/>
+    <result-string>xs:float("4.6e2")</result-string>
     <result>
       <all-of>
         <assert-eq>4600</assert-eq>
@@ -818,7 +818,7 @@
     <description>Negative second argument - integer</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(4561234567, -2)</test>
-    <result-string/>
+    <result-string>xs:integer("4561234600")</result-string>
     <result>
       <all-of>
         <assert-eq>4561234600</assert-eq>
@@ -830,7 +830,7 @@
     <description>Zero second argument - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(4561.234567, 0)</test>
-    <result-string/>
+    <result-string>xs:decimal("4561.0")</result-string>
     <result>
       <all-of>
         <assert-eq>4561</assert-eq>
@@ -842,7 +842,7 @@
     <description>Zero second argument - double</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(4561.000005e0, 0)</test>
-    <result-string/>
+    <result-string>xs:double("4.561e3")</result-string>
     <result>
       <all-of>
         <assert-eq>4561</assert-eq>
@@ -854,7 +854,7 @@
     <description>Zero second argument - float</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(xs:float('4561.000005e0'), 0)</test>
-    <result-string/>
+    <result-string>xs:float("4.561e3")</result-string>
     <result>
       <all-of>
         <assert-eq>4561</assert-eq>
@@ -866,7 +866,7 @@
     <description>Zero second argument - integer</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(4561234567, 0)</test>
-    <result-string/>
+    <result-string>xs:integer("4561234567")</result-string>
     <result>
       <all-of>
         <assert-eq>4561234567</assert-eq>
@@ -878,7 +878,7 @@
     <description>Positive second argument - halfway case - float. The expected result is surprising; it arises because 0.05 is not exactly representable as an xs:float</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(xs:float('0.05'), 1)</test>
-    <result-string/>
+    <result-string>xs:float("1.0e-1")</result-string>
     <result>
       <all-of>
         <assert-eq>0.1</assert-eq>
@@ -890,7 +890,7 @@
     <description>Positive second argument - halfway case - float. The expected result is surprising; it arises because -0.05 is not exactly representable as an xs:float</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(xs:float('-0.05'), 1)</test>
-    <result-string/>
+    <result-string>xs:float("-1.0e-1")</result-string>
     <result>
       <all-of>
         <assert-eq>-0.1</assert-eq>
@@ -902,7 +902,7 @@
     <description>Positive second argument - halfway case - float</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(xs:float('3.75'), 1)</test>
-    <result-string/>
+    <result-string>xs:float("3.8e0")</result-string>
     <result>
       <all-of>
         <assert-eq>3.8</assert-eq>
@@ -914,7 +914,7 @@
     <description>Positive second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(123.355, 2)</test>
-    <result-string/>
+    <result-string>xs:decimal("123.36")</result-string>
     <result>
       <all-of>
         <assert-eq>123.36</assert-eq>
@@ -926,7 +926,7 @@
     <description>Positive second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(123.365, 2)</test>
-    <result-string/>
+    <result-string>xs:decimal("123.36")</result-string>
     <result>
       <all-of>
         <assert-eq>123.36</assert-eq>
@@ -938,7 +938,7 @@
     <description>Positive second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(123.375, 2)</test>
-    <result-string/>
+    <result-string>xs:decimal("123.38")</result-string>
     <result>
       <all-of>
         <assert-eq>123.38</assert-eq>
@@ -950,7 +950,7 @@
     <description>Positive second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(123.385, 2)</test>
-    <result-string/>
+    <result-string>xs:decimal("123.38")</result-string>
     <result>
       <all-of>
         <assert-eq>123.38</assert-eq>
@@ -962,7 +962,7 @@
     <description>Positive second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-123.355, 2)</test>
-    <result-string/>
+    <result-string>xs:decimal("-123.36")</result-string>
     <result>
       <all-of>
         <assert-eq>-123.36</assert-eq>
@@ -974,7 +974,7 @@
     <description>Positive second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-123.365, 2)</test>
-    <result-string/>
+    <result-string>xs:decimal("-123.36")</result-string>
     <result>
       <all-of>
         <assert-eq>-123.36</assert-eq>
@@ -986,7 +986,7 @@
     <description>Positive second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-123.375, 2)</test>
-    <result-string/>
+    <result-string>xs:decimal("-123.38")</result-string>
     <result>
       <all-of>
         <assert-eq>-123.38</assert-eq>
@@ -998,7 +998,7 @@
     <description>Positive second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-123.385, 2)</test>
-    <result-string/>
+    <result-string>xs:decimal("-123.38")</result-string>
     <result>
       <all-of>
         <assert-eq>-123.38</assert-eq>
@@ -1010,7 +1010,7 @@
     <description>Negative second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(12350.00, -2)</test>
-    <result-string/>
+    <result-string>xs:decimal("12400.0")</result-string>
     <result>
       <all-of>
         <assert-eq>12400</assert-eq>
@@ -1022,7 +1022,7 @@
     <description>Negative second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-12350.00, -2)</test>
-    <result-string/>
+    <result-string>xs:decimal("-12400.0")</result-string>
     <result>
       <all-of>
         <assert-eq>-12400</assert-eq>
@@ -1034,7 +1034,7 @@
     <description>Negative second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(12450.00, -2)</test>
-    <result-string/>
+    <result-string>xs:decimal("12400.0")</result-string>
     <result>
       <all-of>
         <assert-eq>12400</assert-eq>
@@ -1046,7 +1046,7 @@
     <description>Negative second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-12450.00, -2)</test>
-    <result-string/>
+    <result-string>xs:decimal("-12400.0")</result-string>
     <result>
       <all-of>
         <assert-eq>-12400</assert-eq>
@@ -1058,7 +1058,7 @@
     <description>Negative second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(12550.00, -2)</test>
-    <result-string/>
+    <result-string>xs:decimal("12600.0")</result-string>
     <result>
       <all-of>
         <assert-eq>12600</assert-eq>
@@ -1070,7 +1070,7 @@
     <description>Negative second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-12550.00, -2)</test>
-    <result-string/>
+    <result-string>xs:decimal("-12600.0")</result-string>
     <result>
       <all-of>
         <assert-eq>-12600</assert-eq>
@@ -1082,7 +1082,7 @@
     <description>Negative second argument - halfway case - integer</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(12350, -2)</test>
-    <result-string/>
+    <result-string>xs:integer("12400")</result-string>
     <result>
       <all-of>
         <assert-eq>12400</assert-eq>
@@ -1094,7 +1094,7 @@
     <description>Negative second argument - halfway case - integer</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-12350, -2)</test>
-    <result-string/>
+    <result-string>xs:integer("-12400")</result-string>
     <result>
       <all-of>
         <assert-eq>-12400</assert-eq>
@@ -1106,7 +1106,7 @@
     <description>Negative second argument - halfway case - integer</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(12450, -2)</test>
-    <result-string/>
+    <result-string>xs:integer("12400")</result-string>
     <result>
       <all-of>
         <assert-eq>12400</assert-eq>
@@ -1118,7 +1118,7 @@
     <description>Negative second argument - halfway case - integer</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-12450, -2)</test>
-    <result-string/>
+    <result-string>xs:integer("-12400")</result-string>
     <result>
       <all-of>
         <assert-eq>-12400</assert-eq>
@@ -1130,7 +1130,7 @@
     <description>Negative second argument - halfway case - integer</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(12550, -2)</test>
-    <result-string/>
+    <result-string>xs:integer("12600")</result-string>
     <result>
       <all-of>
         <assert-eq>12600</assert-eq>
@@ -1142,7 +1142,7 @@
     <description>Negative second argument - halfway case - integer</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-12550, -2)</test>
-    <result-string/>
+    <result-string>xs:integer("-12600")</result-string>
     <result>
       <all-of>
         <assert-eq>-12600</assert-eq>
@@ -1154,7 +1154,7 @@
     <description>Negative second argument - halfway case - double</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(12350e0, -2)</test>
-    <result-string/>
+    <result-string>xs:double("1.24e4")</result-string>
     <result>
       <all-of>
         <assert-eq>12400</assert-eq>
@@ -1166,7 +1166,7 @@
     <description>Negative second argument - halfway case - double</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-12350e0, -2)</test>
-    <result-string/>
+    <result-string>xs:double("-1.24e4")</result-string>
     <result>
       <all-of>
         <assert-eq>-12400</assert-eq>
@@ -1178,7 +1178,7 @@
     <description>Negative second argument - halfway case - double</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(12450e0, -2)</test>
-    <result-string/>
+    <result-string>xs:double("1.24e4")</result-string>
     <result>
       <all-of>
         <assert-eq>12400</assert-eq>
@@ -1190,7 +1190,7 @@
     <description>Negative second argument - halfway case - double</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-12450e0, -2)</test>
-    <result-string/>
+    <result-string>xs:double("-1.24e4")</result-string>
     <result>
       <all-of>
         <assert-eq>-12400</assert-eq>
@@ -1202,7 +1202,7 @@
     <description>Negative second argument - halfway case - double</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(12550e0, -2)</test>
-    <result-string/>
+    <result-string>xs:double("1.26e4")</result-string>
     <result>
       <all-of>
         <assert-eq>12600</assert-eq>
@@ -1214,7 +1214,7 @@
     <description>Negative second argument - halfway case - double</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-12550e0, -2)</test>
-    <result-string/>
+    <result-string>xs:double("-1.26e4")</result-string>
     <result>
       <all-of>
         <assert-eq>-12600</assert-eq>
@@ -1226,7 +1226,7 @@
     <description> test fn:found-half-to-even on xs:double with large $precision argment </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(3.567812E+3, 4294967296)</test>
-    <result-string>xs:string("3567.812")</result-string>
+    <result-string>xs:double("3.567812e3")</result-string>
     <result>
       <assert-string-value>3567.812</assert-string-value>
     </result>
@@ -1235,7 +1235,7 @@
     <description> test fn:found-half-to-even on integer with positive precision </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(12345, 2)</test>
-    <result-string>xs:string("12345")</result-string>
+    <result-string>xs:integer("12345")</result-string>
     <result>
       <assert-string-value>12345</assert-string-value>
     </result>
@@ -1244,7 +1244,7 @@
     <description> test fn:found-half-to-even on integer with negative precision </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(12345, -2)</test>
-    <result-string>xs:string("12300")</result-string>
+    <result-string>xs:integer("12300")</result-string>
     <result>
       <assert-string-value>12300</assert-string-value>
     </result>
@@ -1253,7 +1253,7 @@
     <description> test fn:found-half-to-even on short with positive precision </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(xs:short(12345), 2)</test>
-    <result-string>xs:string("12345")</result-string>
+    <result-string>xs:short("12345")</result-string>
     <result>
       <assert-string-value>12345</assert-string-value>
     </result>
@@ -1262,7 +1262,7 @@
     <description> test fn:found-half-to-even on short with negative precision </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(xs:short(12345), -2)</test>
-    <result-string>xs:string("12300")</result-string>
+    <result-string>xs:short("12300")</result-string>
     <result>
       <assert-string-value>12300</assert-string-value>
     </result>
@@ -1271,7 +1271,7 @@
     <description> test fn:found-half-to-even on decimal with positive precision </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(12345.6, 2)</test>
-    <result-string>xs:string("12345.6")</result-string>
+    <result-string>xs:decimal("12345.6")</result-string>
     <result>
       <assert-string-value>12345.6</assert-string-value>
     </result>
@@ -1280,7 +1280,7 @@
     <description> test fn:found-half-to-even on decimal with negative precision </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(12345.6, -2)</test>
-    <result-string>xs:string("12300")</result-string>
+    <result-string>xs:decimal("12300.0")</result-string>
     <result>
       <assert-string-value>12300</assert-string-value>
     </result>
@@ -1289,7 +1289,7 @@
     <description> test fn:found-half-to-even on float with positive precision </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(xs:float(12345.6), 2)</test>
-    <result-string>xs:string("12345.6")</result-string>
+    <result-string>xs:float("1.23456e4")</result-string>
     <result>
       <assert-string-value>12345.6</assert-string-value>
     </result>
@@ -1298,7 +1298,7 @@
     <description> test fn:found-half-to-even on float with negative precision </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(xs:float(12345.6), -2)</test>
-    <result-string>xs:string("12300")</result-string>
+    <result-string>xs:float("1.23e4")</result-string>
     <result>
       <assert-string-value>12300</assert-string-value>
     </result>
@@ -1307,7 +1307,7 @@
     <description> test fn:found-half-to-even on double with positive precision </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(123456e-2, 2)</test>
-    <result-string>xs:string("1234.56")</result-string>
+    <result-string>xs:double("1.23456e3")</result-string>
     <result>
       <assert-string-value>1234.56</assert-string-value>
     </result>
@@ -1316,7 +1316,7 @@
     <description> test fn:found-half-to-even on double with negative precision </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(123456e-2, -2)</test>
-    <result-string>xs:string("1200")</result-string>
+    <result-string>xs:double("1.2e3")</result-string>
     <result>
       <assert-string-value>1200</assert-string-value>
     </result>
@@ -1325,7 +1325,7 @@
     <description> test fn:found-half-to-even on xs:decimal with large $precision argment </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(3.567812, 4294967296)</test>
-    <result-string>xs:string("3.567812")</result-string>
+    <result-string>xs:decimal("3.567812")</result-string>
     <result>
       <assert-string-value>3.567812</assert-string-value>
     </result>
@@ -1343,7 +1343,7 @@
     <description> test fn:found-half-to-even with invalid type for argument 2 </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(123456e-2, "two")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>

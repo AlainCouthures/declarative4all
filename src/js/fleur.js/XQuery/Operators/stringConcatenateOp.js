@@ -1,4 +1,4 @@
-/*eslint-env browser, node*/
+ /*eslint-env browser, node*/
 /*globals Fleur */
 "use strict";
 /**
@@ -9,24 +9,26 @@
  */
 Fleur.XQueryEngine[Fleur.XQueryX.stringConcatenateOp] = function(ctx, children, callback) {
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var op1;
 		var a1 = Fleur.Atomize(n);
-		op1 = Fleur.toJSString(a1);
-		if (op1[0] < 0) {
-			callback(a1);
+		if (a1.schemaTypeInfo === Fleur.Type_error) {
+			Fleur.callback(function() {callback(a1);});
 			return;
 		}
+		if (a1 === Fleur.EmptySequence) {
+			a1 = new Fleur.Text();
+			a1.data = "";
+		}
 		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-			var op2;
 			var a2 = Fleur.Atomize(n);
-			op2 = Fleur.toJSString(a2);
-			if (op2[0] < 0) {
-				callback(a2);
+			if (a2.schemaTypeInfo === Fleur.Type_error) {
+				Fleur.callback(function() {callback(a2);});
 				return;
 			}
-			a1.data = "" + (op1[1] + op2[1]);
+			if (a2.data) {
+				a1.data += a2.data;
+			}
 			a1.schemaTypeInfo = Fleur.Type_string;
-			callback(a1);
+			Fleur.callback(function() {callback(a1);});
 		});
 	});
 };

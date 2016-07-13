@@ -13,7 +13,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.idivOp] = function(ctx, children, callback) {
 		var a1 = Fleur.Atomize(n);
 		op1 = Fleur.toJSNumber(a1);
 		if (op1[0] < 0) {
-			callback(a1);
+			Fleur.callback(function() {callback(a1);});
 			return;
 		}
 		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
@@ -21,13 +21,13 @@ Fleur.XQueryEngine[Fleur.XQueryX.idivOp] = function(ctx, children, callback) {
 			var a2 = Fleur.Atomize(n);
 			op2 = Fleur.toJSNumber(a2);
 			if (op2[0] < 0) {
-				callback(a2);
+				Fleur.callback(function() {callback(a2);});
 				return;
 			}
 			divres = op1[1] / op2[1];
 			a1.data = "" + (Math.floor(divres) + (divres >= 0 ? 0 : 1));
 			a1.schemaTypeInfo = Fleur.Type_integer;
-			callback(a1);
+			Fleur.callback(function() {callback(a1);});
 		});
 	});
 };

@@ -12,7 +12,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.mainModule] = function(ctx, children, callback)
 		if (children.length > 1) {
 			Fleur.XQueryEngine[Fleur.XQueryX.mainModule](ctx, children.slice(1), callback);
 		} else {
-			callback(n);
+			Fleur.callback(function() {callback(n);});
 		}
 	});
 };

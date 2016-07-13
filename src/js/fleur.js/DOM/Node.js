@@ -134,6 +134,68 @@ Fleur.Node.prototype.appendDescendantsRev = function(src) {
 		src.childNodes.forEach(function(n) {dest.appendDescendantsRev(n); dest.appendChild(n);});
 	}
 };
+Fleur.Node.prototype.appendContent = function(n, sep) {
+	var n2;
+	switch(n.nodeType) {
+		case Fleur.Node.TEXT_NODE:
+			if (this.lastChild && this.lastChild.nodeType === Fleur.Node.TEXT_NODE) {
+				this.lastChild.data += sep + n.data;
+			} else if (n.data && n.data !== "") {
+				n2 = new Fleur.Text();
+				n2.data = n.data;
+				n2.schemaTypeInfo = Fleur.Type_untypedAtomic;
+				this.appendChild(n2);
+			}
+			break;
+		case Fleur.Node.COMMENT_NODE:
+			n2 = new Fleur.Comment();
+			n2.data = n.data;
+			this.appendChild(n2);
+			break;
+		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
+			n2 = new Fleur.ProcessingInstruction();
+			n2.nodeName = n2.target = n.target;
+			n2.data = n.data;
+			this.appendChild(n2);
+			break;
+		case Fleur.Node.ATTRIBUTE_NODE:
+			n2 = new Fleur.Attr();
+			n2.nodeName = n.nodeName;
+			n2.localName = n.localName;
+			n2.schemaTypeInfo = n.schemaTypeInfo;
+			n2.namespaceURI = n.namespaceURI;
+			n2.prefix = n.prefix;
+			n.childNodes.forEach(function(c) {
+				n2.appendContent(c);
+			});
+			this.setAttributeNodeNS(n2);
+			break;
+		case Fleur.Node.ELEMENT_NODE:
+			n2 = new Fleur.Element();
+			n2.nodeName = n.nodeName;
+			n2.localName = n.localName;
+			n2.schemaTypeInfo = n.schemaTypeInfo;
+			n2.namespaceURI = n.namespaceURI;
+			n2.prefix = n.prefix;
+			n.attributes.forEach(function(c) {
+				n2.appendContent(c, "");
+			});
+			n.childNodes.forEach(function(c) {
+				n2.appendContent(c, "");
+			});
+			this.appendChild(n2);
+			break;
+		case Fleur.Node.SEQUENCE_NODE:
+			var n0 = this;
+			n.childNodes.forEach(function(c) {
+				n0.appendContent(c, " ");
+			});
+			break;
+		case Fleur.Node.DOCUMENT_NODE:
+		case Fleur.Node.DOCUMENT_TYPE_NODE:
+			throw new Fleur.DOMException(Fleur.DOMException.NOT_SUPPORTED_ERR);
+	}
+};
 Fleur.Node.prototype.clearUserData = function() {
 	this._userData = {};
 };
@@ -399,12 +461,21 @@ Fleur.Node.prototype.isSupported = function(feature, version) {
  return doc.implementation.hasFeature(feature, version);
 };
 Fleur.Node.prototype.lookupNamespaceURI = function(prefix) {
-	var namespaceURI, pnode = this;
-	if (prefix === null || prefix === '') {
-		return null;
-	}
+	var namespaceURI, xmlns, pnode = this;
 	if (pnode.nodeType === Fleur.Node.DOCUMENT_NODE) {
 		pnode = pnode.documentElement;
+	}
+	if (prefix === null || prefix === '') {
+		while (pnode) {
+			if (pnode.nodeType === Fleur.Node.ELEMENT_NODE) {
+				xmlns = pnode.getAttributeNode("xmlns");
+				if (xmlns) {
+					return xmlns.textContent;
+				}
+			}
+			pnode = pnode.parentNode || pnode.ownerElement;
+		}
+		return null;
 	}
 	while (pnode) {
 		if (pnode.nodeType === Fleur.Node.ELEMENT_NODE) {

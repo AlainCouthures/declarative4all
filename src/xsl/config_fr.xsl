@@ -1,10 +1,11 @@
-﻿<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+ï»¿<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 	<xsl:template name="config">
 		<options>
 		</options>
 		<properties> <!--  accessible at run time -->
 			<html>4</html>
-			<language>fr</language>
+			<language>fr</language			<domengine name="Fleur" url="js/fleur.js" uri="http://www.agencexml.com/Fleur" version="1.0"/>
+>
 			<calendar.label>...</calendar.label>
 			<calendar.day0>Lun</calendar.day0>
 			<calendar.day1>Mar</calendar.day1>
@@ -15,17 +16,17 @@
 			<calendar.day6>Dim</calendar.day6>
 			<calendar.initDay>0</calendar.initDay>
 			<calendar.month0>Janvier</calendar.month0>
-			<calendar.month1>Février</calendar.month1>
+			<calendar.month1>FÃ©vrier</calendar.month1>
 			<calendar.month2>Mars</calendar.month2>
 			<calendar.month3>Avril</calendar.month3>
 			<calendar.month4>Mai</calendar.month4>
 			<calendar.month5>Juin</calendar.month5>
 			<calendar.month6>Juillet</calendar.month6>
-			<calendar.month7>Août</calendar.month7>
+			<calendar.month7>AoÃ»t</calendar.month7>
 			<calendar.month8>Septembre</calendar.month8>
 			<calendar.month9>Octobre</calendar.month9>
 			<calendar.month10>Novembre</calendar.month10>
-			<calendar.month11>Décembre</calendar.month11>
+			<calendar.month11>DÃ©cembre</calendar.month11>
 			<format.date>dd/MM/yyyy</format.date>
 			<format.datetime>dd/MM/yyyy hh:mm:ss</format.datetime>
 			<format.decimal>,</format.decimal>
@@ -34,7 +35,7 @@
 			<format-number.grouping-separator-sign> </format-number.grouping-separator-sign>
 			<format-number.infinity>Infini</format-number.infinity>
 			<format-number.minus-sign>-</format-number.minus-sign>
-			<format-number.NaN>Non numérique</format-number.NaN>
+			<format-number.NaN>Non numÃ©rique</format-number.NaN>
 			<format-number.percent-sign>%</format-number.percent-sign>
 			<format-number.per-mille-sign>&#x2030;</format-number.per-mille-sign>
 			<status>Traitement en cours</status>

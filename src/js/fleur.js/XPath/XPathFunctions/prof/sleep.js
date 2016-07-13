@@ -9,7 +9,7 @@
  */
 Fleur.XPathFunctions_prof["sleep"] = function(ctx, children, callback) {
 	if (children.length !== 1) {
-		callback(Fleur.error(ctx, "XPST0017"));
+		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
 		return;
 	}
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
@@ -21,7 +21,7 @@ Fleur.XPathFunctions_prof["sleep"] = function(ctx, children, callback) {
 				callback(Fleur.EmptySequence);
 			}, op[1]);
 		} else {
-			callback(Fleur.EmptySequence);
+			Fleur.callback(function() {callback(Fleur.EmptySequence);});
 		}
 	});
 };
