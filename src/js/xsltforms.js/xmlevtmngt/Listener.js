@@ -74,9 +74,11 @@ function XsltForms_listener(subform, observer, evtTarget, evtname, phase, handle
 		if (evt.target && evt.target.nodeType === 3) {
 			evt.target = evt.target.parentNode;
 		}
-		if (evt.currentTarget && evt.type === "DOMActivate" && (evt.target.nodeName.toUpperCase() === "BUTTON" || evt.target.nodeName.toUpperCase() === "A" || (XsltForms_browser.isChrome && evt.eventPhase === 3 && this.xfElement.controlName === "trigger"))  && !XsltForms_browser.isFF2) {
+//		console.log((evt instanceof UIEvent ? "UIEvent" : "Event") + " " + evt.target.nodeName + " " + evt.type + " " + evt.eventPhase + " " + (evt.currentTarget && evt.type === "DOMActivate" && (evt.target.nodeName.toUpperCase() === "BUTTON" || evt.target.nodeName.toUpperCase() === "A" || (XsltForms_browser.isChrome && evt.eventPhase === 3 && this.xfElement.controlName === "trigger"))  && !XsltForms_browser.isFF2));
+		if (evt.currentTarget && evt.type === "DOMActivate" && (evt.target.nodeName.toUpperCase() === "BUTTON" || evt.target.nodeName.toUpperCase() === "A" || (XsltForms_browser.isChrome && (evt.eventPhase === 3 || evt instanceof UIEvent)  && this.xfElement.controlName === "trigger"))  && !XsltForms_browser.isFF2) {
 			effectiveTarget = false;
 		}
+//		console.log(effectiveTarget);
 //		if (evt.eventPhase === 3 && !evt.target.xfElement && !XsltForms_browser.isFF2) {
 //			effectiveTarget = false;
 //		}
