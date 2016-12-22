@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>   
+		<title>Fleur Sample page</title>
+		<script type="text/javascript" src="js/fleur.js"></script>
+		<script type="application/xquery">
+			declare sequential function local:listener($evt, $loc) {
+				b:setStyle(b:dom()//body, "background-color", $loc/@value)
+          	};
+			for $button in b:dom()//input[@type="button"]
+			return b:addEventListener($button, "onclick", local:set#2)
+		</script>
+	</head>
+	<body style="color: red">
+		<h1>Change the background color</h1>
+		<input type="button" value="Blue">
+		<input type="button" value="Red">
+		<input type="button" value="Green">
+		<br>
+		<input type="button" value="Black">
+		<input type="button" value="White">
+		<input type="button" value="Yellow">
+	</body>
+</html>

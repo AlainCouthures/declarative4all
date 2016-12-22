@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+	<head>   
+		<title>Fleur Sample page</title>
+		<script type="text/javascript" src="js/fleur.js"></script>
+		<script type="application/xquery">
+			declare updating function local:onclick($loc, $evtObj) {
+				delete node b:dom()//input,
+				insert node <hr color="red"/> as last into b:dom()//body
+			};
+			b:dom()//input/b:addEventListener(., "onclick", local:onclick#2)
+		</script>
+	</head>
+	<body>
+		<h1>Delete + Insert</h1>
+		<input type="button" value="Click to replace me with a line!">
+	</body>
+</html>

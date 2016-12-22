@@ -8,7 +8,7 @@
  * @description 
  */
 Fleur.XPathEvaluator = function() {};
-Fleur.XPathEvaluator._precedence = "././/.as.;0.!.;1.~+.~-.;2.cast as.;3.castable as.;4.treat as.;5.instance of.;6.intersect.except.;7.|.union.;8.div.mod.*.idiv.;9.+.-.;10.to.;11.||.;12.eq.ne.lt.le.gt.ge.<.>.<=.>=.is.<<.>>.=.!=.;13.and.;14.or.;15.then.;16.else.;17.for.let.some.every.in.:=.return.satisfies.;18.,.;19.";
+Fleur.XPathEvaluator._precedence = "././/.as.;0.!.;1.~+.~-.;2.cast as.;3.castable as.;4.treat as.;5.instance of.;6.intersect.except.;7.|.union.;8.div.mod.*.idiv.;9.+.-.;10.to.;11.||.;12.eq.ne.lt.le.gt.ge.<.>.<=.>=.is.<<.>>.=.!=.;13.and.;14.or.;15.then.;16.else.;17.:=.;18.for.let.some.every.in.return.satisfies.;19.,.;20.";
 Fleur.XPathEvaluator._opcodes = "./;stepExpr.|;unionOp.union;unionOp.div;divOp.mod;modOp.*;multiplyOp.idiv;idivOp.+;addOp.-;subtractOp.to;toOp.||;stringConcatenateOp.eq;eqOp.ne;neOp.lt;ltOp.le;leOp.gt;gtOp.ge;geOp.<;lessThanOp.>;greaterThanOp.<=;lessThanOrEqualOp.>=;greaterThanOrEqualOp.is;isOp.<<;nodeBeforeOp.>>;nodeAfterOp.=;equalOp.!=;notEqualOp.and;andOp.or;orOp.,;argExpr.";
 Fleur.XPathEvaluator._skipComment = function(s, offset) {
 	var i = offset;
@@ -109,6 +109,8 @@ Fleur.XPathEvaluator._calc = function(args, ops, opprec) {
 				} else {
 					arg = "[Fleur.XQueryX.sequenceExpr,[" + arg1val + "," + arg2val + "]]";
 				}
+			} else if (arg1val.substr(0, 25) === "[Fleur.XQueryX.letClause,") {
+				arg = arg1val.substr(0, arg1len - 2) + "," + arg2val.substr(26);
 			} else {
 				arg = arg1val + "," + arg2val;
 			}
@@ -148,9 +150,9 @@ Fleur.XPathEvaluator._calc = function(args, ops, opprec) {
 			break;
 		case ":=":
 			if (arg1val.substr(0, 23) === "[Fleur.XQueryX.varName,") {
-				arg = "[Fleur.XQueryX.letClauseItem,[[Fleur.XQueryX.typedVariableBinding,[" + arg1val + "]],[Fleur.XQueryX.letExpr,[" + arg2val + "]]]]";
+				arg = "[Fleur.XQueryX.letClause,[[Fleur.XQueryX.letClauseItem,[[Fleur.XQueryX.typedVariableBinding,[" + arg1val + "]],[Fleur.XQueryX.letExpr,[" + arg2val + "]]]]]]";
 			} else {
-				arg = "[Fleur.XQueryX.letClauseItem,[[Fleur.XQueryX.typedVariableBinding,[[Fleur.XQueryX.varName,[" + arg1val.substr(0, arg1val.length - 4).substr(44) + "]]]],[Fleur.XQueryX.letExpr,[" + arg2val + "]]]]";
+				arg = "[Fleur.XQueryX.letClause,[[Fleur.XQueryX.letClauseItem,[[Fleur.XQueryX.typedVariableBinding,[[Fleur.XQueryX.varName,[" + arg1val.substr(0, arg1val.length - 4).substr(44) + "]]]],[Fleur.XQueryX.letExpr,[" + arg2val + "]]]]]]";
 			}
 			break;
 		case "return":
@@ -201,6 +203,9 @@ Fleur.XPathEvaluator._calc = function(args, ops, opprec) {
 			if (arg1val.substr(0, 30) === "[Fleur.XQueryX.ifThenElseExpr,") {
 				arg = arg1val.substr(0, arg1val.length - 2) + ",[Fleur.XQueryX.elseClause,[" + arg2val + "]]]]";
 			}
+			break;
+		case "let":
+			arg = arg1val + "," + arg2val;
 			break;
 		default:
 			var opcode0 = Fleur.XPathEvaluator._opcodes.substr(Fleur.XPathEvaluator._opcodes.indexOf("." + op + ";") + op.length + 2);
@@ -619,10 +624,9 @@ Fleur.XPathEvaluator._getNodeConstructor = function(s) {
 				} else {
 					if (r === "") {
 						return (offset + 1) + "." + r0 + "]]";
-					} else {
-						r += r0 + "]]";
-						nextsep = ",";
 					}
+					r += r0 + "]]";
+					nextsep = ",";
 				}
 			} else {
 				throw Error("Invalid element name");
@@ -733,10 +737,10 @@ Fleur.XPathEvaluator._getPredParam = function(c, s, l, arg) {
 			fargs = t.substr(t.indexOf(".") + 1);
 			fargs2 = fargs.substr(0, 26) === "[Fleur.XQueryX.arguments,[" ? fargs.substr(26, fargs.length - 28) : fargs;
 			p = plen + ".[Fleur.XQueryX.flworExpr,[[Fleur.XQueryX.forClause,[" + fargs2 + "]]]]";
-		} else if (arg === "[Fleur.XQueryX.flworExpr,[[Fleur.XQueryX.letClause,[]]]]") {
+		} else if (arg === "[Fleur.XQueryX.flworExpr,[]]") {
 			fargs = t.substr(t.indexOf(".") + 1);
 			fargs2 = fargs.substr(0, 26) === "[Fleur.XQueryX.arguments,[" ? fargs.substr(26, fargs.length - 28) : fargs;
-			p = plen + ".[Fleur.XQueryX.flworExpr,[[Fleur.XQueryX.letClause,[" + fargs2 + "]]]]";
+			p = plen + ".[Fleur.XQueryX.flworExpr,[" + fargs2 + "]]";
 		} else if (arg.substr(0, 57) === "[Fleur.XQueryX.quantifiedExpr,[[Fleur.XQueryX.quantifier,") {
 			fargs = t.substr(t.indexOf(".") + 1);
 			fargs2 = fargs.substr(0, 26) === "[Fleur.XQueryX.arguments,[" ? fargs.substr(26, fargs.length - 28) : fargs;
@@ -939,7 +943,7 @@ Fleur.XPathEvaluator._xp2js = function(xp, args, ops) {
 				op = "for";
 				break;
 			case "[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['child']],[Fleur.XQueryX.nameTest,['let']]]]]]":
-				rval = "[Fleur.XQueryX.flworExpr,[[Fleur.XQueryX.letClause,[]]]]";
+				rval = "[Fleur.XQueryX.flworExpr,[]]";
 				op = "let";
 				break;
 			case "[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['child']],[Fleur.XQueryX.nameTest,['every']]]]]]":
@@ -980,7 +984,7 @@ Fleur.XPathEvaluator._xp2js = function(xp, args, ops) {
 		op2 = "cast as";
 	} else if ((p.substr(0, 4) === "idiv" || p.substr(0, 4) === "some" || p.substr(0, 4) === "then" || p.substr(0, 4) === "else") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(4)) === -1) {
 		op = p.substr(0, 4);
-	} else if ((p.substr(0, 3) === "div" || p.substr(0, 3) === "and" || p.substr(0, 3) === "mod") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(3)) === -1) {
+	} else if ((p.substr(0, 3) === "div" || p.substr(0, 3) === "and" || p.substr(0, 3) === "mod" || p.substr(0, 3) === "let" || p.substr(0, 3) === "for") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(3)) === -1) {
 		op = p.substr(0, 3);
 	} else if ((p.substr(0, 2) === "or" || p.substr(0, 2) === "eq" || p.substr(0, 2) === "ne" || p.substr(0, 2) === "lt" || p.substr(0, 2) === "le" || p.substr(0, 2) === "gt" || p.substr(0, 2) === "ge" || p.substr(0, 2) === "is" || p.substr(0, 2) === "to" || p.substr(0, 2) === "in" || p.substr(0, 2) === "as") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(2)) === -1) {
 		op = p.substr(0, 2);
@@ -1061,11 +1065,13 @@ Fleur.XPathEvaluator._getVersion = function(xq) {
 	return i + ".";
 };
 Fleur.XPathEvaluator._getProlog = function(xq, i) {
+	var pindex;
 	i = Fleur.XPathEvaluator._skipSpaces(xq, i);
 	var c = xq.charAt(i);
 	var d = xq.substr(i + 1);
 	var r = "", v, vl;
 	var res = i + ".";
+	var end = xq.length;
 	if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
 		r = Fleur.XPathEvaluator._getName(c + d);
 		switch (r) {
@@ -1075,6 +1081,21 @@ Fleur.XPathEvaluator._getProlog = function(xq, i) {
 				d = xq.substr(j + 1);
 				if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
 					r = Fleur.XPathEvaluator._getName(c + d);
+					var execmode = "simple";
+					if (r === "simple" || r === "sequential" || r === "updating") {
+						execmode = r;
+						j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+						c = xq.charAt(j);
+						d = xq.substr(j + 1);
+						if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+							r = Fleur.XPathEvaluator._getName(c + d);
+							if (r !== "function") {
+								return res;
+							}
+						} else {
+							return res;
+						}
+					}
 					switch (r) {
 						case "default":
 							j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
@@ -1228,14 +1249,139 @@ Fleur.XPathEvaluator._getProlog = function(xq, i) {
 						case "decimal-format":
 							break;
 						case "namespace":
+							j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+							c = xq.charAt(j);
+							d = xq.substr(j + 1);
+							if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+								var prefix = Fleur.XPathEvaluator._getName(c + d);
+								j = Fleur.XPathEvaluator._skipSpaces(xq, j + prefix.length);
+								c = xq.charAt(j);
+								if (c === "=") {
+									j = Fleur.XPathEvaluator._skipSpaces(xq, j + 1);
+									c = xq.charAt(j);
+									d = xq.substr(j + 1);
+									if (c === "'" || c === '"') {
+										r = Fleur.XPathEvaluator._getStringLiteral(c + d);
+										vl = r.substr(0, r.indexOf("."));
+										v = r.substr(vl.length + 1);
+										j = Fleur.XPathEvaluator._skipSpaces(xq, j + parseInt(vl, 10));
+										c = xq.charAt(j);
+										if (c === ";") {
+											return (j + 1) + ".[Fleur.XQueryX.namespaceDecl,[[Fleur.XQueryX.prefixElt,['" + prefix + "']],[Fleur.XQueryX.uri,[" + v + "]]]],";
+										}
+									}
+								}
+							}
 							break;
 						case "context":
 							break;
 						case "variable":
 							break;
 						case "function":
+							j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+							c = xq.charAt(j);
+							d = xq.substr(j + 1);
+							if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+								var fname = Fleur.XPathEvaluator._getName(c + d);
+								j = Fleur.XPathEvaluator._skipSpaces(xq, j + fname.length);
+								c = xq.charAt(j);
+								pindex = fname.indexOf(":");
+								var np = pindex === -1 ? "'" + fname + "'" : "'" + fname.substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + fname.substr(0, pindex) + "']]";
+								var fres = ".[Fleur.XQueryX.functionDecl,[[Fleur.XQueryX.functionName,[" + np + "]],[Fleur.XQueryX.paramList,[";
+								var nbpar = 0;
+								if (c === "(") {
+									do {
+										j = Fleur.XPathEvaluator._skipSpaces(xq, j + 1);
+										c = xq.charAt(j);
+										if (c !== ")") {
+											if (c !== "$") {
+												return res;
+											}
+											j++;
+											c = xq.charAt(j);
+											d = xq.substr(j + 1);
+											if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) === -1) {
+												return res;
+											}
+											var pname = Fleur.XPathEvaluator._getName(c + d);
+											j = Fleur.XPathEvaluator._skipSpaces(xq, j + pname.length);
+											c = xq.charAt(j);
+											if (nbpar !== 0) {
+												fres += ",";
+											}
+											fres += "[Fleur.XQueryX.param,[[Fleur.XQueryX.varName,['" + pname + "']]]]";
+											nbpar++;
+										}
+									} while (c === ",");
+									if (c !== ")") {
+										return res;
+									}
+									fres += "]]";
+									j = Fleur.XPathEvaluator._skipSpaces(xq, j + 1);
+									c = xq.charAt(j);
+									if (c === "{") {
+										fres += ",[Fleur.XQueryX.functionBody,[";
+										var braces = 1;
+										var body = "";
+										while ((c !== "}" || braces !== 0) && j !== end) {
+											c = xq.charAt(++j);
+											if (c === "{") {
+												braces++;
+											} else if (c === "}") {
+												braces--;
+											}
+											if (braces !== 0) {
+												body += c;
+											}
+										}
+										if (body !== "") {
+											fres += Fleur.XPathEvaluator._xp2js(body, "", "");
+										}
+										fres += "]]]],";
+										j = Fleur.XPathEvaluator._skipSpaces(xq, j + 1);
+										c = xq.charAt(j);
+										if (c === ";") {
+											return (j + 1) + fres;
+										}
+									} else if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+										d = xq.substr(j + 1);
+										r = Fleur.XPathEvaluator._getName(c + d);
+										if (r === "external") {
+											j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+											c = xq.charAt(j);
+											fres += ",[Fleur.XQueryX.externalDefinition,[]]]],";
+											if (c === ";") {
+												return (j + 1) + fres;
+											}
+										}
+									}
+								}
+							}
 							break;
 						case "option":
+							j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+							c = xq.charAt(j);
+							d = xq.substr(j + 1);
+							if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+								var optionname = Fleur.XPathEvaluator._getName(c + d);
+								j = Fleur.XPathEvaluator._skipSpaces(xq, j + optionname.length);
+								c = xq.charAt(j);
+								d = xq.substr(j + 1);
+								if (c === "'" || c === '"') {
+									r = Fleur.XPathEvaluator._getStringLiteral(c + d);
+									vl = r.substr(0, r.indexOf("."));
+									v = r.substr(vl.length + 1);
+									j = Fleur.XPathEvaluator._skipSpaces(xq, j + parseInt(vl, 10));
+									c = xq.charAt(j);
+									if (c === ";") {
+										pindex = optionname.indexOf(":");
+										if (pindex === -1) {
+											return (j + 1) + ".[Fleur.XQueryX.optionDecl,[[Fleur.XQueryX.optionName,['" + optionname + "']],[Fleur.XQueryX.optionContents,[" + v + "]]]],";
+										}
+										return (j + 1) + ".[Fleur.XQueryX.optionDecl,[[Fleur.XQueryX.optionName,['" + optionname.substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + optionname.substr(0, pindex) + "']]]],[Fleur.XQueryX.optionContents,[" + v + "]]]],";
+									}
+								}
+							}
 					}
 				}
 				break;
@@ -1255,5 +1401,5 @@ Fleur.XPathEvaluator._xq2js = function(xq) {
 		pc = p.substr(p.indexOf(".") + 1);
 		prolog += pc;
 	} while (pc !== "")
-	return "[Fleur.XQueryX.module,[" + v.substr(v.indexOf(".") + 1) + "[Fleur.XQueryX.mainModule,[" + prolog + "[Fleur.XQueryX.queryBody,[" + Fleur.XPathEvaluator._xp2js(xq.substr(pl), "", "") + ']]]],[Fleur.XQueryX.xqx,["http://www.w3.org/2005/XQueryX"]],[Fleur.XQueryX.schemaLocation,["http://www.w3.org/2005/XQueryX http://www.w3.org/2005/XQueryX/xqueryx.xsd"]],[Fleur.XQueryX.xsi,["http://www.w3.org/2001/XMLSchema-instance"]]]]';
+	return "[Fleur.XQueryX.module,[" + v.substr(v.indexOf(".") + 1) + "[Fleur.XQueryX.mainModule,[" + (prolog === "" ? "" : "[Fleur.XQueryX.prolog,[" + prolog.substr(0, prolog.length - 1) + "]],") + "[Fleur.XQueryX.queryBody,[" + Fleur.XPathEvaluator._xp2js(xq.substr(pl), "", "") + ']]]],[Fleur.XQueryX.xqx,["http://www.w3.org/2005/XQueryX"]],[Fleur.XQueryX.schemaLocation,["http://www.w3.org/2005/XQueryX http://www.w3.org/2005/XQueryX/xqueryx.xsd"]],[Fleur.XQueryX.xsi,["http://www.w3.org/2001/XMLSchema-instance"]]]]';
 };

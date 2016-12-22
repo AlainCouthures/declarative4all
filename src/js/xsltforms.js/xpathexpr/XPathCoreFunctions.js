@@ -1956,7 +1956,7 @@ var XsltForms_xpathCoreFunctions = {
 			if (arguments.length === 0) {
 				throw XsltForms_xpathFunctionExceptions.serializeNoContext;
 			}
-			return nodeSet.length === 0 ? "" : XsltForms_browser.saveNode(nodeSet[0], mediatype ? XsltForms_globals.stringValue(mediatype) : "application/exml+xml", null, indent === "yes" ? indent : null);
+			return nodeSet.length === 0 ? "" : XsltForms_browser.saveNode(nodeSet[0], mediatype ? XsltForms_globals.stringValue(mediatype) : "application/xml", null, indent === "yes" ? indent : null);
 		} ),
 
 		

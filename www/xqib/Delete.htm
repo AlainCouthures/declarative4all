@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>   
+		<title>Fleur Sample page</title>
+		<script type="text/javascript" src="js/fleur.js"></script>
+		<script type="application/xquery">
+			declare updating function local:onclick($loc, $evtObj) {
+				delete node b:dom()//input
+			};
+			b:addEventListener(b:dom()//input, "onclick", local:onclick#2)
+		</script>
+	</head>
+	<body>
+		<h1>Delete</h1>
+		<input type="button" value="Click to remove me!">
+	</body>
+</html>

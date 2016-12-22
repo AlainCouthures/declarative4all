@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>   
+		<title>Fleur Sample page</title>
+		<script type="text/javascript" src="js/fleur.js"></script>
+		<script type="application/xquery">
+			declare namespace http-client = "http://expath.org/ns/http-client";
+			declare updating function local:getWeather($loc, $evtObj) {
+				let $city := b:dom()//input[@name="city"]/data(@value)
+				let $forecast := http-client:send-request(<http-client:request href="forecast2.xml" method="get"/>)[2]/*:forecast
+				let $currentcity := $forecast/*:city[@*:name=$city]
+				return
+					if (count($currentcity) = 0)
+					then
+						insert node
+							<div>City not found! Please try one of:
+								<ul>{
+									for $i in $forecast/*:city
+									return <li>{$i/data(@*:name)}</li>
+								}</ul></div> as last into b:dom()//body
+					else
+						insert node
+							<div>
+								<h1>Weather in {$city}</h1>
+								<p>{$currentcity/*:temperature} °C</p><p>{
+									if($currentcity/*:weather = "Sunny")
+									then
+										<img src="sunny.gif"/>
+									else if ($currentcity/*:weather = "Cloudy")
+									then
+										<img src="cloudy.gif"/>
+									else
+										<img src="rainy.gif"/>
+								}</p>
+							</div> as last into b:dom()//body,
+						delete node b:dom()//div
+			};
+			b:addEventListener(b:dom()//input[@name="button"], "onclick", local:getWeather#2)
+		</script>
+	</head>
+	<body>
+		<h1>Weather forecast</h1>
+		<input type="text" value="" style="font-size: 30pt; font-weight: bold" name="city">
+		<input type="button" value="Go!" style="font-size: 30pt; font-weight: bold" name="button">
+		<div><img src="JupiterZeus.gif"/></div>
+	</body>
+</html>

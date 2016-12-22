@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>   
+		<title>Fleur Sample page</title>
+		<script type="text/javascript" src="js/fleur.js"></script>
+		<script type="text/javascript">
+			var foo = function (arg1){ return 'the text was ' + arg1;};
+		</script>
+		<script type="application/xquery">
+			let $x := b:js-call('window.foo', string(b:dom()/id('a')/text()))
+			return replace value of node b:dom()/id('a') with $x
+		</script>
+	</head>
+	<body>
+		<h1 id='a'>Some text.</h1>
+	</body>
+</html>

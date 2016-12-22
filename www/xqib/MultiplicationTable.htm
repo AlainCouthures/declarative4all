@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>   
+		<title>Fleur Sample page</title>
+		<script type="text/javascript" src="js/fleur.js"></script>
+		<script type="application/xquery">
+	      declare updating function local:generateTable($loc, $event) {
+	        replace node b:dom()//table[2]
+	        with <table><tbody>{
+	          <tr>{
+	            <td/>,
+	            for $j in 1 to xs:integer(b:dom()//input[@name="nbcolumns"]/data(@value))
+	            return <td><b>{$j}</b></td>
+	          }</tr>,
+	          for $i in 1 to xs:integer(b:dom()//input[@name="nbrows"]/data(@value))
+	          return <tr>{
+	            <td><b>{$i}</b></td>,
+	            for $j in 1 to xs:integer(b:dom()//input[@name="nbcolumns"]/data(@value))
+	            return <td>{
+	              if($loc/data(@value)="+")
+	                then $i+$j
+	              else if ($loc/data(@value)="-")
+	                then ($i - $j)
+	              else if($loc/data(@value)="*")
+	                then ($i * $j)
+	              else ($i div $j)
+	            }</td>
+	          }</tr>
+	        }</tbody></table> as last into b:dom()//body
+	      };
+	
+	      for $i in b:dom()//input
+	      return b:addEventListener
+	        ($i, "onclick", local:generateTable#2)
+		</script>
+	</head>
+	<body>
+		<h1>XQuery Table Generator</h1>
+		<table>
+			<tr>
+				<td>Number of rows:
+					<input type="textbox" name="nbrows" value="3">
+				</td>
+			</tr>
+			<tr>
+				<td>Number of columns:
+					<input type="textbox" name="nbcolumns" value="5">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="button" id ="buttonplus" value="+">
+					<input type="button" id="buttonminus" value="-">
+					<input type="button" id="buttontimes" value="*">
+					<input type="button" id="buttondiv" value="/">
+				</td>
+			</tr>
+		</table>
+		<table>
+			<tbody>
+				<tr><td></td></tr>
+			</tbody>
+		</table>
+	</body>
+</html>

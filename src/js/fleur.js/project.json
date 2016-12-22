@@ -10,7 +10,8 @@
 		"XSLT/project.json",
 		"envdetect.js",
 		["\n})(typeof exports === 'undefined'? this.Fleur = {}: exports);"],
-		"polyfills.js"
+		"polyfills.js",
+		"scriptrun.js"
 	],
 	"VersionYear":"2016",
 	"VersionDate":"2016-05-22",

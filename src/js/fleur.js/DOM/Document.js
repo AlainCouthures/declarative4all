@@ -332,33 +332,51 @@ Fleur.Document.prototype.compileXslt = function() {
 Fleur.Document.prototype.evaluate = function(expression, contextNode, env, type, xpresult) {
 	contextNode = contextNode || this;
 	env = env || {};
-	if (!env.nsresolver && this.documentElement) {
-		var nsResolver = function(element) {
-			return {
-				defaultNamespace: element.getAttribute("xmlns"),
-				nsresolver: element.ownerDocument.createNSResolver(element),
-				lookupNamespaceURI: function(prefix) {
-					if (prefix === "_") {
-						return this.defaultNamespace;
+	if (!env.nsresolver) {
+		var nsResolver;
+		if (this.documentElement) {
+			nsResolver = function(element) {
+				return {
+					defaultNamespace: element.getAttribute("xmlns"),
+					nsresolver: element.ownerDocument.createNSResolver(element),
+					lookupNamespaceURI: function(prefix) {
+						if (prefix === "_") {
+							return this.defaultNamespace;
+						}
+						return this.nsresolver.lookupNamespaceURI(prefix);
+					},
+					declareNamespace: function(prefix, uri) {
+						return this.nsresolver.declareNamespace(prefix, uri);
 					}
-					return this.nsresolver.lookupNamespaceURI(prefix);
-				}
+				};
 			};
-		};
-		env.nsresolver = nsResolver(this.documentElement);
+			env.nsresolver = nsResolver(this.documentElement);
+		} else if (this.nodeType === Fleur.Node.DOCUMENT_NODE) {
+			nsResolver = function(document) {
+				return {
+					nsresolver: document.createNSResolver(),
+					lookupNamespaceURI: function(prefix) {
+						return this.nsresolver.lookupNamespaceURI(prefix);
+					},
+					declareNamespace: function(prefix, uri) {
+						return this.nsresolver.declareNamespace(prefix, uri);
+					}
+				};
+			};
+			env.nsresolver = nsResolver(this);
+		}
 	}
 	type = type || Fleur.XPathResult.ANY_TYPE;
 	if (!xpresult) {
 		return new Fleur.XPathResult(this, expression, contextNode, env, type);
-	} else {
-		xpresult.document = this;
-		xpresult.expression = expression;
-		xpresult.contextNode = contextNode;
-		xpresult.env = env;
-		xpresult.resultType = type;
-		xpresult._index = 0;
-		return xpresult;
 	}
+	xpresult.document = this;
+	xpresult.expression = expression;
+	xpresult.contextNode = contextNode;
+	xpresult.env = env;
+	xpresult.resultType = type;
+	xpresult._index = 0;
+	return xpresult;
 };
 Fleur.Document.prototype.createExpression = function(expression) {
 	expression = expression || "";

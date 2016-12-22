@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<forecast>
+    <city name="Zurich">
+        <weather>Sunny</weather>
+        <temperature>20</temperature>
+    </city>
+    <city name="Paris">
+        <weather>Cloudy</weather>
+        <temperature>15</temperature>
+    </city>
+    <city name="London">
+        <weather>Rainy</weather>
+        <temperature>10</temperature>
+    </city>
+    <city name="Vancouver">
+        <weather>Sunny</weather>
+        <temperature>25</temperature>
+    </city>
+</forecast>

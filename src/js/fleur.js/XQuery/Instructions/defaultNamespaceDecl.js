@@ -7,6 +7,7 @@
  * @module 
  * @description 
  */
-Fleur.XQueryEngine[Fleur.XQueryX.defaultNamespaceDecl] = function(ctx, children) {
-	//alert(children[0][1][0] + ": '" + children[1][1][0] + "'");
+Fleur.XQueryEngine[Fleur.XQueryX.defaultNamespaceDecl] = function(ctx, children, callback) {
+	ctx.env.nsresolver.declareNamespace(" " + children[0][1][0], children[1][1][0]);
+	Fleur.callback(function() {callback();});
 };

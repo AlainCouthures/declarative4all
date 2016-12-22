@@ -90,6 +90,63 @@ Fleur.Serializer._serializeXMLToString = function(node, indent, offset) {
 			return s;
 	}
 };
+Fleur.Serializer._serializeHTMLToString = function(node, indent, offset) {
+	var s, i, l;
+	switch (node.nodeType) {
+		case Fleur.Node.ELEMENT_NODE:
+			s = "";
+			if (node.localName.toLowerCase() === "html") {
+				s += indent ? "<!DOCTYPE html>\n" : "<!DOCTYPE html>";
+			}
+			s += (indent ? offset + "<" : "<") + node.localName.toLowerCase();
+			if (indent) {
+				var names = [];
+				for (i = 0, l = node.attributes.length; i < l; i++) {
+					if (node.attributes[i].localName !== "xmlns" && node.attributes[i].prefix !== "xmlns") {
+						names.push(node.attributes[i].localName.toLowerCase());
+					}
+				}
+				names.sort();
+				for (i = 0, l = names.length; i < l; i++) {
+					s += " " + names[i] + "=\"" + Fleur.Serializer.escapeXML(node.getAttribute(names[i]), true) + "\"";
+				}
+			} else {
+				for (i = 0, l = node.attributes.length; i < l; i++) {
+					if (node.attributes[i].localName !== "xmlns" && node.attributes[i].prefix !== "xmlns") {
+						s += " " + node.attributes[i].localName.toLowerCase() + "=\"" + Fleur.Serializer.escapeXML(node.attributes[i].nodeValue, true) + "\"";
+					}
+				}
+			}
+			if (node.childNodes.length === 0) {
+				if (["area", "base", "br", "col", "embed", "hr", "img", "input", "keygen", "link", "meta", "param", "source", "track", "wbr"].indexOf(node.localName.toLowerCase()) !== -1) {
+					return s + (indent ? ">\n" : ">");
+				}
+				return s + (indent ? "/>\n" : "/>");
+			}
+			s += indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? ">\n" : ">";
+			for (i = 0, l = node.childNodes.length; i < l; i++) {
+				s += Fleur.Serializer._serializeHTMLToString(node.childNodes[i], indent, offset + "  ");
+			}
+			return s + (indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? offset + "</" : "</") + node.nodeName.toLowerCase() + (indent ? ">\n" : ">");
+		case Fleur.Node.TEXT_NODE:
+			if (indent && node.data.match(/^[ \t\n\r]*$/) && node.parentNode.childNodes.length !== 1) {
+				return "";
+			}
+			return ["script", "style"].indexOf(node.parentNode.localName.toLowerCase()) !== -1 ? node.data : Fleur.Serializer.escapeXML(node.data);
+		case Fleur.Node.CDATA_NODE:
+			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
+		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
+			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.nodeValue + (indent ? "?>\n" : "?>");
+		case Fleur.Node.COMMENT_NODE:
+			return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
+		case Fleur.Node.DOCUMENT_NODE:
+			s = "";
+			for (i = 0, l = node.childNodes.length; i < l; i++) {
+				s += Fleur.Serializer._serializeHTMLToString(node.childNodes[i], indent, offset);
+			}
+			return s;
+	}
+};
 Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, postfix) {
 	var s, i, l;
 	postfix = postfix || "";
@@ -347,9 +404,8 @@ Fleur.Serializer._serializeJSONToString = function(node, indent, offset, inline,
 Fleur.Serializer.escapeCSV = function(s, sep) {
 	if (s.indexOf(sep) !== -1) {
 		return '"' + s.replace(/"/g, '""') + '"';
-	} else {
-		return s;
 	}
+	return s;
 };
 Fleur.Serializer._serializeCSVToString = function(node, head, key, sep, level) {
 	var s = "", s2, s3, i, l, rowname, nextlevel = level, headref;
@@ -1559,6 +1615,13 @@ Fleur.Serializer.Handlers = {
 		}
 		return ser;
 	},
+	"text/html": function(node, indent) {
+		var ser = Fleur.Serializer._serializeHTMLToString(node, indent, "");
+		if (indent && ser.charAt(ser.length - 1) === "\n") {
+			ser = ser.substr(0, ser.length - 1);
+		}
+		return ser;
+	}
 };
 Fleur.Serializer.Handlers["text/xml"] = Fleur.Serializer.Handlers["application/xml"];
 Fleur.Serializer.Handlers["application/xquery+xml"] = Fleur.Serializer.Handlers["application/xml"];

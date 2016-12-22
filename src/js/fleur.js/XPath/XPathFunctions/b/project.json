@@ -1,0 +1,7 @@
+{
+	"Components":[
+		"alert.js",
+		"dom.js",
+		"getStyle.js"
+	]
+}

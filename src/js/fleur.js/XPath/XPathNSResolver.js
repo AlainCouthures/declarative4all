@@ -12,12 +12,16 @@ Fleur.XPathNSResolver = function(node) {
 		"xml": "http://www.w3.org/XML/1998/namespace",
 		"xmlns": "http://www.w3.org/2000/xmlns/",
 		"xs": "http://www.w3.org/2001/XMLSchema",
+		" function": "http://www.w3.org/2005/xpath-functions",
 		"fn": "http://www.w3.org/2005/xpath-functions",
 		"math": "http://www.w3.org/2005/xpath-functions/math",
 		"map": "http://www.w3.org/2005/xpath-functions/map",
 		"array": "http://www.w3.org/2005/xpath-functions/array",
 		"err": "http://www.w3.org/2005/xqt-errors",
-		"prof": "http://basex.org/modules/prof"
+		"b": "http://xqib.org/browser",
+		"file": "http://expath.org/ns/file",
+		"prof": "http://basex.org/modules/prof",
+		"proc" : "http://basex.org/modules/proc"
 	};
 	this.node = node;
 };
@@ -33,4 +37,8 @@ Fleur.XPathNSResolver.prototype.lookupNamespaceURI = function(prefix) {
 		}
 	}
 	return uri;
+};
+
+Fleur.XPathNSResolver.prototype.declareNamespace = function(prefix, uri) {
+	this.pf2uri[prefix] = uri;
 };

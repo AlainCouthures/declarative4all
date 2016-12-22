@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>   
+		<title>Fleur Sample page</title>
+		<script type="text/javascript" src="js/fleur.js"></script>
+		<script type="application/xquery">
+			declare sequential function local:listener($loc, $evtObj) {
+				b:alert("Mouse Over!")
+			};
+			b:addEventListener(b:dom()//h1, "onmouseover", local:listener#2)
+		</script>
+	</head>
+	<body>
+		<h1>Bring your mouse over this title</h1>
+	</body>
+</html>

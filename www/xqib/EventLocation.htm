@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>   
+		<title>Fleur Sample page</title>
+		<script type="text/javascript" src="js/fleur.js"></script>
+		<script type="application/xquery">
+			declare sequential function local:listener($loc, $evtObj) {
+				b:alert($loc)
+			};
+			for $d in b:dom()//div
+			return b:addEventListener($d, "onclick", local:listener#2)
+		</script>
+	</head>
+	<body>
+		<h1>Event Location</h1>
+		Click on one of the following words:
+		<div id="paragraph1">Foo</div>
+		<div id="paragraph2">Bar</div>
+	</body>
+</html>

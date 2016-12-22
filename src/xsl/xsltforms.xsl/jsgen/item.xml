@@ -56,12 +56,28 @@
 		<xsl:for-each select="xforms:label[1]">
 			<xsl:call-template name="toScriptBinding"><xsl:with-param name="p" select="@ref"/></xsl:call-template>
 		</xsl:for-each>
-		<xsl:if test="xforms:value">
-			<xsl:text>,</xsl:text>
-			<xsl:for-each select="xforms:value[1]">
-				<xsl:call-template name="toScriptBinding"><xsl:with-param name="p" select="@ref"/></xsl:call-template>
-			</xsl:for-each>
-		</xsl:if>
+		<xsl:choose>
+			<xsl:when test="xforms:value">
+				<xsl:text>,</xsl:text>
+				<xsl:for-each select="xforms:value[1]">
+					<xsl:call-template name="toScriptBinding"><xsl:with-param name="p" select="@ref"/></xsl:call-template>
+				</xsl:for-each>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:text>,null</xsl:text>
+			</xsl:otherwise>
+		</xsl:choose>
+		<xsl:choose>
+			<xsl:when test="xforms:copy">
+				<xsl:text>,</xsl:text>
+				<xsl:for-each select="xforms:copy[1]">
+					<xsl:call-template name="toScriptBinding"><xsl:with-param name="p" select="@ref"/></xsl:call-template>
+				</xsl:for-each>
+			</xsl:when>
+			<xsl:otherwise>
+				<xsl:text>,null</xsl:text>
+			</xsl:otherwise>
+		</xsl:choose>
 		<xsl:text>);</xsl:text>
 	</js>
 	<xsl:apply-templates select="node()" mode="script">

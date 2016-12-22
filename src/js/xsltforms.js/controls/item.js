@@ -10,7 +10,7 @@
  * * constructor function : initializes specific properties and initializes focus and blur event management
  */
 		
-function XsltForms_item(subform, id, bindingL, bindingV) {
+function XsltForms_item(subform, id, bindingL, bindingV, copyBinding) {
 	XsltForms_globals.counters.item++;
 	this.init(subform, id);
 	this.controlName = "item";
@@ -18,6 +18,7 @@ function XsltForms_item(subform, id, bindingL, bindingV) {
 		this.hasBinding = true;
 		this.bindingL = bindingL;
 		this.bindingV = bindingV;
+		this.copyBinding = copyBinding;
 	} else {
 		XsltForms_browser.setClass(this.element, "xforms-disabled", false);
 	}
@@ -40,7 +41,7 @@ XsltForms_item.prototype = new XsltForms_element();
  */
 
 XsltForms_item.prototype.clone = function(id) { 
-	return new XsltForms_item(this.subform, id, this.bindingL, this.bindingV);
+	return new XsltForms_item(this.subform, id, this.bindingL, this.bindingV, this.copyBinding);
 };
 
 
@@ -92,6 +93,14 @@ XsltForms_item.prototype.build_ = function(ctx) {
 			element.valueV = result;
 		}
 	}
+	var nodeCopy = this.copyBinding ? this.evaluateBinding(this.copyBinding, ctx)[0] : null;
+	if (this.copyBinding && nodeCopy) {
+		this.depsNodesRefresh.push(nodeCopy);
+		try {
+			element.copy = XsltForms_browser.saveNode(nodeCopy, "application/xml");
+		} catch(e3) {
+		}
+	}
 };
 
 
@@ -130,6 +139,8 @@ XsltForms_item.prototype.refresh = function() {
 			this.input.value = XsltForms_browser.getValue(element.nodeV);
 		} else if (element.valueV) {
 			this.input.value = element.valueV;
+		} else if (element.copy) {
+			this.input.value = this.input.copy = element.copy;
 		}
 	}
 };

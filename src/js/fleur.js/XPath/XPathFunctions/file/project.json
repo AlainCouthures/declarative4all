@@ -1,0 +1,17 @@
+{
+	"Components":[
+		"base-dir.js",
+		"current-dir.js",
+		"dir-separator.js",
+		"exists.js",
+		"is-absolute.js",
+		"is-dir.js",
+		"is-file.js",
+		"last-modified.js",
+		"line-separator.js",
+		"name.js",
+		"path-separator.js",
+		"size.js",
+		"temp-dir.js"
+	]
+}

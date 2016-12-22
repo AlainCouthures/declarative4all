@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>   
+		<title>Fleur Sample page</title>
+		<script type="text/javascript" src="js/fleur.js"></script>
+		<script type="application/xquery">
+			b:alert(b:dom()//div[@id="paragraph1"]/data(.))
+		</script>
+	</head>
+	<body>
+		<h1>XPath: Predicates</h1>
+		<div id="paragraph1">Foo</div>
+		<div id="paragraph2">Bar</div>
+	</body>
+</html>

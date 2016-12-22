@@ -2,10 +2,13 @@
 	"Components":[
 		"main.js",
 		"array/project.json",
+		"b/project.json",
 		"fn/project.json",
 		"map/project.json",
 		"math/project.json",
+		"file/project.json",
 		"prof/project.json",
+		"proc/project.json",
 		"xs/project.json"
 	]
 }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>   
+		<title>Fleur Sample page</title>
+		<script type="text/javascript" src="js/fleur.js"></script>
+		<script type="application/xquery">
+			declare sequential function local:listener($evt, $loc) {
+				if(b:dom()//body/browser:getStyle(., "color") = "blue")
+				then
+					b:setStyle(b:dom()//body, "color", "red")
+				else
+					b:setStyle(b:dom()//body, "color", "blue")
+          	};
+			b:addEventListener(b:dom()//input, "onclick", local:listener#2)
+		</script>
+	</head>
+	<body style="color: red">
+		<h1>Style setter</h1>
+		This is text.
+		<input type="button" value="Change text color!">
+	</body>
+</html>

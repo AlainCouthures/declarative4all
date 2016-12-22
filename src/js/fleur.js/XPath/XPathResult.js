@@ -66,6 +66,58 @@ Object.defineProperties(Fleur.XPathResult.prototype, {
 			}
 			return jsString[1];
 		}
+	},
+	mediatype: {
+		get: function() {
+			var opt = this.env.options ? this.env.options["http://www.w3.org/2010/xslt-xquery-serialization"] : null;
+			if (opt && opt["media-type"]) {
+				return opt["media-type"];
+			}
+			return ({
+				xml: "application/xml",
+				html: "text/html",
+				json: "application/json",
+				text: "text/plain"
+			})[this.method];
+		}
+	},
+	method: {
+		get: function() {
+			var opt = this.env.options ? this.env.options["http://www.w3.org/2010/xslt-xquery-serialization"] : null;
+			if (opt && opt.method) {
+				return opt.method;
+			}
+			if (!opt || !opt["media-type"]) {
+				if (!this._result) {
+					return "text";
+				}
+				var elt = this._result.documentElement || this._result;
+				switch (elt.nodeType) {
+					case Fleur.Node.ELEMENT_NODE:
+						if (elt.nodeName === "html") {
+							return "html";
+						}
+						return "xml";
+					case Fleur.Node.MAP_NODE:
+						return "json";
+					default:
+						return "text";
+				}
+			}
+			switch (opt["media-type"]) {
+				case "application/xml":
+					return "xml";
+				case "text/html":
+					return "html";
+				default:
+					return "text";
+			}
+		}
+	},
+	indent: {
+		get: function() {
+			return false;
+		}
 	}
 });
 Fleur.XPathResult.prototype.evaluate = function(resolve, reject) {
@@ -89,6 +141,7 @@ Fleur.XPathResult.prototype.evaluate = function(resolve, reject) {
 		var compiled = eval(src);
 		Fleur.XQueryEngine[compiled[0]](ctx, compiled[1], function(n) {
 			ctx.xpresult._result = n;
+			ctx.xpresult.env = ctx.env;
 			if (n.schemaTypeInfo === Fleur.Type_error) {
 				reject(ctx.xpresult);
 			} else {
@@ -121,6 +174,10 @@ Fleur.XPathResult.prototype.iterateNext = function() {
 		return null;
 	}
 	return this._result.childNodes[this._index++];
+};
+Fleur.XPathResult.prototype.serialize = function() {
+	var ser = new Fleur.Serializer();
+	return ser.serializeToString(this._result, this.mediatype, this.indent);
 };
 Fleur.XPathResult.prototype.toXQuery = function(indent) {
 	if (this._result === Fleur.EmptySequence) {

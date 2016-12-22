@@ -9,7 +9,7 @@
  */
 Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, callback) {
 	var fname = children[0][1][0];
-	var uri = "http://www.w3.org/2005/xpath-functions";
+	var uri = ctx.env.nsresolver.lookupNamespaceURI(" function");
 	if (children[0][1][1]) {
 		if (children[0][1][1][0] === Fleur.XQueryX.URI) {
 			uri = children[0][1][1][1][0];

@@ -1,0 +1,83 @@
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <channel>
+    <title>D-INFK News</title>
+    <description>News of the Department of Computer Science, ETH Zurich</description>
+    <link>http://www.inf.ethz.ch/news/news/</link>
+    <docs>http://www.inf.ethz.ch/rss</docs>
+    <generator>Python/ Zope/ MySQL</generator>
+    <webMaster>webmaster@inf.ethz.ch</webMaster>
+    <pubDate>Wed, 22 Dec 2010 18:18:55 GMT</pubDate>
+    <lastBuildDate>Wed, 22 Dec 2010 18:18:55 GMT</lastBuildDate>
+    <image>
+      <url>http://www.inf.ethz.ch/rss/inf-logo.png</url>
+      <title>Department of Computer Science</title>
+      <link>http://www.inf.ethz.ch/</link>
+      <width>140</width>
+      <height>35</height>
+    </image>
+    <item rdf:about="http://www.prohelvetia.ch/fileadmin/user_upload/customers/prohelvetia/Publikationen/Passagen/pdf/de/Passagen_Nr_54.pdf">
+      <title>ProHelvetia Passagen - Prof. Markus Gross: Computerspiele - Die Kunst der Zukunft</title>
+      <link>http://www.prohelvetia.ch/fileadmin/user_upload/customers/prohelvetia/Publikationen/Passagen/pdf/de/Passagen_Nr_54.pdf</link>
+      <category>News</category>
+      <description/>
+      <dc:date>2010-12-17</dc:date>
+      <guid>http://www.prohelvetia.ch/fileadmin/user_upload/customers/prohelvetia/Publikationen/Passagen/pdf/de/Passagen_Nr_54.pdf</guid>
+    </item>
+    <item rdf:about="http://www.economist.com/blogs/schumpeter/2010/12/internet_things?fsrc=nlw|mgt|12-15-2010|management_thinking">
+      <title>The Economist - Schumpeter's notebook: The internet of hype</title>
+      <link>http://www.economist.com/blogs/schumpeter/2010/12/internet_things?fsrc=nlw|mgt|12-15-2010|management_thinking</link>
+      <category>News</category>
+      <description/>
+      <dc:date>2010-12-16</dc:date>
+      <guid>http://www.economist.com/blogs/schumpeter/2010/12/internet_things?fsrc=nlw|mgt|12-15-2010|management_thinking</guid>
+    </item>
+    <item rdf:about="http://www.eule.ethz.ch/2010/index_EN">
+      <title>D-INFK Winner of the Golden Owl 2010: Prof. Peter Widmayer</title>
+      <link>http://www.eule.ethz.ch/2010/index_EN</link>
+      <category>News</category>
+      <description/>
+      <dc:date>2010-12-13</dc:date>
+      <guid>http://www.eule.ethz.ch/2010/index_EN</guid>
+    </item>
+    <item rdf:about="http://chronicle.com/blogs/wiredcampus/researchers-create-3-d-models-with-flickr-photos">
+      <title>The Chronicle - Prof. Marc Pollefeys: Researchers Create 3-D Models With Flickr Photos</title>
+      <link>http://chronicle.com/blogs/wiredcampus/researchers-create-3-d-models-with-flickr-photos</link>
+      <category>News</category>
+      <description/>
+      <dc:date>2010-12-10</dc:date>
+      <guid>http://chronicle.com/blogs/wiredcampus/researchers-create-3-d-models-with-flickr-photos</guid>
+    </item>
+    <item rdf:about="http://www.acm.org/press-room/news-releases/2010/fellows-2010">
+      <title>ACM honours Prof. Donald Kossmann as Fellow</title>
+      <link>http://www.acm.org/press-room/news-releases/2010/fellows-2010</link>
+      <category>News</category>
+      <description/>
+      <dc:date>2010-12-08</dc:date>
+      <guid>http://www.acm.org/press-room/news-releases/2010/fellows-2010</guid>
+    </item>
+    <item rdf:about="http://www.dradio.de/dlf/sendungen/masterminds/beitrag/">
+      <title>Deutschlandfunk - Digital Masterminds: Prof. emerit. Niklaus Wirth</title>
+      <link>http://www.dradio.de/dlf/sendungen/masterminds/beitrag/</link>
+      <category>News</category>
+      <description/>
+      <dc:date>2010-12-05</dc:date>
+      <guid>http://www.dradio.de/dlf/sendungen/masterminds/beitrag/</guid>
+    </item>
+    <item rdf:about="http://www.nytimes.com/roomfordebate/2010/11/28/why-french-scholars-love-us-colleges/the-academic-highway-runs-both-ways">
+      <title>NY Times: Academic Highway Runs Both Ways</title>
+      <link>http://www.nytimes.com/roomfordebate/2010/11/28/why-french-scholars-love-us-colleges/the-academic-highway-runs-both-ways</link>
+      <category>News</category>
+      <description/>
+      <dc:date>2010-11-29</dc:date>
+      <guid>http://www.nytimes.com/roomfordebate/2010/11/28/why-french-scholars-love-us-colleges/the-academic-highway-runs-both-ways</guid>
+    </item>
+    <item rdf:about="http://www.bbc.co.uk/news/technology-11827854">
+      <title>BBC Technology - Marc Pollefeys: Rebuilding Rome in a day</title>
+      <link>http://www.bbc.co.uk/news/technology-11827854</link>
+      <category>News</category>
+      <description/>
+      <dc:date>2010-11-26</dc:date>
+      <guid>http://www.bbc.co.uk/news/technology-11827854</guid>
+    </item>
+  </channel>
+</rss>

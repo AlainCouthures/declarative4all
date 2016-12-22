@@ -326,7 +326,7 @@ XsltForms_input.prototype.changeReadonly = function() {
 
 XsltForms_input.prototype.initEvents = function(input, canActivate) {
 	var changeEventName = "keyup";
-	if (XsltForms_browser.isEdge || (XsltForms_globals.htmlversion === "5" && (XsltForms_browser.isChrome || XsltForms_browser.isOpera || XsltForms_browser.isSafari))) {
+	if (XsltForms_browser.isEdge || XsltForms_browser.isIE11 || (XsltForms_globals.htmlversion === "5" && (XsltForms_browser.isChrome || XsltForms_browser.isOpera || XsltForms_browser.isSafari))) {
 		changeEventName = "input";
 	}
 	if (this.inputmode) {

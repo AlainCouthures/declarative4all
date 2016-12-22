@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>   
+		<title>Fleur Sample page</title>
+		<script type="text/javascript" src="js/fleur.js"></script>
+		<script type="application/xquery">
+			declare sequential function local:listener($loc, $evtObj) {
+				if($evtObj/button = "left") then
+					b:alert("Left")
+				else if($evtObj/button = "right") then
+					b:alert("Right")
+				else if($evtObj/button = "middle") then
+					b:alert("Middle")
+				else
+					b:alert("Unknown button")
+			};
+			b:addEventListener(b:dom()//div[@id = "clickHere"], "onmouseup", local:listener#2)
+		</script>
+	</head>
+	<body>
+		<h1>Event Object: Mouse Button</h1>
+		<div id="clickHere">Click here with the left or the right button</div>
+	</body>
+</html>

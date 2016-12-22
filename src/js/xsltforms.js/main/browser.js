@@ -395,7 +395,7 @@ if (XsltForms_browser.isIE || XsltForms_browser.isIE11) {
 				if ((XsltForms_browser.isMozilla && resultDocument.documentElement.nodeName === "transformiix:result") ||
 				     (XsltForms_browser.isOpera && resultDocument.documentElement.nodeName === "result")) {
 					s = resultDocument.documentElement.textContent;
-				} else if (XsltForms_browser.isChrome && resultDocument.documentElement.nodeName === "html" && resultDocument.documentElement.children[1].children[0].nodeName === "pre") {
+				} else if ((XsltForms_browser.isChrome || XsltForms_browser.isEdge) && resultDocument.documentElement.nodeName === "html" && resultDocument.documentElement.children[1].children[0].nodeName === "pre") {
 					s = resultDocument.documentElement.children[1].children[0].textContent;
 				} else {
 					s = serializer.serializeToString(resultDocument);
@@ -2480,7 +2480,7 @@ XsltForms_browser.setValue = function(node, value) {
 	XsltForms_browser.assert(node);
 	if (node.nodeType === Fleur.Node.ATTRIBUTE_NODE || node.nodeType === Fleur.Node.TEXT_NODE) {
 		node.nodeValue = value;
-	} else if (XsltForms_browser.isIE && node.innerHTML) {
+	} else if (XsltForms_browser.isIE && node.innerHTML && !(value instanceof Array)) {
 		node.innerHTML = XsltForms_browser.escape(value);
 	} else {
 		while (node.firstChild) {

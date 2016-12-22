@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>   
+		<title>Fleur Sample page</title>
+		<script type="text/javascript" src="js/fleur.js"></script>
+		<script type="application/xquery">
+			b:alert(
+				let $x := <a><b>2</b><c>4</c></a>
+				return xs:string($x/b * $x/c)
+			)
+		</script>
+	</head>
+	<body>
+		<h1>This page executes a simple query in XQuery</h1>
+	</body>
+</html>

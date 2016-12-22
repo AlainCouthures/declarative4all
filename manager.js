@@ -8,10 +8,11 @@
  * Manager HTTP Server for building apps dynamically
  */
 		
-var fs = require('fs');
-var http = require('http');
-var path = require('path');
-var url = require('url');
+global.fs = require('fs');
+global.http = require('http');
+global.path = require('path');
+global.url = require('url');
+global.os = require('os');
 //var child_process = require('child_process');
 
 const port = 81;
@@ -33,7 +34,7 @@ const contentTypesByExtension = {
 	'.xsl':  'text/xsl'
 };
 
-http.createServer(function(request, response) {
+global.http.createServer(function(request, response) {
 	var body, uri, method, context, newcontext, newuri, headers, filename, newfilename, isnewfile, putname, filestats, contentType, ifmodifiedsince, lastmodified, composed;
 	var versionInfo, commentStart, commentEnd, upper;
 	body = "";
@@ -44,7 +45,7 @@ http.createServer(function(request, response) {
 			return;
 		}
 		headers = {};
-		contentType = contentTypesByExtension[path.extname(filename)];
+		contentType = contentTypesByExtension[global.path.extname(filename)];
 		if (contentType) {
 			headers['Content-Type'] = contentType;
 		}
@@ -54,7 +55,7 @@ http.createServer(function(request, response) {
 		response.writeHead(200, headers);
 		response.end(file, 'binary');
 		if (newfilename) {
-	        fs.writeFile(newfilename, file, err => { if (err) console.log(err);});
+	        global.fs.writeFile(newfilename, file, err => { if (err) console.log(err);});
 		}
 	};
 	var execfile = function(err, file) {
@@ -67,15 +68,9 @@ http.createServer(function(request, response) {
 		moduri.pop();
 		moduri = moduri.join('/') + '/js/fleur.js';
 		headers = {};
-		var genext = '.txt';
-		contentType = contentTypesByExtension[genext];
-		if (contentType) {
-			headers['Content-Type'] = contentType;
-		}
 		lastmodified = (new Date()).toUTCString();
 		headers['Last-Modified'] = lastmodified;
-		response.writeHead(200, headers);
-		http.get({
+		global.http.get({
 			host: 'localhost',
 			port: port,
 			path: moduri
@@ -86,15 +81,31 @@ http.createServer(function(request, response) {
 	        });
 	        modresp.on('end', function() {
 	        	var fleursrc = './tmp/fleur.js';
-	        	fs.writeFile(fleursrc, modbody, err => {
+	        	global.fs.writeFile(fleursrc, modbody, err => {
 	        		if (err) {
 	        			console.log(err);
 	        		} else {
+	        			global.fleurmtime = global.fs.statSync(fleursrc).mtime.toISOString();
 	        			var Fleur = require(fleursrc);
 	        			var doc = new Fleur.Document();
-						var res = doc.evaluate(file, doc, new Fleur.XPathNSResolver(), Fleur.XPathResult.ANY_TYPE, null).toXQuery();
-						response.end(res, 'binary');
-						delete require.cache[require.resolve(fleursrc)];
+						//var res = doc.evaluate(file, doc, new Fleur.XPathNSResolver(), Fleur.XPathResult.ANY_TYPE, null).toXQuery();
+						doc.evaluate(file).then(
+							function(res) {
+								headers['Content-Type'] = res.mediatype;
+								response.writeHead(200, headers);
+								response.end(res.serialize(), 'binary');
+								delete require.cache[require.resolve(fleursrc)];
+							},
+							function(err) {
+								contentType = contentTypesByExtension['.txt'];
+								if (contentType) {
+									headers['Content-Type'] = contentType;
+								}
+								response.writeHead(200, headers);
+								response.end(err.toXQuery(), 'binary');
+								delete require.cache[require.resolve(fleursrc)];
+							}
+						);
 	        		}
 	        	});
 	        });
@@ -114,12 +125,12 @@ http.createServer(function(request, response) {
 			composeResponse(components);
 			return;
 		}
-		fs.readFile(fname, 'binary', function(err, file) {
+		global.fs.readFile(fname, 'binary', function(err, file) {
 			if (err) {
 				sendfile(err, composed);
 				return;
 			}
-			if (fname.endsWith(path.sep + 'project.json')) {
+			if (fname.endsWith(global.path.sep + 'project.json')) {
 				descriptor = JSON.parse(file);
 				if (!versionInfo) {
 					versionInfo = descriptor;
@@ -127,7 +138,7 @@ http.createServer(function(request, response) {
 				if (descriptor.Header) {
 					composed += descriptor.Header;
 				}
-				newcomponents = descriptor.Components.map(comp => (typeof comp === 'string') ? path.join(path.dirname(fname), comp) : comp).concat(components);
+				newcomponents = descriptor.Components.map(comp => (typeof comp === 'string') ? global.path.join(global.path.dirname(fname), comp) : comp).concat(components);
 				if (descriptor.Footer) {
 					newcomponents.push([descriptor.Footer]);
 				}
@@ -147,17 +158,17 @@ http.createServer(function(request, response) {
 		body += chunk;
 	});
 	request.on('end', function () {
-		uri = url.parse(request.url).pathname;
+		uri = global.url.parse(request.url).pathname;
 		method = request.method;
-		filename = path.join(process.cwd(), uri);
+		filename = global.path.join(process.cwd(), uri);
 		newfilename = null;
 		lastmodified = null;
 		if (uri === '/favicon.ico') {
-			fs.readFile(filename, 'binary', sendfile);
+			global.fs.readFile(filename, 'binary', sendfile);
 			return;
 		}
 		if (uri === '/echo.htm') {
-			fs.readFile(filename, 'binary', (err, file) => {
+			global.fs.readFile(filename, 'binary', (err, file) => {
 				if (err) {
 					sendfile(err, file);
 				} else {
@@ -187,7 +198,7 @@ http.createServer(function(request, response) {
 			}
 			return;
 		}
-		filename = path.join(process.cwd(), uri);
+		filename = global.path.join(process.cwd(), uri);
 		newcontext = null;
 		context = uri.split('/')[1];
 		if (context.indexOf('2') !== -1) {
@@ -199,38 +210,38 @@ http.createServer(function(request, response) {
 			context = context.split('2');
 			newcontext = context[1];
 			context = context[0];
-			filename = filename.split(path.sep);
+			filename = filename.split(global.path.sep);
 			filename.splice(filename.length - 3, 1, context);
-			filename = filename.join(path.sep);
-			newfilename = filename.split(path.sep);
+			filename = filename.join(global.path.sep);
+			newfilename = filename.split(global.path.sep);
 			newfilename.splice(newfilename.length - 3, 1, newcontext);
-			newfilename = newfilename.join(path.sep);
+			newfilename = newfilename.join(global.path.sep);
 		}
-		if (!fs.existsSync(filename)) {
+		if (!global.fs.existsSync(filename)) {
 			newuri = uri.split('/');
 			newuri.splice(0, 2);
 			newuri = newuri.join('/');
-			upper = !fs.existsSync(path.join(process.cwd(), 'www', newuri.split('/')[0]));
+			upper = !global.fs.existsSync(global.path.join(process.cwd(), 'www', newuri.split('/')[0]));
 			if (!upper) {
-				filename = path.join(process.cwd(), 'www', newuri);
+				filename = global.path.join(process.cwd(), 'www', newuri);
 			} else {
-				filename = path.join(process.cwd(), '..', newuri);
+				filename = global.path.join(process.cwd(), '..', newuri);
 			}
 			if (method === 'PUT') {
-				filename = filename.split(path.sep);
+				filename = filename.split(global.path.sep);
 				putname = filename.pop();
-				filename = filename.join(path.sep);
+				filename = filename.join(global.path.sep);
 			}
-			if (fs.existsSync(filename)) {
-				filestats = fs.statSync(filename);
+			if (global.fs.existsSync(filename)) {
+				filestats = global.fs.statSync(filename);
 				if (filestats.isDirectory()) {
 					if (method === 'GET') {
-						response.writeHead(301, {'Location': uri + '/index.' + (fs.existsSync(filename + path.sep + 'index.html') ? 'html' : fs.existsSync(filename + path.sep + '/index.htm') ? 'htm' : 'xml')});
+						response.writeHead(301, {'Location': uri + '/index.' + (global.fs.existsSync(filename + global.path.sep + 'index.html') ? 'html' : global.fs.existsSync(filename + global.path.sep + '/index.htm') ? 'htm' : global.fs.existsSync(filename + global.path.sep + '/index.xqy') ? 'xqy' : 'xml')});
 						response.end();
 					} else if (method === 'PUT') {
-						filename = path.join(filename, putname);
-						isnewfile = !fs.existsSync(filename);
-						fs.writeFile(filename, body, err => {
+						filename = global.path.join(filename, putname);
+						isnewfile = !global.fs.existsSync(filename);
+						global.fs.writeFile(filename, body, err => {
 							if (err) {
 							} else if (isnewfile) {
 								response.writeHead(201, {'Content-Type': 'text/plain'});
@@ -248,30 +259,30 @@ http.createServer(function(request, response) {
 				}
 			}
 			newfilename = null;
-			if (!fs.existsSync(filename)) {
+			if (!global.fs.existsSync(filename)) {
 				if (method !== 'GET') {
 					response.writeHead(403, {'Content-Type': 'text/plain'});
 					response.end('403 Forbidden' + ' - filename:' + filename);
 					return;
 				}
-				filename = filename.split(path.sep);
+				filename = filename.split(global.path.sep);
 				if (!upper) {
 					filename.splice(filename.length - 4, 2, context);
-					filename = filename.join(path.sep);
+					filename = filename.join(global.path.sep);
 				} else {
-					filename = path.join(process.cwd(), context, filename[filename.length - 2], filename[filename.length - 1]);
+					filename = global.path.join(process.cwd(), context, filename[filename.length - 2], filename[filename.length - 1]);
 				}
 			}
-			if (!fs.existsSync(filename)) {
+			if (!global.fs.existsSync(filename)) {
 				response.writeHead(404, {'Content-Type': 'text/plain'});
 				response.end('404 Not Found');
 				return;
 			}
 		}
-		filestats = fs.statSync(filename);
+		filestats = global.fs.statSync(filename);
 		if (filestats.isDirectory()) {
-			if (!fs.existsSync(filename + path.sep + 'project.json')) {
-				response.writeHead(301, {'Location': uri + '/index.' + (fs.existsSync(filename + path.sep + 'index.html') ? 'html' : fs.existsSync(filename + path.sep + '/index.htm') ? 'htm' : 'xml')});
+			if (!global.fs.existsSync(filename + global.path.sep + 'project.json')) {
+				response.writeHead(301, {'Location': uri + '/index.' + (global.fs.existsSync(filename + global.path.sep + 'index.html') ? 'html' : global.fs.existsSync(filename + global.path.sep + 'index.htm') ? 'htm' : 'xml')});
 				response.end();
 				return;
 			}
@@ -285,13 +296,13 @@ http.createServer(function(request, response) {
 				commentStart = '<!--';
 				commentEnd = '-->';
 			}
-			composeResponse([filename + path.sep + 'project.json']);
+			composeResponse([filename + global.path.sep + 'project.json']);
 			return;
 		}
 		switch(method) {
 			case 'GET':
 				if (filename.endsWith('.xqy')) {
-					fs.readFile(filename, 'binary', execfile);
+					global.fs.readFile(filename, 'binary', execfile);
 				} else {
 					ifmodifiedsince = request.headers['if-modified-since'];
 					if (ifmodifiedsince && (new Date(ifmodifiedsince)).getTime() >= filestats.mtime.getTime()) {
@@ -300,7 +311,7 @@ http.createServer(function(request, response) {
 						return;
 					}
 					lastmodified = filestats.mtime.toUTCString();
-					fs.readFile(filename, 'binary', sendfile);
+					global.fs.readFile(filename, 'binary', sendfile);
 				}
 				break;
 			default:
