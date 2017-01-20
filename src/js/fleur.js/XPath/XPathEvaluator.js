@@ -61,10 +61,24 @@ Fleur.XPathEvaluator._getName = function(s) {
 		}
 		o = s.charAt(++i);
 	}
+	if (o === "#") {
+		o = s.charAt(++i);
+		while (o !== "" && "0123456789".indexOf(o) !== -1) {
+			o = s.charAt(++i);
+		}
+	}
 	return s.substr(0, i);
 };
 Fleur.XPathEvaluator._getNameStep = function(s, attr) {
 	var n = Fleur.XPathEvaluator._getName(s);
+	var fctind = n.indexOf("#");
+	if (fctind !== -1) {
+		var pindex = n.indexOf(":");
+		if (pindex === -1) {
+			return n.length + ".[Fleur.XQueryX.namedFunctionRef,[[Fleur.XQueryX.functionName,['" + n.substr(0, fctind) + "']],[Fleur.XQueryX.integerConstantExpr,[[Fleur.XQueryX.value,['" + n.substr(fctind + 1) + "']]]]]]";
+		}
+		return n.length + ".[Fleur.XQueryX.namedFunctionRef,[[Fleur.XQueryX.functionName,['" + n.substr(0, fctind).substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + n.substr(0, pindex) + "']]]],[Fleur.XQueryX.integerConstantExpr,[[Fleur.XQueryX.value,['" + n.substr(fctind + 1) + "']]]]]]";
+	}
 	var aind = n.indexOf("::");
 	var axis = aind !== -1 ? n.substr(0, aind) : attr ? "attribute" : "child";
 	var n2 = aind !== -1 ? n.substr(aind + 2) : n;
@@ -733,6 +747,8 @@ Fleur.XPathEvaluator._getPredParam = function(c, s, l, arg) {
 			fargs = t.substr(t.indexOf(".") + 1);
 			fargs2 = fargs.substr(0, 26) === "[Fleur.XQueryX.arguments,[" ? fargs.substr(26, fargs.length - 28) : fargs;
 			p = plen + ".[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.filterExpr,[[Fleur.XQueryX.dynamicFunctionInvocationExpr,[[Fleur.XQueryX.functionItem,[" + arg1 + (arg2 === "" ? "" : ",[Fleur.XQueryX.predicates,[" + arg2 + "]]") + (fargs2 === "" ? "" : ",[Fleur.XQueryX.arguments,[" + fargs2 + "]]") + "]]]]]]]]";
+		} else if (arg.substr(0, 32) === "[Fleur.XQueryX.namedFunctionRef,") {
+			p = plen + ".[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.filterExpr,[[Fleur.XQueryX.dynamicFunctionInvocationExpr,[[Fleur.XQueryX.functionItem,[" + arg + "]]]]]]]]]]";
 		} else if (arg === "[Fleur.XQueryX.flworExpr,[[Fleur.XQueryX.forClause,[]]]]") {
 			fargs = t.substr(t.indexOf(".") + 1);
 			fargs2 = fargs.substr(0, 26) === "[Fleur.XQueryX.arguments,[" ? fargs.substr(26, fargs.length - 28) : fargs;

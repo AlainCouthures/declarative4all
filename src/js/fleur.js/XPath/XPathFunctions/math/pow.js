@@ -7,21 +7,10 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_math["pow"] = function(ctx, children, callback) {
-	if (children.length !== 2) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	Fleur.XQueryEngine[children[1][0]](ctx, children[1][1], function(n) {
-		var a2 = Fleur.Atomize(n);
-		var op2 = Fleur.toJSNumber(a2);
-		if (op2[0] < 0) {
-			Fleur.callback(function() {callback(a2);});
-			return;
+Fleur.XPathFunctions_math["pow#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions/math", "pow",
+	function(x, y) {
+		if (x === null) {
+			return null;
 		}
-		var power = op2[1];
-		Fleur.XPathNumberFunction(ctx, children.slice(0, 1), function(v) {
-			return Math.pow(v, power);
-		}, Fleur.Type_double, callback);
-	});
-};
+		return Math.pow(x, y);},
+	null, [{type: Fleur.numericTypes, occurence: "?"}, {type: Fleur.numericTypes}], false, false, {type: Fleur.Type_double, occurence: "?"});

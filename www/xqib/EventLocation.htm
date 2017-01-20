@@ -4,11 +4,11 @@
 		<title>Fleur Sample page</title>
 		<script type="text/javascript" src="js/fleur.js"></script>
 		<script type="application/xquery">
-			declare sequential function local:listener($loc, $evtObj) {
+			declare function local:listener($loc, $evtObj) {
 				b:alert($loc)
 			};
 			for $d in b:dom()//div
-			return b:addEventListener($d, "onclick", local:listener#2)
+			return b:addEventListener($d, "click", local:listener#2)
 		</script>
 	</head>
 	<body>

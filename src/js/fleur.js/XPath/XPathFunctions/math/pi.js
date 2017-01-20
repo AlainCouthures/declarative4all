@@ -7,13 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_math["pi"] = function(ctx, children, callback) {
-	var a = new Fleur.Text();
-	if (children.length !== 0) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	a.schemaTypeInfo = Fleur.Type_double;
-	a.data = "3.141592653589793e0";
-	Fleur.callback(function() {callback(a);});
-};
+Fleur.XPathFunctions_math["pi#0"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions/math", "pi",
+	function() { return 3.141592653589793; },
+	null, [], false, false, {type: Fleur.Type_double});

@@ -7,18 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_file["dir-separator"] = function(ctx, children, callback) {
-	if (children.length !== 0) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	var result = new Fleur.Text();
-	result.data = "";
-	result.schemaTypeInfo = Fleur.Type_string;
-	if (!global.path) {
-		Fleur.callback(function() {callback(result);});
-		return;
-	}
-	result.data = global.path.sep;
-	Fleur.callback(function() {callback(result);});
-};
+Fleur.XPathFunctions_file["dir-separator#0"] = new Fleur.Function("http://expath.org/ns/file", "dir-separator",
+	function() { return global.path ? global.path.sep : null; },
+	null, [], false, false, {type: Fleur.Type_string, occurence: "?"});

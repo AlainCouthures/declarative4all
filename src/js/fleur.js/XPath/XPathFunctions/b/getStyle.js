@@ -7,41 +7,11 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_b["getStyle"] = function(ctx, children, callback) {
-	if (children.length !== 2) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		if (n.schemaTypeInfo === Fleur.Type_error) {
-			Fleur.callback(function() {callback(n);});
-			return;
+Fleur.XPathFunctions_b["getStyle#2"] = new Fleur.Function("http://xqib.org", "getStyle",
+	function(htmlelt, stylepropertyname) {
+		if (!htmlelt) {
+			return null;
 		}
-		if (!n.style) {
-			Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
-			return;
-		}
-		var htmlelt = n;
-		Fleur.XQueryEngine[children[1][0]](ctx, children[1][1], function(n) {
-			var a2 = Fleur.Atomize(n);
-			if (a2.schemaTypeInfo === Fleur.Type_error) {
-				Fleur.callback(function() {callback(a2);});
-				return;
-			}
-			var stylename;
-			if (a2 === Fleur.EmptySequence) {
-				a2 = new Fleur.Text();
-				stylename = "";
-			} else {
-				if (a2.schemaTypeInfo !== Fleur.Type_string && a2.schemaTypeInfo !== Fleur.Type_untypedAtomic) {
-					callback(Fleur.error(ctx, "XPTY0004"));
-					return;
-				}
-				stylename = a2.data;
-			}
-			a2.data = "" + htmlelt.style[stylename];
-			a2.schemaTypeInfo = Fleur.Type_string;
-			Fleur.callback(function() {callback(a2);});
-		});
-	});
-};
+		return htmlelt.style[stylepropertyname];
+	},
+	null, [{type: Fleur.Node, occurence: "?"}, {type: Fleur.Type_string}], false, false, {type: Fleur.Type_string, occurence: "?"});

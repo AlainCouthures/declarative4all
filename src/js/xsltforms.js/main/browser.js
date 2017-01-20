@@ -2464,8 +2464,12 @@ XsltForms_browser.splitNode = function(node, separator, leftTrim, rightTrim) {
 XsltForms_browser.getValueItemsetCopy = function(node) {
 	XsltForms_browser.assert(node);
 	var value = [];
-	for (var i = 0, l = node.children.length; i < l ; i++) {
-		value.push(XsltForms_browser.saveNode(node.children[i], "application/xml"));
+	if (node.childNodes) {
+		for (var i = 0, l = node.childNodes.length; i < l ; i++) {
+			if (node.childNodes[i].nodeType === Fleur.Node.ELEMENT_NODE) {
+				value.push(XsltForms_browser.saveNode(node.childNodes[i], "application/xml"));
+			}
+		}
 	}
 	return value;
 };

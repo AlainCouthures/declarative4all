@@ -134,6 +134,9 @@ XsltForms_control.prototype.refresh = function() {
 			this.eventDispatch("xforms-disabled", "xforms-enabled", false);
 		}
 	} else if (node) {
+		if (!this.value) {
+			this.value = this.hasCopy ? [] : "";
+		}
 		var value = this.value instanceof Array ? XsltForms_browser.getValueItemsetCopy(node) : XsltForms_browser.getValue(node, true, this.complex);
 		XsltForms_globals.openAction("XsltForms_control.prototype.refresh");
 		var changed;

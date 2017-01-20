@@ -7,6 +7,10 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_math["sin"] = function(ctx, children, callback) {
-	Fleur.XPathNumberFunction(ctx, children, Math.sin, Fleur.Type_double, callback);
-};
+Fleur.XPathFunctions_math["sin#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions/math", "sin",
+	function(arg) {
+		if (arg === null) {
+			return null;
+		}
+		return Math.sin(arg);},
+	null, [{type: Fleur.numericTypes, occurence: "?"}], false, false, {type: Fleur.Type_double, occurence: "?"});

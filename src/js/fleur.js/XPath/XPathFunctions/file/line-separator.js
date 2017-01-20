@@ -7,18 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_file["line-separator"] = function(ctx, children, callback) {
-	if (children.length !== 0) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	var result = new Fleur.Text();
-	result.data = "\n";
-	result.schemaTypeInfo = Fleur.Type_string;
-	if (!global.os) {
-		Fleur.callback(function() {callback(result);});
-		return;
-	}
-	result.data = global.os.EOL;
-	Fleur.callback(function() {callback(result);});
-};
+Fleur.XPathFunctions_file["line-separator#0"] = new Fleur.Function("http://expath.org/ns/file", "line-separator",
+	function() { return global.os ? global.os.EOL : null; },
+	null, [], false, false, {type: Fleur.Type_string, occurence: "?"});

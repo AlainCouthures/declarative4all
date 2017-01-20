@@ -14,11 +14,12 @@ Fleur.XPathNSResolver = function(node) {
 		"xs": "http://www.w3.org/2001/XMLSchema",
 		" function": "http://www.w3.org/2005/xpath-functions",
 		"fn": "http://www.w3.org/2005/xpath-functions",
+		"local": "http://www.w3.org/2005/xquery-local-functions",
 		"math": "http://www.w3.org/2005/xpath-functions/math",
 		"map": "http://www.w3.org/2005/xpath-functions/map",
 		"array": "http://www.w3.org/2005/xpath-functions/array",
 		"err": "http://www.w3.org/2005/xqt-errors",
-		"b": "http://xqib.org/browser",
+		"b": "http://xqib.org",
 		"file": "http://expath.org/ns/file",
 		"prof": "http://basex.org/modules/prof",
 		"proc" : "http://basex.org/modules/proc"

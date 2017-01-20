@@ -95,6 +95,7 @@ XsltForms_item.prototype.build_ = function(ctx) {
 	}
 	var nodeCopy = this.copyBinding ? this.evaluateBinding(this.copyBinding, ctx)[0] : null;
 	if (this.copyBinding && nodeCopy) {
+		element.parentNode.parentNode.parentNode.parentNode.xfElement.hasCopy = true;
 		this.depsNodesRefresh.push(nodeCopy);
 		try {
 			element.copy = XsltForms_browser.saveNode(nodeCopy, "application/xml");

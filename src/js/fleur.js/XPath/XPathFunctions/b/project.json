@@ -1,5 +1,6 @@
 {
 	"Components":[
+		"addEventListener.js",
 		"alert.js",
 		"dom.js",
 		"getStyle.js"

@@ -7,18 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_b["alert"] = function(ctx, children, callback) {
-	if (children.length !== 1) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		var a, op;
-		a = Fleur.Atomize(n);
-		op = Fleur.toJSString(a);
-		if (op[0] >= 0) {
-			alert(op[1]);
-		}
-		Fleur.callback(function() {callback(Fleur.EmptySequence);});
-	});
-};
+Fleur.XPathFunctions_b["alert#1"] = new Fleur.Function("http://xqib.org", "alert",
+	function(s) {alert(s);},
+	null, [{type: Fleur.Type_string, occurence: "?"}], false, false, {type: Fleur.EmptySequence});

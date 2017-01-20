@@ -7,6 +7,10 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_math["atan"] = function(ctx, children, callback) {
-	Fleur.XPathNumberFunction(ctx, children, Math.atan, Fleur.Type_double, callback);
-};
+Fleur.XPathFunctions_math["atan#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions/math", "atan",
+	function(arg) {
+		if (arg === null) {
+			return null;
+		}
+		return Math.atan(arg);},
+	null, [{type: Fleur.numericTypes, occurence: "?"}], false, false, {type: Fleur.Type_double, occurence: "?"});

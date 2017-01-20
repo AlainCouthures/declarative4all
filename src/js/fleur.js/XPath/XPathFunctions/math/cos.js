@@ -7,6 +7,10 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_math["cos"] = function(ctx, children, callback) {
-	Fleur.XPathNumberFunction(ctx, children, Math.cos, Fleur.Type_double, callback);
-};
+Fleur.XPathFunctions_math["cos#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions/math", "cos",
+	function(theta) {
+		if (theta === null) {
+			return null;
+		}
+		return Math.cos(theta);},
+	null, [{type: Fleur.numericTypes, occurence: "?"}], false, false, {type: Fleur.Type_double, occurence: "?"});

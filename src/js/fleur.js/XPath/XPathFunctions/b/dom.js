@@ -7,10 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_b["dom"] = function(ctx, children, callback) {
-	if (children.length !== 0 || !document) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	Fleur.callback(function() {callback(document);});
-};
+Fleur.XPathFunctions_b["dom#0"] = new Fleur.Function("http://xqib.org", "dom",
+	function() { return document; },
+	null, [], false, false, {type: Fleur.Node});

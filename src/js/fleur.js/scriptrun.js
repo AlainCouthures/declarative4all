@@ -7,7 +7,7 @@
  * @module 
  * @description 
  */
-if (document) {
+if ((new Function("try {return this === window;}catch(e){ return false;}"))()) {
 	document.addEventListener('DOMContentLoaded', function() {
 		var scripts = Array.prototype.slice.call(document.getElementsByTagName("script"), 0).filter(function(sc) {
 			return sc.getAttribute("type") === "application/xquery";

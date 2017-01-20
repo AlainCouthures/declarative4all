@@ -7,14 +7,14 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_proc["property"] = function(ctx, children, callback) {
-	Fleur.XPathStringFunction(ctx, children, function(s) {
-		switch (s) {
+Fleur.XPathFunctions_proc["property#1"] = new Fleur.Function("http://basex.org/modules/proc", "property",
+	function(pname) {
+		switch (pname) {
 			case "host-name":
 				if (process) {
 					return global.os.hostname();
 				}
-				return "Unknown";
+				return null;
 			case "host-addresses":
 				if (process) {
 					var addrs = '';
@@ -44,7 +44,7 @@ Fleur.XPathFunctions_proc["property"] = function(ctx, children, callback) {
 					}
 					return addrs;
 				}
-				return "Unknown";
+				return null;
 			case "host-engine":
 				if (process) {
 					var filename = global.path.basename(process.argv[1]);
@@ -58,7 +58,7 @@ Fleur.XPathFunctions_proc["property"] = function(ctx, children, callback) {
 			case "xquery-engine":
 				return "Fleur.js " + global.fleurmtime;
 			default:
-				return "";
+				return null;
 		}
-	}, null, callback);
-};
+	},
+	null, [{type: Fleur.Type_string}], false, false, {type: Fleur.Type_string, occurence: "?"});

@@ -10,8 +10,8 @@
 Fleur.XPathFunctions = {};
 Fleur.XPathFunctions["http://www.w3.org/2005/xpath-functions/array"] = {};
 Fleur.XPathFunctions_array = Fleur.XPathFunctions["http://www.w3.org/2005/xpath-functions/array"];
-Fleur.XPathFunctions["http://xqib.org/browser"] = {};
-Fleur.XPathFunctions_b = Fleur.XPathFunctions["http://xqib.org/browser"];
+Fleur.XPathFunctions["http://xqib.org"] = {};
+Fleur.XPathFunctions_b = Fleur.XPathFunctions["http://xqib.org"];
 Fleur.XPathFunctions["http://www.w3.org/2005/xpath-functions"] = {};
 Fleur.XPathFunctions_fn = Fleur.XPathFunctions["http://www.w3.org/2005/xpath-functions"];
 Fleur.XPathFunctions["http://www.w3.org/2005/xpath-functions/map"] = {};

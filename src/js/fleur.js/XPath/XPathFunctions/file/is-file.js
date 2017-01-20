@@ -7,31 +7,14 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_file["is-file"] = function(ctx, children, callback) {
-	if (children.length !== 1) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		var op1;
-		var a1 = Fleur.Atomize(n);
-		op1 = Fleur.toJSString(a1);
-		if (op1[0] < 0) {
-			Fleur.callback(function() {callback(a1);});
-			return;
-		}
-		var result = new Fleur.Text();
-		result.data = "false";
-		result.schemaTypeInfo = Fleur.Type_boolean;
+Fleur.XPathFunctions_file["is-file#1"] = new Fleur.Function("http://expath.org/ns/file", "is-file",
+	function(path, callback) {
 		if (!global.fs) {
-			Fleur.callback(function() {callback(result);});
+			callback(null);
 			return;
 		}
-		global.fs.stat(op1[1], function(err, stats) {
-			if (!err && stats.isFile()) {
-				result.data = "true";
-			}
-			Fleur.callback(function() {callback(result);});
+		global.fs.stat(path, function(err, stats) {
+			callback(!err && stats.isFile());
 		});
-	});
-};
+	},
+	null, [{type: Fleur.Type_string}], false, true, {type: Fleur.Type_boolean, occurence: "?"});

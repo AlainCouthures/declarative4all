@@ -7,21 +7,14 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_prof["sleep"] = function(ctx, children, callback) {
-	if (children.length !== 1) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		var a, op;
-		a = Fleur.Atomize(n);
-		op = Fleur.toJSNumber(a);
-		if (op[0] >= 0) {
+Fleur.XPathFunctions_prof["sleep#1"] = new Fleur.Function("http://basex.org/modules/proc", "sleep",
+	function(ms, callback) {
+		if (ms > 0) {
 			setTimeout(function() {
-				callback(Fleur.EmptySequence);
-			}, op[1]);
-		} else {
-			Fleur.callback(function() {callback(Fleur.EmptySequence);});
+				callback(null);
+			}, ms);
+			return;
 		}
-	});
-};
+		callback(null);
+	},
+	null, [{type: Fleur.Type_integer}], false, true, {type: Fleur.EmptySequence});
