@@ -108,8 +108,10 @@ XsltForms_input.prototype.initInput = function(type) {
 					if (!XsltForms_globals.tinyMCEinit || XsltForms_globals.jslibraries["http://www.tinymce.com"].substr(0, 2) !== "3.") {
 						eval("initinfo = " + (type.appinfo ? type.appinfo.replace(/(\r\n|\n|\r)/gm, " ") : "{}"));
 						initinfo.mode = "none";
+						initinfo.Xsltforms_usersetup = (initinfo.setup ? initinfo.setup : function (ed) {} ) // if user supplies setup(), move it out of the way;
 						if (!XsltForms_globals.jslibraries["http://www.tinymce.com"] || XsltForms_globals.jslibraries["http://www.tinymce.com"].substr(0, 2) === "3.") {
 							initinfo.setup = function(ed) {
+								initinfo.Xsltforms_usersetup(ed); // call user's setup()
 								ed.onKeyUp.add(function(ed) {
 									XsltForms_control.getXFElement(document.getElementById(ed.id)).valueChanged(ed.getContent() || "");
 								});
@@ -125,6 +127,7 @@ XsltForms_input.prototype.initInput = function(type) {
 							};
 						} else {
 							initinfo.setup = function(ed) {
+								initinfo.Xsltforms_usersetup(ed); // call user's setup()
 								ed.on("KeyUp", function() {
 									XsltForms_control.getXFElement(document.getElementById(this.id)).valueChanged(this.getContent() || "");
 								});
