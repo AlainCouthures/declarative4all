@@ -108,8 +108,10 @@ XsltForms_input.prototype.initInput = function(type) {
 					if (!XsltForms_globals.tinyMCEinit || XsltForms_globals.jslibraries["http://www.tinymce.com"].substr(0, 2) !== "3.") {
 						eval("initinfo = " + (type.appinfo ? type.appinfo.replace(/(\r\n|\n|\r)/gm, " ") : "{}"));
 						initinfo.mode = "none";
+						initinfo.Xsltforms_usersetup = initinfo.setup || function() {};
 						if (!XsltForms_globals.jslibraries["http://www.tinymce.com"] || XsltForms_globals.jslibraries["http://www.tinymce.com"].substr(0, 2) === "3.") {
 							initinfo.setup = function(ed) {
+								initinfo.Xsltforms_usersetup(ed);
 								ed.onKeyUp.add(function(ed) {
 									XsltForms_control.getXFElement(document.getElementById(ed.id)).valueChanged(ed.getContent() || "");
 								});
@@ -125,6 +127,7 @@ XsltForms_input.prototype.initInput = function(type) {
 							};
 						} else {
 							initinfo.setup = function(ed) {
+								initinfo.Xsltforms_usersetup(ed);
 								ed.on("KeyUp", function() {
 									XsltForms_control.getXFElement(document.getElementById(this.id)).valueChanged(this.getContent() || "");
 								});
@@ -144,7 +147,7 @@ XsltForms_input.prototype.initInput = function(type) {
 						tinyMCE.init(initinfo);
 						XsltForms_globals.tinyMCEinit = true;
 					}
-					tinyMCE.execCommand("mceAddControl", true, input.id);
+					tinyMCE.execCommand("mceAddEditor", true, input.id);
 					//this.editor = new tinymce.Editor(input.id, initinfo, tinymce.EditorManager);
 					break;
 				case "ckeditor":
@@ -259,17 +262,22 @@ XsltForms_input.prototype.setValue = function(value) {
 //	}
 	if (type["class"] === "boolean") {
 		this.input.checked = value === "true";
-	} else if (this.type.rte && this.type.rte.toLowerCase() === "tinymce" && tinymce.get(this.input.id) && (!XsltForms_globals.jslibraries["http://www.tinymce.com"] || XsltForms_globals.jslibraries["http://www.tinymce.com"].substr(0, 2) === "3." ? tinymce.get(this.input.id).getContent() : tinymce.get(this.input.id).contentDocument.body.innerHTML) !== value) {
-		this.input.value = value || "";
-		if (tinymce.get(this.input.id)) {
-			var prevalue = tinymce.get(this.input.id).getContent();
+	} else if (this.type.rte && this.type.rte.toLowerCase() === "tinymce" && tinymce.get(this.input.id)) {
+		//var v3 = !XsltForms_globals.jslibraries["http://www.tinymce.com"] || XsltForms_globals.jslibraries["http://www.tinymce.com"].substr(0, 2) === "3.";
+		try {
+			var editor = tinymce.get(this.input.id);
+			var prevalue = editor.contentDocument ? editor.contentDocument.body.innerHTML : editor.getContent();
 			if (prevalue !== value) {
-				tinymce.get(this.input.id).setContent(value);
-				this.input.value = tinymce.get(this.input.id).getContent() || "";
+				this.input.value = value || "";
+				editor.setContent(value);
+				var newvalue = editor.contentDocument ? editor.contentDocument.body.innerHTML : editor.getContent();
+				this.input.value = newvalue || "";
+				XsltForms_browser.debugConsole.write(this.input.id+": getContent() ="+newvalue);
+				XsltForms_browser.debugConsole.write(this.input.id+".value ="+this.input.value);
 			}
-			XsltForms_browser.debugConsole.write(this.input.id+": getContent() ="+tinymce.get(this.input.id).getContent());
+		} catch (e) {
+			this.input.value = value;
 		}
-		XsltForms_browser.debugConsole.write(this.input.id+".value ="+this.input.value);
 	} else if (this.type.rte && this.type.rte.toLowerCase() === "ckeditor" && this.rte) {
 		var data = this.rte.getData();
 		if (data.substr(data.length - 1) === "\n") {

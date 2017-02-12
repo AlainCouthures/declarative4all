@@ -7,7 +7,7 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_math["pow#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions/math", "pow",
+Fleur.XPathFunctions_math["pow#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions/math", "math:pow",
 	function(x, y) {
 		if (x === null) {
 			return null;

@@ -7,7 +7,7 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_math["log10#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions/math", "log10",
+Fleur.XPathFunctions_math["log10#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions/math", "math:log10",
 	function(arg) {
 		if (arg === null) {
 			return null;

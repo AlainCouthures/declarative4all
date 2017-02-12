@@ -7,7 +7,7 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_math["acos#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions/math", "acos",
+Fleur.XPathFunctions_math["acos#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions/math", "math:acos",
 	function(arg) {
 		if (arg === null) {
 			return null;

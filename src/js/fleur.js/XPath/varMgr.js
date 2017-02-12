@@ -9,6 +9,7 @@
  */
 Fleur.varMgr = function(vars) {
 	this.vars = vars || [];
+	this.globals = 0;
 };
 Fleur.varMgr.prototype.indexOf = function(vuri, vname) {
 	var i = this.vars.length;
@@ -35,6 +36,9 @@ Fleur.varMgr.prototype.set = function(ctx, vuri, vname, value) {
 	}
 	this.vars[index].value = value;
 	return Fleur.error(ctx, "XQST0049");
+};
+Fleur.varMgr.prototype.cloneGlobals = function() {
+	return new Fleur.varMgr(this.vars.slice(0, this.globals));
 };
 Object.defineProperties(Fleur.varMgr.prototype, {
 	length: {

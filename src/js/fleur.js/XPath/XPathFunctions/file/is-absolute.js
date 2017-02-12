@@ -7,7 +7,7 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_file["is-absolute#1"] = new Fleur.Function("http://expath.org/ns/file", "is-absolute",
+Fleur.XPathFunctions_file["is-absolute#1"] = new Fleur.Function("http://expath.org/ns/file", "file:is-absolute",
 	function(path) {
 		return global.path ? String(global.path.isAbsolute(path)) : null;
 	},

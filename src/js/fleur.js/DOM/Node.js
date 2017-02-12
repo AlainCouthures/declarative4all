@@ -61,10 +61,19 @@ Object.defineProperties(Fleur.Node.prototype, {
 	},
 	textContent: {
 		set: function(value) {
-			if (this.nodeType === Fleur.Node.TEXT_NODE || this.nodeType === Fleur.Node.CDATA_NODE) {
+			if (this.nodeType === Fleur.Node.TEXT_NODE || this.nodeType === Fleur.Node.CDATA_NODE || this.nodeType === Fleur.Node.COMMENT_NODE) {
 				this.data = value;
-			} else if (this.firstChild) {
-				this.firstChild.nodeValue = value;
+			} else {
+				if (value === "") {
+					if (this.firstChild) {
+						this.removeChild(this.firstChild);
+					}
+				} else {
+					if (!this.firstChild) {
+						this.appendChild(new Fleur.Text());
+					}
+					this.firstChild.data = value;
+				}
 			}
 		},
 		get: function() {
@@ -125,13 +134,27 @@ Fleur.Node.prototype.appendChild = function(newChild) {
 Fleur.Node.prototype.appendDescendants = function(src) {
 	if (src.childNodes) {
 		var dest = this;
-		src.childNodes.forEach(function(n) {dest.appendChild(n); dest.appendDescendants(n);});
+		if (src.childNodes.forEach) {
+			src.childNodes.forEach(function(n) {dest.appendChild(n); dest.appendDescendants(n);});
+		} else {
+			for (var i = 0, l = src.childNodes.length; i < l; i++) {
+				dest.appendChild(src.childNodes[i]);
+				dest.appendDescendants(src.childNodes[i]);
+			}
+		}
 	}
 };
 Fleur.Node.prototype.appendDescendantsRev = function(src) {
 	if (src.childNodes) {
 		var dest = this;
-		src.childNodes.forEach(function(n) {dest.appendDescendantsRev(n); dest.appendChild(n);});
+		if (src.childNodes.forEach) {
+			src.childNodes.forEach(function(n) {dest.appendDescendantsRev(n); dest.appendChild(n);});
+		} else {
+			for (var i = 0, l = src.childNodes.length; i < l; i++) {
+				dest.appendDescendantsRev(src.childNodes[i]);
+				dest.appendChild(src.childNodes[i]);
+			}
+		}
 	}
 };
 Fleur.Node.prototype.appendContent = function(n, sep) {

@@ -3,6 +3,9 @@
 		"addEventListener.js",
 		"alert.js",
 		"dom.js",
-		"getStyle.js"
+		"getStyle.js",
+		"preventDefault.js",
+		"setStyle.js",
+		"stopPropagation.js"
 	]
 }

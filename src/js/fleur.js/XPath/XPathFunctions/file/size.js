@@ -7,7 +7,7 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_file["size#1"] = new Fleur.Function("http://expath.org/ns/file", "size",
+Fleur.XPathFunctions_file["size#1"] = new Fleur.Function("http://expath.org/ns/file", "file:size",
 	function(path, callback) {
 		if (!global.fs) {
 			callback(null);

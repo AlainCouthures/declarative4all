@@ -25,7 +25,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 	}
 	if (xf.jsfunc || xf.xqxfunc) {
 		var argscalc = function(xqxargs, effargs, f) {
-			if (args.length === 0) {
+			if (xqxargs.length === 0) {
 				f(effargs);
 			} else {
 				var xqxarg = xqxargs.shift();
@@ -40,7 +40,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 				});
 			}
 		};
-		argscalc(args, [], function(effargs) {
+		argscalc(args.slice(), [], function(effargs) {
 			var a = new Fleur.Text();
 			a.schemaTypeInfo = xf.restype.type;
 			a.data = "";
@@ -92,7 +92,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 					jsargs.push(ctx);
 				}
 				var convback = function(vret) {
-					if (vret === null) {
+					if (vret === undefined || vret === null) {
 						a = Fleur.EmptySequence;
 					} else if (vret === Number.POSITIVE_INFINITY) {
 						a.data = "INF";
@@ -116,6 +116,16 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 					return;
 				}
 				convback(xf.jsfunc.apply(null, jsargs));
+			} else {
+				var currvarres = ctx.env.varresolver;
+				ctx.env.varresolver = ctx.env.varresolver.cloneGlobals();
+				effargs.forEach(function(effarg, iarg) {
+					ctx.env.varresolver.set(ctx, "", xf.argtypes[iarg].name, effarg);
+				});
+				Fleur.XQueryEngine[xf.xqxfunc[0]](ctx, xf.xqxfunc[1], function(n) {
+					ctx.env.varresolver = currvarres;
+					Fleur.callback(function() {callback(n);});
+				});
 			}
 		});
 	} else {

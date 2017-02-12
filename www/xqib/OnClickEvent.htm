@@ -4,10 +4,10 @@
 		<title>Fleur Sample page</title>
 		<script type="text/javascript" src="js/fleur.js"></script>
 		<script type="application/xquery">
-			declare sequential function local:listener($loc, $evtObj) {
+			declare function local:listener($loc, $evtObj) {
 				b:alert("Hello, World")
 			};
-			b:addEventListener(b:dom()//input[@id="myButton"], "onclick", local:listener#2)
+			b:addEventListener(b:dom()//input[@id eq "myButton"], "click", local:listener#2)
 		</script>
 	</head>
 	<body>

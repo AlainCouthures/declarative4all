@@ -7,6 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_file["path-separator#0"] = new Fleur.Function("http://expath.org/ns/file", "path-separator",
+Fleur.XPathFunctions_file["path-separator#0"] = new Fleur.Function("http://expath.org/ns/file", "file:path-separator",
 	function() { return global.path ? global.path.delimiter : null; },
 	null, [], false, false, {type: Fleur.Type_string, occurence: "?"});

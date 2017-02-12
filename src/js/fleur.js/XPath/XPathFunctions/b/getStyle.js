@@ -7,7 +7,7 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_b["getStyle#2"] = new Fleur.Function("http://xqib.org", "getStyle",
+Fleur.XPathFunctions_b["getStyle#2"] = new Fleur.Function("http://xqib.org", "b:getStyle",
 	function(htmlelt, stylepropertyname) {
 		if (!htmlelt) {
 			return null;

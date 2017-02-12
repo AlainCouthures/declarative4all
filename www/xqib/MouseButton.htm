@@ -4,17 +4,11 @@
 		<title>Fleur Sample page</title>
 		<script type="text/javascript" src="js/fleur.js"></script>
 		<script type="application/xquery">
-			declare sequential function local:listener($loc, $evtObj) {
-				if($evtObj/button = "left") then
-					b:alert("Left")
-				else if($evtObj/button = "right") then
-					b:alert("Right")
-				else if($evtObj/button = "middle") then
-					b:alert("Middle")
-				else
-					b:alert("Unknown button")
+			declare function local:listener($loc, $evtObj) {
+				for $d in $evtObj/*
+				return b:alert(namespace-uri($d) || ' ' || local-name($d) || ': ' || $d)
 			};
-			b:addEventListener(b:dom()//div[@id = "clickHere"], "onmouseup", local:listener#2)
+			b:addEventListener(b:dom()//div[@id eq "clickHere"], "mouseup", local:listener#2)
 		</script>
 	</head>
 	<body>

@@ -9,7 +9,7 @@
 				width: 500px;
 			}
 		</style>
-		<script type="text/javascript" src="js/tinymce_4.1.9/tinymce.min.js" data-uri="http://www.tinymce.com" data-version="4.1.9">/* */</script>
+		<script type="text/javascript" src="js/tinymce_4.5.3/tinymce.min.js" data-uri="http://www.tinymce.com" data-version="4.5.3">/* */</script>
 		<model xmlns="http://www.w3.org/2002/xforms">
 			<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.agencexml.com/xsltforms/rte">
 				<simpleType name="standardHTML">
@@ -22,8 +22,29 @@
 									"searchreplace visualblocks code fullscreen",
 									"insertdatetime media table contextmenu paste"
 								],
-								toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
-							}
+								toolbar: "insertelema insertelemb | insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+								custom_elements:  "~elem-a,~elem-b",
+								content_style: "elem-a {color: red; border-style: solid;} elem-b {color: blue; border-style: solid;}",
+								valid_elements:  "p,i,strong,em,elem-a,elem-b",
+								setup: function(editor) {
+									function insertElem(gi) {
+										var s = "&lt;" + gi + "&gt;" 
+											+ editor.selection.getContent()
+											+ "&lt;/" + gi + "&gt;";
+										editor.insertContent(s); 
+									}
+									editor.addButton("insertelema", {
+										text: "elem-a",
+										onclick: function() { insertElem("elem-a"); },
+										tooltip: "Insert elem-a (red)"
+									});
+									editor.addButton("insertelemb", {
+										text: "elem-b",
+										onclick: function() { insertElem("elem-b"); },
+										tooltip: "Insert elem-b (blue)"
+									});
+								}
+						    }
 						</appinfo>
 					</annotation>
 				</simpleType>

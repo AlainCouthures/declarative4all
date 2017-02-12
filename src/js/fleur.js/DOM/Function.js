@@ -7,10 +7,9 @@
  * @module 
  * @description 
  */
-Fleur.Function = function(namespaceURI, localName, jsfunc, xqxfunc, argtypes, needctx, needcallback, restype) {
+Fleur.Function = function(namespaceURI, nodeName, jsfunc, xqxfunc, argtypes, needctx, needcallback, restype) {
 	Fleur.Node.apply(this);
-	this.namespaceURI = namespaceURI;
-	this.localName = localName;
+	this._setNodeNameLocalNamePrefix(namespaceURI, nodeName);
 	this.jsfunc = jsfunc;
 	this.xqxfunc = xqxfunc;
 	this.argtypes = argtypes;

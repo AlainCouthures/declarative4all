@@ -9,7 +9,7 @@
  */
 Fleur.XQueryEngine[Fleur.XQueryX.xpathAxis] = function(ctx, children, callback) {
 	//console.log("xpathAxis - " + Fleur.Serializer._serializeNodeToXQuery(ctx._curr, false, "") + " - " + children[0]);
-	var seq, n;
+	var seq, n, i, l;
 	var curr = ctx._curr;
 	switch(children[0]) {
 		case "ancestor-or-self":
@@ -57,11 +57,19 @@ Fleur.XQueryEngine[Fleur.XQueryX.xpathAxis] = function(ctx, children, callback) 
 				return;
 			}
 			seq = new Fleur.Sequence();
-			curr.attributes.forEach(function(a) {
-				if (a.nodeName !== "xmlns" && a.prefix !== "xmlns") {
-					seq.appendChild(a);
+			if (curr.attributes.forEach) {
+				curr.attributes.forEach(function(a) {
+					if (a.nodeName !== "xmlns" && a.prefix !== "xmlns") {
+						seq.appendChild(a);
+					}
+				});
+			} else {
+				for (i = 0, l = curr.attributes.length; i < l; i++) {
+					if (curr.attributes[i].nodeName !== "xmlns" && curr.attributes[i].prefix !== "xmlns") {
+						seq.appendChild(curr.attributes[i]);
+					}
 				}
-			});
+			}
 			if (seq.childNodes.length === 0) {
 				Fleur.callback(function() {callback(Fleur.EmptySequence);});
 			} else {
@@ -94,7 +102,13 @@ Fleur.XQueryEngine[Fleur.XQueryX.xpathAxis] = function(ctx, children, callback) 
 				return;
 			}
 			seq = new Fleur.Sequence();
-			curr.childNodes.forEach(function(a) {seq.appendChild(a);});
+			if (curr.childNodes.forEach) {
+				curr.childNodes.forEach(function(a) {seq.appendChild(a);});
+			} else {
+				for (i = 0, l = curr.childNodes.length; i < l; i++) {
+					seq.appendChild(curr.childNodes[i]);
+				}
+			}
 			Fleur.callback(function() {callback(seq);});
 			return;
 		case "descendant":

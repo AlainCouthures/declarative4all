@@ -7,7 +7,7 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_file["name#1"] = new Fleur.Function("http://expath.org/ns/file", "name",
+Fleur.XPathFunctions_file["name#1"] = new Fleur.Function("http://expath.org/ns/file", "file:name",
 	function(path) {
 		var spl = path.replace("\\", "/").split("/");
 		if (spl.length > 0) {

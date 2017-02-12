@@ -7,6 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_file["temp-dir#0"] = new Fleur.Function("http://expath.org/ns/file", "temp-dir",
+Fleur.XPathFunctions_file["temp-dir#0"] = new Fleur.Function("http://expath.org/ns/file", "file:temp-dir",
 	function() { return global.os ? global.os.tmpdir() : null; },
 	null, [], false, false, {type: Fleur.Type_string, occurence: "?"});

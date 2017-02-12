@@ -7,6 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_b["alert#1"] = new Fleur.Function("http://xqib.org", "alert",
-	function(s) {alert(s);},
+Fleur.XPathFunctions_b["alert#1"] = new Fleur.Function("http://xqib.org", "b:alert",
+	function(s) {
+		alert(s);
+	},
 	null, [{type: Fleur.Type_string, occurence: "?"}], false, false, {type: Fleur.EmptySequence});

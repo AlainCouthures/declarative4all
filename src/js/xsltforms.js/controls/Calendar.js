@@ -36,7 +36,7 @@ function XsltForms_calendar() {
 	} );
 	var closeElt = XsltForms_browser.createElement("button", title, "X");
 	closeElt.setAttribute("type", "button");
-	closeElt.setAttribute("title", "Close");
+	closeElt.setAttribute("title", XsltForms_browser.i18n.get("calendar.close", "Close"));
 	XsltForms_browser.events.attach(closeElt, "click", function() {
 		XsltForms_calendar.close();
 	} );

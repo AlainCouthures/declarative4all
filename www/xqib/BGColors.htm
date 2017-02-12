@@ -4,10 +4,10 @@
 		<title>Fleur Sample page</title>
 		<script type="text/javascript" src="js/fleur.js"></script>
 		<script type="application/xquery">
-			declare function local:listener($evt, $loc) {
+			declare function local:set($loc, $evt) {
 				b:setStyle(b:dom()//body, "background-color", $loc/@value)
           	};
-			for $button in b:dom()//input[@type="button"]
+			for $button in b:dom()//input[@type eq "button"]
 			return b:addEventListener($button, "click", local:set#2)
 		</script>
 	</head>

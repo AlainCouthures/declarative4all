@@ -4,14 +4,14 @@
 		<title>Fleur Sample page</title>
 		<script type="text/javascript" src="js/fleur.js"></script>
 		<script type="application/xquery">
-			declare sequential function local:listener($evt, $loc) {
-				if(b:dom()//body/browser:getStyle(., "color") = "blue")
+			declare function local:listener($evt, $loc) {
+				if(b:dom()//body/b:getStyle(., "color") eq "blue")
 				then
 					b:setStyle(b:dom()//body, "color", "red")
 				else
 					b:setStyle(b:dom()//body, "color", "blue")
           	};
-			b:addEventListener(b:dom()//input, "onclick", local:listener#2)
+			b:addEventListener(b:dom()//input, "click", local:listener#2)
 		</script>
 	</head>
 	<body style="color: red">

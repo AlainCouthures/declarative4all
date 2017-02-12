@@ -7,6 +7,6 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_b["dom#0"] = new Fleur.Function("http://xqib.org", "dom",
+Fleur.XPathFunctions_b["dom#0"] = new Fleur.Function("http://xqib.org", "b:dom",
 	function() { return document; },
 	null, [], false, false, {type: Fleur.Node});
