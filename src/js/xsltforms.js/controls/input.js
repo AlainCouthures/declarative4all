@@ -199,12 +199,15 @@ XsltForms_input.prototype.initInput = function(type) {
 			}
 			input.id = inputid;
 			this.initEvents(input, (this.itype === "text"));
-			if (tclass === "date" || tclass === "datetime") {
+			if (tclass === "time") {
+				if (XsltForms_globals.htmlversion === "5" && (XsltForms_browser.isChrome || XsltForms_browser.isOpera || XsltForms_browser.isEdge)) {
+					input.type = "time";
+				}
+			} else if (tclass === "date" || tclass === "datetime") {
 				if (XsltForms_globals.htmlversion === "5" && (XsltForms_browser.isChrome || XsltForms_browser.isOpera || XsltForms_browser.isSafari)) {
 					if (tclass === "date") {
 						input.type = "date";
-					}
-					if (tclass === "datetime"){
+					} else if (tclass === "datetime"){
 						input.type = "datetime-local";
 					}
 			    } else {
@@ -216,7 +219,7 @@ XsltForms_input.prototype.initInput = function(type) {
 				if (XsltForms_globals.htmlversion === "5" && (XsltForms_browser.isChrome || XsltForms_browser.isOpera || XsltForms_browser.isSafari)) {
 					input.type = "number";
 					if (typeof type.fractionDigits === "number") {
-						input.step = "" + Math.pow(1, -parseInt(type.fractionDigits, 10));
+						input.step = String(Math.pow(1, -parseInt(type.fractionDigits, 10)));
 					} else {
 						input.step = "any";
 					}
@@ -250,6 +253,7 @@ XsltForms_input.prototype.initInput = function(type) {
  */
 
 XsltForms_input.prototype.setValue = function(value) {
+	var newvalue;
 	var node = this.element.node;
 	var type = node ? XsltForms_schema.getType(XsltForms_browser.getType(node) || "xsd_:string") : XsltForms_schema.getType("xsd_:string");
 	if (!this.input || type !== this.type) {
@@ -270,7 +274,7 @@ XsltForms_input.prototype.setValue = function(value) {
 			if (prevalue !== value) {
 				this.input.value = value || "";
 				editor.setContent(value);
-				var newvalue = editor.contentDocument ? editor.contentDocument.body.innerHTML : editor.getContent();
+				newvalue = editor.contentDocument ? editor.contentDocument.body.innerHTML : editor.getContent();
 				this.input.value = newvalue || "";
 				XsltForms_browser.debugConsole.write(this.input.id+": getContent() ="+newvalue);
 				XsltForms_browser.debugConsole.write(this.input.id+".value ="+this.input.value);
@@ -297,11 +301,21 @@ XsltForms_input.prototype.setValue = function(value) {
 		}
 	} else {
 		var inputvalue = this.input.value;
-		if (inputvalue && inputvalue.length > 0 && type.parse) {
-			try { inputvalue = type.parse(inputvalue); } catch(e) { }
+		newvalue = value;
+		if (type.parse) {
+			if (inputvalue && inputvalue.length > 0) {
+				try { inputvalue = type.parse(inputvalue); } catch(e) { }
+			}
+			if (newvalue && newvalue.length > 0) {
+				try { newvalue = type.parse(newvalue); } catch(e) { }
+			}
 		}
-		if (inputvalue !== value) { // && this !== XsltForms_globals.focus) {
-			this.input.value = value || "";
+		if (inputvalue !== newvalue) { // && this !== XsltForms_globals.focus) {
+			if (this.input.type === "time" || this.input.type === "date" || this.input.type === "datetime-local") {
+				this.input.value = newvalue;
+			} else {
+				this.input.value = value || "";
+			}
 		}
 	}
 };

@@ -7,8 +7,8 @@
 			var foo = function (arg1){ return 'the text was ' + arg1;};
 		</script>
 		<script type="application/xquery">
-			let $x := b:js-call('window.foo', string(b:dom()/id('a')/text()))
-			return replace value of node b:dom()/id('a') with $x
+			let $x := js:foo(string(b:dom()//h1/text()))
+			return (: replace value of node b:dom()/id('a') with $x :) (: string(b:dom()/id('a')/text())) :) b:alert($x)
 		</script>
 	</head>
 	<body>

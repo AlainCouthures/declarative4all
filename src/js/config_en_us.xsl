@@ -4,7 +4,7 @@
 		<options>
 		</options>
 		<properties> <!--  accessible at run time -->
-			<html>4</html>
+			<html>5</html>
 			<language>en_us</language>
 			<domengine name="Fleur" url="js/fleur.js" uri="http://www.agencexml.com/Fleur" version="1.0"/>
 			<calendar.label>...</calendar.label>
@@ -31,6 +31,8 @@
 			<calendar.close>Close</calendar.close>
 			<format.date>MM/dd/yyyy</format.date>
 			<format.datetime>MM/dd/yyyy hh:mm:ss</format.datetime>
+			<format.time.AM>AM</format.time.AM>
+			<format.time.PM>PM</format.time.PM>
 			<format.decimal>.</format.decimal>
 			<status>... Loading ...</status>
 		</properties>

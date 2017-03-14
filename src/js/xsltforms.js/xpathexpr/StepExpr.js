@@ -129,6 +129,9 @@ XsltForms_stepExpr.prototype.evaluate = function(ctx) {
 			if (XsltForms_globals.booleanValue(pred.evaluate(newCtx))) {
 				newList.push(x);
 			}
+			//for (var k = 0, len2 = newCtx.depsNodes.length; k < len2; k++) {
+			//	ctx.addDepNode(newCtx.depsNodes[k]);
+			//}
 		}
 		list = newList;
 	}

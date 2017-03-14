@@ -25,9 +25,12 @@ XsltForms_varRef.prototype.evaluate = function(ctx) {
 			return "";
 		}
 		if (typeof ctx.varresolver[this.name] === "string") {
-			var varxf = XsltForms_idManager.find(ctx.varresolver[this.name]).xfElement;
+			var varxf = document.getElementById(ctx.varresolver[this.name]).xfElement;
 			for (var i = 0, l = varxf.depsNodesRefresh.length; i < l ; i++) {
 				ctx.addDepNode(varxf.depsNodesRefresh[i]);
+			}
+			for (var j = 0, l2 = varxf.depsElements.length; j < l2 ; j++) {
+				ctx.addDepElement(varxf.depsElements[j]);
 			}
 			return varxf.boundnodes;
 		}

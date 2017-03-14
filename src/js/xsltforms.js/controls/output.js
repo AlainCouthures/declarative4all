@@ -165,14 +165,13 @@ XsltForms_output.prototype.getValue = function(format) {
 	var element = this.valueElement;
 	if (element.nodeName.toLowerCase() === "span") {
 		return XsltForms_browser.getValue(element, format);
-	} else {
-		var value = element.src;
-		if (value && format && element.type.format) {
-			try { 
-				value = element.type.format(value);
-			} catch(e) { 
-			}
-		}
-		return value;
 	}
+	var value = element.src;
+	if (value && format && element.type.format) {
+		try { 
+			value = element.type.format(value);
+		} catch(e) { 
+		}
+	}
+	return value;
 };

@@ -22,7 +22,7 @@ Fleur.XPathFunctions_fn["count"] = function(ctx, children, callback) {
 			count = n.childNodes.length;
 		}
 		res = new Fleur.Text();
-		res.data = "" + count;
+		res.data = String(count);
 		res.schemaTypeInfo = Fleur.Type_integer;
 		Fleur.callback(function() {callback(res);});
 	});

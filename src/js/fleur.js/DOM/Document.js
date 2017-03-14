@@ -319,6 +319,56 @@ Fleur.Document.prototype.importNode = function(importedNode, deep) {
 	}
 	return node;
 };
+Fleur.Document.docImportNode = function(doc, importedNode, deep) {
+	var i = 0, li = 0, j = 0, lj = 0, node = null;
+	switch (importedNode.nodeType) {
+		case Fleur.Node.TEXT_NODE:
+			node = doc.createTextNode(importedNode.data);
+			node.schemaTypeInfo = importedNode.schemaTypeInfo;
+			break;
+		case Fleur.Node.COMMENT_NODE:
+			node = doc.createComment(importedNode.data);
+			break;
+		case Fleur.Node.CDATA_NODE:
+			node = doc.createCDATASection(importedNode.data);
+			break;
+		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
+			node = doc.createProcessingInstruction(importedNode.target, importedNode.data);
+			break;
+		case Fleur.Node.ATTRIBUTE_NODE:
+			node = doc.createAttributeNS(importedNode.namespaceURI || "", importedNode.nodeName);
+			node.schemaTypeInfo = importedNode.schemaTypeInfo;
+			node.value = importedNode.value;
+			break;
+		case Fleur.Node.ELEMENT_NODE:
+			node = doc.createElementNS(importedNode.namespaceURI || "http://www.w3.org/1999/xhtml", importedNode.nodeName);
+			node.schemaTypeInfo = importedNode.schemaTypeInfo;
+			li = importedNode.attributes.length;
+			while (i < li) {
+				node.setAttributeNode(Fleur.Document.docImportNode(doc, importedNode.attributes[i++], true));
+			}
+			if (deep) {
+				lj = importedNode.childNodes.length;
+				while (j < lj) {
+					node.appendChild(Fleur.Document.docImportNode(doc, importedNode.childNodes[j++], true));
+				}
+			}
+			break;
+		case Fleur.Node.DOCUMENT_FRAGMENT_NODE:
+			node = doc.createDocumentFragment();
+			if (deep) {
+				lj = importedNode.childNodes.length;
+				while (j < lj) {
+					node.appendChild(Fleur.Document.docImportNode(doc, importedNode.childNodes[j++], true));
+				}
+			}
+			break;
+		case Fleur.Node.DOCUMENT_NODE:
+		case Fleur.Node.DOCUMENT_TYPE_NODE:
+			throw new Fleur.DOMException(Fleur.DOMException.NOT_SUPPORTED_ERR);
+	}
+	return node;
+};
 Fleur.Document.prototype._serializeToString = function(indent) {
 	var s, i, l;
 	for (i = 0, l = this.childNodes.length; i < l; i++) {

@@ -5,9 +5,7 @@
 		</options>
 		<properties> <!--  accessible at run time -->
 			<html>4</html>
-			<language>navigator</language> <!-- navigator or default
-			<domengine name="Fleur" url="js/fleur.js" uri="http://www.agencexml.com/Fleur" version="1.0"/>
-			 -->
+			<language>navigator</language> <!-- navigator or default -->
 			<calendar.label>...</calendar.label>
 			<calendar.day0>Mon</calendar.day0>
 			<calendar.day1>Tue</calendar.day1>
@@ -29,6 +27,7 @@
 			<calendar.month9>October</calendar.month9>
 			<calendar.month10>November</calendar.month10>
 			<calendar.month11>December</calendar.month11>
+			<calendar.close>Close</calendar.close>
 			<format.date>MM/dd/yyyy</format.date>
 			<format.datetime>MM/dd/yyyy hh:mm:ss</format.datetime>
 			<format.decimal>.</format.decimal>

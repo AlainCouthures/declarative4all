@@ -129,8 +129,8 @@ XsltForms_control.prototype.refresh = function() {
 	var element = this.element;
 	var node = element.node;
 	if (this.outputValue !== undefined) {
-		this.setValue(this.outputValue);
 		if (this.controlName !== "var") {
+			this.setValue(this.outputValue);
 			this.eventDispatch("xforms-disabled", "xforms-enabled", false);
 		}
 	} else if (node) {

@@ -215,27 +215,25 @@ var XsltForms_globals = {
 								return '<error xmlns="">Unknown resource "'+resource+'" for method "'+method+'"</error>';
 							}
 							return XsltForms_browser.saveDoc(instance.xfElement.doc, "application/xml", true);
-						} else {
-							var filename = resource.substr(slash+1);
-							instance = document.getElementById(resource.substr(0, slash));
-							if (!instance) {
-								return '<error xmlns="">Unknown resource "'+resource+'" for method "'+method+'"</error>';
-							}
-							var f = instance.xfElement.archive[filename];
-							if (!f) {
-								return '<error xmlns="">Unknown resource "'+resource+'" for method "'+method+'"</error>';
-							}
-							if (!f.doc) {
-								f.doc = XsltForms_browser.createXMLDocument("<dummy/>");
-								modid = XsltForms_browser.getDocMeta(instance.xfElement.doc, "model");
-								XsltForms_browser.loadDoc(f.doc, XsltForms_browser.utf8decode(zip_inflate(f.compressedFileData)));
-								XsltForms_browser.setDocMeta(f.doc, "instance", idRef);
-								XsltForms_browser.setDocMeta(f.doc, "model", modid);
-							}
-							return XsltForms_browser.saveDoc(f.doc, "application/xml", true);
 						}
+						var filename = resource.substr(slash+1);
+						instance = document.getElementById(resource.substr(0, slash));
+						if (!instance) {
+							return '<error xmlns="">Unknown resource "'+resource+'" for method "'+method+'"</error>';
+						}
+						var f = instance.xfElement.archive[filename];
+						if (!f) {
+							return '<error xmlns="">Unknown resource "'+resource+'" for method "'+method+'"</error>';
+						}
+						if (!f.doc) {
+							f.doc = XsltForms_browser.createXMLDocument("<dummy/>");
+							modid = XsltForms_browser.getDocMeta(instance.xfElement.doc, "model");
+							XsltForms_browser.loadDoc(f.doc, XsltForms_browser.utf8decode(zip_inflate(f.compressedFileData)));
+							XsltForms_browser.setDocMeta(f.doc, "instance", idRef);
+							XsltForms_browser.setDocMeta(f.doc, "model", modid);
+						}
+						return XsltForms_browser.saveDoc(f.doc, "application/xml", true);
 				}
-				break;
 			case "put":
 				instance = document.getElementById(resource);
 				if (!instance) {
@@ -415,6 +413,12 @@ var XsltForms_globals = {
 	init: function() {
 		XsltForms_browser.setValue(document.getElementById("statusPanel"), XsltForms_browser.i18n.get("status"));
 		XsltForms_globals.htmlversion = XsltForms_browser.i18n.get("html");
+		var amval = XsltForms_browser.i18n.get("format.time.AM");
+		var pmval = XsltForms_browser.i18n.get("format.time.PM");
+		var now = !XsltForms_browser.isEdge && !XsltForms_browser.isIE && !XsltForms_browser.isChrome ?
+			(new Date()).toLocaleTimeString(navigator.language) :
+			(new Date()).toLocaleTimeString();
+		XsltForms_globals.AMPM = amval !== "" && (now.indexOf(amval) !== -1 || now.indexOf(pmval) !== -1);
 		var b = XsltForms_browser.isXhtml ? document.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "body")[0] : document.getElementsByTagName("body")[0];
 		XsltForms_globals.body = b;
 		document.onhelp = function(){return false;};
@@ -627,7 +631,7 @@ var XsltForms_globals = {
 			return {ctx: ctx, hasXFElement: false};
 		}
 		var xf = element.xfElement;
-		var hasXFElement = !!xf;
+		var hasXFElement = Boolean(xf);
 		if (element.getAttribute("mixedrepeat") === "true") {
 			//ctx = element.node || ctx;
 			selected = element.selected;

@@ -12,6 +12,7 @@
 		"decimalConstantExpr.js",
 		"defaultNamespaceCategory.js",
 		"defaultNamespaceDecl.js",
+		"deleteExpr.js",
 		"documentTest.js",
 		"doubleConstantExpr.js",
 		"elementConstructor.js",
@@ -26,6 +27,7 @@
 		"functionCallExpr.js",
 		"functionDecl.js",
 		"ifThenElseExpr.js",
+		"insertExpr.js",
 		"instanceOfExpr.js",
 		"integerConstantExpr.js",
 		"letClause.js",
@@ -44,6 +46,7 @@
 		"prolog.js",
 		"queryBody.js",
 		"rangeSequenceExpr.js",
+		"replaceExpr.js",
 		"returnClause.js",
 		"rootExpr.js",
 		"schemaLocation.js",
@@ -58,6 +61,7 @@
 		"Wildcard.js",
 		"xpathAxis.js",
 		"xqx.js",
+		"xqxuf.js",
 		"xsi.js",
 		"todo.js"
 	]

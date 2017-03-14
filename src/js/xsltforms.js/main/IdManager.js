@@ -34,9 +34,8 @@ var XsltForms_idManager = {
 						if (XsltForms_browser.hasClass(parentElt, "xforms-repeat-item")) {
 							if (XsltForms_browser.hasClass(parentElt, "xforms-repeat-item-selected")) {
 								return element;
-							} else {
-								break;
 							}
+							break;
 						}
 						parentElt = parentElt.parentNode;
 					}

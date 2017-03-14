@@ -1,5 +1,5 @@
 /*eslint-env browser*/
-/*globals XsltForms_schema XsltForms_atomicType XsltForms_browser*/
+/*globals XsltForms_schema XsltForms_atomicType XsltForms_browser XsltForms_globals*/
 "use strict";
 /**
  * @author Alain Couthures <alain.couthures@agencexml.com>
@@ -150,9 +150,8 @@ XsltForms_typeDefs.Default = {
 			var reg = new RegExp("^([12][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?$");
 			if (reg.test(value)) {
 				return XsltForms_browser.i18n.formatDateTime(XsltForms_browser.i18n.parse(value, "yyyy-MM-ddThh:mm:ss"), null, true);
-			} else {
-				return value;
 			}
+			return value;
 		},
 		"parse" : function(value) {
 			return XsltForms_browser.i18n.format(XsltForms_browser.i18n.parse(value), "yyyy-MM-ddThh:mm:ss", true);
@@ -173,9 +172,8 @@ XsltForms_typeDefs.Default = {
 			var reg = new RegExp("^([12][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?$");
 			if (reg.test(value)) {
 				return XsltForms_browser.i18n.formatDate(XsltForms_browser.i18n.parse(value, "yyyy-MM-dd"), null, true);
-			} else {
-				return value;
 			}
+			return value;
 		},
 		"parse" : function(value) {
 			return XsltForms_browser.i18n.format(XsltForms_browser.i18n.parseDate(value), "yyyy-MM-dd", true);
@@ -190,22 +188,23 @@ XsltForms_typeDefs.Default = {
 	"time" : {
 		"nsuri" : "http://www.w3.org/2001/XMLSchema",
 		"patterns" : [ "^([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?$" ],
+		"class" : "time",
 		"displayLength" : 8,
 		"format" : function(value) {
 			var reg = new RegExp("^([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?$");
 			if (reg.test(value)) {
 				return XsltForms_browser.i18n.format(XsltForms_browser.i18n.parse(value, "hh:mm:ss", true), null, true, true);
-			} else {
-				return value;
 			}
+			return value;
 		},
 		"parse" : function(value) {
-			var reg = new RegExp("^(?:0?[0-9](?![0-9])|1[0-9]|20|21|22|23):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?$");
+			var reg = new RegExp(XsltForms_globals.AMPM ?
+				"^(?:0?[1-9](?![0-9])|1[0-2]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)? ?(" + XsltForms_browser.i18n.get("format.time.AM") + "|" + XsltForms_browser.i18n.get("format.time.PM") + ")$" :
+				"^(?:0?[0-9](?![0-9])|1[0-9]|20|21|22|23):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?$", "i");
 			if (reg.test(value)) {
 				return XsltForms_browser.i18n.format(XsltForms_browser.i18n.parse(value, null, true), "hh:mm:ss", true, true);
-			} else {
-				return value;
 			}
+			return value;
 		}
 	},
 
@@ -650,9 +649,8 @@ XsltForms_typeDefs.XForms = {
 			var reg = new RegExp("^(([12][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?$");
 			if (reg.test(value)) {
 				return XsltForms_browser.i18n.formatDateTime(XsltForms_browser.i18n.parse(value, "yyyy-MM-ddThh:mm:ss"), null, true);
-			} else {
-				return value;
 			}
+			return value;
 		},
 		"parse" : function(value) {
 			return XsltForms_browser.i18n.format(XsltForms_browser.i18n.parse(value), "yyyy-MM-ddThh:mm:ss", true);
@@ -673,9 +671,8 @@ XsltForms_typeDefs.XForms = {
 			var reg = new RegExp("^(([12][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?$");
 			if (reg.test(value)) {
 				return XsltForms_browser.i18n.formatDate(XsltForms_browser.i18n.parse(value, "yyyy-MM-dd"), null, true);
-			} else {
-				return value;
 			}
+			return value;
 		},
 		"parse" : function(value) {
 			return XsltForms_browser.i18n.format(XsltForms_browser.i18n.parseDate(value), "yyyy-MM-dd", true);
@@ -690,22 +687,21 @@ XsltForms_typeDefs.XForms = {
 	"time" : {
 		"nsuri" : "http://www.w3.org/2002/xforms",
 		"patterns" : [ "^(([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?)?$" ],
+		"class" : "time",
 		"displayLength" : 8,
 		"format" : function(value) {
 			var reg = new RegExp("^(([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?)?$");
 			if (reg.test(value)) {
 				return XsltForms_browser.i18n.format(XsltForms_browser.i18n.parse(value, "hh:mm:ss", true), null, true, true);
-			} else {
-				return value;
 			}
+			return value;
 		},
 		"parse" : function(value) {
 			var reg = new RegExp("^((?:0?[0-9](?![0-9])|1[0-9]|20|21|22|23):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?)?$");
 			if (reg.test(value)) {
 				return XsltForms_browser.i18n.format(XsltForms_browser.i18n.parse(value, null, true), "hh:mm:ss", true, true);
-			} else {
-				return value;
 			}
+			return value;
 		}
 	},
 
