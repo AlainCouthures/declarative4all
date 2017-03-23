@@ -22,12 +22,7 @@
 						insert node
 							<div>
 								<h1>Weather in {$city}</h1>
-<<<<<<< HEAD
-								<p>{$currentcity/*:temperature}°C</p><p>{
-=======
-								<p>{$currentcity/*:temperature} Â°C</p><p>{
->>>>>>> 6b4b1cfebfc89f8d6dfbe1baa054b122af0ceac6
-									if($currentcity/*:weather = "Sunny")
+								<p>{$currentcity/*:temperature}°C</p><p>{									if($currentcity/*:weather = "Sunny")
 									then
 										<img src="sunny.gif"/>
 									else if ($currentcity/*:weather = "Cloudy")
@@ -38,12 +33,8 @@
 								}</p>
 							</div> as last into b:dom()//body,
 						delete node b:dom()//div
-			};
-<<<<<<< HEAD
+			}
 			b:addEventListener(b:dom()//input[@name="button"], "click", local:getWeather#2)
-=======
-			b:addEventListener(b:dom()//input[@name="button"], nclick", local:getWeather#2)
->>>>>>> 6b4b1cfebfc89f8d6dfbe1baa054b122af0ceac6
 		</script>
 	</head>
 	<body>

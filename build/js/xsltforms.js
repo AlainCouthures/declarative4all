@@ -10038,21 +10038,12 @@ XsltForms_input.prototype.setValue = function(value) {
 				try { newvalue = type.parse(newvalue); } catch(e) { }
 			}
 		}
-<<<<<<< HEAD
 		if (this.input.type === "time" || this.input.type === "date" || this.input.type === "datetime-local") {
 			if (inputvalue !== newvalue) { // && this !== XsltForms_globals.focus) {
 				this.input.value = newvalue;
 			}
 		} else if (inputvalue !== value) {
 			this.input.value = value || "";
-=======
-		if (inputvalue !== newvalue) { // && this !== XsltForms_globals.focus) {
-			if (this.input.type === "time" || this.input.type === "date" || this.input.type === "datetime-local") {
-				this.input.value = newvalue;
-			} else {
-				this.input.value = value || "";
-			}
->>>>>>> 6b4b1cfebfc89f8d6dfbe1baa054b122af0ceac6
 		}
 	}
 };
@@ -12343,11 +12334,7 @@ XsltForms_typeDefs.Default = {
 	},
 	"time" : {
 		"nsuri" : "http://www.w3.org/2001/XMLSchema",
-<<<<<<< HEAD
 		"patterns" : [ "^([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?$" ],
-=======
-		"patterns" : [ "^([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?$" ],
->>>>>>> 6b4b1cfebfc89f8d6dfbe1baa054b122af0ceac6
 		"class" : "time",
 		"displayLength" : 8,
 		"format" : function(value) {
@@ -12593,11 +12580,7 @@ XsltForms_typeDefs.XForms = {
 	},
 	"time" : {
 		"nsuri" : "http://www.w3.org/2002/xforms",
-<<<<<<< HEAD
 		"patterns" : [ "^(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?$" ],
-=======
-		"patterns" : [ "^(([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?)?$" ],
->>>>>>> 6b4b1cfebfc89f8d6dfbe1baa054b122af0ceac6
 		"class" : "time",
 		"displayLength" : 8,
 		"format" : function(value) {

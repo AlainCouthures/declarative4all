@@ -310,21 +310,12 @@ XsltForms_input.prototype.setValue = function(value) {
 				try { newvalue = type.parse(newvalue); } catch(e) { }
 			}
 		}
-<<<<<<< HEAD
 		if (this.input.type === "time" || this.input.type === "date" || this.input.type === "datetime-local") {
 			if (inputvalue !== newvalue) { // && this !== XsltForms_globals.focus) {
 				this.input.value = newvalue;
 			}
 		} else if (inputvalue !== value) {
 			this.input.value = value || "";
-=======
-		if (inputvalue !== newvalue) { // && this !== XsltForms_globals.focus) {
-			if (this.input.type === "time" || this.input.type === "date" || this.input.type === "datetime-local") {
-				this.input.value = newvalue;
-			} else {
-				this.input.value = value || "";
-			}
->>>>>>> 6b4b1cfebfc89f8d6dfbe1baa054b122af0ceac6
 		}
 	}
 };
