@@ -2424,7 +2424,7 @@ XsltForms_browser.getValue = function(node, format, serialize) {
 	var value = node.text !== undefined ? node.text : node.textContent;
 	if (value && format) {
 		var schtyp = XsltForms_schema.getType(XsltForms_browser.getType(node) || "xsd_:string");
-		if (schtyp.format) {
+		if (schtyp.format && schtyp.validate(value)) {
 			try { value = schtyp.format(value); } catch(e) { }
 		}
 	}

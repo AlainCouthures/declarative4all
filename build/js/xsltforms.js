@@ -3131,7 +3131,7 @@ XsltForms_browser.getValue = function(node, format, serialize) {
 	var value = node.text !== undefined ? node.text : node.textContent;
 	if (value && format) {
 		var schtyp = XsltForms_schema.getType(XsltForms_browser.getType(node) || "xsd_:string");
-		if (schtyp.format) {
+		if (schtyp.format && schtyp.validate(value)) {
 			try { value = schtyp.format(value); } catch(e) { }
 		}
 	}
@@ -10038,12 +10038,21 @@ XsltForms_input.prototype.setValue = function(value) {
 				try { newvalue = type.parse(newvalue); } catch(e) { }
 			}
 		}
+<<<<<<< HEAD
+		if (this.input.type === "time" || this.input.type === "date" || this.input.type === "datetime-local") {
+			if (inputvalue !== newvalue) { // && this !== XsltForms_globals.focus) {
+				this.input.value = newvalue;
+			}
+		} else if (inputvalue !== value) {
+			this.input.value = value || "";
+=======
 		if (inputvalue !== newvalue) { // && this !== XsltForms_globals.focus) {
 			if (this.input.type === "time" || this.input.type === "date" || this.input.type === "datetime-local") {
 				this.input.value = newvalue;
 			} else {
 				this.input.value = value || "";
 			}
+>>>>>>> 6b4b1cfebfc89f8d6dfbe1baa054b122af0ceac6
 		}
 	}
 };
@@ -10088,12 +10097,23 @@ XsltForms_input.prototype.blur = function(target) {
 	var value;
 	if (!this.incremental) {
 		XsltForms_browser.assert(input, this.element.id);
-		value = input.type === "checkbox"? (input.checked? "true" : "false") : input.nodeName.toLowerCase() !== "textarea" ? input.value : (this.type.rte && this.type.rte.toLowerCase() === "tinymce") ? tinyMCE.get(input.id).getContent() : input.value;
+		if (input.type === "checkbox") {
+			value = input.checked ? "true" : "false";
+		} else if (input.nodeName.toLowerCase() !== "textarea") {
+			value = input.value;
+			if (input.type === "time" && value && value.length === 5) {
+				value += ":00";
+			}
+		} else if (this.type.rte && this.type.rte.toLowerCase() === "tinymce") {
+			value = tinyMCE.get(input.id).getContent();
+		} else {
+			value = input.value;
+		}
 		this.valueChanged(value);
 	} else {
 		var node = this.element.node;
 		value = input.value;
-		if (value && value.length > 0 && input.type.substr(0, 4) !== "date" && XsltForms_schema.getType(XsltForms_browser.getType(node) || "xsd_:string").format) {
+		if (value && value.length > 0 && input.type !== "time" && input.type.substr(0, 4) !== "date" && XsltForms_schema.getType(XsltForms_browser.getType(node) || "xsd_:string").format) {
 			try { input.value = XsltForms_browser.getValue(node, true); } catch(e) { }
 		}
 		if (this.timer) {
@@ -10139,7 +10159,7 @@ XsltForms_input.keyUpActivate = function(a) {
 	var xf = XsltForms_control.getXFElement(this);
 	if (a.keyCode === 13 && (this.keyDownCode === 13 || this.keyPressCode === 13)) {
 		XsltForms_globals.openAction("XsltForms_input.keyUpActivate");
-		xf.valueChanged(this.value || "");
+		xf.valueChanged((this.type === "time" && this.value && this.value.length === 5 ? this.value + ":00" : this.value) || "");
 		XsltForms_xmlevents.dispatch(xf, "DOMActivate");
 		XsltForms_globals.closeAction("XsltForms_input.keyUpActivate");
 	}
@@ -10149,7 +10169,7 @@ XsltForms_input.keyUpIncrementalActivate = function(a) {
 	var xf = XsltForms_control.getXFElement(this);
 	if (a.keyCode === 13 && (this.keyDownCode === 13 || this.keyPressCode === 13)) {
 		XsltForms_globals.openAction("XsltForms_input.keyUpIncrementalActivate#1");
-		xf.valueChanged(this.value || "");
+		xf.valueChanged((this.type === "time" && this.value && this.value.length === 5 ? this.value + ":00" : this.value) || "");
 		XsltForms_xmlevents.dispatch(xf, "DOMActivate");
 		XsltForms_globals.closeAction("XsltForms_input.keyUpIncrementalActivate#1");
 	} else {
@@ -10161,12 +10181,12 @@ XsltForms_input.keyUpIncrementalActivate = function(a) {
 			xf.timer = window.setTimeout(
 				function () {
 					XsltForms_globals.openAction('XsltForms_input.keyUpIncrementalActivate#2');
-					xf.valueChanged(_self.value || "");
+					xf.valueChanged((_self.type === "time" && _self.value && _self.value.length === 5 ? _self.value + ":00" : _self.value) || "");
 					XsltForms_globals.closeAction('XsltForms_input.keyUpIncrementalActivate#2');
 				}, xf.delay);
 		} else {
 			XsltForms_globals.openAction("XsltForms_input.keyUpIncrementalActivate#3");
-			xf.valueChanged(this.value || "");
+			xf.valueChanged((this.type === "time" && this.value && this.value.length === 5 ? this.value + ":00" : this.value) || "");
 			XsltForms_globals.closeAction("XsltForms_input.keyUpIncrementalActivate#3");
 		}
 	}
@@ -10188,12 +10208,12 @@ XsltForms_input.keyUpIncremental = function() {
 		xf.timer = window.setTimeout(
 			function () {
 				XsltForms_globals.openAction('XsltForms_input.keyUpIncremental#1');
-				xf.valueChanged(_self.value || "");
+				xf.valueChanged((_self.type === "time" && _self.value && _self.value.length === 5 ? _self.value + ":00" : _self.value) || "");
 				XsltForms_globals.closeAction('XsltForms_input.keyUpIncremental#1');
 			}, xf.delay);
 	} else {
 		XsltForms_globals.openAction("XsltForms_input.keyUpIncremental#2");
-		xf.valueChanged(this.value || "");
+		xf.valueChanged((this.type === "time" && this.value && this.value.length === 5 ? this.value + ":00" : this.value) || "");
 		XsltForms_globals.closeAction("XsltForms_input.keyUpIncremental#2");
 	}
 };
@@ -10204,17 +10224,16 @@ XsltForms_input.InputMode = {
 	digits : function(value) {
 		if (/^[0-9]*$/.exec(value)) {
 			return value;
-		} else {
-			alert("Character not valid");
-			var digits = "1234567890";
-			var newValue = "";
-			for (var i = 0, len = value.length; i < len; i++) {
-				if (digits.indexOf(value.charAt(i)) !== -1) {
-					newValue += value.charAt(i);
-				}
-			}
-			return newValue;
 		}
+		alert("Character not valid");
+		var digits = "1234567890";
+		var newValue = "";
+		for (var i = 0, len = value.length; i < len; i++) {
+			if (digits.indexOf(value.charAt(i)) !== -1) {
+				newValue += value.charAt(i);
+			}
+		}
+		return newValue;
 	}
 };
 function XsltForms_item(subform, id, bindingL, bindingV, copyBinding) {
@@ -12324,7 +12343,11 @@ XsltForms_typeDefs.Default = {
 	},
 	"time" : {
 		"nsuri" : "http://www.w3.org/2001/XMLSchema",
+<<<<<<< HEAD
+		"patterns" : [ "^([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?$" ],
+=======
 		"patterns" : [ "^([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?$" ],
+>>>>>>> 6b4b1cfebfc89f8d6dfbe1baa054b122af0ceac6
 		"class" : "time",
 		"displayLength" : 8,
 		"format" : function(value) {
@@ -12570,7 +12593,11 @@ XsltForms_typeDefs.XForms = {
 	},
 	"time" : {
 		"nsuri" : "http://www.w3.org/2002/xforms",
+<<<<<<< HEAD
+		"patterns" : [ "^(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?$" ],
+=======
 		"patterns" : [ "^(([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?)?$" ],
+>>>>>>> 6b4b1cfebfc89f8d6dfbe1baa054b122af0ceac6
 		"class" : "time",
 		"displayLength" : 8,
 		"format" : function(value) {
@@ -12581,7 +12608,9 @@ XsltForms_typeDefs.XForms = {
 			return value;
 		},
 		"parse" : function(value) {
-			var reg = new RegExp("^((?:0?[0-9](?![0-9])|1[0-9]|20|21|22|23):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?)?$");
+			var reg = new RegExp(XsltForms_globals.AMPM ?
+				"^((?:0?[1-9](?![0-9])|1[0-2]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)? ?(" + XsltForms_browser.i18n.get("format.time.AM") + "|" + XsltForms_browser.i18n.get("format.time.PM") + "))?$" :
+				"^((?:0?[0-9](?![0-9])|1[0-9]|20|21|22|23):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?)?$", "i");
 			if (reg.test(value)) {
 				return XsltForms_browser.i18n.format(XsltForms_browser.i18n.parse(value, null, true), "hh:mm:ss", true, true);
 			}

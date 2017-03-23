@@ -187,7 +187,11 @@ XsltForms_typeDefs.Default = {
 
 	"time" : {
 		"nsuri" : "http://www.w3.org/2001/XMLSchema",
+<<<<<<< HEAD
+		"patterns" : [ "^([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?$" ],
+=======
 		"patterns" : [ "^([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?$" ],
+>>>>>>> 6b4b1cfebfc89f8d6dfbe1baa054b122af0ceac6
 		"class" : "time",
 		"displayLength" : 8,
 		"format" : function(value) {
@@ -686,7 +690,11 @@ XsltForms_typeDefs.XForms = {
 
 	"time" : {
 		"nsuri" : "http://www.w3.org/2002/xforms",
+<<<<<<< HEAD
+		"patterns" : [ "^(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?$" ],
+=======
 		"patterns" : [ "^(([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?)?$" ],
+>>>>>>> 6b4b1cfebfc89f8d6dfbe1baa054b122af0ceac6
 		"class" : "time",
 		"displayLength" : 8,
 		"format" : function(value) {
@@ -697,7 +705,9 @@ XsltForms_typeDefs.XForms = {
 			return value;
 		},
 		"parse" : function(value) {
-			var reg = new RegExp("^((?:0?[0-9](?![0-9])|1[0-9]|20|21|22|23):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?)?$");
+			var reg = new RegExp(XsltForms_globals.AMPM ?
+				"^((?:0?[1-9](?![0-9])|1[0-2]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)? ?(" + XsltForms_browser.i18n.get("format.time.AM") + "|" + XsltForms_browser.i18n.get("format.time.PM") + "))?$" :
+				"^((?:0?[0-9](?![0-9])|1[0-9]|20|21|22|23):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?(Z|[+\\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?)?$", "i");
 			if (reg.test(value)) {
 				return XsltForms_browser.i18n.format(XsltForms_browser.i18n.parse(value, null, true), "hh:mm:ss", true, true);
 			}
