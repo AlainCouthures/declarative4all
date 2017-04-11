@@ -8,7 +8,7 @@
  * @description 
  */
 Fleur.XPathEvaluator = function() {};
-Fleur.XPathEvaluator._precedence = "././/.as.;0.!.;1.~+.~-.;2.cast as.;3.castable as.;4.treat as.;5.instance of.;6.intersect.except.;7.|.union.;8.div.mod.*.idiv.;9.+.-.;10.to.;11.||.;12.eq.ne.lt.le.gt.ge.<.>.<=.>=.is.<<.>>.=.!=.;13.and.;14.or.;15.:=.;16.after.before.into.with.value.;17;.then.18;.else.19.for.let.some.every.in.return.satisfies.node.nodes.;20.,.;21.";
+Fleur.XPathEvaluator._precedence = "././/.as.;0.!.;1.~+.~-.;2.cast as.;3.castable as.;4.treat as.;5.instance of.;6.intersect.except.;7.|.union.;8.div.mod.*.idiv.;9.+.-.;10.to.;11.||.;12.eq.ne.lt.le.gt.ge.<.>.<=.>=.is.<<.>>.=.!=.;13.and.;14.or.;15.:=.in.;16.after.before.into.with.value.;17.node.nodes.;18.then.;19.else.;20.for.let.some.every.return.satisfies.;21.,.;50.";
 Fleur.XPathEvaluator._opcodes = "./;stepExpr.|;unionOp.union;unionOp.div;divOp.mod;modOp.*;multiplyOp.idiv;idivOp.+;addOp.-;subtractOp.to;toOp.||;stringConcatenateOp.eq;eqOp.ne;neOp.lt;ltOp.le;leOp.gt;gtOp.ge;geOp.<;lessThanOp.>;greaterThanOp.<=;lessThanOrEqualOp.>=;greaterThanOrEqualOp.is;isOp.<<;nodeBeforeOp.>>;nodeAfterOp.=;equalOp.!=;notEqualOp.and;andOp.or;orOp.,;argExpr.";
 Fleur.XPathEvaluator._skipComment = function(s, offset) {
 	var i = offset;
@@ -111,13 +111,13 @@ Fleur.XPathEvaluator._calc = function(args, ops, opprec) {
 	var arg;
 	switch (op) {
 		case ",":
-			if (ops.substr(0, 13) === "4.21.,5.999.(") {
+			if (ops.substr(0, 13) === "4.50.,5.999.(") {
 				if (arg1val.substr(0, 26) === "[Fleur.XQueryX.arguments,[") {
 					arg = arg1val.substr(0, arg1len - 2) + "," + arg2val + "]]";
 				} else {
 					arg = "[Fleur.XQueryX.arguments,[" + arg1val + "," + arg2val + "]]";
 				}
-			} else if (ops === "4.21.,") {
+			} else if (ops === "4.50.,") {
 				if (arg1val.substr(0, 29) === "[Fleur.XQueryX.sequenceExpr,[" && arg1val !== "[Fleur.XQueryX.sequenceExpr,[]]") {
 					arg = arg1val.substr(0, arg1len - 2) + "," + arg2val + "]]";
 				} else {
@@ -227,6 +227,9 @@ Fleur.XPathEvaluator._calc = function(args, ops, opprec) {
 		case "let":
 			arg = arg1val + "," + arg2val;
 			break;
+		case "for":
+			arg = arg1val + "," + arg2val;
+			break;
 		case "nodes":
 			if (arg1val === "[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['child']],[Fleur.XQueryX.nameTest,['delete']]]]]]") {
 				arg = "[Fleur.XQueryX.deleteExpr,[[Fleur.XQueryX.targetExpr,[" + arg2val + "]]]]";
@@ -308,6 +311,9 @@ Fleur.XPathEvaluator._getNodeConstructor = function(s) {
 					texts.push([0, text]);
 					text = "";
 				}
+				if (braces !== 0) {
+					text += "{";
+				}
 				if (c1 === c) {
 					braces--;
 					if (braces === 0) {
@@ -320,6 +326,9 @@ Fleur.XPathEvaluator._getNodeConstructor = function(s) {
 				if (braces === 1 && text !== "") {
 					texts.push([1, text]);
 					text = "";
+				}
+				if (braces !== 1) {
+					text += "}";
 				}
 				if (c1 === c) {
 					braces++;
@@ -360,9 +369,9 @@ Fleur.XPathEvaluator._getNodeConstructor = function(s) {
 							text += String.fromCharCode(parseInt(entityname.charAt(1).toLowerCase() === 'x' ? "0" + entityname.substr(1).toLowerCase() : entityname.substr(1), entityname.charAt(1).toLowerCase() === 'x' ? 16 : 10));
 						}
 				}
-			} else if (c === "\n") {
+			} else if (braces === 0 && c === "\n") {
 				text += "\\n";
-			} else if (c === "\r") {
+			} else if (braces === 0 && c === "\r") {
 				text += "\\r";
 			} else {
 				text += c;

@@ -21,7 +21,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.addOp] = function(ctx, children, callback) {
 					Fleur.callback(function() {callback(a2);});
 					return;
 				}
-				a1.data = "" + (op1[1] + op2[1]);
+				a1.data = String(op1[1] + op2[1]);
 				a1.schemaTypeInfo = Fleur.numericTypes[Math.max(op1[0], op2[0])];
 				Fleur.callback(function() {callback(a1);});
 			});

@@ -3,6 +3,7 @@
 		"addEventListener.js",
 		"alert.js",
 		"dom.js",
+		"getProperty.js",
 		"getStyle.js",
 		"preventDefault.js",
 		"setStyle.js",

@@ -11,7 +11,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.predicates] = function(ctx, children, callback)
 	var next = ctx._next;
 	var last;
 	var pos = 1;
-	//console.log("predicates - " + Fleur.Serializer._serializeNodeToXQuery(next, false, ""));
+//console.log("predicates - " + pos + " - " + Fleur.Serializer._serializeNodeToXQuery(next, false, ""));
 	var result = Fleur.EmptySequence;
 	var subcurr;
 	if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {

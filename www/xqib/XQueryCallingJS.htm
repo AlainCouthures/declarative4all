@@ -8,11 +8,7 @@
 		</script>
 		<script type="application/xquery">
 			let $x := js:foo(string(b:dom()//h1/text()))
-<<<<<<< HEAD
-			return replace value of node b:dom()//h1 with $x
-=======
-			return (: replace value of node b:dom()/id('a') with $x :) (: string(b:dom()/id('a')/text())) :) b:alert($x)
->>>>>>> 6b4b1cfebfc89f8d6dfbe1baa054b122af0ceac6
+			return replace node b:dom()//h1 with <h6>{$x}</h6>
 		</script>
 	</head>
 	<body>

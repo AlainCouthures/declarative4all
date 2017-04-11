@@ -29,7 +29,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.andOp] = function(ctx, children, callback) {
 					Fleur.callback(function() {callback(n);});
 					return;
 				}
-				a2.data = "" + op2[1];
+				a2.data = String(op2[1]);
 				a2.schemaTypeInfo = Fleur.Type_boolean;
 				Fleur.callback(function() {callback(a2);});
 			});

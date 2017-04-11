@@ -6,10 +6,11 @@
 		<script type="application/xquery">
 			declare namespace http-client = "http://expath.org/ns/http-client";
 			declare updating function local:getWeather($loc, $evtObj) {
-				let $city := b:dom()//input[@name="city"]/data(@value)
+				let $city := b:dom()//input[@name="city"]/upper-case(b:getProperty('value'))
 				let $forecast := http-client:send-request(<http-client:request href="forecast2.xml" method="get"/>)[2]/*:forecast
-				let $currentcity := $forecast/*:city[@*:name=$city]
+				let $currentcity := $forecast/*:city[upper-case(@*:name)=$city]
 				return
+					delete node b:dom()//div,
 					if (count($currentcity) = 0)
 					then
 						insert node
@@ -21,19 +22,18 @@
 					else
 						insert node
 							<div>
-								<h1>Weather in {$city}</h1>
-								<p>{$currentcity/*:temperature}°C</p><p>{									if($currentcity/*:weather = "Sunny")
+								<h1>Weather in {$currentcity/data(@*:name)}</h1>
+								<p>{$currentcity/data(*:temperature)}&#176;C</p><p>{									if($currentcity/*:weather = "Sunny")
 									then
-										<img src="sunny.gif"/>
+										<img src="img/sunny.gif"/>
 									else if ($currentcity/*:weather = "Cloudy")
 									then
-										<img src="cloudy.gif"/>
+										<img src="img/cloudy.gif"/>
 									else
-										<img src="rainy.gif"/>
+										<img src="img/rainy.gif"/>
 								}</p>
-							</div> as last into b:dom()//body,
-						delete node b:dom()//div
-			}
+							</div> as last into b:dom()//body
+			};
 			b:addEventListener(b:dom()//input[@name="button"], "click", local:getWeather#2)
 		</script>
 	</head>
@@ -41,6 +41,6 @@
 		<h1>Weather forecast</h1>
 		<input type="text" value="" style="font-size: 30pt; font-weight: bold" name="city">
 		<input type="button" value="Go!" style="font-size: 30pt; font-weight: bold" name="button">
-		<div><img src="JupiterZeus.gif"/></div>
+		<div><img height="200" src="img/JupiterZeus.gif"/></div>
 	</body>
 </html>

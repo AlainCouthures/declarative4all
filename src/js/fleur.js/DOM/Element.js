@@ -102,7 +102,7 @@ Fleur.Element.prototype.getElementsByTagName = function(eltname) {
 	return elts;
 };
 Fleur.Element.prototype.hasAttribute = function(attrname) {
-	return !!this.attributes.getNamedItem(attrname);
+	return Boolean(this.attributes.getNamedItem(attrname));
 };
 Fleur.Element.prototype.hasAttributeNS = function(namespaceURI, localName) {
 	return this.attributes.getNamedItemNS(namespaceURI, localName) !== null;

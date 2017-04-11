@@ -4,6 +4,7 @@
 		"array/project.json",
 		"b/project.json",
 		"fn/project.json",
+		"http/project.json",
 		"map/project.json",
 		"math/project.json",
 		"file/project.json",

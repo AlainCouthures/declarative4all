@@ -28,7 +28,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.instanceOfExpr] = function(ctx, children, callb
 					env: ctx.env
 				}, seqtype[0][1], function(n) {
 					a = new Fleur.Text();
-					a.data = "" + (n !== Fleur.EmptySequence);
+					a.data = String(n !== Fleur.EmptySequence);
 					a.schemaTypeInfo = Fleur.Type_boolean;
 					Fleur.callback(function() {callback(a);});
 				});
@@ -38,7 +38,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.instanceOfExpr] = function(ctx, children, callb
 				res = false;
 		}
 		a = new Fleur.Text();
-		a.data = "" + res;
+		a.data = String(res);
 		a.schemaTypeInfo = Fleur.Type_boolean;
 		Fleur.callback(function() {callback(a);});
 	});

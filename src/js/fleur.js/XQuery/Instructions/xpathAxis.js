@@ -8,7 +8,7 @@
  * @description 
  */
 Fleur.XQueryEngine[Fleur.XQueryX.xpathAxis] = function(ctx, children, callback) {
-	//console.log("xpathAxis - " + Fleur.Serializer._serializeNodeToXQuery(ctx._curr, false, "") + " - " + children[0]);
+//console.log("xpathAxis - " + Fleur.Serializer._serializeNodeToXQuery(ctx._curr, false, "") + " - " + children[0]);
 	var seq, n, i, l;
 	var curr = ctx._curr;
 	switch(children[0]) {

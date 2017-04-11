@@ -8,7 +8,7 @@
  * @description 
  */
 Fleur.XQueryEngine[Fleur.XQueryX.stepExpr] = function(ctx, children, callback) {
-	//console.log("stepExpr - " + Fleur.Serializer._serializeNodeToXQuery(ctx._curr, false, ""));
+//console.log("stepExpr - 1 - " + Fleur.Serializer._serializeNodeToXQuery(ctx._curr, false, ""));
 	var next;
 	var result = Fleur.EmptySequence;
 	var cb = function(n, eob) {
@@ -37,8 +37,9 @@ Fleur.XQueryEngine[Fleur.XQueryX.stepExpr] = function(ctx, children, callback) {
 			}
 			n = next;
 		}
-		//console.log("stepExpr - cb - n=" + Fleur.Serializer._serializeNodeToXQuery(n, false, "") + " result=" + Fleur.Serializer._serializeNodeToXQuery(result, false, "") + (eob ? " - " + (eob === Fleur.XQueryX.stepExpr ? "stepExpr" : "predicates") : ""));
+//console.log("stepExpr - cb - n=" + Fleur.Serializer._serializeNodeToXQuery(n, false, "") + " result=" + Fleur.Serializer._serializeNodeToXQuery(result, false, "") + (eob ? " - " + (eob === Fleur.XQueryX.stepExpr ? "stepExpr" : "predicates") : ""));
 		if (n === Fleur.EmptySequence) {
+//console.log("n === Fleur.EmptySequence");
 			if (eob === Fleur.XQueryX.stepExpr && result !== Fleur.EmptySequence && callback !== cb && children[children.length - 1][0] === Fleur.XQueryX.predicates) {
 				Fleur.XQueryEngine[Fleur.XQueryX.predicates]({
 					_next: result,
@@ -51,12 +52,13 @@ Fleur.XQueryEngine[Fleur.XQueryX.stepExpr] = function(ctx, children, callback) {
 			Fleur.callback(function() {callback(result, Fleur.XQueryX.stepExpr);});
 			return;
 		}
-		//console.log("children.length="+children.length);
+//console.log("children.length="+children.length);
 		if (children.length === 1) {
 			Fleur.callback(function() {callback(n, Fleur.XQueryX.stepExpr);});
 			return;
 		}
 		if (children.length === 2 && children[1][0] === Fleur.XQueryX.predicates) {
+			/*
 			if (callback !== cb) {
 				Fleur.XQueryEngine[Fleur.XQueryX.predicates]({
 					_next: n,
@@ -66,6 +68,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.stepExpr] = function(ctx, children, callback) {
 				});
 				return;
 			}
+			*/
 			Fleur.callback(function() {callback(n, Fleur.XQueryX.stepExpr);});
 			return;
 		}

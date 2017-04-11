@@ -21,6 +21,7 @@ Fleur.XPathNSResolver = function(node) {
 		"err": "http://www.w3.org/2005/xqt-errors",
 		"b": "http://xqib.org",
 		"file": "http://expath.org/ns/file",
+		"http": "http://expath.org/ns/http-client",
 		"prof": "http://basex.org/modules/prof",
 		"proc": "http://basex.org/modules/proc",
 		"js": "http://www.w3.org/standards/webdesign/script"

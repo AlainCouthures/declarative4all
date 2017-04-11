@@ -14,7 +14,7 @@ Fleur.XPathFunctions_fn["exists"] = function(ctx, children, callback) {
 	}
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
 		var result = new Fleur.Text();
-		result.data = "" + (n !== Fleur.EmptySequence);
+		result.data = String(n !== Fleur.EmptySequence);
 		result.schemaTypeInfo = Fleur.Type_boolean;
 		Fleur.callback(function() {callback(result);});
 	});

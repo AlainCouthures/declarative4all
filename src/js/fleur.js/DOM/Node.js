@@ -64,14 +64,11 @@ Object.defineProperties(Fleur.Node.prototype, {
 			if (this.nodeType === Fleur.Node.TEXT_NODE || this.nodeType === Fleur.Node.CDATA_NODE || this.nodeType === Fleur.Node.COMMENT_NODE) {
 				this.data = value;
 			} else {
-				if (value === "") {
-					if (this.firstChild) {
-						this.removeChild(this.firstChild);
-					}
-				} else {
-					if (!this.firstChild) {
-						this.appendChild(new Fleur.Text());
-					}
+				while (this.firstChild) {
+					this.removeChild(this.firstChild);
+				}
+				if (value !== "") {
+					this.appendChild(new Fleur.Text());
 					this.firstChild.data = value;
 				}
 			}
