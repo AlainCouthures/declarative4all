@@ -1,6 +1,6 @@
 /*
 XSLTForms rev.642 (642)
-12-hour Clock Support
+Empty Itemset Fix
 
 Copyright (C) 2017 agenceXML - Alain COUTHURES
 Contact at : xsltforms@agencexml.com
@@ -1415,7 +1415,7 @@ if (XsltForms_browser.isIE || XsltForms_browser.isIE11) {
 				if ((XsltForms_browser.isMozilla && resultDocument.documentElement.nodeName === "transformiix:result") ||
 				     (XsltForms_browser.isOpera && resultDocument.documentElement.nodeName === "result")) {
 					s = resultDocument.documentElement.textContent;
-				} else if ((XsltForms_browser.isChrome || XsltForms_browser.isEdge) && resultDocument.documentElement.nodeName === "html" && resultDocument.documentElement.children[1].children[0].nodeName === "pre") {
+				} else if ((XsltForms_browser.isChrome || XsltForms_browser.isEdge) && resultDocument.documentElement.nodeName.toLowerCase() === "html" && resultDocument.documentElement.children[1].children[0].nodeName.toLowerCase() === "pre") {
 					s = resultDocument.documentElement.children[1].children[0].textContent;
 				} else {
 					s = serializer.serializeToString(resultDocument);
@@ -10363,7 +10363,7 @@ XsltForms_itemset.prototype.build_ = function(ctx) {
 	var l = this.nodes.length;
 	var oldNode = next;
 	var listeners = next.listeners;
-	var cont = 1;
+	var cont = this.element.value !== "\xA0" ? 1 : 0;
 	while (next) {
 		next = next.nextSibling;
 		if (next) {
@@ -10401,7 +10401,7 @@ XsltForms_itemset.prototype.build_ = function(ctx) {
 			break;
 		}
 	}
-	if (l > 0) {
+	if (l > 0 && this.element.value !== "\xA0") {
 		this.element.node = this.nodes[0];
 		this.refresh_(this.element, 0);
 	} else {
@@ -10415,7 +10415,7 @@ XsltForms_itemset.prototype.refresh = function() {
 	while (parentNode.childNodes[i] !== this.element) {
 		i++;
 	}
-	for (var j = 0, len = this.nodes.length; j < len || j === 0; j++) {
+	for (var j = 0, len = this.nodes.length + (this.element.value !== "\xA0" ? 0 : 1); j < len || j === 0; j++) {
 		XsltForms_browser.setClass(parentNode.childNodes[i+j], "xforms-disabled", this.nodes.length === 0);
 	}
 };
@@ -11379,7 +11379,7 @@ function XsltForms_trigger(subform, id, binding) {
 	var anchor = XsltForms_browser.isXhtml ? this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "a")[0] : this.element.getElementsByTagName("a")[0];
 	if (anchor !== null && typeof anchor !== "undefined") {
 		if (!anchor.hasAttribute("href")) {
-			anchor.setAttribute("href", "#");
+			anchor.setAttribute("href", "#/");
 		}
 	}
 	var button = XsltForms_browser.isXhtml ? (this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "a")[0] || this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "button")[0]) : (this.element.getElementsByTagName("a")[0] || this.element.getElementsByTagName("button")[0]);

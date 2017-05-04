@@ -1,6 +1,6 @@
 <!--
 XSLTForms rev.642 (642)
-12-hour Clock Support
+Empty Itemset Fix
 
 Copyright (C) 2017 agenceXML - Alain COUTHURES
 Contact at : xsltforms@agencexml.com
@@ -26,8 +26,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 <dcterms:hasVersion>rev.642 (642)</dcterms:hasVersion>
 <dcterms:creator>Alain Couthures - agenceXML</dcterms:creator>
 <dcterms:conformsTo>XForms 1.1</dcterms:conformsTo>
-<dcterms:created>2017-03-14</dcterms:created>
-<dcterms:description>12-hour Clock Support</dcterms:description>
+<dcterms:created>2017-04-30</dcterms:created>
+<dcterms:description>Empty Itemset Fix</dcterms:description>
 <dcterms:format>text/xsl</dcterms:format>
 </rdf:Description>
 </rdf:RDF><xsl:output method='html' encoding='utf-8' omit-xml-declaration='yes' indent='no' doctype-public='-//W3C//DTD HTML 4.01 Transitional//EN' doctype-system='http://www.w3.org/TR/html4/loose.dtd'/>

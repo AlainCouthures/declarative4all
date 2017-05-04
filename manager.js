@@ -167,6 +167,15 @@ global.http.createServer(function(request, response) {
 			global.fs.readFile(filename, 'binary', sendfile);
 			return;
 		}
+		if (uri === '/back.xml') {
+			headers = {};
+			headers['Content-Type'] = 'application/xml';
+			lastmodified = (new Date()).toUTCString();
+			headers['Last-Modified'] = lastmodified;
+			response.writeHead(200, headers);
+			response.end(decodeURIComponent(body.substr(9).replace(/\+/g, " ")), 'binary');
+			return;
+		}
 		if (uri === '/echo.htm') {
 			global.fs.readFile(filename, 'binary', (err, file) => {
 				if (err) {

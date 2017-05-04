@@ -39,7 +39,7 @@ XsltForms_itemset.prototype.build_ = function(ctx) {
 	var l = this.nodes.length;
 	var oldNode = next;
 	var listeners = next.listeners;
-	var cont = 1;
+	var cont = this.element.value !== "\xA0" ? 1 : 0;
 	while (next) {
 		next = next.nextSibling;
 		if (next) {
@@ -77,7 +77,7 @@ XsltForms_itemset.prototype.build_ = function(ctx) {
 			break;
 		}
 	}
-	if (l > 0) {
+	if (l > 0 && this.element.value !== "\xA0") {
 		this.element.node = this.nodes[0];
 		this.refresh_(this.element, 0);
 	} else {
@@ -98,7 +98,7 @@ XsltForms_itemset.prototype.refresh = function() {
 	while (parentNode.childNodes[i] !== this.element) {
 		i++;
 	}
-	for (var j = 0, len = this.nodes.length; j < len || j === 0; j++) {
+	for (var j = 0, len = this.nodes.length + (this.element.value !== "\xA0" ? 0 : 1); j < len || j === 0; j++) {
 		XsltForms_browser.setClass(parentNode.childNodes[i+j], "xforms-disabled", this.nodes.length === 0);
 	}
 };

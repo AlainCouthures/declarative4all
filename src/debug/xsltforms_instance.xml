@@ -1,0 +1,17 @@
+<?xml-stylesheet href="xsl/xsltforms.xsl" type="text/xsl"?>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" xmlns:xsltforms="http://www.agencexml.com/xsltforms" xmlns:ev="http://www.w3.org/2001/xml-events" xsltforms:dummy="dummy">
+	<head>
+		<title>XSLTForms Instance Getter</title>
+		<xf:model>
+			<xf:instance>
+				<data xmlns=""/>
+			</xf:instance>
+			<xf:submission id="getinstance" method="get" replace="instance" instance="view">
+				<xf:resource value="concat('opener://', substring-after(js-eval('window.location'), '?instance='))"/>
+			</xf:submission>
+		</xf:model>
+	</head>
+	<body>
+		<xf:output value="substring-after(js-eval('window.location'), '?instance=')"/>
+	</body>
+</html>

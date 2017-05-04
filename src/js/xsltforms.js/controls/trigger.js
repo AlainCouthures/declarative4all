@@ -23,7 +23,7 @@ function XsltForms_trigger(subform, id, binding) {
 	var anchor = XsltForms_browser.isXhtml ? this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "a")[0] : this.element.getElementsByTagName("a")[0];
 	if (anchor !== null && typeof anchor !== "undefined") {
 		if (!anchor.hasAttribute("href")) {
-			anchor.setAttribute("href", "#");
+			anchor.setAttribute("href", "#/");
 		}
 	}
 	var button = XsltForms_browser.isXhtml ? (this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "a")[0] || this.element.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "button")[0]) : (this.element.getElementsByTagName("a")[0] || this.element.getElementsByTagName("button")[0]);
