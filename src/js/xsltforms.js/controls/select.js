@@ -81,6 +81,9 @@ XsltForms_select.prototype.focusFirst = function() {
 
 XsltForms_select.prototype.setValue = function(value) {
 	var optvalue;
+	if (this.select.options.length === 1 && this.select.options[0] && this.select.options[0].value === "\xA0") {
+		this.currentValue = null;
+	}
 	if (!this.full && (!value || value === "")) {
 		this.selectedOptions = [];
 		if (this.select.options[0] && this.select.options[0].value !== "\xA0") {
