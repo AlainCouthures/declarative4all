@@ -80,14 +80,14 @@ XsltForms_select.prototype.focusFirst = function() {
  */
 
 XsltForms_select.prototype.setValue = function(value) {
-	var optvalue;
-	if (this.select.options.length === 1 && this.select.options[0] && this.select.options[0].value === "\xA0") {
+	var optvalue, empty;
+	if (this.select && this.select.options.length === 1 && this.select.options[0] && this.select.options[0].value === "\xA0") {
 		this.currentValue = null;
 	}
 	if (!this.full && (!value || value === "")) {
 		this.selectedOptions = [];
 		if (this.select.options[0] && this.select.options[0].value !== "\xA0") {
-			var empty = XsltForms_browser.isXhtml ? document.createElementNS("http://www.w3.org/1999/xhtml", "option") : document.createElement("option");
+			empty = XsltForms_browser.isXhtml ? document.createElementNS("http://www.w3.org/1999/xhtml", "option") : document.createElement("option");
 			empty.value = "\xA0";
 			empty.text = "\xA0";
 			empty.id = "";
@@ -99,6 +99,17 @@ XsltForms_select.prototype.setValue = function(value) {
 			this.select.selectedIndex = 0;
 		}
 	} else {
+		if (!this.full && this.min === 0 && this.select.options[0] && this.select.options[0].value !== "\xA0") {
+			empty = XsltForms_browser.isXhtml ? document.createElementNS("http://www.w3.org/1999/xhtml", "option") : document.createElement("option");
+			empty.value = "\xA0";
+			empty.text = "\xA0";
+			empty.id = "";
+			if (this.select.children[0]) {
+				this.select.insertBefore(empty, this.select.children[0]);
+			} else {
+				this.select.appendChild(empty);
+			}
+		}
 		if (!this.full && this.select.firstChild && this.select.firstChild.value === "\xA0" && !(this.min === 0 && this.max === 1)) {
 			//this.select.removeChild(this.select.firstChild);
 			this.select.remove(0);
