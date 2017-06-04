@@ -7,6 +7,12 @@
  * @module 
  * @description 
  */
+Fleur.XPathFunctions_fn["current-time#0"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:current-time",
+	function() {
+		return new Date();
+	},
+	null, [], false, false, {type: Fleur.Type_time});
+/*
 Fleur.XPathFunctions_fn["current-time"] = function(ctx, children, callback) {
 	var a;
 	if (children.length !== 0) {
@@ -20,3 +26,4 @@ Fleur.XPathFunctions_fn["current-time"] = function(ctx, children, callback) {
 	a.data = ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2) + ":" + ("0" + date.getSeconds()).slice(-2) + "." + ("00" + date.getMilliseconds()).slice(-3) + (o < 0 ? "+" : "-") + ("0" + Math.floor(Math.abs(o)/60)).slice(-2) + ":" + ("0" + Math.floor(Math.abs(o) % 60)).slice(-2);
 	Fleur.callback(function() {callback(a);});
 };
+*/

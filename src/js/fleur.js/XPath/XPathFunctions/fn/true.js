@@ -7,13 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["true"] = function(ctx, children, callback) {
-	if (children.length !== 0) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	var a = new Fleur.Text();
-	a.schemaTypeInfo = Fleur.Type_boolean;
-	a.data = "true";
-	Fleur.callback(function() {callback(a);});
-};
+Fleur.XPathFunctions_fn["true#0"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:true",
+	function() {
+		return true;
+	},
+	null, [], false, false, {type: Fleur.Type_boolean});

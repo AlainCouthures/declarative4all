@@ -30,6 +30,7 @@
 		"insertExpr.js",
 		"instanceOfExpr.js",
 		"integerConstantExpr.js",
+		"javascriptImport.js",
 		"letClause.js",
 		"letClauseItem.js",
 		"mainModule.js",

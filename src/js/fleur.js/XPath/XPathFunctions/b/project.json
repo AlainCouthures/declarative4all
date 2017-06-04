@@ -5,6 +5,7 @@
 		"dom.js",
 		"getProperty.js",
 		"getStyle.js",
+		"js-eval.js",
 		"preventDefault.js",
 		"setStyle.js",
 		"stopPropagation.js"

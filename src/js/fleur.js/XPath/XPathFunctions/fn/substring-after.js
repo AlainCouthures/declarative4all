@@ -7,9 +7,15 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["substring-after"] = function(ctx, children, callback) {
-	Fleur.XPathStringContentFunction(ctx, children, false, function(a, b) {
+Fleur.XPathFunctions_fn["substring-after#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:substring-after",
+	function(a, b) {
+		if (!a) {
+			return "";
+		}
+		if (!b || b === "") {
+			return a;
+		}
 		var index = a.indexOf(b);
 		return index === -1 ? "" : a.substring(index + b.length);
-	}, Fleur.Type_string, callback);
-};
+	},
+	null, [{type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Type_string, occurence: "?"}], false, false, {type: Fleur.Type_string, occurence: "?"});

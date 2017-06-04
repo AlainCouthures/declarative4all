@@ -1521,6 +1521,7 @@ Fleur.Serializer._serializeXQXToString = function(node) {
     <xsl:apply-templates select="xqx:targetLocation"/>
   </xsl:template>
   */
+		case "javascriptImport":
 		case "param":
 			return "$" + Fleur.Serializer.XQX_renderChildren(node, ["varName"]) + Fleur.Serializer.XQX_renderChildren(node, ["typeDeclaration"]);
 		case "paramList":
