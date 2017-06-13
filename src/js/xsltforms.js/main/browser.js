@@ -980,6 +980,25 @@ if (XsltForms_domEngine === "" && (XsltForms_browser.isIE || XsltForms_browser.i
 						} catch (e) {
 						}
 					}
+					ns = resultDocument.selectNodes("descendant::*[@*[. = 'true' and starts-with(local-name(),'xsltforms_') and substring(local-name(), string-length(local-name()) - 11, 12) = '_notrelevant']]", false, resultDocument.documentElement);
+					for (i = 0, l = ns.length; i < l; i++) {
+						n = ns[i];
+						try {
+							var nra = [];
+							for (var j = 0, l2 = n.attributes.length; j < l2; j++) {
+								var a = n.attributes[j];
+								if (a.nodeValue === "true" && a.nodeName.startsWith("xsltforms_") && a.nodeName.endsWith("_notrelevant")) {
+									var nrname = a.nodeName.substr(10);
+									nrname = nrname.substr(0, nrname.indexOf("_notrelevant"));
+									nra.push(nrname);
+								}
+							}
+							for (j = 0, l2 = nra.length; j < l2; j++) {
+								n.removeAttribute(nra[j]);
+							}
+						} catch (e) {
+						}
+					}
 				}
 			}
 			if (related) {
@@ -992,7 +1011,7 @@ if (XsltForms_domEngine === "" && (XsltForms_browser.isIE || XsltForms_browser.i
 					} catch (e3) {
 					}
 				}
-				var ns4 = resultDocument.selectNodes("descendant::*[@*[starts-with(local-name(), 'xsltforms_') and substring(local-name(), string-length(local-name()) - 5, 5) = '_type' and local-name() != 'xsltforms_type' and substring-after(.,':') = 'anyURI']]", false, resultDocument.documentElement);
+				var ns4 = resultDocument.selectNodes("descendant::*[@*[starts-with(local-name(), 'xsltforms_') and substring(local-name(), string-length(local-name()) - 4, 5) = '_type' and local-name() != 'xsltforms_type' and substring-after(.,':') = 'anyURI']]", false, resultDocument.documentElement);
 				for( var i4 = 0, l4 = ns4.length; i4 < l4 ; i4++) {
 					var n4 = ns4[i4];
 					var k4 = 0;
