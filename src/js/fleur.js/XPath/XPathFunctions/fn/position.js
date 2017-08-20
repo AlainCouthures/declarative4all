@@ -14,6 +14,6 @@ Fleur.XPathFunctions_fn["position"] = function(ctx, children, callback) {
 	}
 	var a = new Fleur.Text();
 	a.schemaTypeInfo = Fleur.Type_integer;
-	a.data = "" + ctx._pos;
+	a.data = String(ctx._pos);
 	Fleur.callback(function() {callback(a);});
 };

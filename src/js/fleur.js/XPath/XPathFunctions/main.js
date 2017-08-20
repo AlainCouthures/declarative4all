@@ -28,3 +28,7 @@ Fleur.XPathFunctions["http://basex.org/modules/prof"] = {};
 Fleur.XPathFunctions_prof = Fleur.XPathFunctions["http://basex.org/modules/prof"];
 Fleur.XPathFunctions["http://basex.org/modules/proc"] = {};
 Fleur.XPathFunctions_proc = Fleur.XPathFunctions["http://basex.org/modules/proc"];
+Fleur.XPathFunctions["http://www.agencexml.com/fleur/dgram"] = {};
+Fleur.XPathFunctions_dgram = Fleur.XPathFunctions["http://www.agencexml.com/fleur/dgram"];
+Fleur.XPathFunctions["https://tools.ietf.org/rfc/index"] = {};
+Fleur.XPathFunctions_ietf = Fleur.XPathFunctions["https://tools.ietf.org/rfc/index"];

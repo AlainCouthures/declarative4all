@@ -7,7 +7,61 @@
  * @module 
  * @description 
  */
+Fleur.XQueryEngine[Fleur.XQueryX.forClauseItem] = function(ctx, children, callback, resarr) {
+	//console.log("forClauseItem");
+	var i = 0;
+	var varname = children[0][1][0][1][0];
+	var allowingEmpty = children[1][0] === Fleur.XQueryX.allowingEmpty ? 1 : 0;
+	var positionalVariableBinding = children[1 + allowingEmpty][0] === Fleur.XQueryX.positionalVariableBinding ? 1 : 0;
+	var pvarname = positionalVariableBinding !== 0 ? children[1 + allowingEmpty][1][0] : "";
+	ctx.env.varresolver = resarr[0];
+	var cb = function(n) {
+		var posvalue;
+		if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+			resarr[i].set(ctx, "", varname, n);
+			if (positionalVariableBinding !== 0) {
+				posvalue = new Fleur.Text();
+				posvalue.data = "1";
+				posvalue.schemaTypeInfo = Fleur.Type_integer;
+				resarr[i].set(ctx, "", pvarname, posvalue);
+			}
+			i++;
+		} else {
+			n.childNodes.forEach(function(e, ie) {
+				if (ie === 0) {
+					resarr[i].set(ctx, "", varname, e);
+					if (positionalVariableBinding !== 0) {
+						posvalue = new Fleur.Text();
+						posvalue.data = "1";
+						posvalue.schemaTypeInfo = Fleur.Type_integer;
+						resarr[i].set(ctx, "", pvarname, posvalue);
+					}
+				} else {
+					var newres = new Fleur.varMgr([], resarr[i]);
+					newres.set(ctx, "", varname, e);
+					if (positionalVariableBinding !== 0) {
+						posvalue = new Fleur.Text();
+						posvalue.data = String(ie + 1);
+						posvalue.schemaTypeInfo = Fleur.Type_integer;
+						newres.set(ctx, "", pvarname, posvalue);
+					}
+					resarr.splice(i + ie, 0, newres);
+				}
+			});
+			i += n.childNodes.length;
+		}
+		if (i !== resarr.length) {
+			ctx.env.varresolver = resarr[i];
+			Fleur.XQueryEngine[children[1 + allowingEmpty + positionalVariableBinding][1][0][0]](ctx, children[1 + allowingEmpty + positionalVariableBinding][1][0][1], cb);
+		} else {
+			Fleur.callback(function() {callback(Fleur.EmptySequence);});
+		}
+	};
+	Fleur.XQueryEngine[children[1 + allowingEmpty + positionalVariableBinding][1][0][0]](ctx, children[1 + allowingEmpty + positionalVariableBinding][1][0][1], cb);
+};
+/*
 Fleur.XQueryEngine[Fleur.XQueryX.forClauseItem] = function(ctx, children, callback) {
+	console.log("forClauseItem - " + Fleur.Serializer._serializeNodeToXQuery(ctx._curr, false, ""));
 	var varname = children[0][1][0][1][0];
 	var allowingEmpty = children[1][0] === Fleur.XQueryX.allowingEmpty ? 1 : 0;
 	var positionalVariableBinding = children[1 + allowingEmpty][0] === Fleur.XQueryX.positionalVariableBinding ? 1 : 0;
@@ -16,6 +70,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.forClauseItem] = function(ctx, children, callba
 		var next = Fleur.EmptySequence;
 		var currval;
 		var cb = function() {
+		console.log("forClauseItem - cb - " + Fleur.Serializer._serializeNodeToXQuery(n, false, ""));
 			if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
 				currval = next.childNodes.shift();
 				if (next.childNodes.length === 1) {
@@ -52,3 +107,4 @@ Fleur.XQueryEngine[Fleur.XQueryX.forClauseItem] = function(ctx, children, callba
 		Fleur.callback(function() {callback(Fleur.EmptySequence, Fleur.XQueryX.forClauseItem, next === Fleur.EmptySequence ? null : cb);});
 	});
 };
+*/

@@ -24,7 +24,10 @@ Fleur.XPathNSResolver = function(node) {
 		"http": "http://expath.org/ns/http-client",
 		"prof": "http://basex.org/modules/prof",
 		"proc": "http://basex.org/modules/proc",
-		"js": "http://www.w3.org/standards/webdesign/script"
+		"js": "http://www.w3.org/standards/webdesign/script",
+		"fleur": "http://www.agencexml.com/fleur",
+		"dgram": "http://www.agencexml.com/fleur/dgram",
+		"ietf": "https://tools.ietf.org/rfc/index"
 	};
 	this.node = node;
 };

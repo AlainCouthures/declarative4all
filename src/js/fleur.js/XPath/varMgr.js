@@ -7,46 +7,29 @@
  * @module 
  * @description 
  */
-Fleur.varMgr = function(vars) {
+Fleur.varMgr = function(vars, previous) {
 	this.vars = vars || [];
+	this.previous = previous;
 	this.globals = 0;
 };
-Fleur.varMgr.prototype.indexOf = function(vuri, vname) {
-	var i = this.vars.length;
-	while (i) {
-		i--;
-		if (this.vars[i].vuri === vuri && this.vars[i].vname === vname) {
-			return i;
-		}
-	}
-	return -1;
-};
 Fleur.varMgr.prototype.get = function(ctx, vuri, vname) {
-	var index = this.indexOf(vuri, vname);
-	if (index !== -1) {
-		return this.vars[index].value;
-	}
+	var i;
+	var r = this;
+	do {
+		i = r.vars.length;
+		while (i) {
+			i--;
+			if (r.vars[i].vuri === vuri && r.vars[i].vname === vname) {
+				//console.log(vname + " eq " + Fleur.Serializer._serializeNodeToXQuery(r.vars[i].value, false, ""));
+				return r.vars[i].value;
+			}
+		}
+		r = r.previous;
+	} while (r);
 	return Fleur.error(ctx, "XPST0008");
 };
 Fleur.varMgr.prototype.set = function(ctx, vuri, vname, value) {
-	var index = this.indexOf(vuri, vname);
-	if (index === -1) {
-		this.vars.push({vuri: vuri, vname: vname, value: value});
-		return value;
-	}
-	this.vars[index].value = value;
-	return Fleur.error(ctx, "XQST0049");
+	//console.log(vname + " := " + Fleur.Serializer._serializeNodeToXQuery(value, false, ""));
+	this.vars.push({vuri: vuri, vname: vname, value: value});
+	return value;
 };
-Fleur.varMgr.prototype.cloneGlobals = function() {
-	return new Fleur.varMgr(this.vars.slice(0, this.globals));
-};
-Object.defineProperties(Fleur.varMgr.prototype, {
-	length: {
-		set: function(value) {
-			this.vars.length = value;
-		},
-		get: function() {
-			return this.vars.length;
-		}
-	}
-});

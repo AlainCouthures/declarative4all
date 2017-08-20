@@ -187,6 +187,18 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 			return s + (indent ? offset + ")\n" : ")");
 		case Fleur.Node.ATTRIBUTE_NODE:
 			return (indent ? offset : "") + "attribute " + node.name + " {\"" + Fleur.Serializer.escapeXML(node.value).replace(/"/gm, "\"\"") + "\"}" + postfix + (indent ? "\n" : "");
+		case Fleur.Node.MAP_NODE:
+			s = (indent ? offset : "") + "map {"; 
+			if (node.entries.length === 0) {
+				return s + "}" + (indent ? ")\n" : ")");
+			}
+			s += indent ? "\n" : "";
+			for (i = 0, l = node.entries.length; i < l; i++) {
+				s += Fleur.Serializer._serializeNodeToXQuery(node.entries[i], indent, offset + "  ", false, i !== l - 1 ? "," : "");
+			}
+			return s + "}" + postfix + (indent ? "\n" : "");
+		case Fleur.Node.ENTRY_NODE:
+			return (indent ? offset : "") + "\"" + node.nodeName + "\":" + Fleur.Serializer._serializeNodeToXQuery(node.firstChild, indent, offset + "  ", true) + postfix + (indent ? "\n" : "");
 		case Fleur.Node.TEXT_NODE:
 			if (tree) {
 				if (indent && node.data.match(/^[ \t\n\r]*$/) && node.parentNode.childNodes.length !== 1) {
@@ -206,7 +218,7 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 					if (fdata.indexOf("e") === -1) {
 						if (fdata !== "0") {
 							var exp = Math.floor(Math.log10(Math.abs(parseFloat(fdata))));
-							fdata = "" + (parseFloat(fdata) * Math.pow(10, -exp)) + "e" + exp;
+							fdata = String(parseFloat(fdata) * Math.pow(10, -exp)) + "e" + exp;
 						} else {
 							fdata = "0.0e0";
 						}
@@ -227,6 +239,9 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 		case Fleur.Node.COMMENT_NODE:
 			return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
 		case Fleur.Node.DOCUMENT_NODE:
+			if (node.childNodes.length === 0) {
+				return "";
+			}
 			s = '<?xml version="1.0" encoding="UTF-8"?>\r\n';
 			for (i = 0, l = node.childNodes.length; i < l; i++) {
 				s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset, true);

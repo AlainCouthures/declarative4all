@@ -21,6 +21,7 @@
 		"DOMStringList.js",
 		"Element.js",
 		"Entity.js",
+		"Entry.js",
 		"Function.js",
 		"GrammarParser.js",
 		"Map.js",

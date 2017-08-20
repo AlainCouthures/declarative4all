@@ -68,6 +68,7 @@
 		"substring-before.js",
 		"sum.js",
 		"tail.js",
+		"trace.js",
 		"true.js",
 		"unordered.js",
 		"unparsed-text.js",

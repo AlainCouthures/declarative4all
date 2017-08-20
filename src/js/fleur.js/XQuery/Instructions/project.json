@@ -34,6 +34,8 @@
 		"letClause.js",
 		"letClauseItem.js",
 		"mainModule.js",
+		"mapConstructor.js",
+		"mapConstructorEntry.js",
 		"mapTest.js",
 		"module.js",
 		"namedFunctionRef.js",

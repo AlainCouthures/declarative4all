@@ -7,10 +7,20 @@
  * @module 
  * @description 
  */
-Fleur.XQueryEngine[Fleur.XQueryX.letClauseItem] = function(ctx, children, callback) {
+Fleur.XQueryEngine[Fleur.XQueryX.letClauseItem] = function(ctx, children, callback, resarr) {
+	//console.log("letClauseItem");
+	var i = 0;
 	var varname = children[0][1][0][1][0];
-	Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-		ctx.env.varresolver.set(ctx, "", varname, n);
-		Fleur.callback(function() {callback(Fleur.EmptySequence, Fleur.XQueryX.letClauseItem);});
-	});
+	ctx.env.varresolver = resarr[0];
+	var cb = function(n) {
+		resarr[i].set(ctx, "", varname, n);
+		i++;
+		if (i !== resarr.length) {
+			ctx.env.varresolver = resarr[i];
+			Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], cb);
+		} else {
+			Fleur.callback(function() {callback(Fleur.EmptySequence);});
+		}
+	};
+	Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], cb);
 };

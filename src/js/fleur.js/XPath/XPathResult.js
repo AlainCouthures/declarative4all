@@ -126,9 +126,8 @@ Fleur.XPathResult.prototype.evaluate = function(resolve, reject) {
 		env: this.env,
 		xpresult: this
 	};
-	if (!ctx.env.varresolver) {
-		ctx.env.varresolver = new Fleur.varMgr();
-	}
+	ctx.env.globalvarresolver = ctx.env.varresolver || new Fleur.varMgr();
+	ctx.env.varresolver = new Fleur.varMgr([], ctx.env.globalvarresolver);
 	var src;
 	try {
 		src = Fleur.XPathEvaluator._xq2js(this.expression);

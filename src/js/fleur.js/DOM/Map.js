@@ -26,7 +26,7 @@ Fleur.Map.prototype.getEntryNode = function(entryname) {
 	return null;
 };
 Fleur.Map.prototype.hasEntry = function(entryname) {
-	return !!this.entries.getNamedItem(entryname);
+	return Boolean(this.entries.getNamedItem(entryname));
 };
 Fleur.Map.prototype.removeEntry = function(entryname) {
 	this.entries.removeNamedItem(entryname);

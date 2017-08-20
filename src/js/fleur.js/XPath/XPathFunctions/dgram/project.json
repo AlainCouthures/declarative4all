@@ -1,0 +1,7 @@
+{
+	"Components":[
+		"socket-create.js",
+		"socket-send.js",
+		"socket-close.js"
+	]
+}

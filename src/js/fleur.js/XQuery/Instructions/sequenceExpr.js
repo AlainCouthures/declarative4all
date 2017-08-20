@@ -17,13 +17,19 @@ Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr] = function(ctx, children, callbac
 	}
 	var result = Fleur.EmptySequence;
 	var cb = function(n, eob) {
+		var seq;
 		if (eob === depth) {
-			if (result === Fleur.EmptySequence) {
+			if (result === Fleur.EmptySequence && n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
 				result = n;
 			} else if (n !== Fleur.EmptySequence) {
-				if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-					var seq = new Fleur.Sequence();
-					seq.appendChild(result);
+				if (result === Fleur.EmptySequence || result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+					seq = new Fleur.Sequence();
+					seq.childNodes = new Fleur.NodeList();
+					seq.children = new Fleur.NodeList();
+					seq.textContent = "";
+					if (result !== Fleur.EmptySequence) {
+						seq.appendChild(result);
+					}
 					result = seq;
 				}
 				if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
@@ -39,7 +45,25 @@ Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr] = function(ctx, children, callbac
 			Fleur.callback(function() {callback(n, depth);});
 			return;
 		}
-		result = n;
+		if (result === Fleur.EmptySequence && n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+			result = n;
+		} else if (n !== Fleur.EmptySequence) {
+			if (result === Fleur.EmptySequence || result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+				seq = new Fleur.Sequence();
+				seq.childNodes = new Fleur.NodeList();
+				seq.children = new Fleur.NodeList();
+				seq.textContent = "";
+				if (result !== Fleur.EmptySequence) {
+					seq.appendChild(result);
+				}
+				result = seq;
+			}
+			if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+				result.appendChild(n);
+			} else {
+				n.childNodes.forEach(function(child) {result.appendChild(child);});
+			}
+		}
 		Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr](ctx, children.slice(1), cb, depth);
 	};
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb, children[0][0] === Fleur.XQueryX.sequenceExpr ? depth + 1 : depth);

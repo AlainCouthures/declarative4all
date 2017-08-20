@@ -5,6 +5,8 @@
 		"b/project.json",
 		"fn/project.json",
 		"http/project.json",
+		"dgram/project.json",
+		"ietf/project.json",
 		"map/project.json",
 		"math/project.json",
 		"file/project.json",

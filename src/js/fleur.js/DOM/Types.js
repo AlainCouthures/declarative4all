@@ -76,8 +76,16 @@ new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "yearMonthDuration", Fleu
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "dayTimeDuration", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].duration);
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "dateTimeStamp", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].dateTime);
 
-Fleur.Types["http://www.agencexml.com/types"] = {};
-new Fleur.TypeInfo("http://www.agencexml.com/types", "regex");
-Fleur.Type_regex = Fleur.Types["http://www.agencexml.com/types"]["regex"];
+Fleur.Types["http://www.agencexml.com/fleur"] = {};
+new Fleur.TypeInfo("http://www.agencexml.com/fleur", "regex", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_string);
+Fleur.Type_regex = Fleur.Types["http://www.agencexml.com/fleur"]["regex"];
+new Fleur.TypeInfo("http://www.agencexml.com/fleur", "handler");
+Fleur.Type_handler = Fleur.Types["http://www.agencexml.com/fleur"]["handler"];
+
+Fleur.Types["http://www.agencexml.com/fleur/io"] = {};
+new Fleur.TypeInfo("http://www.agencexml.com/fleur/io", "ipv4", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_string);
+Fleur.Type_ipv4 = Fleur.Types["http://www.agencexml.com/fleur/io"]["ipv4"];
+new Fleur.TypeInfo("http://www.agencexml.com/fleur/io", "port", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].unsignedShort);
+Fleur.Type_port = Fleur.Types["http://www.agencexml.com/fleur/io"]["port"];
 
 Fleur.numericTypes = [Fleur.Type_integer, Fleur.Type_decimal, Fleur.Type_float, Fleur.Type_double];

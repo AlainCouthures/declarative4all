@@ -20,13 +20,13 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 	}
 	var xf;
 	if (uri === "http://www.w3.org/standards/webdesign/script") {
-		xf = {};
+		xf = (Fleur.XPathFunctions[uri] && Fleur.XPathFunctions[uri][fname + "#" + args.length]) ? Fleur.XPathFunctions[uri][fname + "#" + args.length] : {};
 		xf.jsfunc = eval(fname);
 	} else {
 		xf = Fleur.XPathFunctions[uri][fname + "#" + args.length] || Fleur.XPathFunctions[uri][fname];
 	}
 	if (!uri || !xf) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
+		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017", "Q{" + uri + "}" + fname + "#" + args.length));});
 		return;
 	}
 	if (xf.jsfunc || xf.xqxfunc) {
@@ -36,8 +36,10 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 			} else {
 				var xqxarg = xqxargs.shift();
 				Fleur.XQueryEngine[xqxarg[0]](ctx, xqxarg[1], function(n) {
-					if (xf.argtypes && xf.argtypes[effargs.length].type === Fleur.Node) {
+					if ((xf.argtypes && xf.argtypes[effargs.length].type === Fleur.Node) || (n && n.nodeType === Fleur.Node.SEQUENCE_NODE)) {
 						effargs.push(n);
+					} else if (xf.argtypes && xf.argtypes[effargs.length].type === Fleur.Type_handler) {
+						effargs.push(n.data);
 					} else {
 						var a = Fleur.Atomize(n);
 						effargs.push(a);
@@ -56,7 +58,9 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 					effargs.forEach(function(effarg, iarg) {
 						var op;
 						var carg = xf.argtypes ? xf.argtypes[iarg] : null;
-						if (effarg === Fleur.EmptySequence) {
+						if (carg.type === Fleur.Node) {
+							jsargs.push(effarg);
+						} else if (effarg === Fleur.EmptySequence) {
 							if (carg && (!carg.occurence || (carg.occurence !== "?" && carg.occurence !== "*"))) {
 								a.nodeType = Fleur.Node.TEXT_NODE;
 								a.schemaTypeInfo = Fleur.Type_error;
@@ -64,14 +68,51 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 								throw new Error("error");
 							}
 							jsargs.push(null);
-						} else if ((!carg && Fleur.numericTypes.indexOf(effarg.schemaTypeInfo) !== -1) || (carg && (carg.type === Fleur.numericTypes || Fleur.numericTypes.indexOf(carg.type) !== -1))) {
+						} else if (effarg.nodeType === Fleur.Node.SEQUENCE_NODE) {
+							if (carg && (!carg.occurence || carg.occurence === "?")) {
+								a.nodeType = Fleur.Node.TEXT_NODE;
+								a.schemaTypeInfo = Fleur.Type_error;
+								a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+								throw new Error("error");
+							}
+							var subarr = [];
+							for (var iseq = 0, lseq = effarg.childNodes.length; iseq < lseq; iseq++) {
+								var effchild = effarg.childNodes[iseq];
+								if ((!carg && Fleur.numericTypes.indexOf(effchild.schemaTypeInfo) !== -1) || (carg && (carg.type === Fleur.numericTypes || Fleur.numericTypes.indexOf(carg.type) !== -1))) {
+									op = Fleur.toJSNumber(effchild);
+									if (op[0] < 0) {
+										a = effchild;
+										throw new Error("error");
+									}
+									subarr.push(op[1]);
+								} else if ((!carg && effchild.schemaTypeInfo === Fleur.Type_string) || (carg && carg.type === Fleur.Type_string)) {
+									op = Fleur.toJSString(effchild);
+									if (op[0] < 0) {
+										a = effchild;
+										throw new Error("error");
+									}
+									subarr.push(op[1]);
+								} else if ((!carg && effchild.schemaTypeInfo === Fleur.Type_boolean) || (carg && carg.type === Fleur.Type_boolean)) {
+									op = Fleur.toJSBoolean(effchild);
+									if (op[0] < 0) {
+										a = effchild;
+										throw new Error("error");
+									}
+									subarr.push(op[1]);
+								} else if (carg.type === Fleur.Type_dateTime) {
+								} else {
+									subarr.push(effchild);
+								}
+							}
+							jsargs.push(subarr);
+						} else if ((!carg && Fleur.numericTypes.indexOf(effarg.schemaTypeInfo) !== -1) || (carg && (carg.type === Fleur.numericTypes || Fleur.numericTypes.indexOf(carg.type) !== -1 || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION) || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)))) {
 							op = Fleur.toJSNumber(effarg);
 							if (op[0] < 0) {
 								a = effarg;
 								throw new Error("error");
 							}
 							jsargs.push(op[1]);
-						} else if ((!carg && effarg.schemaTypeInfo === Fleur.Type_string) || (carg && carg.type === Fleur.Type_string)) {
+						} else if ((!carg && effarg.schemaTypeInfo === Fleur.Type_string) || (carg && (carg.type === Fleur.Type_string || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION)))) {
 							op = Fleur.toJSString(effarg);
 							if (op[0] < 0) {
 								a = effarg;
@@ -132,8 +173,13 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 						} else {
 							a.data = ("000" + vret.getFullYear()).slice(-4) + "-" + ("0" + (vret.getMonth() + 1)).slice(-2) + "-" + ("0" + vret.getDate()).slice(-2) + "T" + ("0" + vret.getHours()).slice(-2) + ":" + ("0" + vret.getMinutes()).slice(-2) + ":" + ("0" + vret.getSeconds()).slice(-2) + "." + ("00" + vret.getMilliseconds()).slice(-3) + (o < 0 ? "+" : "-") + ("0" + Math.floor(Math.abs(o)/60)).slice(-2) + ":" + ("0" + Math.floor(Math.abs(o) % 60)).slice(-2);
 						}
-					} else {
+					} else if (vret instanceof Fleur.Node) {
 						a = vret;
+					} else {
+						a.data = vret;
+						if (!a.schemaTypeInfo) {
+							a.schemaTypeInfo = Fleur.Type_handler;
+						}
 					}
 					Fleur.callback(function() {callback(a);});
 				};
@@ -145,7 +191,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 				convback(xf.jsfunc.apply(null, jsargs));
 			} else {
 				var currvarres = ctx.env.varresolver;
-				ctx.env.varresolver = ctx.env.varresolver.cloneGlobals();
+				ctx.env.varresolver = new Fleur.varMgr([], ctx.env.globalvarresolver);
 				effargs.forEach(function(effarg, iarg) {
 					ctx.env.varresolver.set(ctx, "", xf.argtypes[iarg].name, effarg);
 				});

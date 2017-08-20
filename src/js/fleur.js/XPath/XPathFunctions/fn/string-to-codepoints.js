@@ -21,14 +21,14 @@ Fleur.XPathFunctions_fn["string-to-codepoints"] = function(ctx, children, callba
 			} else if (a.data.length === 1) {
 				result = new Fleur.Text();
 				result.schemaTypeInfo = Fleur.Type_integer;
-				result.data = "" + a.data.codePointAt(0);
+				result.data = String(a.data.codePointAt(0));
 			} else {
 				result = new Fleur.Sequence();
 				var i, l;
 				for (i = 0, l = a.data.length; i < l; i++) {
 					c = new Fleur.Text();
 					c.schemaTypeInfo = Fleur.Type_integer;
-					c.data = "" + a.data.codePointAt(i);
+					c.data = String(a.data.codePointAt(i));
 					result.appendChild(c);
 				}
 			}

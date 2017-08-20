@@ -37,6 +37,7 @@ if ((new Function("try {return this === window;} catch(e) {return false;}"))()) 
 	global.path = require('path');
 	global.url = require('url');
 	global.os = require('os');
+	global.dgram = require('dgram');
 	var startparams = process.argv[1].endsWith('fleur.js') || process.argv[1].endsWith('fleur') ? 2 : 3;
 	var params = {argv: []};
 	process.argv.forEach(function(val, i) {
@@ -60,62 +61,64 @@ if ((new Function("try {return this === window;} catch(e) {return false;}"))()) 
 			}
 		}
 	});
-	if (params.usage || (!params.qs && !params.q)) {
-		process.stdout.write("Usage: node fleur [-s:xmlfile] [-o:outfile] (-q:queryfile|-qs:querystring) [params]\n");
-		process.stdout.write(" -s:     XML input file (optional)\n");
-		process.stdout.write(" -o:     output file (optional)\n");
-		process.stdout.write(" -q:     query file\n");
-		process.stdout.write(" -qs:    query string\n");
-		process.stdout.write(" params  name=value as externals");
-	} else {
-		var parseval = function(xml, xexpr, out) {
-			var parser = new global.Fleur.DOMParser();
-			var xmldoc = parser.parseFromString(xml, "application/xml");
-			try {
-				xmldoc.evaluate(xexpr).then(
-					function(res) {
-						if (out) {
-	        				global.fs.writeFile(out, res.toXQuery(), function(err) {if (err) process.stdout.write(err);});
-						} else {
-							process.stdout.write(res.toXQuery());
+	if (process.argv.length > 2) {
+		if (params.usage || (!params.qs && !params.q)) {
+			process.stdout.write("Usage: node fleur [-s:xmlfile] [-o:outfile] (-q:queryfile|-qs:querystring) [params]\n");
+			process.stdout.write(" -s:     XML input file (optional)\n");
+			process.stdout.write(" -o:     output file (optional)\n");
+			process.stdout.write(" -q:     query file\n");
+			process.stdout.write(" -qs:    query string\n");
+			process.stdout.write(" params  name=value as externals");
+		} else {
+			var parseval = function(xml, xexpr, out) {
+				var parser = new global.Fleur.DOMParser();
+				var xmldoc = parser.parseFromString(xml, "application/xml");
+				try {
+					xmldoc.evaluate(xexpr).then(
+						function(res) {
+							if (out) {
+		        				global.fs.writeFile(out, res.toXQuery(), function(err) {if (err) process.stdout.write(err);});
+							} else {
+								process.stdout.write(res.toXQuery());
+							}
+						},
+						function(err) {
+							if (out) {
+		        				global.fs.writeFile(out, err.toXQuery(), function(err) {if (err) process.stdout.write(err);});
+							} else {
+								process.stdout.write(err.toXQuery());
+							}
 						}
-					},
-					function(err) {
-						if (out) {
-	        				global.fs.writeFile(out, err.toXQuery(), function(err) {if (err) process.stdout.write(err);});
+					);
+				} catch(e) {
+					process.stdout.write("Exception!\n" + e.stack);
+				}
+			};
+			Fleur.baseDir = params.q ? global.path.dirname(params.q) : process.cwd();
+			var sourceval = function(xml) {
+				if (params.qs) {
+					parseval(xml, params.qs, params.o);
+				} else {
+					global.fs.readFile(params.q, 'binary', function(err, file){
+						if (err) {
+							process.stdout.write(err);
 						} else {
-							process.stdout.write(err.toXQuery());
+							parseval(xml, file, params.o);
 						}
-					}
-				);
-			} catch(e) {
-				process.stdout.write("Exception!\n" + e.stack);
-			}
-		};
-		Fleur.baseDir = params.q ? global.path.dirname(params.q) : process.cwd();
-		var sourceval = function(xml) {
-			if (params.qs) {
-				parseval(xml, params.qs, params.o);
-			} else {
-				global.fs.readFile(params.q, 'binary', function(err, file){
+					});
+				}
+			};
+			if (params.s) {
+				global.fs.readFile(params.s, 'binary', function(err, file){
 					if (err) {
 						process.stdout.write(err);
 					} else {
-						parseval(xml, file, params.o);
+						sourceval(file);
 					}
 				});
+			} else {
+				sourceval("<dummy/>");
 			}
-		};
-		if (params.s) {
-			global.fs.readFile(params.s, 'binary', function(err, file){
-				if (err) {
-					process.stdout.write(err);
-				} else {
-					sourceval(file);
-				}
-			});
-		} else {
-			sourceval("<dummy/>");
 		}
 	}
 }
