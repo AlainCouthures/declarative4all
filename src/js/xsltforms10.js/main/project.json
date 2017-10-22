@@ -1,0 +1,13 @@
+{
+	"Name":"main.js",
+	"Description":"== Main functions and objects ==",
+	"Components":[
+		"fleur.js",
+		"constants.js",
+		"globals.js",
+		"browser.js",
+		"subform.js",
+		"Binding.js",
+		"MIPBinding.js",
+		"IdManager.js"]
+}

@@ -5,7 +5,7 @@
 		<properties> <!--  accessible at run time -->
 			<html>5</html>
 			<language>fr</language>
-			<domengine name="Fleur" url="js/fleur.js" uri="http://www.agencexml.com/Fleur" version="1.0"/>
+			<!--domengine name="Fleur" url="js/fleur.js" uri="http://www.agencexml.com/Fleur" version="1.0"/-->
 			<calendar.label>...</calendar.label>
 			<calendar.day0>Lun</calendar.day0>
 			<calendar.day1>Mar</calendar.day1>
@@ -16,17 +16,17 @@
 			<calendar.day6>Dim</calendar.day6>
 			<calendar.initDay>0</calendar.initDay>
 			<calendar.month0>Janvier</calendar.month0>
-			<calendar.month1>FÃƒÆ’Ã‚Â©vrier</calendar.month1>
+			<calendar.month1>FÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©vrier</calendar.month1>
 			<calendar.month2>Mars</calendar.month2>
 			<calendar.month3>Avril</calendar.month3>
 			<calendar.month4>Mai</calendar.month4>
 			<calendar.month5>Juin</calendar.month5>
 			<calendar.month6>Juillet</calendar.month6>
-			<calendar.month7>AoÃƒÆ’Ã‚Â»t</calendar.month7>
+			<calendar.month7>AoÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â»t</calendar.month7>
 			<calendar.month8>Septembre</calendar.month8>
 			<calendar.month9>Octobre</calendar.month9>
 			<calendar.month10>Novembre</calendar.month10>
-			<calendar.month11>DÃƒÆ’Ã‚Â©cembre</calendar.month11>
+			<calendar.month11>DÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©cembre</calendar.month11>
 			<calendar.close>Fermer</calendar.close>
 			<format.date>dd/MM/yyyy</format.date>
 			<format.datetime>dd/MM/yyyy hh:mm:ss</format.datetime>
@@ -36,7 +36,7 @@
 			<format-number.grouping-separator-sign> </format-number.grouping-separator-sign>
 			<format-number.infinity>Infini</format-number.infinity>
 			<format-number.minus-sign>-</format-number.minus-sign>
-			<format-number.NaN>Non numÃƒÆ’Ã‚Â©rique</format-number.NaN>
+			<format-number.NaN>Non numÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â©rique</format-number.NaN>
 			<format-number.percent-sign>%</format-number.percent-sign>
 			<format-number.per-mille-sign>&#x2030;</format-number.per-mille-sign>
 			<status>Traitement en cours</status>

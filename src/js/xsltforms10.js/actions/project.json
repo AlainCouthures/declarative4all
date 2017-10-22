@@ -1,0 +1,23 @@
+{
+	"Name":"actions.js",
+	"Description":"== XForms Action Management ==\nEach action is stored as a Javascript object created by the XSLT transformation.\nThe abstractAction is the parent class for all action classes.",
+	"Components":
+		["confirm.js",
+		"setproperty.js",
+		"abstractAction.js",
+		"action.js",
+		"delete.js",
+		"dispatch.js",
+		"insert.js",
+		"load.js",
+		"message.js",
+		"script.js",
+		"setindex.js",
+		"setnode.js",
+		"setselection.js",
+		"setvalue.js",
+		"split.js",
+		"toggle.js",
+		"unload.js",
+		"wrap.js"]
+}
