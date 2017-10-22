@@ -7,11 +7,11 @@
  * @module 
  * @description 
  */
-Fleur.XQueryEngine[Fleur.XQueryX.predicates] = function(ctx, children, callback) {
+Fleur.XQueryEngine[Fleur.XQueryX.predicate] = function(ctx, children, callback) {
 	var next = ctx._next;
 	var last;
 	var pos = 1;
-//console.log("predicates - " + pos + " - " + Fleur.Serializer._serializeNodeToXQuery(next, false, ""));
+//console.log("predicate - " + pos + " - " + Fleur.Serializer._serializeNodeToXQuery(next, false, ""));
 	var result = Fleur.EmptySequence;
 	var subcurr;
 	if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
@@ -26,50 +26,32 @@ Fleur.XQueryEngine[Fleur.XQueryX.predicates] = function(ctx, children, callback)
 		last = 1;
 	}
 	var cb = function(n, eob) {
-		//console.log("predicates - cb - " + Fleur.Serializer._serializeNodeToXQuery(n, false, "") + (eob ? " - " + (eob === Fleur.XQueryX.predicates ? "predicates" : eob) : ""));
-		if (eob === Fleur.XQueryX.predicates) {
-			Fleur.callback(function() {callback(n, Fleur.XQueryX.predicates);});
+		//console.log("predicate - cb - " + Fleur.Serializer._serializeNodeToXQuery(n, false, "") + (eob ? " - " + (eob === Fleur.XQueryX.predicate ? "predicate" : eob) : ""));
+		if (eob === Fleur.XQueryX.predicate) {
+			Fleur.callback(function() {callback(n, Fleur.XQueryX.predicate);});
 			return;
 		}
-		if (eob === Fleur.XQueryX.lookup) {
-			if (n !== Fleur.EmptySequence) {
-				if (result === Fleur.EmptySequence) {
-					result = n;
-				} else {
-					if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-						var seq = new Fleur.Sequence();
-						seq.childNodes = new Fleur.NodeList();
-						seq.children = new Fleur.NodeList();
-						seq.textContent = "";
-						seq.appendChild(result);
-						result = seq;
-					}
-					result.appendChild(n);
+		if ((n.nodeType === Fleur.Node.SEQUENCE_NODE && n.childNodes.length !== 0) ||
+			(n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_boolean && n.data !== "false") ||
+			(n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_integer && parseInt(n.data, 10) === pos) ||
+			(n.nodeType !== Fleur.Node.SEQUENCE_NODE && n.nodeType !== Fleur.Node.TEXT_NODE)) {
+			if (result === Fleur.EmptySequence) {
+				result = subcurr;
+			} else {
+				if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+					var seq = new Fleur.Sequence();
+					seq.childNodes = new Fleur.NodeList();
+					seq.children = new Fleur.NodeList();
+					seq.textContent = "";
+					seq.appendChild(result);
+					result = seq;
 				}
-			}
-		} else {
-			if ((n.nodeType === Fleur.Node.SEQUENCE_NODE && n.childNodes.length !== 0) ||
-				(n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_boolean && n.data !== "false") ||
-				(n.nodeType === Fleur.Node.TEXT_NODE && n.schemaTypeInfo === Fleur.Type_integer && parseInt(n.data, 10) === pos) ||
-				(n.nodeType !== Fleur.Node.SEQUENCE_NODE && n.nodeType !== Fleur.Node.TEXT_NODE)) {
-				if (result === Fleur.EmptySequence) {
-					result = subcurr;
-				} else {
-					if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-						var seq = new Fleur.Sequence();
-						seq.childNodes = new Fleur.NodeList();
-						seq.children = new Fleur.NodeList();
-						seq.textContent = "";
-						seq.appendChild(result);
-						result = seq;
-					}
-					result.appendChild(subcurr);
-				}
+				result.appendChild(subcurr);
 			}
 		}
 		if (next === Fleur.EmptySequence) {
 			if (children.length === 1 || result === Fleur.EmptySequence) {
-				Fleur.callback(function() {callback(result, Fleur.XQueryX.predicates);});
+				Fleur.callback(function() {callback(result, Fleur.XQueryX.predicate);});
 				return;
 			}
 			children.shift();

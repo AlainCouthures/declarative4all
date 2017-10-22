@@ -18,11 +18,13 @@ Fleur.XQueryEngine[Fleur.XQueryX.replaceExpr] = function(ctx, children, callback
 				} else if (replacement === Fleur.EmptySequence) {
 					if (target.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
 						target.ownerElement.removeAttributeNode(target);
+					} else if (target.nodeType === Fleur.Node.ENTRY_NODE) {
+						target.ownerMap.removeEntryNode(target);
 					} else {
 						target.parentElement.removeChild(target);
 					}
 				} else {
-					var parelt = target.nodeType === Fleur.Node.ATTRIBUTE_NODE ? target.ownerElement : target.parentElement;
+					var parelt = target.nodeType === Fleur.Node.ATTRIBUTE_NODE ? target.ownerElement : target.nodeType === Fleur.Node.ENTRY_NODE ? target.ownerMap : target.parentElement;
 					var n2;
 					if (target instanceof Fleur.Node) {
 						n2 = target.ownerDocument.importNode(replacement.nodeType === Fleur.Node.SEQUENCE_NODE ? replacement.firstChild : replacement, true);
@@ -32,6 +34,9 @@ Fleur.XQueryEngine[Fleur.XQueryX.replaceExpr] = function(ctx, children, callback
 					if (target.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
 						parelt.removeAttributeNode(target);
 						parelt.setAttributeNode(n2);
+					} else if (target.nodeType === Fleur.Node.ENTRY_NODE) {
+						parelt.removeEntryNode(target);
+						parelt.setEntryNode(n2);
 					} else {
 						parelt.replaceChild(n2, target);
 					}
@@ -45,6 +50,8 @@ Fleur.XQueryEngine[Fleur.XQueryX.replaceExpr] = function(ctx, children, callback
 							}
 							if (n3.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
 								parelt.setAttributeNode(n3);
+							} else if (n3.nodeType === Fleur.Node.ENTRY_NODE) {
+								parelt.setEntryNode(n3);
 							} else {
 								parelt.insertBefore(n3, n2.followingSibling);
 							}

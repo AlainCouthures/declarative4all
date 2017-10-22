@@ -746,13 +746,16 @@ Fleur.XPathEvaluator._getPredParam = function(c, s, l, arg) {
 		var cname0 = arg.substr(arg.indexOf("[Fleur.XQueryX.nameTest,['") + 25);
 		var cname = cname0.substr(0, cname0.length - 6);
 		var cargs = t.substr(t.indexOf(".") + 1);
-		var cargs2 = cargs.substr(26, cargs.length - 28);
 		switch (cname) {
-			case "'array'":
-				p = plen + "." + "[Fleur.XQueryX.arrayConstructor,[" + cargs2 + "]]";
+			case "'comment'":
+				p = plen + "." + "[Fleur.XQueryX.computedCommentConstructor,[[Fleur.XQueryX.argExpr,[" + cargs + "]]]]";
 				break;
 			case "'map'":
+				var cargs2 = cargs.substr(26, cargs.length - 28);
 				p = plen + "." + "[Fleur.XQueryX.mapConstructor,[" + cargs2 + "]]";
+				break;
+			case "'text'":
+				p = plen + "." + "[Fleur.XQueryX.computedTextConstructor,[[Fleur.XQueryX.argExpr,[" + cargs + "]]]]";
 				break;
 		}
 	} else if (c === "(") {
@@ -996,7 +999,30 @@ Fleur.XPathEvaluator._xp2js = function(xp, args, ops) {
 		var pt51 = (t51.indexOf(":") === -1 ? ":" : "") + t51;
 		r = (t51.length + 1) + ".[Fleur.XQueryX.varRef,[[Fleur.XQueryX.name,['" + pt51.substr(pt51.indexOf(":") + 1) + "'" + (pt51.charAt(0) === ":" ? "" : ",[Fleur.XQueryX.prefix,['" + pt51.substr(0, pt51.indexOf(":")) + "']]") + "]]]]";
 	} else if (c !== "" && "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz*".indexOf(c) !== -1) {
-		r = Fleur.XPathEvaluator._getNameStep(c + d, 0);
+		var t61 = Fleur.XPathEvaluator._getName(c+d);
+		if (["element","attribute","entry"].indexOf(t61) !== -1) {
+			var i61 = Fleur.XPathEvaluator._skipSpaces(xp, i + t61.length);
+			var c61 = xp.charAt(i61);
+			if (c61 !== "" && "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".indexOf(c61) !== -1) {
+				var d61 = xp.substr(i61 + 1);
+				var t62 = Fleur.XPathEvaluator._getName(c61 + d61);
+				switch(t61) {
+					case "element":
+						r = String(i61 - i + t62.length) + ".";
+						break;
+					case "attribute":
+						r = String(i61 - i + t62.length) + ".";
+						break;
+					case "entry":
+						r = String(i61 - i + t62.length) + ".";
+				}
+				r = String(i61 - i + t62.length) + ".";
+			} else {
+				r = Fleur.XPathEvaluator._getNameStep(c + d, 0);
+			}
+		} else {
+			r = Fleur.XPathEvaluator._getNameStep(c + d, 0);
+		}
 	} else if (c === "<") {
 		r = Fleur.XPathEvaluator._getNodeConstructor(c + d);
 	} else {

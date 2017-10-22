@@ -40,11 +40,19 @@ Fleur.XQueryEngine[Fleur.XQueryX.stepExpr] = function(ctx, children, callback) {
 //console.log("stepExpr - cb - n=" + Fleur.Serializer._serializeNodeToXQuery(n, false, "") + " result=" + Fleur.Serializer._serializeNodeToXQuery(result, false, "") + (eob ? " - " + (eob === Fleur.XQueryX.stepExpr ? "stepExpr" : "predicates") : ""));
 		if (n === Fleur.EmptySequence) {
 //console.log("n === Fleur.EmptySequence");
-			if (eob === Fleur.XQueryX.stepExpr && result !== Fleur.EmptySequence && callback !== cb && children[children.length - 1][0] === Fleur.XQueryX.predicates) {
+			if (eob === Fleur.XQueryX.stepExpr && result !== Fleur.EmptySequence && callback !== cb && (children[children.length - 1][0] === Fleur.XQueryX.predicates || children[children.length - 1][0] === Fleur.XQueryX.predicate || children[children.length - 1][0] === Fleur.XQueryX.lookup)) {
+				var predpos = children.length - 1;
+				var preds = children[children.length - 1][1];
+				if (children[children.length - 1][0] !== Fleur.XQueryX.predicates) {
+					while (children[predpos][0] === Fleur.XQueryX.predicate || children[predpos][0] === Fleur.XQueryX.lookup) {
+						predpos--;
+					}
+					preds = children.slice(predpos + 1);
+				}
 				Fleur.XQueryEngine[Fleur.XQueryX.predicates]({
 					_next: result,
 					env: ctx.env
-				}, children[children.length - 1][1], function(n) {
+				}, preds, function(n) {
 					Fleur.callback(function() {callback(n, Fleur.XQueryX.stepExpr);});
 				});
 				return;
@@ -52,24 +60,13 @@ Fleur.XQueryEngine[Fleur.XQueryX.stepExpr] = function(ctx, children, callback) {
 			Fleur.callback(function() {callback(result, Fleur.XQueryX.stepExpr);});
 			return;
 		}
-//console.log("children.length="+children.length);
+//console.log("children.length="+children.length+(children.length === 2?" predicates="+(children[1][0] === Fleur.XQueryX.predicates):""));
 		if (children.length === 1) {
 			Fleur.callback(function() {callback(n, Fleur.XQueryX.stepExpr);});
 			return;
 		}
-		if (children.length === 2 && children[1][0] === Fleur.XQueryX.predicates) {
-			/*
-			if (callback !== cb) {
-				Fleur.XQueryEngine[Fleur.XQueryX.predicates]({
-					_next: n,
-					env: ctx.env
-				}, children[1][1], function(n) {
-					Fleur.callback(function() {callback(n, Fleur.XQueryX.stepExpr);});
-				});
-				return;
-			}
-			*/
-			Fleur.callback(function() {callback(n, Fleur.XQueryX.stepExpr);});
+		if (children.length > 1 && (children[1][0] === Fleur.XQueryX.predicates || children[1][0] === Fleur.XQueryX.predicate || children[1][0] === Fleur.XQueryX.lookup)) {
+			Fleur.callback(function() {next = Fleur.EmptySequence; cb(n, Fleur.XQueryX.stepExpr);});
 			return;
 		}
 		if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
