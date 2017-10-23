@@ -198,7 +198,7 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 			}
 			return s + "}" + postfix + (indent ? "\n" : "");
 		case Fleur.Node.ENTRY_NODE:
-			if (tree) {
+			if (tree && node.parentNode && node.parentNode.nodeType === Fleur.Node.MAP_NODE) {
 				return (indent ? offset : "") + "\"" + node.nodeName + "\":" + Fleur.Serializer._serializeNodeToXQuery(node.firstChild, indent, offset + "  ", true) + postfix + (indent ? "\n" : "");
 			}
 			return (indent ? offset : "") + "entry " + node.nodeName + " {" + Fleur.Serializer._serializeNodeToXQuery(node.firstChild, indent, offset + "  ") + "}" + postfix + (indent ? "\n" : "");
@@ -243,13 +243,13 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 			return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
 		case Fleur.Node.DOCUMENT_NODE:
 			if (node.childNodes.length === 0) {
-				return "";
+				return "document {}";
 			}
-			s = '<?xml version="1.0" encoding="UTF-8"?>\r\n';
+			s = 'document {';
 			for (i = 0, l = node.childNodes.length; i < l; i++) {
 				s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset, true);
 			}
-			return s + postfix;
+			return s + "}" + postfix;
 	}
 };
 Fleur.Serializer._serializeEXMLToString = function(node, indent, offset) {
