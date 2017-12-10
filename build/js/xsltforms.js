@@ -1,6 +1,6 @@
 /*
-XSLTForms 1.0 (647)
-XForms 1.1+ with XPath 1.0 Engine
+XSLTForms rev.648 (648)
+table/repeat issues
 
 Copyright (C) 2017 agenceXML - Alain Couthures
 Contact at : xsltforms@agencexml.com
@@ -146,8 +146,8 @@ var XsltForms_xpathAxis = {
 };
 var XsltForms_context;
 var XsltForms_globals = {
-	fileVersion: "1.0",
-	fileVersionNumber: 647,
+	fileVersion: "rev.648",
+	fileVersionNumber: 648,
 	language: "navigator",
 	debugMode: false,
 	debugButtons: [
@@ -3227,7 +3227,7 @@ XsltForms_browser.run = function(action, element, evt, synch, propagate) {
 		XsltForms_browser.dialog.show("statusPanel", null, false);
 		setTimeout(function() { 
 			XsltForms_globals.openAction("XsltForms_browser.run#1");
-			action.execute(XsltForms_idManager.find(element), null, evt);
+			action.execute(document.getElementById(element), null, evt);
 			XsltForms_browser.dialog.hide("statusPanel", false);
 			if (!propagate) {
 				evt.stopPropagation();
@@ -3236,7 +3236,7 @@ XsltForms_browser.run = function(action, element, evt, synch, propagate) {
 		}, 1 );
 	} else {
 		XsltForms_globals.openAction("XsltForms_browser.run#2");
-		action.execute(XsltForms_idManager.find(element), null, evt);
+		action.execute(document.getElementById(element), null, evt);
 		if (!propagate) {
 			evt.stopPropagation();
 		}
@@ -3611,7 +3611,7 @@ function XsltForms_listener(subform, observer, evtTarget, evtname, phase, handle
 		if (evt.target && evt.target.nodeType === 3) {
 			evt.target = evt.target.parentNode;
 		}
-		if (evt.currentTarget && evt.type === "DOMActivate" && (evt.target.nodeName.toUpperCase() === "BUTTON" || evt.target.nodeName.toUpperCase() === "A" || (XsltForms_browser.isChrome && (evt.eventPhase === 3 || evt instanceof UIEvent)  && this.xfElement.controlName === "trigger"))  && !XsltForms_browser.isFF2) {
+		if (evt.currentTarget && evt.type === "DOMActivate" && (evt.target.nodeName.toUpperCase() === "BUTTON" || evt.target.nodeName.toUpperCase() === "A" || (XsltForms_browser.isChrome && (evt.eventPhase === 3 || evt instanceof UIEvent)  && this.xfElement  && this.xfElement.controlName === "trigger"))  && !XsltForms_browser.isFF2) {
 			effectiveTarget = false;
 		}
 		if (evt.eventPhase === 3 && evt.target.xfElement && evt.target === evt.currentTarget && !XsltForms_browser.isFF2) {
@@ -6649,7 +6649,11 @@ function XsltForms_instance(subform, id, model, readonly, mediatype, src, srcDoc
 			}
 		}
 		this.src = XsltForms_browser.unescape(src);
-		switch(this.mediatype) {
+		var newmediatype = this.mediatype;
+		if (newmediatype.substr(newmediatype.length - 4) === "/xml" || newmediatype.substr(newmediatype.length - 4) === "/xsl" || newmediatype.substr(newmediatype.length - 4) === "+xml") {
+			newmediatype = "application/xml";
+		}
+		switch(newmediatype) {
 			case "application/xml":
 				this.srcDoc = XsltForms_browser.unescape(srcDoc);
 				if (this.srcDoc.substring(0, 1) === "&") {
@@ -6709,9 +6713,8 @@ XsltForms_instance.create = function(subform, id, model, readonly, mediatype, sr
 		instelt.xfElement.nbsubforms++;
 		subform.instances.push(instelt.xfElement);
 		return instelt.xfElement;
-	} else {
-		return new XsltForms_instance(subform, id, model, readonly, mediatype, src, srcDoc);
 	}
+	return new XsltForms_instance(subform, id, model, readonly, mediatype, src, srcDoc);
 };
 XsltForms_instance.prototype.dispose = function(subform) {
 	if (subform && this.nbsubforms !== 1) {
@@ -6867,7 +6870,11 @@ if (XsltForms_domEngine === "") {
 					break;
 			}
 		}
-		switch(this.mediatype) {
+		var newmediatype = this.mediatype;
+		if (newmediatype.substr(newmediatype.length - 4) === "/xml" || newmediatype.substr(newmediatype.length - 4) === "/xsl" || newmediatype.substr(newmediatype.length - 4) === "+xml") {
+			newmediatype = "application/xml";
+		}
+		switch(newmediatype) {
 			case "text/json":
 			case "application/json":
 				var json;
@@ -6926,7 +6933,6 @@ if (XsltForms_domEngine === "") {
 				delete arch.srcDoc;
 				this.archive = arch;
 				break;
-			case "text/xml":
 			case "application/xml":
 				break;
 			default:
@@ -7814,7 +7820,7 @@ XsltForms_submission.prototype.submit = function() {
 		method = this.method;
 	}
 	var evcontext = {"method": method, "resource-uri": action};
-	if (action.subst && action.subst(0, 8) === "local://" && (typeof(localStorage) === 'undefined')) {
+	if (action.substr && action.substr(0, 8) === "local://" && (typeof(localStorage) === 'undefined')) {
 		evcontext["error-type"] = "validation-error";
 		this.issueSubmitException_(evcontext, null, {message: "local:// submission not supported"});
 		XsltForms_globals.closeAction("XsltForms_submission.prototype.submit");
@@ -10070,7 +10076,7 @@ XsltForms_input.prototype.setValue = function(value) {
 	} else if (this.type.rte && this.type.rte.toLowerCase() === "tinymce" && tinymce.get(this.input.id)) {
 		try {
 			var editor = tinymce.get(this.input.id);
-			var prevalue = editor.contentDocument ? editor.contentDocument.body.innerHTML : editor.getContent();
+			var prevalue = editor.getContent ? editor.getContent() : editor.contentDocument.body.innerHTML;
 			if (prevalue !== value) {
 				this.input.value = value || "";
 				editor.setContent(value);
@@ -13043,7 +13049,7 @@ if (typeof xsltforms_d0 === "undefined") {
 			document.getElementsByTagName("body")[0].appendChild(conselt);
 			XsltForms_browser.dialog.show('statusPanel');
 			if (!(document.documentElement.childNodes[0].nodeType === 8 || (XsltForms_browser.isIE && document.documentElement.childNodes[0].childNodes[1] && document.documentElement.childNodes[0].childNodes[1].nodeType === 8))) {
-				var comment = document.createComment("HTML elements and Javascript instructions generated by XSLTForms 1.0 (647) - Copyright (C) 2017 <agenceXML> - Alain COUTHURES - http://www.agencexml.com");
+				var comment = document.createComment("HTML elements and Javascript instructions generated by XSLTForms rev.648 (648) - Copyright (C) 2017 <agenceXML> - Alain COUTHURES - http://www.agencexml.com");
 				document.documentElement.insertBefore(comment, document.documentElement.firstChild);
 			}
 			var initelts2 = document.getElementsByTagName("script");

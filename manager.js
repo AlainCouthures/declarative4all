@@ -269,7 +269,7 @@ if (process.argv.length > 2) {
 				if (newcontext === "root") {
 					newfilename.splice(newfilename.length - 4, 3);
 				} else {
-					newfilename.splice(newfilename.length - 3, 1, newcontext);
+					newfilename.splice(newfilename.length - 4, 2, newcontext);
 				}
 				newfilename = newfilename.join(global.path.sep);
 			}
