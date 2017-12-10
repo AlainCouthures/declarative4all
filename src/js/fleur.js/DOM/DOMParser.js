@@ -1173,7 +1173,7 @@ Fleur.DOMParser._appendFromJSON = function(node, o) {
 	var doc = node.ownerDocument || node, n;
 	switch (typeof o) {
 		case "string":
-			n = doc.createTextNode(o);
+			n = doc.createTypedValueNode("http://www.w3.org/2001/XMLSchema", "string", o);
 			break;
 		case "number":
 			n = doc.createTypedValueNode("http://www.w3.org/2001/XMLSchema", "double", o);

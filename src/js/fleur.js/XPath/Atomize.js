@@ -27,7 +27,7 @@ Fleur._schemaTypeInfoLookup = function(n) {
 	}
 };
 
-Fleur._Atomize = function(a, n) {
+Fleur._Atomize = function(a, n, force) {
 	var i, l, n2, seq;
 	switch (n.nodeType) {
 		case Fleur.Node.TEXT_NODE:
@@ -42,8 +42,6 @@ Fleur._Atomize = function(a, n) {
 			n = n.documentElement;
 		//$FALLTHROUGH$
 		case Fleur.Node.ELEMENT_NODE:
-		case Fleur.Node.MAP_NODE:
-		case Fleur.Node.ENTRY_NODE:
 			a = new Fleur.Text();
 			a.data = n.textContent;
 			a.schemaTypeInfo = Fleur._schemaTypeInfoLookup(n);
@@ -52,6 +50,25 @@ Fleur._Atomize = function(a, n) {
 			a = new Fleur.Text();
 			a.data = n.value.slice(0);
 			a.schemaTypeInfo = Fleur._schemaTypeInfoLookup(n);
+			return a;
+		case Fleur.Node.MAP_NODE:
+			a = new Fleur.Map();
+			i = 0;
+			l = n.entries.length;
+			while (i < l) {
+				a.setEntryNode(Fleur._Atomize(null, n.entries[i]));
+				i++;
+			}
+			return a;
+		case Fleur.Node.ENTRY_NODE:
+			if (force) {
+				return Fleur._Atomize(null, n.firstChild);
+			}
+			a = new Fleur.Entry();
+			a.nodeName = n.nodeName;
+			a.namespaceURI = null;
+			a.localName = n.nodeName;
+			a.appendChild(Fleur._Atomize(null, n.firstChild));
 			return a;
 		case Fleur.Node.SEQUENCE_NODE:
 			a = new Fleur.Text();
@@ -94,6 +111,6 @@ Fleur._Atomize = function(a, n) {
 			return a;
 	}
 };
-Fleur.Atomize = function(n) {
-	return n === Fleur.EmptySequence ? Fleur.EmptySequence : Fleur._Atomize(null, n);
+Fleur.Atomize = function(n, force) {
+	return n === Fleur.EmptySequence ? Fleur.EmptySequence : Fleur._Atomize(null, n, force);
 };

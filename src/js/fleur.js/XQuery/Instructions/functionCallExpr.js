@@ -7,10 +7,14 @@
  * @module 
  * @description 
  */
+Fleur.XQueryEngine.updating = false;
+Fleur.XQueryEngine.updateQueue = [];
+
 Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, callback) {
 	var fname = children[0][1][0];
 	var uri = ctx.env.nsresolver.lookupNamespaceURI(" function");
 	var args = children[1][1];
+	var mainUpdater = false;
 	if (children[0][1][1]) {
 		if (children[0][1][1][0] === Fleur.XQueryX.URI) {
 			uri = children[0][1][1][1][0];
@@ -28,6 +32,17 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 	if (!uri || !xf) {
 		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017", "Q{" + uri + "}" + fname + "#" + args.length));});
 		return;
+	}
+	if (xf.updating && !ctx.updater) {
+		if (Fleur.XQueryEngine.updating) {
+			Fleur.XQueryEngine.updateQueue.push(function() {
+				Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr](ctx, children, callback);
+			});
+			return;
+		}
+		Fleur.XQueryEngine.updating = true;
+		mainUpdater = true;
+		ctx.updater = true;
 	}
 	if (xf.jsfunc || xf.xqxfunc) {
 		var argscalc = function(xqxargs, effargs, f) {
@@ -139,6 +154,13 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 					jsargs.push(ctx);
 				}
 				var convback = function(vret) {
+					if (mainUpdater) {
+						Fleur.XQueryEngine.updating = false;
+						ctx.updater = false;
+						if (Fleur.XQueryEngine.updateQueue.length !== 0) {
+							setImmediate(Fleur.XQueryEngine.updateQueue.pop());
+						}
+					}
 					if (vret === undefined || vret === null) {
 						a = Fleur.EmptySequence;
 					} else if (vret === Number.POSITIVE_INFINITY) {
@@ -173,7 +195,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 						} else {
 							a.data = ("000" + vret.getFullYear()).slice(-4) + "-" + ("0" + (vret.getMonth() + 1)).slice(-2) + "-" + ("0" + vret.getDate()).slice(-2) + "T" + ("0" + vret.getHours()).slice(-2) + ":" + ("0" + vret.getMinutes()).slice(-2) + ":" + ("0" + vret.getSeconds()).slice(-2) + "." + ("00" + vret.getMilliseconds()).slice(-3) + (o < 0 ? "+" : "-") + ("0" + Math.floor(Math.abs(o)/60)).slice(-2) + ":" + ("0" + Math.floor(Math.abs(o) % 60)).slice(-2);
 						}
-					} else if (vret instanceof Fleur.Node) {
+					} else if (vret instanceof Fleur.Node || vret instanceof Node) {
 						a = vret;
 					} else {
 						a.data = vret;
@@ -196,6 +218,13 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 					ctx.env.varresolver.set(ctx, "", xf.argtypes[iarg].name, effarg);
 				});
 				Fleur.XQueryEngine[xf.xqxfunc[0]](ctx, xf.xqxfunc[1], function(n) {
+					if (mainUpdater) {
+						Fleur.XQueryEngine.updating = false;
+						ctx.updater = false;
+						if (Fleur.XQueryEngine.updateQueue.length !== 0) {
+							setImmediate(Fleur.XQueryEngine.updateQueue.pop());
+						}
+					}
 					ctx.env.varresolver = currvarres;
 					Fleur.callback(function() {callback(n);});
 				});
@@ -203,6 +232,13 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 		});
 	} else {
 		xf(ctx, args, function(n) {
+			if (mainUpdater) {
+				Fleur.XQueryEngine.updating = false;
+				ctx.updater = false;
+				if (Fleur.XQueryEngine.updateQueue.length !== 0) {
+					setImmediate(Fleur.XQueryEngine.updateQueue.pop());
+				}
+			}
 			Fleur.callback(function() {callback(n);});
 		});
 	}

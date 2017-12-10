@@ -1,5 +1,6 @@
 {
 	"Components":[
-		"todo.js"
+		"put.js",
+		"remove.js"
 	]
 }

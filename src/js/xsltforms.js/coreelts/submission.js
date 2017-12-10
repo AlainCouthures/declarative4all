@@ -143,7 +143,7 @@ XsltForms_submission.prototype.submit = function() {
 		method = this.method;
 	}
 	var evcontext = {"method": method, "resource-uri": action};
-	if (action.subst && action.subst(0, 8) === "local://" && (typeof(localStorage) === 'undefined')) {
+	if (action.substr && action.substr(0, 8) === "local://" && (typeof(localStorage) === 'undefined')) {
 		evcontext["error-type"] = "validation-error";
 		this.issueSubmitException_(evcontext, null, {message: "local:// submission not supported"});
 		XsltForms_globals.closeAction("XsltForms_submission.prototype.submit");

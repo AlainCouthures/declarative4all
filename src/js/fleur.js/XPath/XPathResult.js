@@ -95,6 +95,13 @@ Object.defineProperties(Fleur.XPathResult.prototype, {
 				switch (elt.nodeType) {
 					case Fleur.Node.ELEMENT_NODE:
 						if (elt.nodeName === "html") {
+							if (this._result.nodeType === Fleur.Node.DOCUMENT_NODE) {
+								for (var i = 0, l = this._result.childNodes.length; i < l; i++) {
+									if (this._result.childNodes[i].nodeType === Fleur.Node.PROCESSING_INSTRUCTION_NODE && this._result.childNodes[i].nodeName === "xml-stylesheet") {
+										return "xml";
+									}
+								}
+							}
 							return "html";
 						}
 						return "xml";

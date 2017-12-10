@@ -2548,7 +2548,7 @@ XsltForms_browser.run = function(action, element, evt, synch, propagate) {
 		XsltForms_browser.dialog.show("statusPanel", null, false);
 		setTimeout(function() { 
 			XsltForms_globals.openAction("XsltForms_browser.run#1");
-			action.execute(XsltForms_idManager.find(element), null, evt);
+			action.execute(document.getElementById(element), null, evt);
 			XsltForms_browser.dialog.hide("statusPanel", false);
 			if (!propagate) {
 				evt.stopPropagation();
@@ -2557,7 +2557,7 @@ XsltForms_browser.run = function(action, element, evt, synch, propagate) {
 		}, 1 );
 	} else {
 		XsltForms_globals.openAction("XsltForms_browser.run#2");
-		action.execute(XsltForms_idManager.find(element), null, evt);
+		action.execute(document.getElementById(element), null, evt);
 		if (!propagate) {
 			evt.stopPropagation();
 		}

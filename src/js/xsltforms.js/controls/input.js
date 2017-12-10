@@ -270,7 +270,7 @@ XsltForms_input.prototype.setValue = function(value) {
 		//var v3 = !XsltForms_globals.jslibraries["http://www.tinymce.com"] || XsltForms_globals.jslibraries["http://www.tinymce.com"].substr(0, 2) === "3.";
 		try {
 			var editor = tinymce.get(this.input.id);
-			var prevalue = editor.contentDocument ? editor.contentDocument.body.innerHTML : editor.getContent();
+			var prevalue = editor.getContent ? editor.getContent() : editor.contentDocument.body.innerHTML;
 			if (prevalue !== value) {
 				this.input.value = value || "";
 				editor.setContent(value);

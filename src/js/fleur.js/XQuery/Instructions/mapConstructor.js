@@ -15,7 +15,9 @@ Fleur.XQueryEngine[Fleur.XQueryX.mapConstructor] = function(ctx, children, callb
 			Fleur.callback(function() {callback(n);});
 			return;
 		}
-		map.setEntryNode(n);
+		if (n !== Fleur.EmptySequence) {
+			map.setEntryNode(n);
+		}
 		i++;
 		if (i === children.length) {
 			Fleur.callback(function() {callback(map);});

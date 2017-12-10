@@ -51,6 +51,12 @@
 						</xsl:otherwise>
 					</xsl:choose>
 				</xsl:when>
+				<xsl:when test="preceding-sibling::xhtml:tr | preceding-sibling::tr | following-sibling::xhtml:tr | following-sibling::tr">
+					<xsl:value-of select="$jsid_pf"/>
+					<xsl:text>table-</xsl:text>
+					<xsl:value-of select="substring-after($workid,'_')"/>
+					<xsl:text>",0</xsl:text>
+				</xsl:when>
 				<xsl:otherwise>
 					<xsl:value-of select="$jsid_pf"/>
 					<xsl:for-each select="node()">

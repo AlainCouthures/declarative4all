@@ -21,7 +21,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.insertExpr] = function(ctx, children, callback)
 				if (source.nodeType !== Fleur.Node.SEQUENCE_NODE) {
 					var tnode;
 					if (target instanceof Fleur.Node) {
-						tnode = target.ownerDocument.importNode(source, true);
+						tnode = target.ownerDocument ? target.ownerDocument.importNode(source, true) : source;
 					} else {
 						tnode = Fleur.Document.docImportNode(target.ownerDocument, source, true);
 					}
@@ -46,6 +46,9 @@ Fleur.XQueryEngine[Fleur.XQueryX.insertExpr] = function(ctx, children, callback)
 									}
 									break;
 							}
+							break;
+						case Fleur.Node.MAP_NODE:
+							target.setEntryNode(tnode);
 							break;
 					}
 				}

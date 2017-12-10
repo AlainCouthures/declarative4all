@@ -124,52 +124,72 @@ if (process.argv.length > 2) {
 				response.end(err.errno === 34 ? '404 Not Found' : '500 Internal server error - ' + err);
 				return;
 			}
-			var moduri = uri.split('/');
-			moduri.pop();
-			moduri = moduri.join('/') + '/js/fleur.js';
 			headers = {};
 			lastmodified = (new Date()).toUTCString();
 			headers['Last-Modified'] = lastmodified;
-			global.http.get({
-				host: 'localhost',
-				port: port,
-				path: moduri
-			}, function(modresp) {
-		        var modbody = '';
-		        modresp.on('data', function(d) {
-		            modbody += d;
-		        });
-		        modresp.on('end', function() {
-		        	var fleursrc = './tmp/fleur.js';
-		        	global.fs.writeFile(fleursrc, modbody, err => {
-		        		if (err) {
-		        			console.log(err);
-		        		} else {
-		        			global.fleurmtime = global.fs.statSync(fleursrc).mtime.toISOString();
-		        			var Fleur = require(fleursrc);
-		        			var doc = new Fleur.Document();
-							//var res = doc.evaluate(file, doc, new Fleur.XPathNSResolver(), Fleur.XPathResult.ANY_TYPE, null).toXQuery();
-							doc.evaluate(file).then(
-								function(res) {
-									headers['Content-Type'] = res.mediatype;
-									response.writeHead(200, headers);
-									response.end(res.serialize(), 'binary');
-									delete require.cache[require.resolve(fleursrc)];
-								},
-								function(err) {
-									contentType = contentTypesByExtension['.txt'];
-									if (contentType) {
-										headers['Content-Type'] = contentType;
+			if (global.fs.existsSync('./js/fleur.js')) {
+    			var Fleur = require('./js/fleur.js');
+    			var doc = new Fleur.Document();
+				doc.evaluate(file, null, {request: {query: global.url.parse(request.url).query}}).then(
+					function(res) {
+						headers['Content-Type'] = res.mediatype;
+						response.writeHead(200, headers);
+						response.end(res.serialize(), 'binary');
+					},
+					function(err) {
+						contentType = contentTypesByExtension['.txt'];
+						if (contentType) {
+							headers['Content-Type'] = contentType;
+						}
+						response.writeHead(200, headers);
+						response.end(err.toXQuery(), 'binary');
+					}
+				);
+			} else {
+				var moduri = uri.split('/');
+				moduri.pop();
+				moduri = moduri.join('/') + '/js/fleur.js';
+				global.http.get({
+					host: 'localhost',
+					port: port,
+					path: moduri
+				}, function(modresp) {
+			        var modbody = '';
+			        modresp.on('data', function(d) {
+			            modbody += d;
+			        });
+			        modresp.on('end', function() {
+			        	var fleursrc = './tmp/fleur.js';
+			        	global.fs.writeFile(fleursrc, modbody, err => {
+			        		if (err) {
+			        			console.log(err);
+			        		} else {
+			        			global.fleurmtime = global.fs.statSync(fleursrc).mtime.toISOString();
+			        			var Fleur = require(fleursrc);
+			        			var doc = new Fleur.Document();
+								//var res = doc.evaluate(file, doc, new Fleur.XPathNSResolver(), Fleur.XPathResult.ANY_TYPE, null).toXQuery();
+								doc.evaluate(file, null, {request: {query: global.url.parse(request.url).query}}).then(
+									function(res) {
+										headers['Content-Type'] = res.mediatype;
+										response.writeHead(200, headers);
+										response.end(res.serialize(), 'binary');
+										delete require.cache[require.resolve(fleursrc)];
+									},
+									function(err) {
+										contentType = contentTypesByExtension['.txt'];
+										if (contentType) {
+											headers['Content-Type'] = contentType;
+										}
+										response.writeHead(200, headers);
+										response.end(err.toXQuery(), 'binary');
+										delete require.cache[require.resolve(fleursrc)];
 									}
-									response.writeHead(200, headers);
-									response.end(err.toXQuery(), 'binary');
-									delete require.cache[require.resolve(fleursrc)];
-								}
-							);
-		        		}
-		        	});
-		        });
-			});
+								);
+			        		}
+			        	});
+			        });
+				});
+			}
 		};
 		request.on('data', function (chunk) {
 			body += chunk;
@@ -180,10 +200,6 @@ if (process.argv.length > 2) {
 			filename = global.path.join(process.cwd(), uri);
 			newfilename = null;
 			lastmodified = null;
-			if (uri === '/favicon.ico') {
-				global.fs.readFile(filename, 'binary', sendfile);
-				return;
-			}
 			if (uri === '/back.xml') {
 				headers = {};
 				headers['Content-Type'] = 'application/xml';
@@ -214,6 +230,10 @@ if (process.argv.length > 2) {
 			while (uri.endsWith('/')) {
 				uri = uri.substr(0, uri.length - 1);
 			}
+			newuri = uri;
+			while (newuri.startsWith('/')) {
+				newuri = newuri.substr(1);
+			}
 			if (uri === '') {
 				if (method === 'GET') {
 					response.writeHead(301, {'Location': '/stable/manager/index.xml'});
@@ -224,7 +244,13 @@ if (process.argv.length > 2) {
 				}
 				return;
 			}
-			filename = global.path.join(process.cwd(), uri);
+			filename = global.path.resolve(process.cwd(), 'public', newuri);
+			if (!filename.startsWith(global.path.resolve(process.cwd(), 'public'))) {
+				response.writeHead(403, {'Content-Type': 'text/plain'});
+				response.end('403 Forbidden');
+				console.log('403 Forbidden');
+				return;
+			}
 			newcontext = null;
 			context = uri.split('/')[1];
 			if (context.indexOf('2') !== -1) {
@@ -240,16 +266,20 @@ if (process.argv.length > 2) {
 				filename.splice(filename.length - 3, 1, context);
 				filename = filename.join(global.path.sep);
 				newfilename = filename.split(global.path.sep);
-				newfilename.splice(newfilename.length - 3, 1, newcontext);
+				if (newcontext === "root") {
+					newfilename.splice(newfilename.length - 4, 3);
+				} else {
+					newfilename.splice(newfilename.length - 3, 1, newcontext);
+				}
 				newfilename = newfilename.join(global.path.sep);
 			}
 			if (!global.fs.existsSync(filename)) {
 				newuri = uri.split('/');
 				newuri.splice(0, 2);
 				newuri = newuri.join('/');
-				upper = !global.fs.existsSync(global.path.join(process.cwd(), 'www', newuri.split('/')[0]));
+				upper = !global.fs.existsSync(global.path.join(process.cwd(), 'public', newuri.split('/')[0]));
 				if (!upper) {
-					filename = global.path.join(process.cwd(), 'www', newuri);
+					filename = global.path.join(process.cwd(), 'public', newuri);
 				} else {
 					filename = global.path.join(process.cwd(), '..', newuri);
 				}
@@ -284,7 +314,7 @@ if (process.argv.length > 2) {
 						return;
 					}
 				}
-				newfilename = null;
+				//newfilename = null;
 				if (!global.fs.existsSync(filename)) {
 					if (method !== 'GET') {
 						response.writeHead(403, {'Content-Type': 'text/plain'});

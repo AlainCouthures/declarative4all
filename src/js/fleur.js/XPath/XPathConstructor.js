@@ -13,7 +13,7 @@ Fleur.XPathConstructor = function(ctx, children, schemaType, stringreg, others, 
 		return;
 	}
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		var a = Fleur.Atomize(n);
+		var a = Fleur.Atomize(n, true);
 		if (a.schemaTypeInfo === Fleur.Type_error || a.schemaTypeInfo === schemaType) {
 			Fleur.callback(function() {callback(a);});
 			return;

@@ -12,6 +12,7 @@
 		"name.js",
 		"path-separator.js",
 		"size.js",
-		"temp-dir.js"
+		"temp-dir.js",
+		"write.js"
 	]
 }

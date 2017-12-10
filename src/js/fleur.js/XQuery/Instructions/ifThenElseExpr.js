@@ -21,6 +21,8 @@ Fleur.XQueryEngine[Fleur.XQueryX.ifThenElseExpr] = function(ctx, children, callb
 				Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0006"));});
 				return;
 			}
+		} else if (n.nodeType !== Fleur.Node.TEXT_NODE) {
+			boolean = true;
 		} else if (n.schemaTypeInfo === Fleur.Type_error) {
 			Fleur.callback(function() {callback(n);});
 			return;

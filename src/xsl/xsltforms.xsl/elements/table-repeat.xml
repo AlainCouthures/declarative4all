@@ -27,8 +27,27 @@
 	<xsl:param name="workid" select="concat(position(),'_',$parentworkid)"/>
 	<table>
 		<xsl:apply-templates select="@*"/>
-		<xsl:apply-templates select="node()">
-			<xsl:with-param name="parentworkid" select="$workid"/>
-		</xsl:apply-templates>
+		<xsl:if test="count(*[following-sibling::xforms:repeat]) != 0">
+			<thead>
+				<xsl:apply-templates select="*[following-sibling::xforms:repeat]">
+					<xsl:with-param name="parentworkid" select="$workid"/>
+				</xsl:apply-templates>
+			</thead>
+		</xsl:if>
+		<tbody>
+			<xsl:call-template name="genid">
+				<xsl:with-param name="workid" select="$workid"/>
+			</xsl:call-template>
+			<xsl:apply-templates select="xforms:repeat">
+				<xsl:with-param name="parentworkid" select="$workid"/>
+			</xsl:apply-templates>
+		</tbody>
+		<xsl:if test="count(*[preceding-sibling::xforms:repeat]) != 0">
+			<tfoot>
+				<xsl:apply-templates select="*[preceding-sibling::xforms:repeat]">
+					<xsl:with-param name="parentworkid" select="$workid"/>
+				</xsl:apply-templates>
+			</tfoot>
+		</xsl:if>
 	</table>
 </xsl:template>

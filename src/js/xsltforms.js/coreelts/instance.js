@@ -31,7 +31,11 @@ function XsltForms_instance(subform, id, model, readonly, mediatype, src, srcDoc
 			}
 		}
 		this.src = XsltForms_browser.unescape(src);
-		switch(this.mediatype) {
+		var newmediatype = this.mediatype;
+		if (newmediatype.substr(newmediatype.length - 4) === "/xml" || newmediatype.substr(newmediatype.length - 4) === "/xsl" || newmediatype.substr(newmediatype.length - 4) === "+xml") {
+			newmediatype = "application/xml";
+		}
+		switch(newmediatype) {
 			case "application/xml":
 				this.srcDoc = XsltForms_browser.unescape(srcDoc);
 				if (this.srcDoc.substring(0, 1) === "&") {
@@ -99,9 +103,8 @@ XsltForms_instance.create = function(subform, id, model, readonly, mediatype, sr
 		instelt.xfElement.nbsubforms++;
 		subform.instances.push(instelt.xfElement);
 		return instelt.xfElement;
-	} else {
-		return new XsltForms_instance(subform, id, model, readonly, mediatype, src, srcDoc);
 	}
+	return new XsltForms_instance(subform, id, model, readonly, mediatype, src, srcDoc);
 };
 
 		
@@ -298,7 +301,11 @@ if (XsltForms_domEngine === "") {
 					break;
 			}
 		}
-		switch(this.mediatype) {
+		var newmediatype = this.mediatype;
+		if (newmediatype.substr(newmediatype.length - 4) === "/xml" || newmediatype.substr(newmediatype.length - 4) === "/xsl" || newmediatype.substr(newmediatype.length - 4) === "+xml") {
+			newmediatype = "application/xml";
+		}
+		switch(newmediatype) {
 			case "text/json":
 			case "application/json":
 				var json;
@@ -357,7 +364,6 @@ if (XsltForms_domEngine === "") {
 				delete arch.srcDoc;
 				this.archive = arch;
 				break;
-			case "text/xml":
 			case "application/xml":
 				break;
 			default:

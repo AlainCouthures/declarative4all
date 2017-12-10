@@ -17,7 +17,7 @@ Fleur.XPathFunctions_b["addEventListener#3"] = new Fleur.Function("http://xqib.o
 				_curr: null,
 				env: {}
 			};
-			newctx.env.varresolver = ctx.env.varresolver.cloneGlobals();
+			newctx.env.varresolver = new Fleur.varMgr([], ctx.env.varresolver);
 			newctx.env.nsresolver = ctx.env.nsresolver;
 			newctx.env.varresolver.set(ctx, "", handler.argtypes[0].name, evt.target);
 			var evtelt = new Fleur.Element();

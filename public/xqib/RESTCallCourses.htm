@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>   
+		<title>Fleur Sample page</title>
+		<script type="text/javascript" src="js/fleur.js"></script>
+		<script type="application/xquery">
+			declare namespace http-client = "http://expath.org/ns/http-client";
+			declare %updating function local:clickListener($loc, $evtLoc) {
+				for $x in http-client:send-request(<http-client:request href="news.xml" method="get"/>)//*:item
+				return
+					insert node <p>{
+						$x/*:title/data(.)
+					}</p> as last into b:dom()//body
+			};
+			b:addEventListener(b:dom()//input[@name="click"], "click", local:clickListener#2)
+		</script>
+	</head>
+	<body>
+		<h1>D-INFK RSS</h1>
+		<input type="button" name="click" value="Clic!">
+	</body>
+</html>

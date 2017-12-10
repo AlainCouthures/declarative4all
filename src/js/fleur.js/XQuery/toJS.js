@@ -86,3 +86,45 @@ Fleur.toJSBoolean = function(a) {
 	a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
 	return [-1];
 };
+Fleur.toJSObject = function(a) {
+	if (a.nodeType === Fleur.Node.MAP_NODE) {
+		var o = {};
+		var i = 0;
+		var l = a.entries.length;
+		while (i < l) {
+			o[a.entries[i].nodeName] = a.entries[i].textContent;
+			i++;
+		}
+		return [0, o];
+	}
+	a.nodeType = Fleur.Node.TEXT_NODE;
+	a.schemaTypeInfo = Fleur.Type_error;
+	a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+	return [-1];
+};
+Fleur.toContentType = function(o, def) {
+	var s;
+	if (o["media-type"]) {
+		s = o["media-type"];
+	} else {
+		switch (o.method) {
+			case "html":
+				s = "text/html";
+				break;
+			case "xml":
+				s = "application/xml";
+				break;
+			default:
+				s = def;
+		}
+	}
+	if (o.encoding) {
+		s += "; charset=\"" + o.encoding + "\"";
+	}
+	for (var p in o) {
+		if (o.hasOwnProperty(p) && p !== "media-type" && p !== "encoding") {
+			s += "; " + p + "=\"" + o[p] + "\"";
+		}
+	}
+	return s;
+};

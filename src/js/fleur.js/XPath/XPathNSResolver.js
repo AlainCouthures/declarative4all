@@ -22,6 +22,7 @@ Fleur.XPathNSResolver = function(node) {
 		"b": "http://xqib.org",
 		"file": "http://expath.org/ns/file",
 		"http": "http://expath.org/ns/http-client",
+		"request": "http://exquery.org/ns/request",
 		"prof": "http://basex.org/modules/prof",
 		"proc": "http://basex.org/modules/proc",
 		"js": "http://www.w3.org/standards/webdesign/script",

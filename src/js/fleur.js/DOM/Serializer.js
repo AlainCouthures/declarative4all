@@ -132,7 +132,7 @@ Fleur.Serializer._serializeHTMLToString = function(node, indent, offset) {
 			if (indent && node.data.match(/^[ \t\n\r]*$/) && node.parentNode.childNodes.length !== 1) {
 				return "";
 			}
-			return ["script", "style"].indexOf(node.parentNode.localName.toLowerCase()) !== -1 ? node.data : Fleur.Serializer.escapeXML(node.data);
+			return node.parentNode.localName && ["script", "style"].indexOf(node.parentNode.localName.toLowerCase()) !== -1 ? node.data : Fleur.Serializer.escapeXML(node.data);
 		case Fleur.Node.CDATA_NODE:
 			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
 		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
@@ -147,7 +147,7 @@ Fleur.Serializer._serializeHTMLToString = function(node, indent, offset) {
 			return s;
 	}
 };
-Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, postfix) {
+Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, postfix, inmap) {
 	var s, i, l;
 	postfix = postfix || "";
 	switch (node.nodeType) {
@@ -190,16 +190,16 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 		case Fleur.Node.MAP_NODE:
 			s = (indent ? offset : "") + "map {"; 
 			if (node.entries.length === 0) {
-				return s + "}" + (indent ? ")\n" : ")");
+				return s + "}" + (indent ? "\n" : "");
 			}
 			s += indent ? "\n" : "";
 			for (i = 0, l = node.entries.length; i < l; i++) {
-				s += Fleur.Serializer._serializeNodeToXQuery(node.entries[i], indent, offset + "  ", false, i !== l - 1 ? "," : "", true);
+				s += Fleur.Serializer._serializeNodeToXQuery(node.entries[i], indent, offset + "  ", false, i !== l - 1 ? ", " : "", true);
 			}
 			return s + "}" + postfix + (indent ? "\n" : "");
 		case Fleur.Node.ENTRY_NODE:
-			if (tree && node.parentNode && node.parentNode.nodeType === Fleur.Node.MAP_NODE) {
-				return (indent ? offset : "") + "\"" + node.nodeName + "\":" + Fleur.Serializer._serializeNodeToXQuery(node.firstChild, indent, offset + "  ", true) + postfix + (indent ? "\n" : "");
+			if (inmap) {
+				return (indent ? offset : "") + "\"" + node.nodeName + "\": " + Fleur.Serializer._serializeNodeToXQuery(node.firstChild, indent, offset + "  ") + postfix + (indent ? "\n" : "");
 			}
 			return (indent ? offset : "") + "entry " + node.nodeName + " {" + Fleur.Serializer._serializeNodeToXQuery(node.firstChild, indent, offset + "  ") + "}" + postfix + (indent ? "\n" : "");
 		case Fleur.Node.TEXT_NODE:
@@ -399,7 +399,7 @@ Fleur.Serializer._serializeJSONToString = function(node, indent, offset, inline,
 			s += Fleur.Serializer._serializeJSONToString(node.firstChild, indent, offset, true, comma);
 			return s;
 		case Fleur.Node.TEXT_NODE:
-			quote = node.schemaTypeInfo === Fleur.Type_string ? '"' : node.schemaTypeInfo === Fleur.Type_regex ? '/' : "";
+			quote = node.schemaTypeInfo === Fleur.Type_string  || node.schemaTypeInfo === Fleur.Type_untypedAtomic ? '"' : node.schemaTypeInfo === Fleur.Type_regex ? '/' : "";
 			return (indent && !inline ? offset + quote : quote) + Fleur.Serializer.escapeJSON(node.data) + quote + comma + (indent ? "\n" : "");
 		case Fleur.Node.ARRAY_NODE:
 		case Fleur.Node.SEQUENCE_NODE:

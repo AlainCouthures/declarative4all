@@ -30,7 +30,7 @@ Fleur.XPathFunctions_http["send-request#1"] = new Fleur.Function("http://expath.
 				elt.textContent = "";
 				seq.appendChild(elt);
 				var parser = new Fleur.DOMParser();
-				var doc = parser.parseFromString(this.responseText, "application/xml");
+				var doc = parser.parseFromString(req.responseText, "application/xml");
 				seq.appendChild(doc);
 				callback(seq);
 			});

@@ -12,6 +12,7 @@
 		"file/project.json",
 		"prof/project.json",
 		"proc/project.json",
+		"request/project.json",
 		"xs/project.json"
 	]
 }

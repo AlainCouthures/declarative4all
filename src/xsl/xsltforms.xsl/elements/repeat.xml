@@ -13,7 +13,7 @@
 </xsl:template>
 <xsl:template match="xforms:repeat" priority="2" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 	<xsl:param name="parentworkid"/>
-	<xsl:param name="workid" select="concat(position(),'_',$parentworkid)"/>
+	<xsl:param name="workid" select="concat(count(preceding-sibling::node()) + 1,'_',$parentworkid)"/>
 	<xsl:apply-templates select="node()">
 		<xsl:with-param name="parentworkid" select="$workid"/>
 	</xsl:apply-templates>

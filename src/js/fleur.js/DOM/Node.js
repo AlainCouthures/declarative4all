@@ -223,7 +223,12 @@ Fleur.Node.prototype.cloneNode = function(deep) {
 	var i = 0, li = 0, j = 0, lj = 0, clone = null;
 	switch (this.nodeType) {
 		case Fleur.Node.TEXT_NODE:
-			clone = this.ownerDocument.createTextNode(this.data);
+			if (this.ownerDocument) {
+				clone = this.ownerDocument.createTextNode(this.data);
+			} else {
+				clone = new Fleur.Text();
+				clone.appendData(this.data);
+			}
 			clone.schemaTypeInfo = this.schemaTypeInfo;
 			break;
 		case Fleur.Node.COMMENT_NODE:
@@ -241,7 +246,15 @@ Fleur.Node.prototype.cloneNode = function(deep) {
 			}
 			break;
 		case Fleur.Node.ENTRY_NODE:
-			clone = this.ownerDocument.createEntry(this.nodeName);
+			if (this.ownerDocument) {
+				clone = this.ownerDocument.createEntry(this.nodeName);
+			} else {
+				clone = new Fleur.Entry();
+				clone.childNodes = new Fleur.NodeList();
+				clone.children = new Fleur.NodeList();
+				clone.nodeName = clone.localName = this.nodeName;
+				clone.textContent = "";
+			}
 			lj = this.childNodes.length;
 			while (j < lj) {
 				clone.appendChild(this.childNodes[j++].cloneNode(true));
@@ -262,7 +275,7 @@ Fleur.Node.prototype.cloneNode = function(deep) {
 			}
 			break;
 		case Fleur.Node.MAP_NODE:
-			clone = this.ownerDocument.createMap();
+			clone = this.ownerDocument ? this.ownerDocument.createMap() : new Fleur.Map();
 			li = this.entries.length;
 			while (i < li) {
 				clone.setEntryNode(this.entries[i++].cloneNode(false));

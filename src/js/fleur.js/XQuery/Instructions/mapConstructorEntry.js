@@ -18,8 +18,12 @@ Fleur.XQueryEngine[Fleur.XQueryX.mapConstructorEntry] = function(ctx, children, 
 			entry.namespaceURI = null;
 			entry.localName = a.data;
 			Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-				entry.appendChild(n);
-				Fleur.callback(function() {callback(entry);});
+				if (n === Fleur.EmptySequence) {
+					Fleur.callback(function() {callback(Fleur.EmptySequence);});
+				} else {
+					entry.appendChild(n);
+					Fleur.callback(function() {callback(entry);});
+				}
 			});
 		}
 	});
