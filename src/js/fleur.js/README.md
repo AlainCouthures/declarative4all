@@ -4,7 +4,7 @@
 
 Fleur is an XQuery engine. It uses its own DOM engine.
 
-Fleur aims to directly process all structured data, such as JSON, CSV, ... like XML.
+Fleur aims to directly process all structured data, such as XML, JSON, CSV, ... like XML.
 
 This is a pure Javascript solution for browsers and nodeJS without any dependency (library or module).
 Features such as file management, process execution, ... are, of course, unavailable for browsers.
@@ -54,7 +54,7 @@ The "b" namespace for browser functions defines those functions:
 
 ## Server Pages Execution
 
-Regular .xqy files can be executed by the manager.js HTTP server. The mediatype is calculated from the result. Partial support for BaseX modules is provided.
+Regular .xqy files can be executed by the integrated HTTP server. The mediatype is calculated from the result. Partial support for BaseX modules is provided.
 
 Embedding XQuery within files of different types is to be implemented. It will be based on a declaration at the beginning of each file in <? format. The embedding separators should be <{ and }>.
 
@@ -63,6 +63,7 @@ Embedding XQuery within files of different types is to be implemented. It will b
 Command line parameters are supported as follows:
 - -s:     XML input file (optional)
 - -o:     output file (optional)
+- -p:     IP port for HTTP server
 - -q:     query file
 - -qs:    query string
 - params  name=value as externals

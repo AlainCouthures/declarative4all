@@ -9,6 +9,8 @@
  */
 Fleur.XQueryEngine[Fleur.XQueryX.elementConstructor] = function(ctx, children, callback) {
 	var elt = new Fleur.Element();
+	elt.internal_id = String(Fleur.Document_index++);
+	elt.internal_id = String.fromCharCode(64 + elt.internal_id.length) + elt.internal_id;
 	elt.nodeName = children[0][1][0];
 	elt.namespaceURI = null;
 	elt.localName = children[0][1][0];

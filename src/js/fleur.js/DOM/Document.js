@@ -7,6 +7,7 @@
  * @module 
  * @description 
  */
+Fleur.Document_index = 0;
 Fleur.Document = function() {
 	Fleur.Node.apply(this);
 	this.nodeType = Fleur.Node.DOCUMENT_NODE;
@@ -18,6 +19,8 @@ Fleur.Document = function() {
 	this._elementsByTagName = {
 		" ": {}
 	};
+	this.internal_id = String(Fleur.Document_index++);
+	this.internal_id = String.fromCharCode(64 + this.internal_id.length) + this.internal_id;
 };
 Fleur.Document.prototype = new Fleur.Node();
 Object.defineProperties(Fleur.Document.prototype, {

@@ -9,6 +9,9 @@
  */
 Fleur.XPathEvaluator = function() {};
 Fleur.XPathEvaluator._precedence = "././/.:.as.;0.!.;1.~+.~-.;2.cast as.;3.castable as.;4.treat as.;5.instance of.;6.intersect.except.;7.|.union.;8.div.mod.*.idiv.;9.+.-.;10.to.;11.||.;12.eq.ne.lt.le.gt.ge.<.>.<=.>=.is.<<.>>.=.!=.;13.and.;14.or.;17.:=.in.;18.after.before.into.with.value.;19.node.nodes.;20.for.let.some.every.return.satisfies.then.;21.else.;22.,.;50.";
+Fleur.XPathEvaluator._rightgrouping = Fleur.XPathEvaluator._precedence.substr(Fleur.XPathEvaluator._precedence.indexOf(".then.") + 6);
+Fleur.XPathEvaluator._rightgrouping = Fleur.XPathEvaluator._rightgrouping.substr(Fleur.XPathEvaluator._rightgrouping.indexOf(";") + 1);
+Fleur.XPathEvaluator._rightgrouping = parseInt(Fleur.XPathEvaluator._rightgrouping.substr(0, Fleur.XPathEvaluator._rightgrouping.indexOf(".")), 10);
 Fleur.XPathEvaluator._opcodes = "./;stepExpr.|;unionOp.union;unionOp.div;divOp.mod;modOp.*;multiplyOp.idiv;idivOp.+;addOp.-;subtractOp.to;toOp.||;stringConcatenateOp.eq;eqOp.ne;neOp.lt;ltOp.le;leOp.gt;gtOp.ge;geOp.<;lessThanOp.>;greaterThanOp.<=;lessThanOrEqualOp.>=;greaterThanOrEqualOp.is;isOp.<<;nodeBeforeOp.>>;nodeAfterOp.=;equalOp.!=;notEqualOp.and;andOp.or;orOp.,;argExpr.";
 Fleur.XPathEvaluator._skipComment = function(s, offset) {
 	var i = offset;
@@ -102,7 +105,7 @@ Fleur.XPathEvaluator._pathExprFormat = function(s, p) {
 };
 Fleur.XPathEvaluator._calc = function(args, ops, opprec) {
 	var curop = parseInt(ops.split(".")[1], 10);
-	if ((ops === "" || curop > opprec) || (curop >= opprec && curop === 16)) {
+	if ((ops === "" || curop > opprec) || (curop >= opprec && curop === Fleur.XPathEvaluator._rightgrouping)) {
 		return args.length + "." + args + ops.length + "." + ops;
 	}
 	var op0 = ops.substr(ops.indexOf(".") + 1, parseInt(ops.split(".")[0], 10));
@@ -339,14 +342,11 @@ Fleur.XPathEvaluator._getNodeConstructor = function(s) {
 					texts.push([1, text]);
 					text = "";
 				}
-				if (braces !== 1) {
+				if (braces !== 1 && braces !== -1) {
 					text += "}";
 				}
 				if (c1 === c) {
 					braces++;
-					if (braces === 0) {
-						text += "}";
-					}
 				} else {
 					braces--;
 				}
@@ -360,26 +360,10 @@ Fleur.XPathEvaluator._getNodeConstructor = function(s) {
 				if (offset === end) {
 					break;
 				}
-				switch (entityname) {
-					case "amp":
-						text += "&";
-						break;
-					case "lt":
-						text += "<";
-						break;
-					case "gt":
-						text += ">";
-						break;
-					case "apos":
-						text += "'";
-						break;
-					case "quot":
-						text += '"';
-						break;
-					default:
-						if (entityname.charAt(0) === "#") {
-							text += String.fromCharCode(parseInt(entityname.charAt(1).toLowerCase() === 'x' ? "0" + entityname.substr(1).toLowerCase() : entityname.substr(1), entityname.charAt(1).toLowerCase() === 'x' ? 16 : 10));
-						}
+				if (entityname.charAt(0) === "#") {
+					text += String.fromCharCode(parseInt(entityname.charAt(1).toLowerCase() === 'x' ? "0" + entityname.substr(1).toLowerCase() : entityname.substr(1), entityname.charAt(1).toLowerCase() === 'x' ? 16 : 10));
+				} else {
+					text += Fleur.encchars[entityname];
 				}
 			} else if (braces === 0 && c === "\n") {
 				text += "\\n";
@@ -484,7 +468,7 @@ Fleur.XPathEvaluator._getNodeConstructor = function(s) {
 					text += s.charAt(ii++);
 				}
 				text = text.replace(/\x01/gm,"<");
-				r += nextsep + "[Fleur.XQueryX.computedPIConstructor[[Fleur.XQueryX.piTarget,['" + nodename + "']],[Fleur.XQueryX.piValueExpr,[[Fleur.XQueryX.stringConstantExpr,[[Fleur.XQueryX.value,['" + text + "']]]]]]]]";
+				r += nextsep + "[Fleur.XQueryX.computedPIConstructor,[[Fleur.XQueryX.piTarget,['" + nodename + "']],[Fleur.XQueryX.piValueExpr,[[Fleur.XQueryX.stringConstantExpr,[[Fleur.XQueryX.value,['" + text + "']]]]]]]]";
 				nextsep = ",";
 			}
 			if (index === end) {
@@ -643,7 +627,7 @@ Fleur.XPathEvaluator._getNodeConstructor = function(s) {
 				if (Object.keys(attrs).length) {
 					nextsep = ",[Fleur.XQueryX.attributeList,[";
 					if (attrs[" "] && attrs[" "].xmlns) {
-						r0 += nextsep + "[Fleur.XQueryX.namespaceDeclaration,[[Fleur.XQueryX.uri,['" + attrs[" "].xmlns[0][1] + "']]]]";
+						r0 += nextsep + "[Fleur.XQueryX.namespaceDeclaration,[[Fleur.XQueryX.uri,[" + (attrs[" "].xmlns.length !== 0 ? "'" + attrs[" "].xmlns[0][1] + "'" : "") + "]]]]";
 						nextsep = ",";
 						delete attrs[" "].xmlns;
 					}
@@ -663,7 +647,10 @@ Fleur.XPathEvaluator._getNodeConstructor = function(s) {
 										r0 += ",[Fleur.XQueryX.prefix,['" + prefix + "']]";
 									}
 									r0 += "]],";
-									if (attrs[prefix][attrname].length === 1 && attrs[prefix][attrname][0][0] === 0) {
+									if (attrs[prefix][attrname].length === 0) {
+										r0 += "[Fleur.XQueryX.attributeValue,[]]";
+										nextsep = ",";
+									} else if (attrs[prefix][attrname].length === 1 && attrs[prefix][attrname][0][0] === 0) {
 										r0 += "[Fleur.XQueryX.attributeValue,['" + Fleur.DocumentType.resolveEntities(null, attrs[prefix][attrname][0][1]).replace(/'/gm,"\\'").replace(/\x01/gm,"<") + "']]";
 										nextsep = ",";
 									} else {
@@ -718,6 +705,7 @@ Fleur.XPathEvaluator._getPredParam = function(c, s, l, arg) {
 	var t;
 	l = l || 0;
 	var p, plen;
+	var isret = false;
 	if (c === "?") {
 		var i = Fleur.XPathEvaluator._skipSpaces(s, 0);
 		var c2 = s.charAt(i);
@@ -739,8 +727,15 @@ Fleur.XPathEvaluator._getPredParam = function(c, s, l, arg) {
 			t = String(plen) + "." + "[Fleur.XQueryX.lookup,[[Fleur.XQueryX.expr,[" + t.substr(t.indexOf(".") + 1) + "]]]]";
 		}
 	} else {
-		t = Fleur.XPathEvaluator._xp2js(s, "", l === 0 ? "" : arg.substr(0, 57) === "[Fleur.XQueryX.quantifiedExpr,[[Fleur.XQueryX.quantifier," ? "5.999.q" : "5.999.(");
-		plen = s.length - parseInt(t.substr(0, t.indexOf(".")), 10) + 1;
+		var func0 = arg.substr(arg.indexOf("[Fleur.XQueryX.nameTest,['") + 25);
+		var func = func0.substr(0, func0.length - 6);
+		if (func === "'function'") {
+			t = "function";
+			plen = s.length;
+		} else {
+			t = Fleur.XPathEvaluator._xp2js(s, "", l === 0 ? "" : arg.substr(0, 57) === "[Fleur.XQueryX.quantifiedExpr,[[Fleur.XQueryX.quantifier," ? "5.999.q" : "5.999.(");
+			plen = s.length - parseInt(t.substr(0, t.indexOf(".")), 10) + 1;
+		}
 	}
 	if (t.indexOf("~~~~") !== -1) {
 		var t0 = t + "~#~#";
@@ -826,7 +821,111 @@ Fleur.XPathEvaluator._getPredParam = function(c, s, l, arg) {
 					p = plen + "." + "[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['entry']],[Fleur.XQueryX.entryTest,[" + parg + "]]]]]]";
 					break;
 				case "'function'":
-					p = plen + "." + arg.substr(0, arg.indexOf("[Fleur.XQueryX.nameTest,['function']]]]")) + "[33,[]]]]]]";
+					var j = -1;
+					var xq = s;
+					var pindex, np, nbpar = 0;
+					var fres = "[Fleur.XQueryX.paramList,[";
+					var end = xq.length;
+					do {
+						j = Fleur.XPathEvaluator._skipSpaces(xq, j + 1);
+						c = xq.charAt(j);
+						if (c !== ")") {
+							if (c !== "$") {
+								throw Error("Unexpected char at '" + xq.substr(j) + "'");
+							}
+							j++;
+							c = xq.charAt(j);
+							d = xq.substr(j + 1);
+							if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) === -1) {
+								throw Error("Unexpected char at '" + xq.substr(j) + "'");
+							}
+							var pname = Fleur.XPathEvaluator._getName(c + d);
+							j = Fleur.XPathEvaluator._skipSpaces(xq, j + pname.length);
+							c = xq.charAt(j);
+							var tdecl = "";
+							if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+								d = xq.substr(j + 1);
+								r = Fleur.XPathEvaluator._getName(c + d);
+								if (r === "as") {
+									j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+									c = xq.charAt(j);
+									if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+										d = xq.substr(j + 1);
+										var ptype = Fleur.XPathEvaluator._getName(c + d);
+										pindex = ptype.indexOf(":");
+										np = pindex === -1 ? "'" + ptype + "'" : "'" + ptype.substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + ptype.substr(0, pindex) + "']]";
+										c = xq.charAt(j + ptype.length);
+										tdecl = ",[Fleur.XQueryX.typeDeclaration,[[Fleur.XQueryX.atomicType,[" + np + "]]";
+										if ("?+*".indexOf(c) !== -1) {
+											tdecl += ",[Fleur.XQueryX.occurrenceIndicator,['" + c + "']]";
+											j++;
+										}
+										tdecl += "]]";
+										j = Fleur.XPathEvaluator._skipSpaces(xq, j + ptype.length);
+										c = xq.charAt(j);
+									}
+								}
+							}
+							if (nbpar !== 0) {
+								fres += ",";
+							}
+							fres += "[Fleur.XQueryX.param,[[Fleur.XQueryX.varName,['" + pname + "']]" + tdecl + "]]";
+							nbpar++;
+						}
+					} while (c === ",");
+					if (c !== ")") {
+						throw Error("Unexpected char at '" + xq.substr(j) + "'");
+					}
+					fres += "]]";
+					j = Fleur.XPathEvaluator._skipSpaces(xq, j + 1);
+					c = xq.charAt(j);
+					if (c === "a") {
+						d = xq.substr(j + 1);
+						r = Fleur.XPathEvaluator._getName(c + d);
+						if (r === "as") {
+							j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+							c = xq.charAt(j);
+							if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+								d = xq.substr(j + 1);
+								ptype = Fleur.XPathEvaluator._getName(c + d);
+								pindex = ptype.indexOf(":");
+								np = pindex === -1 ? "'" + ptype + "'" : "'" + ptype.substr(pindex + 1) + "',[Fleur.XQueryX.prefix,['" + ptype.substr(0, pindex) + "']]";
+								c = xq.charAt(j + ptype.length);
+								fres += ",[Fleur.XQueryX.typeDeclaration,[[Fleur.XQueryX.atomicType,[" + np + "]]";
+								if ("?+*".indexOf(c) !== -1) {
+									fres += ",[Fleur.XQueryX.occurrenceIndicator,['" + c + "']]";
+									j++;
+								}
+								fres += "]]";
+								j = Fleur.XPathEvaluator._skipSpaces(xq, j + ptype.length);
+								c = xq.charAt(j);
+							}
+						}
+					}
+					if (c === "{") {
+						fres += ",[Fleur.XQueryX.functionBody,[";
+						var braces = 1;
+						var body = "";
+						while ((c !== "}" || braces !== 0) && j !== end) {
+							c = xq.charAt(++j);
+							if (c === "{") {
+								braces++;
+							} else if (c === "}") {
+								braces--;
+							}
+							if (braces !== 0) {
+								body += c;
+							}
+						}
+						if (body !== "") {
+							fres += Fleur.XPathEvaluator._xp2js(body, "", "");
+						}
+						fres += "]]";
+					} else {
+						throw Error("Unexpected char at '" + xq.substr(j) + "'");
+					}
+					plen = j + 2;
+					p = plen + ".[Fleur.XQueryX.inlineFunctionExpr,[" + fres + "]]";
 					break;
 				case "'map'":
 					p = plen + "." + arg.substr(0, arg.indexOf("[Fleur.XQueryX.nameTest,['map']]]]")) + "[Fleur.XQueryX.mapTest,[]]]]]]";
@@ -879,6 +978,7 @@ Fleur.XPathEvaluator._getPredParam = function(c, s, l, arg) {
 			fargs = t.substr(t.indexOf(".") + 1);
 			fargs2 = fargs.substr(0, 26) === "[Fleur.XQueryX.arguments,[" ? fargs.substr(26, fargs.length - 28) : fargs;
 			p = plen + ".[Fleur.XQueryX.flworExpr,[" + fargs2 + "]]";
+			isret = true;
 		} else if (arg.substr(0, 57) === "[Fleur.XQueryX.quantifiedExpr,[[Fleur.XQueryX.quantifier,") {
 			fargs = t.substr(t.indexOf(".") + 1);
 			fargs2 = fargs.substr(0, 26) === "[Fleur.XQueryX.arguments,[" ? fargs.substr(26, fargs.length - 28) : fargs;
@@ -903,10 +1003,12 @@ Fleur.XPathEvaluator._getPredParam = function(c, s, l, arg) {
 			p = plen + "." + arg.substr(0, arg.length - 6) + "," + t.substr(t.indexOf(".") + 1) + "]]]]]]";
 		}
 	}
-	var inext = Fleur.XPathEvaluator._skipSpaces(s, plen - 1);
-	var cnext = s.charAt(inext);
-	if (cnext === "(" || cnext === "[" || cnext === "{" || cnext === "?") {
-		return Fleur.XPathEvaluator._getPredParam(cnext, s.substr(inext + 1), l + inext + 1, p.substr(p.indexOf(".") + 1));
+	if (!isret) {
+		var inext = Fleur.XPathEvaluator._skipSpaces(s, plen - 1);
+		var cnext = s.charAt(inext);
+		if (cnext === "(" || cnext === "[" || cnext === "{" || cnext === "?") {
+			return Fleur.XPathEvaluator._getPredParam(cnext, s.substr(inext + 1), l + inext + 1, p.substr(p.indexOf(".") + 1));
+		}
 	}
 	return (l + plen) + "." + p.substr(p.indexOf(".") + 1);
 };
@@ -1236,7 +1338,7 @@ Fleur.XPathEvaluator._getProlog = function(xq, i) {
 	i = Fleur.XPathEvaluator._skipSpaces(xq, i);
 	var c = xq.charAt(i);
 	var d = xq.substr(i + 1);
-	var r = "", v, vl;
+	var r = "", prefix, v, vl;
 	var res = i + ".";
 	var end = xq.length;
 	var updatingfunction = false;
@@ -1416,7 +1518,7 @@ Fleur.XPathEvaluator._getProlog = function(xq, i) {
 							c = xq.charAt(j);
 							d = xq.substr(j + 1);
 							if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
-								var prefix = Fleur.XPathEvaluator._getName(c + d);
+								prefix = Fleur.XPathEvaluator._getName(c + d);
 								j = Fleur.XPathEvaluator._skipSpaces(xq, j + prefix.length);
 								c = xq.charAt(j);
 								if (c === "=") {
@@ -1626,6 +1728,62 @@ Fleur.XPathEvaluator._getProlog = function(xq, i) {
 							}
 						} else {
 							return res;
+						}
+					} else if (r === "module") {
+						j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+						c = xq.charAt(j);
+						d = xq.substr(j + 1);
+						prefix = null;
+						if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+							r = Fleur.XPathEvaluator._getName(c + d);
+							if (r === "namespace") {
+								j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+								c = xq.charAt(j);
+								d = xq.substr(j + 1);
+								if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+									prefix = Fleur.XPathEvaluator._getName(c + d);
+									j = Fleur.XPathEvaluator._skipSpaces(xq, j + prefix.length);
+									c = xq.charAt(j);
+									if (c === "=") {
+										j = Fleur.XPathEvaluator._skipSpaces(xq, j + 1);
+										c = xq.charAt(j);
+										d = xq.substr(j + 1);
+									} else {
+										return res;
+									}
+								} else {
+									return res;
+								}
+							} else {
+								return res;
+							}
+						}
+						if (c === "'" || c === '"') {
+							r = Fleur.XPathEvaluator._getStringLiteral(c + d);
+							vl = r.substr(0, r.indexOf("."));
+							var modname = r.substr(vl.length + 1);
+							j = Fleur.XPathEvaluator._skipSpaces(xq, j + parseInt(vl, 10));
+							c = xq.charAt(j);
+							d = xq.substr(j + 1);
+							v = null;
+							if ("abcdefghijklmnopqrstuvwxyz".indexOf(c) !== -1) {
+								r = Fleur.XPathEvaluator._getName(c + d);
+								if (r === "at") {
+									j = Fleur.XPathEvaluator._skipSpaces(xq, j + r.length);
+									c = xq.charAt(j);
+									var locexpr = "";
+									while (c !== ";" && j !== end) {
+										locexpr += c;
+										c = xq.charAt(++j);
+									}
+									if (locexpr !== "") {
+										v = Fleur.XPathEvaluator._xp2js(locexpr, "", "");
+									}
+								}
+							}
+							if (c === ";") {
+								return (j + 1) + ".[Fleur.XQueryX.moduleImport,[[Fleur.XQueryX.targetNamespace,[" + modname + "]]" + (prefix ? ",[Fleur.XQueryX.namespacePrefix,['" + prefix + "']]" : "") + (v ? ",[Fleur.XQueryX.targetLocationExpr,[" + v + "]]" : "") + "]],";
+							}
 						}
 					}
 				}

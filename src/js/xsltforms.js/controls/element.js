@@ -161,7 +161,7 @@ XsltForms_element.prototype.evaluateBinding = function(binding, ctx, varresolver
 			}
 		}
 		this.boundnodes = binding.bind_evaluate(this.subform, ctx, varresolver, this.depsNodesBuild, this.depsIdB, this.depsElements);
-		if (this.boundnodes || this.boundnodes === "") {
+		if (this.boundnodes || this.boundnodes === "" || this.boundnodes === 0) {
 			return this.boundnodes;
 		}
 		// A 'null' binding means bind-ID was not found.

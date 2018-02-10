@@ -128,18 +128,21 @@ Fleur.Element.prototype.setAttribute = function(attrname, value) {
 		return;
 	}
 	attr = this.ownerDocument.createAttribute(attrname);
-	attr.ownerElement = this;
-	attr.appendChild(this.ownerDocument.createTextNode(value));
 	this.attributes.setNamedItem(attr);
+	attr.ownerElement = this;
+	attr.idRecalculate(String(this.attributes.length - 1));
+	attr.appendChild(this.ownerDocument.createTextNode(value));
 };
 Fleur.Element.prototype.setAttributeNode = function(newAttr) {
 	var n = this.attributes.setNamedItem(newAttr);
 	newAttr.ownerElement = this;
+	newAttr.idRecalculate(String(this.attributes.length - 1));
 	return n;
 };
 Fleur.Element.prototype.setAttributeNodeNS = function(newAttr) {
 	var n = this.attributes.setNamedItemNS(newAttr);
 	newAttr.ownerElement = this;
+	newAttr.idRecalculate(String(this.attributes.length - 1));
 	return n;
 };
 Fleur.Element.prototype.setAttributeNS = function(namespaceURI, qualifiedName, value) {
@@ -150,9 +153,10 @@ Fleur.Element.prototype.setAttributeNS = function(namespaceURI, qualifiedName, v
 		return;
 	}
 	attr = this.ownerDocument.createAttributeNS(namespaceURI, qualifiedName);
-	attr.ownerElement = this;
-	attr.nodeValue = value;
 	this.attributes.setNamedItemNS(attr);
+	attr.ownerElement = this;
+	attr.idRecalculate(String(this.attributes.length - 1));
+	attr.nodeValue = value;
 };
 /*
 Fleur.Element.prototype._serializeToString = function(indent) {

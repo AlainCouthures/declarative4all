@@ -17,14 +17,13 @@ Fleur.XPathFunctions_fn["distinct-values"] = function(ctx, children, callback) {
 		return;
 	}
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		var a = Fleur.Atomize(n);
-		if (a === Fleur.EmptySequence) {
-			Fleur.callback(function() {callback(a);});
+		if (n === Fleur.EmptySequence) {
+			Fleur.callback(function() {callback(n);});
 			return;
 		}
-		if (a.nodeType === Fleur.Node.SEQUENCE_NODE) {
+		if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
 			var result = new Fleur.Sequence();
-			a.childNodes.forEach(function(c) {
+			n.childNodes.forEach(function(c) {
 				if (!result.childNodes.some(function(r) {
 						if ((c.schemaTypeInfo === Fleur.Type_string || c.schemaTypeInfo === Fleur.Type_untypedAtomic) &&
 							(r.schemaTypeInfo === Fleur.Type_string || r.schemaTypeInfo === Fleur.Type_untypedAtomic)) {
@@ -47,7 +46,7 @@ Fleur.XPathFunctions_fn["distinct-values"] = function(ctx, children, callback) {
 			}
 			Fleur.callback(function() {callback(result);});
 		} else {
-			Fleur.callback(function() {callback(a);});
+			Fleur.callback(function() {callback(n);});
 		}
 	});
 };

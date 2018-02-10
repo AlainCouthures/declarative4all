@@ -125,7 +125,7 @@ if ((new Function("try {return this === window;} catch(e) {return false;}"))()) 
 		} else {
 			sourceval("<dummy/>");
 		}
-	} else {
+	} else if (process.argv[1].endsWith('fleur.js') || process.argv[1].endsWith('fleur')) {
 		Fleur.baseDir = global.path.resolve(params.f || process.cwd(), "public");
 		var port = params.p;
 		port = isNaN(port) || port > 65535 || port === 0 ? 80 : port;

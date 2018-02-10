@@ -141,7 +141,13 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 								throw new Error("error");
 							}
 							jsargs.push(op[1]);
-						} else if (carg.type === Fleur.Type_dateTime) {
+						} else if ((!carg && effarg.schemaTypeInfo === Fleur.Type_dateTime) || (carg.type === Fleur.Type_dateTime)) {
+							op = Fleur.toJSDate(effarg);
+							if (op[0] < 0) {
+								a = effarg;
+								throw new Error("error");
+							}
+							jsargs.push(op[1]);
 						} else {
 							jsargs.push(effarg);
 						}
@@ -161,49 +167,68 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 							setImmediate(Fleur.XQueryEngine.updateQueue.pop());
 						}
 					}
-					if (vret === undefined || vret === null) {
-						a = Fleur.EmptySequence;
-					} else if (vret === Number.POSITIVE_INFINITY) {
-						a.data = "INF";
-						if (!a.schemaTypeInfo) {
-							a.schemaTypeInfo = Fleur.Type_double;
-						}
-					} else if (vret === Number.NEGATIVE_INFINITY) {
-						a.data = "-INF";
-						if (!a.schemaTypeInfo) {
-							a.schemaTypeInfo = Fleur.Type_double;
-						}
-					} else if (typeof vret === "number" || typeof vret === "boolean") {
-						a.data = String(vret);
-						if (!a.schemaTypeInfo) {
-							a.schemaTypeInfo = typeof vret === "number" ? Fleur.Type_double : Fleur.Type_boolean;
-						}
-					} else if (typeof vret === "string") {
-						a.data = vret;
-						if (!a.schemaTypeInfo) {
-							a.schemaTypeInfo = Fleur.Type_string;
-						}
-					} else if (typeof vret.getMonth === "function") {
-						var o = vret.getTimezoneOffset();
-						if (!a.schemaTypeInfo) {
-							a.schemaTypeInfo = Fleur.Type_datetime;
-						}
-						if (a.schemaTypeInfo === Fleur.Type_date) {
-							a.data = ("000" + vret.getFullYear()).slice(-4) + "-" + ("0" + (vret.getMonth() + 1)).slice(-2) + "-" + ("0" + vret.getDate()).slice(-2) + (o < 0 ? "+" : "-") + ("0" + Math.floor(Math.abs(o)/60)).slice(-2) + ":" + ("0" + Math.floor(Math.abs(o) % 60)).slice(-2);
-						} else if (a.schemaTypeInfo === Fleur.Type_time) {
-							a.data = ("0" + vret.getHours()).slice(-2) + ":" + ("0" + vret.getMinutes()).slice(-2) + ":" + ("0" + vret.getSeconds()).slice(-2) + "." + ("00" + vret.getMilliseconds()).slice(-3) + (o < 0 ? "+" : "-") + ("0" + Math.floor(Math.abs(o)/60)).slice(-2) + ":" + ("0" + Math.floor(Math.abs(o) % 60)).slice(-2);
+					var convret = function(v) {
+						if (v === undefined || v === null) {
+							a = Fleur.EmptySequence;
+						} else if (v === Number.POSITIVE_INFINITY) {
+							a.data = "INF";
+							if (!a.schemaTypeInfo) {
+								a.schemaTypeInfo = Fleur.Type_double;
+							}
+						} else if (v === Number.NEGATIVE_INFINITY) {
+							a.data = "-INF";
+							if (!a.schemaTypeInfo) {
+								a.schemaTypeInfo = Fleur.Type_double;
+							}
+						} else if (typeof v === "number" || typeof v === "boolean") {
+							a.data = String(v);
+							if (!a.schemaTypeInfo) {
+								a.schemaTypeInfo = typeof v === "number" ? Fleur.Type_double : Fleur.Type_boolean;
+							}
+						} else if (typeof v === "string") {
+							a.data = v;
+							if (!a.schemaTypeInfo) {
+								a.schemaTypeInfo = Fleur.Type_string;
+							}
+						} else if (typeof v.getMonth === "function") {
+							var o = vret.getTimezoneOffset();
+							if (!a.schemaTypeInfo) {
+								a.schemaTypeInfo = Fleur.Type_datetime;
+							}
+							if (a.schemaTypeInfo === Fleur.Type_date) {
+								a.data = ("000" + v.getFullYear()).slice(-4) + "-" + ("0" + (v.getMonth() + 1)).slice(-2) + "-" + ("0" + v.getDate()).slice(-2) + (o < 0 ? "+" : "-") + ("0" + Math.floor(Math.abs(o)/60)).slice(-2) + ":" + ("0" + Math.floor(Math.abs(o) % 60)).slice(-2);
+							} else if (a.schemaTypeInfo === Fleur.Type_time) {
+								a.data = ("0" + v.getHours()).slice(-2) + ":" + ("0" + v.getMinutes()).slice(-2) + ":" + ("0" + v.getSeconds()).slice(-2) + "." + ("00" + v.getMilliseconds()).slice(-3) + (o < 0 ? "+" : "-") + ("0" + Math.floor(Math.abs(o)/60)).slice(-2) + ":" + ("0" + Math.floor(Math.abs(o) % 60)).slice(-2);
+							} else {
+								a.data = ("000" + v.getFullYear()).slice(-4) + "-" + ("0" + (v.getMonth() + 1)).slice(-2) + "-" + ("0" + v.getDate()).slice(-2) + "T" + ("0" + v.getHours()).slice(-2) + ":" + ("0" + v.getMinutes()).slice(-2) + ":" + ("0" + v.getSeconds()).slice(-2) + "." + ("00" + v.getMilliseconds()).slice(-3) + (o < 0 ? "+" : "-") + ("0" + Math.floor(Math.abs(o)/60)).slice(-2) + ":" + ("0" + Math.floor(Math.abs(o) % 60)).slice(-2);
+							}
+						} else if (v instanceof Error) {
+							a.nodeType = Fleur.Node.TEXT_NODE;
+							a.schemaTypeInfo = Fleur.Type_error;
+							a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY");
+						} else if (v instanceof Fleur.Node || (Node && v instanceof Node)) {
+							a = v;
 						} else {
-							a.data = ("000" + vret.getFullYear()).slice(-4) + "-" + ("0" + (vret.getMonth() + 1)).slice(-2) + "-" + ("0" + vret.getDate()).slice(-2) + "T" + ("0" + vret.getHours()).slice(-2) + ":" + ("0" + vret.getMinutes()).slice(-2) + ":" + ("0" + vret.getSeconds()).slice(-2) + "." + ("00" + vret.getMilliseconds()).slice(-3) + (o < 0 ? "+" : "-") + ("0" + Math.floor(Math.abs(o)/60)).slice(-2) + ":" + ("0" + Math.floor(Math.abs(o) % 60)).slice(-2);
+							a.data = v;
+							if (!a.schemaTypeInfo) {
+								a.schemaTypeInfo = Fleur.Type_handler;
+							}
 						}
-					} else if (vret instanceof Fleur.Node || vret instanceof Node) {
-						a = vret;
+					};
+					if (vret instanceof Array) {
+						var seq = new Fleur.Sequence();
+						vret.forEach(function(v) {
+							a = new Fleur.Text();
+							a.schemaTypeInfo = xf.restype ? xf.restype.type : null;
+							a.data = "";
+							convret(v);
+							seq.appendChild(a);
+						});
+						Fleur.callback(function() {callback(seq);});
 					} else {
-						a.data = vret;
-						if (!a.schemaTypeInfo) {
-							a.schemaTypeInfo = Fleur.Type_handler;
-						}
+						convret(vret);
+						Fleur.callback(function() {callback(a);});
 					}
-					Fleur.callback(function() {callback(a);});
 				};
 				if (xf.needcallback) {
 					jsargs.push(convback);

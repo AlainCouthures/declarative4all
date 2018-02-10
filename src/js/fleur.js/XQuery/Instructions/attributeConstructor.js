@@ -9,7 +9,7 @@
  */
 Fleur.XQueryEngine[Fleur.XQueryX.attributeConstructor] = function(ctx, children, callback, elt) {
 	var attr = new Fleur.Attr();
-	var t = new Fleur.Text();
+	var t;
 	attr.nodeName = children[0][1][0];
 	attr.localName = children[0][1][0];
 	if (children[0][1].length === 2) {
@@ -18,14 +18,19 @@ Fleur.XQueryEngine[Fleur.XQueryX.attributeConstructor] = function(ctx, children,
 		attr.prefix = null;
 	}
 	attr.namespaceURI = elt.lookupNamespaceURI(attr.prefix);
-	attr.appendChild(t);
-	t.data = "";
-	if (children[1][0] === Fleur.XQueryX.attributeValueExpr) {
+	if (children[1][0] === Fleur.XQueryX.attributeValue) {
+		if (children[1][1].length !== 0) {
+			t = new Fleur.Text();
+			t.data = children[1][1][0];
+			attr.appendChild(t);
+		}
+		Fleur.callback(function() {callback(attr);});
+	} else {
+		t = new Fleur.Text();
+		t.data = "";
+		attr.appendChild(t);
 		Fleur.XQueryEngine[children[1][0]](ctx, children[1][1], function(n) {
 			Fleur.callback(function() {callback(n);});
 		}, attr);
-	} else {
-		t.data = children[1][1][0];
-		Fleur.callback(function() {callback(attr);});
 	}
 };

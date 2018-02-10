@@ -105,6 +105,8 @@ Object.defineProperties(Fleur.XPathResult.prototype, {
 							return "html";
 						}
 						return "xml";
+					case Fleur.Node.SEQUENCE_NODE:
+						return "xml";
 					case Fleur.Node.MAP_NODE:
 						return "json";
 					default:

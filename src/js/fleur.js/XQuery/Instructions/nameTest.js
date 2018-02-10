@@ -20,7 +20,8 @@ Fleur.XQueryEngine[Fleur.XQueryX.nameTest] = function(ctx, children, callback) {
 		nsURI = children[1][1][0];
 	}
 	var currURI = ctx._curr.namespaceURI || null;
-	if (currURI !== ctx.env.nsresolver.lookupNamespaceURI(nsURI) && currURI !== "http://www.w3.org/1999/xhtml") {
+	var lookupURI = ctx.env.nsresolver.lookupNamespaceURI(nsURI) || null;
+	if (currURI !==  lookupURI && currURI !== "http://www.w3.org/1999/xhtml") {
 		Fleur.callback(function() {callback(Fleur.EmptySequence);});
 		return;
 	}

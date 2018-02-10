@@ -29,10 +29,14 @@ Fleur.XQueryEngine[Fleur.XQueryX.insertExpr] = function(ctx, children, callback)
 						case Fleur.Node.ELEMENT_NODE:
 							switch (targetChoice) {
 								case Fleur.XQueryX.insertInto:
-									if (intoPos === Fleur.XQueryX.insertAsFirst) {
-										target.insertBefore(tnode, target.firstChild);
+									if (source.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
+										target.setAttributeNode(source);
 									} else {
-										target.appendChild(tnode);
+										if (intoPos === Fleur.XQueryX.insertAsFirst) {
+											target.insertBefore(tnode, target.firstChild);
+										} else {
+											target.appendChild(tnode);
+										}
 									}
 									break;
 								case Fleur.XQueryX.insertBefore:

@@ -77,6 +77,9 @@ Fleur.DocumentType.resolveEntities = function(doctype, s) {
 					entityvalue = doctype.getEntity(entityname);
 				}
 		}
+		if (!entityvalue) {
+			entityvalue = Fleur.encchars[entityname];
+		}
 		if (entityvalue) {
 			s = s.substr(0, index) + entityvalue + s.substr(index + entityname.length + 2);
 			offset = index + entityvalue.length;

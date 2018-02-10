@@ -564,6 +564,16 @@ XsltForms_typeDefs.Default = {
 		"parse" : function(value) {
 			return value.toUpperCase();
 		}
+	},
+	
+	
+/**
+ * ** '''xsd:select1'''
+ */
+
+	"select1" : {
+		"nsuri" : "http://www.w3.org/2001/XMLSchema",
+		"whiteSpace" : "preserve"
 	}
 };
 

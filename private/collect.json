@@ -1,9 +1,23 @@
 {
   INFO02: {
     bank0: "8Go",
-    ip: "172.16.10.69",
+    ip: "192.168.10.69",
     mac: "84:7B:EB:36:51:FD",
     timestamp: "2017-12-06T15:49:57.840+01:00",
     version: "Windows 10 Education 1709"
+  },
+  INFO03: {
+    bank0: "8Go",
+    ip: "192.168.10.69",
+    mac: "84:7B:EB:36:51:FD",
+    timestamp: "2017-12-06T15:49:57.840+01:00",
+    version: "Windows 7 Professional"
+  },
+  INFO04: {
+    bank0: "8Go",
+    ip: "192.168.10.69",
+    mac: "84:7B:EB:36:51:FD",
+    timestamp: "2017-12-06T15:49:57.840+01:00",
+    version: "Windows 7 Professional"
   }
 }

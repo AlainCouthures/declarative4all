@@ -1,0 +1,9 @@
+{
+	"Components":[
+		"and.js",
+		"not.js",
+		"or.js",
+		"shift.js",
+		"xor.js"
+	]
+}

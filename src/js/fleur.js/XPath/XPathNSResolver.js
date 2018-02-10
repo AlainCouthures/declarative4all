@@ -20,6 +20,7 @@ Fleur.XPathNSResolver = function(node) {
 		"array": "http://www.w3.org/2005/xpath-functions/array",
 		"err": "http://www.w3.org/2005/xqt-errors",
 		"b": "http://xqib.org",
+		"bin": "http://expath.org/ns/binary",
 		"file": "http://expath.org/ns/file",
 		"http": "http://expath.org/ns/http-client",
 		"request": "http://exquery.org/ns/request",
@@ -28,6 +29,7 @@ Fleur.XPathNSResolver = function(node) {
 		"js": "http://www.w3.org/standards/webdesign/script",
 		"fleur": "http://www.agencexml.com/fleur",
 		"dgram": "http://www.agencexml.com/fleur/dgram",
+		"internal": "http://www.agencexml.com/fleur/internal",
 		"ietf": "https://tools.ietf.org/rfc/index"
 	};
 	this.node = node;

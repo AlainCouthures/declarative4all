@@ -79,9 +79,15 @@ Fleur.Serializer._serializeXMLToString = function(node, indent, offset) {
 		case Fleur.Node.CDATA_NODE:
 			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
 		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
-			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.nodeValue + (indent ? "?>\n" : "?>");
+			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.nodeValue + "?>\n";
 		case Fleur.Node.COMMENT_NODE:
 			return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
+		case Fleur.Node.SEQUENCE_NODE:
+			s = "";
+			for (i = 0, l = node.childNodes.length; i < l; i++) {
+				s += Fleur.Serializer._serializeXMLToString(node.childNodes[i], indent, offset);
+			}
+			return s;
 		case Fleur.Node.DOCUMENT_NODE:
 			s = '<?xml version="1.0" encoding="UTF-8"?>\r\n';
 			for (i = 0, l = node.childNodes.length; i < l; i++) {
@@ -186,7 +192,7 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 			}
 			return s + (indent ? offset + ")\n" : ")");
 		case Fleur.Node.ATTRIBUTE_NODE:
-			return (indent ? offset : "") + "attribute " + node.name + " {\"" + Fleur.Serializer.escapeXML(node.value).replace(/"/gm, "\"\"") + "\"}" + postfix + (indent ? "\n" : "");
+			return (indent ? offset : "") + "attribute " + node.nodeName + " {\"" + Fleur.Serializer.escapeXML(node.value).replace(/"/gm, "\"\"") + "\"}" + postfix + (indent ? "\n" : "");
 		case Fleur.Node.MAP_NODE:
 			s = (indent ? offset : "") + "map {"; 
 			if (node.entries.length === 0) {
@@ -238,7 +244,7 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 		case Fleur.Node.CDATA_NODE:
 			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
 		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
-			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.nodeValue + (indent ? "?>\n" : "?>");
+			return (indent ? offset + "processing-instruction " : "processing-instruction ") + node.nodeName + " {\"" + Fleur.Serializer.escapeXML(node.nodeValue, false, false).replace(/"/gm, "\"\"") + "\"}" + postfix + (indent ? "\n" : "");
 		case Fleur.Node.COMMENT_NODE:
 			return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
 		case Fleur.Node.DOCUMENT_NODE:

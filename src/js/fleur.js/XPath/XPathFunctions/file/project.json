@@ -1,7 +1,11 @@
 {
 	"Components":[
 		"base-dir.js",
+		"children.js",
+		"copy.js",
+		"create-dir.js",
 		"current-dir.js",
+		"delete.js",
 		"dir-separator.js",
 		"exists.js",
 		"is-absolute.js",
@@ -9,6 +13,7 @@
 		"is-file.js",
 		"last-modified.js",
 		"line-separator.js",
+		"move.js",
 		"name.js",
 		"path-separator.js",
 		"size.js",
