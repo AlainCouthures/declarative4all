@@ -63,6 +63,7 @@
 		"round-half-to-even.js",
 		"seconds-from-dateTime.js",
 		"seconds-from-time.js",
+		"serialize.js",
 		"sort.js",
 		"starts-with.js",
 		"string.js",

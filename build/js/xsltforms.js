@@ -4931,6 +4931,10 @@ var XsltForms_xpathFunctionExceptions = {
 	matchInvalidArgumentsNumber : {
 		name : "match() : Invalid number of arguments",
 		message : "match() function must have two or three arguments"
+	},
+	uuidInvalidArgumentsNumber : {
+		name : "uuid() : Invalid number of arguments",
+		message : "uuid() function must have no argument"
 	}
 };
 var XsltForms_xpathCoreFunctions = {
@@ -6201,21 +6205,25 @@ var XsltForms_xpathCoreFunctions = {
 			} else {
 				flags = "";
 			}
-			var re = new RegExp(pattern, flags);
-			var mres = str.match(re);
-			if (!mres) {
+			try {
+				var re = new RegExp(pattern, flags);
+				var mres = str.match(re);
+				if (!mres) {
+					return [];
+				}
+				var melts = "";
+				for (var i = 0, l = mres.length; i < l; i++) {
+					melts += "<match>" + mres[i] + "</match>";
+				}
+				var mdoc = XsltForms_browser.createXMLDocument("<matches>" + melts + "</matches>");
+				var marr = [];
+				for(i = 0, l = mdoc.documentElement.children.length; i <l; i++) {
+					marr.push(mdoc.documentElement.children[i]);
+				}
+				return marr;
+			} catch (e) {
 				return [];
 			}
-			var melts = "";
-			for (var i = 0, l = mres.length; i < l; i++) {
-				melts += "<match>" + mres[i] + "</match>";
-			}
-			var mdoc = XsltForms_browser.createXMLDocument("<matches>" + melts + "</matches>");
-			var marr = [];
-			for(i = 0, l = mdoc.documentElement.children.length; i <l; i++) {
-				marr.push(mdoc.documentElement.children[i]);
-			}
-			return marr;
 		} ),
 	"http://www.w3.org/2005/xpath-functions alert" : new XsltForms_xpathFunction(false, XsltForms_xpathFunction.DEFAULT_NONE, false,
 		function(arg) {
@@ -6313,10 +6321,20 @@ var XsltForms_xpathCoreFunctions = {
 			}
 			return tokens;
 		}),
+	"http://www.w3.org/2005/xpath-functions uuid" : new XsltForms_xpathFunction(false, XsltForms_xpathFunction.DEFAULT_NONE, false,
+		function() {
+			if (arguments.length !== 0) {
+				throw XsltForms_xpathFunctionExceptions.uuidInvalidArgumentsNumber;
+			}
+			return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+				var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+				return v.toString(16);
+			});
+		}),
 	"http://www.w3.org/2005/xpath-functions invalid-id" : new XsltForms_xpathFunction(false, XsltForms_xpathFunction.DEFAULT_NONE, false,
 		function() {
 			return XsltForms_globals.invalid_id_(XsltForms_globals.body);
-		} )
+		})
 };
 XsltForms_globals.invalid_id_ = function(element) {
 	if (element.nodeType !== Fleur.Node.ELEMENT_NODE || element.id === "xsltforms_console" || element.hasXFElement === false) {
@@ -9439,7 +9457,7 @@ XsltForms_element.prototype.evaluateBinding = function(binding, ctx, varresolver
 			}
 		}
 		this.boundnodes = binding.bind_evaluate(this.subform, ctx, varresolver, this.depsNodesBuild, this.depsIdB, this.depsElements);
-		if (this.boundnodes || this.boundnodes === "") {
+		if (this.boundnodes || this.boundnodes === "" || this.boundnodes === 0) {
 			return this.boundnodes;
 		}
 		errmsg = "non-existent bind-ID("+ binding.bind + ") on element(" + this.element.id + ")!";
@@ -12604,6 +12622,10 @@ XsltForms_typeDefs.Default = {
 		"parse" : function(value) {
 			return value.toUpperCase();
 		}
+	},
+	"select1" : {
+		"nsuri" : "http://www.w3.org/2001/XMLSchema",
+		"whiteSpace" : "preserve"
 	}
 };
 XsltForms_typeDefs.XForms = {

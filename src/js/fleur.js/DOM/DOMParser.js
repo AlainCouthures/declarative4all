@@ -1216,7 +1216,11 @@ Fleur.DOMParser._appendFromString = function(node, s, mediatype, grammar) {
 		config[param[1]] = param[2];
 		i++;
 	}
-	handler = Fleur.DOMParser.Handlers[media[0].replace(/^\s+|\s+$/gm,'')];
+	var mime = media[0].replace(/^\s+|\s+$/gm,'');
+	if (mime.endsWith("+xml")) {
+		mime = "application/xml";
+	}
+	handler = Fleur.DOMParser.Handlers[mime];
 	if (!handler) {
 		return;
 	}

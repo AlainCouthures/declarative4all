@@ -8,21 +8,22 @@
  * @description 
  */
 Fleur.extension2contentType = {
-	'.css':  'text/css',
-	'.csv':  'text/csv',
-	'.gif':  'image/gif',
-	'.htm':  'text/html',
-	'.html': 'text/html',
-	'.ico':  'image/x-icon',
-	'.jpeg': 'image/jpeg',
-	'.jpg':  'image/jpeg',
-	'.js':   'application/javascript',
-	'.json': 'application/json',
-	'.png':  'image/png',
-	'.svg':  'image/svg+xml',
-	'.txt':  'text/plain',
-	'.xml':  'application/xml; charset=utf-8',
-	'.xsl':  'text/xsl'
+	'.css':   'text/css',
+	'.csv':   'text/csv',
+	'.gif':   'image/gif',
+	'.htm':   'text/html',
+	'.html':  'text/html',
+	'.ico':   'image/x-icon',
+	'.jpeg':  'image/jpeg',
+	'.jpg':   'image/jpeg',
+	'.js':    'application/javascript',
+	'.json':  'application/json',
+	'.png':   'image/png',
+	'.svg':   'image/svg+xml',
+	'.txt':   'text/plain',
+	'.xhtml': 'application/xhtml+xml',
+	'.xml':   'application/xml; charset=utf-8',
+	'.xsl':   'text/xsl'
 };
 
 Fleur.XPathFunctions_fn["doc#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:doc",
@@ -52,7 +53,7 @@ Fleur.XPathFunctions_fn["doc#2"] = new Fleur.Function("http://www.w3.org/2005/xp
 				req.open('GET', docname, true);
 				req.onload = function() {
 					if (req.status === 200) {
-						resolve({text: req.responseText, contenttype: req.getResponseHeader("Content-Type")});
+						resolve({text: req.responseText, contenttype: serialization ? contentType : req.getResponseHeader("Content-Type")});
 					} else {
 						reject(Fleur.error(ctx, "FODC0002"));
 			      	}
@@ -74,7 +75,7 @@ Fleur.XPathFunctions_fn["doc#2"] = new Fleur.Function("http://www.w3.org/2005/xp
 			if (!contentType) {
 				contentType = Fleur.extension2contentType[global.path.extname(docname).toLowerCase()] || "application/xml";
 			}
-			global.fs.readFile(docname, 'binary', function(err, file) {
+			global.fs.readFile(docname, 'utf8', function(err, file) {
 				if (err) {
 					callback(Fleur.error(ctx, "FODC0002"));
 				} else {

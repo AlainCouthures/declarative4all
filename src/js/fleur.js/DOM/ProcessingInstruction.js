@@ -15,10 +15,20 @@ Fleur.ProcessingInstruction.prototype = new Fleur.Node();
 Object.defineProperties(Fleur.ProcessingInstruction.prototype, {
 	nodeValue: {
 		set: function(value) {
-			this.data = value;
+			while (this.firstChild) {
+				this.removeChild(this.firstChild);
+			}
+			if (value !== "") {
+				this.appendChild(new Fleur.Text());
+				this.firstChild.data = value;
+			}
 		},
 		get: function() {
-			return this.data;
+			var _textContent = "", i = 0, li = this.childNodes.length;
+			while (i < li) {
+				_textContent += this.childNodes[i++].textContent;
+			}
+			return _textContent;
 		}
 	}
 });

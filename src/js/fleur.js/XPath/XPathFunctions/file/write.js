@@ -31,7 +31,7 @@ Fleur.XPathFunctions_file["write#3"] = new Fleur.Function("http://expath.org/ns/
 			contentType = Fleur.extension2contentType[global.path.extname(filename).toLowerCase()] || "application/xml";
 		}
 		var ser = new Fleur.Serializer();
-		global.fs.writeFile(filename, ser.serializeToString(node, contentType, indent), function(err) {
+		global.fs.writeFile(filename, ser.serializeToString(node, contentType, indent), 'utf8', function(err) {
 			if (err) {
 				callback(Fleur.error(ctx, "FODC0002"));
 			} else {

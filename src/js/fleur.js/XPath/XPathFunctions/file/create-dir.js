@@ -14,7 +14,7 @@ Fleur.XPathFunctions_file["create-dir#1"] = new Fleur.Function("http://expath.or
 			return;
 		}
 		global.fs.mkdir(dir, function(err) {
-			callback(!err);
+			callback(err ? err : null);
 		});
 	},
 	null, [{type: Fleur.Type_string}], false, true, {type: Fleur.EmptySequence});

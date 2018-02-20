@@ -225,7 +225,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.dynamicFunctionInvocationExpr] = function(ctx, 
 					convback(xf.jsfunc.apply(null, jsargs));
 				} else {
 					var currvarres = ctx.env.varresolver;
-					ctx.env.varresolver = new Fleur.varMgr([], ctx.env.globalvarresolver);
+					ctx.env.varresolver = new Fleur.varMgr([], xf.closurevarresolver || ctx.env.globalvarresolver);
 					effargs.forEach(function(effarg, iarg) {
 						ctx.env.varresolver.set(ctx, "", xf.argtypes[iarg].name, effarg);
 					});

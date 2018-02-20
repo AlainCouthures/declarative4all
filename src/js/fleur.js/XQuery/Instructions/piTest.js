@@ -8,5 +8,9 @@
  * @description 
  */
 Fleur.XQueryEngine[Fleur.XQueryX.piTest] = function(ctx, children, callback) {
-	Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.PROCESSING_INSTRUCTION_NODE ? Fleur.EmptySequence : ctx._curr);});
+	if (ctx._curr.nodeType !== Fleur.Node.PROCESSING_INSTRUCTION_NODE || (children.length === 1 && ctx._curr.target !== children[0][1][0])) {
+		Fleur.callback(function() {callback(Fleur.EmptySequence);});
+		return;
+	}
+	Fleur.callback(function() {callback(ctx._curr);});
 };

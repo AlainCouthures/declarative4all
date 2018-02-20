@@ -78,21 +78,22 @@ if (process.argv.length > 2) {
 } else {
 	const port = 81;
 	const contentTypesByExtension = {
-		'.css':  'text/css',
-		'.csv':  'text/csv',
-		'.gif':  'image/gif',
-		'.htm':  'text/html',
-		'.html': 'text/html',
-		'.ico':  'image/vnd.microsoft.icon',
-		'.jpeg': 'image/jpeg',
-		'.jpg':  'image/jpeg',
-		'.js':   'application/javascript',
-		'.json': 'application/json',
-		'.png':  'image/png',
-		'.svg':  'image/svg+xml',
-		'.txt':  'text/plain',
-		'.xml':  'application/xml; charset=utf-8',
-		'.xsl':  'text/xsl'
+		'.css':   'text/css',
+		'.csv':   'text/csv',
+		'.gif':   'image/gif',
+		'.htm':   'text/html',
+		'.html':  'text/html',
+		'.ico':   'image/vnd.microsoft.icon',
+		'.jpeg':  'image/jpeg',
+		'.jpg':   'image/jpeg',
+		'.js':    'application/javascript',
+		'.json':  'application/json',
+		'.png':   'image/png',
+		'.svg':   'image/svg+xml',
+		'.txt':   'text/plain',
+		'.xhtml': 'application/xhtml+xml',
+		'.xml':   'application/xml; charset=utf-8',
+		'.xsl':   'text/xsl'
 	};
 	global.http.createServer(function(request, response) {
 		var body, uri, method, context, newcontext, newuri, headers, filename, filestats, newfilename, isnewfile, putname, contentType, ifmodifiedsince, lastmodified;

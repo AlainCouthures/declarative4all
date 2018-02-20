@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>   
+		<title>Fleur Sample page</title>
+		<script type="text/javascript" src="js/fleur.js"></script>
+		<script type="application/xquery">
+			declare function local:listener($loc, $evtObj) {
+				b:alert(fn:serialize($evtObj, map{"indent": "yes"}))
+			};
+			b:addEventListener(b:dom()//body, "keydown", local:listener#2)
+		</script>
+	</head>
+	<body>
+		<h1>Event Object: KeyDown</h1>
+		<div>Press any key</div>
+	</body>
+</html>

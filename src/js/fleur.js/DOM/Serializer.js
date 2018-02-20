@@ -72,14 +72,14 @@ Fleur.Serializer._serializeXMLToString = function(node, indent, offset) {
 			}
 			return s + (indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? offset + "</" : "</") + node.nodeName + (indent ? ">\n" : ">");
 		case Fleur.Node.TEXT_NODE:
-			if (indent && node.data.match(/^[ \t\n\r]*$/) && node.parentNode.childNodes.length !== 1) {
+			if ((indent || (node.ownerDocument && node === node.ownerDocument.firstChild)) && node.data.match(/^[ \t\n\r]*$/) && node.parentNode.childNodes.length !== 1) {
 				return "";
 			}
 			return Fleur.Serializer.escapeXML(node.data);
 		case Fleur.Node.CDATA_NODE:
 			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
 		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
-			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.nodeValue + "?>\n";
+			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.nodeValue + "?>";
 		case Fleur.Node.COMMENT_NODE:
 			return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
 		case Fleur.Node.SEQUENCE_NODE:
@@ -209,6 +209,7 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 			}
 			return (indent ? offset : "") + "entry " + node.nodeName + " {" + Fleur.Serializer._serializeNodeToXQuery(node.firstChild, indent, offset + "  ") + "}" + postfix + (indent ? "\n" : "");
 		case Fleur.Node.TEXT_NODE:
+			var typeName = node.schemaTypeInfo ? node.schemaTypeInfo.typeName : "string";
 			if (tree) {
 				if (indent && node.data.match(/^[ \t\n\r]*$/) && node.parentNode.childNodes.length !== 1) {
 					return "";
@@ -240,7 +241,7 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 					fdata += ".0";
 				}
 			}
-			return (indent ? offset : "") + "xs:" + node.schemaTypeInfo.typeName + "(\"" + Fleur.Serializer.escapeXML(fdata, !indent, !indent).replace(/"/gm, "\"\"") + "\")" + postfix + (indent ? "\n" : "");
+			return (indent ? offset : "") + "xs:" + typeName + "(\"" + Fleur.Serializer.escapeXML(fdata, !indent, !indent).replace(/"/gm, "\"\"") + "\")" + postfix + (indent ? "\n" : "");
 		case Fleur.Node.CDATA_NODE:
 			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
 		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:

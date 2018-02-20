@@ -16,6 +16,7 @@
 		"move.js",
 		"name.js",
 		"path-separator.js",
+		"resolve-path.js",
 		"size.js",
 		"temp-dir.js",
 		"write.js"

@@ -17,7 +17,10 @@ Fleur.XQueryEngine[Fleur.XQueryX.forClauseItem] = function(ctx, children, callba
 	ctx.env.varresolver = resarr[0];
 	var cb = function(n) {
 		var posvalue;
-		if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+		if (n === Fleur.EmptySequence) {
+			Fleur.callback(function() {callback(Fleur.EmptySequence);});
+		}
+ 		if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
 			resarr[i].set(ctx, "", varname, n);
 			if (positionalVariableBinding !== 0) {
 				posvalue = new Fleur.Text();

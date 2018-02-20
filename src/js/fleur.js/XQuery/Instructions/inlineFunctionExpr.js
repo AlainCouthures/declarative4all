@@ -43,5 +43,6 @@ Fleur.XQueryEngine[Fleur.XQueryX.inlineFunctionExpr] = function(ctx, children, c
 		fbody = children[init + 1][0] === Fleur.XQueryX.functionBody ? children[init + 1][1][0] : null;
 	}
 	var f = new Fleur.Function(null, null, null, fbody, args, false, false, fret, updating);
+	f.closurevarresolver = ctx.env.varresolver;
 	Fleur.callback(function() {callback(f);});
 };

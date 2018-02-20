@@ -63,7 +63,6 @@ Fleur.XPathFunctions_fn["resolve-QName"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["resolve-uri"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["root"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["seconds-from-duration"] = function(ctx, children) {};
-Fleur.XPathFunctions_fn["serialize"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["static-base-uri"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["subsequence"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["timezone-from-date"] = function(ctx, children) {};

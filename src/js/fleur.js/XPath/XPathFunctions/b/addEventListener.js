@@ -28,7 +28,7 @@ Fleur.XPathFunctions_b["addEventListener#3"] = new Fleur.Function("http://xqib.o
 			evtelt.childNodes = new Fleur.NodeList();
 			evtelt.children = new Fleur.NodeList();
 			evtelt.textContent = "";
-			["screenX", "screenY", "clientX", "clientY", "button"].forEach(function(p) {
+			["screenX", "screenY", "clientX", "clientY", "button", "key", "ctrlKey", "shiftKey", "altKey", "metaKey"].forEach(function(p) {
 				var prop;
 				if (evt[p] !== null && evt[p] !== undefined) {
 					prop = new Fleur.Element();

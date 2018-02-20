@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="../../xsltforms/xsltforms.xsl" type="text/xsl"?>
+<?css-conversion no?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ev="http://www.w3.org/2001/xml-events"
+	xmlns:xforms="http://www.w3.org/2002/xforms"
+      >
+  <head>
+    <title>avg() function</title>
+    <link rel="stylesheet" href="../test-suite.css" type="text/css"/>
+    <model xmlns="http://www.w3.org/2002/xforms">
+      <instance>
+	<tests pass="" name="avg() function" xmlns="">
+	  <test pass="" res="" req="0">avg(<v>0</v>)</test>
+	  <test pass="" res="" req="0">avg(<v>0</v>, <v>0</v>, <v>0</v>, <v>0</v>)</test>
+	  <test pass="" res="" req="1">avg(<v>1</v>)</test>
+	  <test pass="" res="" req="4">avg(<v>2</v>, <v>6</v>)</test>
+	  <test pass="" res="" req="1.5">avg(<v>0</v>, <v>1</v>, <v>2</v>, <v>3</v>)</test>
+	  <test pass="" res="" req="5.5">avg(<v>1</v>, <v>2</v>, <v>3</v>, <v>4</v>, <v>5</v>, <v>6</v>, <v>7</v>, <v>8</v>, <v>9</v>, <v>10</v>)</test>
+	  <test pass="" res="" req="NaN">avg(<v>0</v>, <v>1</v>, <v>2</v>, <v>3</v>, <v>4</v>, <v>5</v>, <v></v>, <v>7</v>, <v>8</v>, <v>9</v>, <v>10</v>, <v>5</v>)</test>
+	  <test pass="" res="" req="NaN">avg(<v>0</v>, <v>0</v>, <v>foo</v>, <v>0</v>)</test>
+	  <test pass="" res="" req="NaN">avg(<v>0</v>, <v>0</v>, <v></v>, <v>0</v>)</test>
+	  <test pass="" res="" req="NaN">avg(<v></v>)</test>
+	  <test pass="" res="" req="NaN">avg()</test>
+	  <pass/>
+	</tests>
+      </instance>
+      <bind ref="test/@res" calculate="avg(../v)"/>
+      <bind ref="test/@pass" calculate="if(../@res = ../@req, 'yes', 'no')"/>
+      <bind ref="@pass" calculate="if(count(//test[@pass='no'])=0, 'PASS', 'FAIL')"/>
+    </model>
+  </head>
+  <body>
+    <group xmlns="http://www.w3.org/2002/xforms">
+      <label class="title"><output ref="@name"/></label>
+
+      <output class="block" ref="description"/>
+      
+      <output class="{@pass}" ref="@pass"/>
+
+      <repeat ref="test">
+	<output value="."/> → <output ref="@res"/> <output class="wrong" value="if(@pass!='yes', concat(' expected: ', @req), '')"/>
+      </repeat>
+    </group>    
+  </body>
+</html>

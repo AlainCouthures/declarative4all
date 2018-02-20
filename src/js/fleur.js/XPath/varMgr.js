@@ -26,7 +26,7 @@ Fleur.varMgr.prototype.get = function(ctx, vuri, vname) {
 		}
 		r = r.previous;
 	} while (r);
-	return Fleur.error(ctx, "XPST0008");
+	return Fleur.error(ctx, "XPST0008", "$" + (vuri && vuri !== '' ? vuri + ":" + vname : vname) + " is undefined");
 };
 Fleur.varMgr.prototype.set = function(ctx, vuri, vname, value) {
 	//console.log(vname + " := " + Fleur.Serializer._serializeNodeToXQuery(value, false, ""));

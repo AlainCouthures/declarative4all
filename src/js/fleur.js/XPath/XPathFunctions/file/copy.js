@@ -14,7 +14,7 @@ Fleur.XPathFunctions_file["copy#2"] = new Fleur.Function("http://expath.org/ns/f
 			return;
 		}
 		global.fs.copyFile(source, target, function(err) {
-			callback(!err);
+			callback(err ? err : null);
 		});
 	},
 	null, [{type: Fleur.Type_string}, {type: Fleur.Type_string}], false, true, {type: Fleur.EmptySequence});
