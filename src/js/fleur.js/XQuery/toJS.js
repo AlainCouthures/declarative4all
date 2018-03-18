@@ -145,6 +145,9 @@ Fleur.toContentType = function(o, def) {
 			case "xml":
 				s = "application/xml";
 				break;
+			case "json":
+				s = "application/json";
+				break;
 			default:
 				s = def;
 		}

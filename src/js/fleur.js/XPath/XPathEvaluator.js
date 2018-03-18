@@ -716,11 +716,14 @@ Fleur.XPathEvaluator._getPredParam = function(c, s, l, arg) {
 			r = "[Fleur.XQueryX.lookup,[[Fleur.XQueryX.integerConstantExpr,[[Fleur.XQueryX.value,['" + t1.replace(/e\+/, "e") + "']]]]]]";
 			t = (t1.length + 1) + "." + r;
 			plen = t1.length + 1;
-		} else if (c2 !== "" && "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz*".indexOf(c2) !== -1) {
+		} else if (c2 !== "" && "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".indexOf(c2) !== -1) {
 			t1 = Fleur.XPathEvaluator._getName(c2 + d);
 			r = "[Fleur.XQueryX.lookup,[[Fleur.XQueryX.NCName,['" + t1 + "']]]]";
 			t = (t1.length + 1) + "." + r;
 			plen = t1.length + 1;
+		} else if (c2 === "*") {
+			t = "2.[Fleur.XQueryX.lookup,[[Fleur.XQueryX.star,[]]]]";
+			plen = 2;
 		} else if (c2 === "(") {
 			t = Fleur.XPathEvaluator._xp2js(s.substr(i + 1), "", "5.999.(");
 			plen = s.length - parseInt(t.substr(0, t.indexOf(".")), 10) + 1 + i;
@@ -1134,6 +1137,23 @@ Fleur.XPathEvaluator._xp2js = function(xp, args, ops) {
 		var t51 = Fleur.XPathEvaluator._getName(d);
 		var pt51 = (t51.indexOf(":") === -1 ? ":" : "") + t51;
 		r = (t51.length + 1) + ".[Fleur.XQueryX.varRef,[[Fleur.XQueryX.name,['" + pt51.substr(pt51.indexOf(":") + 1) + "'" + (pt51.charAt(0) === ":" ? "" : ",[Fleur.XQueryX.prefix,['" + pt51.substr(0, pt51.indexOf(":")) + "']]") + "]]]]";
+	} else if (c === "?") {
+		var c2 = d.charAt(0);
+		d = d.substr(1);
+		var t52;
+		if (c2 !== "" && "0123456789".indexOf(c2) !== -1) {
+			t52 = Fleur.XPathEvaluator._getNumber(c2 + d);
+			r = String(t52.length) + ".[Fleur.XQueryX.unaryLookup,[[Fleur.XQueryX.integerConstantExpr,[[Fleur.XQueryX.value,['" + t52.replace(/e\+/, "e") + "']]]]]]";
+		} else if (c2 !== "" && "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".indexOf(c2) !== -1) {
+			t52 = Fleur.XPathEvaluator._getName(c2 + d);
+			r = String(t52.length) + ".[Fleur.XQueryX.unaryLookup,[[Fleur.XQueryX.NCName,['" + t52 + "']]]]";
+		} else if (c2 === "*") {
+			r = "1.[Fleur.XQueryX.unaryLookup,[[Fleur.XQueryX.star,[]]]]";
+		} else if (c2 === "(") {
+			t52 = Fleur.XPathEvaluator._xp2js(d, "", "5.999.(");
+			var plen52 = d.length - parseInt(t52.substr(0, t52.indexOf(".")), 10) + 1;
+			r = String(plen52) + "." + "[Fleur.XQueryX.unaryLookup,[[Fleur.XQueryX.expr,[" + t52.substr(t52.indexOf(".") + 1) + "]]]]";
+		}
 	} else if (c !== "" && "_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz*".indexOf(c) !== -1) {
 		var t61 = Fleur.XPathEvaluator._getName(c+d);
 		if (["element","attribute","entry","processing-instruction"].indexOf(t61) !== -1) {

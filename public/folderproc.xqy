@@ -4,7 +4,7 @@ declare function local:filesproc($items, $proc) {
 <html>
 	<body>
 		{
-			let $srcdir := file:resolve-path('/My Web Sites/XForms Test Suite/homepages.cwi.nl/_steven/forms/TestSuite')
+			let $srcdir := file:resolve-path('/My Web Sites/TestSuite')
 			let $destdir := file:resolve-path('/My Web Sites/NewCopy')
 			let $foldercount := 0
 			let $filecount := 0
@@ -13,7 +13,7 @@ declare function local:filesproc($items, $proc) {
 					let $d := (fn:trace(.),fn:doc(.))
 					return
 						(replace value of node $d/processing-instruction('xml-stylesheet')/text() with 'type="text/xsl" href="xsl/xsltforms.xsl"',
-						file:write(substring-before($destdir || fn:substring-after(., $srcdir), '.xhtml') || '.xml', $d))
+						file:write($destdir || fn:substring-after(., $srcdir), $d))
 				else file:copy(., $destdir || fn:substring-after(., $srcdir)),
 				replace value of node $filecount with $filecount + 1,
 				fn:trace((), xs:string($foldercount) || ' Folders, ' || xs:string($filecount) || ' Files')
@@ -29,10 +29,6 @@ declare function local:filesproc($items, $proc) {
 						$fileproc()
 				}),
 				'Finished!')
-				(:
-				(file:resolve-path('/My Web Sites/XForms Test Suite/homepages.cwi.nl/_steven/forms/TestSuite/functions/avg.xhtml') ! $fileproc(),
-				'Finished!')
-				:)
 		}
 	</body>
 </html>

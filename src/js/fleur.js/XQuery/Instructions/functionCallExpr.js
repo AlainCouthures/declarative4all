@@ -30,7 +30,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 		xf = Fleur.XPathFunctions[uri][fname + "#" + args.length] || Fleur.XPathFunctions[uri][fname];
 	}
 	if (!uri || !xf) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017", "Q{" + uri + "}" + fname + "#" + args.length));});
+		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017", "The expanded QName and number of arguments in a static function call do not match the name and arity of a function signature in the static context for Q{" + uri + "}" + fname + "#" + args.length));});
 		return;
 	}
 	if (xf.updating && !ctx.updater) {
@@ -51,6 +51,17 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 			} else {
 				var xqxarg = xqxargs.shift();
 				Fleur.XQueryEngine[xqxarg[0]](ctx, xqxarg[1], function(n) {
+					if (n.schemaTypeInfo === Fleur.Type_error) {
+						if (mainUpdater) {
+							Fleur.XQueryEngine.updating = false;
+							ctx.updater = false;
+							if (Fleur.XQueryEngine.updateQueue.length !== 0) {
+								setImmediate(Fleur.XQueryEngine.updateQueue.pop());
+							}
+						}
+						Fleur.callback(function() {callback(n);});
+						return;
+					}
 					if ((xf.argtypes && xf.argtypes[effargs.length].type === Fleur.Node) || (n && n.nodeType === Fleur.Node.SEQUENCE_NODE)) {
 						effargs.push(n);
 					} else if (xf.argtypes && xf.argtypes[effargs.length].type === Fleur.Type_handler) {
@@ -65,7 +76,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 		};
 		argscalc(args.slice(), [], function(effargs) {
 			var a = new Fleur.Text();
-			a.schemaTypeInfo = xf.restype ? xf.restype.type : null;
+			a.schemaTypeInfo = xf.restype && xf.restype.type !== Fleur.numericTypes ? xf.restype.type : null;
 			a.data = "";
 			if (xf.jsfunc) {
 				var jsargs = [];
@@ -118,6 +129,9 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 								} else {
 									subarr.push(effchild);
 								}
+								if (carg && carg.adaptative) {
+									subarr.push([subarr.pop(), effchild.schemaTypeInfo]);
+								}
 							}
 							jsargs.push(subarr);
 						} else if ((!carg && Fleur.numericTypes.indexOf(effarg.schemaTypeInfo) !== -1) || (carg && (carg.type === Fleur.numericTypes || Fleur.numericTypes.indexOf(carg.type) !== -1 || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION) || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)))) {
@@ -151,6 +165,9 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 						} else {
 							jsargs.push(effarg);
 						}
+						if (carg && carg.adaptative && effarg.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+							jsargs.push([jsargs.pop(), effarg.schemaTypeInfo]);
+						}
 					});
 				} catch (e) {
 					Fleur.callback(function() {callback(a);});
@@ -168,32 +185,39 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 						}
 					}
 					var convret = function(v) {
+						var t = null;
+						if (v instanceof Array) {
+							t = v[1];
+							v = v[0];
+						}
 						if (v === undefined || v === null) {
 							a = Fleur.EmptySequence;
-						} else if (v === Number.POSITIVE_INFINITY) {
+							return;
+						}
+						if (v === Number.POSITIVE_INFINITY) {
 							a.data = "INF";
 							if (!a.schemaTypeInfo) {
-								a.schemaTypeInfo = Fleur.Type_double;
+								a.schemaTypeInfo = t || Fleur.Type_double;
 							}
 						} else if (v === Number.NEGATIVE_INFINITY) {
 							a.data = "-INF";
 							if (!a.schemaTypeInfo) {
-								a.schemaTypeInfo = Fleur.Type_double;
+								a.schemaTypeInfo = t || Fleur.Type_double;
 							}
 						} else if (typeof v === "number" || typeof v === "boolean") {
-							a.data = String(v);
+							a.data = String(v).replace("e+", "e");
 							if (!a.schemaTypeInfo) {
-								a.schemaTypeInfo = typeof v === "number" ? Fleur.Type_double : Fleur.Type_boolean;
+								a.schemaTypeInfo = t || (typeof v === "number" ? Fleur.Type_double : Fleur.Type_boolean);
 							}
 						} else if (typeof v === "string") {
 							a.data = v;
 							if (!a.schemaTypeInfo) {
-								a.schemaTypeInfo = Fleur.Type_string;
+								a.schemaTypeInfo = t || Fleur.Type_string;
 							}
 						} else if (typeof v.getMonth === "function") {
 							var o = vret.getTimezoneOffset();
 							if (!a.schemaTypeInfo) {
-								a.schemaTypeInfo = Fleur.Type_datetime;
+								a.schemaTypeInfo = t || Fleur.Type_datetime;
 							}
 							if (a.schemaTypeInfo === Fleur.Type_date) {
 								a.data = ("000" + v.getFullYear()).slice(-4) + "-" + ("0" + (v.getMonth() + 1)).slice(-2) + "-" + ("0" + v.getDate()).slice(-2) + (o < 0 ? "+" : "-") + ("0" + Math.floor(Math.abs(o)/60)).slice(-2) + ":" + ("0" + Math.floor(Math.abs(o) % 60)).slice(-2);
@@ -203,19 +227,17 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 								a.data = ("000" + v.getFullYear()).slice(-4) + "-" + ("0" + (v.getMonth() + 1)).slice(-2) + "-" + ("0" + v.getDate()).slice(-2) + "T" + ("0" + v.getHours()).slice(-2) + ":" + ("0" + v.getMinutes()).slice(-2) + ":" + ("0" + v.getSeconds()).slice(-2) + "." + ("00" + v.getMilliseconds()).slice(-3) + (o < 0 ? "+" : "-") + ("0" + Math.floor(Math.abs(o)/60)).slice(-2) + ":" + ("0" + Math.floor(Math.abs(o) % 60)).slice(-2);
 							}
 						} else if (v instanceof Error) {
-							a.nodeType = Fleur.Node.TEXT_NODE;
-							a.schemaTypeInfo = Fleur.Type_error;
-							a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY");
+							a = Fleur.error(ctx, v.name, v.message);
 						} else if (v instanceof Fleur.Node || (Node && v instanceof Node)) {
 							a = v;
 						} else {
 							a.data = v;
 							if (!a.schemaTypeInfo) {
-								a.schemaTypeInfo = Fleur.Type_handler;
+								a.schemaTypeInfo = t || Fleur.Type_handler;
 							}
 						}
 					};
-					if (vret instanceof Array) {
+					if (vret instanceof Array && !xf.restype.adaptative) {
 						var seq = new Fleur.Sequence();
 						vret.forEach(function(v) {
 							a = new Fleur.Text();

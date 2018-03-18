@@ -7,45 +7,30 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["codepoints-to-string"] = function(ctx, children, callback) {
-	var s = "";
-	if (children.length !== 1) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		var a = Fleur.Atomize(n);
-		var i, l, code;
-		if (a.nodeType === Fleur.Node.SEQUENCE_NODE) {
-			for (i = 0, l = a.childNodes.length; i < l; i++) {
-				if (a.childNodes[i].schemaTypeInfo === Fleur.Type_integer) {
-					code = parseInt(a.childNodes[i].data, 10);
-					if (code < 0 || code > 65535) {
-						Fleur.callback(function() {callback(Fleur.error(ctx, "FOCH0001"));});
-						return;
+Fleur.XPathFunctions_fn["codepoints-to-string#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:codepoints-to-string",
+	function(arg) {
+		if (arg === null) {
+			return "";
+		}
+		if (arg instanceof Array) {
+			try {
+				return arg.reduce(function(a, v) {
+					if (v < 1 || v > 655535) {
+						var e = new Error("codepoints-to-string(): the input contains an integer that is not the codepoint of a valid XML character");
+						e.name = "FOCH0001";
+						throw e;
 					}
-					s += String.fromCodePoint(code);
-				} else {
-					Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
-					return;
-				}
-			}
-		} else {
-			if (a.schemaTypeInfo === Fleur.Type_integer) {
-				code = parseInt(a.data, 10);
-				if (code < 0 || code > 65535) {
-					Fleur.callback(function() {callback(Fleur.error(ctx, "FOCH0001"));});
-					return;
-				}
-				s = String.fromCodePoint(code);
-			} else {
-				Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
-				return;
+					return a + String.fromCodePoint(v);
+				}, "");
+			} catch(err) {
+				return err;
 			}
 		}
-		a = new Fleur.Text();
-		a.schemaTypeInfo = Fleur.Type_string;
-		a.data = s;
-		Fleur.callback(function() {callback(a);});
-	});
-};
+		if (arg < 1 || arg > 655535) {
+			var e = new Error("codepoints-to-string(): the input contains an integer that is not the codepoint of a valid XML character");
+			e.name = "FOCH0001";
+			return e;
+		}
+		return String.fromCodePoint(arg);
+	},
+	null, [{type: Fleur.Type_integer, occurence: "*"}], false, false, {type: Fleur.Type_string});

@@ -203,6 +203,16 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 				s += Fleur.Serializer._serializeNodeToXQuery(node.entries[i], indent, offset + "  ", false, i !== l - 1 ? ", " : "", true);
 			}
 			return s + "}" + postfix + (indent ? "\n" : "");
+		case Fleur.Node.ARRAY_NODE:
+			s = (indent ? offset : "") + "array {"; 
+			if (node.childNodes.length === 0) {
+				return s + "}" + (indent ? "\n" : "");
+			}
+			s += indent ? "\n" : "";
+			for (i = 0, l = node.childNodes.length; i < l; i++) {
+				s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset + "  ", false, i !== l - 1 ? "," : "");
+			}
+			return s + "}" + postfix + (indent ? "\n" : "");
 		case Fleur.Node.ENTRY_NODE:
 			if (inmap) {
 				return (indent ? offset : "") + "\"" + node.nodeName + "\": " + Fleur.Serializer._serializeNodeToXQuery(node.firstChild, indent, offset + "  ") + postfix + (indent ? "\n" : "");
@@ -217,7 +227,8 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 				return Fleur.Serializer.escapeXML(node.data, !indent, !indent);
 			}
 			if (node.schemaTypeInfo === Fleur.Type_error) {
-				return "fn:error(fn:QName(\"" + node.namespaceURI + "\", \"" + node.nodeName + "\")" + (node.textContent ? ",\"" + Fleur.Serializer.escapeXML(node.textContent, false, false).replace(/"/gm, "\"\"") + "\"" : "") + ")" + postfix;
+				var errmess = Fleur.noErrorMessage ? null : node.textContent;
+				return "fn:error(fn:QName(\"" + node.namespaceURI + "\", \"" + node.nodeName + "\")" + (errmess ? ",\"" + Fleur.Serializer.escapeXML(errmess, false, false).replace(/"/gm, "\"\"") + "\"" : "") + ")" + postfix;
 			}
 			if (node.schemaTypeInfo === Fleur.Type_QName) {
 				return "fn:QName(\"" + node.namespaceURI + "\", \"" + node.nodeName + "\")" + postfix;
@@ -1603,13 +1614,17 @@ Fleur.Serializer._serializeXQXToString = function(node) {
 	}
 };
 Fleur.Serializer.prototype.serializeToString = function(node, mediatype, indent) {
-	var media = mediatype.split(";"), config = {}, param, paramreg = /^\s*(\S*)\s*=\s*(\S*)\s*$/, i = 1, l = media.length, handler;
+	var media = mediatype.split(";"), config = {}, param, paramreg = /^\s*(\S*)\s*=\s*(\S*)\s*$/, i = 1, l = media.length, handler, mime;
 	while (i < l) {
 		param = paramreg.exec(media[i]);
 		config[param[1]] = param[2];
 		i++;
 	}
-	handler = Fleur.Serializer.Handlers[media[0].replace(/^\s+|\s+$/gm,'')];
+	mime = media[0].replace(/^\s+|\s+$/gm,'');
+	if (mime.endsWith("+xml") && mime !== "application/exml+xml") {
+		mime = "application/xml";
+	}
+	handler = Fleur.Serializer.Handlers[mime];
 	if (!handler) {
 		return "";
 	}

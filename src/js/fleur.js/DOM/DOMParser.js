@@ -1217,7 +1217,7 @@ Fleur.DOMParser._appendFromString = function(node, s, mediatype, grammar) {
 		i++;
 	}
 	var mime = media[0].replace(/^\s+|\s+$/gm,'');
-	if (mime.endsWith("+xml")) {
+	if (mime.endsWith("+xml") && mime !== "application/exml+xml") {
 		mime = "application/xml";
 	}
 	handler = Fleur.DOMParser.Handlers[mime];
@@ -1244,9 +1244,11 @@ Fleur.DOMParser.Handlers = {
 	 * @callback
 	 */
 	"application/json": function(node, s, config) {
-		eval("Fleur.DOMParser.json = " + s);
-		Fleur.DOMParser._appendFromJSON(node, Fleur.DOMParser.json);
-		delete Fleur.DOMParser.json;
+		try {
+			eval("Fleur.DOMParser.json = " + s);
+			Fleur.DOMParser._appendFromJSON(node, Fleur.DOMParser.json);
+			delete Fleur.DOMParser.json;
+		} catch (e) {}
 	},
 	/**
 	 * @callback

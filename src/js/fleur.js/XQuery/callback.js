@@ -7,7 +7,7 @@
  * @module 
  * @description 
  */
-Fleur.callback_period = 1000;
+Fleur.callback_period = 500;
 Fleur.callback_counter = 0;
 Fleur.callback = function(cb) {
 	if (Fleur.callback_counter === 0) {

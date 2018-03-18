@@ -7,34 +7,37 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["abs"] = function(ctx, children, callback) {
-	Fleur.XPathNumberFunction(ctx, children, Math.abs, function(a) {
-		switch (a.schemaTypeInfo) {
-			case Fleur.Types_XMLSchema["nonPositiveInteger"]:
-				return Fleur.Types_XMLSchema["nonNegativeInteger"];
-			case Fleur.Types_XMLSchema["negativeInteger"]:
-				return Fleur.Types_XMLSchema["positiveInteger"];
-			case Fleur.Types_XMLSchema["byte"]:
-				if (a.data === "128") {
-					return Fleur.Types_XMLSchema["short"];
-				}
-				return Fleur.Types_XMLSchema["byte"];
-			case Fleur.Types_XMLSchema["short"]:
-				if (a.data === "32768") {
-					return Fleur.Types_XMLSchema["int"];
-				}
-				return Fleur.Types_XMLSchema["short"];
-			case Fleur.Types_XMLSchema["int"]:
-				if (a.data === "2147483648") {
-					return Fleur.Types_XMLSchema["long"];
-				}
-				return Fleur.Types_XMLSchema["int"];
-			case Fleur.Types_XMLSchema["long"]:
-				if (a.data === "9223372036854775808") {
-					return Fleur.Types_XMLSchema["integer"];
-				}
-				return Fleur.Types_XMLSchema["long"];
+Fleur.XPathFunctions_fn["abs#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:abs",
+	function(arg) {
+		if (arg === null) {
+			return [null, null];
 		}
-		return a.schemaTypeInfo;
-	}, callback);
-};
+		var a = arg[0];
+		var t = arg[1];
+		var a2, t2;
+		a2 = Math.abs(a);
+		switch (t.getPrimitiveType([Fleur.Types_XMLSchema["nonPositiveInteger"], Fleur.Types_XMLSchema["negativeInteger"], Fleur.Types_XMLSchema["byte"], Fleur.Types_XMLSchema["short"], Fleur.Types_XMLSchema["int"], Fleur.Types_XMLSchema["long"]], Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+			case Fleur.Types_XMLSchema["nonPositiveInteger"]:
+				t2 = Fleur.Types_XMLSchema["nonNegativeInteger"];
+				break;
+			case Fleur.Types_XMLSchema["negativeInteger"]:
+				t2 = Fleur.Types_XMLSchema["positiveInteger"];
+				break;
+			case Fleur.Types_XMLSchema["byte"]:
+				t2 = a2 === 128 ? Fleur.Types_XMLSchema["short"] : Fleur.Types_XMLSchema["byte"];
+				break;
+			case Fleur.Types_XMLSchema["short"]:
+				t2 = a2 === 32768 ? Fleur.Types_XMLSchema["int"] : Fleur.Types_XMLSchema["short"];
+				break;
+			case Fleur.Types_XMLSchema["int"]:
+				t2 = a2 === 2147483648 ? Fleur.Types_XMLSchema["long"] : Fleur.Types_XMLSchema["int"];
+				break;
+			case Fleur.Types_XMLSchema["long"]:
+				t2 = a2 === 9223372036854775808 ? Fleur.Types_XMLSchema["integer"] : Fleur.Types_XMLSchema["long"];
+				break;
+			default:
+				t2 = t;
+		}
+		return [a2, t2];
+	},
+	null, [{type: Fleur.numericTypes, adaptative: true, occurence: "?"}], false, false, {type: Fleur.numericTypes, adaptative: true, occurence: "?"});

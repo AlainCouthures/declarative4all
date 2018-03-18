@@ -70,6 +70,7 @@
 		"stepExpr.js",
 		"stringConstantExpr.js",
 		"textTest.js",
+		"unaryLookup.js",
 		"uri.js",
 		"varRef.js",
 		"version.js",

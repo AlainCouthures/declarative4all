@@ -30,6 +30,7 @@
 		</xf:model>
 		<script type="text/javascript">
 			var parser = new Fleur.DOMParser();
+			Fleur.noErrorMessage = true;
 			function escapeJS(text) {
 				if (!text) {
 					return "";

@@ -7,8 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["compare"] = function(ctx, children, callback) {
-	Fleur.XPathStringContentFunction(ctx, children, true, function(a, b) {
-		return a === b ? 0 : a < b ? -1 : 1;
-	}, Fleur.Type_integer, callback);
-};
+Fleur.XPathFunctions_fn["compare#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:compare",
+	function(comparand1, comparand2) {
+		return comparand1 === null || comparand2 === null ? null : comparand1 === comparand2 ? 0 : comparand1 < comparand2 ? -1 : 1;
+	},
+	null, [{type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Type_string, occurence: "?"}], false, false, {type: Fleur.Type_integer, occurence: "?"});

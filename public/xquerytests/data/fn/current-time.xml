@@ -69,7 +69,7 @@
     <description> Evaluates The "current-time" function invoked with incorrect arity. </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:current-time("Argument 1")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>

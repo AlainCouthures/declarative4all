@@ -7,47 +7,47 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["avg"] = function(ctx, children, callback) {
-	if (children.length !== 1) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		var sum = 0, val, t = 0, l = 1, a;
-		if (n === Fleur.EmptySequence || n.schemaTypeInfo === Fleur.Type_error) {
-			Fleur.callback(function() {callback(n);});
-			return;
+Fleur.XPathFunctions_fn["avg#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:avg",
+	function(arg) {
+		if (arg === null) {
+			return [null, null];
 		}
-		if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-			a = Fleur.Atomize(n);
-			val = Fleur.toJSNumber(a);
-			t = val[0];
-			if (t < 0) {
-				sum = NaN;
-				t = 0;
-			} else {
-				sum = val[1];
-			}
-		} else {
-			var items = n.childNodes.slice(0);
-			var i;
-			i = 0;
-			l = items.length;
-			t = 3;
-			while (i < l) {
-				n = items[i];
-				a = Fleur.Atomize(n);
-				val = Fleur.toJSNumber(a);
-				if (val[0] < 0) {
-					sum = NaN;
-					break;
+		if (arg[0] instanceof Array) {
+			var r = arg.reduce(function(p, c) {
+				var rt;
+				if (c[1] === Fleur.Type_untypedAtomic) {
+					c[1] = Fleur.Type_double;
 				}
-				sum += val[1];
-				i++;
+				if (p[1]) {
+					rt = p[1].compareType(c[1], Fleur.TypeInfo.DERIVATION_RESTRICTION);
+					if (!rt) {
+						if (p[1].isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || c[1].isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+							if (p[1].isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION) || c[1].isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+								rt = Fleur.Type_double;
+							} else {
+								rt = Fleur.Type_float;
+							}
+						} else {
+							rt = Fleur.Type_double;
+						}
+					}
+				} else {
+					rt = c[1];
+				}
+				return [p[0] + c[0], rt];
+			}, [0, null]);
+			var v = r[0] / arg.length;
+			var t = r[1];
+			if (t.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+				if (v !== Math.floor(v)) {
+					t = Fleur.Type_decimal;
+				}
 			}
+			return [v, t];
 		}
-		a.data = ("" + (sum / l)).replace("e+", "e");
-		a.schemaTypeInfo = Fleur.numericTypes[t];
-		Fleur.callback(function() {callback(a);});
-	});
-};
+		if (arg[1] === Fleur.Type_untypedAtomic) {
+			arg[1] = Fleur.Type_double;
+		}
+		return arg;
+	},
+	null, [{type: Fleur.numericTypes, adaptative: true, occurence: "*"}], false, false, {type: Fleur.numericTypes, adaptative: true, occurence: "?"});

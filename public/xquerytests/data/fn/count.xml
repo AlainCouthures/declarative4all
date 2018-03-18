@@ -357,7 +357,7 @@
     <description> A test whose essence is: `count()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -366,7 +366,7 @@
     <description> A test whose essence is: `count(1, ())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(1, ())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -519,7 +519,7 @@
     <description> fn:count() doesn't implicitly get the context node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1 to 10)/count()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -679,7 +679,7 @@
     <description> test fn:count on a range </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <test>fn:count(1 to 10000)</test>
-    <result-string>xs:string("10000")</result-string>
+    <result-string>xs:integer("10000")</result-string>
     <result>
       <assert-string-value>10000</assert-string-value>
     </result>
@@ -689,7 +689,7 @@
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:generate($arg as xs:integer?) { if ($arg = 0) then (1, 2, 3) else $arg }; fn:count( ( (), local:generate( () ), local:generate( 0 ), (1 to 10000), local:generate( () ), local:generate(1)) )</test>
-    <result-string>xs:string("10004")</result-string>
+    <result-string>xs:integer("10004")</result-string>
     <result>
       <assert-string-value>10000004</assert-string-value>
     </result>

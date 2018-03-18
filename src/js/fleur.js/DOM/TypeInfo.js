@@ -46,6 +46,9 @@ Fleur.TypeInfo.prototype.isDerivedFrom = function(typeNamespaceArg, typeNameArg,
 			propname = "list";
 			break;
 	}
+	if (this === typeArg) {
+		return true;
+	}
 	t = this[propname];
 	while (t) {
 		if (t === typeArg) {
@@ -54,4 +57,68 @@ Fleur.TypeInfo.prototype.isDerivedFrom = function(typeNamespaceArg, typeNameArg,
 		t = t[propname];
 	}
 	return false;
+};
+Fleur.TypeInfo.prototype.getPrimitiveType = function(types, derivationMethod) {
+	var propname, t, prim;
+	switch (derivationMethod) {
+		case Fleur.TypeInfo.DERIVATION_RESTRICTION:
+			propname = "restriction";
+			break;
+		case Fleur.TypeInfo.DERIVATION_EXTENSION:
+			propname = "extension";
+			break;
+		case Fleur.TypeInfo.DERIVATION_UNION:
+			propname = "union";
+			break;
+		case Fleur.TypeInfo.DERIVATION_LIST:
+			propname = "list";
+			break;
+	}
+	if (types.indexOf(this) !== -1) {
+		return this;
+	}
+	prim = this;
+	t = this[propname];
+	while (t) {
+		if (types.indexOf(t) !== -1) {
+			return t;
+		}
+		prim = t;
+		t = t[propname];
+	}
+	return prim;
+};
+Fleur.TypeInfo.prototype.compareType = function(typeArg, derivationMethod) {
+	var propname, t;
+	switch (derivationMethod) {
+		case Fleur.TypeInfo.DERIVATION_RESTRICTION:
+			propname = "restriction";
+			break;
+		case Fleur.TypeInfo.DERIVATION_EXTENSION:
+			propname = "extension";
+			break;
+		case Fleur.TypeInfo.DERIVATION_UNION:
+			propname = "union";
+			break;
+		case Fleur.TypeInfo.DERIVATION_LIST:
+			propname = "list";
+			break;
+	}
+	var arr = [this];
+	t = this[propname];
+	while (t) {
+		if (t === typeArg) {
+			return typeArg;
+		}
+		arr.push(t);
+		t = t[propname];
+	}
+	t = typeArg;
+	while (t) {
+		if (arr.indexOf(t) !== -1) {
+			return t;
+		}
+		t = t[propname];
+	}
+	return null;
 };

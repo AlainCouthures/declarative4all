@@ -71,11 +71,19 @@ Fleur._Atomize = function(a, n, force) {
 			a.appendChild(Fleur._Atomize(null, n.firstChild));
 			return a;
 		case Fleur.Node.SEQUENCE_NODE:
+			if (force) {
+				var seq = new Fleur.Sequence();
+				seq.childNodes = new Fleur.NodeList();
+				n.childNodes.forEach(function(n3) {
+					seq.appendChild(Fleur._Atomize(null, n3));
+				});
+				return seq;
+			}
 			a = new Fleur.Text();
 			a.data = "";
 			var nextsep = "";
 			for (i = 0, l = n.childNodes.length; i < l; i++) {
-				n2 = Fleur._Atomize(a, n.childNodes[i]);
+				n2 = Fleur._Atomize(a, n.childNodes[i], n.childNodes[i].nodeType === Fleur.Node.ENTRY_NODE ? true : force);
 				if (n2.schemaTypeInfo === Fleur.Type_error || n2.nodeName !== "#text") {
 					return n2;
 				}
@@ -112,5 +120,5 @@ Fleur._Atomize = function(a, n, force) {
 	}
 };
 Fleur.Atomize = function(n, force) {
-	return n === Fleur.EmptySequence ? Fleur.EmptySequence : Fleur._Atomize(null, n, force);
+	return n === Fleur.EmptySequence ? Fleur.EmptySequence : Fleur._Atomize(null, n, n.nodeType === Fleur.Node.ENTRY_NODE ? true : force);
 };

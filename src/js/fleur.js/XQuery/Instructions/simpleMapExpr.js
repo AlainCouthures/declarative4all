@@ -10,13 +10,18 @@
 Fleur.XQueryEngine[Fleur.XQueryX.simpleMapExpr] = function(ctx, children, callback) {
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
 		//console.log("simpleMapExpr - " + Fleur.Serializer._serializeNodeToXQuery(n, false, ""));
-		var subcurr, next, last, pos, result = Fleur.EmptySequence;
+		var subcurr, next, last, pos = 1, result = Fleur.EmptySequence;
 		if (n === Fleur.EmptySequence || n.schemaTypeInfo === Fleur.Type_error) {
 			Fleur.callback(function() {callback(n);});
 			return;
 		}
 		next = n;
-		if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
+		if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+			next = new Fleur.Sequence();
+			next.childNodes = new Fleur.NodeList();
+			for (var i = 0, l = n.childNodes.length; i < l; i++) {
+				next.appendChild(n.childNodes[i]);
+			}
 			last = next.childNodes.length;
 			subcurr = next.childNodes.shift();
 			if (next.childNodes.length === 1) {
@@ -28,7 +33,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.simpleMapExpr] = function(ctx, children, callba
 			last = 1;
 		}
 		var cb = function(n) {
-			//console.log("simpleMapExpr - cb - " + Fleur.Serializer._serializeNodeToXQuery(n, false, "") + (eob ? " - " + (eob === Fleur.XQueryX.simpleMapExpr ? "simpleMapExpr" : eob) : ""));
+			//console.log("simpleMapExpr - cb - " + Fleur.Serializer._serializeNodeToXQuery(n, false, ""));
 			if (n !== Fleur.EmptySequence) {
 				if (result === Fleur.EmptySequence) {
 					result = n;

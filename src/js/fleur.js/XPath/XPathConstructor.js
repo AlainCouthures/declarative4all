@@ -19,7 +19,7 @@ Fleur.XPathConstructor = function(ctx, children, schemaType, stringreg, others, 
 			return;
 		}
 		if (a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-			if (!a.data || (stringreg && !(stringreg.test(a.data)))) {
+			if (!a.hasOwnProperty("data") || (stringreg && !(stringreg.test(a.data)))) {
 				Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0001"));});
 				return;
 			}
@@ -59,7 +59,7 @@ Fleur.XPathStringFunction = function(ctx, children, f, schemaTypeInfo, callback)
 			a.schemaTypeInfo = Fleur.Type_string;
 		}
 		if (a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-			a.data = "" + f(a.data);
+			a.data = String(f(a.data));
 			if (schemaTypeInfo) {
 				a.schemaTypeInfo = schemaTypeInfo;
 			}
@@ -239,7 +239,7 @@ Fleur.XPathTestOpFunction = function(ctx, children, f, callback) {
 
 Fleur.XPathGenTestOpFunction = function(ctx, children, f, callback) {
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var a1 = Fleur.Atomize(n);
+		var a1 = Fleur.Atomize(n, true);
 		if (a1 === Fleur.EmptySequence || a1.schemaTypeInfo === Fleur.Type_error) {
 			Fleur.callback(function() {callback(a1);});
 			return;
@@ -260,7 +260,7 @@ Fleur.XPathGenTestOpFunction = function(ctx, children, f, callback) {
 			}
 		}
 		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-			var a2 = Fleur.Atomize(n);
+			var a2 = Fleur.Atomize(n, true);
 			var i1, res = false, b, l;
 			if (a2 === Fleur.EmptySequence || a2.schemaTypeInfo === Fleur.Type_error) {
 				Fleur.callback(function() {callback(a2);});
@@ -303,7 +303,7 @@ Fleur.XPathGenTestOpFunction = function(ctx, children, f, callback) {
 				}
 			} while(a1 !== Fleur.EmptySequence)
 			a1 = new Fleur.Text();
-			a1.data = "" + res;
+			a1.data = String(res);
 			a1.schemaTypeInfo = Fleur.Type_boolean;
 			Fleur.callback(function() {callback(a1);});
 		});
@@ -326,7 +326,7 @@ Fleur.XPathFromDateTimeFunction = function(ctx, children, t1, r, t2, callback) {
 			return;
 		}
 		a.schemaTypeInfo = t2;
-		a.data = "" + (t2 === Fleur.Type_integer ? parseInt(a.data.match(r)[1], 10) : parseFloat(a.data.match(r)[1]));
+		a.data = String(t2 === Fleur.Type_integer ? parseInt(a.data.match(r)[1], 10) : parseFloat(a.data.match(r)[1]));
 		Fleur.callback(function() {callback(a);});
 	});
 };

@@ -2066,7 +2066,7 @@
            else if ((abs($x)) instance of xs:decimal) then "decimal" 
            else if ((abs($x)) instance of xs:float) then "float"
            else if ((abs($x)) instance of xs:double) then "double" else error(), " ")</test>
-    <result-string>xs:string(""integer decimal float double"")</result-string>
+    <result-string>xs:string("integer decimal float double")</result-string>
     <result>
       <assert-eq>"integer decimal float double"</assert-eq>
     </result>
