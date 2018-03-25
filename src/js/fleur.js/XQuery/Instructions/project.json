@@ -2,6 +2,7 @@
 	"Components":[
 		"anyKindTest.js",
 		"arrayTest.js",
+		"arrayConstructor.js",
 		"atomicType.js",
 		"attributeConstructor.js",
 		"attributeList.js",

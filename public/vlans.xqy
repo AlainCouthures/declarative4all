@@ -31,10 +31,10 @@ let $switches := ("BDX-LT3-SW-01",
 				"BDX-LT9-SW-01",
 				"BDX-LT12-SW-01")
 let $v := (for $switch in $switches
-  return doc('public/aruba/' || $switch || '_vlans.json')/map()?vlan_element/array()/map()?name ! xs:string(.))
+  return doc('public/aruba/' || $switch || '_vlans.json')?vlan_element?*?name ! xs:string(.))
 return sort(distinct-values($v))[starts-with(., 'BDX-')] ! <tr><td>{.}</td><td>{
 	let $vl := .
-	return $switches[doc('public/aruba/' || . || '_vlans.json')/map()?vlan_element/array()/map()?name[text() eq $vl]] ! (xs:string(.), <br/>)
+	return $switches[doc('public/aruba/' || . || '_vlans.json')?vlan_element?*?name[. eq $vl]] ! (xs:string(.), <br/>)
 }</td></tr>
 		}
 		</table>

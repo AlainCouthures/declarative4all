@@ -771,6 +771,10 @@ Fleur.XPathEvaluator._getPredParam = function(c, s, l, arg) {
 					var cargs2 = cargs.substr(0, 26) === "[Fleur.XQueryX.arguments,[" ? cargs.substr(26, cargs.length - 28) : cargs;
 					p = plen + "." + "[Fleur.XQueryX.mapConstructor,[" + cargs2 + "]]";
 					break;
+				case "'array'":
+					var cargs3 = cargs.substr(0, 26) === "[Fleur.XQueryX.arguments,[" ? cargs.substr(26, cargs.length - 28) : cargs;
+					p = plen + "." + "[Fleur.XQueryX.arrayConstructor,[" + cargs3 + "]]";
+					break;
 				case "'entry'":
 					p = plen + "." + "[Fleur.XQueryX.computedEntryConstructor,[[Fleur.XQueryX.tagNameExpr,[" + cargs + "]]]]";
 					break;

@@ -87,7 +87,7 @@
     <description> Evaluates The "day-from-date" function used as arguments to an avg function . </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:avg((fn:day-from-date(xs:date("1999-12-31Z")),fn:day-from-date(xs:date("1999-12-29Z"))))</test>
-    <result-string>xs:double("3.0e1")</result-string>
+    <result-string>xs:integer("30")</result-string>
     <result>
       <assert-string-value>30</assert-string-value>
     </result>

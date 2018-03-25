@@ -83,10 +83,12 @@ Fleur.Type_regex = Fleur.Types["http://www.agencexml.com/fleur"]["regex"];
 new Fleur.TypeInfo("http://www.agencexml.com/fleur", "handler");
 Fleur.Type_handler = Fleur.Types["http://www.agencexml.com/fleur"]["handler"];
 
-Fleur.Types["http://www.agencexml.com/fleur/io"] = {};
-new Fleur.TypeInfo("http://www.agencexml.com/fleur/io", "ipv4", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_string);
-Fleur.Type_ipv4 = Fleur.Types["http://www.agencexml.com/fleur/io"]["ipv4"];
-new Fleur.TypeInfo("http://www.agencexml.com/fleur/io", "port", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].unsignedShort);
-Fleur.Type_port = Fleur.Types["http://www.agencexml.com/fleur/io"]["port"];
+Fleur.Types["https://tools.ietf.org/rfc/index"] = {};
+new Fleur.TypeInfo("https://tools.ietf.org/rfc/index", "ipv4", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_string);
+Fleur.Type_ipv4 = Fleur.Types["https://tools.ietf.org/rfc/index"]["ipv4"];
+new Fleur.TypeInfo("https://tools.ietf.org/rfc/index", "mac", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_string);
+Fleur.Type_mac = Fleur.Types["https://tools.ietf.org/rfc/index"]["mac"];
+new Fleur.TypeInfo("https://tools.ietf.org/rfc/index", "port", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].unsignedShort);
+Fleur.Type_port = Fleur.Types["https://tools.ietf.org/rfc/index"]["port"];
 
 Fleur.numericTypes = [Fleur.Type_integer, Fleur.Type_decimal, Fleur.Type_float, Fleur.Type_double];

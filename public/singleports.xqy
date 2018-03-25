@@ -16,21 +16,20 @@
 	</head>
 	<body>
 		{
-let $switches := ("BDX-LT3-SW-01",
-				"BDX-LT3-1-SW-01",
-				"BDX-LT5-SW-01",
-				"BDX-LT6-SW-01",
-				"BDX-LT6-1-SW-01",
-				"BDX-LT7-SW-01",
-				"BDX-LT8-SW-01",
-				"BDX-LT9-SW-01",
-				"BDX-LT12-SW-01")
+let $pcs := fn:doc('../private/collect.json')?*
+let $switches := fn:doc('public/aruba/switches.json')?*
 for $switch in $switches
-let $vps := doc('public/aruba/' || $switch || '_vlans-ports.json')/map()?vlan_port_element/array()
-let $macs := doc('public/aruba/' || $switch || '_mac-table.json')/map()?mac_table_entry_element/array()
-let $trk := $vps/map()[.?port_mode eq 'POM_TAGGED_STATIC'] ! .?port_id/text()
-for $port in $vps/map()[not(.?port_id = $trk)] ! .?port_id/text()
-return ($switch || ' ' || $port || ' ' || ($macs/map()[.?port_id eq $port] ! .?mac_address/text()), <br/>)
+let $vps := doc('public/aruba/' || local-name($switch) || '_vlans-ports.json')?vlan_port_element?*
+let $macs := doc('public/aruba/' || local-name($switch) || '_mac-table.json')?mac_table_entry_element?*
+let $trk := $vps[?port_mode eq 'POM_TAGGED_STATIC'] ! xs:string(?port_id)
+for $port in $vps[not(?port_id = $trk)] ! ?port_id
+return (local-name($switch) || ' ' || $port || ' ' || (
+	let $portmacs := $macs[?port_id eq $port] ! ietf:mac(?mac_address)
+	return if ($portmacs) then (
+		for $portmac in $portmacs
+		return local-name($pcs[ietf:mac(?mac) eq $portmac])
+	) else ()
+), <br/>)
 		}
 	</body>
 </html>

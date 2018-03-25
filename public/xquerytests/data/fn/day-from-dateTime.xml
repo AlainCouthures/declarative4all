@@ -60,7 +60,7 @@
     <description> Evaluates The "day-from-dateTime" function used as an argument to an "avg" function. </description>
     <created by="Carmelo Montanez" on="2005-08-06"/>
     <test>fn:avg((fn:day-from-dateTime(xs:dateTime("1996-12-10T12:00:00Z")),fn:day-from-dateTime(xs:dateTime("2000-12-20T12:00:00Z"))))</test>
-    <result-string>xs:double("1.5e1")</result-string>
+    <result-string>xs:integer("15")</result-string>
     <result>
       <assert-string-value>15</assert-string-value>
     </result>

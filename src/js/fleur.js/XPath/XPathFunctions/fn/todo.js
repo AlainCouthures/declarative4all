@@ -70,7 +70,6 @@ Fleur.XPathFunctions_fn["timezone-from-dateTime"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["timezone-from-time"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["tokenize"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["transform"] = function(ctx, children) {};
-Fleur.XPathFunctions_fn["translate"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["unparsed-text-available"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["unparsed-text-lines"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["uri-collection"] = function(ctx, children) {};

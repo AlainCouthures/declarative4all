@@ -35,7 +35,7 @@
     <description> Evaluates The "data" function with the arguments set as follows: $arg = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:data((xs:int("-1873914410")))</test>
-    <result-string>xs:integer("-1873914410")</result-string>
+    <result-string>xs:int("-1873914410")</result-string>
     <result>
       <assert-eq>-1873914410</assert-eq>
     </result>

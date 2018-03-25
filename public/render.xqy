@@ -16,6 +16,7 @@
 	</head>
 	{
 		let $m := fn:doc('../private/collect.json')?*
+		let $vlans := fn:doc('public/aruba/vlans.json')?*
 		return <body>
 			<p>{
 				fn:format-dateTime(file:last-modified('../private/collect.json'), '[h01]:[m01]:[s01] [D]/[M]/[Y,2-2]') || ' - ' || fn:count($m) || ' ordinateurs dans l''inventaire'
@@ -44,9 +45,9 @@
 					fn:sort($m[?ip eq ''] ! local-name())
 				}</td></tr>
 				{
-				for $v in ('16','17','18','19','23','24')
-				return <tr><td>{$v}</td><td>{
-					fn:sort($m[starts-with(?ip, '172.' || $v)] ! local-name())
+				for $v in $vlans
+				return <tr><td style="white-space: nowrap;">{local-name($v)}</td><td>{
+					fn:sort($m[ietf:on-subnet(ietf:ipv4(?ip),ietf:ipv4($v?mask),ietf:ipv4($v?subnet))] ! local-name())
 				}</td></tr>
 			}</table>
 			<h1>R&eacute;partition Spectre-Meltdown</h1>

@@ -7,16 +7,14 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["data"] = function(ctx, children, callback) {
-	if (children.length === 0) {
-		Fleur.callback(function() {callback(Fleur.Atomize(ctx._curr));});
-		return;
-	}
-	if (children.length !== 1) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		Fleur.callback(function() {callback(Fleur.Atomize(n));});
-	});
-};
+Fleur.XPathFunctions_fn["data#0"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:data",
+	function(ctx) {
+		return Fleur.XPathFunctions_fn["data#1"].jsfunc(ctx._curr);
+	},
+	null, [], true, false, {type: Fleur.Node, occurence: "*"});
+
+Fleur.XPathFunctions_fn["data#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:data",
+	function(arg) {
+		return Fleur.Atomize(arg, true);
+	},
+	null, [{type: Fleur.Node, occurence: "*"}], true, false, {type: Fleur.Node, occurence: "*"});

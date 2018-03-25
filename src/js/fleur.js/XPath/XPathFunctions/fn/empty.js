@@ -7,19 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["empty"] = function(ctx, children, callback) {
-	if (children.length !== 1) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		if (n.schemaTypeInfo === Fleur.Type_error) {
-			Fleur.callback(function() {callback(n);});
-			return;
-		}
-		var result = new Fleur.Text();
-		result.data = "" + (n === Fleur.EmptySequence);
-		result.schemaTypeInfo = Fleur.Type_boolean;
-		Fleur.callback(function() {callback(result);});
-	});
-};
+Fleur.XPathFunctions_fn["empty#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:empty",
+	function(arg) {
+		return arg === Fleur.EmptySequence;
+	},
+	null, [{type: Fleur.Node, occurence: "*"}], false, false, {type: Fleur.Type_boolean});

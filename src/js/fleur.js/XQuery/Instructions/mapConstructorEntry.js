@@ -21,6 +21,9 @@ Fleur.XQueryEngine[Fleur.XQueryX.mapConstructorEntry] = function(ctx, children, 
 				if (n === Fleur.EmptySequence) {
 					Fleur.callback(function() {callback(Fleur.EmptySequence);});
 				} else {
+					if (n.nodeType === Fleur.Node.ENTRY_NODE) {
+						n = n.cloneNode(true).childNodes[0];
+					}
 					entry.appendChild(n);
 					Fleur.callback(function() {callback(entry);});
 				}

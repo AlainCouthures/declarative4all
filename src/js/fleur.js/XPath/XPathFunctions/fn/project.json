@@ -76,6 +76,7 @@
 		"sum.js",
 		"tail.js",
 		"trace.js",
+		"translate.js",
 		"true.js",
 		"unordered.js",
 		"unparsed-text.js",
