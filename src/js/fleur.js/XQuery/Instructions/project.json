@@ -50,6 +50,7 @@
 		"mapTest.js",
 		"module.js",
 		"moduleImport.js",
+		"multidimExpr.js",
 		"namedFunctionRef.js",
 		"namespaceDecl.js",
 		"namespaceDeclaration.js",

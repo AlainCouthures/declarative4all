@@ -52,7 +52,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.insertExpr] = function(ctx, children, callback)
 							}
 							break;
 						case Fleur.Node.MAP_NODE:
-							target.setEntryNode(tnode);
+							target.setEntryNode(tnode.copyNode());
 							break;
 					}
 				}

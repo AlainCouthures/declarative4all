@@ -7,23 +7,11 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["zero-or-one"] = function(ctx, children, callback) {
-	if (children.length !== 1) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		if (n !== Fleur.EmptySequence && n.nodeType === Fleur.Node.SEQUENCE_NODE) {
-			var err = Fleur.error(ctx, "FORG0003");
-			var result = err;
-			n.childNodes.forEach(function(c) {
-				if (c.schemaTypeInfo === Fleur.Type_error && result === err) {
-					result = c;
-				}
-			});
-			Fleur.callback(function() {callback(result);});
-		} else {
-			Fleur.callback(function() {callback(n);});
+Fleur.XPathFunctions_fn["zero-or-one#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:zero-or-one",
+	function(arg, ctx) {
+		if (arg.nodeType === Fleur.Node.SEQUENCE_NODE && arg.childNodes && arg.childNodes.length > 1) {
+			return Fleur.error(ctx, "FORG0003");
 		}
-	});
-};
+		return arg;
+	},
+	null, [{type: Fleur.Node, occurence: "*"}], true, false, {type: Fleur.Node});

@@ -162,7 +162,11 @@ if ((new Function("try {return this === window;} catch(e) {return false;}"))()) 
 				lastmodified = (new Date()).toUTCString();
 				headers["Last-Modified"] = lastmodified;
     			var doc = new Fleur.Document();
-				doc.evaluate(file, null, {request: {query: global.url.parse(request.url).query}}).then(
+				var reqeval = {request: {headers: request.headers, query: global.url.parse(request.url).query}};
+    			if (body !== "") {
+    				reqeval.request.body = body;
+    			}
+				doc.evaluate(file, null, reqeval).then(
 					function(res) {
 						headers["Content-Type"] = res.mediatype;
 						response.writeHead(200, headers);
@@ -223,6 +227,14 @@ if ((new Function("try {return this === window;} catch(e) {return false;}"))()) 
 								}
 								lastmodified = filestats.mtime.toUTCString();
 								global.fs.readFile(filename, 'binary', sendfile);
+							}
+							break;
+						case 'POST':
+							if (filename.endsWith('.xqy')) {
+								global.fs.readFile(filename, 'binary', execfile);
+							} else {
+								response.writeHead(405, {'Content-Type': 'text/plain'});
+								response.end('405 Method Not Allowed');
 							}
 							break;
 						default:

@@ -23,9 +23,15 @@ Fleur.XQueryEngine[Fleur.XQueryX.computedElementConstructor] = function(ctx, chi
 			if (a.nodeType !== Fleur.Node.TEXT_NODE) {
 				Fleur.callback(function() {callback(a);});
 			} else {
-				elt.nodeName = a.data;
-				elt.namespaceURI = null;
-				elt.localName = a.data;
+				if (a.schemaTypeInfo === Fleur.Type_QName) {
+					elt.nodeName = a.nodeName;
+					elt.namespaceURI = a.namespaceURI;
+					elt.localName = a.localName;
+				} else {
+					elt.nodeName = a.data;
+					elt.namespaceURI = null;
+					elt.localName = a.data;
+				}
 				Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
 					elt.appendChild(n);
 					Fleur.callback(function() {callback(elt);});

@@ -1,0 +1,8 @@
+{
+	"Components":[
+		"c-from-ref.js",
+		"r-from-ref.js",
+		"rc-to-ref.js",
+		"values.js"
+	]
+}

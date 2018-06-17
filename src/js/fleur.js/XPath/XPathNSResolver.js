@@ -30,7 +30,10 @@ Fleur.XPathNSResolver = function(node) {
 		"fleur": "http://www.agencexml.com/fleur",
 		"dgram": "http://www.agencexml.com/fleur/dgram",
 		"internal": "http://www.agencexml.com/fleur/internal",
-		"ietf": "https://tools.ietf.org/rfc/index"
+		"ietf": "https://tools.ietf.org/rfc/index",
+		"excel": "http://schemas.openxmlformats.org/spreadsheetml/2006/main",
+		"zip": "http://expath.org/ns/zip",
+		"matrix": "http://www.mathunion.org/matrix"
 	};
 	this.node = node;
 };

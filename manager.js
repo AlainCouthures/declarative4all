@@ -120,6 +120,7 @@ if (process.argv.length > 2) {
 			}
 		};
 		var execfile = function(err, file) {
+			var Fleur, doc, reqeval;
 			if (err) {        
 				response.writeHead(err.errno === 34 ? 404 : 500, {'Content-Type': 'text/plain'});
 				response.end(err.errno === 34 ? '404 Not Found' : '500 Internal server error - ' + err);
@@ -129,9 +130,13 @@ if (process.argv.length > 2) {
 			lastmodified = (new Date()).toUTCString();
 			headers['Last-Modified'] = lastmodified;
 			if (global.fs.existsSync('./js/fleur.js')) {
-    			var Fleur = require('./js/fleur.js');
-    			var doc = new Fleur.Document();
-				doc.evaluate(file, null, {request: {query: global.url.parse(request.url).query}}).then(
+    			Fleur = require('./js/fleur.js');
+    			doc = new Fleur.Document();
+    			reqeval = {request: {headers: request.headers, query: global.url.parse(request.url).query}};
+    			if (body !== "") {
+    				reqeval.request.body = body;
+    			}
+				doc.evaluate(file, null, reqeval).then(
 					function(res) {
 						headers['Content-Type'] = res.mediatype;
 						response.writeHead(200, headers);
@@ -164,12 +169,16 @@ if (process.argv.length > 2) {
 			        	global.fs.writeFile(fleursrc, modbody, err => {
 			        		if (err) {
 			        			console.log(err);
-			        		} else {
+			        		}
 			        			global.fleurmtime = global.fs.statSync(fleursrc).mtime.toISOString();
-			        			var Fleur = require(fleursrc);
-			        			var doc = new Fleur.Document();
+			        			Fleur = require(fleursrc);
+			        			doc = new Fleur.Document();
+    							reqeval = {request: {headers: request.headers, query: global.url.parse(request.url).query}};
+				    			if (body !== "") {
+				    				reqeval.request.body = body;
+				    			}
 								//var res = doc.evaluate(file, doc, new Fleur.XPathNSResolver(), Fleur.XPathResult.ANY_TYPE, null).toXQuery();
-								doc.evaluate(file, null, {request: {query: global.url.parse(request.url).query}}).then(
+								doc.evaluate(file, null, reqeval).then(
 									function(res) {
 										headers['Content-Type'] = res.mediatype;
 										response.writeHead(200, headers);
@@ -186,7 +195,7 @@ if (process.argv.length > 2) {
 										delete require.cache[require.resolve(fleursrc)];
 									}
 								);
-			        		}
+			        		//}
 			        	});
 			        });
 				});
@@ -249,7 +258,7 @@ if (process.argv.length > 2) {
 			if (!filename.startsWith(global.path.resolve(process.cwd(), 'public'))) {
 				response.writeHead(403, {'Content-Type': 'text/plain'});
 				response.end('403 Forbidden');
-				console.log('403 Forbidden');
+				//console.log('403 Forbidden');
 				return;
 			}
 			newcontext = null;
@@ -369,6 +378,14 @@ if (process.argv.length > 2) {
 						}
 						lastmodified = filestats.mtime.toUTCString();
 						global.fs.readFile(filename, 'binary', sendfile);
+					}
+					break;
+				case 'POST':
+					if (filename.endsWith('.xqy')) {
+						global.fs.readFile(filename, 'binary', execfile);
+					} else {
+						response.writeHead(405, {'Content-Type': 'text/plain'});
+						response.end('405 Method Not Allowed');
 					}
 					break;
 				default:

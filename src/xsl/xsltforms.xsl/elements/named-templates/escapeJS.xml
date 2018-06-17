@@ -19,9 +19,19 @@
 				<xsl:when test="$c = '\'">\\</xsl:when>
 				<xsl:when test="$c = ' '">\x20</xsl:when>
 			</xsl:choose>
+			<xsl:variable name="text2" select="substring-after($text, $c)"/>
+			<xsl:variable name="trtext2" select="substring-after($trtext, '&#9;')"/>
+			<xsl:variable name="text3" select="substring($text2, 1, string-length($text2) div 2)"/>
+			<xsl:variable name="trtext3" select="substring($trtext2, 1, string-length($trtext2) div 2)"/>
+			<xsl:variable name="text4" select="substring($text2, string-length($text2) div 2 + 1)"/>
+			<xsl:variable name="trtext4" select="substring($trtext2, string-length($trtext2) div 2 + 1)"/>
 			<xsl:call-template name="escapeJS">
-				<xsl:with-param name="text" select="substring-after($text, $c)"/>
-				<xsl:with-param name="trtext" select="substring-after($trtext, '&#9;')"/>
+				<xsl:with-param name="text" select="$text3"/>
+				<xsl:with-param name="trtext" select="$trtext3"/>
+			</xsl:call-template>
+			<xsl:call-template name="escapeJS">
+				<xsl:with-param name="text" select="$text4"/>
+				<xsl:with-param name="trtext" select="$trtext4"/>
 			</xsl:call-template>
 		</xsl:when>
 		<xsl:when test="not(function-available('msxsl:node-set')) and contains($trtext, $tab)">
@@ -36,9 +46,19 @@
 				<xsl:when test="$c = '\'">\\</xsl:when>
 				<xsl:when test="$c = ' '">\x20</xsl:when>
 			</xsl:choose>
+			<xsl:variable name="text2" select="substring-after($text, $c)"/>
+			<xsl:variable name="trtext2" select="substring-after($trtext, $tab)"/>
+			<xsl:variable name="text3" select="substring($text2, 1, string-length($text2) div 2)"/>
+			<xsl:variable name="trtext3" select="substring($trtext2, 1, string-length($trtext2) div 2)"/>
+			<xsl:variable name="text4" select="substring($text2, string-length($text2) div 2 + 1)"/>
+			<xsl:variable name="trtext4" select="substring($trtext2, string-length($trtext2) div 2 + 1)"/>
 			<xsl:call-template name="escapeJS">
-				<xsl:with-param name="text" select="substring-after($text, $c)"/>
-				<xsl:with-param name="trtext" select="substring-after($trtext, $tab)"/>
+				<xsl:with-param name="text" select="$text3"/>
+				<xsl:with-param name="trtext" select="$trtext3"/>
+			</xsl:call-template>
+			<xsl:call-template name="escapeJS">
+				<xsl:with-param name="text" select="$text4"/>
+				<xsl:with-param name="trtext" select="$trtext4"/>
 			</xsl:call-template>
 		</xsl:when>
 		<xsl:otherwise>

@@ -4,8 +4,8 @@ declare function local:filesproc($items, $proc) {
 <html>
 	<body>
 		{
-			let $srcdir := file:resolve-path('/My Web Sites/TestSuite')
-			let $destdir := file:resolve-path('/My Web Sites/NewCopy')
+			let $srcdir := file:resolve-path('/XFormsTestSuite290318/TestSuite')
+			let $destdir := file:resolve-path('/XFormsTestSuite290318/PatchedTestSuite')
 			let $foldercount := 0
 			let $filecount := 0
 			let $fileproc := function() {

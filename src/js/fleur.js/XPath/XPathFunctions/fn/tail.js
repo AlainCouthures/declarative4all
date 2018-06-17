@@ -7,21 +7,18 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["tail"] = function(ctx, children, callback) {
-	if (children.length !== 1) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
-			if (n.childNodes.length > 1) {
-				n.childNodes.shift();
-			} else {
-				n = n.childNodes[0];
-			}
-		} else {
-			n = Fleur.EmptySequence;
+Fleur.XPathFunctions_fn["tail#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:tail",
+	function(arg) {
+		if (arg === Fleur.EmptySequence || arg.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+			return Fleur.EmptySequence;
 		}
-		Fleur.callback(function() {callback(n);});
-	});
-};
+		if (arg.childNodes.length > 2) {
+			var result = new Fleur.Sequence();
+			for (var i = 1, l = arg.childNodes.length; i < l; i++) {
+				result.appendChild(arg.childNodes[i]);
+			}
+			return result;
+		}
+		return arg.childNodes[1];
+	},
+	null, [{type: Fleur.Node, occurence: "*"}], false, false, {type: Fleur.Node, occurence: "*"});

@@ -7,40 +7,43 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["not"] = function(ctx, children, callback) {
-	if (children.length !== 1) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		var boolean;
-		var a;
-		if (n === Fleur.EmptySequence) {
-			boolean = "true";
-		} else {
-			if (n.schemaTypeInfo === Fleur.Type_error) {
-				Fleur.callback(function() {callback(n);});
-				return;
-			}
-			a = Fleur.Atomize(n);
-			if (a.schemaTypeInfo === Fleur.Type_boolean) {
-				boolean = a.data === "true" ? "false" : "true";
-			} else if (a.nodeType === Fleur.Node.SEQUENCE_NODE) {
-				boolean = a.childNodes.length !== 0 ? "false" : "true";
-			} else if (a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-				boolean = (a.data && a.data.length !== 0) ? "false" : "true";
-			} else if (a.schemaTypeInfo === Fleur.Type_integer || a.schemaTypeInfo === Fleur.Type_decimal || a.schemaTypeInfo === Fleur.Type_float || a.schemaTypeInfo === Fleur.Type_double) {
-				boolean = (a.data !== "0" && a.data !== "0.0" && a.data !== "0.0e0" && a.data !== "NaN") ? "false" : "true";
-			} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				boolean = (a.data !== "0" && a.data !== "0.0" && a.data !== "0.0e0" && a.data !== "NaN") ? "false" : "true";
-			} else {
-				Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0006"));});
-				return;
-			}
+Fleur.XPathFunctions_fn["not#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:not",
+	function(arg, ctx) {
+		var e;
+		if (arg === Fleur.EmptySequence) {
+			return true;
 		}
-		a = new Fleur.Text();
-		a.data = boolean;
-		a.schemaTypeInfo = Fleur.Type_boolean;
-		Fleur.callback(function() {callback(a);});
-	});
-};
+		if (arg.nodeType === Fleur.Node.SEQUENCE_NODE) {
+			if (arg.childNodes.length === 0) {
+				return true;
+			}
+			if (arg.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || arg.childNodes[0].ownerDocument) {
+				return false;
+			}
+			e = new Error("The supplied sequence contains values inappropriate to fn:boolean");
+			e.name = "FORG0006";
+			return e;
+		}
+		if (arg.schemaTypeInfo === Fleur.Type_boolean) {
+			return arg.data !== "true";
+		}
+		if (arg.schemaTypeInfo === Fleur.Type_string || arg.schemaTypeInfo === Fleur.Type_untypedAtomic || arg.schemaTypeInfo === Fleur.Type_anyURI) {
+			return !(arg.hasOwnProperty("data") && arg.data.length !== 0);
+		}
+		if (arg.schemaTypeInfo === Fleur.Type_integer || arg.schemaTypeInfo === Fleur.Type_decimal || arg.schemaTypeInfo === Fleur.Type_float || arg.schemaTypeInfo === Fleur.Type_double) {
+			return !(arg.data !== "0" && arg.data !== "0.0" && arg.data !== "0.0e0" && arg.data !== "NaN");
+		}
+		if (arg.schemaTypeInfo && arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "boolean", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+			return arg.data !== "true";
+		}
+		if (arg.schemaTypeInfo && (arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION) || arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION))) {
+			return !(arg.hasOwnProperty("data") && arg.data.length !== 0);
+		}
+		if (arg.schemaTypeInfo && (arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION) || arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION))) {
+			return !(arg.data !== "0" && arg.data !== "0.0" && arg.data !== "0.0e0" && arg.data !== "NaN");
+		}
+		e = new Error("The supplied sequence contains values inappropriate to fn:boolean");
+		e.name = "FORG0006";
+		return e;
+	},
+	null, [{type: Fleur.Node, occurence: "*"}], true, false, {type: Fleur.Type_boolean});

@@ -7,13 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["last"] = function(ctx, children, callback) {
-	if (children.length !== 0) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	var a = new Fleur.Text();
-	a.schemaTypeInfo = Fleur.Type_integer;
-	a.data = "" + ctx._last;
-	Fleur.callback(function() {callback(a);});
-};
+Fleur.XPathFunctions_fn["last#0"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:last",
+	function(ctx) {
+		return ctx._last;
+	},
+	null, [], true, false, {type: Fleur.Type_integer});

@@ -16,7 +16,13 @@ Fleur.XQueryEngine[Fleur.XQueryX.mapConstructor] = function(ctx, children, callb
 			return;
 		}
 		if (n !== Fleur.EmptySequence) {
-			map.setEntryNode(n);
+			if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+				n.childNodes.forEach(function(e) {
+					map.setEntryNode(e);
+				});
+			} else {
+				map.setEntryNode(n);
+			}
 		}
 		i++;
 		if (i === children.length) {

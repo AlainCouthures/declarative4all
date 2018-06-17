@@ -7,14 +7,17 @@
 		"fn/project.json",
 		"http/project.json",
 		"dgram/project.json",
+		"excel/project.json",
 		"ietf/project.json",
 		"internal/project.json",
 		"map/project.json",
 		"math/project.json",
+		"matrix/project.json",
 		"file/project.json",
 		"prof/project.json",
 		"proc/project.json",
 		"request/project.json",
-		"xs/project.json"
+		"xs/project.json",
+		"zip/project.json"
 	]
 }

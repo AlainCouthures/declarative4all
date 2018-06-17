@@ -7,16 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["head"] = function(ctx, children, callback) {
-	if (children.length !== 1) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		if (n === Fleur.EmptySequence || n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-			Fleur.callback(function() {callback(n);});
-		} else  {
-			Fleur.callback(function() {callback(n.childNodes[0]);});
-		}
-	});
-};
+Fleur.XPathFunctions_fn["head#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:head",
+	function(arg) {
+		return arg === Fleur.EmptySequence || arg.nodeType !== Fleur.Node.SEQUENCE_NODE ? arg : arg.childNodes[0];
+	},
+	null, [{type: Fleur.Node, occurence: "*"}], false, false, {type: Fleur.Node});

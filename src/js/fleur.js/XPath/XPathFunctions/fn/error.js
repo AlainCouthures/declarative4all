@@ -7,30 +7,40 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["error"] = function(ctx, children, callback) {
-	if (children.length === 0) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "FOER0000"));});
-		return;
-	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		var a1 = Fleur.Atomize(n);
-		if (a1 === Fleur.EmptySequence) {
-			Fleur.callback(function() {callback(Fleur.error(ctx, "FOER0000"));});
-		} else if (a1.schemaTypeInfo === Fleur.Type_error) {
-			Fleur.callback(function() {callback(a1);});
-		} else if (a1.schemaTypeInfo !== Fleur.Type_QName) {
-			Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
+Fleur.XPathFunctions_fn["error#0"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:error",
+	function(ctx) {
+		return Fleur.XPathFunctions_fn["error#3"].jsfunc(null, null, null, ctx);
+	},
+	null, [], true, false, {type: Fleur.Node});
+
+Fleur.XPathFunctions_fn["error#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:error",
+	function(code, ctx) {
+		return Fleur.XPathFunctions_fn["error#3"].jsfunc(code, null, null, ctx);
+	},
+	null, [{type: Fleur.Node, occurence: "?"}], true, false, {type: Fleur.Node});
+
+Fleur.XPathFunctions_fn["error#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:error",
+	function(code, description, ctx) {
+		return Fleur.XPathFunctions_fn["error#3"].jsfunc(code, description, null, ctx);
+	},
+	null, [{type: Fleur.Node, occurence: "?"}, {type: Fleur.Type_string}], true, false, {type: Fleur.Node});
+
+Fleur.XPathFunctions_fn["error#3"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:error",
+	function(code, description, errorObject, ctx) {
+		var a = new Fleur.Text();
+		a.schemaTypeInfo = Fleur.Type_error;
+		if (!code || code === Fleur.EmptySequence) {
+			a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:FOER0000");
+		} else if (code.nodeType !== Fleur.Node.TEXT_NODE || (code.schemaTypeInfo !== Fleur.Type_QName && code.schemaTypeInfo !== Fleur.Type_error)) {
+			a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+		} else if (code.schemaTypeInfo === Fleur.Type_error) {
+			return code;
 		} else {
-			a1.schemaTypeInfo = Fleur.Type_error;
-			if (children.length === 1) {
-				Fleur.callback(function() {callback(a1);});
-			} else {
-				Fleur.XQueryEngine[children[1][0]](ctx, children[1][1], function(n) {
-					var a2 = Fleur.Atomize(n);
-					a1.data = a2.data;
-					Fleur.callback(function() {callback(a1);});
-				});
-			}
+			a._setNodeNameLocalNamePrefix(code.namespaceURI, code.nodeName);
 		}
-	});
-};
+		if (description) {
+			a.data = description;
+		}
+		return a;
+	},
+	null, [{type: Fleur.Node, occurence: "?"}, {type: Fleur.Type_string}, {type: Fleur.Node, occurence: "*"}], true, false, {type: Fleur.Node});

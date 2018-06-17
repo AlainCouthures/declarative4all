@@ -25,6 +25,7 @@
 		"Function.js",
 		"GrammarParser.js",
 		"Map.js",
+		"Multidim.js",
 		"NamedNodeMap.js",
 		"NameList.js",
 		"Namespace.js",

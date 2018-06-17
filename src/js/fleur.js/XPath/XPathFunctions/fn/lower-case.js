@@ -7,6 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["lower-case"] = function(ctx, children, callback) {
-	Fleur.XPathStringFunction(ctx, children, function(s) {return s.toLowerCase();}, null, callback);
-};
+Fleur.XPathFunctions_fn["lower-case#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:lower-case",
+	function(arg) {
+		return arg ? arg.toLowerCase() : "";
+	},
+	null, [{type: Fleur.Type_string, occurence: "?"}], false, false, {type: Fleur.Type_string});

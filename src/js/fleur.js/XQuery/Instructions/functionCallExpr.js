@@ -30,8 +30,16 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 		xf = Fleur.XPathFunctions[uri][fname + "#" + args.length] || Fleur.XPathFunctions[uri][fname];
 	}
 	if (!uri || !xf) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017", "The expanded QName and number of arguments in a static function call do not match the name and arity of a function signature in the static context for Q{" + uri + "}" + fname + "#" + args.length));});
-		return;
+		if (uri === "http://www.w3.org/2005/xpath-functions" && fname === "concat" && args.length > 1) {
+			var cparam = [];
+			for (var i = 0, l = args.length; i < l; i++) {
+				cparam[i] = {type: Fleur.Node};
+			}
+			xf = Fleur.XPathFunctions[uri][fname + "#" + args.length] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:concat", Fleur.XPathFunctions_fn["concat#"].jsfunc, null, cparam, false, false, {type: Fleur.Type_string});
+		} else {
+			Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017", "The expanded QName and number of arguments in a static function call do not match the name and arity of a function signature in the static context for Q{" + uri + "}" + fname + "#" + args.length));});
+			return;
+		}
 	}
 	if (xf.updating && !ctx.updater) {
 		if (Fleur.XQueryEngine.updating) {
@@ -228,7 +236,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 							}
 						} else if (v instanceof Error) {
 							a = Fleur.error(ctx, v.name, v.message);
-						} else if (v instanceof Fleur.Node || (Node && v instanceof Node)) {
+						} else if (v instanceof Fleur.Node || (Fleur.inBrowser && v instanceof Node)) {
 							a = v;
 						} else {
 							a.data = v;
@@ -247,6 +255,24 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 							seq.appendChild(a);
 						});
 						Fleur.callback(function() {callback(seq);});
+					} else if (typeof vret === 'object' && vret && !(vret instanceof Array || vret instanceof Fleur.Node || vret instanceof Error || typeof vret.getMonth === "function")) {
+						var map = new Fleur.Map();
+						var e;
+						for (var p in vret) {
+							if (vret.hasOwnProperty(p)) {
+								e = new Fleur.Entry();
+								e.nodeName = p;
+								e.namespaceURI = null;
+								e.localName = p;
+								a = new Fleur.Text();
+								a.schemaTypeInfo = null;
+								a.data = "";
+								convret(vret[p]);
+								e.appendChild(a);
+								map.setEntryNode(e);
+							}
+						}
+						Fleur.callback(function() {callback(map);});
 					} else {
 						convret(vret);
 						Fleur.callback(function() {callback(a);});

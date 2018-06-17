@@ -190,6 +190,10 @@
 						<xsl:value-of select="system-property('msxsl:version')"/>
 					</xsl:if>
 				</xsl:variable>
+				<xsl:text>XsltForms_globals.xsltHome = "</xsl:text>
+				<xsl:value-of select="$resourcesdir"/>
+				<xsl:text>";
+</xsl:text>
 				<xsl:text>XsltForms_globals.xsltEngine = "</xsl:text>
 				<xsl:variable name="xsltengine" select="concat(system-property('xsl:vendor'),' ',system-property('xsl:vendor-url'),' ',$xsltversion)"/>
 				<xsl:call-template name="escapeJS">

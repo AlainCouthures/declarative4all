@@ -7,6 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["hours-from-time"] = function(ctx, children, callback) {
-	Fleur.XPathFromDateTimeFunction(ctx, children, Fleur.Type_time, /^(\d{2}):\d{2}:\d{2}(?:\.\d+)?(?:Z|[+\-]\d{2}:\d{2})?$/, Fleur.Type_integer, callback);
-};
+Fleur.XPathFunctions_fn["hours-from-time#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:hours-from-time",
+	function(arg) {
+		return arg !== null ? parseInt(arg.match(/^(\d{2}):\d{2}:\d{2}(?:\.\d+)?(?:Z|[+\-]\d{2}:\d{2})?$/)[1], 10) : null;
+	},
+	null, [{type: Fleur.Type_time, occurence: "?"}], true, false, {type: Fleur.Type_integer, occurence: "?"});

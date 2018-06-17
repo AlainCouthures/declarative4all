@@ -9,6 +9,18 @@
  */
 Fleur.XPathFunctions_fn["sort#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:sort",
 	function(input) {
+		return Fleur.XPathFunctions_fn["sort#3"].jsfunc(input, null, null);
+	},
+	null, [{type: Fleur.Node, occurence: "?"}], false, false, {type: Fleur.Node, occurence: "*"});
+	
+Fleur.XPathFunctions_fn["sort#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:sort",
+	function(input, collation) {
+		return Fleur.XPathFunctions_fn["sort#3"].jsfunc(input, collation, null);
+	},
+	null, [{type: Fleur.Node, occurence: "?"}, {type: Fleur.Type_string, occurence: "?"}], false, false, {type: Fleur.Node, occurence: "*"});
+	
+Fleur.XPathFunctions_fn["sort#3"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:sort",
+	function(input, collation, key) {
 		if (input.nodeType !== Fleur.Node.SEQUENCE_NODE) {
 			return Fleur.Atomize(input);
 		}
@@ -58,4 +70,4 @@ Fleur.XPathFunctions_fn["sort#1"] = new Fleur.Function("http://www.w3.org/2005/x
 		});
 		return seq;
 	},
-	null, [{type: Fleur.Node, occurence: "?"}], false, false, {type: Fleur.Node});
+	null, [{type: Fleur.Node, occurence: "?"}, {type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Node}], false, false, {type: Fleur.Node, occurence: "*"});

@@ -27,7 +27,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.computedEntryConstructor] = function(ctx, child
 				entry.namespaceURI = null;
 				entry.localName = a.data;
 				Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-					entry.appendChild(n);
+					entry.appendChild(n.copyNode());
 					Fleur.callback(function() {callback(entry);});
 				});
 			}

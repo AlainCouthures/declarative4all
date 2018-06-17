@@ -7,12 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["unordered"] = function(ctx, children, callback) {
-	if (children.length !== 1) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		Fleur.callback(function() {callback(n);});
-	});
-};
+Fleur.XPathFunctions_fn["unordered#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:unordered",
+	function(sourceSeq) {
+		return sourceSeq;
+	},
+	null, [{type: Fleur.Node, occurence: "*"}], false, false, {type: Fleur.Node, occurence: "*"});

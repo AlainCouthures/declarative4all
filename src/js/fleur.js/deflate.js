@@ -8,4 +8,5 @@
  * @description 
  */
 Fleur.deflate = function(str, level) {
+	return str;
 };

@@ -8,6 +8,7 @@
 		"XPath/project.json",
 		"XQuery/project.json",
 		"XSLT/project.json",
+		"bin2utf8.js",
 		"deflate.js",
 		"inflate.js",
 		"envdetect.js",

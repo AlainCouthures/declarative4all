@@ -16,16 +16,30 @@ Fleur.XPathFunctions_fn["serialize#1"] = new Fleur.Function("http://www.w3.org/2
 Fleur.XPathFunctions_fn["serialize#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:serialize",
 	function(node, serialization) {
 		var contentType;
-		var defContentType;
-		switch(node.nodeType) {
-			case Fleur.Node.MAP_NODE :
-				defContentType = "application/json";
-				break;
-			case Fleur.Node.TEXT_NODE:
-				defContentType = "text/plain";
-				break;
-			default:
-				defContentType = "application/xml";
+		var defContentType = null;
+		var i, l;
+		var defDetect = function(n) {
+			switch(n.nodeType) {
+				case Fleur.Node.ARRAY_NODE :
+				case Fleur.Node.MAP_NODE :
+					defContentType = "application/json";
+					break;
+				case Fleur.Node.TEXT_NODE:
+					defContentType = "text/plain";
+					break;
+				case Fleur.Node.ELEMENT_NODE:
+					defContentType = "application/xml";
+			}
+		};
+		if (node.nodeType === Fleur.Node.DOCUMENT_NODE) {
+			for (i = 0, l = node.children.length; i < l && !defContentType; i++) {
+				defDetect(node.children[i]);
+			}
+			for (i = 0, l = node.childNodes.length; i < l && !defContentType; i++) {
+				defDetect(node.childNodes[i]);
+			}
+		} else {
+			defDetect(node);
 		}
 		var indent = false;
 		if (serialization) {

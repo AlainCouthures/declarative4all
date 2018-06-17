@@ -7,8 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["floor"] = function(ctx, children, callback) {
-	Fleur.XPathNumberFunction(ctx, children, Math.floor, function(a) {
-		return a.schemaTypeInfo;
-	}, callback);
-};
+Fleur.XPathFunctions_fn["floor#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:floor",
+	function(a) {
+		return Math.floor(a);
+	},
+	null, [{type: Fleur.Type_double, occurence: "?"}], false, false, {type: Fleur.Type_integer});

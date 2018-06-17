@@ -472,7 +472,7 @@
       	declare function local:generate($arg as xs:integer) { if ($arg = 0) then (1, 2, 3) else $arg }; 
       	fn:exactly-one(fn:unordered( local:generate(1) ))
       </test>
-    <result-string>xs:string("1")</result-string>
+    <result-string>xs:integer("1")</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
@@ -485,7 +485,7 @@
       	declare function local:generate($arg as xs:integer?) { if ($arg = 0) then () else if ($arg = 1) then $arg else ($arg, $arg) }; 
       	1 + fn:exactly-one(fn:one-or-more( local:generate( 1 ) ))
       </test>
-    <result-string>xs:string("2")</result-string>
+    <result-string>xs:integer("2")</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
@@ -498,7 +498,7 @@
       	declare function local:generate($arg as xs:integer?) { if ($arg = 0) then () else if ($arg = 1) then $arg else ($arg, $arg) }; 
       	1 + fn:exactly-one(fn:zero-or-one( local:generate( 1 ) ))
       </test>
-    <result-string>xs:string("2")</result-string>
+    <result-string>xs:integer("2")</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>

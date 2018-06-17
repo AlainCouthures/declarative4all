@@ -7,6 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["iri-to-uri"] = function(ctx, children, callback) {
-	Fleur.XPathStringFunction(ctx, children, function(s) {return s.replace(/([^!-~]|[<>"{}|\\\^\`])/g, function(c) {return encodeURIComponent(c);});}, null, callback);
-};
+Fleur.XPathFunctions_fn["iri-to-uri#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:iri-to-uri",
+	function(iri) {
+		return iri !== null ? iri.replace(/([^!-~]|[<>"{}|\\\^\`])/g, function(c) {return encodeURIComponent(c);}) : "";
+	},
+	null, [{type: Fleur.Type_string, occurence: "?"}], false, false, {type: Fleur.Type_string});

@@ -7,26 +7,21 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["one-or-more"] = function(ctx, children, callback) {
-	if (children.length !== 1) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		if (n === Fleur.EmptySequence) {
-			Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0004"));});
-			return;
+Fleur.XPathFunctions_fn["one-or-more#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:one-or-more",
+	function(arg, ctx) {
+		if (arg === Fleur.EmptySequence) {
+			return Fleur.error(ctx, "FORG0004");
 		}
-		if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
-			var result = n;
-			n.childNodes.forEach(function(c) {
-				if (c.schemaTypeInfo === Fleur.Type_error && result === n) {
+		if (arg.nodeType === Fleur.Node.SEQUENCE_NODE) {
+			var result = arg;
+			arg.childNodes.forEach(function(c) {
+				if (c.schemaTypeInfo === Fleur.Type_error && result === arg) {
 					result = c;
 				}
 			});
-			Fleur.callback(function() {callback(result);});
+			return result;
 		} else {
-			Fleur.callback(function() {callback(n);});
+			return arg;
 		}
-	});
-};
+	},
+	null, [{type: Fleur.Node, occurence: "*"}], true, false, {type: Fleur.Node});

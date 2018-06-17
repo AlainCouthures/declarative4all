@@ -27,10 +27,11 @@ Fleur.Node.NOTATION_NODE = 12;
 Fleur.Node.NAMESPACE_NODE = 129;
 Fleur.Node.ATOMIC_NODE = Fleur.Node.TEXT_NODE;
 Fleur.Node.SEQUENCE_NODE = 130;
-Fleur.Node.ARRAY_NODE = 131;
-Fleur.Node.MAP_NODE = 132;
-Fleur.Node.ENTRY_NODE = 133;
-Fleur.Node.FUNCTION_NODE = 134;
+Fleur.Node.MULTIDIM_NODE = 131;
+Fleur.Node.ARRAY_NODE = 132;
+Fleur.Node.MAP_NODE = 133;
+Fleur.Node.ENTRY_NODE = 134;
+Fleur.Node.FUNCTION_NODE = 135;
 Fleur.Node.DOCUMENT_POSITION_DISCONNECTED = 1;
 Fleur.Node.DOCUMENT_POSITION_PRECEDING = 2;
 Fleur.Node.DOCUMENT_POSITION_FOLLOWING = 4;
@@ -88,6 +89,9 @@ Object.defineProperties(Fleur.Node.prototype, {
 });
 Fleur.Node.prototype.appendChild = function(newChild) {
 	//console.log((this.nodeType === Fleur.Node.ATTRIBUTE_NODE ? this.ownerElement.nodeName + "[" + this.ownerElement.childNodes.length + "]/@" + this.nodeName : this.nodeName + "[" + this.childNodes.length + "]") + " -> " + (newChild.nodeName === "#text" ? '"' + newChild.nodeValue.replace("\n","\\n") + '"' : newChild.nodeName + "[" + newChild.childNodes.length + "]"));
+	//if(this.nodeType === Fleur.Node.SEQUENCE_NODE && newChild.nodeType === Fleur.Node.SEQUENCE_NODE) {
+	//	alert("WrongAppend");
+	//}
 	var n = this, i = 0, l;
 	if (newChild.nodeType === Fleur.Node.DOCUMENT_FRAGMENT_NODE) {
 		l = newChild.childNodes.length;
@@ -100,7 +104,7 @@ Fleur.Node.prototype.appendChild = function(newChild) {
 	if ((this.nodeType !== Fleur.Node.SEQUENCE_NODE || this.ownerDocument) && (newChild.nodeType === Fleur.Node.ATTRIBUTE_NODE || (this.nodeType === Fleur.Node.ATTRIBUTE_NODE && newChild.nodeType !== Fleur.Node.TEXT_NODE))) {
 		throw new Fleur.DOMException(Fleur.DOMException.HIERARCHY_REQUEST_ERR);
 	} else {
-		if (this.nodeType !== Fleur.Node.SEQUENCE_NODE || this.ownerDocument) {
+		if ((this.nodeType !== Fleur.Node.SEQUENCE_NODE && this.nodeType !== Fleur.Node.MULTIDIM_NODE) || this.ownerDocument) {
 			while (n) {
 				if (n === newChild) {
 					throw new Fleur.DOMException(Fleur.DOMException.HIERARCHY_REQUEST_ERR);
@@ -125,11 +129,11 @@ Fleur.Node.prototype.appendChild = function(newChild) {
 			this.lastChild = newChild;
 		}
 		this.childNodes.push(newChild);
-		if (newChild.nodeType === Fleur.Node.ELEMENT_NODE || newChild.nodeType === Fleur.Node.SEQUENCE_NODE || newChild.nodeType === Fleur.Node.ARRAY_NODE || newChild.nodeType === Fleur.Node.MAP_NODE || newChild.nodeType === Fleur.Node.ENTRY_NODE) {
+		if (newChild.nodeType === Fleur.Node.ELEMENT_NODE || newChild.nodeType === Fleur.Node.SEQUENCE_NODE || newChild.nodeType === Fleur.Node.MULTIDIM_NODE || newChild.nodeType === Fleur.Node.ARRAY_NODE || newChild.nodeType === Fleur.Node.MAP_NODE || newChild.nodeType === Fleur.Node.ENTRY_NODE) {
 			this.children.push(newChild);
 		}
 	}
-	if (this.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+	if (this.nodeType !== Fleur.Node.SEQUENCE_NODE && this.nodeType !== Fleur.Node.MULTIDIM_NODE) {
 		newChild.idRecalculate(String(this.childNodes.length - 1));
 	}
 	return newChild;
@@ -365,6 +369,44 @@ Fleur.Node.prototype.compareDocumentPosition = function(other) {
 			return (this.localName < other.localName ? Fleur.Node.DOCUMENT_POSITION_PRECEDING : Fleur.Node.DOCUMENT_POSITION_FOLLOWING) | Fleur.Node.DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC;
 		}
 	} while (i++);
+};
+Fleur.Node.prototype.copyNode = function() {
+	var i = 0, li = 0, j = 0, lj = 0, copy = null;
+	switch (this.nodeType) {
+		case Fleur.Node.TEXT_NODE:
+			copy = new Fleur.Text();
+			copy.appendData(this.data);
+			copy.schemaTypeInfo = this.schemaTypeInfo;
+			break;
+		case Fleur.Node.ENTRY_NODE:
+			copy = new Fleur.Entry();
+			copy.childNodes = new Fleur.NodeList();
+			copy.children = new Fleur.NodeList();
+			copy.nodeName = copy.localName = this.nodeName;
+			copy.textContent = "";
+			lj = this.childNodes.length;
+			while (j < lj) {
+				copy.appendChild(this.childNodes[j++].copyNode());
+			}
+			break;
+		case Fleur.Node.MAP_NODE:
+			copy = new Fleur.Map();
+			li = this.entries.length;
+			while (i < li) {
+				copy.setEntryNode(this.entries[i++].copyNode());
+			}
+			break;
+		case Fleur.Node.ARRAY_NODE:
+			copy = new Fleur.Array();
+			lj = this.childNodes.length;
+			while (j < lj) {
+				copy.appendChild(this.childNodes[j++].copyNode());
+			}
+			break;
+		case Fleur.Node.DOCUMENT_NODE:
+			break;
+	}
+	return copy;
 };
 Fleur.Node.prototype.getFeature = function(feature, version) {
 	return this.ownerDocument.implementation.getFeature(feature, version);

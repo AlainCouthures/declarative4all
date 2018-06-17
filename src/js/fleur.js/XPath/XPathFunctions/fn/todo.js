@@ -53,7 +53,6 @@ Fleur.XPathFunctions_fn["normalize-unicode"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["outermost"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["parse-ietf-date"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["parse-json"] = function(ctx, children) {};
-Fleur.XPathFunctions_fn["parse-xml"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["parse-xml-fragment"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["path"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["prefix-from-QName"] = function(ctx, children) {};

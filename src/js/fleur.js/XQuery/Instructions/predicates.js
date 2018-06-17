@@ -44,7 +44,13 @@ Fleur.XQueryEngine[Fleur.XQueryX.predicates] = function(ctx, children, callback)
 						seq.appendChild(result);
 						result = seq;
 					}
-					result.appendChild(n);
+					if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+						result.appendChild(n);
+					} else {
+						n.childNodes.forEach(function(n2) {
+							result.appendChild(n2);
+						});
+					}
 				}
 			}
 		} else {

@@ -7,48 +7,33 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["number"] = function(ctx, children, callback) {
-	if (children.length > 1) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	var cb = function(n) {
-		var a = Fleur.Atomize(n);
+Fleur.XPathFunctions_fn["number#0"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:number",
+	function(ctx) {
+		return Fleur.XPathFunctions_fn["number#1"].jsfunc(ctx._curr);
+	},
+	null, [], true, false, {type: Fleur.Type_double});
+
+Fleur.XPathFunctions_fn["number#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:number",
+	function(arg) {
+		var a = Fleur.Atomize(arg);
 		if (a.schemaTypeInfo === Fleur.Type_error) {
-			Fleur.callback(function() {callback(a);});
-			return;
+			return a;
 		}
-		if (a === Fleur.EmptySequence) {
-			a = new Fleur.Text();
-			a.schemaTypeInfo = Fleur.Type_double;
-			a.data = "NaN";
-			Fleur.callback(function() {callback(a);});
-			return;
-		}
-		if (a.nodeType === Fleur.Node.SEQUENCE_NODE) {
-			Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
-			return;
+		if (a === Fleur.EmptySequence || a.data === "NaN") {
+			return NaN;
 		}
 		if (a.schemaTypeInfo === Fleur.Type_boolean) {
-			a.schemaTypeInfo = Fleur.Type_double;
-			a.data = a.data === "true" ? "1.0e0" : "0.0e0";
-			Fleur.callback(function() {callback(a);});
-			return;
+			return a.data === "true" ? 1.0e0 : 0.0e0;
 		}
-		a.schemaTypeInfo = Fleur.Type_double;
-		if (!(/^\s*(([\-+]?([0-9]+(\.[0-9]*)?)|(\.[0-9]+))([eE][-+]?[0-9]+)?|-?INF|NaN)\s*$/.test(a.data))) {
-			a.data = "NaN";
-			Fleur.callback(function() {callback(a);});
-			return;
+		if (!(a.schemaTypeInfo !== Fleur.Type_anyURI && /^\s*(([\-+]?([0-9]+(\.[0-9]*)?)|(\.[0-9]+))([eE][-+]?[0-9]+)?|-?INF|NaN)\s*$/.test(a.data))) {
+			return NaN;
 		}
-		if (a.data !== "INF" && a.data !== "-INF" && a.data !== "NaN") {
-			a.data = ("" + parseFloat(a.data)).replace("e+", "e");
+		if (a.data === "INF") {
+			return Number.POSITIVE_INFINITY
 		}
-		Fleur.callback(function() {callback(a);});
-	};
-	if (children.length === 0) {
-		cb(ctx._curr);
-	} else {
-		Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
-	}
-};
+		if (a.data === "-INF") {
+			return Number.NEGATIVE_INFINITY
+		}
+		return parseFloat(a.data);
+	},
+	null, [{type: Fleur.Node, occurence: "?"}], false, false, {type: Fleur.Type_double});

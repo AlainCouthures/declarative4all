@@ -188,9 +188,19 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 			}
 			s += indent ? "\n" : "";
 			for (i = 0, l = node.childNodes.length; i < l; i++) {
-				s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset + "  ", false, i !== l - 1 ? "," : "");
+				s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset + "  ", false, i !== l - 1 ? node.childNodes[i].nodeType === Fleur.Node.MULTIDIM_NODE ? ";" : "," : "");
 			}
 			return s + (indent ? offset + ")\n" : ")");
+		case Fleur.Node.MULTIDIM_NODE:
+			s = indent ? offset : "";
+			if (node.childNodes.length === 0) {
+				return s + (indent ? "\n" : "");
+			}
+			s += indent ? "\n" : "";
+			for (i = 0, l = node.childNodes.length; i < l; i++) {
+				s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset + "  ", false, i !== l - 1 ? "," : "");
+			}
+			return s + (indent ? offset + postfix + "\n" : postfix);
 		case Fleur.Node.ATTRIBUTE_NODE:
 			return (indent ? offset : "") + "attribute " + node.nodeName + " {\"" + Fleur.Serializer.escapeXML(node.value).replace(/"/gm, "\"\"") + "\"}" + postfix + (indent ? "\n" : "");
 		case Fleur.Node.MAP_NODE:
@@ -238,7 +248,7 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 				if (node.schemaTypeInfo === Fleur.Type_float || node.schemaTypeInfo === Fleur.Type_double) {
 					if (fdata.indexOf("e") === -1) {
 						if (fdata !== "0") {
-							var exp = Math.floor(Math.log10(Math.abs(parseFloat(fdata))));
+							var exp = Math.floor(Math.log(Math.abs(parseFloat(fdata))) * Math.LOG10E);
 							fdata = String(parseFloat(fdata) * Math.pow(10, -exp)) + "e" + exp;
 						} else {
 							fdata = "0.0e0";
@@ -1651,6 +1661,9 @@ Fleur.Serializer.Handlers = {
 	"text/csv": function(node, indent, config) {
 		var ser = Fleur.Serializer._serializeCSVToString(node, config.header === "present", config.key ? parseInt(config.key, 10) : null, config.separator ? decodeURIComponent(config.separator) : ",", 0);
 		return ser;
+	},
+	"text/plain": function(node) {
+		return node.textContent;
 	},
 	"application/json": function(node, indent) {
 		var ser = Fleur.Serializer._serializeJSONToString(node, indent, "", false, "");

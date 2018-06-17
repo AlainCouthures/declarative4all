@@ -376,6 +376,7 @@ if (XsltForms_browser.isIE || XsltForms_browser.isIE11) {
 				xsltProcessor.setParameter(null, "xsltforms_caller", "true");
 			}
 			try {
+				xsltProcessor.setParameter(null, "xsltforms_home", XsltForms_globals.xsltHome);
 				xsltProcessor.setParameter(null, "xsltforms_config", document.getElementById(XsltForms_browser.idPf + "instance-config").xfElement.srcDoc);
 				xsltProcessor.setParameter(null, "xsltforms_lang", XsltForms_globals.language);
 				xsltProcessor.setParameter(null, "xsltforms_domengine", XsltForms_fullDomEngine);
@@ -2554,6 +2555,7 @@ XsltForms_browser.run = function(action, element, evt, synch, propagate) {
 				evt.stopPropagation();
 			}
 			XsltForms_globals.closeAction("XsltForms_browser.run#1");
+			XsltForms_xmlevents.EventContexts.pop();
 		}, 1 );
 	} else {
 		XsltForms_globals.openAction("XsltForms_browser.run#2");
@@ -2562,6 +2564,7 @@ XsltForms_browser.run = function(action, element, evt, synch, propagate) {
 			evt.stopPropagation();
 		}
 		XsltForms_globals.closeAction("XsltForms_browser.run#2");
+		XsltForms_xmlevents.EventContexts.pop();
 	}
 };
 

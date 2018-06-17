@@ -10,7 +10,7 @@ $arg = xs:string(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string-to-codepoints(xs:string("This is a characte"))</test>
-    <result-string/>
+    <result-string>(xs:integer("84"),xs:integer("104"),xs:integer("105"),xs:integer("115"),xs:integer("32"),xs:integer("105"),xs:integer("115"),xs:integer("32"),xs:integer("97"),xs:integer("32"),xs:integer("99"),xs:integer("104"),xs:integer("97"),xs:integer("114"),xs:integer("97"),xs:integer("99"),xs:integer("116"),xs:integer("101"))</result-string>
     <result>
       <assert-deep-eq>84, 104, 105, 115, 32, 105, 115, 32, 97, 32, 99, 104, 97, 114, 97, 99, 116, 101</assert-deep-eq>
     </result>
@@ -23,7 +23,7 @@ $arg = xs:string(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string-to-codepoints(xs:string("This is a characte"))</test>
-    <result-string/>
+    <result-string>(xs:integer("84"),xs:integer("104"),xs:integer("105"),xs:integer("115"),xs:integer("32"),xs:integer("105"),xs:integer("115"),xs:integer("32"),xs:integer("97"),xs:integer("32"),xs:integer("99"),xs:integer("104"),xs:integer("97"),xs:integer("114"),xs:integer("97"),xs:integer("99"),xs:integer("116"),xs:integer("101"))</result-string>
     <result>
       <assert-deep-eq>84, 104, 105, 115, 32, 105, 115, 32, 97, 32, 99, 104, 97, 114, 97, 99, 116, 101</assert-deep-eq>
     </result>
@@ -36,7 +36,7 @@ $arg = xs:string(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string-to-codepoints(xs:string("This is a characte"))</test>
-    <result-string/>
+    <result-string>(xs:integer("84"),xs:integer("104"),xs:integer("105"),xs:integer("115"),xs:integer("32"),xs:integer("105"),xs:integer("115"),xs:integer("32"),xs:integer("97"),xs:integer("32"),xs:integer("99"),xs:integer("104"),xs:integer("97"),xs:integer("114"),xs:integer("97"),xs:integer("99"),xs:integer("116"),xs:integer("101"))</result-string>
     <result>
       <assert-deep-eq>84, 104, 105, 115, 32, 105, 115, 32, 97, 32, 99, 104, 97, 114, 97, 99, 116, 101</assert-deep-eq>
     </result>
@@ -47,7 +47,7 @@ Purpose:Test string-to-codepoints with variety of characters
 </description>
     <created by="Joanne Tong" on="2005-09-23-04:00"/>
     <test>string-to-codepoints('b&#223;&#1682;&#12365;&#63744;')</test>
-    <result-string/>
+    <result-string>(xs:integer("98"),xs:integer("223"),xs:integer("1682"),xs:integer("12365"),xs:integer("63744"))</result-string>
     <result>
       <assert-deep-eq>98, 223, 1682, 12365, 63744</assert-deep-eq>
     </result>
@@ -80,7 +80,7 @@ Purpose:Test string-to-codepoints with invalid type in argument
 </description>
     <created by="Joanne Tong" on="2005-09-23-04:00"/>
     <test>string-to-codepoints(12)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
@@ -91,7 +91,7 @@ Purpose:Test string-to-codepoints with incorrect function arity
 </description>
     <created by="Joanne Tong" on="2005-09-23-04:00"/>
     <test>string-to-codepoints('abc','def')</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -124,7 +124,7 @@ Purpose:Test string-to-codepoints with incorrect function arity
 </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>fn:string-to-codepoints('1a')</test>
-    <result-string/>
+    <result-string>(xs:integer("49"),xs:integer("97"))</result-string>
     <result>
       <assert-deep-eq>49, 97</assert-deep-eq>
     </result>
@@ -135,7 +135,7 @@ Purpose:Test string-to-codepoints with incorrect function arity
 </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>fn:string-to-codepoints('#*^$')</test>
-    <result-string/>
+    <result-string>(xs:integer("35"),xs:integer("42"),xs:integer("94"),xs:integer("36"))</result-string>
     <result>
       <assert-deep-eq>35, 42, 94, 36</assert-deep-eq>
     </result>
@@ -146,7 +146,7 @@ Purpose:Test string-to-codepoints with incorrect function arity
 </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>fn:string-to-codepoints('string-to-codepoints')</test>
-    <result-string/>
+    <result-string>(xs:integer("115"),xs:integer("116"),xs:integer("114"),xs:integer("105"),xs:integer("110"),xs:integer("103"),xs:integer("45"),xs:integer("116"),xs:integer("111"),xs:integer("45"),xs:integer("99"),xs:integer("111"),xs:integer("100"),xs:integer("101"),xs:integer("112"),xs:integer("111"),xs:integer("105"),xs:integer("110"),xs:integer("116"),xs:integer("115"))</result-string>
     <result>
       <assert-deep-eq>115, 116, 114, 105, 110, 103, 45, 116, 111, 45, 99, 111, 100, 101, 112, 111, 105, 110, 116, 115</assert-deep-eq>
     </result>
@@ -157,7 +157,7 @@ Purpose:Test string-to-codepoints with incorrect function arity
 </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>fn:string-to-codepoints(xs:string("A String"))</test>
-    <result-string/>
+    <result-string>(xs:integer("65"),xs:integer("32"),xs:integer("83"),xs:integer("116"),xs:integer("114"),xs:integer("105"),xs:integer("110"),xs:integer("103"))</result-string>
     <result>
       <assert-deep-eq>65, 32, 83, 116, 114, 105, 110, 103</assert-deep-eq>
     </result>
@@ -168,7 +168,7 @@ Purpose:Test string-to-codepoints with incorrect function arity
 </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>fn:string-to-codepoints(fn:upper-case("A String"))</test>
-    <result-string/>
+    <result-string>(xs:integer("65"),xs:integer("32"),xs:integer("83"),xs:integer("84"),xs:integer("82"),xs:integer("73"),xs:integer("78"),xs:integer("71"))</result-string>
     <result>
       <assert-deep-eq>(65, 32, 83, 84, 82, 73, 78, 71)</assert-deep-eq>
     </result>
@@ -179,7 +179,7 @@ Purpose:Test string-to-codepoints with incorrect function arity
 </description>
     <created by="Carmelo Montanez" on="2005-11-23"/>
     <test>fn:string-to-codepoints(fn:lower-case("A String"))</test>
-    <result-string/>
+    <result-string>(xs:integer("97"),xs:integer("32"),xs:integer("115"),xs:integer("116"),xs:integer("114"),xs:integer("105"),xs:integer("110"),xs:integer("103"))</result-string>
     <result>
       <assert-deep-eq>(97, 32, 115, 116, 114, 105, 110, 103)</assert-deep-eq>
     </result>
@@ -267,7 +267,7 @@ Evaluation of  "fn:string-to-codepoints" with non-BMP characters
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>string-to-codepoints()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
@@ -278,7 +278,7 @@ Evaluation of  "fn:string-to-codepoints" with non-BMP characters
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>string-to-codepoints("str", "INVALID")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>

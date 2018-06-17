@@ -450,7 +450,7 @@
     <test>
         declare function local:generate($arg as xs:integer?) { if ($arg = 0) then (1, 2, 3) else $arg };
         fn:one-or-more(fn:reverse( local:generate( 0 ) ))</test>
-    <result-string>xs:string("3 2 1")</result-string>
+    <result-string>(xs:integer("3"),xs:integer("2"),xs:integer("1"))</result-string>
     <result>
       <assert-string-value>3 2 1</assert-string-value>
     </result>

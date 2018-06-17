@@ -7,35 +7,19 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["string-to-codepoints"] = function(ctx, children, callback) {
-	if (children.length !== 1) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		var result, c;
-		var a = Fleur.Atomize(n);
-		if (a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-			if (a.data.length === 0) {
-				result = Fleur.EmptySequence;
-			} else if (a.data.length === 1) {
-				result = new Fleur.Text();
-				result.schemaTypeInfo = Fleur.Type_integer;
-				result.data = String(a.data.codePointAt(0));
-			} else {
-				result = new Fleur.Sequence();
-				var i, l;
-				for (i = 0, l = a.data.length; i < l; i++) {
-					c = new Fleur.Text();
-					c.schemaTypeInfo = Fleur.Type_integer;
-					c.data = String(a.data.codePointAt(i));
-					result.appendChild(c);
-				}
-			}
-		} else {
-			Fleur.callback(function() {callback(Fleur.error(ctx, "FOCH0001"));});
-			return;
+Fleur.XPathFunctions_fn["string-to-codepoints#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:string-to-codepoints",
+	function(arg) {
+		if (!arg || arg === "") {
+			return null;
 		}
-		Fleur.callback(function() {callback(result);});
-	});
-};
+		if (arg.length === 1) {
+			return arg.codePointAt(0);
+		}
+		var ret = [];
+		var i, l;
+		for (i = 0, l = arg.length; i < l; i++) {
+			ret.push(arg.codePointAt(i));
+		}
+		return ret;
+	},
+	null, [{type: Fleur.Type_string, occurence: "?"}], false, false, {type: Fleur.Type_integer, occurence: "*"});

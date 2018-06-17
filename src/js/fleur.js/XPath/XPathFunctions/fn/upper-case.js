@@ -7,6 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["upper-case"] = function(ctx, children, callback) {
-	Fleur.XPathStringFunction(ctx, children, function(s) {return s.toUpperCase();}, null, callback);
-};
+Fleur.XPathFunctions_fn["upper-case#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:upper-case",
+	function(arg) {
+		return arg ? arg.toUpperCase() : "";
+	},
+	null, [{type: Fleur.Type_string, occurence: "?"}], false, false, {type: Fleur.Type_string});

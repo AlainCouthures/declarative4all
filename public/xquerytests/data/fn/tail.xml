@@ -7,7 +7,7 @@
     <description> tail() of a simple sequence </description>
     <created by="Michael Kay" on="2010-02-18"/>
     <test>tail(12 to 15)</test>
-    <result-string/>
+    <result-string>(xs:integer("13"),xs:integer("14"),xs:integer("15"))</result-string>
     <result>
       <assert-deep-eq>13, 14, 15</assert-deep-eq>
     </result>
@@ -16,7 +16,7 @@
     <description> tail() of a simple sequence </description>
     <created by="Michael Kay" on="2010-02-18"/>
     <test>tail(("a", "b", "c"))</test>
-    <result-string/>
+    <result-string>(xs:string("b"),xs:string("c"))</result-string>
     <result>
       <assert-deep-eq>"b", "c"</assert-deep-eq>
     </result>
@@ -45,7 +45,7 @@
     <created by="Michael Kay" on="2010-02-18"/>
     <environment ref="works-mod"/>
     <test>let $a := /works/employee[@gender='female']/@name return tail($a)/string()</test>
-    <result-string/>
+    <result-string>(xs:string("Jane Doe 3"),xs:string("Jane Doe 5"),xs:string("Jane Doe 7"),xs:string("Jane Doe 9"),xs:string("Jane Doe 11"),xs:string("Jane Doe 13"))</result-string>
     <result>
       <assert-deep-eq>"Jane Doe 3", "Jane Doe 5", "Jane Doe 7", "Jane Doe 9", "Jane Doe 11", "Jane Doe 13"</assert-deep-eq>
     </result>
@@ -56,7 +56,7 @@
     <dependency type="spec" value="XQ30+"/>
     <test>declare function local:sum($n) { if (empty($n)) then 0 else head($n) + local:sum(tail($n)) }; 
             local:sum(1 to 5)</test>
-    <result-string/>
+    <result-string>xs:integer("15")</result-string>
     <result>
       <all-of>
         <assert-eq>15</assert-eq>

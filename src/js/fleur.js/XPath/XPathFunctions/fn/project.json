@@ -55,6 +55,7 @@
 		"not.js",
 		"number.js",
 		"one-or-more.js",
+		"parse-xml.js",
 		"position.js",
 		"QName.js",
 		"remove.js",

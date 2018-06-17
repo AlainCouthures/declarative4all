@@ -1,0 +1,6 @@
+{
+	"Components":[
+		"deflate.js",
+		"inflate.js"
+	]
+}

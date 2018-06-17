@@ -7,13 +7,8 @@
  * @module 
  * @description 
  */
-Fleur.XPathFunctions_fn["position"] = function(ctx, children, callback) {
-	if (children.length !== 0) {
-		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
-		return;
-	}
-	var a = new Fleur.Text();
-	a.schemaTypeInfo = Fleur.Type_integer;
-	a.data = String(ctx._pos);
-	Fleur.callback(function() {callback(a);});
-};
+Fleur.XPathFunctions_fn["position#0"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:position",
+	function(ctx) {
+		return ctx._pos;
+	},
+	null, [], true, false, {type: Fleur.Type_integer});

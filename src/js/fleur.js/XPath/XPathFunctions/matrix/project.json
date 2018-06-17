@@ -1,0 +1,7 @@
+{
+	"Components":[
+		"identity.js",
+		"labels.js",
+		"transpose.js"
+	]
+}

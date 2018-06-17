@@ -17,7 +17,7 @@ Fleur.XPathFunctions_fn["local-name#0"] = new Fleur.Function("http://www.w3.org/
 		}
 		return ctx._curr.localName;
 	},
-	null, [{type: Fleur.Node, occurence: "?"}], true, false, {type: Fleur.Type_string});
+	null, [], true, false, {type: Fleur.Type_string});
 
 Fleur.XPathFunctions_fn["local-name#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:local-name",
 	function(node) {

@@ -1112,6 +1112,55 @@ Fleur.DOMParser._appendFromGrammarString = function(node, s, grammar) {
 	}
 	return node;
 };
+Fleur.DOMParser._appendFromZIP = function(node, s) {
+	var f, doc = node.ownerDocument || node;
+	var arr = doc.createArray();
+	node.appendChild(arr);
+	var offset = s.lastIndexOf("PK\x05\x06") + 16;
+	var r2 = function() {
+		return offset += 2, ((s.charCodeAt(offset - 1) & 0xFF) << 8) | s.charCodeAt(offset - 2) & 0xFF;
+	};
+	var r4 = function() {
+		return offset += 4, ((((((s.charCodeAt(offset - 1) & 0xFF) << 8) | s.charCodeAt(offset - 2) & 0xFF) << 8) | s.charCodeAt(offset - 3) & 0xFF) << 8) | s.charCodeAt(offset - 4) & 0xFF;
+	};
+	offset = r4();
+	while (s.charCodeAt(offset) === 80 && s.charCodeAt(offset + 1) === 75 && s.charCodeAt(offset + 2) === 1 && s.charCodeAt(offset + 3) === 2) {
+		f = {};
+		offset += 4;
+		f.versionMadeBy = r2();
+		f.versionNeeded = r2();
+		f.bitFlag = r2();
+		f.compressionMethod = r2();
+		f.date = r4();
+		f.crc32 = r4();
+		f.compressedSize = r4();
+		f.uncompressedSize = r4();
+		f.fileNameLength = r2();
+		f.extraFieldsLength = r2();
+		f.fileCommentLength = r2();
+		f.diskNumber = r2();
+		f.internalFileAttributes = r2();
+		f.externalFileAttributes = r4();
+		f.localHeaderOffset = r4();
+		f.fileName = s.substr(offset, f.fileNameLength);
+		offset += f.fileNameLength;
+		f.extraFields = s.substr(offset, f.extraFieldsLength);
+		offset += f.extraFieldsLength;
+		f.fileComment = s.substr(offset, f.fileCommentLength);
+		offset += f.fileCommentLength;
+		f.dir = f.externalFileAttributes & 0x00000010 ? true : false;
+		var offset2 = offset;
+		offset = f.localHeaderOffset + 28;
+		f.lextraFieldsLength = r2();
+		offset += f.fileNameLength;
+		f.lextraFields = s.substr(offset, f.lextraFieldsLength);
+		offset += f.lextraFieldsLength;
+		f.compressedFileData = s.substr(offset, f.compressedSize);
+		offset = offset2;
+		Fleur.DOMParser._appendFromJSON(arr, f);
+	}
+	return node;
+};
 Fleur.DOMParser._appendFromArray = function(node, names, os) {
 	var i, l, o, n, nodename, doc = node.ownerDocument || node;
 	for (i = 0, l = os.length; i < l; i++) {
@@ -1231,49 +1280,45 @@ Fleur.DOMParser.Handlers = {
 	"text/csv": function(node, s, config) {
 		Fleur.DOMParser._appendFromCSVString(node, s, config);
 	},
-	/**
-	 * @callback
-	 */
-	"application/xquery": function(node, s, config) {
+	"application/xquery": function(node, s) {
 		Fleur.DOMParser.xpatharr = Fleur.XPathEvaluator._xp2js(s, "", "");
 		eval("Fleur.DOMParser.xpatharr = [Fleur.XQueryX.module,[[Fleur.XQueryX.mainModule,[[Fleur.XQueryX.queryBody,[" + Fleur.DOMParser.xpatharr + ']]]],[Fleur.XQueryX.xqx,["http://www.w3.org/2005/XQueryX"]]]];');
 		Fleur.DOMParser._appendFromArray(node, Fleur.XQueryXNames, [Fleur.DOMParser.xpatharr]);
 		delete Fleur.DOMParser.xpatharr;
 	},
-	/**
-	 * @callback
-	 */
-	"application/json": function(node, s, config) {
+	"application/json": function(node, s) {
 		try {
 			eval("Fleur.DOMParser.json = " + s);
 			Fleur.DOMParser._appendFromJSON(node, Fleur.DOMParser.json);
 			delete Fleur.DOMParser.json;
 		} catch (e) {}
 	},
-	/**
-	 * @callback
-	 */
-	"application/xml": function(node, s, config) {
+	"application/xml": function(node, s) {
 		Fleur.DOMParser._appendFromXMLString(node, s);
 	},
-	/**
-	 * @callback
-	 */
-	"application/exml+xml": function(node, s, config) {
+	"application/exml+xml": function(node, s) {
 		var enode = node.ownerDocument.implementation.createDocument();
 		Fleur.DOMParser._appendFromXMLString(enode, s);
 		Fleur.DOMParser._appendFromEXML(node, enode.documentElement);
 		enode.removeChild(enode.documentElement);
 		enode = null;
 	},
-	/**
-	 * @callback
-	 */
+	"application/zip": function(node, s) {
+		Fleur.DOMParser._appendFromZIP(node, s);
+	},
 	"text/plain":  function(node, s, config, grammar) {
-		Fleur.DOMParser._appendFromGrammarString(node, s, grammar);
+		if (grammar) {
+			Fleur.DOMParser._appendFromGrammarString(node, s, grammar);
+		} else {
+			var t = new Fleur.Text();
+			t.data = s;
+			node.appendChild(t);
+		}
 	}
 };
 Fleur.DOMParser.Handlers["text/xml"] = Fleur.DOMParser.Handlers["application/xml"];
+Fleur.DOMParser.Handlers["application/vnd.openxmlformats-officedocument.wordprocessingml.document"] = Fleur.DOMParser.Handlers["application/zip"];
+Fleur.DOMParser.Handlers["application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"] = Fleur.DOMParser.Handlers["application/zip"];
 Fleur.DOMParser.Handlers["text/json"] = Fleur.DOMParser.Handlers["application/json"];
 
 Fleur.DOMParser.prototype.parseFromString = function(s, mediatype, grammar) {
