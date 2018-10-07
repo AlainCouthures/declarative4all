@@ -56,9 +56,9 @@ function XsltForms_range(subform, id, valoff, binding, incremental, start, end, 
 				}
 				var node = xf.element.node;
 				var value = Math.round(newPos / xf.rail.clientWidth * (xf.end - xf.start) / xf.step) * xf.step + xf.start;
-				var f = XsltForms_schema.getType(XsltForms_browser.getType(node) || "xsd_:string").format;
-				if (f) {
-					value = f(value);
+				var dt = XsltForms_schema.getType(XsltForms_browser.getType(node) || "xsd_:string");
+				if (dt.format) {
+					value = dt.format(value);
 				}
 				xf.setValue(value);
 				if (xf.incremental) {
@@ -101,9 +101,9 @@ function XsltForms_range(subform, id, valoff, binding, incremental, start, end, 
 							var node = xf.element.node;
 							var value = Math.round(newPos / xf.rail.clientWidth * (xf.end - xf.start) / xf.step) * xf.step + xf.start;
 							value = Math.min(Math.max(value, xf.start), xf.end);
-							var f = XsltForms_schema.getType(XsltForms_browser.getType(node) || "xsd_:string").format;
-							if (f) {
-								value = f(value);
+							var dt = XsltForms_schema.getType(XsltForms_browser.getType(node) || "xsd_:string");
+							if (dt.format) {
+								value = dt.format(value);
 							}
 							xf.setValue(value);
 							if (xf.incremental) {

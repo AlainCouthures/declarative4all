@@ -87,10 +87,12 @@
 				<xsl:if test="local-name() != 'output' and local-name() != 'component' and local-name() != 'var'">
 					<span class="xforms-alert">
 						<span class="xforms-alert-icon">
+							<!--
 							<xsl:if test="xforms:alert">
 								<xsl:attribute name="onmouseover">XsltForms_browser.show(this, null, true)</xsl:attribute>
 								<xsl:attribute name="onmouseout">XsltForms_browser.show(this, null, false)</xsl:attribute>
 							</xsl:if>
+							-->
 							<xsl:value-of select="$nbsp"/>
 						</span>
 						<xsl:if test="xforms:alert">
@@ -126,7 +128,10 @@
 					<xsl:if test="not($ha) or $ha != 'minimal'">
 						<span class="xforms-hint">
 							<xsl:if test="$ha != 'compact' or not($ha)">
+								<!--
 								<span class="xforms-hint-icon" onmouseover="XsltForms_browser.show(this, 'hint', true)" onmouseout="XsltForms_browser.show(this, 'hint', false)"><xsl:value-of select="$nbsp"/></span>
+								-->
+								<span class="xforms-hint-icon"><xsl:value-of select="$nbsp"/></span>
 							</xsl:if>
 							<xsl:variable name="hid">
 								<xsl:choose>
@@ -157,7 +162,10 @@
 				</xsl:if>
 				<xsl:if test="xforms:help[not(@appearance='minimal')]">
 					<span class="xforms-help">
+						<!--
 						<span class="xforms-help-icon" onmouseover="XsltForms_browser.show(this, 'help', true)" onmouseout="XsltForms_browser.show(this, 'help', false)"><xsl:value-of select="$nbsp"/></span>
+						-->
+						<span class="xforms-help-icon"><xsl:value-of select="$nbsp"/></span>
 						<xsl:variable name="hid">
 							<xsl:choose>
 								<xsl:when test="xforms:help/@id"><xsl:value-of select="xforms:help/@id"/></xsl:when>

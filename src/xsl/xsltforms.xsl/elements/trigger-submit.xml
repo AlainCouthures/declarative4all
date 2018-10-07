@@ -24,11 +24,13 @@
 			<xsl:choose>
 				<xsl:when test="@appearance = 'minimal'">
 					<a>
+						<xsl:copy-of select="@*[local-name() != 'ref' and local-name() != 'id' and local-name() != 'class']"/>
 						<xsl:copy-of select="$innerbody"/>
 					</a>
 				</xsl:when>
 				<xsl:otherwise>
 					<button type="button">
+						<xsl:copy-of select="@*[local-name() != 'ref' and local-name() != 'id' and local-name() != 'class' and local-name() != 'type']"/>
 						<xsl:copy-of select="$innerbody"/>
 					</button>
 				</xsl:otherwise>

@@ -4,7 +4,7 @@
 		<options>
 		</options>
 		<properties> <!--  accessible at run time -->
-			<html>5</html>
+			<html>4</html>
 			<language>en_us</language>
 			<!--domengine name="Fleur" url="js/fleur.js" uri="http://www.agencexml.com/Fleur" version="1.0"/-->
 			<calendar.label>...</calendar.label>

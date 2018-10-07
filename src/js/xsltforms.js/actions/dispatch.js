@@ -51,7 +51,7 @@ XsltForms_dispatch.prototype.run = function(element, ctx, evt) {
 				break;
 		}
 	} else {
-		target = typeof target === "string"? document.getElementById(target) : target;
+		target = typeof target === "string"? XsltForms_idManager.find(target) : target;
 		if (!target && evname.indexOf("xforms-") === 0) {
 			evname = "xforms-binding-exception";
 			target = element;

@@ -114,9 +114,8 @@ XsltForms_model.create = function(subform, id, schemas, functions, version) {
 		subform.models.push(elt.xfElement);
 		XsltForms_globals.addChange(elt.xfElement);
 		return elt.xfElement;
-	} else {
-		return new XsltForms_model(subform, id, schemas, functions, version);
 	}
+	return new XsltForms_model(subform, id, schemas, functions, version);
 };
 
 
@@ -293,7 +292,7 @@ XsltForms_model.prototype.revalidate = function() {
  */
 
 XsltForms_model.prototype.refresh = function() {
-	// Nada?
+	XsltForms_globals.refresh();
 };
 
 

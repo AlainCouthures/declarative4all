@@ -16,6 +16,7 @@
 		<xsl:if test="$elt = 'g'">http://www.w3.org/2000/svg</xsl:if>
 	</xsl:variable>
 	<xsl:element name="{$elt}" namespace="{$ns}">
+		<xsl:copy-of select="@*[local-name() != 'ref' and local-name() != 'id' and local-name() != 'class']"/>
 		<xsl:call-template name="genid">
 			<xsl:with-param name="workid" select="$workid"/>
 		</xsl:call-template>

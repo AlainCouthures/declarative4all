@@ -14,6 +14,6 @@
 	width: 17px; 
 	height: 17px;
 	position: absolute;
-	background-image:url('ball.png');
+	background-image:url('../img/ball.png');
 	outline-style: none;
 }

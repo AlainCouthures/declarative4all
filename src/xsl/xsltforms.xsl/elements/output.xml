@@ -14,11 +14,12 @@
 			<xsl:choose>
 				<xsl:when test="starts-with(@mediatype,'image/') and @mediatype != 'image/svg+xml'">
 					<img>
+						<xsl:copy-of select="@*[local-name() != 'ref' and local-name() != 'id' and local-name() != 'class' and local-name() != 'mediatype']"/>
 						<xsl:call-template name="comun"/>
 					</img>
 				</xsl:when>
-				<xsl:when test="namespace-uri(parent::*) = 'http://www.w3.org/2000/svg'"><xsl:element name="tspan" namespace="http://www.w3.org/2000/svg"><xsl:call-template name="comun"/><xsl:value-of select="$nbsp"/></xsl:element></xsl:when>
-				<xsl:otherwise><span><xsl:call-template name="comun"/><xsl:value-of select="$nbsp"/></span></xsl:otherwise>
+				<xsl:when test="namespace-uri(parent::*) = 'http://www.w3.org/2000/svg'"><xsl:element name="tspan" namespace="http://www.w3.org/2000/svg"><xsl:copy-of select="@*[local-name() != 'ref' and local-name() != 'id' and local-name() != 'class' and local-name() != 'mediatype']"/><xsl:call-template name="comun"/><xsl:value-of select="$nbsp"/></xsl:element></xsl:when>
+				<xsl:otherwise><span><xsl:copy-of select="@*[local-name() != 'ref' and local-name() != 'id' and local-name() != 'class' and local-name() != 'mediatype']"/><xsl:call-template name="comun"/><xsl:value-of select="$nbsp"/></span></xsl:otherwise>
 			</xsl:choose>
 		</xsl:with-param>
 	</xsl:call-template>

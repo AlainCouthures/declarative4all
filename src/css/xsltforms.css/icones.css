@@ -35,8 +35,17 @@ span.xforms-alert {
 	display				: inline;
 }
 
-span.xforms-alert-value {
+span.xforms-alert:hover span.xforms-alert-value {
 	background-color	: #ffeeee;
+	display				: inline;
+}
+
+span.xforms-hint:hover span.xforms-hint-value {
+	display				: inline;
+}
+
+span.xforms-help:hover span.xforms-help-value {
+	display				: inline;
 }
 
 span.xforms-alert-icon, span.xforms-help-icon, span.xforms-hint-icon {

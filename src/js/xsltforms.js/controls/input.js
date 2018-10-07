@@ -359,8 +359,8 @@ XsltForms_input.prototype.initEvents = function(input, canActivate) {
 		XsltForms_browser.events.attach(input, "keypress", XsltForms_input.keyPressActivate);
 		if (this.incremental) {
 			XsltForms_browser.events.attach(input, changeEventName, XsltForms_input.keyUpIncrementalActivate);
-		} else {
-			XsltForms_browser.events.attach(input, changeEventName, XsltForms_input.keyUpActivate);
+		//} else {
+		//	XsltForms_browser.events.attach(input, changeEventName, XsltForms_input.keyUpActivate);
 		}
 	} else {
 		if (this.incremental) {
@@ -458,8 +458,14 @@ XsltForms_input.keyDownActivate = function(a) {
  */
 
 XsltForms_input.keyPressActivate = function(a) {
+//	console.log("keyPressActivate");
+	var xf = XsltForms_control.getXFElement(this);
 	this.keyPressCode = a.keyCode;
 	if (a.keyCode === 13) {
+		XsltForms_globals.openAction("XsltForms_input.keyUpActivate");
+		xf.valueChanged((this.type === "time" && this.value && this.value.length === 5 ? this.value + ":00" : this.value) || "");
+		XsltForms_xmlevents.dispatch(xf, "DOMActivate");
+		XsltForms_globals.closeAction("XsltForms_input.keyUpActivate");
 		if (a.stopPropagation) {
 			a.stopPropagation();
 			a.preventDefault();
@@ -476,13 +482,14 @@ XsltForms_input.keyPressActivate = function(a) {
  */
 
 XsltForms_input.keyUpActivate = function(a) {
-	var xf = XsltForms_control.getXFElement(this);
-	if (a.keyCode === 13 && (this.keyDownCode === 13 || this.keyPressCode === 13)) {
-		XsltForms_globals.openAction("XsltForms_input.keyUpActivate");
-		xf.valueChanged((this.type === "time" && this.value && this.value.length === 5 ? this.value + ":00" : this.value) || "");
-		XsltForms_xmlevents.dispatch(xf, "DOMActivate");
-		XsltForms_globals.closeAction("XsltForms_input.keyUpActivate");
-	}
+	//console.log("keyUpActivate");
+	//var xf = XsltForms_control.getXFElement(this);
+	//if (a.keyCode === 13 && (this.keyDownCode === 13 || this.keyPressCode === 13)) {
+	//	XsltForms_globals.openAction("XsltForms_input.keyUpActivate");
+	//	xf.valueChanged((this.type === "time" && this.value && this.value.length === 5 ? this.value + ":00" : this.value) || "");
+	//	XsltForms_xmlevents.dispatch(xf, "DOMActivate");
+	//	XsltForms_globals.closeAction("XsltForms_input.keyUpActivate");
+	//}
 	this.keyDownCode = this.keyPressCode = null;
 };
 
@@ -494,12 +501,12 @@ XsltForms_input.keyUpActivate = function(a) {
 
 XsltForms_input.keyUpIncrementalActivate = function(a) {
 	var xf = XsltForms_control.getXFElement(this);
-	if (a.keyCode === 13 && (this.keyDownCode === 13 || this.keyPressCode === 13)) {
-		XsltForms_globals.openAction("XsltForms_input.keyUpIncrementalActivate#1");
-		xf.valueChanged((this.type === "time" && this.value && this.value.length === 5 ? this.value + ":00" : this.value) || "");
-		XsltForms_xmlevents.dispatch(xf, "DOMActivate");
-		XsltForms_globals.closeAction("XsltForms_input.keyUpIncrementalActivate#1");
-	} else {
+//	if (a.keyCode === 13 && (this.keyDownCode === 13 || this.keyPressCode === 13)) {
+//		XsltForms_globals.openAction("XsltForms_input.keyUpIncrementalActivate#1");
+//		xf.valueChanged((this.type === "time" && this.value && this.value.length === 5 ? this.value + ":00" : this.value) || "");
+//		XsltForms_xmlevents.dispatch(xf, "DOMActivate");
+//		XsltForms_globals.closeAction("XsltForms_input.keyUpIncrementalActivate#1");
+//	} else {
 		if (xf.delay && xf.delay > 0) {
 			if (xf.timer) {
 				window.clearTimeout(xf.timer);
@@ -516,7 +523,7 @@ XsltForms_input.keyUpIncrementalActivate = function(a) {
 			xf.valueChanged((this.type === "time" && this.value && this.value.length === 5 ? this.value + ":00" : this.value) || "");
 			XsltForms_globals.closeAction("XsltForms_input.keyUpIncrementalActivate#3");
 		}
-	}
+//	}
 	this.keyDownCode = this.keyPressCode = null;
 };
 

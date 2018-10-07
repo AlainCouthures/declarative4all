@@ -86,3 +86,22 @@ XsltForms_group.prototype.refresh = function() {
 		XsltForms_browser.setClass(tab, "xforms-disabled", disabled);
 	}
 };
+
+		
+/**
+ * * '''collapse''' method : expands/collapses group content
+ */
+
+XsltForms_group.prototype.collapse = function() {
+	var label = this.element.children[0];
+	var content = this.element.children[1];
+	if (XsltForms_browser.hasClass(label, "xforms-group-label-collapsed")) {
+		XsltForms_browser.setClass(label, "xforms-group-label-collapsed", false);
+		XsltForms_browser.setClass(label, "xforms-group-label-expanded", true);
+		XsltForms_browser.setClass(content, "xforms-disabled", false);
+	} else {
+		XsltForms_browser.setClass(label, "xforms-group-label-collapsed", true);
+		XsltForms_browser.setClass(label, "xforms-group-label-expanded", false);
+		XsltForms_browser.setClass(content, "xforms-disabled", true);
+	}
+};

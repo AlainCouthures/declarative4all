@@ -154,6 +154,7 @@
 				<xsl:if test="$mainelt = 'g'">http://www.w3.org/2000/svg</xsl:if>
 			</xsl:variable>
 			<xsl:element name="{$mainelt}" namespace="{$mainns}">
+				<xsl:copy-of select="@*[local-name() != 'ref' and local-name() != 'id' and local-name() != 'class' and local-name() != 'navindex' and local-name() != 'appearance']"/>
 				<xsl:call-template name="genid">
 					<xsl:with-param name="workid" select="$workid"/>
 				</xsl:call-template>
@@ -183,7 +184,11 @@
 							<xsl:if test="self::xforms:label">
 								<xsl:apply-templates select=".">
 									<xsl:with-param name="workid" select="concat(position(),'_',$workid)"/>
-									<xsl:with-param name="appearance" select="'groupTitle'"/>
+									<xsl:with-param name="appearance"><xsl:choose>
+											<xsl:when test="contains($appearance, 'expanded')">groupExpanded</xsl:when>
+											<xsl:when test="contains($appearance, 'collapsed')">groupCollapsed</xsl:when>
+											<xsl:otherwise>groupTitle</xsl:otherwise>
+										</xsl:choose></xsl:with-param>
 								</xsl:apply-templates>
 							</xsl:if>
 						</xsl:for-each>
@@ -199,7 +204,7 @@
 							<xsl:if test="$mainelt = 'g'">http://www.w3.org/2000/svg</xsl:if>
 						</xsl:variable>
 						<xsl:element name="{$itemelt}" namespace="{$itemns}">
-							<xsl:attribute name="class">xforms-<xsl:value-of select="$type"/>-content</xsl:attribute>
+							<xsl:attribute name="class">xforms-<xsl:value-of select="$type"/>-content<xsl:if test="contains($appearance, 'collapsed')"> xforms-disabled</xsl:if></xsl:attribute>
 							<xsl:apply-templates select="node()">
 								<xsl:with-param name="parentworkid" select="$workid"/>
 								<xsl:with-param name="appearance" select="'groupNone'"/>

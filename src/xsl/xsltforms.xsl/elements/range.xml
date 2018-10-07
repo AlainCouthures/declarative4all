@@ -12,6 +12,7 @@
 		<xsl:with-param name="appearance" select="$appearance"/>
 		<xsl:with-param name="body">
 			<span>
+				<xsl:copy-of select="@*[local-name() != 'ref' and local-name() != 'id' and local-name() != 'class']"/>
 				<xsl:call-template name="comun"/>
 				<span class="xsltforms-range-rail"><span class="xsltforms-range-cursor"><xsl:value-of select="$nbsp"/></span></span>
 				<span class="xsltforms-range-value"><xsl:value-of select="$nbsp"/></span>

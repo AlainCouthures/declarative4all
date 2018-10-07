@@ -12,10 +12,10 @@
 		
 function XsltForms_calendar() {
 	var body = XsltForms_browser.isXhtml ? document.getElementsByTagNameNS("http://www.w3.org/1999/xhtml", "body")[0] : document.getElementsByTagName("body")[0];
-	this.element = XsltForms_browser.createElement("table", body, null, "calendar");
+	this.element = XsltForms_browser.createElement("table", body, null, "xsltforms-calendar");
 	var tHead = XsltForms_browser.createElement("thead", this.element);
 	var trTitle = XsltForms_browser.createElement("tr", tHead);
-	var title = XsltForms_browser.createElement("td", trTitle, null, "title");
+	var title = XsltForms_browser.createElement("td", trTitle, null, "xsltforms-calendar-title");
 	title.colSpan = 7;
 	this.selectMonth = XsltForms_browser.createElement("select", title);
 	XsltForms_browser.events.attach(this.selectMonth, "change", function() {
@@ -40,11 +40,11 @@ function XsltForms_calendar() {
 	XsltForms_browser.events.attach(closeElt, "click", function() {
 		XsltForms_calendar.close();
 	} );
-	var trDays = XsltForms_browser.createElement("tr", tHead, null, "names");
+	var trDays = XsltForms_browser.createElement("tr", tHead, null, "xsltforms-calendar-names");
 	var ini = parseInt(XsltForms_browser.i18n.get("calendar.initDay"), 10);
 	for (var j = 0; j < 7; j++) {
 		var ind = (j + ini) % 7;
-		this.createElement(trDays, "name", XsltForms_browser.i18n.get("calendar.day" + ind));
+		this.createElement(trDays, "xsltforms-calendar-name", XsltForms_browser.i18n.get("calendar.day" + ind));
 	}
 	this.tBody = XsltForms_browser.createElement("tbody", this.element);
 	var handler = function(evt) {
@@ -69,7 +69,7 @@ function XsltForms_calendar() {
 	for (var dtr = 0; dtr < 6; dtr++) {
 		var trLine = XsltForms_browser.createElement("tr", this.tBody);
 		for (var day = 0; day < 7; day++) {
-			this.createElement(trLine, "day", " ", 1, handler);
+			this.createElement(trLine, "xsltforms-calendar-day", " ", 1, handler);
 		}
 	}
 	var tFoot = XsltForms_browser.createElement("tfoot", this.element);
@@ -95,10 +95,10 @@ function XsltForms_calendar() {
 			XsltForms_calendar.INSTANCE.secList.show();
 		}
 	} );
-	this.yearList = new XsltForms_numberList(title, "calendarList", this.inputYear, 1900, 2050);
-	this.hourList = new XsltForms_numberList(tdFoot, "calendarList", this.inputHour, 0, 23, 2);
-	this.minList = new XsltForms_numberList(tdFoot, "calendarList", this.inputMin, 0, 59, 2);
-	this.secList = new XsltForms_numberList(tdFoot, "calendarList", this.inputSec, 0, 59, 2);
+	this.yearList = new XsltForms_numberList(title, "xsltforms-calendarList", this.inputYear, 1900, 2050);
+	this.hourList = new XsltForms_numberList(tdFoot, "xsltforms-calendarList", this.inputHour, 0, 23, 2);
+	this.minList = new XsltForms_numberList(tdFoot, "xsltforms-calendarList", this.inputMin, 0, 59, 2);
+	this.secList = new XsltForms_numberList(tdFoot, "xsltforms-calendarList", this.inputSec, 0, 59, 2);
 }
 
 
@@ -147,10 +147,10 @@ XsltForms_calendar.prototype.refresh = function() {
 		for (var j = 0; j < 7; j++, cont++) {
 			var cell = trLine.childNodes[j];
 			var dayInMonth = (cont >= firstDay && cont < firstDay + daysOfMonth);
-			XsltForms_browser.setClass(cell, "hover", false);
-			XsltForms_browser.setClass(cell, "today", currentMonthYear && day === this.currentDay);
-			XsltForms_browser.setClass(cell, "selected", dayInMonth && day === this.day);
-			XsltForms_browser.setClass(cell, "weekend", (j+ini)%7 > 4);
+			XsltForms_browser.setClass(cell, "xsltforms-listHover", false);
+			XsltForms_browser.setClass(cell, "xsltforms-calendar-today", currentMonthYear && day === this.currentDay);
+			XsltForms_browser.setClass(cell, "xsltforms-calendar-selected", dayInMonth && day === this.day);
+			XsltForms_browser.setClass(cell, "xsltforms-calendar-weekend", (j+ini)%7 > 4);
 			cell.firstChild.nodeValue = dayInMonth ? day++ : "";
 		}
 	}
@@ -230,7 +230,7 @@ XsltForms_calendar.show = function(input, type) {
 	cal.input = input;
 	cal.type = type;
 	cal.isTimestamp = type !== XsltForms_calendar.ONLY_DATE;
-	XsltForms_browser.setClass(cal.element, "date", !cal.isTimestamp);
+	XsltForms_browser.setClass(cal.element, "xsltforms-calendar-date", !cal.isTimestamp);
 	var date;
 	try {
 		date = cal.isTimestamp? XsltForms_browser.i18n.parse(input.value) : XsltForms_browser.i18n.parseDate(input.value);

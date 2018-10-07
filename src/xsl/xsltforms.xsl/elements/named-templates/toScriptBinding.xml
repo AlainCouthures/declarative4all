@@ -26,6 +26,10 @@
 		<xsl:when test="@bind">new XsltForms_<xsl:value-of select="$mip"/>binding(null, null, null, "<xsl:call-template name="toXPathExpr"><xsl:with-param name="p" select="@bind"/></xsl:call-template>")</xsl:when>
 		<xsl:when test="$xpath != '' and $model != '&quot;&quot;'">new XsltForms_<xsl:value-of select="$mip"/>binding(<xsl:value-of select="$type2"/>, "<xsl:call-template name="toXPathExpr"><xsl:with-param name="p" select="$xpath"/></xsl:call-template>", <xsl:value-of select="$model"/>)</xsl:when>
 		<xsl:when test="$xpath != ''">new XsltForms_<xsl:value-of select="$mip"/>binding(<xsl:value-of select="$type2"/>, "<xsl:call-template name="toXPathExpr"><xsl:with-param name="p" select="$xpath"/></xsl:call-template>")</xsl:when>
+		<xsl:when test="@mediatype">"<xsl:call-template name="escapeJS">
+			<xsl:with-param name="text" select="."/>
+			<xsl:with-param name="trtext" select="translate(.,concat(' ',$newline,$carriagereturn,$quot,$apos),concat($tab,$tab,$tab,$tab,$tab))"/>
+		</xsl:call-template>"</xsl:when>
 		<xsl:otherwise>null</xsl:otherwise>
 	</xsl:choose>
 </xsl:template>

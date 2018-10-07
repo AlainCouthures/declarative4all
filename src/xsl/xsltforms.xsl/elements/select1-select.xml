@@ -11,6 +11,7 @@
 		<xsl:choose>
 			<xsl:when test="@appearance='compact'">
 				<select size="4">
+					<xsl:copy-of select="@*[local-name() != 'ref' and local-name() != 'id' and local-name() != 'class' and local-name() != 'max' and local-name() != 'multiple' and local-name() != 'type' and local-name() != 'size' and local-name() != 'appearance']"/>
 					<xsl:call-template name="comun"/>
 					<xsl:if test="local-name() = 'select' and (not(@max) or @max &gt; 1)">
 						<xsl:attribute name="multiple">true</xsl:attribute>
@@ -22,6 +23,7 @@
 			</xsl:when>
 			<xsl:when test="@appearance='full'">
 				<span>
+					<xsl:copy-of select="@*[local-name() != 'ref' and local-name() != 'id' and local-name() != 'class' and local-name() != 'max' and local-name() != 'multiple' and local-name() != 'type' and local-name() != 'size' and local-name() != 'appearance']"/>
 					<xsl:call-template name="comun"/>
 					<xsl:variable name="type">
 						<xsl:choose>
@@ -37,6 +39,7 @@
 			</xsl:when>
 			<xsl:otherwise>
 				<select>
+					<xsl:copy-of select="@*[local-name() != 'ref' and local-name() != 'id' and local-name() != 'class' and local-name() != 'max' and local-name() != 'multiple' and local-name() != 'type' and local-name() != 'size' and local-name() != 'appearance']"/>
 					<xsl:call-template name="comun"/>
 					<xsl:if test="local-name() = 'select' and (not(@max) or @max &gt; 1)">
 						<xsl:attribute name="multiple">true</xsl:attribute>

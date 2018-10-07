@@ -40,9 +40,9 @@ var XsltForms_browser = {
 			}
 		} else if (element.className) {
 			if (typeof element.className === "string") {
-				element.className = element.className.replace(className, "");
+				element.className = element.className.replace(className, "").replace(/ +/g, " ");
 			} else {
-				element.className.baseVal = element.className.baseVal.replace(className, "");
+				element.className.baseVal = element.className.baseVal.replace(className, "").replace(/ +/g, " ");
 			}
 		}
 	},
@@ -59,10 +59,10 @@ var XsltForms_browser = {
 	},
 	initHover : function(element) {
 		XsltForms_browser.events.attach(element, "mouseover", function(evt) {
-			XsltForms_browser.setClass(XsltForms_browser.events.getTarget(evt), "hover", true);
+			XsltForms_browser.setClass(XsltForms_browser.events.getTarget(evt), "xsltforms-listHover", true);
 		} );
 		XsltForms_browser.events.attach(element, "mouseout", function(evt) {
-			XsltForms_browser.setClass(XsltForms_browser.events.getTarget(evt), "hover", false);
+			XsltForms_browser.setClass(XsltForms_browser.events.getTarget(evt), "xsltforms-listHover", false);
 		} );
 	},
 	getEventPos : function(ev) {
@@ -1524,6 +1524,193 @@ XsltForms_browser.inValueMeta = function(node, meta, value) {
 	}
 };
 
+XsltForms_browser.md2string = function(s) {
+	var lines = s.split("\n");
+	var items = [], lseps = [];
+	var blocks = [];
+	var ser = "";
+	for (var i = 0, l = lines.length; i < l; i++) {
+		if (lines[i].trim() !== "") {
+			items.push(lines[i]);
+			lseps.push(0);
+		} else if (lseps.length !== 0) {
+			lseps[lseps.length - 1]++;
+		}
+	}
+	var dashtrim = function(s) {
+		var t = s.trim();
+		for (var i0 = t.length - 1; i0 >= 0; i0--) {
+			if (t.charAt(i0) !== "#") {
+				return t.substr(0, i0 + 1).trim();
+			}
+		}
+		return "";
+	};
+	var oi, oi2;
+	var outol = true;
+	var pol = false;
+	var orderitem = function(s) {
+		oi = 0;
+		var c = s.charCodeAt(oi);
+		if (outol || c !== 42 || c !== 43 || c !== 45) {
+			while (c >= 48 && c <= 57) {
+				oi++;
+				c = s.charCodeAt(oi);
+			}
+			return c === 46 && oi !== 0 && s.charCodeAt(oi + 1) === 32 ? oi + 2 : -1;
+		}
+		return s.charCodeAt(1) === 32 ? 2 : -1;
+	};
+	var ui, ui2;
+	var outul = true;
+	var pul = false;
+	var unorderitem = function(s) {
+		ui = 0;
+		var c = s.charCodeAt(ui);
+		if (c === 42 || c === 43 || c === 45) {
+			return s.charCodeAt(1) === 32 ? 2 : -1;
+		}
+		while (c >= 48 && c <= 57) {
+			ui++;
+			c = s.charCodeAt(ui);
+		}
+		return !outul && c === 46 && ui !== 0 && s.charCodeAt(ui + 1) === 32 ? ui + 2 : -1;
+	};
+	var inlinemd = function(s) {
+		var r = "";
+		var outem = true;
+		var outstrong = true;
+		var outdel = true;
+		for (var il = 0, ll = s.length; il < ll; il++) {
+			var c = s.charAt(il);
+			if (c === "*" || c === "_") {
+				if (s.charAt(il + 1) === c) {
+					if ((outstrong && s.substr(il + 2).indexOf(c + c) !== -1) || !outstrong) {
+						r += "<" + (outstrong ? "" : "/") + "strong>";
+						outstrong = !outstrong;
+						il++;
+					} else {
+						r += c + c;
+					}
+				} else {
+					if ((outem && s.substr(il + 1).replace(c + c, "").indexOf(c) !== -1) || !outem) {
+						r += "<" + (outem ? "" : "/") + "em>";
+						outem = !outem;
+					} else {
+						r += c;
+					}
+				}
+			} else if (c === "~" && s.charAt(il + 1) === "~") {
+				if ((outdel && s.substr(il + 2).indexOf("~~") !== -1) || !outdel) {
+					r += "<" + (outdel ? "" : "/") + "del>";
+					outdel = !outdel;
+					il++;
+				} else {
+					r += "~~";
+				}
+			} else if (c === "[") {
+				var anchor = "";
+				var link = "";
+				c = s.charAt(++il);
+				while (il < ll) {
+					if (c === "]") {
+						break;
+					}
+					anchor += c;
+					c = s.charAt(++il);
+				}
+				c = s.charAt(++il);
+				if (c === "(") {
+					c = s.charAt(++il);
+					while (il < ll) {
+						if (c === ")") {
+							break;
+						}
+						link += c;
+						c = s.charAt(++il);
+					}
+					r += "<a href='" + link + "'>" + anchor + "</a>";
+				}
+			} else {
+				r += c;
+			}
+		}
+		return r;
+	};
+	var lastli = 0;
+	for (i = 0, l = items.length; i < l; i++) {
+		if (items[i].startsWith("# ")) {
+			blocks.push(["h1", inlinemd(dashtrim(items[i].substr(2)))]);
+		} else if (items[i].startsWith("## ")) {
+			blocks.push(["h2", inlinemd(dashtrim(items[i].substr(3)))]);
+		} else if (items[i].startsWith("### ")) {
+			blocks.push(["h3", inlinemd(dashtrim(items[i].substr(4)))]);
+		} else if (items[i].startsWith("#### ")) {
+			blocks.push(["h4", inlinemd(dashtrim(items[i].substr(5)))]);
+		} else if (items[i].startsWith("##### ")) {
+			blocks.push(["h5", inlinemd(dashtrim(items[i].substr(6)))]);
+		} else if (items[i].startsWith("###### ")) {
+			blocks.push(["h6", inlinemd(dashtrim(items[i].substr(7)))]);
+		} else if (items[i].startsWith("---") && items[i].trim() === "-".repeat(items[i].trim().length)) {
+			if (blocks.length === 0 || blocks[blocks.length - 1][0] !== "p" || lseps[i - 1] !== 0) {
+				blocks.push(["hr"]);
+			} else  {
+				blocks[blocks.length - 1][0] = "h2";
+			}
+		} else if (items[i].startsWith("===") && items[i].trim() === "=".repeat(items[i].trim().length) && blocks.length !== 0 && blocks[blocks.length - 1][0] === "p" && lseps[i - 1] === 0) {
+			blocks[blocks.length - 1][0] = "h1";
+		} else if (orderitem(items[i]) !== -1 && outul) {
+			if (outol) {
+				pol = false;
+			}
+			oi2 = oi;
+			blocks.push(["", (outol ? "<ol><li>" : "<li>") + ((lseps[i] !== 0 && i !== l - 1 && orderitem(items[i + 1]) !== -1) || pol ? "<p>" : "") + inlinemd(items[i].substr(oi2 + 1).trim()) + ((lseps[i] !== 0 && i !== l - 1 && orderitem(items[i + 1]) !== -1) || pol ? "</p>" : "") + "</li></ol>"]);
+			if (!outol) {
+				blocks[lastli][1] = blocks[lastli][1].substr(0, blocks[lastli][1].length - 5);
+			}
+			lastli = blocks.length - 1;
+			outol = false;
+			pol = lseps[i] !== 0;
+		} else if (unorderitem(items[i]) !== -1) {
+			if (outul) {
+				pul = false;
+			}
+			ui2 = ui;
+			blocks.push(["", (outul ? "<ul><li>" : "<li>") + ((lseps[i] !== 0 && i !== l - 1 && unorderitem(items[i + 1]) !== -1) || pul ? "<p>" : "") + inlinemd(items[i].substr(ui2 + 1).trim()) + ((lseps[i] !== 0 && i !== l - 1 && unorderitem(items[i + 1]) !== -1) || pul ? "</p>" : "") + "</li></ul>"]);
+			if (!outul) {
+				blocks[lastli][1] = blocks[lastli][1].substr(0, blocks[lastli][1].length - 5);
+			}
+			lastli = blocks.length - 1;
+			outul = false;
+			pul = lseps[i] !== 0;
+		} else if (blocks.length === 0 || blocks[blocks.length - 1][0] !== "p" || lseps[i - 1] !== 0) {
+			blocks.push([lines.length === 1 ? "" : "p", [inlinemd(items[i])]]);
+		} else {
+			blocks[blocks.length - 1][1].push(inlinemd(items[i]));
+		}
+	}
+	for (i = 0, l = blocks.length; i < l; i++) {
+		if (blocks[i][0] !== "") {
+			ser += "<" + blocks[i][0] + ">";
+		}
+		if (blocks[i][0] === "p") {
+			for (var j = 0, l2 = blocks[i][1].length; j < l2; j++) {
+				if (j !== 0) {
+					ser += "<br/>";
+				}
+				ser += blocks[i][1][j];
+			}
+		} else if (blocks[i].length === 2) {
+			ser += blocks[i][1];
+		}
+		if (blocks[i][0] !== "") {
+			ser += "</" + blocks[i][0] + ">";
+		}
+	}
+	return ser;
+};
+
+
 XsltForms_browser.name2string = function(node) {
 	var s = "";
 	if (!node.nodeType) {
@@ -2298,7 +2485,7 @@ XsltForms_numberList.prototype.refresh = function()  {
 	}
 	var topn = cur + 4;
 	for (var i = 1; i < 8; i++) {
-		XsltForms_browser.setClass(childs[i], "hover", false);
+		XsltForms_browser.setClass(childs[i], "xsltforms-listHover", false);
 		var str = String(topn - i);
 		while (str.length < this.minlength) {
 			str = '0' + str;
@@ -2589,7 +2776,7 @@ XsltForms_browser.getId = function(element) {
  */
 
 XsltForms_browser.show = function(el, type, value) {
-	el.parentNode.lastChild.style.display = value? 'inline' : 'none';
+	XsltForms_browser.setClass(el.parentNode.lastChild, "xforms-hidden", !value);
 };
 
 

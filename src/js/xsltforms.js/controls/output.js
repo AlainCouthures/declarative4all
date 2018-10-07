@@ -26,13 +26,17 @@ function XsltForms_output(subform, id, valoff, binding, mediatype) {
 	if (valuechildren.length !== 0) {
 		this.valueElement = valuechildren[0];
 	}
-	this.hasBinding = true;
 	this.binding = binding;
+	this.hasBinding = typeof binding !== "string";
 	this.mediatype = mediatype;
-	this.complex = mediatype === "application/xhtml+xml";
+	this.complex = mediatype === "application/xhtml+xml" || mediatype === "text/html" || mediatype === "text/markdown";
 	this.isOutput = true;
-	if (this.binding && this.binding.type) {
-		XsltForms_browser.setClass(this.element, "xforms-disabled", false);
+	if (this.binding) {
+		if (this.binding.type) {
+			XsltForms_browser.setClass(this.element, "xforms-disabled", false);
+		} else if (typeof binding === "string") {
+			this.setValue(binding);
+		}
 	}
 }
 
@@ -86,12 +90,19 @@ XsltForms_output.prototype.setValue = function(value) {
 			element = spanelt;
 		}
 		if (element.nodeName.toLowerCase() === "span" || element.nodeName.toLowerCase() === "tspan" || element.nodeName.toLowerCase() === "label") {
-			if (mediatype === "application/xhtml+xml") {
+			if (mediatype === "application/xhtml+xml" || mediatype === "text/html") {
 				while (element.firstChild) {
 					element.removeChild(element.firstChild);
 				}
 				if (value) {
 					element.innerHTML = value;
+				}
+			} else if (mediatype === "text/markdown") {
+				while (element.firstChild) {
+					element.removeChild(element.firstChild);
+				}
+				if (value) {
+					element.innerHTML = XsltForms_browser.md2string(value);
 				}
 			} else if (mediatype === "image/svg+xml") {
 				while (element.firstChild) {
