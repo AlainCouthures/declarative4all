@@ -88,6 +88,7 @@ if (process.argv.length > 2) {
 		'.jpg':   'image/jpeg',
 		'.js':    'application/javascript',
 		'.json':  'application/json',
+		'.ofx':   'application/x-ofx',
 		'.png':   'image/png',
 		'.svg':   'image/svg+xml',
 		'.txt':   'text/plain',

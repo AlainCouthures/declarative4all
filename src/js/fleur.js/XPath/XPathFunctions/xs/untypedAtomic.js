@@ -8,7 +8,5 @@
  * @description 
  */
 Fleur.XPathFunctions_xs["untypedAtomic"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_untypedAtomic, null, function() {}, function() {
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Type_untypedAtomic, function() {}, callback);
 };

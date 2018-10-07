@@ -79,6 +79,7 @@ Fleur.Document.prototype.createAttributeNS = function(namespaceURI, qualifiedNam
 		if (Fleur.Node.QNameCharsReg.test(qualifiedName)) {
 			throw new Fleur.DOMException(Fleur.DOMException.NAMESPACE_ERR);
 		} else {
+			console.log(qualifiedName);
 			throw new Fleur.DOMException(Fleur.DOMException.INVALID_CHARACTER_ERR);
 		}
 	}

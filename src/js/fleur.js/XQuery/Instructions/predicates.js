@@ -11,14 +11,51 @@ Fleur.XQueryEngine[Fleur.XQueryX.predicates] = function(ctx, children, callback)
 	var next = ctx._next;
 	var last;
 	var pos = 1;
+	var i, l, label;
 //console.log("predicates - " + pos + " - " + Fleur.Serializer._serializeNodeToXQuery(next, false, ""));
 	var result = Fleur.EmptySequence;
 	var subcurr;
+	//var seq;
+	if (next.collabels) {
+		label = next.collabels[0];
+	}
 	if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
-		last = next.childNodes.length;
-		subcurr = next.childNodes.shift();
-		if (next.childNodes.length === 1) {
-			next = next.childNodes[0];
+		var seq = new Fleur.Sequence();
+		next.childNodes.forEach(function(child) {
+			if (child.nodeType === Fleur.Node.MULTIDIM_NODE) {
+				var md = new Fleur.Multidim();
+				child.childNodes.forEach(function(subchild) {md.appendChild(subchild);});
+				seq.appendChild(md);
+			} else {
+				seq.appendChild(child);
+			}
+		});
+		seq.collabels = next.collabels;
+		next = seq;
+		if (next.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+			last = next.childNodes[0].childNodes.length;
+			if (last !== 1) {
+				subcurr = new Fleur.Sequence();
+				for (i = 0, l = next.childNodes.length; i < l; i++) {
+					var subitem = next.childNodes[i].childNodes.shift();
+					var multi = new Fleur.Multidim();
+					multi.appendChild(subitem);
+					subcurr.appendChild(multi);
+				}
+				subcurr.rowlabels = next.rowlabels;
+			} else {
+				subcurr = next;
+				next = Fleur.EmptySequence;
+			}
+		} else {
+			last = next.childNodes.length;
+			subcurr = next.childNodes.shift();
+			if (next.childNodes.length === 1) {
+				if (label) {
+					next.childNodes[0].collabels = next.collabels;
+				}
+				next = next.childNodes[0];
+			}
 		}
 	} else {
 		subcurr = next;
@@ -82,11 +119,33 @@ Fleur.XQueryEngine[Fleur.XQueryX.predicates] = function(ctx, children, callback)
 			next = result;
 			result = Fleur.EmptySequence;
 			pos = 1;
+			if (next.collabels) {
+				label = next.collabels[0];
+			}
 			if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
-				last = next.childNodes.length;
-				subcurr = next.childNodes.shift();
-				if (next.childNodes.length === 1) {
-					next = next.childNodes[0];
+				if (next.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+					if (next.childNodes[0].childNodes.length !== 1) {
+						subcurr = new Fleur.Sequence();
+						for (i = 0, l = next.childNodes.length; i < l; i++) {
+							var subitem = next.childNodes[i].childNodes.shift();
+							var multi = new Fleur.Multidim();
+							multi.appendChild(subitem);
+							subcurr.appendChild(multi);
+						}
+						subcurr.rowlabels = next.rowlabels;
+					} else {
+						subcurr = next;
+						next = Fleur.EmptySequence;
+					}
+				} else {
+					last = next.childNodes.length;
+					subcurr = next.childNodes.shift();
+					if (next.childNodes.length === 1) {
+						if (label) {
+							next.childNodes[0].collabels = next.collabels;
+						}
+						next = next.childNodes[0];
+					}
 				}
 			} else {
 				subcurr = next;
@@ -98,14 +157,38 @@ Fleur.XQueryEngine[Fleur.XQueryX.predicates] = function(ctx, children, callback)
 						_next: next,
 						_last: last,
 						_pos: pos,
+						_label: label,
 						env: ctx.env
 					}, children[0][1], cb);
 			return;
 		}
+		if (next.collabels) {
+			label = next.collabels[pos];
+		}
 		if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
-			subcurr = next.childNodes.shift();
-			if (next.childNodes.length === 1) {
-				next = next.childNodes[0];
+			if (next.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+				last = next.childNodes[0].childNodes.length;
+				if (last !== 1) {
+					subcurr = new Fleur.Sequence();
+					for (i = 0, l = next.childNodes.length; i < l; i++) {
+						var subitem = next.childNodes[i].childNodes.shift();
+						var multi = new Fleur.Multidim();
+						multi.appendChild(subitem);
+						subcurr.appendChild(multi);
+					}
+					subcurr.rowlabels = next.rowlabels;
+				} else {
+					subcurr = next;
+					next = Fleur.EmptySequence;
+				}
+			} else {
+				subcurr = next.childNodes.shift();
+				if (next.childNodes.length === 1) {
+					if (label) {
+						next.childNodes[0].collabels = next.collabels;
+					}
+					next = next.childNodes[0];
+				}
 			}
 		} else {
 			subcurr = next;
@@ -114,17 +197,21 @@ Fleur.XQueryEngine[Fleur.XQueryX.predicates] = function(ctx, children, callback)
 		pos++;
 		Fleur.XQueryEngine[children[0][0]]({
 					_curr: subcurr,
+					_item: ctx._item,
 					_next: next,
 					_last: last,
 					_pos: pos,
+					_label: label,
 					env: ctx.env
 				}, children[0][1], cb);
 	};
 	Fleur.XQueryEngine[children[0][0]]({
 				_curr: subcurr,
+				_item: ctx._item,
 				_next: next,
 				_last: last,
 				_pos: pos,
+				_label: label,
 				env: ctx.env
 			}, children[0][1], cb);
 };

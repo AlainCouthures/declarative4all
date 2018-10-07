@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Raw PCs</title>
+		<title>Serialized ZIP</title>
 		<style>
 			body {{
 				font-family: arial,sans-serif;
@@ -15,6 +15,8 @@
 		</style>
 	</head>
 	<body>
-		<pre>{serialize(doc('public/aruba/collect.json'), map{'indent': 'yes'})}</pre>
+		<pre>{
+			serialize(doc('public/odk_sample_form.xlsx'), map{"indent": "yes"})
+		}</pre>
 	</body>
 </html>

@@ -8,9 +8,5 @@
  * @description 
  */
 Fleur.XPathFunctions_xs["long"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["long"], /^[\-+]?[0-9]+$/, function() {}, function(node) {
-		var value = parseInt(node.data, 10);
-		node.data = "" + value;
-		return value < -9223372036854775808 || value > 9223372036854775807;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["long"], function() {}, callback);
 };

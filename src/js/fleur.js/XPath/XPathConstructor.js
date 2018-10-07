@@ -7,7 +7,7 @@
  * @module 
  * @description 
  */
-Fleur.XPathConstructor = function(ctx, children, schemaType, stringreg, others, formatvalue, callback) {
+Fleur.XPathConstructor = function(ctx, children, schemaType, others, callback) {
 	if (children.length !== 1) {
 		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
 		return;
@@ -19,7 +19,7 @@ Fleur.XPathConstructor = function(ctx, children, schemaType, stringreg, others, 
 			return;
 		}
 		if (a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-			if (!a.hasOwnProperty("data") || (stringreg && !(stringreg.test(a.data)))) {
+			if (!a.hasOwnProperty("data")) {
 				Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0001"));});
 				return;
 			}
@@ -31,11 +31,11 @@ Fleur.XPathConstructor = function(ctx, children, schemaType, stringreg, others, 
 			}
 		}
 		a.schemaTypeInfo = schemaType;
-		if (formatvalue(a)) {
-			Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0001"));});
+		if (a.canonicalize()) {
+			Fleur.callback(function() {callback(a);});
 			return;
 		}
-		Fleur.callback(function() {callback(a);});
+		Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0001"));});
 	});
 };
 
@@ -124,7 +124,7 @@ Fleur.XPathStringContentFunction = function(ctx, children, empty, f, schemaTypeI
 				}
 				arg2 = a2.data;
 			}
-			a2.data = "" + f(arg1, arg2);
+			a2.data = String(f(arg1, arg2));
 			a2.schemaTypeInfo = schemaTypeInfo;
 			Fleur.callback(function() {callback(a2);});
 		});
@@ -148,28 +148,25 @@ Fleur.XPathNumberFunction = function(ctx, children, f, schemaTypeInfo, callback)
 			if (schemaTypeInfo !== Fleur.Type_double && isNaN(value)) {
 				Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0001"));});
 				return;
-			} else {
-				a.data = value === Number.POSITIVE_INFINITY ? "INF" : value === Number.NEGATIVE_INFINITY ? "-INF" : isNaN(value) ? "NaN" : ("" + value).replace("e+", "e");
 			}
+			a.data = value === Number.POSITIVE_INFINITY ? "INF" : value === Number.NEGATIVE_INFINITY ? "-INF" : isNaN(value) ? "NaN" : String(value).replace("e+", "e");
 		} else if (a.schemaTypeInfo === Fleur.Type_decimal || a.schemaTypeInfo === Fleur.Type_float || a.schemaTypeInfo === Fleur.Type_double) {
 			value = f(a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : a.data === "NaN" ? Number.NaN : parseFloat(a.data));
-			a.data = value === Number.POSITIVE_INFINITY ? "INF" : value === Number.NEGATIVE_INFINITY ? "-INF" : isNaN(value) ? "NaN" : ("" + value).replace("e+", "e");
+			a.data = value === Number.POSITIVE_INFINITY ? "INF" : value === Number.NEGATIVE_INFINITY ? "-INF" : isNaN(value) ? "NaN" : String(value).replace("e+", "e");
 		} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
 			value = f(parseInt(a.data, 10));
 			if (schemaTypeInfo !== Fleur.Type_double && isNaN(value)) {
 				Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0001"));});
 				return;
-			} else {
-				a.data = value === Number.POSITIVE_INFINITY ? "INF" : value === Number.NEGATIVE_INFINITY ? "-INF" : isNaN(value) ? "NaN" : ("" + value).replace("e+", "e");
 			}
+			a.data = value === Number.POSITIVE_INFINITY ? "INF" : value === Number.NEGATIVE_INFINITY ? "-INF" : isNaN(value) ? "NaN" : String(value).replace("e+", "e");
 		} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
 			value = f(parseFloat(a.data));
 			if (schemaTypeInfo !== Fleur.Type_double && isNaN(value)) {
 				Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0001"));});
 				return;
-			} else {
-				a.data = value === Number.POSITIVE_INFINITY ? "INF" : value === Number.NEGATIVE_INFINITY ? "-INF" : isNaN(value) ? "NaN" : ("" + value).replace("e+", "e");
 			}
+			a.data = value === Number.POSITIVE_INFINITY ? "INF" : value === Number.NEGATIVE_INFINITY ? "-INF" : isNaN(value) ? "NaN" : String(value).replace("e+", "e");
 		} else {
 			Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
 			return;
@@ -188,10 +185,6 @@ Fleur.XPathNumberFunction = function(ctx, children, f, schemaTypeInfo, callback)
 Fleur.XPathTestOpFunction = function(ctx, children, f, callback) {
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
 		var a1 = Fleur.Atomize(n);
-		if (a1.schemaTypeInfo === Fleur.Type_error) {
-			Fleur.callback(function() {callback(a1);});
-			return;
-		}
 		if (a1 === Fleur.EmptySequence) {
 			a1 = new Fleur.Text();
 			a1.schemaTypeInfo = Fleur.Type_string;
@@ -201,6 +194,11 @@ Fleur.XPathTestOpFunction = function(ctx, children, f, callback) {
 			Fleur.callback(function() {callback(Fleur.EmptySequence);});
 			return;
 		}
+		var op1 = Fleur.toJSValue(a1, true, true, true, true, false, true);
+		if (op1[0] < 0) {
+			Fleur.callback(function() {callback(a1);});
+			return;
+		}
 		if (Fleur.numericTypes.indexOf(a1.schemaTypeInfo) !== -1) {
 			a1.schemaTypeInfo = Fleur.Type_double;
 		} else if (a1.schemaTypeInfo === Fleur.Type_untypedAtomic) {
@@ -208,10 +206,6 @@ Fleur.XPathTestOpFunction = function(ctx, children, f, callback) {
 		}
 		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
 			var a2 = Fleur.Atomize(n);
-			if (a2.schemaTypeInfo === Fleur.Type_error) {
-				Fleur.callback(function() {callback(a2);});
-				return;
-			}
 			if (a2 === Fleur.EmptySequence) {
 				a2 = new Fleur.Text();
 				a2.schemaTypeInfo = Fleur.Type_string;
@@ -221,16 +215,21 @@ Fleur.XPathTestOpFunction = function(ctx, children, f, callback) {
 				Fleur.callback(function() {callback(Fleur.EmptySequence);});
 				return;
 			}
+			var op2 = Fleur.toJSValue(a2, true, true, true, true, false, true);
+			if (op2[0] < 0) {
+				Fleur.callback(function() {callback(a2);});
+				return;
+			}
 			if (Fleur.numericTypes.indexOf(a2.schemaTypeInfo) !== -1) {
 				a2.schemaTypeInfo = Fleur.Type_double;
 			} else if (a2.schemaTypeInfo === Fleur.Type_untypedAtomic) {
 				a2.schemaTypeInfo = Fleur.Type_string;
 			}
 			if (a1.schemaTypeInfo !== a2.schemaTypeInfo) {
-				Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0006"));});
+				Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
 				return;
 			}
-			a1.data = "" + f(a1, a2);
+			a1.data = String(f(op1, op2));
 			a1.schemaTypeInfo = Fleur.Type_boolean;
 			Fleur.callback(function() {callback(a1);});
 		});
@@ -291,17 +290,21 @@ Fleur.XPathGenTestOpFunction = function(ctx, children, f, callback) {
 					i1 = a1;
 					a1 = Fleur.EmptySequence;
 				}
+				var op1 = Fleur.toJSValue(i1, true, true, true, true, false, true);
+				var op2;
 				if (a2.nodeType === Fleur.Node.SEQUENCE_NODE) {
 					for (b = 0, l = a2.childNodes.length; b < l && !res; b++) {
-						res = f(i1, a2.childNodes[b]);
+						op2 = Fleur.toJSValue(a2.childNodes[b], true, true, true, true, false, true);
+						res = f(op1, op2);
 					}
 				} else {
-					res = f(i1, a2);
+					op2 = Fleur.toJSValue(a2, true, true, true, true, false, true);
+					res = f(op1, op2);
 				}
 				if (res) {
 					break;
 				}
-			} while(a1 !== Fleur.EmptySequence)
+			} while(a1 !== Fleur.EmptySequence);
 			a1 = new Fleur.Text();
 			a1.data = String(res);
 			a1.schemaTypeInfo = Fleur.Type_boolean;

@@ -9,6 +9,76 @@
  */
 Fleur.DOMParser = function() {};
 Fleur.DOMParser._appendFromCSVString = function(node, s, config) {
+	var offset = 0, end, sep, head = config.header === "present", ignore;
+	var first = head;
+	var row, a;
+	sep = config.separator ? decodeURIComponent(config.separator) : ",";
+	s = s.replace(/\r\n/g,"\n").replace(/\r/g,"\n");
+	if (s.charAt(s.length - 1) !== "\n") {
+		s += "\n";
+	}
+	ignore = Math.max(parseInt(config.ignore, 10) || 0, 0);
+	end = s.length;
+	if (ignore !== 0) {
+		while (offset !== end) {
+			if (s.charAt(offset) === "\n") {
+				ignore--;
+				if (ignore === 0) {
+					offset++;
+					break;
+				}
+			}
+			offset++;
+		}
+	}
+	row = new Fleur.Multidim();
+	if (head) {
+		node.collabels = [];
+	}
+	while (offset !== end) {
+		var v = "";
+		if (s.charAt(offset) === '"') {
+			offset++;
+			do {
+				if (s.charAt(offset) !== '"') {
+					v += s.charAt(offset);
+					offset++;
+				} else {
+					if (s.substr(offset, 2) === '""') {
+						v += '"';
+						offset += 2;
+					} else {
+						offset++;
+						break;
+					}
+				}
+			} while (offset !== end);
+		} else {
+			while (s.substr(offset, sep.length) !== sep && s.charAt(offset) !== "\n") {
+				v += s.charAt(offset);
+				offset++;
+			}
+		}
+		if (first) {
+			node.collabels.push(v);
+		} else {
+			a = new Fleur.Text();
+			a.data = v;
+			row.appendChild(a);
+		}
+		if (s.charAt(offset) === "\n") {
+			node.appendChild(row);
+			row = new Fleur.Multidim();
+			first = false;
+		}
+		offset++;
+	}
+	if (node.childNodes.length < 2) {
+		node.childNodes = node.childNodes[0].childNodes;
+	}
+};
+/*
+Fleur.DOMParser._appendFromCSVString_old = function(node, s, config) {
 	var offset = 0, end, doc = node.ownerDocument || node, eltnode, sep, head = config.header === "present", ignore;
 	var headers = [];
 	var first = head;
@@ -117,7 +187,6 @@ Fleur.DOMParser._appendFromCSVString = function(node, s, config) {
 		node.appendChild(mapnode);
 	}
 };
-/*
 Fleur.DOMParser._appendFromXMLString = function(node, s) {
 	var ii, ll, text, index, offset = 0, end = s.length, nodename, attrname, attrvalue, attrs, parents = [], doc = node.ownerDocument || node, currnode = node, eltnode, attrnode, c,
 		seps_pi = " \t\n\r?", seps_dtd = " \t\n\r[>", seps_close = " \t\n\r>", seps_elt = " \t\n\r/>", seps_attr = " \t\n\r=", seps = " \t\n\r",
@@ -559,7 +628,7 @@ Fleur.DocumentType.resolveEntities = function(doctype, s) {
 	}
 	return s.split("\r\n").join("\n");
 };*/
-Fleur.DOMParser._appendFromXMLString = function(node, s) {
+Fleur.DOMParser._appendFromXMLString = function(node, s, leaftags) {
 	var ii, ll, text, entstart, entityname, index, offset = 0, end = s.length, nodename, attrname, attrvalue, attrs, parents = [], doc = node.ownerDocument || node, currnode = node, eltnode, attrnode, c,
 		seps_pi = " \t\n\r?", seps_dtd = " \t\n\r[>", seps_close = " \t\n\r>", seps_elt = " \t\n\r/>", seps_attr = " \t\n\r=/<>", seps = " \t\n\r",
 		n, namespaces = {}, newnamespaces = {}, pindex, prefix, localName, dtdtype, dtdpublicid, dtdsystemid, entityvalue, notationvalue;
@@ -615,6 +684,19 @@ Fleur.DOMParser._appendFromXMLString = function(node, s) {
 		}
 		if (offset === end) {
 			break;
+		}
+		if (leaftags && leaftags.indexOf(currnode.nodeName) !== -1) {
+			if (currnode.firstChild.data.endsWith("\r\n")) {
+				currnode.firstChild.data = currnode.firstChild.data.substring(0, currnode.firstChild.data.length - 2);
+			}
+			n = parents.pop();
+			namespaces = {};
+			for (prefix in n.namespaces) {
+				if (n.namespaces.hasOwnProperty(prefix)) {
+					namespaces[prefix] = n.namespaces[prefix];
+				}
+			}
+			currnode = n.node;
 		}
 		/*
 		index = s.indexOf("<", offset);
@@ -868,6 +950,12 @@ Fleur.DOMParser._appendFromXMLString = function(node, s) {
 				index = end;
 			}
 			if (nodename === "xml") {
+				if (s.charCodeAt(index + 2) === 13) {
+					index++;
+				}
+				if (s.charCodeAt(index + 2) === 10) {
+					index++;
+				}
 			} else if (nodename !== "") {
 				text = "";
 				ii = offset;
@@ -1113,9 +1201,9 @@ Fleur.DOMParser._appendFromGrammarString = function(node, s, grammar) {
 	return node;
 };
 Fleur.DOMParser._appendFromZIP = function(node, s) {
-	var f, doc = node.ownerDocument || node;
-	var arr = doc.createArray();
-	node.appendChild(arr);
+	var f, doc = node.ownerDocument || node, filename;
+	var m = doc.createMap();
+	node.appendChild(m);
 	var offset = s.lastIndexOf("PK\x05\x06") + 16;
 	var r2 = function() {
 		return offset += 2, ((s.charCodeAt(offset - 1) & 0xFF) << 8) | s.charCodeAt(offset - 2) & 0xFF;
@@ -1142,7 +1230,7 @@ Fleur.DOMParser._appendFromZIP = function(node, s) {
 		f.internalFileAttributes = r2();
 		f.externalFileAttributes = r4();
 		f.localHeaderOffset = r4();
-		f.fileName = s.substr(offset, f.fileNameLength);
+		filename = s.substr(offset, f.fileNameLength);
 		offset += f.fileNameLength;
 		f.extraFields = s.substr(offset, f.extraFieldsLength);
 		offset += f.extraFieldsLength;
@@ -1157,7 +1245,9 @@ Fleur.DOMParser._appendFromZIP = function(node, s) {
 		offset += f.lextraFieldsLength;
 		f.compressedFileData = s.substr(offset, f.compressedSize);
 		offset = offset2;
-		Fleur.DOMParser._appendFromJSON(arr, f);
+		var e = doc.createEntry(filename);
+		Fleur.DOMParser._appendFromJSON(e, f);
+		m.setEntryNode(e);
 	}
 	return node;
 };
@@ -1252,6 +1342,170 @@ Fleur.DOMParser._appendFromJSON = function(node, o) {
 	node.appendChild(n);
 	return node;
 };
+Fleur.DOMParser._appendFromMD = function(node, s) {
+	var lines = s.split("\n");
+	var items = [], lseps = [];
+	var blocks = [];
+	var ser = "";
+	for (var i = 0, l = lines.length; i < l; i++) {
+		if (lines[i].trim() !== "") {
+			items.push(lines[i]);
+			lseps.push(0);
+		} else if (lseps.length !== 0) {
+			lseps[lseps.length - 1]++;
+		}
+	}
+	var dashtrim = function(s) {
+		var t = s.trim();
+		for (var i0 = t.length - 1; i0 >= 0; i0--) {
+			if (t.charAt(i0) !== "#") {
+				return t.substr(0, i0 + 1).trim();
+			}
+		}
+		return "";
+	};
+	var oi;
+	var outol = true;
+	var pol = false;
+	var orderitem = function(s) {
+		oi = 0;
+		var c = s.charCodeAt(oi);
+		if (outol || c !== 42 || c !== 43 || c !== 45) {
+			while (c >= 48 && c <= 57) {
+				oi++;
+				c = s.charCodeAt(oi);
+			}
+			return c === 46 && oi !== 0 && s.charCodeAt(oi + 1) === 32 ? oi + 2 : -1;
+		}
+		return s.charCodeAt(1) === 32 ? 2 : -1;
+	};
+	var ui;
+	var outul = true;
+	var pul = false;
+	var unorderitem = function(s) {
+		ui = 0;
+		var c = s.charCodeAt(ui);
+		if (c === 42 || c === 43 || c === 45) {
+			return s.charCodeAt(1) === 32 ? 2 : -1;
+		}
+		while (c >= 48 && c <= 57) {
+			ui++;
+			c = s.charCodeAt(ui);
+		}
+		return !outul && c === 46 && ui !== 0 && s.charCodeAt(ui + 1) === 32 ? ui + 2 : -1;
+	};
+	var inlinemd = function(s) {
+		var r = "";
+		var outem = true;
+		var outstrong = true;
+		var outdel = true;
+		for (var il = 0, ll = s.length; il < ll; il++) {
+			var c = s.charAt(il);
+			if (c === "*" || c === "_") {
+				if (s.charAt(il + 1) === c) {
+					if ((outstrong && s.substr(il + 2).indexOf(c + c) !== -1) || !outstrong) {
+						r += "<" + (outstrong ? "" : "/") + "strong>";
+						outstrong = !outstrong;
+						il++;
+					} else {
+						r += c + c;
+					}
+				} else {
+					if ((outem && s.substr(il + 1).replace(c + c, "").indexOf(c) !== -1) || !outem) {
+						r += "<" + (outem ? "" : "/") + "em>";
+						outem = !outem;
+					} else {
+						r += c;
+					}
+				}
+			} else if (c === "~" && s.charAt(il + 1) === "~") {
+				if ((outdel && s.substr(il + 2).indexOf("~~") !== -1) || !outdel) {
+					r += "<" + (outdel ? "" : "/") + "del>";
+					outdel = !outdel;
+					il++;
+				} else {
+					r += "~~";
+				}
+			} else {
+				r += c;
+			}
+		}
+		return r;
+	};
+	var lastli = 0;
+	for (i = 0, l = items.length; i < l; i++) {
+		if (items[i].startsWith("# ")) {
+			blocks.push(["h1", inlinemd(dashtrim(items[i].substr(2)))]);
+		} else if (items[i].startsWith("## ")) {
+			blocks.push(["h2", inlinemd(dashtrim(items[i].substr(3)))]);
+		} else if (items[i].startsWith("### ")) {
+			blocks.push(["h3", inlinemd(dashtrim(items[i].substr(4)))]);
+		} else if (items[i].startsWith("#### ")) {
+			blocks.push(["h4", inlinemd(dashtrim(items[i].substr(5)))]);
+		} else if (items[i].startsWith("##### ")) {
+			blocks.push(["h5", inlinemd(dashtrim(items[i].substr(6)))]);
+		} else if (items[i].startsWith("###### ")) {
+			blocks.push(["h6", inlinemd(dashtrim(items[i].substr(7)))]);
+		} else if (items[i].startsWith("---") && items[i].trim() === "-".repeat(items[i].trim().length)) {
+			if (blocks.length === 0 || blocks[blocks.length - 1][0] !== "p" || lseps[i - 1] !== 0) {
+				blocks.push(["hr"]);
+			} else  {
+				blocks[blocks.length - 1][0] = "h2";
+			}
+		} else if (items[i].startsWith("===") && items[i].trim() === "=".repeat(items[i].trim().length) && blocks.length !== 0 && blocks[blocks.length - 1][0] === "p" && lseps[i - 1] === 0) {
+			blocks[blocks.length - 1][0] = "h1";
+		} else if (orderitem(items[i]) !== -1 && outul) {
+			if (outol) {
+				pol = false;
+			}
+			blocks.push(["", (outol ? "<ol><li>" : "<li>") + (lseps[i] !== 0 || pol ? "<p>" : "") + inlinemd(items[i].substr(oi + 1).trim()) + (lseps[i] !== 0 || pol ? "</p>" : "") + "</li></ol>"]);
+			if (!outol) {
+				blocks[lastli][1] = blocks[lastli][1].substr(0, blocks[lastli][1].length - 5);
+			}
+			lastli = blocks.length - 1;
+			outol = false;
+			pol = lseps[i] !== 0;
+		} else if (unorderitem(items[i]) !== -1) {
+			if (outul) {
+				pul = false;
+			}
+			blocks.push(["", (outul ? "<ul><li>" : "<li>") + (lseps[i] !== 0 || pul ? "<p>" : "") + inlinemd(items[i].substr(oi + 1).trim()) + (lseps[i] !== 0 || pul ? "</p>" : "") + "</li></ul>"]);
+			if (!outul) {
+				blocks[lastli][1] = blocks[lastli][1].substr(0, blocks[lastli][1].length - 5);
+			}
+			lastli = blocks.length - 1;
+			outul = false;
+			pul = lseps[i] !== 0;
+		} else if (blocks.length === 0 || blocks[blocks.length - 1][0] !== "p" || lseps[i - 1] !== 0) {
+			blocks.push(["p", [inlinemd(items[i])]]);
+		} else {
+			blocks[blocks.length - 1][1].push(inlinemd(items[i]));
+		}
+	}
+	for (i = 0, l = blocks.length; i < l; i++) {
+		if (blocks[i][0] !== "") {
+			ser += "<" + blocks[i][0] + ">";
+		}
+		if (blocks[i][0] === "p") {
+			for (var j = 0, l2 = blocks[i][1].length; j < l2; j++) {
+				if (j !== 0) {
+					ser += "<br/>";
+				}
+				ser += blocks[i][1][j];
+			}
+		} else if (blocks[i].length === 2) {
+			ser += blocks[i][1];
+		}
+		if (blocks[i][0] !== "") {
+			ser += "</" + blocks[i][0] + ">";
+		}
+	}
+	if (node.nodeType === Fleur.Node.DOCUMENT_NODE) {
+		ser = "<div>" + ser + "</div>";
+	}
+	Fleur.DOMParser._appendFromXMLString(node, ser);
+	return node;
+};
 Fleur.DOMParser.prototype.parseFromJSON = function(o) {
 	var doc, impl, domSource = new Fleur.DOMImplementationSource();
 	impl = domSource.getDOMImplementation("XML");
@@ -1276,6 +1530,30 @@ Fleur.DOMParser._appendFromString = function(node, s, mediatype, grammar) {
 	handler(node, s, config, grammar);
 	return node;
 };
+
+Fleur.OFXtags = [
+	"ACCTID",
+	"ACCTTYPE",
+	"BALAMT",
+	"BANKID",
+	"BRANCHID",
+	"CODE",
+	"CURDEF",
+	"DTASOF",
+	"DTEND",
+	"DTPOSTED",
+	"DTSERVER",
+	"DTSTART",
+	"FITID",
+	"LANGUAGE",
+	"MEMO",
+	"NAME",
+	"SEVERITY",
+	"TRNAMT",
+	"TRNTYPE",
+	"TRNUID"
+];
+
 Fleur.DOMParser.Handlers = {
 	"text/csv": function(node, s, config) {
 		Fleur.DOMParser._appendFromCSVString(node, s, config);
@@ -1296,6 +1574,35 @@ Fleur.DOMParser.Handlers = {
 	"application/xml": function(node, s) {
 		Fleur.DOMParser._appendFromXMLString(node, s);
 	},
+	"application/x-ofx": function(node, s) {
+		if (s.startsWith("OFXHEADER:")) {
+			var propertyname = "", propertyvalue = "", text ="", offset = 0, end = s.length, c, state = 0, doc = node.ownerDocument || node;
+			c = s.charAt(offset);
+			while (c !== "<" && offset !== end) {
+				if (state === 0) {
+					if (c === ":") {
+						state = 1;
+					} else {
+						propertyname += c;
+					}
+				} else {
+					if (c === "\n") {
+						text += (text !== "" ? " " : "") + propertyname + "=\"" + propertyvalue + "\"";
+						state = 0;
+						propertyname = "";
+						propertyvalue = "";
+					} else if (c !== "\r") {
+						propertyvalue += c;
+					}
+				}
+				c = s.charAt(++offset);
+			}
+			node.appendChild(doc.createProcessingInstruction("OFX", text));
+			Fleur.DOMParser._appendFromXMLString(node, s.substr(offset), Fleur.OFXtags);
+		} else {
+			Fleur.DOMParser._appendFromXMLString(node, s);
+		}
+	},
 	"application/exml+xml": function(node, s) {
 		var enode = node.ownerDocument.implementation.createDocument();
 		Fleur.DOMParser._appendFromXMLString(enode, s);
@@ -1305,6 +1612,9 @@ Fleur.DOMParser.Handlers = {
 	},
 	"application/zip": function(node, s) {
 		Fleur.DOMParser._appendFromZIP(node, s);
+	},
+	"text/markdown": function(node, s) {
+		Fleur.DOMParser._appendFromMD(node, s);
 	},
 	"text/plain":  function(node, s, config, grammar) {
 		if (grammar) {
@@ -1322,6 +1632,10 @@ Fleur.DOMParser.Handlers["application/vnd.openxmlformats-officedocument.spreadsh
 Fleur.DOMParser.Handlers["text/json"] = Fleur.DOMParser.Handlers["application/json"];
 
 Fleur.DOMParser.prototype.parseFromString = function(s, mediatype, grammar) {
+	if (mediatype.startsWith("text/csv")) {
+		var seq = new Fleur.Sequence();
+		return Fleur.DOMParser._appendFromString(seq, s, mediatype, grammar);
+	}
 	var doc, impl, domSource = new Fleur.DOMImplementationSource();
 	impl = domSource.getDOMImplementation("XML");
 	doc = impl.createDocument();

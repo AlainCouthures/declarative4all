@@ -15,11 +15,12 @@ Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr] = function(ctx, children, callbac
 		Fleur.callback(function() {callback(Fleur.EmptySequence, depth);});
 		return;
 	}
+	var i, l;
 	var result = Fleur.EmptySequence;
 	var cb = function(n, eob) {
 		var seq;
 		if (eob === depth) {
-			if (result === Fleur.EmptySequence && n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+			if (result === Fleur.EmptySequence && n.nodeType !== Fleur.Node.SEQUENCE_NODE && n.nodeType !== Fleur.Node.MULTIDIM_NODE) {
 				result = n;
 			} else if (n !== Fleur.EmptySequence) {
 				if (result === Fleur.EmptySequence || result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
@@ -34,6 +35,10 @@ Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr] = function(ctx, children, callbac
 				}
 				if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
 					result.appendChild(n);
+				} else if (result.childNodes.length !== 0 && result.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+					for (i = 0, l = result.childNodes.length; i < l; i++) {
+						n.childNodes[i].childNodes.forEach(function(child) {result.childNodes[i].appendChild(child);});
+					}
 				} else {
 					n.childNodes.forEach(function(child) {result.appendChild(child);});
 				}
@@ -45,7 +50,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr] = function(ctx, children, callbac
 			Fleur.callback(function() {callback(n, depth);});
 			return;
 		}
-		if (result === Fleur.EmptySequence && n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+		if (result === Fleur.EmptySequence && n.nodeType !== Fleur.Node.SEQUENCE_NODE && n.nodeType !== Fleur.Node.MULTIDIM_NODE) {
 			result = n;
 		} else if (n !== Fleur.EmptySequence) {
 			if (result === Fleur.EmptySequence || result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
@@ -60,6 +65,10 @@ Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr] = function(ctx, children, callbac
 			}
 			if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
 				result.appendChild(n);
+			} else if (result.childNodes.length !== 0 && result.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+				for (i = 0, l = result.childNodes.length; i < l; i++) {
+					n.childNodes[i].childNodes.forEach(function(child) {result.childNodes[i].appendChild(child);});
+				}
 			} else {
 				n.childNodes.forEach(function(child) {result.appendChild(child);});
 			}

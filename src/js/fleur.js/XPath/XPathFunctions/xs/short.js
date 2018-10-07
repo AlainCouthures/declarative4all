@@ -8,9 +8,5 @@
  * @description 
  */
 Fleur.XPathFunctions_xs["short"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["short"], /^[\-+]?[0-9]+$/, function() {}, function(node) {
-		var value = parseInt(node.data, 10);
-		node.data = "" + value;
-		return value < -32768 || value > 32767;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["short"], function() {}, callback);
 };

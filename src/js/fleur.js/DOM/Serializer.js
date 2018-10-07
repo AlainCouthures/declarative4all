@@ -29,6 +29,9 @@ Fleur.Serializer.escapeXML = function(s, quotes, inline) {
 			case '>':
 				r += '&gt;';
 				break;
+			case "'":
+				r += '&apos;';
+				break;
 			case '"':
 				r += quotes ? '&quot;' : '"';
 				break;
@@ -79,7 +82,7 @@ Fleur.Serializer._serializeXMLToString = function(node, indent, offset) {
 		case Fleur.Node.CDATA_NODE:
 			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
 		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
-			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.nodeValue + "?>";
+			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.data + "?>";
 		case Fleur.Node.COMMENT_NODE:
 			return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
 		case Fleur.Node.SEQUENCE_NODE:
@@ -142,7 +145,7 @@ Fleur.Serializer._serializeHTMLToString = function(node, indent, offset) {
 		case Fleur.Node.CDATA_NODE:
 			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
 		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
-			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.nodeValue + (indent ? "?>\n" : "?>");
+			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.data + (indent ? "?>\n" : "?>");
 		case Fleur.Node.COMMENT_NODE:
 			return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
 		case Fleur.Node.DOCUMENT_NODE:
@@ -182,13 +185,35 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 			}
 			return s + (indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? offset + "</" : "</") + node.nodeName + ">" + postfix + (indent ? "\n" : "");
 		case Fleur.Node.SEQUENCE_NODE:
-			s = indent ? offset + "(" : "(";
+			if (node.rowlabels || node.collabels) {
+				s = (indent ? offset : "") + "matrix:labels(";
+				var seriarr = function(arr) {
+					if (!arr) {
+						return "()";
+					}
+					if (arr.length === 1) {
+						return "'" + arr[0] + "'";
+					}
+					var sarr = "";
+					arr.forEach(function(l, index) {
+						sarr += (index !== 0 ? ", " : "") + "'" + l + "'";
+					});
+					return "(" +  sarr + ")";
+				};
+				s += seriarr(node.rowlabels) + ", ";
+				s += seriarr(node.collabels) + ", (";
+			} else {
+				s = indent ? offset + "(" : "(";
+			}
 			if (node.childNodes.length === 0) {
 				return s + (indent ? ")\n" : ")");
 			}
 			s += indent ? "\n" : "";
 			for (i = 0, l = node.childNodes.length; i < l; i++) {
 				s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset + "  ", false, i !== l - 1 ? node.childNodes[i].nodeType === Fleur.Node.MULTIDIM_NODE ? ";" : "," : "");
+			}
+			if (node.rowlabels || node.collabels) {
+				return s + (indent ? offset + "))\n" : "))");
 			}
 			return s + (indent ? offset + ")\n" : ")");
 		case Fleur.Node.MULTIDIM_NODE:
@@ -243,30 +268,29 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 			if (node.schemaTypeInfo === Fleur.Type_QName) {
 				return "fn:QName(\"" + node.namespaceURI + "\", \"" + node.nodeName + "\")" + postfix;
 			}
-			var fdata = node.data;
-			if (fdata !== "INF" && fdata !== "-INF" && fdata !== "NaN") {
-				if (node.schemaTypeInfo === Fleur.Type_float || node.schemaTypeInfo === Fleur.Type_double) {
-					if (fdata.indexOf("e") === -1) {
-						if (fdata !== "0") {
-							var exp = Math.floor(Math.log(Math.abs(parseFloat(fdata))) * Math.LOG10E);
-							fdata = String(parseFloat(fdata) * Math.pow(10, -exp)) + "e" + exp;
-						} else {
-							fdata = "0.0e0";
-						}
-					}
-					if (fdata.indexOf(".") === -1) {
-						fdata = fdata.split("e");
-						fdata = fdata[0] + ".0e" + fdata[1];
-					}
-				} else if (node.schemaTypeInfo === Fleur.Type_decimal && fdata.indexOf(".") === -1) {
-					fdata += ".0";
-				}
-			}
-			return (indent ? offset : "") + "xs:" + typeName + "(\"" + Fleur.Serializer.escapeXML(fdata, !indent, !indent).replace(/"/gm, "\"\"") + "\")" + postfix + (indent ? "\n" : "");
+			//var fdata = node.data;
+			//if (fdata !== "INF" && fdata !== "-INF" && fdata !== "NaN") {
+			//	if (node.schemaTypeInfo === Fleur.Type_float || node.schemaTypeInfo === Fleur.Type_double) {
+			//		if (fdata.indexOf("E") === -1) {
+			//			if (fdata !== "0") {
+			//				var exp = Math.floor(Math.log(Math.abs(parseFloat(fdata))) * Math.LOG10E);
+			//				fdata = String(parseFloat(fdata) * Math.pow(10, -exp)) + "E" + exp;
+			//			}
+			//		}
+			//		if (fdata.indexOf(".") === -1) {
+			//			fdata = fdata.split("E");
+			//			fdata = fdata[0] + ".0E" + fdata[1];
+			//		}
+			//	} else if (node.schemaTypeInfo === Fleur.Type_decimal && fdata.indexOf(".") === -1) {
+			//		fdata += ".0";
+			//	}
+			//}
+			var nres = new Fleur.XPathNSResolver(node);
+			return (indent ? offset : "") + nres.lookupPrefix(node.schemaTypeInfo.typeNamespace) + ":" + typeName + "(\"" + Fleur.Serializer.escapeXML(node.data, !indent, !indent).replace(/"/gm, "\"\"") + "\")" + postfix + (indent ? "\n" : "");
 		case Fleur.Node.CDATA_NODE:
 			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
 		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
-			return (indent ? offset + "processing-instruction " : "processing-instruction ") + node.nodeName + " {\"" + Fleur.Serializer.escapeXML(node.nodeValue, false, false).replace(/"/gm, "\"\"") + "\"}" + postfix + (indent ? "\n" : "");
+			return (indent ? offset + "processing-instruction " : "processing-instruction ") + node.nodeName + " {\"" + Fleur.Serializer.escapeXML(node.data, false, false).replace(/"/gm, "\"\"") + "\"}" + postfix + (indent ? "\n" : "");
 		case Fleur.Node.COMMENT_NODE:
 			return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
 		case Fleur.Node.DOCUMENT_NODE:
@@ -321,7 +345,7 @@ Fleur.Serializer._serializeEXMLToString = function(node, indent, offset) {
 		case Fleur.Node.CDATA_NODE:
 			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
 		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
-			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.nodeValue + (indent ? "?>\n" : "?>");
+			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.data + (indent ? "?>\n" : "?>");
 		case Fleur.Node.COMMENT_NODE:
 			return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
 		case Fleur.Node.DOCUMENT_NODE:
@@ -453,6 +477,26 @@ Fleur.Serializer._serializeJSONToString = function(node, indent, offset, inline,
 Fleur.Serializer.escapeCSV = function(s, sep) {
 	if (s.indexOf(sep) !== -1) {
 		return '"' + s.replace(/"/g, '""') + '"';
+	}
+	return s;
+};
+Fleur.Serializer._serializeMatrixToString = function(node, head, sep) {
+	var s;
+	if (head && node.collabels) {
+		s = node.collabels.join(sep) + "\n";
+	} else {
+		s = "";
+	}
+	var seq2string = function(seq) {
+		seq.childNodes.forEach(function(n, index) {
+			s += (index !== 0 ? sep : "") + n.data;
+		});
+		s += "\n";
+	};
+	if (node.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+		node.childNodes.forEach(seq2string);
+	} else {
+		seq2string(node);
 	}
 	return s;
 };
@@ -1656,11 +1700,13 @@ Fleur.Serializer.Handlers = {
 		return ser;
 	},
 	"application/xquery": function(node) {
-		return Fleur.Serializer._serializeXQXToString(node);
+		return Fleur.Serializer._serializeNodeToXQuery(node);
 	},
 	"text/csv": function(node, indent, config) {
-		var ser = Fleur.Serializer._serializeCSVToString(node, config.header === "present", config.key ? parseInt(config.key, 10) : null, config.separator ? decodeURIComponent(config.separator) : ",", 0);
-		return ser;
+		if (node.nodeType === Fleur.Node.SEQUENCE_NODE) {
+			return Fleur.Serializer._serializeMatrixToString(node, config.header === "present", config.separator ? decodeURIComponent(config.separator) : ",");
+		}
+		return Fleur.Serializer._serializeCSVToString(node, config.header === "present", config.key ? parseInt(config.key, 10) : null, config.separator ? decodeURIComponent(config.separator) : ",", 0);
 	},
 	"text/plain": function(node) {
 		return node.textContent;

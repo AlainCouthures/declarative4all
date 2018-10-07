@@ -30,12 +30,12 @@
 						function(res) {
 							var now = new Date();
 							var snow = ((now.getHours() < 10)?"0":"") + now.getHours() +":"+ ((now.getMinutes() < 10)?"0":"") + now.getMinutes() +":"+ ((now.getSeconds() < 10)?"0":"") + now.getSeconds();
-							document.getElementById("effectiveresult").innerHTML = snow + " - " + res.toXQuery().replace(/</mg, "&lt;");
+							document.getElementById("effectiveresult").innerHTML = snow + " - " + res.toXQuery(false).replace(/&/mg, "&amp;").replace(/</mg, "&lt;");
 						},
 						function(err) {
 							var now = new Date();
 							var snow = ((now.getHours() < 10)?"0":"") + now.getHours() +":"+ ((now.getMinutes() < 10)?"0":"") + now.getMinutes() +":"+ ((now.getSeconds() < 10)?"0":"") + now.getSeconds();
-							document.getElementById("effectiveresult").innerHTML = snow + " - " + err.toXQuery().replace(/</mg, "&lt;");
+							document.getElementById("effectiveresult").innerHTML = snow + " - " + err.toXQuery(false).replace(/</mg, "&lt;");
 						}
 					);
 				} catch(e) {

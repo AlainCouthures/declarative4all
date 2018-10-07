@@ -12,7 +12,12 @@ Fleur.XPathFunctions_matrix["transpose#1"] = new Fleur.Function("http://www.math
 		if (arg === Fleur.EmptySequence) {
 			return Fleur.EmptySequence;
 		}
+		if (arg.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+			return arg;
+		}
 		var result = new Fleur.Sequence();
+		result.rowlabels = arg.collabels;
+		result.collabels = arg.rowlabels;
 		if (arg.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
 			var newnbrow = arg.childNodes[0].childNodes.length;
 			if (newnbrow === 1) {

@@ -47,10 +47,11 @@ Fleur.Node.NOTATION_NODE = 12;
 Fleur.Node.NAMESPACE_NODE = 129;
 Fleur.Node.ATOMIC_NODE = Fleur.Node.TEXT_NODE;
 Fleur.Node.SEQUENCE_NODE = 130;
-Fleur.Node.ARRAY_NODE = 131;
-Fleur.Node.MAP_NODE = 132;
-Fleur.Node.ENTRY_NODE = 133;
-Fleur.Node.FUNCTION_NODE = 134;
+Fleur.Node.MULTIDIM_NODE = 131;
+Fleur.Node.ARRAY_NODE = 132;
+Fleur.Node.MAP_NODE = 133;
+Fleur.Node.ENTRY_NODE = 134;
+Fleur.Node.FUNCTION_NODE = 135;
 Fleur.Node.DOCUMENT_POSITION_DISCONNECTED = 1;
 Fleur.Node.DOCUMENT_POSITION_PRECEDING = 2;
 Fleur.Node.DOCUMENT_POSITION_FOLLOWING = 4;
@@ -119,7 +120,7 @@ Fleur.Node.prototype.appendChild = function(newChild) {
 	if ((this.nodeType !== Fleur.Node.SEQUENCE_NODE || this.ownerDocument) && (newChild.nodeType === Fleur.Node.ATTRIBUTE_NODE || (this.nodeType === Fleur.Node.ATTRIBUTE_NODE && newChild.nodeType !== Fleur.Node.TEXT_NODE))) {
 		throw new Fleur.DOMException(Fleur.DOMException.HIERARCHY_REQUEST_ERR);
 	} else {
-		if (this.nodeType !== Fleur.Node.SEQUENCE_NODE || this.ownerDocument) {
+		if ((this.nodeType !== Fleur.Node.SEQUENCE_NODE && this.nodeType !== Fleur.Node.MULTIDIM_NODE) || this.ownerDocument) {
 			while (n) {
 				if (n === newChild) {
 					throw new Fleur.DOMException(Fleur.DOMException.HIERARCHY_REQUEST_ERR);
@@ -144,18 +145,21 @@ Fleur.Node.prototype.appendChild = function(newChild) {
 			this.lastChild = newChild;
 		}
 		this.childNodes.push(newChild);
-		if (newChild.nodeType === Fleur.Node.ELEMENT_NODE || newChild.nodeType === Fleur.Node.SEQUENCE_NODE || newChild.nodeType === Fleur.Node.ARRAY_NODE || newChild.nodeType === Fleur.Node.MAP_NODE || newChild.nodeType === Fleur.Node.ENTRY_NODE) {
+		if (newChild.nodeType === Fleur.Node.ELEMENT_NODE || newChild.nodeType === Fleur.Node.SEQUENCE_NODE || newChild.nodeType === Fleur.Node.MULTIDIM_NODE || newChild.nodeType === Fleur.Node.ARRAY_NODE || newChild.nodeType === Fleur.Node.MAP_NODE || newChild.nodeType === Fleur.Node.ENTRY_NODE) {
 			this.children.push(newChild);
 		}
 	}
-	if (this.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+	if (this.nodeType !== Fleur.Node.SEQUENCE_NODE && this.nodeType !== Fleur.Node.MULTIDIM_NODE) {
 		newChild.idRecalculate(String(this.childNodes.length - 1));
 	}
 	return newChild;
 };
 Fleur.Node.prototype.idRecalculate = function(strpos) {
 	var i, l;
-	var upper = (this.parentNode || this.ownerElement).internal_id;
+	var upper = this.parentNode || this.ownerElement;
+	if (upper) {
+		upper = upper.internal_id;
+	}
 	if (upper) {
 		this.internal_id = (this.parentNode || this.ownerElement).internal_id + (this.parentNode ? "-" : "+") + String.fromCharCode(96 + strpos.length) + strpos;
 		if (this.attributes) {
@@ -255,6 +259,15 @@ Fleur.Node.prototype.appendContent = function(n, sep) {
 		case Fleur.Node.DOCUMENT_TYPE_NODE:
 			throw new Fleur.DOMException(Fleur.DOMException.NOT_SUPPORTED_ERR);
 	}
+};
+Fleur.Node.prototype.canonicalize = function() {
+	if (this.nodeType === Fleur.Node.TEXT_NODE && this.schemaTypeInfo) {
+		try {
+			this.data = this.schemaTypeInfo.canonicalize(this.data);
+			return true;
+		} catch (e) {}
+	}
+	return false;
 };
 Fleur.Node.prototype.clearUserData = function() {
 	this._userData = {};
@@ -929,6 +942,7 @@ Fleur.Document.prototype.createAttributeNS = function(namespaceURI, qualifiedNam
 		if (Fleur.Node.QNameCharsReg.test(qualifiedName)) {
 			throw new Fleur.DOMException(Fleur.DOMException.NAMESPACE_ERR);
 		} else {
+			console.log(qualifiedName);
 			throw new Fleur.DOMException(Fleur.DOMException.INVALID_CHARACTER_ERR);
 		}
 	}
@@ -1554,14 +1568,9 @@ Fleur.DOMImplementationSource.prototype.getDOMImplementationList = function(feat
 Fleur.DOMLocator = function() {};
 Fleur.DOMParser = function() {};
 Fleur.DOMParser._appendFromCSVString = function(node, s, config) {
-	var offset = 0, end, doc = node.ownerDocument || node, eltnode, sep, head = config.header === "present", ignore;
-	var headers = [];
+	var offset = 0, end, sep, head = config.header === "present", ignore;
 	var first = head;
-	var col = 0;
-	var rowcat = "";
-	var key = config.key ? parseInt(config.key, 10) : null;
-	var currparent;
-	var mapnode;
+	var row, a;
 	sep = config.separator ? decodeURIComponent(config.separator) : ",";
 	s = s.replace(/\r\n/g,"\n").replace(/\r/g,"\n");
 	if (s.charAt(s.length - 1) !== "\n") {
@@ -1581,14 +1590,9 @@ Fleur.DOMParser._appendFromCSVString = function(node, s, config) {
 			offset++;
 		}
 	}
-	if (key !== null) {
-		mapnode = doc.createMap();
-		currparent = new Fleur.Entry();
-		currparent._setOwnerDocument(node);
-		currparent.childNodes = new Fleur.NodeList();
-		currparent.children = new Fleur.NodeList();
-	} else {
-		currparent = doc.createArray();
+	row = new Fleur.Multidim();
+	if (head) {
+		node.collabels = [];
 	}
 	while (offset !== end) {
 		var v = "";
@@ -1615,54 +1619,24 @@ Fleur.DOMParser._appendFromCSVString = function(node, s, config) {
 			}
 		}
 		if (first) {
-			headers.push(v);
-			if (col === key) {
-				eltnode = doc.createElement(headers[col]);
-				eltnode.appendChild(mapnode);
-				node.appendChild(eltnode);
-			}
+			node.collabels.push(v);
 		} else {
-			rowcat += v;
-			if (col === key) {
-				currparent.nodeName = currparent.localName = v;
-			} else {
-				if (head) {
-					eltnode = doc.createElement(headers[col]);
-					if (v !== "") {
-						eltnode.appendChild(doc.createTextNode(v));
-					}
-					currparent.appendChild(eltnode);
-				} else {
-					currparent.appendChild(doc.createTextNode(v));
-				}
-			}
+			a = new Fleur.Text();
+			a.data = v;
+			row.appendChild(a);
 		}
 		if (s.charAt(offset) === "\n") {
-			if (!first && rowcat !== "") {
-				if (key !== null) {
-					mapnode.setEntryNode(currparent);
-					currparent = new Fleur.Entry();
-					currparent._setOwnerDocument(node);
-					currparent.childNodes = new Fleur.NodeList();
-					currparent.children = new Fleur.NodeList();
-				} else {
-					node.appendChild(currparent);
-					currparent = doc.createArray();
-				}
-			}
+			node.appendChild(row);
+			row = new Fleur.Multidim();
 			first = false;
-			col = 0;
-			rowcat = "";
-		} else {
-			col++;
 		}
 		offset++;
 	}
-	if (key !== null && !head) {
-		node.appendChild(mapnode);
+	if (node.childNodes.length < 2) {
+		node.childNodes = node.childNodes[0].childNodes;
 	}
 };
-Fleur.DOMParser._appendFromXMLString = function(node, s) {
+Fleur.DOMParser._appendFromXMLString = function(node, s, leaftags) {
 	var ii, ll, text, entstart, entityname, index, offset = 0, end = s.length, nodename, attrname, attrvalue, attrs, parents = [], doc = node.ownerDocument || node, currnode = node, eltnode, attrnode, c,
 		seps_pi = " \t\n\r?", seps_dtd = " \t\n\r[>", seps_close = " \t\n\r>", seps_elt = " \t\n\r/>", seps_attr = " \t\n\r=/<>", seps = " \t\n\r",
 		n, namespaces = {}, newnamespaces = {}, pindex, prefix, localName, dtdtype, dtdpublicid, dtdsystemid, entityvalue, notationvalue;
@@ -1718,6 +1692,19 @@ Fleur.DOMParser._appendFromXMLString = function(node, s) {
 		}
 		if (offset === end) {
 			break;
+		}
+		if (leaftags && leaftags.indexOf(currnode.nodeName) !== -1) {
+			if (currnode.firstChild.data.endsWith("\r\n")) {
+				currnode.firstChild.data = currnode.firstChild.data.substring(0, currnode.firstChild.data.length - 2);
+			}
+			n = parents.pop();
+			namespaces = {};
+			for (prefix in n.namespaces) {
+				if (n.namespaces.hasOwnProperty(prefix)) {
+					namespaces[prefix] = n.namespaces[prefix];
+				}
+			}
+			currnode = n.node;
 		}
 		offset++;
 		if (s.charAt(offset) === "!") {
@@ -1945,6 +1932,12 @@ Fleur.DOMParser._appendFromXMLString = function(node, s) {
 				index = end;
 			}
 			if (nodename === "xml") {
+				if (s.charCodeAt(index + 2) === 13) {
+					index++;
+				}
+				if (s.charCodeAt(index + 2) === 10) {
+					index++;
+				}
 			} else if (nodename !== "") {
 				text = "";
 				ii = offset;
@@ -2190,9 +2183,9 @@ Fleur.DOMParser._appendFromGrammarString = function(node, s, grammar) {
 	return node;
 };
 Fleur.DOMParser._appendFromZIP = function(node, s) {
-	var f, doc = node.ownerDocument || node;
-	var arr = doc.createArray();
-	node.appendChild(arr);s
+	var f, doc = node.ownerDocument || node, filename;
+	var m = doc.createMap();
+	node.appendChild(m);
 	var offset = s.lastIndexOf("PK\x05\x06") + 16;
 	var r2 = function() {
 		return offset += 2, ((s.charCodeAt(offset - 1) & 0xFF) << 8) | s.charCodeAt(offset - 2) & 0xFF;
@@ -2219,7 +2212,7 @@ Fleur.DOMParser._appendFromZIP = function(node, s) {
 		f.internalFileAttributes = r2();
 		f.externalFileAttributes = r4();
 		f.localHeaderOffset = r4();
-		f.fileName = s.substr(offset, f.fileNameLength);
+		filename = s.substr(offset, f.fileNameLength);
 		offset += f.fileNameLength;
 		f.extraFields = s.substr(offset, f.extraFieldsLength);
 		offset += f.extraFieldsLength;
@@ -2234,7 +2227,9 @@ Fleur.DOMParser._appendFromZIP = function(node, s) {
 		offset += f.lextraFieldsLength;
 		f.compressedFileData = s.substr(offset, f.compressedSize);
 		offset = offset2;
-		Fleur.DOMParser._appendFromJSON(arr, f);
+		var e = doc.createEntry(filename);
+		Fleur.DOMParser._appendFromJSON(e, f);
+		m.setEntryNode(e);
 	}
 	return node;
 };
@@ -2329,6 +2324,170 @@ Fleur.DOMParser._appendFromJSON = function(node, o) {
 	node.appendChild(n);
 	return node;
 };
+Fleur.DOMParser._appendFromMD = function(node, s) {
+	var lines = s.split("\n");
+	var items = [], lseps = [];
+	var blocks = [];
+	var ser = "";
+	for (var i = 0, l = lines.length; i < l; i++) {
+		if (lines[i].trim() !== "") {
+			items.push(lines[i]);
+			lseps.push(0);
+		} else if (lseps.length !== 0) {
+			lseps[lseps.length - 1]++;
+		}
+	}
+	var dashtrim = function(s) {
+		var t = s.trim();
+		for (var i0 = t.length - 1; i0 >= 0; i0--) {
+			if (t.charAt(i0) !== "#") {
+				return t.substr(0, i0 + 1).trim();
+			}
+		}
+		return "";
+	};
+	var oi;
+	var outol = true;
+	var pol = false;
+	var orderitem = function(s) {
+		oi = 0;
+		var c = s.charCodeAt(oi);
+		if (outol || c !== 42 || c !== 43 || c !== 45) {
+			while (c >= 48 && c <= 57) {
+				oi++;
+				c = s.charCodeAt(oi);
+			}
+			return c === 46 && oi !== 0 && s.charCodeAt(oi + 1) === 32 ? oi + 2 : -1;
+		}
+		return s.charCodeAt(1) === 32 ? 2 : -1;
+	};
+	var ui;
+	var outul = true;
+	var pul = false;
+	var unorderitem = function(s) {
+		ui = 0;
+		var c = s.charCodeAt(ui);
+		if (c === 42 || c === 43 || c === 45) {
+			return s.charCodeAt(1) === 32 ? 2 : -1;
+		}
+		while (c >= 48 && c <= 57) {
+			ui++;
+			c = s.charCodeAt(ui);
+		}
+		return !outul && c === 46 && ui !== 0 && s.charCodeAt(ui + 1) === 32 ? ui + 2 : -1;
+	};
+	var inlinemd = function(s) {
+		var r = "";
+		var outem = true;
+		var outstrong = true;
+		var outdel = true;
+		for (var il = 0, ll = s.length; il < ll; il++) {
+			var c = s.charAt(il);
+			if (c === "*" || c === "_") {
+				if (s.charAt(il + 1) === c) {
+					if ((outstrong && s.substr(il + 2).indexOf(c + c) !== -1) || !outstrong) {
+						r += "<" + (outstrong ? "" : "/") + "strong>";
+						outstrong = !outstrong;
+						il++;
+					} else {
+						r += c + c;
+					}
+				} else {
+					if ((outem && s.substr(il + 1).replace(c + c, "").indexOf(c) !== -1) || !outem) {
+						r += "<" + (outem ? "" : "/") + "em>";
+						outem = !outem;
+					} else {
+						r += c;
+					}
+				}
+			} else if (c === "~" && s.charAt(il + 1) === "~") {
+				if ((outdel && s.substr(il + 2).indexOf("~~") !== -1) || !outdel) {
+					r += "<" + (outdel ? "" : "/") + "del>";
+					outdel = !outdel;
+					il++;
+				} else {
+					r += "~~";
+				}
+			} else {
+				r += c;
+			}
+		}
+		return r;
+	};
+	var lastli = 0;
+	for (i = 0, l = items.length; i < l; i++) {
+		if (items[i].startsWith("# ")) {
+			blocks.push(["h1", inlinemd(dashtrim(items[i].substr(2)))]);
+		} else if (items[i].startsWith("## ")) {
+			blocks.push(["h2", inlinemd(dashtrim(items[i].substr(3)))]);
+		} else if (items[i].startsWith("### ")) {
+			blocks.push(["h3", inlinemd(dashtrim(items[i].substr(4)))]);
+		} else if (items[i].startsWith("#### ")) {
+			blocks.push(["h4", inlinemd(dashtrim(items[i].substr(5)))]);
+		} else if (items[i].startsWith("##### ")) {
+			blocks.push(["h5", inlinemd(dashtrim(items[i].substr(6)))]);
+		} else if (items[i].startsWith("###### ")) {
+			blocks.push(["h6", inlinemd(dashtrim(items[i].substr(7)))]);
+		} else if (items[i].startsWith("---") && items[i].trim() === "-".repeat(items[i].trim().length)) {
+			if (blocks.length === 0 || blocks[blocks.length - 1][0] !== "p" || lseps[i - 1] !== 0) {
+				blocks.push(["hr"]);
+			} else  {
+				blocks[blocks.length - 1][0] = "h2";
+			}
+		} else if (items[i].startsWith("===") && items[i].trim() === "=".repeat(items[i].trim().length) && blocks.length !== 0 && blocks[blocks.length - 1][0] === "p" && lseps[i - 1] === 0) {
+			blocks[blocks.length - 1][0] = "h1";
+		} else if (orderitem(items[i]) !== -1 && outul) {
+			if (outol) {
+				pol = false;
+			}
+			blocks.push(["", (outol ? "<ol><li>" : "<li>") + (lseps[i] !== 0 || pol ? "<p>" : "") + inlinemd(items[i].substr(oi + 1).trim()) + (lseps[i] !== 0 || pol ? "</p>" : "") + "</li></ol>"]);
+			if (!outol) {
+				blocks[lastli][1] = blocks[lastli][1].substr(0, blocks[lastli][1].length - 5);
+			}
+			lastli = blocks.length - 1;
+			outol = false;
+			pol = lseps[i] !== 0;
+		} else if (unorderitem(items[i]) !== -1) {
+			if (outul) {
+				pul = false;
+			}
+			blocks.push(["", (outul ? "<ul><li>" : "<li>") + (lseps[i] !== 0 || pul ? "<p>" : "") + inlinemd(items[i].substr(oi + 1).trim()) + (lseps[i] !== 0 || pul ? "</p>" : "") + "</li></ul>"]);
+			if (!outul) {
+				blocks[lastli][1] = blocks[lastli][1].substr(0, blocks[lastli][1].length - 5);
+			}
+			lastli = blocks.length - 1;
+			outul = false;
+			pul = lseps[i] !== 0;
+		} else if (blocks.length === 0 || blocks[blocks.length - 1][0] !== "p" || lseps[i - 1] !== 0) {
+			blocks.push(["p", [inlinemd(items[i])]]);
+		} else {
+			blocks[blocks.length - 1][1].push(inlinemd(items[i]));
+		}
+	}
+	for (i = 0, l = blocks.length; i < l; i++) {
+		if (blocks[i][0] !== "") {
+			ser += "<" + blocks[i][0] + ">";
+		}
+		if (blocks[i][0] === "p") {
+			for (var j = 0, l2 = blocks[i][1].length; j < l2; j++) {
+				if (j !== 0) {
+					ser += "<br/>";
+				}
+				ser += blocks[i][1][j];
+			}
+		} else if (blocks[i].length === 2) {
+			ser += blocks[i][1];
+		}
+		if (blocks[i][0] !== "") {
+			ser += "</" + blocks[i][0] + ">";
+		}
+	}
+	if (node.nodeType === Fleur.Node.DOCUMENT_NODE) {
+		ser = "<div>" + ser + "</div>";
+	}
+	Fleur.DOMParser._appendFromXMLString(node, ser);
+	return node;
+};
 Fleur.DOMParser.prototype.parseFromJSON = function(o) {
 	var doc, impl, domSource = new Fleur.DOMImplementationSource();
 	impl = domSource.getDOMImplementation("XML");
@@ -2353,6 +2512,28 @@ Fleur.DOMParser._appendFromString = function(node, s, mediatype, grammar) {
 	handler(node, s, config, grammar);
 	return node;
 };
+Fleur.OFXtags = [
+	"ACCTID",
+	"ACCTTYPE",
+	"BALAMT",
+	"BANKID",
+	"BRANCHID",
+	"CODE",
+	"CURDEF",
+	"DTASOF",
+	"DTEND",
+	"DTPOSTED",
+	"DTSERVER",
+	"DTSTART",
+	"FITID",
+	"LANGUAGE",
+	"MEMO",
+	"NAME",
+	"SEVERITY",
+	"TRNAMT",
+	"TRNTYPE",
+	"TRNUID"
+];
 Fleur.DOMParser.Handlers = {
 	"text/csv": function(node, s, config) {
 		Fleur.DOMParser._appendFromCSVString(node, s, config);
@@ -2373,6 +2554,35 @@ Fleur.DOMParser.Handlers = {
 	"application/xml": function(node, s) {
 		Fleur.DOMParser._appendFromXMLString(node, s);
 	},
+	"application/x-ofx": function(node, s) {
+		if (s.startsWith("OFXHEADER:")) {
+			var propertyname = "", propertyvalue = "", text ="", offset = 0, end = s.length, c, state = 0, doc = node.ownerDocument || node;
+			c = s.charAt(offset);
+			while (c !== "<" && offset !== end) {
+				if (state === 0) {
+					if (c === ":") {
+						state = 1;
+					} else {
+						propertyname += c;
+					}
+				} else {
+					if (c === "\n") {
+						text += (text !== "" ? " " : "") + propertyname + "=\"" + propertyvalue + "\"";
+						state = 0;
+						propertyname = "";
+						propertyvalue = "";
+					} else if (c !== "\r") {
+						propertyvalue += c;
+					}
+				}
+				c = s.charAt(++offset);
+			}
+			node.appendChild(doc.createProcessingInstruction("OFX", text));
+			Fleur.DOMParser._appendFromXMLString(node, s.substr(offset), Fleur.OFXtags);
+		} else {
+			Fleur.DOMParser._appendFromXMLString(node, s);
+		}
+	},
 	"application/exml+xml": function(node, s) {
 		var enode = node.ownerDocument.implementation.createDocument();
 		Fleur.DOMParser._appendFromXMLString(enode, s);
@@ -2382,6 +2592,9 @@ Fleur.DOMParser.Handlers = {
 	},
 	"application/zip": function(node, s) {
 		Fleur.DOMParser._appendFromZIP(node, s);
+	},
+	"text/markdown": function(node, s) {
+		Fleur.DOMParser._appendFromMD(node, s);
 	},
 	"text/plain":  function(node, s, config, grammar) {
 		if (grammar) {
@@ -2398,6 +2611,10 @@ Fleur.DOMParser.Handlers["application/vnd.openxmlformats-officedocument.wordproc
 Fleur.DOMParser.Handlers["application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"] = Fleur.DOMParser.Handlers["application/zip"];
 Fleur.DOMParser.Handlers["text/json"] = Fleur.DOMParser.Handlers["application/json"];
 Fleur.DOMParser.prototype.parseFromString = function(s, mediatype, grammar) {
+	if (mediatype.startsWith("text/csv")) {
+		var seq = new Fleur.Sequence();
+		return Fleur.DOMParser._appendFromString(seq, s, mediatype, grammar);
+	}
 	var doc, impl, domSource = new Fleur.DOMImplementationSource();
 	impl = domSource.getDOMImplementation("XML");
 	doc = impl.createDocument();
@@ -3029,6 +3246,12 @@ Fleur.Map.prototype.setEntryNode = function(newEntry) {
 	newEntry.ownerMap = this;
 	return n;
 };
+Fleur.Multidim = function() {
+	Fleur.Node.apply(this);
+	this.nodeType = Fleur.Node.MULTIDIM_NODE;
+	this.nodeName = "#multidim";
+};
+Fleur.Multidim.prototype = new Fleur.Node();
 Fleur.NamedNodeMap = function() {};
 Fleur.NamedNodeMap.prototype = new Array();
 Fleur.NamedNodeMap.prototype.getNamedItem = function(itemname) {
@@ -3248,6 +3471,9 @@ Fleur.Serializer.escapeXML = function(s, quotes, inline) {
 			case '>':
 				r += '&gt;';
 				break;
+			case "'":
+				r += '&apos;';
+				break;
 			case '"':
 				r += quotes ? '&quot;' : '"';
 				break;
@@ -3298,7 +3524,7 @@ Fleur.Serializer._serializeXMLToString = function(node, indent, offset) {
 		case Fleur.Node.CDATA_NODE:
 			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
 		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
-			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.nodeValue + "?>";
+			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.data + "?>";
 		case Fleur.Node.COMMENT_NODE:
 			return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
 		case Fleur.Node.SEQUENCE_NODE:
@@ -3361,7 +3587,7 @@ Fleur.Serializer._serializeHTMLToString = function(node, indent, offset) {
 		case Fleur.Node.CDATA_NODE:
 			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
 		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
-			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.nodeValue + (indent ? "?>\n" : "?>");
+			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.data + (indent ? "?>\n" : "?>");
 		case Fleur.Node.COMMENT_NODE:
 			return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
 		case Fleur.Node.DOCUMENT_NODE:
@@ -3401,15 +3627,47 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 			}
 			return s + (indent && (node.childNodes[0].nodeType !== Fleur.Node.TEXT_NODE || node.childNodes[0].data.match(/^[ \t\n\r]*$/)) ? offset + "</" : "</") + node.nodeName + ">" + postfix + (indent ? "\n" : "");
 		case Fleur.Node.SEQUENCE_NODE:
-			s = indent ? offset + "(" : "(";
+			if (node.rowlabels || node.collabels) {
+				s = (indent ? offset : "") + "matrix:labels(";
+				var seriarr = function(arr) {
+					if (!arr) {
+						return "()";
+					}
+					if (arr.length === 1) {
+						return "'" + arr[0] + "'";
+					}
+					var sarr = "";
+					arr.forEach(function(l, index) {
+						sarr += (index !== 0 ? ", " : "") + "'" + l + "'";
+					});
+					return "(" +  sarr + ")";
+				};
+				s += seriarr(node.rowlabels) + ", ";
+				s += seriarr(node.collabels) + ", (";
+			} else {
+				s = indent ? offset + "(" : "(";
+			}
 			if (node.childNodes.length === 0) {
 				return s + (indent ? ")\n" : ")");
 			}
 			s += indent ? "\n" : "";
 			for (i = 0, l = node.childNodes.length; i < l; i++) {
-				s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset + "  ", false, i !== l - 1 ? "," : "");
+				s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset + "  ", false, i !== l - 1 ? node.childNodes[i].nodeType === Fleur.Node.MULTIDIM_NODE ? ";" : "," : "");
+			}
+			if (node.rowlabels || node.collabels) {
+				return s + (indent ? offset + "))\n" : "))");
 			}
 			return s + (indent ? offset + ")\n" : ")");
+		case Fleur.Node.MULTIDIM_NODE:
+			s = indent ? offset : "";
+			if (node.childNodes.length === 0) {
+				return s + (indent ? "\n" : "");
+			}
+			s += indent ? "\n" : "";
+			for (i = 0, l = node.childNodes.length; i < l; i++) {
+				s += Fleur.Serializer._serializeNodeToXQuery(node.childNodes[i], indent, offset + "  ", false, i !== l - 1 ? "," : "");
+			}
+			return s + (indent ? offset + postfix + "\n" : postfix);
 		case Fleur.Node.ATTRIBUTE_NODE:
 			return (indent ? offset : "") + "attribute " + node.nodeName + " {\"" + Fleur.Serializer.escapeXML(node.value).replace(/"/gm, "\"\"") + "\"}" + postfix + (indent ? "\n" : "");
 		case Fleur.Node.MAP_NODE:
@@ -3452,30 +3710,11 @@ Fleur.Serializer._serializeNodeToXQuery = function(node, indent, offset, tree, p
 			if (node.schemaTypeInfo === Fleur.Type_QName) {
 				return "fn:QName(\"" + node.namespaceURI + "\", \"" + node.nodeName + "\")" + postfix;
 			}
-			var fdata = node.data;
-			if (fdata !== "INF" && fdata !== "-INF" && fdata !== "NaN") {
-				if (node.schemaTypeInfo === Fleur.Type_float || node.schemaTypeInfo === Fleur.Type_double) {
-					if (fdata.indexOf("e") === -1) {
-						if (fdata !== "0") {
-							var exp = Math.floor(Math.log(Math.abs(parseFloat(fdata))) * Math.LOG10E);
-							fdata = String(parseFloat(fdata) * Math.pow(10, -exp)) + "e" + exp;
-						} else {
-							fdata = "0.0e0";
-						}
-					}
-					if (fdata.indexOf(".") === -1) {
-						fdata = fdata.split("e");
-						fdata = fdata[0] + ".0e" + fdata[1];
-					}
-				} else if (node.schemaTypeInfo === Fleur.Type_decimal && fdata.indexOf(".") === -1) {
-					fdata += ".0";
-				}
-			}
-			return (indent ? offset : "") + "xs:" + typeName + "(\"" + Fleur.Serializer.escapeXML(fdata, !indent, !indent).replace(/"/gm, "\"\"") + "\")" + postfix + (indent ? "\n" : "");
+			return (indent ? offset : "") + "xs:" + typeName + "(\"" + Fleur.Serializer.escapeXML(node.data, !indent, !indent).replace(/"/gm, "\"\"") + "\")" + postfix + (indent ? "\n" : "");
 		case Fleur.Node.CDATA_NODE:
 			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
 		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
-			return (indent ? offset + "processing-instruction " : "processing-instruction ") + node.nodeName + " {\"" + Fleur.Serializer.escapeXML(node.nodeValue, false, false).replace(/"/gm, "\"\"") + "\"}" + postfix + (indent ? "\n" : "");
+			return (indent ? offset + "processing-instruction " : "processing-instruction ") + node.nodeName + " {\"" + Fleur.Serializer.escapeXML(node.data, false, false).replace(/"/gm, "\"\"") + "\"}" + postfix + (indent ? "\n" : "");
 		case Fleur.Node.COMMENT_NODE:
 			return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
 		case Fleur.Node.DOCUMENT_NODE:
@@ -3530,7 +3769,7 @@ Fleur.Serializer._serializeEXMLToString = function(node, indent, offset) {
 		case Fleur.Node.CDATA_NODE:
 			return (indent ? offset + "<![CDATA[" : "<![CDATA[") + node.data + (indent ? "]]>\n" : "]]>");
 		case Fleur.Node.PROCESSING_INSTRUCTION_NODE:
-			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.nodeValue + (indent ? "?>\n" : "?>");
+			return (indent ? offset + "<?" : "<?") + node.nodeName + " " + node.data + (indent ? "?>\n" : "?>");
 		case Fleur.Node.COMMENT_NODE:
 			return (indent ? offset + "<!--" : "<!--") + node.data + (indent ? "-->\n" : "-->");
 		case Fleur.Node.DOCUMENT_NODE:
@@ -3655,6 +3894,26 @@ Fleur.Serializer._serializeJSONToString = function(node, indent, offset, inline,
 Fleur.Serializer.escapeCSV = function(s, sep) {
 	if (s.indexOf(sep) !== -1) {
 		return '"' + s.replace(/"/g, '""') + '"';
+	}
+	return s;
+};
+Fleur.Serializer._serializeMatrixToString = function(node, head, sep) {
+	var s;
+	if (head && node.collabels) {
+		s = node.collabels.join(sep) + "\n";
+	} else {
+		s = "";
+	}
+	var seq2string = function(seq) {
+		seq.childNodes.forEach(function(n, index) {
+			s += (index !== 0 ? sep : "") + n.data;
+		});
+		s += "\n";
+	};
+	if (node.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+		node.childNodes.forEach(seq2string);
+	} else {
+		seq2string(node);
 	}
 	return s;
 };
@@ -4404,11 +4663,13 @@ Fleur.Serializer.Handlers = {
 		return ser;
 	},
 	"application/xquery": function(node) {
-		return Fleur.Serializer._serializeXQXToString(node);
+		return Fleur.Serializer._serializeNodeToXQuery(node);
 	},
 	"text/csv": function(node, indent, config) {
-		var ser = Fleur.Serializer._serializeCSVToString(node, config.header === "present", config.key ? parseInt(config.key, 10) : null, config.separator ? decodeURIComponent(config.separator) : ",", 0);
-		return ser;
+		if (node.nodeType === Fleur.Node.SEQUENCE_NODE) {
+			return Fleur.Serializer._serializeMatrixToString(node, config.header === "present", config.separator ? decodeURIComponent(config.separator) : ",");
+		}
+		return Fleur.Serializer._serializeCSVToString(node, config.header === "present", config.key ? parseInt(config.key, 10) : null, config.separator ? decodeURIComponent(config.separator) : ",", 0);
 	},
 	"text/plain": function(node) {
 		return node.textContent;
@@ -4483,6 +4744,7 @@ Fleur.TypeInfo.DERIVATION_RESTRICTION = 1;
 Fleur.TypeInfo.DERIVATION_EXTENSION = 2;
 Fleur.TypeInfo.DERIVATION_UNION = 4;
 Fleur.TypeInfo.DERIVATION_LIST = 8;
+Fleur.TypeInfo.prototype.canonicalize = function(s) {return s;};
 Fleur.TypeInfo.prototype.isDerivedFrom = function(typeNamespaceArg, typeNameArg, derivationMethod) {
 	var propname, t, typeArg = Fleur.Types[typeNamespaceArg][typeNameArg];
 	switch (derivationMethod) {
@@ -4588,28 +4850,182 @@ new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "string");
 Fleur.Type_string = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["string"];
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "boolean");
 Fleur.Type_boolean = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["boolean"];
+Fleur.Type_boolean.canonicalize = function(s) {
+	if (/^(true|false|0|1)$/.test(s)) {
+		if (s === "0") {
+			return "false";
+		}
+		if (s === "1") {
+			return "true";
+		}
+		return s;
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "decimal");
 Fleur.Type_decimal = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["decimal"];
+Fleur.Type_decimal.canonicalize = function(s) {
+	if (/^[\-+]?([0-9]+(\.[0-9]*)?|\.[0-9]+)$/.test(s)) {
+		var ret = "";
+		var i = 0;
+		var c = s.charAt(i);
+		var dec = "";
+		if (c === "-") {
+			ret = "-";
+			i++;
+			c = s.charAt(i);
+		} else if (c === "+") {
+			i++;
+			c = s.charAt(i);
+		}
+		while (c === "0") {
+			i++;
+			c = s.charAt(i);
+		}
+		while (c >= "0" && c <= "9") {
+			ret += c;
+			i++;
+			c = s.charAt(i);
+		}
+		if (c === ".") {
+			i++;
+			c = s.charAt(i);
+			dec = ret === "-" || ret === "" ? "0." : ".";
+		}
+		while (c >= "0" && c <= "9") {
+			if (c === "0") {
+				dec += c;
+			} else {
+				ret += dec + c;
+				dec = "";
+			}
+			i++;
+			c = s.charAt(i);
+		}
+		return ret === "-" || ret === "" ? "0" : ret;
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "float");
 Fleur.Type_float = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["float"];
+Fleur.Type_float.canonicalize = function(s) {
+	if (/^(([\-+]?([0-9]+(\.[0-9]*)?)|(\.[0-9]+))([eE][-+]?[0-9]+)?|-?INF|NaN)$/.test(s)) {
+		if (s !== "INF" && s !== "-INF" && s !== "NaN") {
+			var value = parseFloat(s);
+			var absvalue = Math.abs(value);
+			if (absvalue < 0.000001 || absvalue >= 1000000) {
+				var ret;
+				if (absvalue >= 1000000 && absvalue < 1e+21) {
+					value *= 1e+15;
+					ret = String(value).split("e");
+					ret = ret[0] + "E" + String(parseInt(ret[1], 10) - 15);
+				} else {
+					ret = String(value).replace("e+", "E").replace("e", "E");
+				}
+				if (ret.indexOf(".") === -1 && ret.indexOf("E") !== -1) {
+					ret = ret.split("E");
+					return ret[0] + ".0E" + ret[1];
+				}
+				return ret;
+			}
+			return String(value);
+		}
+		return s;
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "double");
 Fleur.Type_double = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["double"];
+Fleur.Type_double.canonicalize = Fleur.Type_float.canonicalize;
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "duration");
+Fleur.Type_duration = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["duration"];
+Fleur.Type_duration.canonicalize = function(s) {
+	if (/^-?P(?!$)([0-9]+Y)?([0-9]+M)?([0-9]+D)?(T(?!$)([0-9]+H)?([0-9]+M)?([0-9]+(\.[0-9]+)?S)?)?$/.test(s)) {
+		return s;
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "dateTime");
 Fleur.Type_dateTime = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["dateTime"];
+Fleur.Type_dateTime.canonicalize = function(s) {
+	if (/^([012][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])?$/.test(s)) {
+		return s;
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "time");
 Fleur.Type_time = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["time"];
+Fleur.Type_time.canonicalize = function(s) {
+	if (/^([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\.[0-9]+)?(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?$/.test(s)) {
+		return s;
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "date");
 Fleur.Type_date = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["date"];
+Fleur.Type_date.canonicalize = function(s) {
+	if (/^([012][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])?$/.test(s)) {
+		return s;
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "gYearMonth");
+Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gYearMonth"].canonicalize = function(s) {
+	if (/^([12][0-9]{3})-(0[1-9]|1[012])$/.test(s)) {
+		return s;
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "gYear");
+Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gYear"].canonicalize = function(s) {
+	if (/^([\-+]?([0-9]{4}|[1-9][0-9]{4,}))?$/.test(s)) {
+		return s;
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "gMonthDay");
+Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gMonthDay"].canonicalize = function(s) {
+	if (/^--(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/.test(s)) {
+		return s;
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "gDay");
+Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gDay"].canonicalize = function(s) {
+	if (/^---(0[1-9]|[12][0-9]|3[01])$/.test(s)) {
+		return s;
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "gMonth");
+Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gMonth"].canonicalize = function(s) {
+	if (/^--(0[1-9]|1[012])$/.test(s)) {
+		return s;
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "hexBinary");
+Fleur.Types["http://www.w3.org/2001/XMLSchema"]["hexBinary"].canonicalize = function(s) {
+	if (/^([0-9A-Fa-f]{2})+$/.test(s)) {
+		return s.toUpperCase();
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "base64Binary");
+Fleur.Types["http://www.w3.org/2001/XMLSchema"]["base64Binary"].canonicalize = function(s) {
+	if (/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(s)) {
+		return s;
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "anyURI");
 Fleur.Type_anyURI = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["anyURI"];
+Fleur.Type_anyURI.canonicalize = function(s) {
+	if (/^((([^ :\/?#]+):\/\/)?[^ \/\?#]+([^ \?#]*)(\?([^ #]*))?(#([^ \:#\[\]\@\!\$\&\\'\(\)\*\+\,\;\=]*))?)?$/.test(s)) {
+		return s;
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "QName");
 Fleur.Type_QName = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["QName"];
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "NOTATION");
@@ -4627,23 +5043,228 @@ new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "ENTITY", Fleur.TypeInfo.
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "ENTITIES", Fleur.TypeInfo.DERIVATION_LIST, Fleur.Types["http://www.w3.org/2001/XMLSchema"].ENTITY);
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].decimal);
 Fleur.Type_integer = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["integer"];
+Fleur.Type_integer.canonicalize = function(s) {
+	if (/^[\-+]?[0-9]+$/.test(s)) {
+		var ret = "";
+		var i = 0;
+		var c = s.charAt(i);
+		if (c === "-") {
+			ret = "-";
+			i++;
+			c = s.charAt(i);
+		} else if (c === "+") {
+			i++;
+			c = s.charAt(i);
+		}
+		while (c === "0") {
+			i++;
+			c = s.charAt(i);
+		}
+		while (c >= "0" && c <= "9") {
+			ret += c;
+			i++;
+			c = s.charAt(i);
+		}
+		return ret === "-" || ret === "" ? "0" : ret;
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "nonPositiveInteger", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].integer);
+Fleur.Types["http://www.w3.org/2001/XMLSchema"]["nonPositiveInteger"].canonicalize = function(s) {
+	if (/^(-[0-9]+|0)$/.test(s)) {
+		var ret = "";
+		var i = 0;
+		var c = s.charAt(i);
+		if (c === "-") {
+			ret = "-";
+			i++;
+			c = s.charAt(i);
+		}
+		while (c === "0") {
+			i++;
+			c = s.charAt(i);
+		}
+		while (c >= "0" && c <= "9") {
+			ret += c;
+			i++;
+			c = s.charAt(i);
+		}
+		return ret === "-" || ret === "" ? "0" : ret;
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "negativeInteger", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].nonPositiveInteger);
+Fleur.Types["http://www.w3.org/2001/XMLSchema"]["negativeInteger"].canonicalize = function(s) {
+	if (/^-0*[1-9][0-9]*$/.test(s)) {
+		var ret = "-";
+		var i = 1;
+		var c = s.charAt(i);
+		while (c === "0") {
+			i++;
+			c = s.charAt(i);
+		}
+		while (c >= "0" && c <= "9") {
+			ret += c;
+			i++;
+			c = s.charAt(i);
+		}
+		return ret;
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "long", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].integer);
+Fleur.Types["http://www.w3.org/2001/XMLSchema"]["long"].canonicalize = function(s) {
+	if (/^[\-+]?[0-9]+$/.test(s)) {
+		var value = parseInt(s, 10);
+		if (value >= -9223372036854775808 && value < 9223372036854775807) {
+			return String(value);
+		}
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "int", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].long);
 Fleur.Type_int = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["int"];
+Fleur.Type_int.canonicalize = function(s) {
+	if (/^[\-+]?[0-9]+$/.test(s)) {
+		var value = parseInt(s, 10);
+		if (value >= -2147483648 && value <= 2147483647) {
+			return String(value);
+		}
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "short", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].int);
+Fleur.Types["http://www.w3.org/2001/XMLSchema"]["short"].canonicalize = function(s) {
+	if (/^[\-+]?[0-9]+$/.test(s)) {
+		var value = parseInt(s, 10);
+		if (value >= -32768 && value <= 32767) {
+			return String(value);
+		}
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "byte", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].short);
+Fleur.Types["http://www.w3.org/2001/XMLSchema"]["byte"].canonicalize = function(s) {
+	if (/^[\-+]?[0-9]+$/.test(s)) {
+		var value = parseInt(s, 10);
+		if (value >= -128 && value <= 127) {
+			return String(value);
+		}
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "nonNegativeInteger", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].integer);
+Fleur.Types["http://www.w3.org/2001/XMLSchema"]["nonNegativeInteger"].canonicalize = function(s) {
+	if (/^(\+?[0-9]+|-0)$/.test(s)) {
+		var ret = "";
+		var i = 0;
+		var c = s.charAt(i);
+		if (c === "+" || c === "-") {
+			i++;
+			c = s.charAt(i);
+		}
+		while (c === "0") {
+			i++;
+			c = s.charAt(i);
+		}
+		while (c >= "0" && c <= "9") {
+			ret += c;
+			i++;
+			c = s.charAt(i);
+		}
+		return ret === "" ? "0" : ret;
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "unsignedLong", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].nonNegativeInteger);
+Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedLong"].canonicalize = function(s) {
+	if (/^(\+?[0-9]+|-0)$/.test(s)) {
+		var value = parseInt(s, 10);
+		if (value <= 18446744073709551615) {
+			return String(value);
+		}
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "unsignedInt", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].unsignedLong);
+Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedInt"].canonicalize = function(s) {
+	if (/^(\+?[0-9]+|-0)$/.test(s)) {
+		var value = parseInt(s, 10);
+		if (value <= 4294967295) {
+			return String(value);
+		}
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "unsignedShort", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].unsignedInt);
+Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedShort"].canonicalize = function(s) {
+	if (/^(\+?[0-9]+|-0)$/.test(s)) {
+		var value = parseInt(s, 10);
+		if (value <= 65535) {
+			return String(value);
+		}
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "unsignedByte", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].unsignedShort);
+Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedByte"].canonicalize = function(s) {
+	if (/^(\+?[0-9]+|-0)$/.test(s)) {
+		var value = parseInt(s, 10);
+		if (value <= 255) {
+			return String(value);
+		}
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "positiveInteger", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].nonNegativeInteger);
 Fleur.Type_positiveInteger = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["positiveInteger"];
+Fleur.Type_positiveInteger.canonicalize = function(s) {
+	if (/^\+?0*[1-9][0-9]*$/.test(s)) {
+		var ret = "";
+		var i = 0;
+		var c = s.charAt(i);
+		if (c === "+") {
+			i++;
+			c = s.charAt(i);
+		}
+		while (c === "0") {
+			i++;
+			c = s.charAt(i);
+		}
+		while (c >= "0" && c <= "9") {
+			ret += c;
+			i++;
+			c = s.charAt(i);
+		}
+		return ret === "" ? "0" : ret;
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "yearMonthDuration", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].duration);
+Fleur.Type_yearMonthDuration = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["yearMonthDuration"];
+Fleur.Type_yearMonthDuration.canonicalize = function(s) {
+	if (/^-?P(?!$)([0-9]+Y)?([0-9]+M)?$/.test(s)) {
+		var res = Fleur.toJSONYearMonthDuration(s);
+		return (res.sign < 0 ? "-" : "") + "P" + (res.year !== 0 ? String(res.year) + "Y": "") + (res.month !== 0 || res.year === 0 ? String(res.month) + "M" : "");
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "dayTimeDuration", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].duration);
+Fleur.Type_dayTimeDuration = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["dayTimeDuration"];
+Fleur.Type_dayTimeDuration.canonicalize = function(s) {
+	if (/^-?P(?!$)([0-9]+D)?(T(?!$)([0-9]+H)?([0-9]+M)?([0-9]+(\.[0-9]+)?S)?)?$/.test(s)) {
+		var res = Fleur.toJSONDayTimeDuration(s);
+		return (res.sign < 0 ? "-" : "") + "P" + (res.day !== 0 ? String(res.day) + "D": "") + (res.hour !== 0 || res.minute !== 0 || res.second !== 0 || (res.day + res.hour + res.minute + res.second) === 0 ? "T" : "") + (res.hour !== 0 ? String(res.hour) + "H" : "") + (res.minute !== 0 ? String(res.minute) + "M" : "") + (res.second !== 0 || (res.day + res.hour + res.minute + res.second) === 0 ? String(res.second) + "S" : "");
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "dateTimeStamp", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].dateTime);
+Fleur.Types["http://www.w3.org/2001/XMLSchema"]["dateTimeStamp"].canonicalize = function(s) {
+	if (/^([012][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])$/.test(s)) {
+		return s;
+	}
+	throw new Fleur.DOMException(Fleur.DOMException.VALIDATION_ERR);
+};
 Fleur.Types["http://www.agencexml.com/fleur"] = {};
 new Fleur.TypeInfo("http://www.agencexml.com/fleur", "regex", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Type_string);
 Fleur.Type_regex = Fleur.Types["http://www.agencexml.com/fleur"]["regex"];
@@ -4699,8 +5320,13 @@ Fleur.XPathFunctions["https://tools.ietf.org/rfc/index"] = {};
 Fleur.XPathFunctions_ietf = Fleur.XPathFunctions["https://tools.ietf.org/rfc/index"];
 Fleur.XPathFunctions["http://www.agencexml.com/fleur/internal"] = {};
 Fleur.XPathFunctions_internal = Fleur.XPathFunctions["http://www.agencexml.com/fleur/internal"];
+Fleur.XPathFunctions["http://schemas.openxmlformats.org/spreadsheetml/2006/main"] = {};
+Fleur.XPathFunctions_excel = Fleur.XPathFunctions["http://schemas.openxmlformats.org/spreadsheetml/2006/main"];
 Fleur.XPathFunctions["http://expath.org/ns/zip"] = {};
 Fleur.XPathFunctions_zip = Fleur.XPathFunctions["http://expath.org/ns/zip"];
+Fleur.XPathFunctions["http://www.mathunion.org/matrix"] = {};
+Fleur.XPathFunctions_matrix = Fleur.XPathFunctions["http://www.mathunion.org/matrix"];
+Fleur.canonize = {};
 Fleur.XPathFunctions_array["append"] = function(ctx, children) {};
 Fleur.XPathFunctions_array["filter"] = function(ctx, children) {};
 Fleur.XPathFunctions_array["flatten"] = function(ctx, children) {};
@@ -5032,6 +5658,11 @@ Fleur.XPathFunctions_fn["count#1"] = new Fleur.Function("http://www.w3.org/2005/
 		return arg === Fleur.EmptySequence ? 0 : arg.nodeType === Fleur.Node.SEQUENCE_NODE ? arg.childNodes.length : 1;
 	},
 	null, [{type: Fleur.Node, occurence: "*"}], false, false, {type: Fleur.Type_integer});
+Fleur.XPathFunctions_fn["current#0"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:current",
+	function(ctx) {
+		return ctx._item || ctx._curr;
+	},
+	null, [], true, false, {type: Fleur.Node});
 Fleur.XPathFunctions_fn["current-date#0"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:current-date",
 	function() {
 		return new Date();
@@ -5110,6 +5741,7 @@ Fleur.extension2contentType = {
 	".jpg":   "image/jpeg",
 	".js":    "application/javascript",
 	".json":  "application/json",
+	".ofx":   "application/x-ofx",
 	".png":   "image/png",
 	".svg":   "image/svg+xml",
 	".txt":   "text/plain",
@@ -5131,6 +5763,7 @@ Fleur.extension2encoding = {
 	".jpg":   "binary",
 	".js":    "utf8",
 	".json":  "utf8",
+	".ofx":   "utf8",
 	".png":   "binary",
 	".svg":   "utf8",
 	".txt":   "utf8",
@@ -5169,7 +5802,6 @@ Fleur.XPathFunctions_fn["doc#3"] = new Fleur.Function("http://www.w3.org/2005/xp
 		var parser = new Fleur.DOMParser();
 		if (httpget) {
 			if (!Fleur.inBrowser) {
-				console.log(docname);
 				var options = global.url.parse(docname);
 				options.method = (serialization["http-verb"] || "GET").toUpperCase();
 				options.headers = serialization["http-headers"] || {};
@@ -5188,7 +5820,6 @@ Fleur.XPathFunctions_fn["doc#3"] = new Fleur.Function("http://www.w3.org/2005/xp
 					res.setEncoding("utf8");
 					res.on("data", function(chunk) {
 						resdata += chunk;
-						console.log("chunk length: " + chunk.length);
 					});
 					res.on("end", function() {
 						callback(parser.parseFromString(resdata, res.headers["Content-Type"] || contentType));
@@ -5303,6 +5934,11 @@ Fleur.XPathFunctions_fn["escape-html-uri#1"] = new Fleur.Function("http://www.w3
 		return !s ? "" : s.replace(/[^ -~]/g, function(c) {return encodeURIComponent(c);});
 	},
 	null, [{type: Fleur.Type_string, occurence: "?"}], false, false, {type: Fleur.Type_string});
+Fleur.XPathFunctions_fn["evaluate#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:evaluate",
+	function(arg) {
+		return arg !== Fleur.EmptySequence;
+	},
+	null, [{type: Fleur.Type_string, occurence: "?"}], false, false, {type: Fleur.Node, occurence: "*"});
 Fleur.XPathFunctions_fn["exactly-one#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:exactly-one",
 	function(arg, ctx) {
 		if (arg.nodeType === Fleur.Node.SEQUENCE_NODE) {
@@ -5906,13 +6542,13 @@ Fleur.XPathFunctions_fn["not#1"] = new Fleur.Function("http://www.w3.org/2005/xp
 		if (arg.schemaTypeInfo === Fleur.Type_integer || arg.schemaTypeInfo === Fleur.Type_decimal || arg.schemaTypeInfo === Fleur.Type_float || arg.schemaTypeInfo === Fleur.Type_double) {
 			return !(arg.data !== "0" && arg.data !== "0.0" && arg.data !== "0.0e0" && arg.data !== "NaN");
 		}
-		if (arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "boolean", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+		if (arg.schemaTypeInfo && arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "boolean", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
 			return arg.data !== "true";
 		}
-		if (arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION) || arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+		if (arg.schemaTypeInfo && (arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION) || arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION))) {
 			return !(arg.hasOwnProperty("data") && arg.data.length !== 0);
 		}
-		if (arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION) || arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+		if (arg.schemaTypeInfo && (arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION) || arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || arg.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION))) {
 			return !(arg.data !== "0" && arg.data !== "0.0" && arg.data !== "0.0e0" && arg.data !== "NaN");
 		}
 		e = new Error("The supplied sequence contains values inappropriate to fn:boolean");
@@ -5967,6 +6603,31 @@ Fleur.XPathFunctions_fn["one-or-more#1"] = new Fleur.Function("http://www.w3.org
 		}
 	},
 	null, [{type: Fleur.Node, occurence: "*"}], true, false, {type: Fleur.Node});
+Fleur.XPathFunctions_fn["parse#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:parse",
+	function(arg, serialization) {
+		var contentType;
+		if (serialization) {
+			var a2 = Fleur.Atomize(serialization);
+			var	op2 = Fleur.toJSObject(a2);
+			if (op2[0] < 0) {
+				callback(a2);
+				return;
+			}
+			serialization = op2[1];
+			contentType = Fleur.toContentType(serialization);
+		} else {
+			contentType = "application/xml";
+		}
+		var parser = new Fleur.DOMParser();
+		return arg !== null ? parser.parseFromString(arg, contentType) : null;
+	},
+	null, [{type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Node, occurence: "?"}], false, false, {type: Fleur.Node, occurence: "?"});
+Fleur.XPathFunctions_fn["parse-md#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:parse-md",
+	function(arg) {
+		var parser = new Fleur.DOMParser();
+		return arg !== null ? parser.parseFromString(arg, "text/markdown") : null;
+	},
+	null, [{type: Fleur.Type_string, occurence: "?"}], false, false, {type: Fleur.Node, occurence: "?"});
 Fleur.XPathFunctions_fn["parse-xml#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:parse-xml",
 	function(arg) {
 		var parser = new Fleur.DOMParser();
@@ -6039,6 +6700,23 @@ Fleur.XPathFunctions_fn["remove"] = function(ctx, children, callback) {
 		});
 	});
 };
+Fleur.XPathFunctions_fn["replace#3"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:replace",
+	function(input, pattern, replacement) {
+		return Fleur.XPathFunctions_fn["replace#4"].jsfunc(input, pattern, replacement);
+	},
+	null, [{type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Type_string}, {type: Fleur.Type_string}], false, false, {type: Fleur.Type_string});
+Fleur.XPathFunctions_fn["replace#4"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:replace",
+	function(input, pattern, replacement, flags) {
+			input = input || "";
+			flags = flags || "";
+			try {
+				var re = new RegExp(pattern, flags);
+				return input.replace(re, replacement);
+			} catch (e) {
+				return input;
+			}
+	},
+	null, [{type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Type_string}, {type: Fleur.Type_string}, {type: Fleur.Type_string, occurence: "?"}], false, false, {type: Fleur.Type_string});
 Fleur.XPathFunctions_fn["reverse#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:reverse",
 	function(arg) {
 		if (arg.nodeType === Fleur.Node.SEQUENCE_NODE) {
@@ -6372,7 +7050,6 @@ Fleur.XPathFunctions_fn["tail#1"] = new Fleur.Function("http://www.w3.org/2005/x
 		}
 		if (arg.childNodes.length > 2) {
 			var result = new Fleur.Sequence();
-			result.nodeType = Fleur.Node.SEQUENCE_NODE;
 			for (var i = 1, l = arg.childNodes.length; i < l; i++) {
 				result.appendChild(arg.childNodes[i]);
 			}
@@ -6542,7 +7219,6 @@ Fleur.XPathFunctions_fn["json-doc"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["lang"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["load-xquery-module"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["local-name-from-QName"] = function(ctx, children) {};
-Fleur.XPathFunctions_fn["matches"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["minutes-from-duration"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["months-from-duration"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["namespace-uri-for-prefix"] = function(ctx, children) {};
@@ -6557,7 +7233,6 @@ Fleur.XPathFunctions_fn["parse-xml-fragment"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["path"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["prefix-from-QName"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["random-number-generator"] = function(ctx, children) {};
-Fleur.XPathFunctions_fn["replace"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["resolve-QName"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["resolve-uri"] = function(ctx, children) {};
 Fleur.XPathFunctions_fn["root"] = function(ctx, children) {};
@@ -6704,6 +7379,259 @@ Fleur.XPathFunctions_dgram["socket-close#1"] = new Fleur.Function("http://www.ag
 		sock.close();
 	},
 	null, [{type: Fleur.Type_handler}], false, false, {type: Fleur.EmptySequence});
+Fleur.XPathFunctions_excel["c-from-ref#1"] = new Fleur.Function("http://schemas.openxmlformats.org/spreadsheetml/2006/main", "excel:c-from-ref",
+	function(arg) {
+		var i = 0, l = arg.length, column = 0, c = arg.charCodeAt(i);
+		while (i < l && c >= 65 && c <= 90) {
+			column = column * 26 + c - 64;
+			c = arg.charCodeAt(++i);
+		}
+		return column;
+	},
+	null, [{type: Fleur.Type_string}], false, false, {type: Fleur.Type_integer});
+Fleur.XPathFunctions_excel["r-from-ref#1"] = new Fleur.Function("http://schemas.openxmlformats.org/spreadsheetml/2006/main", "excel:r-from-ref",
+	function(arg) {
+		var i = 0, l = arg.length, row = 0, c = arg.charCodeAt(i);
+		while (i < l && c >= 65 && c <= 90) {
+			i++;
+		}
+		while (i < l && c >= 48 && c <= 57) {
+			row = row * 10 + c - 48;
+			c = arg.charCodeAt(++i);
+		}
+		return row;
+	},
+	null, [{type: Fleur.Type_string}], false, false, {type: Fleur.Type_integer});
+Fleur.XPathFunctions_excel["rc-to-ref#2"] = new Fleur.Function("http://schemas.openxmlformats.org/spreadsheetml/2006/main", "excel:rc-to-ref",
+	function(row, column) {
+		var column = column - 1, s = "";
+		while (column > 25) {
+			s = String.fromCharCode(65 + (column % 26)) + s;
+			column = Math.round((column - (column % 26)) / 26) - 1;
+		}
+		s = String.fromCharCode(65 + column) + s;
+		return s + String(row);
+	},
+	null, [{type: Fleur.Type_integer}, {type: Fleur.Type_integer}], false, false, {type: Fleur.Type_string});
+Fleur.XPathFunctions_excel["values#1"] = new Fleur.Function("http://schemas.openxmlformats.org/spreadsheetml/2006/main", "excel:values",
+	function(book) {
+		return Fleur.XPathFunctions_excel["values#4"].jsfunc(book, null, false, false);
+	},
+	null, [{type: Fleur.Node}], false, false, {type: Fleur.Node});
+Fleur.XPathFunctions_excel["values#2"] = new Fleur.Function("http://schemas.openxmlformats.org/spreadsheetml/2006/main", "excel:values",
+	function(book, range) {
+		return Fleur.XPathFunctions_excel["values#4"].jsfunc(book, range, false, false);
+	},
+	null, [{type: Fleur.Node}, {type: Fleur.Type_string, occurence: "?"}], false, false, {type: Fleur.Node});
+Fleur.XPathFunctions_excel["values#3"] = new Fleur.Function("http://schemas.openxmlformats.org/spreadsheetml/2006/main", "excel:values",
+	function(book, range, rheader) {
+		return Fleur.XPathFunctions_excel["values#4"].jsfunc(book, range, rheader, false);
+	},
+	null, [{type: Fleur.Node}, {type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Type_boolean, occurence: "?"}], false, false, {type: Fleur.Node});
+Fleur.XPathFunctions_excel["values#4"] = new Fleur.Function("http://schemas.openxmlformats.org/spreadsheetml/2006/main", "excel:values",
+	function(book, range, rheader, cheader) {
+		var i, l, n;
+		if (book === null) {
+			return Fleur.EmptySequence;
+		}
+		var sheetname, sheetrid, sheetfname;
+		range = range || "";
+		rheader = rheader || false;
+		cheader = cheader || false;
+		if (range.indexOf("!") !== -1) {
+			sheetname = range.substr(0, range.indexOf("!"));
+			range = range.substr(range.indexOf("!") + 1);
+		}
+		var shs = book.firstChild.getEntryNode("xl/sharedStrings.xml");
+		var shsdoc;
+		var sharedstrings = [];
+		if (shs) {
+			shs = shs.firstChild;
+			if (!shs.hasEntry("doc")) {
+				shsdoc = book.createEntry("doc");
+				Fleur.DOMParser._appendFromXMLString(shsdoc, Fleur.bin2utf8(Fleur.inflate(shs.getEntryNode("compressedFileData").textContent)));
+				shs.setEntryNode(shsdoc);
+			} else {
+				shsdoc = shs.getEntryNode("doc");
+			}
+			n = shsdoc.firstChild;
+			while (n !== null && n.nodeType !== Fleur.Node.ELEMENT_NODE) {
+				n = n.nextSibling;
+			}
+			n = n.firstChild;
+			while (n !== null) {
+				if (n.localName === "si") {
+					sharedstrings.push(n.children[0].textContent);
+				}
+				n = n.nextSibling;
+			}
+		}
+		var wb = book.firstChild.getEntryNode("xl/workbook.xml").firstChild;
+		var wbdoc;
+		if (!wb.hasEntry("doc")) {
+			wbdoc = book.createEntry("doc");
+			Fleur.DOMParser._appendFromXMLString(wbdoc, Fleur.bin2utf8(Fleur.inflate(wb.getEntryNode("compressedFileData").textContent)));
+			wb.setEntryNode(wbdoc);
+		} else {
+			wbdoc = wb.getEntryNode("doc");
+		}
+		n = wbdoc.firstChild;
+		while (n !== null && n.nodeType !== Fleur.Node.ELEMENT_NODE) {
+			n = n.nextSibling;
+		}
+		n = n.firstChild;
+		while (n !== null && n.localName !== "sheets") {
+			n = n.nextSibling;
+		}
+		if (!sheetname) {
+			sheetrid = n.children[0].getAttributeNS("http://schemas.openxmlformats.org/officeDocument/2006/relationships", "id");
+		} else {
+			for (i = 0, l = n.children.length; i < l; i++) {
+				if (n.children[i].getAttribute("name") === sheetname) {
+					sheetrid = n.children[i].getAttributeNS("http://schemas.openxmlformats.org/officeDocument/2006/relationships", "id");
+					break;
+				}
+			}
+		}
+		if (sheetrid) {
+			var wbrels = book.firstChild.getEntryNode("xl/_rels/workbook.xml.rels").firstChild;
+			var wbrelsdoc;
+			if (!wbrels.hasEntry("doc")) {
+				wbrelsdoc = book.createEntry("doc");
+				Fleur.DOMParser._appendFromXMLString(wbrelsdoc, Fleur.bin2utf8(Fleur.inflate(wbrels.getEntryNode("compressedFileData").textContent)));
+				wbrels.setEntryNode(wbrelsdoc);
+			} else {
+				wbrelsdoc = wbrels.getEntryNode("doc");
+			}
+			n = wbrelsdoc.firstChild;
+			while (n !== null && n.nodeType !== Fleur.Node.ELEMENT_NODE) {
+				n = n.nextSibling;
+			}
+			n = n.firstChild;
+			while (n !== null && n.getAttribute("Id") !== sheetrid) {
+				n = n.nextSibling;
+			}
+			if (n !== null) {
+				sheetfname = "xl/" + n.getAttribute("Target");
+				var sheetdoc, sheet = book.firstChild.getEntryNode(sheetfname).firstChild;
+				if (!sheet.hasEntry("doc")) {
+					sheetdoc = book.createEntry("doc");
+					Fleur.DOMParser._appendFromXMLString(sheetdoc, Fleur.bin2utf8(Fleur.inflate(sheet.getEntryNode("compressedFileData").textContent)));
+					sheet.setEntryNode(sheetdoc);
+				} else {
+					sheetdoc = sheet.getEntryNode("doc");
+				}
+				n = sheetdoc.firstChild;
+				while (n !== null && n.nodeType !== Fleur.Node.ELEMENT_NODE) {
+					n = n.nextSibling;
+				}
+				n = n.firstChild;
+				if (n.localName === "dimension") {
+					range = n.getAttribute("ref");
+				}
+				var maxrow = 0;
+				var maxcolumn = 0;
+				var cell = function(s, defrow, defcolumn) {
+					s = s.toUpperCase();
+					var ii = 0, ll = s.length, row = 0, column = 0, c = s.charCodeAt(ii);
+					while (ii < ll && c >= 65 && c <= 90) {
+						column = column * 26 + c - 64;
+						c = s.charCodeAt(++ii);
+					}
+					if (ii === 0) {
+						column = defcolumn;
+					} else {
+						column--;
+					}
+					if (ii === ll) {
+						row = defrow;
+					} else {
+						while (ii < ll && c >= 48 && c <= 57) {
+							row = row * 10 + c - 48;
+							c = s.charCodeAt(++ii);
+						}
+						row--;
+					}
+					return {row: row, column: column};
+				};
+				var cells = [];
+				while (n !== null && n.localName !== "sheetData") {
+					n = n.nextSibling;
+				}
+				if (n.localName === "sheetData") {
+					n = n.firstChild;
+					while (n !== null) {
+						if (n.localName === "row") {
+							var n2 = n.firstChild;
+							while (n2 !== null) {
+								if (n2.localName === "c") {
+									var cref = cell(n2.getAttribute("r"));
+									var ctype = n2.getAttribute("t");
+									if (n2.children[0]) {
+										var cvalue = n2.children[0].textContent;
+										if (ctype === "s") {
+											cvalue = sharedstrings[parseInt(cvalue, 10)];
+										} else if (cvalue.indexOf(".0") !== -1) {
+											cvalue = cvalue.substr(0, cvalue.indexOf(".0"));
+										}
+										if (!cells[cref.row]) {
+											cells[cref.row] = [];
+										}
+										cells[cref.row][cref.column] = cvalue;
+										maxrow = Math.max(maxrow, cref.row);
+										maxcolumn = Math.max(maxcolumn, cref.column);
+									}
+								}
+								n2 = n2.nextSibling;
+							}
+						}
+						n = n.nextSibling;
+					}
+				}
+				var firstcell, lastcell;
+				if (range.indexOf(":") !== -1) {
+					range = range.split(":");
+					firstcell = cell(range[0], 0, 0);
+					lastcell = cell(range[1], maxrow, maxcolumn);
+				} else {
+					firstcell = cell(range, 0, 0);
+					lastcell = cell(range, maxrow, maxcolumn);
+				}
+				var seq = new Fleur.Sequence();
+				if (rheader) {
+					seq.rowlabels = [];
+					for (var r = cheader ? firstcell.row + 1 : firstcell.row; r <= lastcell.row; r++) {
+						seq.rowlabels.push(cells[r][firstcell.column]);
+					}
+					firstcell.column++;
+				}
+				if (cheader) {
+					seq.collabels = cells[firstcell.row].slice(firstcell.column, lastcell.column + 1);
+					firstcell.row++;
+				}
+				for (var currow = firstcell.row; currow <= lastcell.row; currow++) {
+					var m;
+					if (firstcell.row !== lastcell.row) {
+						m = new Fleur.Multidim();
+					} else {
+						m = seq;
+					}
+					for (var curcol = firstcell.column; curcol <= lastcell.column; curcol++) {
+						var a = new Fleur.Text();
+						a.data = cells[currow] ? cells[currow][curcol] || "" : "";
+						a.schemaTypeInfo = Fleur.Type_string;
+						m.appendChild(a);
+					}
+					if (m !== seq) {
+						seq.appendChild(m);
+					}
+				}
+				return seq;
+			}
+		}
+		return Fleur.EmptySequence;
+	},
+	null, [{type: Fleur.Node}, {type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Type_boolean, occurence: "?"}, {type: Fleur.Type_boolean, occurence: "?"}], false, false, {type: Fleur.Node});
 Fleur.XPathFunctions_ietf["ipv4"] = function(ctx, children, callback) {
 	Fleur.XPathConstructor(ctx, children, Fleur.Type_ipv4, /^((1?[0-9]?[0-9]|2[0-4][0-9]|25[0-5]).){3}(1?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])$/, function() {}, function(node) {
 		return false;
@@ -6915,6 +7843,101 @@ Fleur.XPathFunctions_math["tan#1"] = new Fleur.Function("http://www.w3.org/2005/
 		}
 		return Math.tan(arg);},
 	null, [{type: Fleur.numericTypes, occurence: "?"}], false, false, {type: Fleur.Type_double, occurence: "?"});
+Fleur.XPathFunctions_matrix["identity#1"] = new Fleur.Function("http://www.mathunion.org/matrix", "matrix:identity",
+	function(arg) {
+		if (arg === null) {
+			return Fleur.EmptySequence;
+		}
+		var result;
+		if (arg === 1) {
+			result = new Fleur.Text();
+			result.data = "1";
+			result.schemaTypeInfo = Fleur.Type_integer;
+		} else {
+			result = new Fleur.Sequence();
+			for (var i = 0; i < arg; i++) {
+				var m = new Fleur.Multidim();
+				for (var j = 0; j < arg; j++) {
+					var n = new Fleur.Text();
+					n.data = i === j ? "1" : "0";
+					n.schemaTypeInfo = Fleur.Type_integer;
+					m.appendChild(n);
+				}
+				result.appendChild(m);
+			}
+		}
+		return result;
+	},
+	null, [{type: Fleur.numericTypes, occurence: "?"}], false, false, {type: Fleur.Node, occurence: "?"});
+Fleur.XPathFunctions_matrix["labels#2"] = new Fleur.Function("http://www.mathunion.org/matrix", "matrix:labels",
+	function(collabels, arg) {
+		return Fleur.XPathFunctions_matrix["labels#3"].jsfunc(Fleur.EmptySequence, collabels, arg);
+	},
+	null, [{type: Fleur.Node, occurence: "?"}, {type: Fleur.Node, occurence: "?"}], false, false, {type: Fleur.Node, occurence: "?"});
+Fleur.XPathFunctions_matrix["labels#3"] = new Fleur.Function("http://www.mathunion.org/matrix", "matrix:labels",
+	function(rowlabels, collabels, arg) {
+		if (arg === Fleur.EmptySequence) {
+			return Fleur.EmptySequence;
+		}
+		var atomlabels = function(n) {
+			var a;
+			var res = [];
+			if (n === Fleur.EmptySequence) {
+				return null;
+			}
+			if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+				n.childNodes.forEach(function(n2) {
+					a = Fleur.Atomize(n2);
+					res.push(a.data);
+				});
+			} else {
+				a = Fleur.Atomize(n);
+				res.push(a.data);
+			}
+			return res;
+		}
+		arg.rowlabels = atomlabels(rowlabels);
+		arg.collabels = atomlabels(collabels);
+		return arg;
+	},
+	null, [{type: Fleur.Node, occurence: "?"}, {type: Fleur.Node, occurence: "?"}, {type: Fleur.Node, occurence: "?"}], false, false, {type: Fleur.Node, occurence: "?"});
+Fleur.XPathFunctions_matrix["transpose#1"] = new Fleur.Function("http://www.mathunion.org/matrix", "matrix:transpose",
+	function(arg) {
+		if (arg === Fleur.EmptySequence) {
+			return Fleur.EmptySequence;
+		}
+		if (arg.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+			return arg;
+		}
+		var result = new Fleur.Sequence();
+		result.rowlabels = arg.collabels;
+		result.collabels = arg.rowlabels;
+		if (arg.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+			var newnbrow = arg.childNodes[0].childNodes.length;
+			if (newnbrow === 1) {
+				arg.childNodes.forEach(function(n) {
+					result.appendChild(n.childNodes[0]);
+				});
+			} else {
+				var newnbcol = arg.childNodes.length;
+				for (var i = 0; i < newnbrow; i++) {
+					var newm = new Fleur.Multidim();
+					for (var j = 0; j < newnbcol; j++) {
+						newm.appendChild(arg.childNodes[j].childNodes[i]);
+					}
+					result.appendChild(newm);
+				} 
+			}
+		} else {
+			arg.childNodes.forEach(function(n) {
+				var m = new Fleur.Multidim();
+				m.appendChild(n);
+				result.appendChild(m);
+			});
+		}
+		return result;
+	},
+	null, [{type: Fleur.Node, occurence: "?"}], false, false, {type: Fleur.Node, occurence: "?"});
 Fleur.XPathFunctions_file["base-dir"] = function(ctx, children, callback) {
 	if (children.length !== 0) {
 		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
@@ -7333,164 +8356,85 @@ Fleur.XPathFunctions_request["query-map#0"] = new Fleur.Function("http://exquery
 	},
 	null, [], true, false, {type: Fleur.Node});
 Fleur.XPathFunctions_xs["anyURI"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["anyURI"], /^((([^ :\/?#]+):\/\/)?[^ \/\?#]+([^ \?#]*)(\?([^ #]*))?(#([^ \:#\[\]\@\!\$\&\\'\(\)\*\+\,\;\=]*))?)?$/, function() {}, function() {
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["anyURI"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["base64Binary"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["base64Binary"], /^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/, function() {}, function() {
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["base64Binary"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["boolean"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_boolean, /^(true|false|0|1)$/, function(node) {
+	Fleur.XPathConstructor(ctx, children, Fleur.Type_boolean, function(node) {
 		if (node.schemaTypeInfo === Fleur.Type_integer || node.schemaTypeInfo === Fleur.Type_decimal || node.schemaTypeInfo === Fleur.Type_float || node.schemaTypeInfo === Fleur.Type_double) {
 			node.data = (node.data === "0" || node.data === "NaN") ? "false" : "true";
 		} else {
 			node = Fleur.error(ctx, "FORG0001");
 		}
-	}, function(node) {
-		if (node.data === "0") {
-			node.data = "false";
-		} else if (node.data === "1") {
-			node.data = "true";
-		}
-		return false;
 	}, callback);
 };
 Fleur.XPathFunctions_xs["byte"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["byte"], /^[\-+]?[0-9]+$/, function() {}, function(node) {
-		var value = parseInt(node.data, 10);
-		node.data = "" + value;
-		return value < -128 || value > 127;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["byte"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["date"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["date"], /^([012][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])?$/, function() {}, function() {
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["date"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["dateTime"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["dateTime"], /^([012][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])?$/, function() {}, function() {
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["dateTime"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["dateTimeStamp"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["dateTimeStamp"], /^([012][0-9]{3})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\.[0-9]+)?(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])$/, function() {}, function() {
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["dateTimeStamp"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["dayTimeDuration"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["dayTimeDuration"], /^-?P(?!$)([0-9]+D)?(T(?!$)([0-9]+H)?([0-9]+M)?([0-9]+(\.[0-9]+)?S)?)?$/, function() {}, function() {
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["dayTimeDuration"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["decimal"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_decimal, /^[\-+]?([0-9]+(\.[0-9]*)?|\.[0-9]+)$/, function() {}, function() {
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Type_decimal, function() {}, callback);
 };
 Fleur.XPathFunctions_xs["double"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_double, /^(([\-+]?([0-9]+(\.[0-9]*)?)|(\.[0-9]+))([eE][-+]?[0-9]+)?|-?INF|NaN)$/, function() {}, function(node) {
-		if (node.data !== "INF" && node.data !== "-INF" && node.data !== "NaN") {
-			var value = parseFloat(node.data);
-			node.data = ("" + value).replace("e+", "e");
-		}
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Type_double, function() {}, callback);
 };
 Fleur.XPathFunctions_xs["duration"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["duration"], /^-?P(?!$)([0-9]+Y)?([0-9]+M)?([0-9]+D)?(T(?!$)([0-9]+H)?([0-9]+M)?([0-9]+(\.[0-9]+)?S)?)?$/, function() {}, function() {
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["duration"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["float"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_float, /^(([\-+]?([0-9]+(\.[0-9]*)?)|(\.[0-9]+))([eE][\-+]?[0-9]+)?|-?INF|NaN)$/, function() {}, function(node) {
-		if (node.data !== "INF" && node.data !== "-INF" && node.data !== "NaN") {
-			var value = parseFloat(node.data);
-			node.data = ("" + value).replace("e+", "e");
-		}
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Type_float, function() {}, callback);
 };
 Fleur.XPathFunctions_xs["gDay"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gDay"], /^---(0[1-9]|[12][0-9]|3[01])$/, function() {}, function() {
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gDay"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["gMonth"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gMonth"], /^--(0[1-9]|1[012])$/, function() {}, function() {
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gMonth"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["gMonthDay"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gMonthDay"], /^--(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/, function() {}, function() {
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gMonthDay"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["gYear"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gYear"], /^([\-+]?([0-9]{4}|[1-9][0-9]{4,}))?$/, function() {}, function() {
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gYear"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["gYearMonth"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gYearMonth"], /^([12][0-9]{3})-(0[1-9]|1[012])$/, function() {}, function() {
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["gYearMonth"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["hexBinary"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["hexBinary"], /^([0-9A-Fa-f]{2})+$/, function() {}, function() {
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["hexBinary"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["int"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_int, /^[\-+]?[0-9]+$/, function() {}, function(node) {
-		var value = parseInt(node.data, 10);
-		node.data = "" + value;
-		return value < -2147483648 || value > 2147483647;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Type_int, function() {}, callback);
 };
 Fleur.XPathFunctions_xs["integer"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_integer, /^[\-+]?[0-9]+$/, function() {}, function(node) {
-		var value = parseInt(node.data, 10);
-		node.data = "" + value;
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Type_integer, function() {}, callback);
 };
 Fleur.XPathFunctions_xs["long"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["long"], /^[\-+]?[0-9]+$/, function() {}, function(node) {
-		var value = parseInt(node.data, 10);
-		node.data = "" + value;
-		return value < -9223372036854775808 || value > 9223372036854775807;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["long"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["negativeInteger"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["negativeInteger"], /^-0*[1-9][0-9]*$/, function() {}, function(node) {
-		var value = parseInt(node.data, 10);
-		node.data = "" + value;
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["negativeInteger"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["nonNegativeInteger"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["nonNegativeInteger"], /^(\+?[0-9]+|-0)$/, function() {}, function(node) {
-		var value = parseInt(node.data, 10);
-		node.data = "" + value;
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["nonNegativeInteger"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["nonPositiveInteger"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["nonPositiveInteger"], /^(-[0-9]+|0)$/, function() {}, function(node) {
-		var value = parseInt(node.data, 10);
-		node.data = "" + value;
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["nonPositiveInteger"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["positiveInteger"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["positiveInteger"], /^\+?0*[1-9][0-9]*$/, function() {}, function(node) {
-		var value = parseInt(node.data, 10);
-		node.data = "" + value;
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["positiveInteger"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["QName"] = function(ctx, children, callback) {
 	var namespaceURI, qualifiedName, a;
@@ -7519,59 +8463,31 @@ Fleur.XPathFunctions_xs["QName"] = function(ctx, children, callback) {
 	}
 };
 Fleur.XPathFunctions_xs["short"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["short"], /^[\-+]?[0-9]+$/, function() {}, function(node) {
-		var value = parseInt(node.data, 10);
-		node.data = "" + value;
-		return value < -32768 || value > 32767;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["short"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["string"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_string, null, function() {}, function() {
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Type_string, function() {}, callback);
 };
 Fleur.XPathFunctions_xs["time"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["time"], /^([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\.[0-9]+)?(Z|[+\-]([01][0-9]|2[0-3]):[0-5][0-9])?)?$/, function() {}, function() {
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Type_time, function() {}, callback);
 };
 Fleur.XPathFunctions_xs["unsignedByte"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedByte"], /^(\+?[0-9]+|-0)$/, function() {}, function(node) {
-		var value = parseInt(node.data, 10);
-		node.data = "" + value;
-		return value > 255;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedByte"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["unsignedInt"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedInt"], /^(\+?[0-9]+|-0)$/, function() {}, function(node) {
-		var value = parseInt(node.data, 10);
-		node.data = "" + value;
-		return value > 4294967295;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedInt"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["unsignedLong"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedLong"], /^(\+?[0-9]+|-0)$/, function() {}, function(node) {
-		var value = parseInt(node.data, 10);
-		node.data = "" + value;
-		return value > 18446744073709551615;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedLong"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["unsignedShort"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedShort"], /^(\+?[0-9]+|-0)$/, function() {}, function(node) {
-		var value = parseInt(node.data, 10);
-		node.data = "" + value;
-		return value > 65535;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedShort"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["untypedAtomic"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_untypedAtomic, null, function() {}, function() {
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Type_untypedAtomic, function() {}, callback);
 };
 Fleur.XPathFunctions_xs["yearMonthDuration"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["yearMonthDuration"], /^-?P(?!$)([0-9]+Y)?([0-9]+M)?$/, function() {}, function() {
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Types["http://www.w3.org/2001/XMLSchema"]["yearMonthDuration"], function() {}, callback);
 };
 Fleur.XPathFunctions_xs["ENTITY"] = function(ctx, children) {};
 Fleur.XPathFunctions_xs["ID"] = function(ctx, children) {};
@@ -7699,12 +8615,15 @@ Fleur._Atomize = function(a, n, force) {
 				}
 			}
 			return a;
+		case Fleur.Node.FUNCTION_NODE:
+			a = new Fleur.Function(n.namespaceURI, n.nodeName, n.jsfunc, n.xqxfunc, n.argtypes, n.needctx, n.needcallback, n.restype, n.updating);
+			return a;
 	}
 };
 Fleur.Atomize = function(n, force) {
 	return n === Fleur.EmptySequence ? Fleur.EmptySequence : Fleur._Atomize(null, n, n.nodeType === Fleur.Node.ENTRY_NODE ? true : force);
 };
-Fleur.XPathConstructor = function(ctx, children, schemaType, stringreg, others, formatvalue, callback) {
+Fleur.XPathConstructor = function(ctx, children, schemaType, others, callback) {
 	if (children.length !== 1) {
 		Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017"));});
 		return;
@@ -7716,7 +8635,7 @@ Fleur.XPathConstructor = function(ctx, children, schemaType, stringreg, others, 
 			return;
 		}
 		if (a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-			if (!a.hasOwnProperty("data") || (stringreg && !(stringreg.test(a.data)))) {
+			if (!a.hasOwnProperty("data")) {
 				Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0001"));});
 				return;
 			}
@@ -7728,11 +8647,11 @@ Fleur.XPathConstructor = function(ctx, children, schemaType, stringreg, others, 
 			}
 		}
 		a.schemaTypeInfo = schemaType;
-		if (formatvalue(a)) {
-			Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0001"));});
+		if (a.canonicalize()) {
+			Fleur.callback(function() {callback(a);});
 			return;
 		}
-		Fleur.callback(function() {callback(a);});
+		Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0001"));});
 	});
 };
 Fleur.XPathStringFunction = function(ctx, children, f, schemaTypeInfo, callback) {
@@ -7819,7 +8738,7 @@ Fleur.XPathStringContentFunction = function(ctx, children, empty, f, schemaTypeI
 				}
 				arg2 = a2.data;
 			}
-			a2.data = "" + f(arg1, arg2);
+			a2.data = String(f(arg1, arg2));
 			a2.schemaTypeInfo = schemaTypeInfo;
 			Fleur.callback(function() {callback(a2);});
 		});
@@ -7842,28 +8761,25 @@ Fleur.XPathNumberFunction = function(ctx, children, f, schemaTypeInfo, callback)
 			if (schemaTypeInfo !== Fleur.Type_double && isNaN(value)) {
 				Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0001"));});
 				return;
-			} else {
-				a.data = value === Number.POSITIVE_INFINITY ? "INF" : value === Number.NEGATIVE_INFINITY ? "-INF" : isNaN(value) ? "NaN" : ("" + value).replace("e+", "e");
 			}
+			a.data = value === Number.POSITIVE_INFINITY ? "INF" : value === Number.NEGATIVE_INFINITY ? "-INF" : isNaN(value) ? "NaN" : String(value).replace("e+", "e");
 		} else if (a.schemaTypeInfo === Fleur.Type_decimal || a.schemaTypeInfo === Fleur.Type_float || a.schemaTypeInfo === Fleur.Type_double) {
 			value = f(a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : a.data === "NaN" ? Number.NaN : parseFloat(a.data));
-			a.data = value === Number.POSITIVE_INFINITY ? "INF" : value === Number.NEGATIVE_INFINITY ? "-INF" : isNaN(value) ? "NaN" : ("" + value).replace("e+", "e");
+			a.data = value === Number.POSITIVE_INFINITY ? "INF" : value === Number.NEGATIVE_INFINITY ? "-INF" : isNaN(value) ? "NaN" : String(value).replace("e+", "e");
 		} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
 			value = f(parseInt(a.data, 10));
 			if (schemaTypeInfo !== Fleur.Type_double && isNaN(value)) {
 				Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0001"));});
 				return;
-			} else {
-				a.data = value === Number.POSITIVE_INFINITY ? "INF" : value === Number.NEGATIVE_INFINITY ? "-INF" : isNaN(value) ? "NaN" : ("" + value).replace("e+", "e");
 			}
+			a.data = value === Number.POSITIVE_INFINITY ? "INF" : value === Number.NEGATIVE_INFINITY ? "-INF" : isNaN(value) ? "NaN" : String(value).replace("e+", "e");
 		} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
 			value = f(parseFloat(a.data));
 			if (schemaTypeInfo !== Fleur.Type_double && isNaN(value)) {
 				Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0001"));});
 				return;
-			} else {
-				a.data = value === Number.POSITIVE_INFINITY ? "INF" : value === Number.NEGATIVE_INFINITY ? "-INF" : isNaN(value) ? "NaN" : ("" + value).replace("e+", "e");
 			}
+			a.data = value === Number.POSITIVE_INFINITY ? "INF" : value === Number.NEGATIVE_INFINITY ? "-INF" : isNaN(value) ? "NaN" : String(value).replace("e+", "e");
 		} else {
 			Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
 			return;
@@ -7881,10 +8797,6 @@ Fleur.XPathNumberFunction = function(ctx, children, f, schemaTypeInfo, callback)
 Fleur.XPathTestOpFunction = function(ctx, children, f, callback) {
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
 		var a1 = Fleur.Atomize(n);
-		if (a1.schemaTypeInfo === Fleur.Type_error) {
-			Fleur.callback(function() {callback(a1);});
-			return;
-		}
 		if (a1 === Fleur.EmptySequence) {
 			a1 = new Fleur.Text();
 			a1.schemaTypeInfo = Fleur.Type_string;
@@ -7894,6 +8806,11 @@ Fleur.XPathTestOpFunction = function(ctx, children, f, callback) {
 			Fleur.callback(function() {callback(Fleur.EmptySequence);});
 			return;
 		}
+		var op1 = Fleur.toJSValue(a1, true, true, true, true, false, true);
+		if (op1[0] < 0) {
+			Fleur.callback(function() {callback(a1);});
+			return;
+		}
 		if (Fleur.numericTypes.indexOf(a1.schemaTypeInfo) !== -1) {
 			a1.schemaTypeInfo = Fleur.Type_double;
 		} else if (a1.schemaTypeInfo === Fleur.Type_untypedAtomic) {
@@ -7901,10 +8818,6 @@ Fleur.XPathTestOpFunction = function(ctx, children, f, callback) {
 		}
 		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
 			var a2 = Fleur.Atomize(n);
-			if (a2.schemaTypeInfo === Fleur.Type_error) {
-				Fleur.callback(function() {callback(a2);});
-				return;
-			}
 			if (a2 === Fleur.EmptySequence) {
 				a2 = new Fleur.Text();
 				a2.schemaTypeInfo = Fleur.Type_string;
@@ -7914,16 +8827,21 @@ Fleur.XPathTestOpFunction = function(ctx, children, f, callback) {
 				Fleur.callback(function() {callback(Fleur.EmptySequence);});
 				return;
 			}
+			var op2 = Fleur.toJSValue(a2, true, true, true, true, false, true);
+			if (op2[0] < 0) {
+				Fleur.callback(function() {callback(a2);});
+				return;
+			}
 			if (Fleur.numericTypes.indexOf(a2.schemaTypeInfo) !== -1) {
 				a2.schemaTypeInfo = Fleur.Type_double;
 			} else if (a2.schemaTypeInfo === Fleur.Type_untypedAtomic) {
 				a2.schemaTypeInfo = Fleur.Type_string;
 			}
 			if (a1.schemaTypeInfo !== a2.schemaTypeInfo) {
-				Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0006"));});
+				Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
 				return;
 			}
-			a1.data = "" + f(a1, a2);
+			a1.data = String(f(op1, op2));
 			a1.schemaTypeInfo = Fleur.Type_boolean;
 			Fleur.callback(function() {callback(a1);});
 		});
@@ -7983,17 +8901,21 @@ Fleur.XPathGenTestOpFunction = function(ctx, children, f, callback) {
 					i1 = a1;
 					a1 = Fleur.EmptySequence;
 				}
+				var op1 = Fleur.toJSValue(i1, true, true, true, true, false, true);
+				var op2;
 				if (a2.nodeType === Fleur.Node.SEQUENCE_NODE) {
 					for (b = 0, l = a2.childNodes.length; b < l && !res; b++) {
-						res = f(i1, a2.childNodes[b]);
+						op2 = Fleur.toJSValue(a2.childNodes[b], true, true, true, true, false, true);
+						res = f(op1, op2);
 					}
 				} else {
-					res = f(i1, a2);
+					op2 = Fleur.toJSValue(a2, true, true, true, true, false, true);
+					res = f(op1, op2);
 				}
 				if (res) {
 					break;
 				}
-			} while(a1 !== Fleur.EmptySequence)
+			} while(a1 !== Fleur.EmptySequence);
 			a1 = new Fleur.Text();
 			a1.data = String(res);
 			a1.schemaTypeInfo = Fleur.Type_boolean;
@@ -8022,9 +8944,9 @@ Fleur.XPathFromDateTimeFunction = function(ctx, children, t1, r, t2, callback) {
 	});
 };
 Fleur.XPathEvaluator = function() {};
-Fleur.XPathEvaluator._precedence = "././/.:.as.;0.!.;1.~+.~-.;2.cast as.;3.castable as.;4.treat as.;5.instance of.;6.intersect.except.;7.|.union.;8.div.mod.*.idiv.;9.+.-.;10.to.;11.||.;12.eq.ne.lt.le.gt.ge.<.>.<=.>=.is.<<.>>.=.!=.;13.and.;14.or.;17.:=.in.;18.after.before.into.with.value.;19.node.nodes.;20.for.let.some.every.return.satisfies.then.;21.else.;22.,.;50.";
+Fleur.XPathEvaluator._precedence = "././/.:.as.&0.!.!!.&1.~+.~-.&2.cast as.&3.castable as.&4.treat as.&5.instance of.&6.intersect.except.&7.|.union.&8.div.mod.*.idiv.&9.+.-.&10.to.&11.||.&12.eq.ne.lt.le.gt.ge.<.>.<=.>=.is.<<.>>.=.!=.&13.and.&14.or.&17.:=.in.&18.after.before.into.with.value.&19.node.nodes.&20.for.let.some.every.return.satisfies.then.&21.else.&22.,.&50.;.&51.";
 Fleur.XPathEvaluator._rightgrouping = Fleur.XPathEvaluator._precedence.substr(Fleur.XPathEvaluator._precedence.indexOf(".then.") + 6);
-Fleur.XPathEvaluator._rightgrouping = Fleur.XPathEvaluator._rightgrouping.substr(Fleur.XPathEvaluator._rightgrouping.indexOf(";") + 1);
+Fleur.XPathEvaluator._rightgrouping = Fleur.XPathEvaluator._rightgrouping.substr(Fleur.XPathEvaluator._rightgrouping.indexOf("&") + 1);
 Fleur.XPathEvaluator._rightgrouping = parseInt(Fleur.XPathEvaluator._rightgrouping.substr(0, Fleur.XPathEvaluator._rightgrouping.indexOf(".")), 10);
 Fleur.XPathEvaluator._opcodes = "./;stepExpr.|;unionOp.union;unionOp.div;divOp.mod;modOp.*;multiplyOp.idiv;idivOp.+;addOp.-;subtractOp.to;toOp.||;stringConcatenateOp.eq;eqOp.ne;neOp.lt;ltOp.le;leOp.gt;gtOp.ge;geOp.<;lessThanOp.>;greaterThanOp.<=;lessThanOrEqualOp.>=;greaterThanOrEqualOp.is;isOp.<<;nodeBeforeOp.>>;nodeAfterOp.=;equalOp.!=;notEqualOp.and;andOp.or;orOp.,;argExpr.";
 Fleur.XPathEvaluator._skipComment = function(s, offset) {
@@ -8132,23 +9054,30 @@ Fleur.XPathEvaluator._calc = function(args, ops, opprec) {
 	var arg1val = args3.substr(args3.indexOf(".") + 1).substr(0, parseInt(arg1len, 10));
 	var arg;
 	switch (op) {
+		case ";":
+				if (arg1val.substr(0, 58) === "[Fleur.XQueryX.sequenceExpr,[[Fleur.XQueryX.multidimExpr,[") {
+					arg = "[Fleur.XQueryX.sequenceExpr,[[Fleur.XQueryX.multidimExpr,[" + arg1val.substr(58, arg1val.length - 62) + "," + arg2val + "]]]]";
+				} else {
+					arg = "[Fleur.XQueryX.sequenceExpr,[[Fleur.XQueryX.multidimExpr,[" + arg1val + "," + arg2val + "]]]]";
+				}
+			break;
 		case ",":
 			if (ops.substr(0, 13) === "4.50.,5.999.(") {
 				if (arg1val.substr(0, 26) === "[Fleur.XQueryX.arguments,[") {
-					arg = arg1val.substr(0, arg1len - 2) + "," + arg2val + "]]";
+					arg = arg1val.substr(0, arg1val.length - 2) + "," + arg2val + "]]";
 				} else {
 					arg = "[Fleur.XQueryX.arguments,[" + arg1val + "," + arg2val + "]]";
 				}
-			} else if (ops === "4.50.,") {
+			} else if (ops.startsWith("4.50.,")) {
 				if (arg1val.substr(0, 36) === "[Fleur.XQueryX.mapConstructorEntry,[") {
 					arg = arg1val + "," + arg2val;
 				} else if (arg1val.substr(0, 29) === "[Fleur.XQueryX.sequenceExpr,[" && arg1val !== "[Fleur.XQueryX.sequenceExpr,[]]") {
-					arg = arg1val.substr(0, arg1len - 2) + "," + arg2val + "]]";
+					arg = arg1val.substr(0, arg1val.length - 2) + "," + arg2val + "]]";
 				} else {
 					arg = "[Fleur.XQueryX.sequenceExpr,[" + arg1val + "," + arg2val + "]]";
 				}
 			} else if (arg1val.substr(0, 25) === "[Fleur.XQueryX.letClause,") {
-				arg = arg1val.substr(0, arg1len - 2) + "," + arg2val.substr(26);
+				arg = arg1val.substr(0, arg1val.length - 2) + "," + arg2val.substr(26);
 			} else {
 				arg = arg1val + "," + arg2val;
 			}
@@ -8158,6 +9087,9 @@ Fleur.XPathEvaluator._calc = function(args, ops, opprec) {
 			break;
 		case "/":
 			arg = "[Fleur.XQueryX.pathExpr,[" + Fleur.XPathEvaluator._pathExprFormat(arg1val, "") + (arg2val !== "" ? "," + Fleur.XPathEvaluator._pathExprFormat(arg2val, "") : "") + "]]";
+			break;
+		case "!!":
+			arg = "[Fleur.XQueryX.doubleMapExpr,[[Fleur.XQueryX.pathExpr,[" + Fleur.XPathEvaluator._pathExprFormat(arg1val, "") + "]],[Fleur.XQueryX.pathExpr,[" + Fleur.XPathEvaluator._pathExprFormat(arg2val, "") + "]]]]";
 			break;
 		case "!":
 			arg = "[Fleur.XQueryX.simpleMapExpr,[[Fleur.XQueryX.pathExpr,[" + Fleur.XPathEvaluator._pathExprFormat(arg1val, "") + "]],[Fleur.XQueryX.pathExpr,[" + Fleur.XPathEvaluator._pathExprFormat(arg2val, "") + "]]]]";
@@ -8738,8 +9670,11 @@ Fleur.XPathEvaluator._getPredParam = function(c, s, l, arg) {
 			t = String(plen) + "." + "[Fleur.XQueryX.lookup,[[Fleur.XQueryX.expr,[" + t.substr(t.indexOf(".") + 1) + "]]]]";
 		}
 	} else {
-		var func0 = arg.substr(arg.indexOf("[Fleur.XQueryX.nameTest,['") + 25);
-		var func = func0.substr(0, func0.length - 6);
+		var func = "";
+		if (arg.indexOf("[Fleur.XQueryX.nameTest,['") !== -1) {
+			var func0 = arg.substr(arg.indexOf("[Fleur.XQueryX.nameTest,['") + 25);
+			func = func0.substr(0, func0.length - 6);
+		}
 		if (func === "'function'") {
 			t = "function";
 			plen = s.length;
@@ -8761,6 +9696,9 @@ Fleur.XPathEvaluator._getPredParam = function(c, s, l, arg) {
 		throw Error("Unrecognized expression '" + s + "'");
 	} else if (c === "{") {
 		var cargs = t.substr(t.indexOf(".") + 1);
+		if (cargs.substr(0, 25) === "[Fleur.XQueryX.arguments,") {
+			cargs = "[Fleur.XQueryX.sequenceExpr," + cargs.substr(25);
+		}
 		if (arg.substr(0, 40) === "[Fleur.XQueryX.computedEntryConstructor," || arg.substr(0, 42) === "[Fleur.XQueryX.computedElementConstructor," || arg.substr(0, 44) === "[Fleur.XQueryX.computedAttributeConstructor,") {
 			p = plen + "." + arg.substr(0, arg.length - 2) + ",[Fleur.XQueryX.valueExpr,[" + cargs + "]]]]";
 		} else if (arg.substr(0, 37) === "[Fleur.XQueryX.computedPIConstructor,") {
@@ -8971,10 +9909,15 @@ Fleur.XPathEvaluator._getPredParam = function(c, s, l, arg) {
 					p = plen + ".[Fleur.XQueryX.functionCallExpr,[[Fleur.XQueryX.functionName,[" + fname + "]],[Fleur.XQueryX.arguments,[" + fargs2 + "]]]]";
 			}
 		} else if (arg.substr(0, 77) === "[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.filterExpr,[") {
-			var arg1, arg2, arg20;
+			var arg1, arg2, arg20, lookup = false;
 			if (arg.indexOf(",[Fleur.XQueryX.predicates,[") !== -1) {
 				arg1 = arg.substr(0, arg.indexOf(",[Fleur.XQueryX.predicates,[")).substr(77);
 				arg20 = arg.substr(arg.indexOf(",[Fleur.XQueryX.predicates,[") + 28);
+				arg2 = arg20.substr(0, arg20.length - 6);
+			} else if (arg.indexOf(",[Fleur.XQueryX.lookup,[") !== -1) {
+				lookup = true;
+				arg1 = arg.substr(0, arg.indexOf(",[Fleur.XQueryX.lookup,[")).substr(77);
+				arg20 = arg.substr(arg.indexOf(",[Fleur.XQueryX.lookup,[") + 24);
 				arg2 = arg20.substr(0, arg20.length - 6);
 			} else {
 				arg1 = arg.substr(0, arg.length - 8).substr(77);
@@ -8982,7 +9925,7 @@ Fleur.XPathEvaluator._getPredParam = function(c, s, l, arg) {
 			}
 			fargs = t.substr(t.indexOf(".") + 1);
 			fargs2 = fargs.substr(0, 26) === "[Fleur.XQueryX.arguments,[" ? fargs.substr(26, fargs.length - 28) : fargs;
-			p = plen + ".[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.filterExpr,[[Fleur.XQueryX.dynamicFunctionInvocationExpr,[[Fleur.XQueryX.functionItem,[" + arg1 + (arg2 === "" ? "" : ",[Fleur.XQueryX.predicates,[" + arg2 + "]]") + (fargs2 === "" ? "" : ",[Fleur.XQueryX.arguments,[" + fargs2 + "]]") + "]]]]]]]]";
+			p = plen + ".[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.filterExpr,[[Fleur.XQueryX.dynamicFunctionInvocationExpr,[[Fleur.XQueryX.functionItem,[" + arg1 + (arg2 === "" ? "" : (lookup ? ",[Fleur.XQueryX.lookup,[" : ",[Fleur.XQueryX.predicates,[")+ arg2 + "]]") + (fargs2 === "" ? "" : ",[Fleur.XQueryX.arguments,[" + fargs2 + "]]") + "]]]]]]]]";
 		} else if (arg.substr(0, 32) === "[Fleur.XQueryX.namedFunctionRef,") {
 			p = plen + ".[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.filterExpr,[[Fleur.XQueryX.dynamicFunctionInvocationExpr,[[Fleur.XQueryX.functionItem,[" + arg + "]]]]]]]]]]";
 		} else if (arg === "[Fleur.XQueryX.flworExpr,[]]") {
@@ -9105,6 +10048,7 @@ Fleur.XPathEvaluator._xp2js = function(xp, args, ops) {
 		if (t2b === "''") {
 			t2b = "";
 		}
+		t2b = t2b.replace(/[\\]/g, '\\\\').replace(/[\"]/g, '\\\"').replace(/[\/]/g, '\\/').replace(/[\b]/g, '\\b').replace(/[\f]/g, '\\f').replace(/[\n]/g, '\\n').replace(/[\r]/g, '\\r').replace(/[\t]/g, '\\t');
 		r = (sep2 + 2) + ".[Fleur.XQueryX.stringConstantExpr,[[Fleur.XQueryX.value,[" + t2b + "]]]]";
 	} else if (c === '"') {
 		var sep3 = d.indexOf('"');
@@ -9118,6 +10062,7 @@ Fleur.XPathEvaluator._xp2js = function(xp, args, ops) {
 		if (t3b === '""') {
 			t3b = "";
 		}
+		t3b = t3b.replace(/[\\]/g, '\\\\').replace(/[\']/g, "\\\'").replace(/[\/]/g, '\\/').replace(/[\b]/g, '\\b').replace(/[\f]/g, '\\f').replace(/[\n]/g, '\\n').replace(/[\r]/g, '\\r').replace(/[\t]/g, '\\t');
 		r = (sep3 + 2) + ".[Fleur.XQueryX.stringConstantExpr,[[Fleur.XQueryX.value,[" + t3b + "]]]]";
 	} else if (c === "(") {
 		if (d.charAt(Fleur.XPathEvaluator._skipSpaces(d, 0)) === ")") {
@@ -9279,14 +10224,14 @@ Fleur.XPathEvaluator._xp2js = function(xp, args, ops) {
 		op = p.substr(0, 3);
 	} else if ((p.substr(0, 2) === "or" || p.substr(0, 2) === "eq" || p.substr(0, 2) === "ne" || p.substr(0, 2) === "lt" || p.substr(0, 2) === "le" || p.substr(0, 2) === "gt" || p.substr(0, 2) === "ge" || p.substr(0, 2) === "is" || p.substr(0, 2) === "to" || p.substr(0, 2) === "in" || p.substr(0, 2) === "as") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(2)) === -1) {
 		op = p.substr(0, 2);
-	} else if (p.substr(0, 2) === "!=" || p.substr(0, 2) === "<=" || p.substr(0, 2) === ">=" || p.substr(0, 2) === "<<" || p.substr(0, 2) === ">>" || p.substr(0, 2) === "//" || p.substr(0, 2) === "~+" || p.substr(0, 2) === "~-" || p.substr(0, 2) === ":=" || p.substr(0, 2) === "||") {
+	} else if (p.substr(0, 2) === "!=" || p.substr(0, 2) === "<=" || p.substr(0, 2) === ">=" || p.substr(0, 2) === "<<" || p.substr(0, 2) === ">>" || p.substr(0, 2) === "//" || p.substr(0, 2) === "~+" || p.substr(0, 2) === "~-" || p.substr(0, 2) === ":=" || p.substr(0, 2) === "||" || p.substr(0, 2) === "!!") {
 		op = p.substr(0, 2);
-	} else if ("+-*=|,<>/!{:".indexOf(o) !== -1) {
+	} else if ("+-*=|,;<>/!{:".indexOf(o) !== -1) {
 		op = o;
 	}
 	if (op !== "null") {
 		var opprec0 = Fleur.XPathEvaluator._precedence.substr(Fleur.XPathEvaluator._precedence.indexOf("." + (op2 !== "null" ? op2 : op) + ".") + op.length + 2);
-		var opprec00 = opprec0.substr(opprec0.indexOf(";") + 1);
+		var opprec00 = opprec0.substr(opprec0.indexOf("&") + 1);
 		var opprec = opprec00.substr(0, opprec00.indexOf("."));
 		var stacks3 = Fleur.XPathEvaluator._calc(args2, ops, parseInt(opprec, 10));
 		var args3len = stacks3.substr(0, stacks3.indexOf("."));
@@ -9836,6 +10781,7 @@ Fleur.XPathNSResolver = function(node) {
 		"xml": "http://www.w3.org/XML/1998/namespace",
 		"xmlns": "http://www.w3.org/2000/xmlns/",
 		"xs": "http://www.w3.org/2001/XMLSchema",
+		"xf": "http://www.w3.org/2002/xforms",
 		" function": "http://www.w3.org/2005/xpath-functions",
 		"fn": "http://www.w3.org/2005/xpath-functions",
 		"local": "http://www.w3.org/2005/xquery-local-functions",
@@ -9855,7 +10801,9 @@ Fleur.XPathNSResolver = function(node) {
 		"dgram": "http://www.agencexml.com/fleur/dgram",
 		"internal": "http://www.agencexml.com/fleur/internal",
 		"ietf": "https://tools.ietf.org/rfc/index",
-		"zip": "http://expath.org/ns/zip"
+		"excel": "http://schemas.openxmlformats.org/spreadsheetml/2006/main",
+		"zip": "http://expath.org/ns/zip",
+		"matrix": "http://www.mathunion.org/matrix"
 	};
 	this.node = node;
 };
@@ -10422,6 +11370,7 @@ Fleur.XQueryXNames[1][Fleur.XQueryX.defaultNamespaceDecl = Fleur.Xlength++] = [1
 Fleur.XQueryXNames[1][Fleur.XQueryX.divOp = Fleur.Xlength++] = [1, 0, "xqx:divOp"];
 Fleur.XQueryXNames[1][Fleur.XQueryX.documentTest = Fleur.Xlength++] = [1, 0, "xqx:documentTest"];
 Fleur.XQueryXNames[1][Fleur.XQueryX.doubleConstantExpr = Fleur.Xlength++] = [1, 0, "xqx:doubleConstantExpr"];
+Fleur.XQueryXNames[1][Fleur.XQueryX.doubleMapExpr = Fleur.Xlength++] = [1, 0, "xqx:doubleMapExpr"];
 Fleur.XQueryXNames[1][Fleur.XQueryX.dynamicFunctionInvocationExpr = Fleur.Xlength++] = [1, 0, "xqx:dynamicFunctionInvocationExpr"];
 Fleur.XQueryXNames[1][Fleur.XQueryX.elementConstructor = Fleur.Xlength++] = [1, 0, "xqx:elementConstructor"];
 Fleur.XQueryXNames[1][Fleur.XQueryX.elementContent = Fleur.Xlength++] = [1, 0, "xqx:elementContent"];
@@ -10492,6 +11441,7 @@ Fleur.XQueryXNames[1][Fleur.XQueryX.modOp = Fleur.Xlength++] = [1, 0, "xqx:modOp
 Fleur.XQueryXNames[1][Fleur.XQueryX.module = Fleur.Xlength++] = [1, 0, "xqx:module"];
 Fleur.XQueryXNames[1][Fleur.XQueryX.moduleDecl = Fleur.Xlength++] = [1, 0, "xqx:moduleDecl"];
 Fleur.XQueryXNames[1][Fleur.XQueryX.moduleImport = Fleur.Xlength++] = [1, 0, "xqx:moduleImport"];
+Fleur.XQueryXNames[1][Fleur.XQueryX.multidimExpr = Fleur.Xlength++] = [1, 0, "xqx:multidimExpr"];
 Fleur.XQueryXNames[1][Fleur.XQueryX.multiplyOp = Fleur.Xlength++] = [1, 0, "xqx:multiplyOp"];
 Fleur.XQueryXNames[1][Fleur.XQueryX.name = Fleur.Xlength++] = [1, 0, "xqx:name"];
 Fleur.XQueryXNames[1][Fleur.XQueryX.nameTest = Fleur.Xlength++] = [1, 0, "xqx:nameTest"];
@@ -10732,7 +11682,9 @@ Fleur.XQueryEngine[Fleur.XQueryX.attributeConstructor] = function(ctx, children,
 };
 Fleur.XQueryEngine[Fleur.XQueryX.attributeList] = function(ctx, children, callback, elt) {
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
-		if (n.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
+		if (n === Fleur.EmptySequence) {
+			Fleur.callback(function() {callback(elt);});
+		} else if (n.nodeType === Fleur.Node.ATTRIBUTE_NODE) {
 			elt.setAttributeNode(n);
 			if (children.length > 1) {
 				Fleur.XQueryEngine[Fleur.XQueryX.attributeList](ctx, children.slice(1), function(n) {
@@ -10752,10 +11704,12 @@ Fleur.XQueryEngine[Fleur.XQueryX.attributeTest] = function(ctx, children, callba
 Fleur.XQueryEngine[Fleur.XQueryX.attributeValueExpr] = function(ctx, children, callback, attr) {
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
 		var a = Fleur.Atomize(n);
-		if (a.nodeType !== Fleur.Node.TEXT_NODE) {
+		if (a !== Fleur.EmptySequence && a.nodeType !== Fleur.Node.TEXT_NODE) {
 			Fleur.callback(function() {callback(a);});
 		} else {
-			attr.firstChild.data += a.data;
+			if (a !== Fleur.EmptySequence) {
+				attr.firstChild.data += a.data;
+			}
 			if (children.length > 1) {
 				Fleur.XQueryEngine[Fleur.XQueryX.attributeValueExpr](ctx, children.slice(1), function(n) {
 					Fleur.callback(function() {callback(n);});
@@ -10775,6 +11729,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.computedAttributeConstructor] = function(ctx, c
 		attr.name = children[0][1][0];
 		attr.namespaceURI = null;
 		attr.nodeName = children[0][1][0];
+		attr.localName = children[0][1][0];
 		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
 			attr.appendChild(n);
 			Fleur.callback(function() {callback(attr);});
@@ -10785,6 +11740,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.computedAttributeConstructor] = function(ctx, c
 			if (a.nodeType !== Fleur.Node.TEXT_NODE) {
 				Fleur.callback(function() {callback(a);});
 			} else {
+				attr.name = a.data;
 				attr.nodeName = a.data;
 				attr.namespaceURI = null;
 				attr.localName = a.data;
@@ -10807,7 +11763,13 @@ Fleur.XQueryEngine[Fleur.XQueryX.computedCommentConstructor] = function(ctx, chi
 Fleur.XQueryEngine[Fleur.XQueryX.computedDocumentConstructor] = function(ctx, children, callback) {
 	var doc = new Fleur.Document();
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		doc.appendChild(n);
+		if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+			n.childNodes.forEach(function(c) {
+				doc.appendChild(c);
+			});
+		} else {
+			doc.appendChild(n);
+		}
 		Fleur.callback(function() {callback(doc);});
 	});
 };
@@ -10817,10 +11779,14 @@ Fleur.XQueryEngine[Fleur.XQueryX.computedElementConstructor] = function(ctx, chi
 		elt.name = children[0][1][0];
 		elt.namespaceURI = null;
 		elt.nodeName = children[0][1][0];
-		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-			elt.appendChild(n);
+		if (children[1][1].length !== 0) {
+			Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+				elt.appendChild(n);
+				Fleur.callback(function() {callback(elt);});
+			});
+		} else {
 			Fleur.callback(function() {callback(elt);});
-		});
+		}	
 	} else {
 		Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
 			var a = Fleur.Atomize(n);
@@ -10836,10 +11802,14 @@ Fleur.XQueryEngine[Fleur.XQueryX.computedElementConstructor] = function(ctx, chi
 					elt.namespaceURI = null;
 					elt.localName = a.data;
 				}
-				Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-					elt.appendChild(n);
+				if (children[1][1].length !== 0) {
+					Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+						elt.appendChild(n);
+						Fleur.callback(function() {callback(elt);});
+					});
+				} else {
 					Fleur.callback(function() {callback(elt);});
-				});
+				}	
 			}
 		});
 	}
@@ -10963,251 +11933,153 @@ Fleur.XQueryEngine[Fleur.XQueryX.doubleConstantExpr] = function(ctx, children, c
 	a.schemaTypeInfo = Fleur.Type_double;
 	Fleur.callback(function() {callback(a);});
 };
+Fleur.XQueryEngine[Fleur.XQueryX.doubleMapExpr] = function(ctx, children, callback) {
+	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+		var seq, md, subcurr, next, last, pos = 1, result = Fleur.EmptySequence;
+		if (n === Fleur.EmptySequence || n.schemaTypeInfo === Fleur.Type_error) {
+			Fleur.callback(function() {callback(n);});
+			return;
+		}
+		if (n.nodeType === Fleur.Node.SEQUENCE_NODE && n.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+			next = new Fleur.Sequence();
+			for (var i = 0, l = n.childNodes.length; i < l; i++) {
+				next.appendChild(n.childNodes[i]);
+			}
+			next.rowlabels = n.rowlabels;
+			next.collabels = n.collabels;
+			last = next.childNodes.length;
+			subcurr = next.childNodes.shift();
+			seq = new Fleur.Sequence();
+			seq.childNodes = subcurr.childNodes;
+			subcurr = seq;
+			subcurr.collabels = next.collabels;
+			if (next.childNodes.length === 0) {
+				next = Fleur.EmptySequence;
+			}
+		} else {
+			subcurr = n;
+			next = Fleur.EmptySequence;
+			last = 1;
+		}
+		var cb = function(n) {
+			if (n !== Fleur.EmptySequence) {
+				if (result === Fleur.EmptySequence) {
+					result = n;
+				} else {
+					if (result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+						seq = new Fleur.Sequence();
+						md = new Fleur.Multidim();
+						seq.appendChild(md);
+						md.appendChild(result);
+						result = seq;
+					} else if (result.childNodes[0].nodeType !== Fleur.Node.MULTIDIM_NODE) {
+						seq = new Fleur.Sequence();
+						md = new Fleur.Multidim();
+						seq.appendChild(md);
+						result.childNodes.forEach(function(node) {
+							md.appendChild(node);
+						});
+						result = seq;
+					}
+					md = new Fleur.Multidim();
+					result.appendChild(md);
+					if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+						md.appendChild(n);
+					} else {
+						n.childNodes.forEach(function(node) {
+							md.appendChild(node);
+						});
+					}
+				}
+			}
+			if (next === Fleur.EmptySequence) {
+				Fleur.callback(function() {callback(result, Fleur.XQueryX.doubleMapExpr);});
+				return;
+			}
+			if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
+				subcurr = next.childNodes.shift();
+				if (subcurr.nodeType === Fleur.Node.MULTIDIM_NODE) {
+					seq = new Fleur.Sequence();
+					seq.childNodes = subcurr.childNodes;
+					subcurr = seq;
+					subcurr.collabels = next.collabels;
+					if (next.childNodes.length === 0) {
+						next = Fleur.EmptySequence;
+					}
+				} else {
+					subcurr.collabels = next.collabels;
+					if (next.childNodes.length === 1) {
+						next = next.childNodes[0];
+					}
+				}
+			} else {
+				subcurr = next;
+				next = Fleur.EmptySequence;
+			}
+			pos++;
+			Fleur.XQueryEngine[children[1][0]]({
+				_curr: subcurr,
+				_next: next,
+				_last: last,
+				_pos: pos,
+				env: ctx.env
+			}, children[1][1], cb);
+		};
+		Fleur.XQueryEngine[children[1][0]]({
+			_curr: subcurr,
+			_next: next,
+			_last: last,
+			_pos: pos,
+			env: ctx.env
+		}, children[1][1], cb);
+	});
+};
 Fleur.XQueryEngine[Fleur.XQueryX.dynamicFunctionInvocationExpr] = function(ctx, children, callback) {
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
 		if (n && n.schemaTypeInfo === Fleur.Type_error) {
 			Fleur.callback(function() {callback(n);});
 			return;
-		} 
-		if (!n || n.nodeType !== Fleur.Node.FUNCTION_NODE) {
-			Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
-			return;
 		}
-		var args = children.length === 1 ? [] : children[1][1];
-		var mainUpdater = false;
-		var xf = n;
-		if (xf.updating && !ctx.updater) {
-			if (Fleur.XQueryEngine.updating) {
-				Fleur.XQueryEngine.updateQueue.push(function() {
-					Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr](ctx, children, callback);
-				});
+		var args = children[children.length - 1][0] === Fleur.XQueryX.arguments ? children[children.length - 1][1] : [];
+		var preds = [];
+		children.forEach(function(child) {
+			if (child[0] === Fleur.XQueryX.predicates || child[0] === Fleur.XQueryX.predicate || child[0] === Fleur.XQueryX.lookup) {
+				preds.push(child);
+			}
+		});
+		if (preds[0] && preds[0][0] === Fleur.XQueryX.predicates) {
+			preds = preds[0][1];
+		}
+		if (preds.length === 0) {
+			if (!n || n.nodeType !== Fleur.Node.FUNCTION_NODE) {
+				Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
 				return;
 			}
-			Fleur.XQueryEngine.updating = true;
-			mainUpdater = true;
-			ctx.updater = true;
-		}
-		if (xf.jsfunc || xf.xqxfunc) {
-			var argscalc = function(xqxargs, effargs, f) {
-				if (xqxargs.length === 0) {
-					f(effargs);
-				} else {
-					var xqxarg = xqxargs.shift();
-					Fleur.XQueryEngine[xqxarg[0]](ctx, xqxarg[1], function(n) {
-						if ((xf.argtypes && xf.argtypes[effargs.length].type === Fleur.Node) || (n && n.nodeType === Fleur.Node.SEQUENCE_NODE)) {
-							effargs.push(n);
-						} else if (xf.argtypes && xf.argtypes[effargs.length].type === Fleur.Type_handler) {
-							effargs.push(n.data);
-						} else {
-							var a = Fleur.Atomize(n);
-							effargs.push(a);
-						}
-						argscalc(xqxargs, effargs, f);
-					});
-				}
-			};
-			argscalc(args.slice(), [], function(effargs) {
-				var a = new Fleur.Text();
-				a.schemaTypeInfo = xf.restype ? xf.restype.type : null;
-				a.data = "";
-				if (xf.jsfunc) {
-					var jsargs = [];
-					try {
-						effargs.forEach(function(effarg, iarg) {
-							var op;
-							var carg = xf.argtypes ? xf.argtypes[iarg] : null;
-							if (carg.type === Fleur.Node) {
-								jsargs.push(effarg);
-							} else if (effarg === Fleur.EmptySequence) {
-								if (carg && (!carg.occurence || (carg.occurence !== "?" && carg.occurence !== "*"))) {
-									a.nodeType = Fleur.Node.TEXT_NODE;
-									a.schemaTypeInfo = Fleur.Type_error;
-									a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
-									throw new Error("error");
-								}
-								jsargs.push(null);
-							} else if (effarg.nodeType === Fleur.Node.SEQUENCE_NODE) {
-								if (carg && (!carg.occurence || carg.occurence === "?")) {
-									a.nodeType = Fleur.Node.TEXT_NODE;
-									a.schemaTypeInfo = Fleur.Type_error;
-									a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
-									throw new Error("error");
-								}
-								var subarr = [];
-								for (var iseq = 0, lseq = effarg.childNodes.length; iseq < lseq; iseq++) {
-									var effchild = effarg.childNodes[iseq];
-									if ((!carg && Fleur.numericTypes.indexOf(effchild.schemaTypeInfo) !== -1) || (carg && (carg.type === Fleur.numericTypes || Fleur.numericTypes.indexOf(carg.type) !== -1))) {
-										op = Fleur.toJSNumber(effchild);
-										if (op[0] < 0) {
-											a = effchild;
-											throw new Error("error");
-										}
-										subarr.push(op[1]);
-									} else if ((!carg && effchild.schemaTypeInfo === Fleur.Type_string) || (carg && carg.type === Fleur.Type_string)) {
-										op = Fleur.toJSString(effchild);
-										if (op[0] < 0) {
-											a = effchild;
-											throw new Error("error");
-										}
-										subarr.push(op[1]);
-									} else if ((!carg && effchild.schemaTypeInfo === Fleur.Type_boolean) || (carg && carg.type === Fleur.Type_boolean)) {
-										op = Fleur.toJSBoolean(effchild);
-										if (op[0] < 0) {
-											a = effchild;
-											throw new Error("error");
-										}
-										subarr.push(op[1]);
-									} else if (carg.type === Fleur.Type_dateTime) {
-									} else {
-										subarr.push(effchild);
-									}
-								}
-								jsargs.push(subarr);
-							} else if ((!carg && Fleur.numericTypes.indexOf(effarg.schemaTypeInfo) !== -1) || (carg && (carg.type === Fleur.numericTypes || Fleur.numericTypes.indexOf(carg.type) !== -1 || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION) || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)))) {
-								op = Fleur.toJSNumber(effarg);
-								if (op[0] < 0) {
-									a = effarg;
-									throw new Error("error");
-								}
-								jsargs.push(op[1]);
-							} else if ((!carg && effarg.schemaTypeInfo === Fleur.Type_string) || (carg && (carg.type === Fleur.Type_string || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION)))) {
-								op = Fleur.toJSString(effarg);
-								if (op[0] < 0) {
-									a = effarg;
-									throw new Error("error");
-								}
-								jsargs.push(op[1]);
-							} else if ((!carg && effarg.schemaTypeInfo === Fleur.Type_boolean) || (carg && carg.type === Fleur.Type_boolean)) {
-								op = Fleur.toJSBoolean(effarg);
-								if (op[0] < 0) {
-									a = effarg;
-									throw new Error("error");
-								}
-								jsargs.push(op[1]);
-							} else if ((!carg && effarg.schemaTypeInfo === Fleur.Type_dateTime) || (carg.type === Fleur.Type_dateTime)) {
-								op = Fleur.toJSDate(effarg);
-								if (op[0] < 0) {
-									a = effarg;
-									throw new Error("error");
-								}
-								jsargs.push(op[1]);
-							} else {
-								jsargs.push(effarg);
-							}
-						});
-					} catch (e) {
-						Fleur.callback(function() {callback(a);});
-						return;
-					}
-					if (xf.needctx) {
-						jsargs.push(ctx);
-					}
-					var convback = function(vret) {
-						if (mainUpdater) {
-							Fleur.XQueryEngine.updating = false;
-							ctx.updater = false;
-							if (Fleur.XQueryEngine.updateQueue.length !== 0) {
-								setImmediate(Fleur.XQueryEngine.updateQueue.pop());
-							}
-						}
-						var convret = function(v) {
-							if (v === undefined || v === null) {
-								a = Fleur.EmptySequence;
-							} else if (v === Number.POSITIVE_INFINITY) {
-								a.data = "INF";
-								if (!a.schemaTypeInfo) {
-									a.schemaTypeInfo = Fleur.Type_double;
-								}
-							} else if (v === Number.NEGATIVE_INFINITY) {
-								a.data = "-INF";
-								if (!a.schemaTypeInfo) {
-									a.schemaTypeInfo = Fleur.Type_double;
-								}
-							} else if (typeof v === "number" || typeof v === "boolean") {
-								a.data = String(v);
-								if (!a.schemaTypeInfo) {
-									a.schemaTypeInfo = typeof v === "number" ? Fleur.Type_double : Fleur.Type_boolean;
-								}
-							} else if (typeof v === "string") {
-								a.data = v;
-								if (!a.schemaTypeInfo) {
-									a.schemaTypeInfo = Fleur.Type_string;
-								}
-							} else if (typeof v.getMonth === "function") {
-								var o = vret.getTimezoneOffset();
-								if (!a.schemaTypeInfo) {
-									a.schemaTypeInfo = Fleur.Type_datetime;
-								}
-								if (a.schemaTypeInfo === Fleur.Type_date) {
-									a.data = ("000" + v.getFullYear()).slice(-4) + "-" + ("0" + (v.getMonth() + 1)).slice(-2) + "-" + ("0" + v.getDate()).slice(-2) + (o < 0 ? "+" : "-") + ("0" + Math.floor(Math.abs(o)/60)).slice(-2) + ":" + ("0" + Math.floor(Math.abs(o) % 60)).slice(-2);
-								} else if (a.schemaTypeInfo === Fleur.Type_time) {
-									a.data = ("0" + v.getHours()).slice(-2) + ":" + ("0" + v.getMinutes()).slice(-2) + ":" + ("0" + v.getSeconds()).slice(-2) + "." + ("00" + v.getMilliseconds()).slice(-3) + (o < 0 ? "+" : "-") + ("0" + Math.floor(Math.abs(o)/60)).slice(-2) + ":" + ("0" + Math.floor(Math.abs(o) % 60)).slice(-2);
-								} else {
-									a.data = ("000" + v.getFullYear()).slice(-4) + "-" + ("0" + (v.getMonth() + 1)).slice(-2) + "-" + ("0" + v.getDate()).slice(-2) + "T" + ("0" + v.getHours()).slice(-2) + ":" + ("0" + v.getMinutes()).slice(-2) + ":" + ("0" + v.getSeconds()).slice(-2) + "." + ("00" + v.getMilliseconds()).slice(-3) + (o < 0 ? "+" : "-") + ("0" + Math.floor(Math.abs(o)/60)).slice(-2) + ":" + ("0" + Math.floor(Math.abs(o) % 60)).slice(-2);
-								}
-							} else if (v instanceof Error) {
-								a.nodeType = Fleur.Node.TEXT_NODE;
-								a.schemaTypeInfo = Fleur.Type_error;
-								a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY");
-							} else if (v instanceof Fleur.Node || (Node && v instanceof Node)) {
-								a = v;
-							} else {
-								a.data = v;
-								if (!a.schemaTypeInfo) {
-									a.schemaTypeInfo = Fleur.Type_handler;
-								}
-							}
-						};
-						if (vret instanceof Array) {
-							var seq = new Fleur.Sequence();
-							vret.forEach(function(v) {
-								a = new Fleur.Text();
-								a.schemaTypeInfo = xf.restype ? xf.restype.type : null;
-								a.data = "";
-								convret(v);
-								seq.appendChild(a);
-							});
-							Fleur.callback(function() {callback(seq);});
-						} else {
-							convret(vret);
-							Fleur.callback(function() {callback(a);});
-						}
-					};
-					if (xf.needcallback) {
-						jsargs.push(convback);
-						xf.jsfunc.apply(null, jsargs);
-						return;
-					}
-					convback(xf.jsfunc.apply(null, jsargs));
-				} else {
-					var currvarres = ctx.env.varresolver;
-					ctx.env.varresolver = new Fleur.varMgr([], xf.closurevarresolver || ctx.env.globalvarresolver);
-					effargs.forEach(function(effarg, iarg) {
-						ctx.env.varresolver.set(ctx, "", xf.argtypes[iarg].name, effarg);
-					});
-					Fleur.XQueryEngine[xf.xqxfunc[0]](ctx, xf.xqxfunc[1], function(n) {
-						if (mainUpdater) {
-							Fleur.XQueryEngine.updating = false;
-							ctx.updater = false;
-							if (Fleur.XQueryEngine.updateQueue.length !== 0) {
-								setImmediate(Fleur.XQueryEngine.updateQueue.pop());
-							}
-						}
-						ctx.env.varresolver = currvarres;
-						Fleur.callback(function() {callback(n);});
-					});
-				}
-			});
+			Fleur.functionCall(ctx, children, n, args, callback);
 		} else {
-			xf(ctx, args, function(n) {
-				if (mainUpdater) {
-					Fleur.XQueryEngine.updating = false;
-					ctx.updater = false;
-					if (Fleur.XQueryEngine.updateQueue.length !== 0) {
-						setImmediate(Fleur.XQueryEngine.updateQueue.pop());
-					}
+			var next;
+			if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+				next = new Fleur.Sequence();
+				next.childNodes = new Fleur.NodeList();
+				n.childNodes.forEach(function(node) {
+					next.appendChild(node);
+				});
+			} else {
+				next = n;
+			}
+			Fleur.XQueryEngine[Fleur.XQueryX.predicates]({
+				_next: next,
+				_item: ctx._item,
+				env: ctx.env
+			}, preds, function(n) {
+				if (n && n.nodeType === Fleur.Node.ENTRY_NODE) {
+					n = n.firstChild;
 				}
-				Fleur.callback(function() {callback(n);});
+				if (!n || n.nodeType !== Fleur.Node.FUNCTION_NODE) {
+					Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
+					return;
+				}
+				Fleur.functionCall(ctx, children, n, args, callback);
 			});
 		}
 	});
@@ -11363,37 +12235,8 @@ Fleur.XQueryEngine[Fleur.XQueryX.forClauseItem] = function(ctx, children, callba
 };
 Fleur.XQueryEngine.updating = false;
 Fleur.XQueryEngine.updateQueue = [];
-Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, callback) {
-	var fname = children[0][1][0];
-	var uri = ctx.env.nsresolver.lookupNamespaceURI(" function");
-	var args = children[1][1];
+Fleur.functionCall = function(ctx, children, xf, args, callback) {
 	var mainUpdater = false;
-	if (children[0][1][1]) {
-		if (children[0][1][1][0] === Fleur.XQueryX.URI) {
-			uri = children[0][1][1][1][0];
-		} else if (children[0][1][1][0] === Fleur.XQueryX.prefix && ctx.env.nsresolver) {
-			uri = ctx.env.nsresolver.lookupNamespaceURI(children[0][1][1][1][0]);
-		}
-	}
-	var xf;
-	if (uri === "http://www.w3.org/standards/webdesign/script") {
-		xf = (Fleur.XPathFunctions[uri] && Fleur.XPathFunctions[uri][fname + "#" + args.length]) ? Fleur.XPathFunctions[uri][fname + "#" + args.length] : {};
-		xf.jsfunc = eval(fname);
-	} else {
-		xf = Fleur.XPathFunctions[uri][fname + "#" + args.length] || Fleur.XPathFunctions[uri][fname];
-	}
-	if (!uri || !xf) {
-		if (uri === "http://www.w3.org/2005/xpath-functions" && fname === "concat" && args.length > 1) {
-			var cparam = [];
-			for (var i = 0, l = args.length; i < l; i++) {
-				cparam[i] = {type: Fleur.Node};
-			}
-			xf = Fleur.XPathFunctions[uri][fname + "#" + args.length] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:concat", Fleur.XPathFunctions_fn["concat#"].jsfunc, null, cparam, false, false, {type: Fleur.Type_string});
-		} else {
-			Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017", "The expanded QName and number of arguments in a static function call do not match the name and arity of a function signature in the static context for Q{" + uri + "}" + fname + "#" + args.length));});
-			return;
-		}
-	}
 	if (xf.updating && !ctx.updater) {
 		if (Fleur.XQueryEngine.updating) {
 			Fleur.XQueryEngine.updateQueue.push(function() {
@@ -11566,10 +12409,10 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 								a.schemaTypeInfo = t || Fleur.Type_double;
 							}
 						} else if (typeof v === "number" || typeof v === "boolean") {
-							a.data = String(v).replace("e+", "e");
 							if (!a.schemaTypeInfo) {
 								a.schemaTypeInfo = t || (typeof v === "number" ? Fleur.Type_double : Fleur.Type_boolean);
 							}
+							a.data = a.schemaTypeInfo.canonicalize(String(v));
 						} else if (typeof v === "string") {
 							a.data = v;
 							if (!a.schemaTypeInfo) {
@@ -11589,7 +12432,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 							}
 						} else if (v instanceof Error) {
 							a = Fleur.error(ctx, v.name, v.message);
-						} else if (v instanceof Fleur.Node || (Node && v instanceof Node)) {
+						} else if (v instanceof Fleur.Node || (Fleur.inBrowser && v instanceof Node)) {
 							a = v;
 						} else {
 							a.data = v;
@@ -11608,6 +12451,24 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 							seq.appendChild(a);
 						});
 						Fleur.callback(function() {callback(seq);});
+					} else if (typeof vret === 'object' && vret && !(vret instanceof Array || vret instanceof Fleur.Node || vret instanceof Error || typeof vret.getMonth === "function")) {
+						var map = new Fleur.Map();
+						var e;
+						for (var p in vret) {
+							if (vret.hasOwnProperty(p)) {
+								e = new Fleur.Entry();
+								e.nodeName = p;
+								e.namespaceURI = null;
+								e.localName = p;
+								a = new Fleur.Text();
+								a.schemaTypeInfo = null;
+								a.data = "";
+								convret(vret[p]);
+								e.appendChild(a);
+								map.setEntryNode(e);
+							}
+						}
+						Fleur.callback(function() {callback(map);});
 					} else {
 						convret(vret);
 						Fleur.callback(function() {callback(a);});
@@ -11650,6 +12511,38 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 			Fleur.callback(function() {callback(n);});
 		});
 	}
+};
+Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, callback) {
+	var fname = children[0][1][0];
+	var uri = ctx.env.nsresolver.lookupNamespaceURI(" function");
+	var args = children[1][1];
+	if (children[0][1][1]) {
+		if (children[0][1][1][0] === Fleur.XQueryX.URI) {
+			uri = children[0][1][1][1][0];
+		} else if (children[0][1][1][0] === Fleur.XQueryX.prefix && ctx.env.nsresolver) {
+			uri = ctx.env.nsresolver.lookupNamespaceURI(children[0][1][1][1][0]);
+		}
+	}
+	var xf;
+	if (uri === "http://www.w3.org/standards/webdesign/script") {
+		xf = (Fleur.XPathFunctions[uri] && Fleur.XPathFunctions[uri][fname + "#" + args.length]) ? Fleur.XPathFunctions[uri][fname + "#" + args.length] : {};
+		xf.jsfunc = eval(fname);
+	} else {
+		xf = Fleur.XPathFunctions[uri][fname + "#" + args.length] || Fleur.XPathFunctions[uri][fname];
+	}
+	if (!uri || !xf) {
+		if (uri === "http://www.w3.org/2005/xpath-functions" && fname === "concat" && args.length > 1) {
+			var cparam = [];
+			for (var i = 0, l = args.length; i < l; i++) {
+				cparam[i] = {type: Fleur.Node};
+			}
+			xf = Fleur.XPathFunctions[uri][fname + "#" + args.length] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:concat", Fleur.XPathFunctions_fn["concat#"].jsfunc, null, cparam, false, false, {type: Fleur.Type_string});
+		} else {
+			Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017", "The expanded QName and number of arguments in a static function call do not match the name and arity of a function signature in the static context for Q{" + uri + "}" + fname + "#" + args.length));});
+			return;
+		}
+	}
+	Fleur.functionCall(ctx, children, xf, args, callback);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.functionDecl] = function(ctx, children, callback) {
 	var updating = children[0][0] === Fleur.XQueryX.updatingFunction;
@@ -11958,6 +12851,58 @@ Fleur.XQueryEngine[Fleur.XQueryX.letClauseItem] = function(ctx, children, callba
 	Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], cb);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.lookup] = function(ctx, children, callback) {
+	var ncname, ilabel, seq;
+	if (ctx._label) {
+		if (children[0][0] === Fleur.XQueryX.NCName) {
+			ncname = children[0][1][0];
+			if (ncname !== ctx._label) {
+				Fleur.callback(function() {callback(Fleur.EmptySequence, Fleur.XQueryX.lookup);});
+			} else {
+				ctx._curr.collabels = null;
+				Fleur.callback(function() {callback(ctx._curr, Fleur.XQueryX.lookup);});
+			}
+		} else {
+			Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+				var a = Fleur.Atomize(n);
+				if (a.nodeType !== Fleur.Node.TEXT_NODE) {
+					Fleur.callback(function() {callback(a, Fleur.XQueryX.lookup);});
+				} else {
+					if (a.data !== ctx._label) {
+						Fleur.callback(function() {callback(Fleur.EmptySequence, Fleur.XQueryX.lookup);});
+					} else {
+						ctx._curr.collabels = null;
+						Fleur.callback(function() {callback(ctx._curr, Fleur.XQueryX.lookup);});
+					}
+				}
+			});
+		}
+		return;
+	} else if (ctx._curr.collabels) {
+		if (children[0][0] === Fleur.XQueryX.NCName) {
+			ncname = children[0][1][0];
+			ilabel = ctx._curr.collabels.indexOf(ncname);
+			if (ilabel === -1) {
+				Fleur.callback(function() {callback(Fleur.EmptySequence, Fleur.XQueryX.lookup);});
+			} else if (ctx._curr.childNodes[ilabel].nodeType === Fleur.Node.MULTIDIM_NODE) {
+				seq = new Fleur.Sequence();
+				seq.appendChild(ctx._curr.childNodes[ilabel]);
+				Fleur.callback(function() {callback(seq, Fleur.XQueryX.lookup);});
+			} else {
+				Fleur.callback(function() {callback(ctx._curr.childNodes[ilabel], Fleur.XQueryX.lookup);});
+			}
+		} else {
+			Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+				var a = Fleur.Atomize(n);
+				if (a.nodeType !== Fleur.Node.TEXT_NODE) {
+					Fleur.callback(function() {callback(a, Fleur.XQueryX.lookup);});
+				} else {
+					ilabel = ctx._curr.collabels.indexOf(a.data);
+					Fleur.callback(function() {callback(ilabel === -1 ? Fleur.EmptySequence : ctx._curr.childNodes[ilabel], Fleur.XQueryX.lookup);});
+				}
+			});
+		}
+		return;
+	}
 	var parents = [];
 	if (ctx._curr.nodeType === Fleur.Node.MAP_NODE || ctx._curr.nodeType === Fleur.Node.ARRAY_NODE) {
 		parents.push(ctx._curr);
@@ -11968,10 +12913,10 @@ Fleur.XQueryEngine[Fleur.XQueryX.lookup] = function(ctx, children, callback) {
 		Fleur.callback(function() {callback(Fleur.EmptySequence, Fleur.XQueryX.lookup);});
 		return;
 	}
-	var seq = new Fleur.Sequence();
+	seq = new Fleur.Sequence();
 	seq.childNodes = new Fleur.NodeList();
 	if (children[0][0] === Fleur.XQueryX.NCName) {
-		var ncname = children[0][1][0];
+		ncname = children[0][1][0];
 		parents.forEach(function(p) {
 			var e;
 			if (p.nodeType === Fleur.Node.MAP_NODE) {
@@ -12135,6 +13080,38 @@ Fleur.XQueryEngine[Fleur.XQueryX.moduleImport] = function(ctx, children, callbac
 		}
 	});
 };
+Fleur.XQueryEngine[Fleur.XQueryX.multidimExpr] = function(ctx, children, callback) {
+	var seq = new Fleur.Sequence();
+	var i = 0;
+	var cb = function(n) {
+		if (n.schemaTypeInfo === Fleur.Type_error) {
+			Fleur.callback(function() {callback(n);});
+			return;
+		}
+		if (n !== Fleur.EmptySequence) {
+			var md = new Fleur.Multidim();
+			if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+				md.appendChild(n);
+			} else {
+				n.childNodes.forEach(function(n2) {
+					md.appendChild(n2);
+				});
+			}
+			seq.appendChild(md);
+		}
+		i++;
+		if (i === children.length) {
+			Fleur.callback(function() {callback(seq);});
+			return;
+		}
+		Fleur.XQueryEngine[children[i][0]](ctx, children[i][1], cb);
+	};
+	if (children.length !== 0) {
+		Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
+	} else {
+		Fleur.callback(function() {callback(seq);});
+	}
+};
 Fleur.XQueryEngine[Fleur.XQueryX.namedFunctionRef] = function(ctx, children, callback) {
 	var fname = children[0][1][0];
 	var uri = ctx.env.nsresolver.lookupNamespaceURI(" function");
@@ -12256,9 +13233,19 @@ Fleur.XQueryEngine[Fleur.XQueryX.pathExpr] = function(ctx, children, callback) {
 			}
 			var subcurr;
 			if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
-				subcurr = n.childNodes.shift();
-				if (n.childNodes.length === 1) {
-					n = n.childNodes[0];
+				subcurr = n.childNodes[0];
+				if (n.childNodes.length === 2) {
+					n = n.childNodes[1];
+				} else {
+					var seq2 = new Fleur.Sequence();
+					seq2.childNodes = new Fleur.NodeList();
+					seq2.children = new Fleur.NodeList();
+					seq2.textContent = "";
+					n.childNodes.forEach(function(n2) {
+						seq2.appendChild(n2);
+					});
+					seq2.childNodes.shift();
+					n = seq2;
 				}
 			} else {
 				subcurr = n;
@@ -12267,6 +13254,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.pathExpr] = function(ctx, children, callback) {
 			next = n;
 			Fleur.XQueryEngine[Fleur.XQueryX.pathExpr]({
 				_curr: subcurr,
+				_item: ctx._item,
 				env: ctx.env
 			}, children.slice(1), cb);
 		};
@@ -12277,11 +13265,13 @@ Fleur.XQueryEngine[Fleur.XQueryX.pathExpr] = function(ctx, children, callback) {
 				n.childNodes.forEach(function(node) {
 					next.appendChild(node);
 				});
+				next.collabels = n.collabels;
 			} else {
 				next = n;
 			}
 			Fleur.XQueryEngine[Fleur.XQueryX.predicates]({
 				_next: next,
+				_item: ctx._item,
 				env: ctx.env
 			}, preds, function(n) {
 				Fleur.callback(function() {preds = []; cb2(n);});
@@ -12398,13 +13388,49 @@ Fleur.XQueryEngine[Fleur.XQueryX.predicates] = function(ctx, children, callback)
 	var next = ctx._next;
 	var last;
 	var pos = 1;
+	var i, l, label;
 	var result = Fleur.EmptySequence;
 	var subcurr;
+	if (next.collabels) {
+		label = next.collabels[0];
+	}
 	if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
-		last = next.childNodes.length;
-		subcurr = next.childNodes.shift();
-		if (next.childNodes.length === 1) {
-			next = next.childNodes[0];
+		var seq = new Fleur.Sequence();
+		next.childNodes.forEach(function(child) {
+			if (child.nodeType === Fleur.Node.MULTIDIM_NODE) {
+				var md = new Fleur.Multidim();
+				child.childNodes.forEach(function(subchild) {md.appendChild(subchild);});
+				seq.appendChild(md);
+			} else {
+				seq.appendChild(child);
+			}
+		});
+		seq.collabels = next.collabels;
+		next = seq;
+		if (next.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+			last = next.childNodes[0].childNodes.length;
+			if (last !== 1) {
+				subcurr = new Fleur.Sequence();
+				for (i = 0, l = next.childNodes.length; i < l; i++) {
+					var subitem = next.childNodes[i].childNodes.shift();
+					var multi = new Fleur.Multidim();
+					multi.appendChild(subitem);
+					subcurr.appendChild(multi);
+				}
+				subcurr.rowlabels = next.rowlabels;
+			} else {
+				subcurr = next;
+				next = Fleur.EmptySequence;
+			}
+		} else {
+			last = next.childNodes.length;
+			subcurr = next.childNodes.shift();
+			if (next.childNodes.length === 1) {
+				if (label) {
+					next.childNodes[0].collabels = next.collabels;
+				}
+				next = next.childNodes[0];
+			}
 		}
 	} else {
 		subcurr = next;
@@ -12429,7 +13455,13 @@ Fleur.XQueryEngine[Fleur.XQueryX.predicates] = function(ctx, children, callback)
 						seq.appendChild(result);
 						result = seq;
 					}
-					result.appendChild(n);
+					if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+						result.appendChild(n);
+					} else {
+						n.childNodes.forEach(function(n2) {
+							result.appendChild(n2);
+						});
+					}
 				}
 			}
 		} else {
@@ -12461,11 +13493,33 @@ Fleur.XQueryEngine[Fleur.XQueryX.predicates] = function(ctx, children, callback)
 			next = result;
 			result = Fleur.EmptySequence;
 			pos = 1;
+			if (next.collabels) {
+				label = next.collabels[0];
+			}
 			if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
-				last = next.childNodes.length;
-				subcurr = next.childNodes.shift();
-				if (next.childNodes.length === 1) {
-					next = next.childNodes[0];
+				if (next.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+					if (next.childNodes[0].childNodes.length !== 1) {
+						subcurr = new Fleur.Sequence();
+						for (i = 0, l = next.childNodes.length; i < l; i++) {
+							var subitem = next.childNodes[i].childNodes.shift();
+							var multi = new Fleur.Multidim();
+							multi.appendChild(subitem);
+							subcurr.appendChild(multi);
+						}
+						subcurr.rowlabels = next.rowlabels;
+					} else {
+						subcurr = next;
+						next = Fleur.EmptySequence;
+					}
+				} else {
+					last = next.childNodes.length;
+					subcurr = next.childNodes.shift();
+					if (next.childNodes.length === 1) {
+						if (label) {
+							next.childNodes[0].collabels = next.collabels;
+						}
+						next = next.childNodes[0];
+					}
 				}
 			} else {
 				subcurr = next;
@@ -12477,14 +13531,38 @@ Fleur.XQueryEngine[Fleur.XQueryX.predicates] = function(ctx, children, callback)
 						_next: next,
 						_last: last,
 						_pos: pos,
+						_label: label,
 						env: ctx.env
 					}, children[0][1], cb);
 			return;
 		}
+		if (next.collabels) {
+			label = next.collabels[pos];
+		}
 		if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
-			subcurr = next.childNodes.shift();
-			if (next.childNodes.length === 1) {
-				next = next.childNodes[0];
+			if (next.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+				last = next.childNodes[0].childNodes.length;
+				if (last !== 1) {
+					subcurr = new Fleur.Sequence();
+					for (i = 0, l = next.childNodes.length; i < l; i++) {
+						var subitem = next.childNodes[i].childNodes.shift();
+						var multi = new Fleur.Multidim();
+						multi.appendChild(subitem);
+						subcurr.appendChild(multi);
+					}
+					subcurr.rowlabels = next.rowlabels;
+				} else {
+					subcurr = next;
+					next = Fleur.EmptySequence;
+				}
+			} else {
+				subcurr = next.childNodes.shift();
+				if (next.childNodes.length === 1) {
+					if (label) {
+						next.childNodes[0].collabels = next.collabels;
+					}
+					next = next.childNodes[0];
+				}
 			}
 		} else {
 			subcurr = next;
@@ -12493,17 +13571,21 @@ Fleur.XQueryEngine[Fleur.XQueryX.predicates] = function(ctx, children, callback)
 		pos++;
 		Fleur.XQueryEngine[children[0][0]]({
 					_curr: subcurr,
+					_item: ctx._item,
 					_next: next,
 					_last: last,
 					_pos: pos,
+					_label: label,
 					env: ctx.env
 				}, children[0][1], cb);
 	};
 	Fleur.XQueryEngine[children[0][0]]({
 				_curr: subcurr,
+				_item: ctx._item,
 				_next: next,
 				_last: last,
 				_pos: pos,
+				_label: label,
 				env: ctx.env
 			}, children[0][1], cb);
 };
@@ -12654,6 +13736,8 @@ Fleur.XQueryEngine[Fleur.XQueryX.returnClause] = function(ctx, children, callbac
 						result.appendChild(node);
 					});
 				}
+				result.rowlabels = n.rowlabels;
+				result.collabels = n.collabels;
 			}
 		}
 		i++;
@@ -12680,11 +13764,12 @@ Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr] = function(ctx, children, callbac
 		Fleur.callback(function() {callback(Fleur.EmptySequence, depth);});
 		return;
 	}
+	var i, l;
 	var result = Fleur.EmptySequence;
 	var cb = function(n, eob) {
 		var seq;
 		if (eob === depth) {
-			if (result === Fleur.EmptySequence && n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+			if (result === Fleur.EmptySequence && n.nodeType !== Fleur.Node.SEQUENCE_NODE && n.nodeType !== Fleur.Node.MULTIDIM_NODE) {
 				result = n;
 			} else if (n !== Fleur.EmptySequence) {
 				if (result === Fleur.EmptySequence || result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
@@ -12699,6 +13784,10 @@ Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr] = function(ctx, children, callbac
 				}
 				if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
 					result.appendChild(n);
+				} else if (result.childNodes.length !== 0 && result.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+					for (i = 0, l = result.childNodes.length; i < l; i++) {
+						n.childNodes[i].childNodes.forEach(function(child) {result.childNodes[i].appendChild(child);});
+					}
 				} else {
 					n.childNodes.forEach(function(child) {result.appendChild(child);});
 				}
@@ -12710,7 +13799,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr] = function(ctx, children, callbac
 			Fleur.callback(function() {callback(n, depth);});
 			return;
 		}
-		if (result === Fleur.EmptySequence && n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+		if (result === Fleur.EmptySequence && n.nodeType !== Fleur.Node.SEQUENCE_NODE && n.nodeType !== Fleur.Node.MULTIDIM_NODE) {
 			result = n;
 		} else if (n !== Fleur.EmptySequence) {
 			if (result === Fleur.EmptySequence || result.nodeType !== Fleur.Node.SEQUENCE_NODE) {
@@ -12725,6 +13814,10 @@ Fleur.XQueryEngine[Fleur.XQueryX.sequenceExpr] = function(ctx, children, callbac
 			}
 			if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
 				result.appendChild(n);
+			} else if (result.childNodes.length !== 0 && result.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+				for (i = 0, l = result.childNodes.length; i < l; i++) {
+					n.childNodes[i].childNodes.forEach(function(child) {result.childNodes[i].appendChild(child);});
+				}
 			} else {
 				n.childNodes.forEach(function(child) {result.appendChild(child);});
 			}
@@ -12747,10 +13840,30 @@ Fleur.XQueryEngine[Fleur.XQueryX.simpleMapExpr] = function(ctx, children, callba
 			for (var i = 0, l = n.childNodes.length; i < l; i++) {
 				next.appendChild(n.childNodes[i]);
 			}
-			last = next.childNodes.length;
-			subcurr = next.childNodes.shift();
-			if (next.childNodes.length === 1) {
-				next = next.childNodes[0];
+			next.rowlabels = n.rowlabels;
+			next.collabels = n.collabels;
+			if (next.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+				last = next.childNodes[0].childNodes.length;
+				if (last !== 1) {
+					subcurr = new Fleur.Sequence();
+					for (i = 0, l = next.childNodes.length; i < l; i++) {
+						var subitem = next.childNodes[i].childNodes.shift();
+						var multi = new Fleur.Multidim();
+						multi.appendChild(subitem);
+						subcurr.appendChild(multi);
+					}
+					subcurr.rowlabels = next.rowlabels;
+				} else {
+					subcurr = next;
+					next = Fleur.EmptySequence;
+				}
+			} else {
+				last = next.childNodes.length;
+				subcurr = next.childNodes.shift();
+				if (next.childNodes.length === 1) {
+					next = next.childNodes[0];
+				}
+				subcurr.rowlabels = next.rowlabels;
 			}
 		} else {
 			subcurr = next;
@@ -12784,9 +13897,26 @@ Fleur.XQueryEngine[Fleur.XQueryX.simpleMapExpr] = function(ctx, children, callba
 				return;
 			}
 			if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
-				subcurr = next.childNodes.shift();
-				if (next.childNodes.length === 1) {
-					next = next.childNodes[0];
+				if (next.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
+					if (next.childNodes[0].childNodes.length !== 1) {
+						subcurr = new Fleur.Sequence();
+						for (i = 0, l = next.childNodes.length; i < l; i++) {
+							var subitem = next.childNodes[i].childNodes.shift();
+							var multi = new Fleur.Multidim();
+							multi.appendChild(subitem);
+							subcurr.appendChild(multi);
+						}
+						subcurr.rowlabels = next.rowlabels;
+					} else {
+						subcurr = next;
+						next = Fleur.EmptySequence;
+					}
+				} else {
+					subcurr = next.childNodes.shift();
+					if (next.childNodes.length === 1) {
+						next = next.childNodes[0];
+					}
+					subcurr.rowlabels = next.rowlabels;
 				}
 			} else {
 				subcurr = next;
@@ -12795,6 +13925,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.simpleMapExpr] = function(ctx, children, callba
 			pos++;
 			Fleur.XQueryEngine[children[1][0]]({
 				_curr: subcurr,
+				_item: subcurr,
 				_next: next,
 				_last: last,
 				_pos: pos,
@@ -12803,6 +13934,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.simpleMapExpr] = function(ctx, children, callba
 		};
 		Fleur.XQueryEngine[children[1][0]]({
 			_curr: subcurr,
+			_item: subcurr,
 			_next: next,
 			_last: last,
 			_pos: pos,
@@ -12863,6 +13995,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.stepExpr] = function(ctx, children, callback) {
 		next = n;
 		Fleur.XQueryEngine[Fleur.XQueryX.stepExpr]({
 				_curr: subcurr,
+				_item: ctx._item,
 				env: ctx.env
 			}, children.slice(1), cb);
 	};
@@ -13263,27 +14396,120 @@ Fleur.XQueryEngine[Fleur.XQueryX.nondeterministic] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.onlyEnd] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.prefix] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX["private"]] = function(ctx, children) {};
+Fleur.addOpTypes = [
+	[		 0,		 1,		 2,		 3,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		 1,		 1,		 2,		 3,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		 2,		 2,		 2,		 3,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		 3,		 3,		 3,		 3,		-1,		-1,		-1,		-1,		-1,		-1, 	-1],
+	[		-1,		-1,		-1,		-1,		 4,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		 6,		 6],
+	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		 7,		 7],
+	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		 8],
+	[		-1,		-1,		-1,		-1,		-1,		-1,		 6,		 7,		-1,		 9,		-1],
+	[		-1,		-1,		-1,		-1,		-1,		-1,		 6,		 7,		 8,		-1,		10]
+];
 Fleur.XQueryEngine[Fleur.XQueryX.addOp] = function(ctx, children, callback) {
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
-		var a1, op1;
-		a1 = Fleur.Atomize(n);
-		op1 = Fleur.toJSNumber(a1);
-		if (op1[0] >= 0) {
-			Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-				var a2, op2;
-				a2 = Fleur.Atomize(n);
-				op2 = Fleur.toJSNumber(a2);
-				if (op2[0] < 0) {
-					Fleur.callback(function() {callback(a2);});
-					return;
-				}
-				a1.data = String(op1[1] + op2[1]);
-				a1.schemaTypeInfo = Fleur.numericTypes[Math.max(op1[0], op2[0])];
-				Fleur.callback(function() {callback(a1);});
-			});
-		} else {
+		var op1;
+		var a1 = Fleur.Atomize(n);
+		op1 = Fleur.toJSValue(a1, true, true, false, true, false, true);
+		if (op1[0] < 0) {
 			Fleur.callback(function() {callback(a1);});
+			return;
 		}
+		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+			var op2;
+			var restype, res, resvalue;
+			var a2 = Fleur.Atomize(n);
+			op2 = Fleur.toJSValue(a2, true, true, false, true, false, true);
+			if (op2[0] < 0) {
+				Fleur.callback(function() {callback(a2);});
+				return;
+			}
+			restype = Fleur.addOpTypes[op1[0]][op2[0]];
+			if (restype !== -1) {
+				if (op1[0] < 4 && op2[0] < 4) {
+					a1.data = restype > 1 ? Fleur.Type_double.canonicalize(String(op1[1] + op2[1])) : Fleur.NumberToDecimalString(op1[1] + op2[1]);
+				} else if (op1[0] === 4 && op2[0] === 4) {
+					a1.data = op1[1] + op2[1];
+				} else if (op1[0] > 5 && op1[0] < 9 && op2[0] > 5 && op2[0] < 9) {
+					a1.data = Fleur.msToDayTimeDuration(op1[1] + op2[1]);
+				} else if (op1[0] > 5 && op1[0] < 9 && op2[0] > 8) {
+					var d = op1[1];
+					if (op2[0] === 9) {
+						if (op2[1].year !== 0) {
+							d.setFullYear(d.getFullYear() + op2[1].sign * op2[1].year);
+						}
+						if (op2[1].month !== 0) {
+							d.setMonth(d.getMonth() + op2[1].sign * op2[1].month);
+						}
+					} else {
+						if (op2[1].day !== 0) {
+							d.setDate(d.getDate() + op2[1].sign * op2[1].day);
+						}
+						if (op2[1].hour !== 0) {
+							d.setHours(d.getHours() + op2[1].sign * op2[1].hour);
+						}
+						if (op2[1].minute !== 0) {
+							d.setMinutes(d.getMinutes() + op2[1].sign * op2[1].minute);
+						}
+						if (op2[1].second !== 0) {
+							d.setSeconds(d.getSeconds() + op2[1].sign * op2[1].second);
+						}
+					}
+					a1.data = restype === 6 ? Fleur.dateToDate(d) : restype === 7 ? Fleur.dateToDateTime(d) : Fleur.dateToTime(d);
+				} else if (op2[0] > 5 && op2[0] < 9 && op1[0] > 8) {
+					var d = op2[1];
+					if (op1[0] === 9) {
+						if (op1[1].year !== 0) {
+							d.setFullYear(d.getFullYear() + op1[1].sign * op1[1].year);
+						}
+						if (op1[1].month !== 0) {
+							d.setMonth(d.getMonth() + op1[1].sign * op1[1].month);
+						}
+					} else {
+						if (op1[1].day !== 0) {
+							d.setDate(d.getDate() + op1[1].sign * op1[1].day);
+						}
+						if (op1[1].hour !== 0) {
+							d.setHours(d.getHours() + op1[1].sign * op1[1].hour);
+						}
+						if (op1[1].minute !== 0) {
+							d.setMinutes(d.getMinutes() + op1[1].sign * op1[1].minute);
+						}
+						if (op1[1].second !== 0) {
+							d.setSeconds(d.getSeconds() + op1[1].sign * op1[1].second);
+						}
+					}
+					a1.data = restype === 6 ? Fleur.dateToDate(d) : restype === 7 ? Fleur.dateToDateTime(d) : Fleur.dateToTime(d);
+				} else if (op1[0] === 9 && op2[0] === 9) {
+					resvalue = op1[1].sign * (op1[1].year * 12 + op1[1].month) + op2[1].sign * (op2[1].year * 12 + op2[1].month);
+					res = {
+						sign: resvalue < 0 ? -1 : 1,
+						year: Math.floor(Math.abs(resvalue) / 12),
+						month: Math.abs(resvalue) % 12};
+					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.year !== 0 ? String(res.year) + "Y": "") + (res.month !== 0 || res.year === 0 ? String(res.month) + "M" : "");
+				} else if (op1[0] === 10 && op2[0] === 10) {
+					resvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) + op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
+					res = {sign: resvalue < 0 ? -1 : 1};
+					resvalue = Math.abs(resvalue);
+					res.day = Math.floor(resvalue / 86400);
+					resvalue = resvalue % 86400;
+					res.hour = Math.floor(resvalue / 3600);
+					resvalue = resvalue % 3600;
+					res.minute = Math.floor(resvalue / 60);
+					res.second = resvalue % 60;
+					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.day !== 0 ? String(res.day) + "D": "") + (res.hour !== 0 || res.minute !== 0 || res.second !== 0 || res.day + res.hour + res.minute === 0 ? "T" : "") + (res.hour !== 0 ? String(res.hour) + "H" : "") + (res.minute !== 0 ? String(res.minute) + "M" : "") + (res.second !== 0 || res.day + res.hour + res.minute === 0 ? String(res.second) + "S" : "");
+				}
+				a1.schemaTypeInfo = Fleur.JSTypes[restype];
+			} else {
+				a1 = new Fleur.Text();
+				a1.schemaTypeInfo = Fleur.Type_error;
+				a1._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+			}
+			Fleur.callback(function() {callback(a1);});
+		});
 	});
 };
 Fleur.XQueryEngine[Fleur.XQueryX.andOp] = function(ctx, children, callback) {
@@ -13315,115 +14541,150 @@ Fleur.XQueryEngine[Fleur.XQueryX.andOp] = function(ctx, children, callback) {
 		}
 	});
 };
+Fleur.divOpTypes = [
+	[		 0,		 1,		 2,		 3,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		 1,		 1,		 2,		 3,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		 2,		 2,		 2,		 3,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		 3,		 3,		 3,		 3,		-1,		-1,		-1,		-1,		-1,		-1, 	-1],
+	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		 9,		 9,		 9,		 9,		-1,		-1,		-1,		-1,		-1,		 3,		-1],
+	[		10,		10,		10,		10,		-1,		-1,		-1,		-1,		-1,		-1,		 3]
+];
 Fleur.XQueryEngine[Fleur.XQueryX.divOp] = function(ctx, children, callback) {
-	var op1, op2;
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
+		var op1;
 		var a1 = Fleur.Atomize(n);
-		op1 = Fleur.toJSNumber(a1);
+		op1 = Fleur.toJSValue(a1, true, false, false, false, false, true);
 		if (op1[0] < 0) {
 			Fleur.callback(function() {callback(a1);});
 			return;
 		}
 		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+			var op2;
+			var restype, res, resvalue;
 			var a2 = Fleur.Atomize(n);
-			op2 = Fleur.toJSNumber(a2);
+			op2 = Fleur.toJSValue(a2, true, false, false, true, false, true);
 			if (op2[0] < 0) {
 				Fleur.callback(function() {callback(a2);});
 				return;
 			}
-			a1.data = "" + (op1[1] / op2[1]);
-			a1.schemaTypeInfo = op1[0] === 0 && op2[0] === 0 ? Fleur.Type_decimal : Fleur.numericTypes[Math.max(op1[0], op2[0])];
+			restype = Fleur.divOpTypes[op1[0]][op2[0]];
+			if (restype !== -1) {
+				if (op1[0] < 4 && op2[0] < 4) {
+					a1.data = restype > 1 ? Fleur.Type_double.canonicalize(String(op1[1] / op2[1])) : Fleur.NumberToDecimalString(op1[1] / op2[1]);
+				} else if (op1[0] === 9 && op2[0] < 4) {
+					resvalue = op1[1].sign * Math.round((op1[1].year * 12 + op1[1].month) / op2[1]);
+					res = {
+						sign: resvalue < 0 ? -1 : 1,
+						year: Math.floor(Math.abs(resvalue) / 12),
+						month: Math.abs(resvalue) % 12};
+					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.year !== 0 ? String(res.year) + "Y": "") + (res.month !== 0 || res.year === 0 ? String(res.month) + "M" : "");
+				} else if (op1[0] === 10 && op2[0] < 4) {
+					resvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) / op2[1];
+					res = {sign: resvalue < 0 ? -1 : 1};
+					resvalue = Math.abs(resvalue);
+					res.day = Math.floor(resvalue / 86400);
+					resvalue = resvalue % 86400;
+					res.hour = Math.floor(resvalue / 3600);
+					resvalue = resvalue % 3600;
+					res.minute = Math.floor(resvalue / 60);
+					res.second = resvalue % 60;
+					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.day !== 0 ? String(res.day) + "D": "") + (res.hour !== 0 || res.minute !== 0 || res.second !== 0 || res.day + res.hour + res.minute === 0 ? "T" : "") + (res.hour !== 0 ? String(res.hour) + "H" : "") + (res.minute !== 0 ? String(res.minute) + "M" : "") + (res.second !== 0 || res.day + res.hour + res.minute === 0 ? String(res.second) + "S" : "");
+				} else if (op1[0] === 9 && op2[0] === 9) {
+					resvalue = op1[1].sign * (op1[1].year * 12 + op1[1].month) / (op2[1].sign * (op2[1].year * 12 + op2[1].month));
+					a1.data = Fleur.Type_double.canonicalize(String(resvalue));
+				} else if (op1[0] === 10 && op2[0] === 10) {
+					resvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) / (op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second));
+					a1.data = Fleur.Type_double.canonicalize(String(resvalue));
+				}
+				a1.schemaTypeInfo = Fleur.JSTypes[restype];
+			} else {
+				a1 = new Fleur.Text();
+				a1.schemaTypeInfo = Fleur.Type_error;
+				a1._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+			}
 			Fleur.callback(function() {callback(a1);});
 		});
 	});
 };
+Fleur.eqOp = function(op1, op2) {
+	if (op1[0] < 4) {
+		return op1[1] === op2[1];
+	}
+	if (op1[0] === 4) {
+		return op1[1].localeCompare(op2[1]) === 0;
+	}
+	if (op1[0] === 5) {
+		return (op1[1] === "true") === (op2[1] === "true");
+	}
+	if (op1[0] > 5 && op1[0] < 9) {
+		return op1[1].getTime() === op2[1].getTime();
+	}
+	if (op1[0] === 9) {
+		return op1[1].sign * (op1[1].year * 12 + op1[1].month) === op2[1].sign * (op2[1].year * 12 + op2[1].month);
+	}
+	if (op1[0] === 10) {
+		return op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) === op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
+	}
+	return false;
+};
 Fleur.XQueryEngine[Fleur.XQueryX.eqOp] = function(ctx, children, callback) {
-	Fleur.XPathTestOpFunction(ctx, children, function(op1, op2) {
-		if (op1.schemaTypeInfo === Fleur.Type_string && op2.schemaTypeInfo === Fleur.Type_string) {
-			return op1.data.localeCompare(op2.data) === 0;
-		}
-		if (Fleur.numericTypes.indexOf(op1.schemaTypeInfo) !== -1 && Fleur.numericTypes.indexOf(op2.schemaTypeInfo) !== -1) {
-			var v1, v2;
-			if (op1.schemaTypeInfo === Fleur.Type_integer) {
-				v1 = parseInt(op1.data, 10);
-			} else if (op1.schemaTypeInfo === Fleur.Type_decimal) {
-				v1 = parseFloat(op1.data);
-			} else if (op1.schemaTypeInfo === Fleur.Type_float || op1.schemaTypeInfo === Fleur.Type_double) {
-				if (op1.data === "INF" || op1.data === "-INF" || op1.data === "NaN") {
-					v1 = op1.data;
-				} else {
-					v1 = parseFloat(op1.data);
-				}
-			} else if (op1.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				v1 = parseInt(op1.data, 10);
-			} else if (op1.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				v1 = parseFloat(op1.data);
-			} else if (op1.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || op1.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				if (op1.data === "INF" || op1.data === "-INF" || op1.data === "NaN") {
-					v1 = op1.data;
-				} else {
-					v1 = parseFloat(op1.data);
-				}
-			}
-			if (op2.schemaTypeInfo === Fleur.Type_integer) {
-				v2 = parseInt(op2.data, 10);
-			} else if (op2.schemaTypeInfo === Fleur.Type_decimal) {
-				v2 = parseFloat(op2.data);
-			} else if (op2.schemaTypeInfo === Fleur.Type_float || op2.schemaTypeInfo === Fleur.Type_double) {
-				if (op2.data === "INF" || op2.data === "-INF" || op2.data === "NaN") {
-					v2 = op2.data;
-				} else {
-					v2 = parseFloat(op2.data);
-				}
-			} else if (op2.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				v2 = parseInt(op2.data, 10);
-			} else if (op2.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				v2 = parseFloat(op2.data);
-			} else if (op2.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || op2.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-				if (op2.data === "INF" || op2.data === "-INF" || op2.data === "NaN") {
-					v2 = op2.data;
-				} else {
-					v2 = parseFloat(op2.data);
-				}
-			}
-			return v1 !== "NaN" && v2 !== "NaN" && v1 === v2;
-		}
-		return op1.schemaTypeInfo === op2.schemaTypeInfo && op1.data === op2.data;
-	}, callback);
+	Fleur.XPathTestOpFunction(ctx, children, Fleur.eqOp, callback);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.equalOp] = function(ctx, children, callback) {
-	Fleur.XPathGenTestOpFunction(ctx, children, function(op1, op2) {
-		return op1.schemaTypeInfo === Fleur.Type_string && op2.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2.data) === 0 :
-			op1.schemaTypeInfo === op2.schemaTypeInfo && op1.data === op2.data;
-	}, callback);
+	Fleur.XPathGenTestOpFunction(ctx, children, Fleur.eqOp, callback);
+};
+Fleur.geOp = function(op1, op2) {
+	if (op1[0] < 4 || (op1[0] > 5 && op1[0] < 9)) {
+		return op1[1] >= op2[1];
+	}
+	if (op1[0] === 4) {
+		return op1[1].localeCompare(op2[1]) >= 0;
+	}
+	if (op1[0] === 5) {
+		return (op1[1] === "true") >= (op2[1] === "true");
+	}
+	if (op1[0] === 9) {
+		return op1[1].sign * (op1[1].year * 12 + op1[1].month) >= op2[1].sign * (op2[1].year * 12 + op2[1].month);
+	}
+	if (op1[0] === 10) {
+		return op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) >= op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
+	}
+	return false;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.geOp] = function(ctx, children, callback) {
-	Fleur.XPathTestOpFunction(ctx, children, function(op1, op2) {
-		return op1.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2.data) >= 0 :
-			op1.schemaTypeInfo === Fleur.Type_boolean ? (op1.data === "true") >= (op2.data === "true") :
-			parseFloat(op1.data) >= parseFloat(op2.data);
-	}, callback);
+	Fleur.XPathTestOpFunction(ctx, children, Fleur.geOp, callback);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.greaterThanOp] = function(ctx, children, callback) {
-	Fleur.XPathGenTestOpFunction(ctx, children, function(op1, op2) {
-		return op1.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2.data) > 0 :
-			op1.schemaTypeInfo === Fleur.Type_boolean ? (op1.data === "true") > (op2.data === "true") :
-			parseFloat(op1.data) > parseFloat(op2.data);
-	}, callback);
+	Fleur.XPathGenTestOpFunction(ctx, children, Fleur.gtOp, callback);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.greaterThanOrEqualOp] = function(ctx, children, callback) {
-	Fleur.XPathGenTestOpFunction(ctx, children, function(op1, op2) {
-		return op1.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2.data) >= 0 :
-			op1.schemaTypeInfo === Fleur.Type_boolean ? (op1.data === "true") >= (op2.data === "true") :
-			parseFloat(op1.data) >= parseFloat(op2.data);
-	}, callback);
+	Fleur.XPathGenTestOpFunction(ctx, children, Fleur.geOp, callback);
+};
+Fleur.gtOp = function(op1, op2) {
+	if (op1[0] < 4 || (op1[0] > 5 && op1[0] < 9)) {
+		return op1[1] > op2[1];
+	}
+	if (op1[0] === 4) {
+		return op1[1].localeCompare(op2[1]) > 0;
+	}
+	if (op1[0] === 5) {
+		return (op1[1] === "true") > (op2[1] === "true");
+	}
+	if (op1[0] === 9) {
+		return op1[1].sign * (op1[1].year * 12 + op1[1].month) > op2[1].sign * (op2[1].year * 12 + op2[1].month);
+	}
+	if (op1[0] === 10) {
+		return op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) > op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
+	}
+	return false;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.gtOp] = function(ctx, children, callback) {
-	Fleur.XPathTestOpFunction(ctx, children, function(op1, op2) {
-		return op1.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2.data) > 0 :
-			op1.schemaTypeInfo === Fleur.Type_boolean ? (op1.data === "true") > (op2.data === "true") :
-			parseFloat(op1.data) > parseFloat(op2.data);
-	}, callback);
+	Fleur.XPathTestOpFunction(ctx, children, Fleur.gtOp, callback);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.idivOp] = function(ctx, children, callback) {
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
@@ -13449,33 +14710,53 @@ Fleur.XQueryEngine[Fleur.XQueryX.idivOp] = function(ctx, children, callback) {
 		});
 	});
 };
+Fleur.leOp = function(op1, op2) {
+	if (op1[0] < 4 || (op1[0] > 5 && op1[0] < 9)) {
+		return op1[1] <= op2[1];
+	}
+	if (op1[0] === 4) {
+		return op1[1].localeCompare(op2[1]) <= 0;
+	}
+	if (op1[0] === 5) {
+		return (op1[1] === "true") <= (op2[1] === "true");
+	}
+	if (op1[0] === 9) {
+		return op1[1].sign * (op1[1].year * 12 + op1[1].month) <= op2[1].sign * (op2[1].year * 12 + op2[1].month);
+	}
+	if (op1[0] === 10) {
+		return op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) <= op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
+	}
+	return false;
+};
 Fleur.XQueryEngine[Fleur.XQueryX.leOp] = function(ctx, children, callback) {
-	Fleur.XPathTestOpFunction(ctx, children, function(op1, op2) {
-		return op1.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2.data) <= 0 :
-			op1.schemaTypeInfo === Fleur.Type_boolean ? (op1.data === "true") <= (op2.data === "true") :
-			parseFloat(op1.data) <= parseFloat(op2.data);
-	}, callback);
+	Fleur.XPathTestOpFunction(ctx, children, Fleur.leOp, callback);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.lessThanOp] = function(ctx, children, callback) {
-	Fleur.XPathGenTestOpFunction(ctx, children, function(op1, op2) {
-		return op1.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2.data) < 0 :
-			op1.schemaTypeInfo === Fleur.Type_boolean ? (op1.data === "true") < (op2.data === "true") :
-			parseFloat(op1.data) < parseFloat(op2.data);
-	}, callback);
+	Fleur.XPathGenTestOpFunction(ctx, children, Fleur.ltOp, callback);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.lessThanOrEqualOp] = function(ctx, children, callback) {
-	Fleur.XPathGenTestOpFunction(ctx, children, function(op1, op2) {
-		return op1.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2.data) <= 0 :
-			op1.schemaTypeInfo === Fleur.Type_boolean ? (op1.data === "true") <= (op2.data === "true") :
-			parseFloat(op1.data) <= parseFloat(op2.data);
-	}, callback);
+	Fleur.XPathGenTestOpFunction(ctx, children, Fleur.leOp, callback);
+};
+Fleur.ltOp = function(op1, op2) {
+	if (op1[0] < 4 || (op1[0] > 5 && op1[0] < 9)) {
+		return op1[1] < op2[1];
+	}
+	if (op1[0] === 4) {
+		return op1[1].localeCompare(op2[1]) < 0;
+	}
+	if (op1[0] === 5) {
+		return (op1[1] === "true") < (op2[1] === "true");
+	}
+	if (op1[0] === 9) {
+		return op1[1].sign * (op1[1].year * 12 + op1[1].month) < op2[1].sign * (op2[1].year * 12 + op2[1].month);
+	}
+	if (op1[0] === 10) {
+		return op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) < op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
+	}
+	return false;
 };
 Fleur.XQueryEngine[Fleur.XQueryX.ltOp] = function(ctx, children, callback) {
-	Fleur.XPathTestOpFunction(ctx, children, function(op1, op2) {
-		return op1.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2.data) < 0 :
-			op1.schemaTypeInfo === Fleur.Type_boolean ? (op1.data === "true") < (op2.data === "true") :
-			parseFloat(op1.data) < parseFloat(op2.data);
-	}, callback);
+	Fleur.XPathTestOpFunction(ctx, children, Fleur.ltOp, callback);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.modOp] = function(ctx, children, callback) {
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
@@ -13501,40 +14782,118 @@ Fleur.XQueryEngine[Fleur.XQueryX.modOp] = function(ctx, children, callback) {
 		});
 	});
 };
+Fleur.multiplyOpTypes = [
+	[		 0,		 1,		 2,		 3,		 4,		-1,		-1,		-1,		-1,		 9,		10],
+	[		 1,		 1,		 2,		 3,		 4,		-1,		-1,		-1,		-1,		 9,		10],
+	[		 2,		 2,		 2,		 3,		 4,		-1,		-1,		-1,		-1,		 9,		10],
+	[		 3,		 3,		 3,		 3,		 4,		-1,		-1,		-1,		-1,		 9, 	10],
+	[		 4,		 4,		 4,		 4,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		 9,		 9,		 9,		 9,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		10,		10,		10,		10,		-1,		-1,		-1,		-1,		-1,		-1,		-1]
+];
 Fleur.XQueryEngine[Fleur.XQueryX.multiplyOp] = function(ctx, children, callback) {
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
 		var op1;
 		var a1 = Fleur.Atomize(n);
-		op1 = Fleur.toJSNumber(a1);
+		op1 = Fleur.toJSValue(a1, true, true, false, false, false, true);
 		if (op1[0] < 0) {
 			Fleur.callback(function() {callback(a1);});
 			return;
 		}
 		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
 			var op2;
+			var restype, res, resvalue;
 			var a2 = Fleur.Atomize(n);
-			op2 = Fleur.toJSNumber(a2);
+			op2 = Fleur.toJSValue(a2, true, true, false, true, false, true);
 			if (op2[0] < 0) {
 				Fleur.callback(function() {callback(a2);});
 				return;
 			}
-			a1.data = "" + (op1[1] * op2[1]);
-			a1.schemaTypeInfo = Fleur.numericTypes[Math.max(op1[0], op2[0])];
+			restype = Fleur.multiplyOpTypes[op1[0]][op2[0]];
+			if (restype !== -1) {
+				if (op1[0] < 4 && op2[0] < 4) {
+					a1.data = restype > 1 ? Fleur.Type_double.canonicalize(String(op1[1] * op2[1])) : Fleur.NumberToDecimalString(op1[1] * op2[1]);
+				} else if (op1[0] < 4 && op2[0] === 4) {
+					a1.data = op2[1].repeat(op1[1]);
+				} else if (op1[0] === 4 && op2[0] < 4) {
+					a1.data = op1[1].repeat(op2[1]);
+				} else if (op1[0] < 4 && op2[0] === 9) {
+					resvalue = op2[1].sign * Math.round((op2[1].year * 12 + op2[1].month) * op1[1]);
+					res = {
+						sign: resvalue < 0 ? -1 : 1,
+						year: Math.floor(Math.abs(resvalue) / 12),
+						month: Math.abs(resvalue) % 12};
+					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.year !== 0 ? String(res.year) + "Y": "") + (res.month !== 0 || res.year === 0 ? String(res.month) + "M" : "");
+				} else if (op1[0] === 9 && op2[0] < 4) {
+					resvalue = op1[1].sign * Math.round((op1[1].year * 12 + op1[1].month) * op2[1]);
+					res = {
+						sign: resvalue < 0 ? -1 : 1,
+						year: Math.floor(Math.abs(resvalue) / 12),
+						month: Math.abs(resvalue) % 12};
+					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.year !== 0 ? String(res.year) + "Y": "") + (res.month !== 0 || res.year === 0 ? String(res.month) + "M" : "");
+				} else if (op1[0] < 4 && op2[0] === 10) {
+					resvalue = op1[1] * op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
+					res = {sign: resvalue < 0 ? -1 : 1};
+					resvalue = Math.abs(resvalue);
+					res.day = Math.floor(resvalue / 86400);
+					resvalue = resvalue % 86400;
+					res.hour = Math.floor(resvalue / 3600);
+					resvalue = resvalue % 3600;
+					res.minute = Math.floor(resvalue / 60);
+					res.second = resvalue % 60;
+					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.day !== 0 ? String(res.day) + "D": "") + (res.hour !== 0 || res.minute !== 0 || res.second !== 0 || res.day + res.hour + res.minute === 0 ? "T" : "") + (res.hour !== 0 ? String(res.hour) + "H" : "") + (res.minute !== 0 ? String(res.minute) + "M" : "") + (res.second !== 0 || res.day + res.hour + res.minute === 0 ? String(res.second) + "S" : "");
+				} else if (op1[0] === 10 && op2[0] < 4) {
+					resvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) * op2[1];
+					res = {sign: resvalue < 0 ? -1 : 1};
+					resvalue = Math.abs(resvalue);
+					res.day = Math.floor(resvalue / 86400);
+					resvalue = resvalue % 86400;
+					res.hour = Math.floor(resvalue / 3600);
+					resvalue = resvalue % 3600;
+					res.minute = Math.floor(resvalue / 60);
+					res.second = resvalue % 60;
+					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.day !== 0 ? String(res.day) + "D": "") + (res.hour !== 0 || res.minute !== 0 || res.second !== 0 || res.day + res.hour + res.minute === 0 ? "T" : "") + (res.hour !== 0 ? String(res.hour) + "H" : "") + (res.minute !== 0 ? String(res.minute) + "M" : "") + (res.second !== 0 || res.day + res.hour + res.minute === 0 ? String(res.second) + "S" : "");
+				}
+				a1.schemaTypeInfo = Fleur.JSTypes[restype];
+			} else {
+				a1 = new Fleur.Text();
+				a1.schemaTypeInfo = Fleur.Type_error;
+				a1._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+			}
 			Fleur.callback(function() {callback(a1);});
 		});
 	});
 };
+Fleur.neOp = function(op1, op2) {
+	if (op1[0] < 4) {
+		return op1[1] !== op2[1];
+	}
+	if (op1[0] === 4) {
+		return op1[1].localeCompare(op2[1]) !== 0;
+	}
+	if (op1[0] === 5) {
+		return (op1[1] === "true") !== (op2[1] === "true");
+	}
+	if (op1[0] > 5 && op1[0] < 9) {
+		return op1[1].getTime() !== op2[1].getTime();
+	}
+	if (op1[0] === 9) {
+		return op1[1].sign * (op1[1].year * 12 + op1[1].month) !== op2[1].sign * (op2[1].year * 12 + op2[1].month);
+	}
+	if (op1[0] === 10) {
+		return op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) !== op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
+	}
+	return false;
+};
 Fleur.XQueryEngine[Fleur.XQueryX.neOp] = function(ctx, children, callback) {
-	Fleur.XPathTestOpFunction(ctx, children, function(op1, op2) {
-		return op1.schemaTypeInfo === Fleur.Type_string && op2.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2.data) !== 0 :
-			op1.schemaTypeInfo !== op2.schemaTypeInfo || op1.data !== op2.data;
-	}, callback);
+	Fleur.XPathTestOpFunction(ctx, children, Fleur.neOp, callback);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.notEqualOp] = function(ctx, children, callback) {
-	Fleur.XPathGenTestOpFunction(ctx, children, function(op1, op2) {
-		return op1.schemaTypeInfo === Fleur.Type_string && op2.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2.data) !== 0 :
-			op1.schemaTypeInfo !== op2.schemaTypeInfo || op1.data !== op2.data;
-	}, callback);
+	Fleur.XPathGenTestOpFunction(ctx, children, Fleur.neOp, callback);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.orOp] = function(ctx, children, callback) {
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
@@ -13591,25 +14950,92 @@ Fleur.XQueryEngine[Fleur.XQueryX.stringConcatenateOp] = function(ctx, children, 
 		});
 	});
 };
+Fleur.subtractOpTypes = [
+	[		 0,		 1,		 2,		 3,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		 1,		 1,		 2,		 3,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		 2,		 2,		 2,		 3,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		 3,		 3,		 3,		 3,		-1,		-1,		-1,		-1,		-1,		-1, 	-1],
+	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1],
+	[		-1,		-1,		-1,		-1,		-1,		-1,		10,		10,		10,		 6,		 6],
+	[		-1,		-1,		-1,		-1,		-1,		-1,		10,		10,		10,		 7,		 7],
+	[		-1,		-1,		-1,		-1,		-1,		-1,		10,		10,		10,		-1,		 8],
+	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		 9,		-1],
+	[		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		-1,		10]
+];
 Fleur.XQueryEngine[Fleur.XQueryX.subtractOp] = function(ctx, children, callback) {
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
 		var op1;
 		var a1 = Fleur.Atomize(n);
-		op1 = Fleur.toJSNumber(a1);
+		op1 = Fleur.toJSValue(a1, true, false, false, true, false, true);
 		if (op1[0] < 0) {
 			Fleur.callback(function() {callback(a1);});
 			return;
 		}
 		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
 			var op2;
+			var restype, res, resvalue;
 			var a2 = Fleur.Atomize(n);
-			op2 = Fleur.toJSNumber(a2);
-			if (op1[0] < 0) {
+			op2 = Fleur.toJSValue(a2, true, false, false, true, false, true);
+			if (op2[0] < 0) {
 				Fleur.callback(function() {callback(a2);});
 				return;
 			}
-			a1.data = "" + (op1[1] - op2[1]);
-			a1.schemaTypeInfo = Fleur.numericTypes[Math.max(op1[0], op2[0])];
+			restype = Fleur.subtractOpTypes[op1[0]][op2[0]];
+			if (restype !== -1) {
+				if (op1[0] < 4 && op2[0] < 4) {
+					a1.data = String(op1[1] - op2[1]);
+				} else if (op1[0] > 5 && op1[0] < 9 && op2[0] > 5 && op2[0] < 9) {
+					a1.data = restype > 1 ? Fleur.Type_double.canonicalize(String(op1[1] - op2[1])) : Fleur.NumberToDecimalString(op1[1] - op2[1]);
+				} else if (op1[0] > 5 && op1[0] < 9 && op2[0] > 8) {
+					var d = op1[1];
+					if (op2[0] === 9) {
+						if (op2[1].year !== 0) {
+							d.setFullYear(d.getFullYear() - op2[1].sign * op2[1].year);
+						}
+						if (op2[1].month !== 0) {
+							d.setMonth(d.getMonth() - op2[1].sign * op2[1].month);
+						}
+					} else {
+						if (op2[1].day !== 0) {
+							d.setDate(d.getDate() - op2[1].sign * op2[1].day);
+						}
+						if (op2[1].hour !== 0) {
+							d.setHours(d.getHours() - op2[1].sign * op2[1].hour);
+						}
+						if (op2[1].minute !== 0) {
+							d.setMinutes(d.getMinutes() - op2[1].sign * op2[1].minute);
+						}
+						if (op2[1].second !== 0) {
+							d.setSeconds(d.getSeconds() - op2[1].sign * op2[1].second);
+						}
+					}
+					a1.data = restype === 6 ? Fleur.dateToDate(d) : restype === 7 ? Fleur.dateToDateTime(d) : Fleur.dateToTime(d);
+				} else if (op1[0] === 9 && op2[0] === 9) {
+					resvalue = op1[1].sign * (op1[1].year * 12 + op1[1].month) - op2[1].sign * (op2[1].year * 12 + op2[1].month);
+					res = {
+						sign: resvalue < 0 ? -1 : 1,
+						year: Math.floor(Math.abs(resvalue) / 12),
+						month: Math.abs(resvalue) % 12};
+					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.year !== 0 ? String(res.year) + "Y": "") + (res.month !== 0  || res.year === 0? String(res.month) + "M" : "");
+				} else if (op1[0] === 10 && op2[0] === 10) {
+					resvalue = op1[1].sign * (((op1[1].day * 24 + op1[1].hour) * 60 + op1[1].minute) * 60 + op1[1].second) - op2[1].sign * (((op2[1].day * 24 + op2[1].hour) * 60 + op2[1].minute) * 60 + op2[1].second);
+					res = {sign: resvalue < 0 ? -1 : 1};
+					resvalue = Math.abs(resvalue);
+					res.day = Math.floor(resvalue / 86400);
+					resvalue = resvalue % 86400;
+					res.hour = Math.floor(resvalue / 3600);
+					resvalue = resvalue % 3600;
+					res.minute = Math.floor(resvalue / 60);
+					res.second = resvalue % 60;
+					a1.data = (res.sign < 0 ? "-" : "") + "P" + (res.day !== 0 ? String(res.day) + "D": "") + (res.hour !== 0 || res.minute !== 0 || res.second !== 0 || res.day + res.hour + res.minute === 0 ? "T" : "") + (res.hour !== 0 ? String(res.hour) + "H" : "") + (res.minute !== 0 ? String(res.minute) + "M" : "") + (res.second !== 0 || res.day + res.hour + res.minute === 0 ? String(res.second) + "S" : "");
+				}
+				a1.schemaTypeInfo = Fleur.JSTypes[restype];
+			} else {
+				a1 = new Fleur.Text();
+				a1.schemaTypeInfo = Fleur.Type_error;
+				a1._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+			}
 			Fleur.callback(function() {callback(a1);});
 		});
 	});
@@ -13670,7 +15096,195 @@ Fleur.error = function(ctx, ename, emessage) {
 	}
 	return a;
 };
-Fleur.toJSNumber = function(a) {
+Fleur.pad = function(number) {
+	if (number < 10) {
+		return '0' + String(number);
+	}
+ 	return String(number);
+};
+Fleur.dateToDate = function(d) {
+	return String(d.getFullYear()) + '-' + Fleur.pad(d.getMonth() + 1) + '-' + Fleur.pad(d.getDate());
+};
+Fleur.dateToDateTime = function(d) {
+	return String(d.getFullYear()) + '-' + Fleur.pad(d.getMonth() + 1) + '-' + Fleur.pad(d.getDate()) + 'T' + Fleur.pad(d.getHours()) + ':' + Fleur.pad(d.getMinutes()) + ':' + Fleur.pad(d.getSeconds()) + '.' + (d.getMilliseconds() / 1000).toFixed(3).slice(2, 5) + 'Z';
+};
+Fleur.dateToTime = function(d) {
+	return Fleur.pad(d.getHours()) + ':' + Fleur.pad(d.getMinutes()) + ':' + Fleur.pad(d.getSeconds()) + '.' + (d.getMilliseconds() / 1000).toFixed(3).slice(2, 5) + 'Z';
+};
+Fleur.toDate = function(s) {
+	return new Date(parseInt(s.substr(0, 4), 10), parseInt(s.substr(5, 2), 10) - 1, parseInt(s.substr(8, 2), 10));
+};
+Fleur.toDateTime = function(s) {
+	return new Date(parseInt(s.substr(0, 4), 10), parseInt(s.substr(5, 2), 10) - 1, parseInt(s.substr(8, 2), 10), parseInt(s.substr(11, 2), 10), parseInt(s.substr(14, 2), 10), parseInt(s.substr(17, 2), 10), s.charAt(19) === "." ? parseFloat("0." + s.substr(20).replace(/\+\-Z/, "Z").split("Z")[0]) * 1000 : 0);
+};
+Fleur.toTime = function(s) {
+	return new Date(0, 0, 0, parseInt(s.substr(0, 2), 10), parseInt(s.substr(3, 2), 10), parseInt(s.substr(6, 2), 10), s.charAt(8) === "." ? parseFloat("0." + s.substr(9).replace(/\+\-Z/, "Z").split("Z")[0]) * 1000 : 0);
+};
+Fleur.toJSONDate = function(s) {
+	return {
+		year: parseInt(s.substr(0, 4), 10),
+		month: parseInt(s.substr(5, 2), 10),
+		day: parseInt(s.substr(8, 2), 10)
+	};
+};
+Fleur.toJSONDateTime = function(s) {
+	return {
+		year: parseInt(s.substr(0, 4), 10),
+		month: parseInt(s.substr(5, 2), 10),
+		day: parseInt(s.substr(8, 2), 10),
+		hour: parseInt(s.substr(11, 2), 10),
+		minute: parseInt(s.substr(14, 2), 10),
+		second: parseFloat(s.substr(17).replace(/\+\-Z/, "Z").split("Z")[0])
+	};	
+};
+Fleur.toJSONTime = function(s) {
+	return {
+		hour: parseInt(s.substr(0, 2), 10),
+		minute: parseInt(s.substr(3, 2), 10),
+		second: parseFloat(s.substr(5).replace(/\+\-Z/, "Z").split("Z")[0])
+	};	
+};
+Fleur.toJSONYearMonthDuration = function(s) {
+	var m = s.match(/^-?P(?!$)(([0-9]+)Y)?(([0-9]+)M)?$/);
+	var retvalue = (m[2] ? parseInt(m[2], 10) : 0) * 12 +(m[4] ? parseInt(m[4], 10) : 0);
+	return {
+		sign: s.startsWith("-") && retvalue !== 0 ? -1 : 1,
+		year: Math.floor(retvalue / 12),
+		month: retvalue % 12
+	};
+};
+Fleur.toJSONDayTimeDuration = function(s) {
+	var m = s.match(/^-?P(?!$)(([0-9]+)D)?(T(?!$)(([0-9]+)H)?(([0-9]+)M)?(([0-9]+(\.[0-9]+)?)S)?)?$/);
+	var retvalue = (((m[2] ? parseInt(m[2], 10) : 0) * 24 + (m[5] ? parseInt(m[5], 10) : 0)) * 60 + (m[7] ? parseInt(m[7], 10) : 0)) * 60 + (m[9] ? parseInt(m[9], 10) : 0);
+	var ret = {sign: s.startsWith("-") && retvalue !== 0 ? -1 : 1};
+	ret.day = Math.floor(retvalue / 86400);
+	retvalue = retvalue % 86400;
+	ret.hour = Math.floor(retvalue / 3600);
+	retvalue = retvalue % 3600;
+	ret.minute = Math.floor(retvalue / 60);
+	ret.second = retvalue % 60;
+	return ret;
+};
+Fleur.NumberToDecimalString = function(n) {
+	var s = String(n);
+	if (s.indexOf("e") !== -1) {
+		s = s.split("e");
+		var exp = parseInt(s[1], 10);
+		s = s[0].split(".");
+		s[1] = s[1] || "";
+		if (exp >= 0) {
+			if (exp < s[1].length) {
+				return s[0] + s[1].substr(0, s[1].length - exp) + "." + s[1].substr(s[1].length - exp);
+			}
+			return s[0] + s[1] + "0".repeat(exp - s[1].length);
+		}
+		return "0." + "0".repeat(-1 - exp) + s[0] + s[1];
+	}
+	return s;
+};
+Fleur.JSTypes = [Fleur.Type_integer, Fleur.Type_decimal, Fleur.Type_float, Fleur.Type_double, Fleur.Type_string, Fleur.Type_boolean, Fleur.Type_date, Fleur.Type_dateTime, Fleur.Type_time, Fleur.Type_yearMonthDuration, Fleur.Type_dayTimeDuration];
+Fleur.toJSValue = function(a, asNumber, asString, asBoolean, asDate, asJSONDate, asJSONDuration) {
+	var value;
+	if (a.nodeType === Fleur.Node.TEXT_NODE) {
+		if (a.schemaTypeInfo === Fleur.Type_error) {
+			return [-1];
+		}
+		if (asNumber) {
+			if (a.schemaTypeInfo === Fleur.Type_integer) {
+				return [0, parseInt(a.data, 10)];
+			} else if (a.schemaTypeInfo === Fleur.Type_decimal) {
+				return [1, parseFloat(a.data)];
+			} else if (a.schemaTypeInfo === Fleur.Type_float) {
+				return [2, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
+			} else if (a.schemaTypeInfo === Fleur.Type_double || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
+				return [3, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
+			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+				return [0, parseInt(a.data, 10)];
+			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+				return [1, parseFloat(a.data)];
+			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+				return [2, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
+			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+				return [3, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
+			}
+		}
+		if (asString) {
+			if (a === Fleur.EmptySequence) {
+				return [4];
+			}
+			if (!a.schemaTypeInfo || a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_anyURI || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
+				return [4, a.data];
+			} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+				return [4, a.data];
+			}
+		}
+		if (asBoolean) {
+			if (a.schemaTypeInfo === Fleur.Type_boolean) {
+				return [5, a.data === "true"];
+			} else if (a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_anyURI || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
+				return [5, a.data.length !== 0];
+			} else if (a.schemaTypeInfo === Fleur.Type_integer) {
+				value = parseInt(a.data, 10);
+				return [5, !isNaN(value) && value !== 0];
+			} else if (a.schemaTypeInfo === Fleur.Type_decimal || a.schemaTypeInfo === Fleur.Type_float || a.schemaTypeInfo === Fleur.Type_double) {
+				value = parseFloat(a.data);
+				return [5, !isNaN(value) && value !== 0];
+			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "boolean", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+				return [5, a.data === "true"];
+			} else if (a.schemaTypeInfo && (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION))) {
+				return [5, a.data.length !== 0];
+			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+				value = parseInt(a.data, 10);
+				return [5, !isNaN(value) && value !== 0];
+			} else if (a.schemaTypeInfo && (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION))) {
+				value = parseFloat(a.data);
+				return [5, !isNaN(value) && value !== 0];
+			}
+		}
+		if (asDate || asJSONDate) {
+			if (a.schemaTypeInfo === Fleur.Type_date) {
+				return [6, asDate ? Fleur.toDate(a.data) : Fleur.toJSONDate(a.data)];
+			} else if (a.schemaTypeInfo === Fleur.Type_dateTime) {
+				return [7, asDate ? Fleur.toDateTime(a.data) : Fleur.toJSONDateTime(a.data)];
+			} else if (a.schemaTypeInfo === Fleur.Type_time) {
+				return [8, asDate ? Fleur.toTime(a.data) : Fleur.toJSONTime(a.data)];
+			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "date", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+				return [6, asDate ? Fleur.toDate(a.data) : Fleur.toJSONDate(a.data)];
+			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "dateTime", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+				return [7, asDate ? Fleur.toDateTime(a.data) : Fleur.toJSONDateTime(a.data)];
+			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "time", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+				return [8, asDate ? Fleur.toTime(a.data) : Fleur.toJSONTime(a.data)];
+			}
+		}
+		if (asJSONDuration) {
+			if (a.schemaTypeInfo === Fleur.Type_yearMonthDuration) {
+				return [9, Fleur.toJSONYearMonthDuration(a.data)];
+			} else if (a.schemaTypeInfo === Fleur.Type_dayTimeDuration) {
+				return [10, Fleur.toJSONDayTimeDuration(a.data)];
+			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "yearMonthDuration", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+				return [9, Fleur.toJSONYearMonthDuration(a.data)];
+			} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "dayTimeDuration", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+				return [10, Fleur.toJSONDayTimeDuration(a.data)];
+			}
+		}
+		a.schemaTypeInfo = Fleur.Type_error;
+		a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+		return [-1];
+	} else if (a.nodeType === Fleur.Node.SEQUENCE_NODE) {
+		if (asBoolean) {
+			return [0, a.childNodes.length !== 0];
+		}
+		a.nodeType = Fleur.Node.TEXT_NODE;
+		a.schemaTypeInfo = Fleur.Type_error;
+		a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPST0005");
+		return [-1];
+	}
+	a = new Fleur.Text();
+	a.schemaTypeInfo = Fleur.Type_error;
+	a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+	return [-1];
+};
+Fleur.toJSNumber = function(a, ignore) {
 	if (a.nodeType === Fleur.Node.TEXT_NODE) {
 		if (a.schemaTypeInfo === Fleur.Type_integer) {
 			return [0, parseInt(a.data, 10)];
@@ -13680,19 +15294,21 @@ Fleur.toJSNumber = function(a) {
 			return [2, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
 		} else if (a.schemaTypeInfo === Fleur.Type_double || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
 			return [3, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
-		} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+		} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
 			return [0, parseInt(a.data, 10)];
-		} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+		} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
 			return [1, parseFloat(a.data)];
-		} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+		} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
 			return [2, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
-		} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+		} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
 			return [3, a.data === "INF" ? Number.POSITIVE_INFINITY : a.data === "-INF" ? Number.NEGATIVE_INFINITY : parseFloat(a.data)];
 		} else if (a.schemaTypeInfo === Fleur.Type_error) {
 			return [-1];
 		}
-		a.schemaTypeInfo = Fleur.Type_error;
-		a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+		if (!ignore) {
+			a.schemaTypeInfo = Fleur.Type_error;
+			a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+		}
 		return [-1];
 	} else if (a.nodeType === Fleur.Node.SEQUENCE_NODE) {
 		a.nodeType = Fleur.Node.TEXT_NODE;
@@ -13705,20 +15321,26 @@ Fleur.toJSNumber = function(a) {
 	a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
 	return [-1];
 };
-Fleur.toJSDate = function(a) {
+Fleur.toJSDate = function(a, convert) {
 	if (a.nodeType === Fleur.Node.TEXT_NODE) {
+		var v;
+		if (convert) {
+			v = new Date(parseInt(a.data.substr(0, 4), 10), parseInt(a.data.substr(5, 2), 10) - 1, parseInt(a.data.substr(8, 2), 10));
+		} else {
+			v = a.data;
+		}
 		if (a.schemaTypeInfo === Fleur.Type_date) {
-			return [0, a.data];
+			return [0, v];
 		} else if (a.schemaTypeInfo === Fleur.Type_dateTime) {
-			return [1, a.data];
+			return [1, v];
 		} else if (a.schemaTypeInfo === Fleur.Type_time) {
-			return [2, a.data];
-		} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "date", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-			return [0, a.data];
-		} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "dateTime", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-			return [1, a.data];
-		} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "time", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-			return [2, a.data];
+			return [2, v];
+		} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "date", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+			return [0, v];
+		} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "dateTime", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+			return [1, v];
+		} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "time", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+			return [2, v];
 		} else if (a.schemaTypeInfo === Fleur.Type_error) {
 			return [-1];
 		}
@@ -13764,14 +15386,14 @@ Fleur.toJSBoolean = function(a) {
 	} else if (a.schemaTypeInfo === Fleur.Type_decimal || a.schemaTypeInfo === Fleur.Type_float || a.schemaTypeInfo === Fleur.Type_double) {
 		value = parseFloat(a.data);
 		return [0, !isNaN(value) && value !== 0];
-	} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "boolean", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+	} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "boolean", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
 		return [0, a.data === "true"];
-	} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+	} else if (a.schemaTypeInfo && (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION))) {
 		return [0, a.data.length !== 0];
-	} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+	} else if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
 		value = parseInt(a.data, 10);
 		return [0, !isNaN(value) && value !== 0];
-	} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+	} else if (a.schemaTypeInfo && (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION))) {
 		value = parseFloat(a.data);
 		return [0, !isNaN(value) && value !== 0];
 	}
@@ -13820,11 +15442,41 @@ Fleur.toContentType = function(o, def) {
 	}
 	for (var p in o) {
 		if (o.hasOwnProperty(p) && p !== "media-type" && p !== "encoding") {
-			s += "; " + p + "=\"" + o[p] + "\"";
+			s += "; " + p + "=" + encodeURIComponent(o[p]);
 		}
 	}
 	return s;
 };
+Fleur.msToDayTimeDuration = function(ms) {
+	var s = ms < 0 ? "-P" : "P";
+    ms = ms / 1000;
+    ms = Math.abs(Math.floor(ms));
+    var days = Math.floor(ms / (24 * 60 * 60));
+    var sec = ms - days * 24 * 60 * 60;
+    var hours = Math.floor(sec / (60 * 60));
+    sec = sec - hours * 60 * 60;
+    var min = Math.floor(sec / 60);
+    sec = sec - min * 60;
+    if (sec === 0 && min === 0 && hours === 0 && days === 0) {
+    	return "P0D";
+    }
+    if (days !== 0) {
+    	s += String(days) + "D";
+    }
+    if (hours !== 0 || min !== 0 || sec !== 0) {
+    	s += "T";
+    }
+    if (hours !== 0) {
+    	s += String(hours) + "H";
+    }
+    if (min !== 0) {
+    	s += String(min) + "M";
+    }
+    if (sec !== 0) {
+    	s += String(sec) + "S";
+    }
+    return s;
+}
 Fleur.XsltEngine = Fleur.XQueryEngine.slice(0);
 Fleur.XsltX = {};
 Fleur.XsltX._pattern2xpath = function(xqueryx) {

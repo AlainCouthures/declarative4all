@@ -103,7 +103,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:decimal("-999999999999999999"))</test>
-    <result-string>xs:decimal("999999999999999999.0")</result-string>
+    <result-string>xs:decimal("999999999999999999")</result-string>
     <result>
       <all-of>
         <assert-eq>999999999999999999</assert-eq>
@@ -116,7 +116,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:decimal("617375191608514839"))</test>
-    <result-string>xs:decimal("617375191608514839.0")</result-string>
+    <result-string>xs:decimal("617375191608514839")</result-string>
     <result>
       <all-of>
         <assert-eq>617375191608514839</assert-eq>
@@ -129,7 +129,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:decimal("999999999999999999"))</test>
-    <result-string>xs:decimal("999999999999999999.0")</result-string>
+    <result-string>xs:decimal("999999999999999999")</result-string>
     <result>
       <all-of>
         <assert-eq>999999999999999999</assert-eq>
@@ -155,7 +155,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:double("0"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0.0e0</assert-eq>
@@ -194,7 +194,7 @@
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:float("0"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0.0e0</assert-eq>
@@ -532,7 +532,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:double("-0"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -597,7 +597,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:decimal("-0"))</test>
-    <result-string>xs:decimal("0.0")</result-string>
+    <result-string>xs:decimal("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -610,7 +610,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:decimal("0"))</test>
-    <result-string>xs:decimal("0.0")</result-string>
+    <result-string>xs:decimal("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -623,7 +623,7 @@
     <created by="Pulkita Tyagi" on="2005-05-19"/>
     <environment ref="empty"/>
     <test>fn:abs(xs:float("-0"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -2075,7 +2075,7 @@
     <description>test fn:abs where input type is uncertain</description>
     <created by="Tim Mills" on="2008-04-11"/>
     <test>fn:abs( fn:reverse( (1, xs:decimal(2.2), xs:float(3.3), xs:double(4.4)) )[2] )</test>
-    <result-string>xs:float("3.3e0")</result-string>
+    <result-string>xs:float("3.3")</result-string>
     <result>
       <assert-string-value>3.3</assert-string-value>
     </result>

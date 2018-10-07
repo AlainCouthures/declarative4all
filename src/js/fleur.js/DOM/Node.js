@@ -140,7 +140,10 @@ Fleur.Node.prototype.appendChild = function(newChild) {
 };
 Fleur.Node.prototype.idRecalculate = function(strpos) {
 	var i, l;
-	var upper = (this.parentNode || this.ownerElement).internal_id;
+	var upper = this.parentNode || this.ownerElement;
+	if (upper) {
+		upper = upper.internal_id;
+	}
 	if (upper) {
 		this.internal_id = (this.parentNode || this.ownerElement).internal_id + (this.parentNode ? "-" : "+") + String.fromCharCode(96 + strpos.length) + strpos;
 		if (this.attributes) {
@@ -240,6 +243,15 @@ Fleur.Node.prototype.appendContent = function(n, sep) {
 		case Fleur.Node.DOCUMENT_TYPE_NODE:
 			throw new Fleur.DOMException(Fleur.DOMException.NOT_SUPPORTED_ERR);
 	}
+};
+Fleur.Node.prototype.canonicalize = function() {
+	if (this.nodeType === Fleur.Node.TEXT_NODE && this.schemaTypeInfo) {
+		try {
+			this.data = this.schemaTypeInfo.canonicalize(this.data);
+			return true;
+		} catch (e) {}
+	}
+	return false;
 };
 Fleur.Node.prototype.clearUserData = function() {
 	this._userData = {};

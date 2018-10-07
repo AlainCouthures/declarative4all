@@ -16,11 +16,22 @@ Fleur.XQueryEngine[Fleur.XQueryX.forClauseItem] = function(ctx, children, callba
 	var pvarname = positionalVariableBinding !== 0 ? children[1 + allowingEmpty][1][0] : "";
 	ctx.env.varresolver = resarr[0];
 	var cb = function(n) {
+		//console.log("forClause - cb - " + Fleur.Serializer._serializeNodeToXQuery(n, false, ""));
 		var posvalue;
 		if (n === Fleur.EmptySequence) {
-			Fleur.callback(function() {callback(Fleur.EmptySequence);});
-		}
- 		if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+			if (!allowingEmpty) {
+				Fleur.callback(function() {callback(Fleur.EmptySequence, true);});
+				return;
+			}
+			resarr[i].set(ctx, "", varname, n);
+			if (positionalVariableBinding !== 0) {
+				posvalue = new Fleur.Text();
+				posvalue.data = "0";
+				posvalue.schemaTypeInfo = Fleur.Type_integer;
+				resarr[i].set(ctx, "", pvarname, posvalue);
+			}
+			i++;
+		} else if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
 			resarr[i].set(ctx, "", varname, n);
 			if (positionalVariableBinding !== 0) {
 				posvalue = new Fleur.Text();

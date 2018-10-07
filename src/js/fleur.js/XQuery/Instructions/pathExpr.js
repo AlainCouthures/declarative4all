@@ -60,9 +60,19 @@ Fleur.XQueryEngine[Fleur.XQueryX.pathExpr] = function(ctx, children, callback) {
 			}
 			var subcurr;
 			if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
-				subcurr = n.childNodes.shift();
-				if (n.childNodes.length === 1) {
-					n = n.childNodes[0];
+				subcurr = n.childNodes[0];
+				if (n.childNodes.length === 2) {
+					n = n.childNodes[1];
+				} else {
+					var seq2 = new Fleur.Sequence();
+					seq2.childNodes = new Fleur.NodeList();
+					seq2.children = new Fleur.NodeList();
+					seq2.textContent = "";
+					n.childNodes.forEach(function(n2) {
+						seq2.appendChild(n2);
+					});
+					seq2.childNodes.shift();
+					n = seq2;
 				}
 			} else {
 				subcurr = n;
@@ -71,6 +81,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.pathExpr] = function(ctx, children, callback) {
 			next = n;
 			Fleur.XQueryEngine[Fleur.XQueryX.pathExpr]({
 				_curr: subcurr,
+				_item: ctx._item,
 				env: ctx.env
 			}, children.slice(1), cb);
 		};
@@ -81,11 +92,13 @@ Fleur.XQueryEngine[Fleur.XQueryX.pathExpr] = function(ctx, children, callback) {
 				n.childNodes.forEach(function(node) {
 					next.appendChild(node);
 				});
+				next.collabels = n.collabels;
 			} else {
 				next = n;
 			}
 			Fleur.XQueryEngine[Fleur.XQueryX.predicates]({
 				_next: next,
+				_item: ctx._item,
 				env: ctx.env
 			}, preds, function(n) {
 				Fleur.callback(function() {preds = []; cb2(n);});

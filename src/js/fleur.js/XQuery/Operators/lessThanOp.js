@@ -8,9 +8,5 @@
  * @description 
  */
 Fleur.XQueryEngine[Fleur.XQueryX.lessThanOp] = function(ctx, children, callback) {
-	Fleur.XPathGenTestOpFunction(ctx, children, function(op1, op2) {
-		return op1.schemaTypeInfo === Fleur.Type_string ? op1.data.localeCompare(op2.data) < 0 :
-			op1.schemaTypeInfo === Fleur.Type_boolean ? (op1.data === "true") < (op2.data === "true") :
-			parseFloat(op1.data) < parseFloat(op2.data);
-	}, callback);
+	Fleur.XPathGenTestOpFunction(ctx, children, Fleur.ltOp, callback);
 };

@@ -10,37 +10,8 @@
 Fleur.XQueryEngine.updating = false;
 Fleur.XQueryEngine.updateQueue = [];
 
-Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, callback) {
-	var fname = children[0][1][0];
-	var uri = ctx.env.nsresolver.lookupNamespaceURI(" function");
-	var args = children[1][1];
+Fleur.functionCall = function(ctx, children, xf, args, callback) {
 	var mainUpdater = false;
-	if (children[0][1][1]) {
-		if (children[0][1][1][0] === Fleur.XQueryX.URI) {
-			uri = children[0][1][1][1][0];
-		} else if (children[0][1][1][0] === Fleur.XQueryX.prefix && ctx.env.nsresolver) {
-			uri = ctx.env.nsresolver.lookupNamespaceURI(children[0][1][1][1][0]);
-		}
-	}
-	var xf;
-	if (uri === "http://www.w3.org/standards/webdesign/script") {
-		xf = (Fleur.XPathFunctions[uri] && Fleur.XPathFunctions[uri][fname + "#" + args.length]) ? Fleur.XPathFunctions[uri][fname + "#" + args.length] : {};
-		xf.jsfunc = eval(fname);
-	} else {
-		xf = Fleur.XPathFunctions[uri][fname + "#" + args.length] || Fleur.XPathFunctions[uri][fname];
-	}
-	if (!uri || !xf) {
-		if (uri === "http://www.w3.org/2005/xpath-functions" && fname === "concat" && args.length > 1) {
-			var cparam = [];
-			for (var i = 0, l = args.length; i < l; i++) {
-				cparam[i] = {type: Fleur.Node};
-			}
-			xf = Fleur.XPathFunctions[uri][fname + "#" + args.length] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:concat", Fleur.XPathFunctions_fn["concat#"].jsfunc, null, cparam, false, false, {type: Fleur.Type_string});
-		} else {
-			Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017", "The expanded QName and number of arguments in a static function call do not match the name and arity of a function signature in the static context for Q{" + uri + "}" + fname + "#" + args.length));});
-			return;
-		}
-	}
 	if (xf.updating && !ctx.updater) {
 		if (Fleur.XQueryEngine.updating) {
 			Fleur.XQueryEngine.updateQueue.push(function() {
@@ -213,10 +184,10 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 								a.schemaTypeInfo = t || Fleur.Type_double;
 							}
 						} else if (typeof v === "number" || typeof v === "boolean") {
-							a.data = String(v).replace("e+", "e");
 							if (!a.schemaTypeInfo) {
 								a.schemaTypeInfo = t || (typeof v === "number" ? Fleur.Type_double : Fleur.Type_boolean);
 							}
+							a.data = a.schemaTypeInfo.canonicalize(String(v));
 						} else if (typeof v === "string") {
 							a.data = v;
 							if (!a.schemaTypeInfo) {
@@ -315,4 +286,37 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, cal
 			Fleur.callback(function() {callback(n);});
 		});
 	}
+};
+
+Fleur.XQueryEngine[Fleur.XQueryX.functionCallExpr] = function(ctx, children, callback) {
+	var fname = children[0][1][0];
+	var uri = ctx.env.nsresolver.lookupNamespaceURI(" function");
+	var args = children[1][1];
+	if (children[0][1][1]) {
+		if (children[0][1][1][0] === Fleur.XQueryX.URI) {
+			uri = children[0][1][1][1][0];
+		} else if (children[0][1][1][0] === Fleur.XQueryX.prefix && ctx.env.nsresolver) {
+			uri = ctx.env.nsresolver.lookupNamespaceURI(children[0][1][1][1][0]);
+		}
+	}
+	var xf;
+	if (uri === "http://www.w3.org/standards/webdesign/script") {
+		xf = (Fleur.XPathFunctions[uri] && Fleur.XPathFunctions[uri][fname + "#" + args.length]) ? Fleur.XPathFunctions[uri][fname + "#" + args.length] : {};
+		xf.jsfunc = eval(fname);
+	} else {
+		xf = Fleur.XPathFunctions[uri][fname + "#" + args.length] || Fleur.XPathFunctions[uri][fname];
+	}
+	if (!uri || !xf) {
+		if (uri === "http://www.w3.org/2005/xpath-functions" && fname === "concat" && args.length > 1) {
+			var cparam = [];
+			for (var i = 0, l = args.length; i < l; i++) {
+				cparam[i] = {type: Fleur.Node};
+			}
+			xf = Fleur.XPathFunctions[uri][fname + "#" + args.length] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:concat", Fleur.XPathFunctions_fn["concat#"].jsfunc, null, cparam, false, false, {type: Fleur.Type_string});
+		} else {
+			Fleur.callback(function() {callback(Fleur.error(ctx, "XPST0017", "The expanded QName and number of arguments in a static function call do not match the name and arity of a function signature in the static context for Q{" + uri + "}" + fname + "#" + args.length));});
+			return;
+		}
+	}
+	Fleur.functionCall(ctx, children, xf, args, callback);
 };

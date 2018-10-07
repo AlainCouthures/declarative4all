@@ -12,12 +12,52 @@ Fleur.XQueryEngine[Fleur.XQueryX.dynamicFunctionInvocationExpr] = function(ctx, 
 		if (n && n.schemaTypeInfo === Fleur.Type_error) {
 			Fleur.callback(function() {callback(n);});
 			return;
-		} 
-		if (!n || n.nodeType !== Fleur.Node.FUNCTION_NODE) {
-			Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
-			return;
 		}
-		var args = children.length === 1 ? [] : children[1][1];
+		var args = children[children.length - 1][0] === Fleur.XQueryX.arguments ? children[children.length - 1][1] : [];
+		var preds = [];
+		children.forEach(function(child) {
+			if (child[0] === Fleur.XQueryX.predicates || child[0] === Fleur.XQueryX.predicate || child[0] === Fleur.XQueryX.lookup) {
+				preds.push(child);
+			}
+		});
+		if (preds[0] && preds[0][0] === Fleur.XQueryX.predicates) {
+			preds = preds[0][1];
+		}
+		if (preds.length === 0) {
+			if (!n || n.nodeType !== Fleur.Node.FUNCTION_NODE) {
+				Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
+				return;
+			}
+			Fleur.functionCall(ctx, children, n, args, callback);
+		} else {
+			var next;
+			if (n.nodeType === Fleur.Node.SEQUENCE_NODE) {
+				next = new Fleur.Sequence();
+				next.childNodes = new Fleur.NodeList();
+				n.childNodes.forEach(function(node) {
+					next.appendChild(node);
+				});
+			} else {
+				next = n;
+			}
+			Fleur.XQueryEngine[Fleur.XQueryX.predicates]({
+				_next: next,
+				_item: ctx._item,
+				env: ctx.env
+			}, preds, function(n) {
+				if (n && n.nodeType === Fleur.Node.ENTRY_NODE) {
+					n = n.firstChild;
+				}
+				if (!n || n.nodeType !== Fleur.Node.FUNCTION_NODE) {
+					Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
+					return;
+				}
+				Fleur.functionCall(ctx, children, n, args, callback);
+			});
+		}
+	});
+};
+/*
 		var mainUpdater = false;
 		var xf = n;
 		if (xf.updating && !ctx.updater) {
@@ -254,5 +294,4 @@ Fleur.XQueryEngine[Fleur.XQueryX.dynamicFunctionInvocationExpr] = function(ctx, 
 				Fleur.callback(function() {callback(n);});
 			});
 		}
-	});
-};
+ */

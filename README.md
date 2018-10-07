@@ -1,1 +1,1 @@
-Full forms dev environment for mobile phones based on DOM, XPath and XForms
+Full Javascript dev environment for web applications based on DOM, XPath/XQuery and XForms

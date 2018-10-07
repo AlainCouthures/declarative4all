@@ -11,4 +11,4 @@ Fleur.XPathFunctions_bin["or#2"] = new Fleur.Function("http://expath.org/ns/bina
 	function(a, b) {
 		return a | b;
 	},
-	null, [{type: Fleur.Type_positiveInteger}, {type: Fleur.Type_positiveInteger}], false, false, {type: Fleur.Type_positiveInteger});
+	null, [{type: Fleur.Type_nonNegativeInteger}, {type: Fleur.Type_nonNegativeInteger}], false, false, {type: Fleur.Type_nonNegativeInteger});

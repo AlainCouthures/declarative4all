@@ -11,4 +11,4 @@ Fleur.XPathFunctions_bin["not#1"] = new Fleur.Function("http://expath.org/ns/bin
 	function(i) {
 		return ~i;
 	},
-	null, [{type: Fleur.Type_positiveInteger}], false, false, {type: Fleur.Type_positiveInteger});
+	null, [{type: Fleur.Type_nonNegativeInteger}], false, false, {type: Fleur.Type_nonNegativeInteger});

@@ -8,7 +8,5 @@
  * @description 
  */
 Fleur.XPathFunctions_xs["decimal"] = function(ctx, children, callback) {
-	Fleur.XPathConstructor(ctx, children, Fleur.Type_decimal, /^[\-+]?([0-9]+(\.[0-9]*)?|\.[0-9]+)$/, function() {}, function() {
-		return false;
-	}, callback);
+	Fleur.XPathConstructor(ctx, children, Fleur.Type_decimal, function() {}, callback);
 };

@@ -8,12 +8,13 @@
  * @description 
  */
 Fleur.XQueryEngine[Fleur.XQueryX.flworExpr] = function(ctx, children, callback) {
+	//console.log("flworExpr");
 	var i = 0;
 	var prevvarres;
 	var resarr;
-	var cb = function(n) {
-		//console.log("flworExpr - cb - " + Fleur.Serializer._serializeNodeToXQuery(n, false, ""));
-		if (n.schemaTypeInfo === Fleur.Type_error) {
+	var cb = function(n, empty) {
+		//console.log("flworExpr - cb - " + Fleur.Serializer._serializeNodeToXQuery(n, false, "") + " " + String(empty));
+		if (empty || n.schemaTypeInfo === Fleur.Type_error) {
 			ctx.env.varresolver = prevvarres;
 			Fleur.callback(function() {callback(n);});
 			return;

@@ -36,6 +36,8 @@ Fleur.XQueryEngine[Fleur.XQueryX.returnClause] = function(ctx, children, callbac
 						result.appendChild(node);
 					});
 				}
+				result.rowlabels = n.rowlabels;
+				result.collabels = n.collabels;
 				//console.log(result.childNodes.length);
 			}
 		}

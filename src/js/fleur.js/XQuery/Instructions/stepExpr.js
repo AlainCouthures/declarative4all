@@ -63,6 +63,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.stepExpr] = function(ctx, children, callback) {
 		next = n;
 		Fleur.XQueryEngine[Fleur.XQueryX.stepExpr]({
 				_curr: subcurr,
+				_item: ctx._item,
 				env: ctx.env
 			}, children.slice(1), cb);
 	};

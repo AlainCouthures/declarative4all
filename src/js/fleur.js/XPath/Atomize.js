@@ -117,6 +117,9 @@ Fleur._Atomize = function(a, n, force) {
 				}
 			}
 			return a;
+		case Fleur.Node.FUNCTION_NODE:
+			a = new Fleur.Function(n.namespaceURI, n.nodeName, n.jsfunc, n.xqxfunc, n.argtypes, n.needctx, n.needcallback, n.restype, n.updating);
+			return a;
 	}
 };
 Fleur.Atomize = function(n, force) {

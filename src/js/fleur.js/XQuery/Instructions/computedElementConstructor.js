@@ -13,10 +13,14 @@ Fleur.XQueryEngine[Fleur.XQueryX.computedElementConstructor] = function(ctx, chi
 		elt.name = children[0][1][0];
 		elt.namespaceURI = null;
 		elt.nodeName = children[0][1][0];
-		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-			elt.appendChild(n);
+		if (children[1][1].length !== 0) {
+			Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+				elt.appendChild(n);
+				Fleur.callback(function() {callback(elt);});
+			});
+		} else {
 			Fleur.callback(function() {callback(elt);});
-		});
+		}	
 	} else {
 		Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
 			var a = Fleur.Atomize(n);
@@ -32,10 +36,14 @@ Fleur.XQueryEngine[Fleur.XQueryX.computedElementConstructor] = function(ctx, chi
 					elt.namespaceURI = null;
 					elt.localName = a.data;
 				}
-				Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
-					elt.appendChild(n);
+				if (children[1][1].length !== 0) {
+					Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
+						elt.appendChild(n);
+						Fleur.callback(function() {callback(elt);});
+					});
+				} else {
 					Fleur.callback(function() {callback(elt);});
-				});
+				}	
 			}
 		});
 	}

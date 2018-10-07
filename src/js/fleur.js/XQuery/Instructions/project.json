@@ -23,6 +23,7 @@
 		"deleteExpr.js",
 		"documentTest.js",
 		"doubleConstantExpr.js",
+		"doubleMapExpr.js",
 		"dynamicFunctionInvocationExpr.js",
 		"elementConstructor.js",
 		"elementContent.js",

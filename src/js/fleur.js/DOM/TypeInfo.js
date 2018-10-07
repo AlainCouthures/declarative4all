@@ -30,6 +30,7 @@ Fleur.TypeInfo.DERIVATION_RESTRICTION = 1;
 Fleur.TypeInfo.DERIVATION_EXTENSION = 2;
 Fleur.TypeInfo.DERIVATION_UNION = 4;
 Fleur.TypeInfo.DERIVATION_LIST = 8;
+Fleur.TypeInfo.prototype.canonicalize = function(s) {return s;};
 Fleur.TypeInfo.prototype.isDerivedFrom = function(typeNamespaceArg, typeNameArg, derivationMethod) {
 	var propname, t, typeArg = Fleur.Types[typeNamespaceArg][typeNameArg];
 	switch (derivationMethod) {
