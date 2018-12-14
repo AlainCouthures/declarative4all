@@ -30,6 +30,19 @@ Fleur.varMgr.prototype.get = function(ctx, vuri, vname) {
 };
 Fleur.varMgr.prototype.set = function(ctx, vuri, vname, value) {
 	//console.log(vname + " := " + Fleur.Serializer._serializeNodeToXQuery(value, false, ""));
+	var i;
+	var r = this;
+	do {
+		i = r.vars.length;
+		while (i) {
+			i--;
+			if (r.vars[i].vuri === vuri && r.vars[i].vname === vname) {
+				r.vars[i].value = value;
+				return value;
+			}
+		}
+		r = r.previous;
+	} while (r);
 	this.vars.push({vuri: vuri, vname: vname, value: value});
 	return value;
 };

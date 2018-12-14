@@ -57,13 +57,19 @@ Fleur.XQueryEngine[Fleur.XQueryX.doubleMapExpr] = function(ctx, children, callba
 						});
 						result = seq;
 					}
-					md = new Fleur.Multidim();
-					result.appendChild(md);
-					if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-						md.appendChild(n);
+					if (n.nodeType !== Fleur.Node.SEQUENCE_NODE || n.childNodes[0].nodeType !== Fleur.Node.MULTIDIM_NODE) {
+						md = new Fleur.Multidim();
+						result.appendChild(md);
+						if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+							md.appendChild(n);
+						} else {
+							n.childNodes.forEach(function(node) {
+								md.appendChild(node);
+							});
+						}
 					} else {
 						n.childNodes.forEach(function(node) {
-							md.appendChild(node);
+							result.appendChild(node);
 						});
 					}
 				}

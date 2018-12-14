@@ -1,6 +1,6 @@
 /*
-Fleur rev.12 (12)
-Matrix Support
+Fleur rev.13 (13)
+FLOWR + group by + count
 
 Copyright (C) 2018 agenceXML - Alain Couthures
 Contact at : info@agencexml.com
@@ -1377,6 +1377,7 @@ Fleur.DocumentType.resolveEntities = function(doctype, s) {
 		if (entityvalue) {
 			s = s.substr(0, index) + entityvalue + s.substr(index + entityname.length + 2);
 			offset = index + entityvalue.length;
+			entityvalue = null;
 		} else {
 			break;
 		}
@@ -5565,7 +5566,7 @@ Fleur.XPathFunctions_fn["avg#1"] = new Fleur.Function("http://www.w3.org/2005/xp
 	},
 	null, [{type: Fleur.numericTypes, adaptative: true, occurence: "*"}], false, false, {type: Fleur.numericTypes, adaptative: true, occurence: "?"});
 Fleur.XPathFunctions_fn["boolean#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:boolean",
-	function(arg, ctx) {
+	function(arg) {
 		var e;
 		if (arg === Fleur.EmptySequence) {
 			return false;
@@ -5989,16 +5990,28 @@ Fleur.XPathFunctions_fn["floor#1"] = new Fleur.Function("http://www.w3.org/2005/
 	null, [{type: Fleur.Type_double, occurence: "?"}], false, false, {type: Fleur.Type_integer});
 Fleur.XPathFunctions_fn["format-date#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:format-date",
 	function(value, picture, ctx) {
-		return Fleur.XPathFunctions_fn["format-dateTime#2"].jsfunc(value, picture, ctx, true, false);
+		return Fleur.XPathFunctions_fn["format-dateTime#5"].jsfunc(value, picture, null, null, null, ctx, true, false);
 	},
-	null, [{type: Fleur.Type_date, occurence: "?"}, {type: Fleur.Type_string}], true, false, {type: Fleur.Type_string});
+	null, [{type: Fleur.Type_date, occurence: "?"}, {type: Fleur.Type_string}], true, false, {type: Fleur.Type_string, occurence: "?"});
+Fleur.XPathFunctions_fn["format-date#5"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:format-date",
+	function(value, picture, language, calendar, place, ctx) {
+		return Fleur.XPathFunctions_fn["format-dateTime#5"].jsfunc(value, picture, language, calendar, place, ctx, true, false);
+	},
+	null, [{type: Fleur.Type_date, occurence: "?"}, {type: Fleur.Type_string}, {type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Type_string, occurence: "?"}], true, false, {type: Fleur.Type_string, occurence: "?"});
 Fleur.XPathFunctions_fn["format-dateTime#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:format-dateTime",
 	function(value, picture, ctx, notime, nodate) {
+		return Fleur.XPathFunctions_fn["format-dateTime#5"].jsfunc(value, picture, null, null, null, ctx, notime, nodate);
+	},
+	null, [{type: Fleur.Type_dateTime, occurence: "?"}, {type: Fleur.Type_string}], true, false, {type: Fleur.Type_string, occurence: "?"});
+Fleur.XPathFunctions_fn["format-dateTime#5"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:format-dateTime",
+	function(value, picture, language, calendar, place, ctx, notime, nodate) {
 		var s = "";
 		var i = 0, l = picture.length;
 		var format = "";
 		var pdate = false;
 		var ptime = false;
+		var valueDate = notime ? Fleur.toDate(value) : nodate ? Fleur.toTime(value) : Fleur.toDateTime(value);
+		language = language || Fleur.defaultLanguage;
 		while (i < l) {
 			var c = picture.charAt(i);
 			var prec = "";
@@ -6024,23 +6037,47 @@ Fleur.XPathFunctions_fn["format-dateTime#2"] = new Fleur.Function("http://www.w3
 						c = picture.charAt(++i);
 					}
 					if (c === "]") {
-						var intvalue = null;
+						var intvalue = null, stringvalue = null;
 						switch(format.charAt(0)) {
 							case "Y":
-								intvalue = parseInt(value.substr(0, 4), 10);
 								pdate = true;
+								intvalue = parseInt(value.substr(0, 4), 10);
 								break;
 							case "M":
-								intvalue = parseInt(value.substr(5, 2), 10);
 								pdate = true;
+								if (format.charAt(1).toLowerCase() !== "n") {
+									intvalue = parseInt(value.substr(5, 2), 10);
+								} else {
+									stringvalue = Fleur.getMonthName(language, valueDate);
+									if (format.charAt(1) === "N") {
+										if (format.charAt(2) === "n") {
+											stringvalue = stringvalue.charAt(0).toUpperCase() + stringvalue.substr(1).toLowerCase();
+										} else {
+											stringvalue = stringvalue.toUpperCase();
+										}
+									} else {
+										stringvalue = stringvalue.toLowerCase();
+									}
+								}
 								break;
 							case "D":
-								intvalue = parseInt(value.substr(8, 2), 10);
 								pdate = true;
+								intvalue = parseInt(value.substr(8, 2), 10);
 								break;
 							case "d":
 								break;
 							case "F":
+								pdate = true;
+								stringvalue = Fleur.getDayName(language, valueDate);
+								if (format.charAt(1) === "N") {
+									if (format.charAt(2) === "n") {
+										stringvalue = stringvalue.charAt(0).toUpperCase() + stringvalue.substr(1).toLowerCase();
+									} else {
+										stringvalue = stringvalue.toUpperCase();
+									}
+								} else {
+									stringvalue = stringvalue.toLowerCase();
+								}
 								break;
 							case "W":
 								break;
@@ -6049,18 +6086,18 @@ Fleur.XPathFunctions_fn["format-dateTime#2"] = new Fleur.Function("http://www.w3
 							case "H":
 								break;
 							case "h":
-								intvalue = parseInt(value.substr(nodate ? 0 : 11, 2), 10);
 								ptime = true;
+								intvalue = parseInt(value.substr(nodate ? 0 : 11, 2), 10);
 								break;
 							case "P":
 								break;
 							case "m":
-								intvalue = parseInt(value.substr(nodate ? 3 : 14, 2), 10);
 								ptime = true;
+								intvalue = parseInt(value.substr(nodate ? 3 : 14, 2), 10);
 								break;
 							case "s":
-								intvalue = parseInt(value.substr(nodate ? 6 : 17, 2), 10);
 								ptime = true;
+								intvalue = parseInt(value.substr(nodate ? 6 : 17, 2), 10);
 								break;
 							case "f":
 								break;
@@ -6076,10 +6113,9 @@ Fleur.XPathFunctions_fn["format-dateTime#2"] = new Fleur.Function("http://www.w3
 						if ((ptime && notime) || (pdate && nodate)) {
 							return Fleur.error(ctx, "FOFD1350");
 						}
-						if (intvalue !== null) {
+						if (intvalue !== null || stringvalue !== null) {
 							format = format.split(',');
 							var maxw, minw;
-							var svalue;
 							if (format[1]) {
 								var ws = format[1].split('-');
 								minw = ws[0] === "*" ? 1 : parseInt(ws[0], 10);
@@ -6088,13 +6124,18 @@ Fleur.XPathFunctions_fn["format-dateTime#2"] = new Fleur.Function("http://www.w3
 								minw = Math.max(format[0].length - 1, 1);
 								maxw = Infinity;
 							}
-							svalue = "0".repeat(Math.max(minw - String(intvalue).length, 0)) + String(intvalue);
-							if (svalue.length > maxw) {
+							if (intvalue !== null) {
+								stringvalue = String(intvalue);
+							}
+							stringvalue = "0".repeat(Math.max(minw - stringvalue.length, 0)) + stringvalue;
+							if (stringvalue.length > maxw) {
 								if (format[0].charAt(0) === 'Y') {
-									svalue = svalue.substr(svalue.length - maxw);
+									stringvalue = stringvalue.substr(stringvalue.length - maxw);
 								}
 							}
-							s += svalue;
+						}
+						if (stringvalue !== null) {
+							s += stringvalue;
 						}
 						i++;
 					}
@@ -6103,12 +6144,225 @@ Fleur.XPathFunctions_fn["format-dateTime#2"] = new Fleur.Function("http://www.w3
 		}
 		return s;
 	},
-	null, [{type: Fleur.Type_dateTime, occurence: "?"}, {type: Fleur.Type_string}], true, false, {type: Fleur.Type_string});
+	null, [{type: Fleur.Type_dateTime, occurence: "?"}, {type: Fleur.Type_string}, {type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Type_string, occurence: "?"}], true, false, {type: Fleur.Type_string, occurence: "?"});
+Fleur.XPathFunctions_fn["format-number#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:format-number",
+	function(value, picture) {
+		var i, j, l, l2, pictures, dss, ess, ps, pms, ms, msbefore, psafter, pmsafter, signs, esigns, iipgp, ipgp, mips, prefix, fstart, fpgp, minfps, maxfps, mes, suffix, dsspos, evalue, esign, s0, s;
+		pictures = picture.split(";");
+		picture = value < 0 && pictures[1] ? pictures[1] : pictures[0];
+		signs = ".,-%\u2030#0123456789";
+		esigns = ".,e-%\u2030#0123456789";
+		i = 0;
+		l = picture.length;
+		while (i < l && signs.indexOf(picture.charAt(i)) === -1) {
+			i++;
+		}
+		prefix = picture.substring(0, i);
+		dss = ess = ps = pms = false;
+		mips = 0;
+		minfps = 0;
+		maxfps = 0;
+		mes = 0;
+		iipgp = [];
+		ipgp = [];
+		fpgp = [];
+		while (i < l && esigns.indexOf(picture.charAt(i)) !== -1) {
+			switch (picture.charAt(i)) {
+				case ".":
+					dss = true;
+					fstart = i + 1;
+					j = 0;
+					l2 = iipgp.length;
+					while (j < l2) {
+						ipgp[l2 - j - 1] = i - iipgp[j] - 1;
+						j++;
+					}
+					break;
+				case ",":
+					if (dss) {
+						fpgp.push(i - fstart);
+					} else {
+						iipgp.push(i);
+					}
+					break;
+				case "e":
+					ess = true;
+					if (!dss) {
+						j = 0;
+						l2 = iipgp.length;
+						while (j < l2) {
+							ipgp[l2 - j - 1] = i - iipgp[j] - 1;
+							j++;
+						}
+					}
+					break;
+				case "-":
+					ms = true;
+					msbefore = mips === 0;
+					break;
+				case "%":
+					ps = true;
+					psafter = mips !== 0;
+					value *= 100;
+					if (!dss) {
+						j = 0;
+						l2 = iipgp.length;
+						while (j < l2) {
+							ipgp[l2 - j - 1] = i - iipgp[j] - 1;
+							j++;
+						}
+					}
+					break;
+				case "\u2030":
+					pms = true;
+					pmsafter = mips !== 0;
+					value *= 1000;
+					if (!dss) {
+						j = 0;
+						l2 = iipgp.length;
+						while (j < l2) {
+							ipgp[l2 - j - 1] = i - iipgp[j] - 1;
+							j++;
+						}
+					}
+					break;
+				case "0":
+				case "1":
+				case "2":
+				case "3":
+				case "4":
+				case "5":
+				case "6":
+				case "7":
+				case "8":
+				case "9":
+					if (ess) {
+						mes++;
+					} else if (dss) {
+						minfps++;
+						maxfps++;
+					} else {
+						mips++;
+					}
+					break;
+				case "#":
+					if (dss) {
+						maxfps++;
+					}
+					break;
+			}
+			i++;
+		}
+		if (!dss) {
+			if (iipgp.length !== ipgp.length) {
+				j = 0;
+				l2 = iipgp.length;
+				while (j < l2) {
+					ipgp[l2 - j - 1] = i - iipgp[j] - 1;
+					j++;
+				}
+			}
+			if (mips === 0) {
+				mips = 1;
+			}
+		}
+		if (ipgp.length > 1) {
+			j = 1;
+			l2 = ipgp.length;
+			while (j < l2 && ipgp[j] % ipgp[0] === 0) {
+				j++;
+			}
+			if (j === l2) {
+				ipgp = [ipgp[0]];
+			}
+		}
+		if (ipgp.length === 1) {
+			j = 1;
+			while (j < 30) {
+				ipgp[j] = ipgp[j - 1] + ipgp[0];
+				j++;
+			}
+		}
+		suffix = picture.substring(i);
+		if (value === Number.POSITIVE_INFINITY) {
+			return prefix + "Infinity" + suffix;
+		} else if (value === Number.NEGATIVE_INFINITY) {
+			return "-" + prefix + "Infinity" + suffix;
+		}
+		if (value < 0 && pictures.length === 1) {
+			prefix = "-" + prefix;
+		}
+		if (ess) {
+			evalue = Math.floor(Math.log(value) / Math.LN10) + 1 - mips;
+			value /= Math.pow(10, evalue);
+			esign = evalue < 0 ? "-" : "";
+			evalue = String(Math.abs(evalue));
+			evalue = esign + ("000000000000000000000000000000").substr(0, Math.max(0, mes - evalue.length)) + evalue;
+		}
+		s0 = Math.abs(value).toFixed(maxfps);
+		if (maxfps === 0 && dss) {
+			s0 += ".";
+		}
+		dsspos = s0.indexOf(".") === -1 ? s0.length : s0.indexOf(".");
+		if (dsspos < mips) {
+			s0 = ("000000000000000000000000000000").substr(0, mips - dsspos) + s0;
+			dsspos = mips;
+		}
+		j = dsspos - 1;
+		s = "";
+		i = 0;
+		l2 = s0.length;
+		while (j >= 0) {
+			s = s0.charAt(j) + s;
+			if (j !== 0 && ipgp[i] === dsspos - j) {
+				s = "," + s;
+				i++;
+			}
+			j--;
+		}
+		if (dss) {
+			s += ".";
+			j = dsspos + 1;
+			i = 0;
+			while (j < l2) {
+				s += s0.charAt(j);
+				if (j !== l2 - 1 && fpgp[i] === j - dsspos) {
+					s += ",";
+					i++;
+				}
+				j++;
+			}
+		}
+		if (ps) {
+			if (psafter) {
+				s += "%";
+			} else {
+				s = "%" + s;
+			}
+		}
+		if (pms) {
+			if (pmsafter) {
+				s += "\u2030";
+			} else {
+				s = "\u2030" + s;
+			}
+		}
+		if (ess) {
+			s += "e" + evalue;
+		}
+		return prefix + s + suffix;
+	},
+	null, [{type: Fleur.numericTypes, occurence: "?"}, {type: Fleur.Type_string}], false, false, {type: Fleur.Type_string});
 Fleur.XPathFunctions_fn["format-time#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:format-time",
 	function(value, picture, ctx) {
-		return Fleur.XPathFunctions_fn["format-dateTime#2"].jsfunc(value, picture, ctx, false, true);
+		return Fleur.XPathFunctions_fn["format-dateTime#5"].jsfunc(value, picture, null, null, null, ctx, false, true);
 	},
-	null, [{type: Fleur.Type_time, occurence: "?"}, {type: Fleur.Type_string}], true, false, {type: Fleur.Type_string});
+	null, [{type: Fleur.Type_time, occurence: "?"}, {type: Fleur.Type_string}], true, false, {type: Fleur.Type_string, occurence: "?"});
+Fleur.XPathFunctions_fn["format-time#5"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:format-time",
+	function(value, picture, language, calendar, place, ctx) {
+		return Fleur.XPathFunctions_fn["format-dateTime#5"].jsfunc(value, picture, language, calendar, place, ctx, false, true);
+	},
+	null, [{type: Fleur.Type_time, occurence: "?"}, {type: Fleur.Type_string}, {type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Type_string, occurence: "?"}], true, false, {type: Fleur.Type_string, occurence: "?"});
 Fleur.XPathFunctions_fn["function-arity#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:function-arity",
 	function(f) {
 		return f.argtypes.length;
@@ -6345,50 +6599,49 @@ Fleur.XPathFunctions_fn["max"] = function(ctx, children, callback) {
 		if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
 			Fleur.callback(function() {callback(Fleur.Atomize(n));});
 			return;
-		} else {
-			var items = n.childNodes, a;
-			var i, l;
-			i = 0;
-			l = items.length;
-			while (i < l) {
-				a = Fleur.Atomize(items[i]);
+		}
+		var items = n.childNodes, a;
+		var i, l;
+		i = 0;
+		l = items.length;
+		while (i < l) {
+			a = Fleur.Atomize(items[i]);
+			if (!comp) {
+				if (a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_anyURI || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
+					comp = Fleur.Type_string;
+				} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+					comp = Fleur.Type_string;
+				} else {
+					comp = Fleur.Type_double;
+				}
+			}
+			if (comp === Fleur.Type_double) {
+				val = Fleur.toJSNumber(a);
+			} else {
+				val = Fleur.toJSString(a);
+			}
+			if (val[0] < 0) {
 				if (!comp) {
-					if (a.schemaTypeInfo === Fleur.Type_string || a.schemaTypeInfo === Fleur.Type_anyURI || a.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-						comp = Fleur.Type_string;
-					} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "anyURI", Fleur.TypeInfo.DERIVATION_RESTRICTION) || a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "untypedAtomic", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
-						comp = Fleur.Type_string;
-					} else {
-						comp = Fleur.Type_double;
-					}
-				}
-				if (comp === Fleur.Type_double) {
-					val = Fleur.toJSNumber(a);
-				} else {
+					comp = Fleur.Type_string;
 					val = Fleur.toJSString(a);
-				}
-				if (val[0] < 0) {
-					if (!comp) {
-						comp = Fleur.Type_string;
-						val = Fleur.toJSString(a);
-					} else {
-						Fleur.error("");
-					}
-				}
-				if (!max) {
-					t = val[0];
-					max = val[1];
 				} else {
-					if (comp === Fleur.Type_double) {
-						if (max < val[1]) {
-							t = val[0];
-							max = val[1];
-						}
-					} else if (max.localeCompare(val[1]) < 0) {
+					Fleur.error("");
+				}
+			}
+			if (!max) {
+				t = val[0];
+				max = val[1];
+			} else {
+				if (comp === Fleur.Type_double) {
+					if (max < val[1]) {
+						t = val[0];
 						max = val[1];
 					}
+				} else if (max.localeCompare(val[1]) < 0) {
+					max = val[1];
 				}
-				i++;
 			}
+			i++;
 		}
 		a.data = "" + max;
 		a.schemaTypeInfo = comp === Fleur.Type_double ? Fleur.numericTypes[t] : Fleur.Type_string;
@@ -6991,14 +7244,14 @@ Fleur.XPathFunctions_fn["string-to-codepoints#1"] = new Fleur.Function("http://w
 	null, [{type: Fleur.Type_string, occurence: "?"}], false, false, {type: Fleur.Type_integer, occurence: "*"});
 Fleur.XPathFunctions_fn["substring#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:substring",
 	function(source, start) {
-		return source.substr(start - 1);
+		return source ? source.substr(start - 1) : "";
 	},
-	null, [{type: Fleur.Type_string}, {type: Fleur.Type_integer}], false, false, {type: Fleur.Type_string, occurence: "?"});
+	null, [{type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Type_integer}], false, false, {type: Fleur.Type_string, occurence: "?"});
 Fleur.XPathFunctions_fn["substring#3"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:substring",
 	function(source, start, end) {
-		return source.substr(start - 1, end);
+		return source ? source.substr(start - 1, end) : "";
 	},
-	null, [{type: Fleur.Type_string}, {type: Fleur.Type_integer}, {type: Fleur.Type_integer}], false, false, {type: Fleur.Type_string, occurence: "?"});
+	null, [{type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Type_integer}, {type: Fleur.Type_integer}], false, false, {type: Fleur.Type_string, occurence: "?"});
 Fleur.XPathFunctions_fn["substring-after#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:substring-after",
 	function(a, b) {
 		if (!a) {
@@ -7079,12 +7332,32 @@ Fleur.XPathFunctions_fn["trace#1"] = new Fleur.Function("http://www.w3.org/2005/
 	function(n) {
 		console.log(Fleur.Serializer._serializeNodeToXQuery(n, false, ""));
 	},
-	null, [{type: Fleur.Node}], false, false, {type: Fleur.EmptySequence});
+	null, [{type: Fleur.Node, occurence: "?"}], false, false, {type: Fleur.EmptySequence});
 Fleur.XPathFunctions_fn["trace#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:trace",
 	function(n, label) {
-		console.log(label + Fleur.Serializer._serializeNodeToXQuery(n, false, ""));
+		console.log((label || "") + Fleur.Serializer._serializeNodeToXQuery(n, false, ""));
 	},
-	null, [{type: Fleur.Node}, {type: Fleur.Type_string}], false, false, {type: Fleur.EmptySequence});
+	null, [{type: Fleur.Node, occurence: "?"}, {type: Fleur.Type_string, occurence: "?"}], false, false, {type: Fleur.EmptySequence});
+Fleur.XPathFunctions_fn["trace#3"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:trace",
+	function(n, label, serialization) {
+		var contentType;
+		var indent = false;
+		if (serialization) {
+			var a2 = Fleur.Atomize(serialization);
+			var	op2 = Fleur.toJSObject(a2);
+			if (op2[0] < 0) {
+				return;
+			}
+			contentType = Fleur.toContentType(op2[1],  "application/xquery");
+			indent = op2[1].indent === "yes";
+		}
+		if (!contentType) {
+			contentType = "application/xquery";
+		}
+		var ser = new Fleur.Serializer();
+		console.log((label || "") + ser.serializeToString(n, contentType, indent));
+	},
+	null, [{type: Fleur.Node, occurence: "?"}, {type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Node, occurence: "?"}], false, false, {type: Fleur.EmptySequence});
 Fleur.XPathFunctions_fn["translate#3"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:translate",
 	function(arg, mapString, transString) {
 		var res = "", i, j, l, tl = transString.length;
@@ -7906,10 +8179,14 @@ Fleur.XPathFunctions_matrix["labels#3"] = new Fleur.Function("http://www.mathuni
 				res.push(a.data);
 			}
 			return res;
-		}
-		arg.rowlabels = atomlabels(rowlabels);
-		arg.collabels = atomlabels(collabels);
-		return arg;
+		};
+		var seq = new Fleur.Sequence();
+		arg.childNodes.forEach(function(child) {
+			seq.appendChild(child);
+		});
+		seq.rowlabels = atomlabels(rowlabels);
+		seq.collabels = atomlabels(collabels);
+		return seq;
 	},
 	null, [{type: Fleur.Node, occurence: "?"}, {type: Fleur.Node, occurence: "?"}, {type: Fleur.Node, occurence: "?"}], false, false, {type: Fleur.Node, occurence: "?"});
 Fleur.XPathFunctions_matrix["transpose#1"] = new Fleur.Function("http://www.mathunion.org/matrix", "matrix:transpose",
@@ -8244,7 +8521,7 @@ Fleur.XPathFunctions_file["write#3"] = new Fleur.Function("http://expath.org/ns/
 			contentType = Fleur.extension2contentType[global.path.extname(filename).toLowerCase()] || "application/xml";
 		}
 		var ser = new Fleur.Serializer();
-		global.fs.writeFile(filename, ser.serializeToString(node, contentType, indent), 'utf8', function(err) {
+		global.fs.writeFile(filename, '\ufeff' + ser.serializeToString(node, contentType, indent), 'utf8', function(err) {
 			if (err) {
 				callback(Fleur.error(ctx, "FODC0002"));
 			} else {
@@ -8319,6 +8596,42 @@ Fleur.XPathFunctions_proc["property#1"] = new Fleur.Function("http://basex.org/m
 		}
 	},
 	null, [{type: Fleur.Type_string}], false, false, {type: Fleur.Type_string, occurence: "?"});
+Fleur.XPathFunctions_proc["system#1"] = new Fleur.Function("http://basex.org/modules/proc", "proc:system",
+	function(cmd, callback) {
+		return Fleur.XPathFunctions_proc["system#3"].jsfunc(cmd, null, null, callback);
+	},
+	null, [{type: Fleur.Type_string}], false, true, {type: Fleur.Type_string, occurence: "?"});
+Fleur.XPathFunctions_proc["system#2"] = new Fleur.Function("http://basex.org/modules/proc", "proc:system",
+	function(cmd, args, callback) {
+		return Fleur.XPathFunctions_proc["system#3"].jsfunc(cmd, args, null, callback);
+	},
+	null, [{type: Fleur.Type_string}, {type: Fleur.Type_string, occurence: "*"}], false, true, {type: Fleur.Type_string, occurence: "?"});
+Fleur.XPathFunctions_proc["system#3"] = new Fleur.Function("http://basex.org/modules/proc", "proc:system",
+	function(cmd, args, options, callback) {
+		if (cmd !== "" && global.child_process) {
+			var cmdline = cmd.indexOf(" ") !== -1 ? '"' + cmd + '"' : cmd;
+			if (args) {
+				args.forEach(function(arg) {
+					cmdline += arg.indexOf(" ") !== -1 ? ' "' + arg + '"' : " " + arg;
+				});
+			}
+			global.child_process.exec(cmdline, {windowsHide: true}, function(err, stdout, stderr) {
+				if (err) {
+					err.name = "FOPR0001";
+					callback(err);
+				} else if (stderr) {
+					var e = new Error(stderr);
+					e.name = "FOPR0001";
+					callback(e);
+				} else {
+					callback(stdout);
+				}
+			});
+			return;
+		}
+		callback(null);
+	},
+	null, [{type: Fleur.Type_string}, {type: Fleur.Type_string, occurence: "*"}, {type: Fleur.Node, occurence: "?"}], false, true, {type: Fleur.Type_string, occurence: "?"});
 Fleur.XPathFunctions_request["body-doc#0"] = new Fleur.Function("http://exquery.org/ns/request", "request:body-doc",
 	function(ctx) {
 		return Fleur.XPathFunctions_request["body-doc#1"].jsfunc(null, ctx);
@@ -8955,7 +9268,7 @@ Fleur.XPathFromDateTimeFunction = function(ctx, children, t1, r, t2, callback) {
 	});
 };
 Fleur.XPathEvaluator = function() {};
-Fleur.XPathEvaluator._precedence = "././/.:.as.&0.!.!!.&1.~+.~-.&2.cast as.&3.castable as.&4.treat as.&5.instance of.&6.intersect.except.&7.|.union.&8.div.mod.*.idiv.&9.+.-.&10.to.&11.||.&12.eq.ne.lt.le.gt.ge.<.>.<=.>=.is.<<.>>.=.!=.&13.and.&14.or.&17.:=.in.&18.after.before.into.with.value.&19.node.nodes.&20.for.let.some.every.return.satisfies.then.&21.else.&22.,.&50.;.&51.";
+Fleur.XPathEvaluator._precedence = "././/.:.as.&0.!.!!.&1.~+.~-.&2.cast as.&3.castable as.&4.treat as.&5.instance of.&6.intersect.except.&7.|.union.&8.div.mod.*.idiv.&9.+.-.&10.to.&11.||.&12.eq.ne.lt.le.gt.ge.<.>.<=.>=.is.<<.>>.=.!=.&13.and.&14.or.&15.allowing.&16.at.&17.:=.in.&18.after.before.into.with.value.&19.node.nodes.&20.~~ascending.~~descending.empty.&28.~,.&29.for.let.group by.order by.stable order by.count.where.some.every.return.satisfies.&30.then.&31.else.&32.,.&50.;.&51.";
 Fleur.XPathEvaluator._rightgrouping = Fleur.XPathEvaluator._precedence.substr(Fleur.XPathEvaluator._precedence.indexOf(".then.") + 6);
 Fleur.XPathEvaluator._rightgrouping = Fleur.XPathEvaluator._rightgrouping.substr(Fleur.XPathEvaluator._rightgrouping.indexOf("&") + 1);
 Fleur.XPathEvaluator._rightgrouping = parseInt(Fleur.XPathEvaluator._rightgrouping.substr(0, Fleur.XPathEvaluator._rightgrouping.indexOf(".")), 10);
@@ -9060,9 +9373,16 @@ Fleur.XPathEvaluator._calc = function(args, ops, opprec) {
 	var arg2len = args.substr(0, args.indexOf("."));
 	var arg2val = args.substr(args.indexOf(".") + 1).substr(0, parseInt(arg2len, 10));
 	var arg2val2, arg2val3;
-	var args3 = args.substr(arg2len.length + 1 + parseInt(arg2len, 10));
-	var arg1len = args3.substr(0, args3.indexOf("."));
-	var arg1val = args3.substr(args3.indexOf(".") + 1).substr(0, parseInt(arg1len, 10));
+	var args3, arg1len, arg1val;
+	if (op.startsWith("~~")) {
+		args3 = args;
+		arg1len = arg2len;
+		arg1val = arg2val;
+	} else {
+		args3 = args.substr(arg2len.length + 1 + parseInt(arg2len, 10));
+		arg1len = args3.substr(0, args3.indexOf("."));
+		arg1val = args3.substr(args3.indexOf(".") + 1).substr(0, parseInt(arg1len, 10));
+	}
 	var arg;
 	switch (op) {
 		case ";":
@@ -9087,10 +9407,25 @@ Fleur.XPathEvaluator._calc = function(args, ops, opprec) {
 				} else {
 					arg = "[Fleur.XQueryX.sequenceExpr,[" + arg1val + "," + arg2val + "]]";
 				}
-			} else if (arg1val.substr(0, 25) === "[Fleur.XQueryX.letClause,") {
-				arg = arg1val.substr(0, arg1val.length - 2) + "," + arg2val.substr(26);
 			} else {
 				arg = arg1val + "," + arg2val;
+			}
+			break;
+		case "~,":
+			if (arg1val.substr(0, 25) === "[Fleur.XQueryX.letClauseItem," || arg1val.substr(0, 27) === "[Fleur.XQueryX.groupBySpec,") {
+				arg = arg1val + "," + arg2val;
+			} else {
+				if (arg1val.substr(0, 27) !== "[Fleur.XQueryX.orderBySpec,") {
+					arg = "[Fleur.XQueryX.orderBySpec,[[Fleur.XQueryX.orderByExpr,[" + arg1val + "]]]]";
+				} else {
+					arg = arg1val;
+				}
+				arg += ",";
+				if (arg2val.substr(0, 27) !== "[Fleur.XQueryX.orderBySpec,") {
+					arg += "[Fleur.XQueryX.orderBySpec,[[Fleur.XQueryX.orderByExpr,[" + arg2val + "]]]]";
+				} else {
+					arg += arg2val;
+				}
 			}
 			break;
 		case "//":
@@ -9141,7 +9476,13 @@ Fleur.XPathEvaluator._calc = function(args, ops, opprec) {
 			}
 			break;
 		case ":=":
-			if (arg1val.substr(0, 23) === "[Fleur.XQueryX.varName,") {
+			if (ops.startsWith("5.18.:=11.30.group by") || ops.startsWith("5.18.:=5.29.~,11.30.group by")) {
+				if (arg1val.substr(0, 28) === "[Fleur.XQueryX.groupingSpec,") {
+					arg = arg1val.substr(0, arg1val.length - 2) + ",[Fleur.XQueryX.groupVarInitialize,[[Fleur.XQueryX.varValue,[" + arg2val + "]]]]]]";
+				} else {
+					arg = "[Fleur.XQueryX.groupingSpec,[[Fleur.XQueryX.varName,[" + arg1val.substr(44, arg1val.length - 48) + "]],[Fleur.XQueryX.groupVarInitialize,[[Fleur.XQueryX.varValue,[" + arg2val + "]]]]]]";
+				}
+			} else if (arg1val.substr(0, 23) === "[Fleur.XQueryX.varName,") {
 				arg = "[Fleur.XQueryX.letClause,[[Fleur.XQueryX.letClauseItem,[[Fleur.XQueryX.typedVariableBinding,[" + arg1val + "]],[Fleur.XQueryX.letExpr,[" + arg2val + "]]]]]]";
 			} else {
 				arg = "[Fleur.XQueryX.letClause,[[Fleur.XQueryX.letClauseItem,[[Fleur.XQueryX.typedVariableBinding,[[Fleur.XQueryX.varName,[" + arg1val.substr(0, arg1val.length - 4).substr(44) + "]]]],[Fleur.XQueryX.letExpr,[" + arg2val + "]]]]]]";
@@ -9201,6 +9542,37 @@ Fleur.XPathEvaluator._calc = function(args, ops, opprec) {
 			break;
 		case "for":
 			arg = arg1val + "," + arg2val;
+			break;
+		case "group by":
+			arg = arg1val + ",[Fleur.XQueryX.groupByClause,[" + arg2val + "]]";
+			break;
+		case "order by":
+			if (arg2val.substr(0, 27) === "[Fleur.XQueryX.orderBySpec,") {
+				arg = arg1val + ",[Fleur.XQueryX.orderByClause,[" + arg2val + "]]";
+			} else {
+				arg = arg1val + ",[Fleur.XQueryX.orderByClause,[[Fleur.XQueryX.orderBySpec,[[Fleur.XQueryX.orderByExpr,[" + arg2val + "]]]]]]";
+			}
+			break;
+		case "~~ascending":
+		case "~~descending":
+			arg = "[Fleur.XQueryX.orderBySpec,[[Fleur.XQueryX.orderByExpr,[" + arg1val + "]],[Fleur.XQueryX.orderModifier,[[Fleur.XQueryX.orderingKind,['" + op.substr(2) + "']]]]]]";
+			break;
+		case "empty":
+			if (arg1val.substr(0,27) === "[Fleur.XQueryX.orderBySpec,") {
+				if (arg1val.endsWith(",[Fleur.XQueryX.orderModifier,[[Fleur.XQueryX.orderingKind,['ascending']]]]]]") || arg1val.endsWith(",[Fleur.XQueryX.orderModifier,[[Fleur.XQueryX.orderingKind,['descending']]]]]]")) {
+					arg = arg1val.substr(0, arg1val.length - 4) + ",[Fleur.XQueryX.emptyOrderingMode,['empty " + arg2val.substr(112, arg2val.length - 119) + "']]]]]]";
+				} else {
+					arg = arg1val.substr(0, arg1val.length - 2) + ",[Fleur.XQueryX.orderModifier,[[Fleur.XQueryX.emptyOrderingMode,['empty " + arg2val.substr(112, arg2val.length - 119) + "']]]]]]";
+				}
+			} else {
+				arg = "[Fleur.XQueryX.orderBySpec,[[Fleur.XQueryX.orderByExpr,[" + arg1val + "]],[Fleur.XQueryX.orderModifier,[[Fleur.XQueryX.emptyOrderingMode,['empty " + arg2val.substr(112, arg2val.length - 119) + "']]]]]]";
+			}
+			break;
+		case "where":
+			arg = arg1val + ",[Fleur.XQueryX.whereClause,[" + arg2val + "]]";
+			break;
+		case "count":
+			arg = arg1val + ",[Fleur.XQueryX.countClause,[" + arg2val + "]]";
 			break;
 		case "nodes":
 			if (arg1val === "[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['child']],[Fleur.XQueryX.nameTest,['delete']]]]]]") {
@@ -9652,7 +10024,7 @@ Fleur.XPathEvaluator._getNodeConstructor = function(s) {
 		}
 	}
 };
-Fleur.XPathEvaluator._getPredParam = function(c, s, l, arg) {
+Fleur.XPathEvaluator._getPredParam = function(c, s, l, arg, allowpredicates, predstart, predarr) {
 	var t;
 	l = l || 0;
 	var p, plen;
@@ -9960,10 +10332,23 @@ Fleur.XPathEvaluator._getPredParam = function(c, s, l, arg) {
 			arg = "[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.filterExpr,[" + arg + "]]]]]]";
 		}
 		if (c === "?") {
-			p = plen + "." + arg.substr(0, arg.length - 4) + "," + t.substr(t.indexOf(".") + 1) + "]]]]";
+			if (arg.indexOf(",[Fleur.XQueryX.predicates,[") === -1) {
+				p = plen + "." + arg.substr(0, arg.length - 4) + "," + t.substr(t.indexOf(".") + 1) + "]]]]";
+			} else {
+				p = plen + "." + arg.substr(0, predstart) + predarr.reduce(function(s, pr) {return s + ",[Fleur.XQueryX.predicate,[" + pr + "]]";}, "") + "," + t.substr(t.indexOf(".") + 1) + "]]]]";;
+			}
+			allowpredicates = false;
 		} else if (arg.indexOf(",[Fleur.XQueryX.predicates,[") === -1) {
-			p = plen + "." + arg.substr(0, arg.length - 4) + ",[Fleur.XQueryX.predicates,[" + t.substr(t.indexOf(".") + 1) + "]]]]]]";
+			if (allowpredicates) {
+				predarr = [];
+				predarr.push(t.substr(t.indexOf(".") + 1));
+				predstart = arg.length - 4;
+			}
+			p = plen + "." + arg.substr(0, arg.length - 4) + ",[" + (allowpredicates ? "Fleur.XQueryX.predicates" : "Fleur.XQueryX.predicate") + ",[" + t.substr(t.indexOf(".") + 1) + "]]]]]]";
 		} else {
+			if (allowpredicates) {
+				predarr.push(t.substr(t.indexOf(".") + 1));
+			}
 			p = plen + "." + arg.substr(0, arg.length - 6) + "," + t.substr(t.indexOf(".") + 1) + "]]]]]]";
 		}
 	}
@@ -9971,7 +10356,7 @@ Fleur.XPathEvaluator._getPredParam = function(c, s, l, arg) {
 		var inext = Fleur.XPathEvaluator._skipSpaces(s, plen - 1);
 		var cnext = s.charAt(inext);
 		if (cnext === "(" || cnext === "[" || cnext === "{" || cnext === "?") {
-			return Fleur.XPathEvaluator._getPredParam(cnext, s.substr(inext + 1), l + inext + 1, p.substr(p.indexOf(".") + 1));
+			return Fleur.XPathEvaluator._getPredParam(cnext, s.substr(inext + 1), l + inext + 1, p.substr(p.indexOf(".") + 1), allowpredicates, predstart, predarr);
 		}
 	}
 	return (l + plen) + "." + p.substr(p.indexOf(".") + 1);
@@ -9979,7 +10364,7 @@ Fleur.XPathEvaluator._getPredParam = function(c, s, l, arg) {
 Fleur.XPathEvaluator._getPredParams = function(s, len, arg) {
 	var i = Fleur.XPathEvaluator._skipSpaces(s, 0);
 	if (s.charAt(i) === "(" || s.charAt(i) === "[" || s.charAt(i) === "{" || s.charAt(i) === "?") {
-		return Fleur.XPathEvaluator._getPredParam(s.charAt(i), s.substr(i + 1), len + i, arg);
+		return Fleur.XPathEvaluator._getPredParam(s.charAt(i), s.substr(i + 1), len + i, arg, true, 0, []);
 	}
 	return (len + i) + "." + arg;
 };
@@ -10093,7 +10478,13 @@ Fleur.XPathEvaluator._xp2js = function(xp, args, ops) {
 	} else if (c === "$") {
 		var t51 = Fleur.XPathEvaluator._getName(d);
 		var pt51 = (t51.indexOf(":") === -1 ? ":" : "") + t51;
-		r = (t51.length + 1) + ".[Fleur.XQueryX.varRef,[[Fleur.XQueryX.name,['" + pt51.substr(pt51.indexOf(":") + 1) + "'" + (pt51.charAt(0) === ":" ? "" : ",[Fleur.XQueryX.prefix,['" + pt51.substr(0, pt51.indexOf(":")) + "']]") + "]]]]";
+		var instr;
+		if (ops.startsWith("11.30.group by") || ops.startsWith("5.29.~,11.30.group by")) {
+			instr = "[Fleur.XQueryX.groupingSpec,[[Fleur.XQueryX.varName,[";
+		} else {
+			instr = "[Fleur.XQueryX.varRef,[[Fleur.XQueryX.name,[";
+		}
+		r = (t51.length + 1) + "." + instr + "'" + pt51.substr(pt51.indexOf(":") + 1) + "'" + (pt51.charAt(0) === ":" ? "" : ",[Fleur.XQueryX.prefix,['" + pt51.substr(0, pt51.indexOf(":")) + "']]") + "]]]]";
 	} else if (c === "?") {
 		var c2 = d.charAt(0);
 		d = d.substr(1);
@@ -10157,6 +10548,24 @@ Fleur.XPathEvaluator._xp2js = function(xp, args, ops) {
 	var f = rlen === 0 ? c + d : d.substr(rlen - 1);
 	var i4 = Fleur.XPathEvaluator._skipSpaces(f, 0);
 	var o = f.charAt(i4);
+	var p = f.substr(f.indexOf(o));
+	var op = "null";
+	var op2 = "null";
+	if ((p.substr(0, 9) === "ascending" || p.substr(0, 10) === "descending") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(o === "a" ? 9 : 10)) === -1) {
+		var postprec0 = Fleur.XPathEvaluator._precedence.substr(Fleur.XPathEvaluator._precedence.indexOf(".~~" + (o === "a" ? "ascending" : "descending") + ".") + (o === "a" ? 13 : 14));
+		var postprec00 = postprec0.substr(postprec0.indexOf("&") + 1);
+		var postprec = postprec00.substr(0, postprec00.indexOf("."));
+		var poststacks = Fleur.XPathEvaluator._calc(args2, ops, parseInt(postprec, 10));
+		var postargslen = poststacks.substr(0, poststacks.indexOf("."));
+		args2 = poststacks.substr(poststacks.indexOf(".") + 1).substr(0, parseInt(postargslen, 10));
+		var postnextstack = poststacks.substr(postargslen.length + 1 + parseInt(postargslen, 10));
+		var postopslen = postnextstack.substr(0, postnextstack.indexOf("."));
+		ops = (postprec.length + 1 + (o === "a" ? 11 : 12)) + "." + postprec + ".~~" + (o === "a" ? "ascending" : "descending") + postnextstack.substr(postnextstack.indexOf(".") + 1).substr(0, parseInt(postopslen, 10));
+		f = f.substr(o === "a" ? 9 : 10);
+		i4 = Fleur.XPathEvaluator._skipSpaces(f, 0);
+		o = f.charAt(i4);
+		p = f.substr(f.indexOf(o));
+	}
 	if (ops.substr(0, 16) === "13.6.instance of") {
 		if (o === "+" || o === "?" || o === "*") {
 			ops = "14.6.instance of" + o + ops.substr(16);
@@ -10171,7 +10580,6 @@ Fleur.XPathEvaluator._xp2js = function(xp, args, ops) {
 		var ret0 = stacks.substr(stacks.indexOf(".") + 1);
 		return ret0.substr(ret0.indexOf(".") + 1).substr(0, parseInt(reslen, 10));
 	}
-	var p = f.substr(f.indexOf(o));
 	if (o === "]" || o === ")" || o === "}" || (p.substr(0, 6) === "return" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(6)) === -1) || (p.substr(0, 9) === "satisfies" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(9)) === -1)) {
 		var stacks2 = Fleur.XPathEvaluator._calc(args2, ops, 998);
 		var reslen20 = stacks2.substr(stacks2.indexOf(".") + 1);
@@ -10179,8 +10587,6 @@ Fleur.XPathEvaluator._xp2js = function(xp, args, ops) {
 		var ret20 = stacks2.substr(stacks2.indexOf(".") + 1);
 		return (f.substr(f.indexOf(o) + 1).length - (o === "r" ? 5 : o === "s" ? 8 : 0)) + "." + ret20.substr(ret20.indexOf(".") + 1).substr(0, parseInt(reslen2, 10));
 	}
-	var op = "null";
-	var op2 = "null";
 	if (o === "$") {
 		switch(rval) {
 			case "[Fleur.XQueryX.pathExpr,[[Fleur.XQueryX.stepExpr,[[Fleur.XQueryX.xpathAxis,['child']],[Fleur.XQueryX.nameTest,['for']]]]]]":
@@ -10211,6 +10617,8 @@ Fleur.XPathEvaluator._xp2js = function(xp, args, ops) {
 		}
 	} else if (p.substr(0, 9) === "intersect" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(9)) === -1) {
 		op = p.substr(0, 9);
+	} else if (p.substr(0, 8) === "allowing" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(8)) === -1) {
+		op = p.substr(0, 8);
 	} else if (p.substr(0, 8) === "instance" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(8)) === -1) {
 		op = p.substr(0, Fleur.XPathEvaluator._skipSpaces(p, 8) + 2);
 		op2 = "instance of";
@@ -10222,7 +10630,13 @@ Fleur.XPathEvaluator._xp2js = function(xp, args, ops) {
 	} else if (p.substr(0, 5) === "treat" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(5)) === -1) {
 		op = p.substr(0, Fleur.XPathEvaluator._skipSpaces(p, 5) + 2);
 		op2 = "treat as";
-	} else if ((p.substr(0, 5) === "union" || p.substr(0, 5) === "every" || p.substr(0, 5) === "nodes" || p.substr(0, 5) === "after" || p.substr(0, 5) === "value") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(5)) === -1) {
+	} else if (p.substr(0, 5) === "group" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(5)) === -1) {
+		op = p.substr(0, Fleur.XPathEvaluator._skipSpaces(p, 5) + 2);
+		op2 = "group by";
+	} else if (p.substr(0, 5) === "order" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(5)) === -1) {
+		op = p.substr(0, Fleur.XPathEvaluator._skipSpaces(p, 5) + 2);
+		op2 = "order by";
+	} else if ((p.substr(0, 5) === "union" || p.substr(0, 5) === "every" || p.substr(0, 5) === "nodes" || p.substr(0, 5) === "after" || p.substr(0, 5) === "value" || p.substr(0, 5) === "count" || p.substr(0, 5) === "where" || p.substr(0, 5) === "empty") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(5)) === -1) {
 		op = p.substr(0, 5);
 	} else if (p.substr(0, 4) === "cast" && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(4)) === -1) {
 		op = p.substr(0, Fleur.XPathEvaluator._skipSpaces(p, 4) + 2);
@@ -10231,15 +10645,35 @@ Fleur.XPathEvaluator._xp2js = function(xp, args, ops) {
 		op = p.substr(0, 4);
 	} else if ((p.substr(0, 3) === "div" || p.substr(0, 3) === "and" || p.substr(0, 3) === "mod" || p.substr(0, 3) === "let" || p.substr(0, 3) === "for") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(3)) === -1) {
 		op = p.substr(0, 3);
-	} else if ((p.substr(0, 2) === "or" || p.substr(0, 2) === "eq" || p.substr(0, 2) === "ne" || p.substr(0, 2) === "lt" || p.substr(0, 2) === "le" || p.substr(0, 2) === "gt" || p.substr(0, 2) === "ge" || p.substr(0, 2) === "is" || p.substr(0, 2) === "to" || p.substr(0, 2) === "in" || p.substr(0, 2) === "as") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(2)) === -1) {
+	} else if ((p.substr(0, 2) === "or" || p.substr(0, 2) === "eq" || p.substr(0, 2) === "ne" || p.substr(0, 2) === "lt" || p.substr(0, 2) === "le" || p.substr(0, 2) === "gt" || p.substr(0, 2) === "ge" || p.substr(0, 2) === "is" || p.substr(0, 2) === "to" || p.substr(0, 2) === "in" || p.substr(0, 2) === "as" || p.substr(0, 2) === "at" || p.substr(0, 2) === "by") && "_.-0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:".indexOf(p.charAt(2)) === -1) {
 		op = p.substr(0, 2);
 	} else if (p.substr(0, 2) === "!=" || p.substr(0, 2) === "<=" || p.substr(0, 2) === ">=" || p.substr(0, 2) === "<<" || p.substr(0, 2) === ">>" || p.substr(0, 2) === "//" || p.substr(0, 2) === "~+" || p.substr(0, 2) === "~-" || p.substr(0, 2) === ":=" || p.substr(0, 2) === "||" || p.substr(0, 2) === "!!") {
 		op = p.substr(0, 2);
 	} else if ("+-*=|,;<>/!{:".indexOf(o) !== -1) {
 		op = o;
+		if (op === ",") {
+			if (ops.startsWith("5.18.:=") || ops.startsWith("11.30.group by") || ops.startsWith("5.29.~,11.30.group by")) {
+				op2 = "~,";
+			} else {
+				var optrack = ops;
+				while (optrack !== "") {
+					if (optrack.startsWith("11.30.order by")) {
+						op2 = "~,";
+						break;
+					}
+					var optracklen = parseInt(optrack.substr(0, optrack.indexOf(".")), 10);
+					var optrackprec0 = optrack.substring(optrack.indexOf(".") + 1, optracklen);
+					var optrackprec = parseInt(optrackprec0.substr(0, optrackprec0.indexOf(".")), 10);
+					if (optrackprec > 30) {
+						break;
+					}
+					optrack = optrack.substr(optrack.indexOf(".") + 1 + optracklen);
+				}
+			}
+		}
 	}
 	if (op !== "null") {
-		var opprec0 = Fleur.XPathEvaluator._precedence.substr(Fleur.XPathEvaluator._precedence.indexOf("." + (op2 !== "null" ? op2 : op) + ".") + op.length + 2);
+		var opprec0 = Fleur.XPathEvaluator._precedence.substr(Fleur.XPathEvaluator._precedence.indexOf("." + (op2 !== "null" ? op2 : op) + ".") + (op2 !== "null" ? op2 : op).length + 2);
 		var opprec00 = opprec0.substr(opprec0.indexOf("&") + 1);
 		var opprec = opprec00.substr(0, opprec00.indexOf("."));
 		var stacks3 = Fleur.XPathEvaluator._calc(args2, ops, parseInt(opprec, 10));
@@ -10249,7 +10683,7 @@ Fleur.XPathEvaluator._xp2js = function(xp, args, ops) {
 		var ops3len = nextstack.substr(0, nextstack.indexOf("."));
 		var ops3 = nextstack.substr(nextstack.indexOf(".") + 1).substr(0, parseInt(ops3len, 10));
 		var xp3 = p.substr(op.length);
-		return Fleur.XPathEvaluator._xp2js(xp3, args3, (opprec.length + 1 + op.length) + "." + opprec + "." + op + ops3);
+		return Fleur.XPathEvaluator._xp2js(xp3, args3, (opprec.length + 1 + (op2 !== "null" ? op2 : op).length) + "." + opprec + "." + (op2 !== "null" ? op2 : op) + ops3);
 	}
 	throw Error("Unknown operator at '" + f + "'");
 };
@@ -11093,6 +11527,19 @@ Fleur.varMgr.prototype.get = function(ctx, vuri, vname) {
 	return Fleur.error(ctx, "XPST0008", "$" + (vuri && vuri !== '' ? vuri + ":" + vname : vname) + " is undefined");
 };
 Fleur.varMgr.prototype.set = function(ctx, vuri, vname, value) {
+	var i;
+	var r = this;
+	do {
+		i = r.vars.length;
+		while (i) {
+			i--;
+			if (r.vars[i].vuri === vuri && r.vars[i].vname === vname) {
+				r.vars[i].value = value;
+				return value;
+			}
+		}
+		r = r.previous;
+	} while (r);
 	this.vars.push({vuri: vuri, vname: vname, value: value});
 	return value;
 };
@@ -11938,6 +12385,16 @@ Fleur.XQueryEngine[Fleur.XQueryX.computedTextConstructor] = function(ctx, childr
 Fleur.XQueryEngine[Fleur.XQueryX.contextItemExpr] = function(ctx, children, callback) {
 	Fleur.callback(function() {callback(ctx._curr);});
 };
+Fleur.XQueryEngine[Fleur.XQueryX.countClause] = function(ctx, children, callback, resarr) {
+	var countname = children[0][1][0][1][0];
+	resarr.forEach(function addcount(vmgr, i) {
+		var countvalue = new Fleur.Text();
+		countvalue.data = String(i + 1);
+		countvalue.schemaTypeInfo = Fleur.Type_integer;
+		vmgr.set(ctx, "", countname, countvalue);
+	});
+	Fleur.callback(function() {callback(Fleur.EmptySequence);});
+};
 Fleur.XQueryEngine[Fleur.XQueryX.decimalConstantExpr] = function(ctx, children, callback) {
 	var a = new Fleur.Text();
 	a.appendData(children[0][1][0]);
@@ -12032,13 +12489,19 @@ Fleur.XQueryEngine[Fleur.XQueryX.doubleMapExpr] = function(ctx, children, callba
 						});
 						result = seq;
 					}
-					md = new Fleur.Multidim();
-					result.appendChild(md);
-					if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-						md.appendChild(n);
+					if (n.nodeType !== Fleur.Node.SEQUENCE_NODE || n.childNodes[0].nodeType !== Fleur.Node.MULTIDIM_NODE) {
+						md = new Fleur.Multidim();
+						result.appendChild(md);
+						if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+							md.appendChild(n);
+						} else {
+							n.childNodes.forEach(function(node) {
+								md.appendChild(node);
+							});
+						}
 					} else {
 						n.childNodes.forEach(function(node) {
-							md.appendChild(node);
+							result.appendChild(node);
 						});
 					}
 				}
@@ -12093,14 +12556,15 @@ Fleur.XQueryEngine[Fleur.XQueryX.dynamicFunctionInvocationExpr] = function(ctx, 
 		}
 		var args = children[children.length - 1][0] === Fleur.XQueryX.arguments ? children[children.length - 1][1] : [];
 		var preds = [];
-		children.forEach(function(child) {
-			if (child[0] === Fleur.XQueryX.predicates || child[0] === Fleur.XQueryX.predicate || child[0] === Fleur.XQueryX.lookup) {
+		children[0][1].forEach(function(child) {
+			if (child[0] === Fleur.XQueryX.predicates) {
+				child[1].forEach(function(subchild) {preds.push(subchild);});
+			} else if (child[0] === Fleur.XQueryX.predicate) {
+				preds.push(child[1][0]);
+			} else if (child[0] === Fleur.XQueryX.lookup) {
 				preds.push(child);
 			}
 		});
-		if (preds[0] && preds[0][0] === Fleur.XQueryX.predicates) {
-			preds = preds[0][1];
-		}
 		if (preds.length === 0) {
 			if (!n || n.nodeType !== Fleur.Node.FUNCTION_NODE) {
 				Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
@@ -12276,7 +12740,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.forClauseItem] = function(ctx, children, callba
 						resarr[i].set(ctx, "", pvarname, posvalue);
 					}
 				} else {
-					var newres = new Fleur.varMgr([], resarr[i]);
+					var newres = new Fleur.varMgr([], resarr[i].previous);
 					newres.set(ctx, "", varname, e);
 					if (positionalVariableBinding !== 0) {
 						posvalue = new Fleur.Text();
@@ -12661,6 +13125,95 @@ Fleur.XQueryEngine[Fleur.XQueryX.functionDecl] = function(ctx, children, callbac
 	Fleur.XPathFunctions[uri][fname + "#" + String(args.length)] = new Fleur.Function(uri, prefix ? prefix + ":" + fname : fname, null, fbody, args, false, false, fret, updating);
 	Fleur.callback(function() {callback();});
 };
+Fleur.XQueryEngine[Fleur.XQueryX.groupByClause] = function(ctx, children, callback, resarr, groupkeynames) {
+	groupkeynames = groupkeynames || [];
+	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+		if (n && n.schemaTypeInfo === Fleur.Type_error) {
+			Fleur.callback(function() {callback(n);});
+			return;
+		} 
+		if (children.length <= 1) {
+			var aggregnames = [];
+			resarr[0].vars.forEach(function(v) {if (groupkeynames.indexOf(v.vname) === -1) aggregnames.push(v.vname);});
+			var kgroups = [];
+			var ogroups = resarr.reduce(function(o, vmgr) {
+				var okey = groupkeynames.reduce(function(k, gkname) {
+					var jsv = Fleur.toJSValue(vmgr.get(ctx, "", gkname), true, true, true, true);
+					if (jsv[0] < 3) {
+						jsv[0] = 3;
+					}
+					if (jsv[0] === 6 || jsv[0] === 7) {
+						jsv[0] = 8;
+					}
+					jsv[1] = String(jsv[1]);
+					return k + String(jsv[0]) + "." + String(jsv[1].length) + "." + jsv[1] + "|";
+				}, "");
+				if (o[okey]) {
+					aggregnames.forEach(function(aname) {
+						var avalue = vmgr.get(ctx, "", aname);
+						if (avalue !== Fleur.EmptySequence) {
+							var ovalue = o[okey].get(ctx, "", aname);
+							if (ovalue === Fleur.EmptySequence) {
+								o[okey].set(ctx, "", aname, avalue);
+							} else {
+								if (ovalue.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+									var seq = new Fleur.Sequence();
+									seq.appendChild(ovalue);
+									ovalue = seq;
+								}
+								if (avalue.nodeType !== Fleur.Node.SEQUENCE_NODE) {
+									ovalue.appendChild(avalue);
+								} else {
+									avalue.childNodes.forEach(function(av) {
+										ovalue.appendChild(av);
+									});
+								}
+								o[okey].set(ctx, "", aname, ovalue);
+							}
+						}
+					});
+				} else {
+					kgroups.push(okey);
+					o[okey] = vmgr;
+				}
+				return o;
+			}, {});
+			kgroups.forEach(function(k, i) {
+				resarr[i] = ogroups[k];
+			});
+			resarr.splice(kgroups.length);
+			Fleur.callback(function() {callback(n);});
+			return;
+		} 
+		Fleur.XQueryEngine[Fleur.XQueryX.groupByClause](ctx, children.slice(1), callback, resarr, groupkeynames);
+	}, resarr, groupkeynames);
+};
+Fleur.XQueryEngine[Fleur.XQueryX.groupingSpec] = function(ctx, children, callback, resarr, groupkeynames) {
+	var varname = children[0][1][0];
+	groupkeynames.push(varname);
+	var i = 0;
+	var cb = function(n) {
+		var a = Fleur.Atomize(n);
+		resarr[i].set(ctx, "", varname, a);
+		i++;
+		if (i !== resarr.length) {
+			if (children.length === 1) {
+				cb(resarr[i].get(ctx, "", varname));	
+			} else {
+				ctx.env.varresolver = resarr[i];
+				Fleur.XQueryEngine[children[1][1][0][1][0][0]](ctx, children[1][1][0][1][0][1], cb);
+			}
+		} else {
+			Fleur.callback(function() {callback(Fleur.EmptySequence);});
+		}
+	};
+	if (children.length === 1) {
+				cb(resarr[i].get(ctx, "", varname));	
+	} else {
+		ctx.env.varresolver = resarr[0];
+		Fleur.XQueryEngine[children[1][1][0][1][0][0]](ctx, children[1][1][0][1][0][1], cb);
+	}
+};
 Fleur.XQueryEngine[Fleur.XQueryX.ifThenElseExpr] = function(ctx, children, callback) {
 	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
 		var boolean;
@@ -12915,28 +13468,28 @@ Fleur.XQueryEngine[Fleur.XQueryX.letClauseItem] = function(ctx, children, callba
 	};
 	Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], cb);
 };
-Fleur.XQueryEngine[Fleur.XQueryX.lookup] = function(ctx, children, callback) {
+Fleur.XQueryEngine.lookups = function(ctx, children, callback, functionid) {
 	var ncname, ilabel, seq;
 	if (ctx._label) {
 		if (children[0][0] === Fleur.XQueryX.NCName) {
 			ncname = children[0][1][0];
 			if (ncname !== ctx._label) {
-				Fleur.callback(function() {callback(Fleur.EmptySequence, Fleur.XQueryX.lookup);});
+				Fleur.callback(function() {callback(Fleur.EmptySequence, functionid);});
 			} else {
 				ctx._curr.collabels = null;
-				Fleur.callback(function() {callback(ctx._curr, Fleur.XQueryX.lookup);});
+				Fleur.callback(function() {callback(ctx._curr, functionid);});
 			}
 		} else {
 			Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
 				var a = Fleur.Atomize(n);
 				if (a.nodeType !== Fleur.Node.TEXT_NODE) {
-					Fleur.callback(function() {callback(a, Fleur.XQueryX.lookup);});
+					Fleur.callback(function() {callback(a, functionid);});
 				} else {
 					if (a.data !== ctx._label) {
-						Fleur.callback(function() {callback(Fleur.EmptySequence, Fleur.XQueryX.lookup);});
+						Fleur.callback(function() {callback(Fleur.EmptySequence, functionid);});
 					} else {
 						ctx._curr.collabels = null;
-						Fleur.callback(function() {callback(ctx._curr, Fleur.XQueryX.lookup);});
+						Fleur.callback(function() {callback(ctx._curr, functionid);});
 					}
 				}
 			});
@@ -12947,22 +13500,22 @@ Fleur.XQueryEngine[Fleur.XQueryX.lookup] = function(ctx, children, callback) {
 			ncname = children[0][1][0];
 			ilabel = ctx._curr.collabels.indexOf(ncname);
 			if (ilabel === -1) {
-				Fleur.callback(function() {callback(Fleur.EmptySequence, Fleur.XQueryX.lookup);});
+				Fleur.callback(function() {callback(Fleur.EmptySequence, functionid);});
 			} else if (ctx._curr.childNodes[ilabel].nodeType === Fleur.Node.MULTIDIM_NODE) {
 				seq = new Fleur.Sequence();
 				seq.appendChild(ctx._curr.childNodes[ilabel]);
-				Fleur.callback(function() {callback(seq, Fleur.XQueryX.lookup);});
+				Fleur.callback(function() {callback(seq, functionid);});
 			} else {
-				Fleur.callback(function() {callback(ctx._curr.childNodes[ilabel], Fleur.XQueryX.lookup);});
+				Fleur.callback(function() {callback(ctx._curr.childNodes[ilabel], functionid);});
 			}
 		} else {
 			Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
 				var a = Fleur.Atomize(n);
 				if (a.nodeType !== Fleur.Node.TEXT_NODE) {
-					Fleur.callback(function() {callback(a, Fleur.XQueryX.lookup);});
+					Fleur.callback(function() {callback(a, functionid);});
 				} else {
 					ilabel = ctx._curr.collabels.indexOf(a.data);
-					Fleur.callback(function() {callback(ilabel === -1 ? Fleur.EmptySequence : ctx._curr.childNodes[ilabel], Fleur.XQueryX.lookup);});
+					Fleur.callback(function() {callback(ilabel === -1 ? Fleur.EmptySequence : ctx._curr.childNodes[ilabel], functionid);});
 				}
 			});
 		}
@@ -12975,7 +13528,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.lookup] = function(ctx, children, callback) {
 		parents = ctx._curr.childNodes.filter(function(c) { return c.nodeType === Fleur.Node.MAP_NODE || c.nodeType === Fleur.Node.ARRAY_NODE;});	
 	}
 	if (parents.length === 0) {
-		Fleur.callback(function() {callback(Fleur.EmptySequence, Fleur.XQueryX.lookup);});
+		Fleur.callback(function() {callback(Fleur.EmptySequence, functionid);});
 		return;
 	}
 	seq = new Fleur.Sequence();
@@ -12996,7 +13549,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.lookup] = function(ctx, children, callback) {
 		} else if (seq.childNodes.length === 1) {
 			seq = seq.childNodes[0];
 		}
-		Fleur.callback(function() {callback(seq, Fleur.XQueryX.lookup);});
+		Fleur.callback(function() {callback(seq, functionid);});
 	} else if (children[0][0] === Fleur.XQueryX.integerConstantExpr) {
 		var idx = parseInt(children[0][1][0][1][0], 10) - 1;
 		parents.forEach(function(p) {
@@ -13013,7 +13566,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.lookup] = function(ctx, children, callback) {
 		} else if (seq.childNodes.length === 1) {
 			seq = seq.childNodes[0];
 		}
-		Fleur.callback(function() {callback(seq, Fleur.XQueryX.lookup);});
+		Fleur.callback(function() {callback(seq, functionid);});
 	} else if (children[0][0] === Fleur.XQueryX.star) {
 		parents.forEach(function(p) {
 			if (p.nodeType === Fleur.Node.MAP_NODE) {
@@ -13031,7 +13584,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.lookup] = function(ctx, children, callback) {
 		} else if (seq.childNodes.length === 1) {
 			seq = seq.childNodes[0];
 		}
-		Fleur.callback(function() {callback(seq, Fleur.XQueryX.lookup);});
+		Fleur.callback(function() {callback(seq, functionid);});
 	} else {
 		Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], function(n) {
 			var a = Fleur.Atomize(n);
@@ -13054,10 +13607,13 @@ Fleur.XQueryEngine[Fleur.XQueryX.lookup] = function(ctx, children, callback) {
 				} else if (seq.childNodes.length === 1) {
 					seq = seq.childNodes[0];
 				}
-				Fleur.callback(function() {callback(seq, Fleur.XQueryX.lookup);});
+				Fleur.callback(function() {callback(seq, functionid);});
 			}
 		});
 	}
+};
+Fleur.XQueryEngine[Fleur.XQueryX.lookup] = function(ctx, children, callback) {
+	Fleur.XQueryEngine.lookups(ctx, children, callback, Fleur.XQueryX.lookup);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.mainModule] = function(ctx, children, callback) {
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
@@ -13247,21 +13803,86 @@ Fleur.XQueryEngine[Fleur.XQueryX.optionDecl] = function(ctx, children, callback)
 	ctx.env.options[uri][children[0][1][0]] = children[1][1][0];
 	Fleur.callback(function() {callback();});
 };
+Fleur.XQueryEngine[Fleur.XQueryX.orderByClause] = function(ctx, children, callback, resarr, orderkeys, orderkinds) {
+	orderkeys = orderkeys || [];
+	orderkeys.push([]);
+	orderkinds = orderkinds || [];
+	if (children[0][1].length === 2 && children[0][1][1][1][0][1][0] === "descending") {
+		orderkinds.push(-1);
+	} else {
+		orderkinds.push(1);
+	}
+	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
+		if (n && n.schemaTypeInfo === Fleur.Type_error) {
+			Fleur.callback(function() {callback(n);});
+			return;
+		} 
+		if (children.length <= 1) {
+			var kvs = [];
+			orderkeys.forEach(function(ks, ki) {
+				ks.forEach(function(k, kj) {
+					kvs[kj] = kvs[kj] || [];
+					kvs[kj][ki] = k;
+				});
+			}, []);
+			resarr.forEach(function(vmgr, i) {
+				resarr[i] = {
+					kvs: kvs[i],
+					resarr: resarr[i]
+				};
+			});
+			resarr.sort(function(a, b) {
+				for (var i = 0, l = a.kvs.length; i < l; i++) {
+					if (Fleur.ltOp(a.kvs[i], b.kvs[i])) {
+						return -orderkinds[i];
+					}
+					if (Fleur.gtOp(a.kvs[i], b.kvs[i])) {
+						return orderkinds[i];
+					}
+				}
+				return 0;
+			});
+			resarr.forEach(function(o, i) {
+				resarr[i] = o.resarr;
+			});
+			Fleur.callback(function() {callback(n);});
+			return;
+		} 
+		Fleur.XQueryEngine[Fleur.XQueryX.orderByClause](ctx, children.slice(1), callback, resarr, orderkeys);
+	}, resarr, orderkeys[orderkeys.length - 1]);
+};
+Fleur.XQueryEngine[Fleur.XQueryX.orderBySpec] = function(ctx, children, callback, resarr, orderkeyvalues) {
+	var i = 0;
+	ctx.env.varresolver = resarr[0];
+	var cb = function(n) {
+		var jsv = Fleur.toJSValue(n, true, true, true, true);
+		orderkeyvalues.push(jsv);
+		i++;
+		if (i !== resarr.length) {
+			ctx.env.varresolver = resarr[i];
+			Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], cb);
+		} else {
+			Fleur.callback(function() {callback(Fleur.EmptySequence);});
+		}
+	};
+	Fleur.XQueryEngine[children[0][1][0][0]](ctx, children[0][1][0][1], cb);
+};
 Fleur.XQueryEngine[Fleur.XQueryX.pathExpr] = function(ctx, children, callback) {
 	var next;
 	var result = Fleur.EmptySequence;
 	var tests = [];
 	var preds = [];
 	children[0][1].forEach(function(child) {
-		if (child[0] === Fleur.XQueryX.predicates || child[0] === Fleur.XQueryX.predicate || child[0] === Fleur.XQueryX.lookup) {
+		if (child[0] === Fleur.XQueryX.predicates) {
+			child[1].forEach(function(subchild) {preds.push(subchild);});
+		} else if (child[0] === Fleur.XQueryX.predicate) {
+			preds.push(child[1][0]);
+		} else if (child[0] === Fleur.XQueryX.lookup) {
 			preds.push(child);
 		} else {
 			tests.push(child);
 		}
 	});
-	if (preds[0] && preds[0][0] === Fleur.XQueryX.predicates) {
-		preds = preds[0][1];
-	}
 	var cb = function(n, eob) {
 		if (eob === Fleur.XQueryX.pathExpr) {
 			if (n !== Fleur.EmptySequence) {
@@ -13561,7 +14182,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.predicates] = function(ctx, children, callback)
 			if (next.collabels) {
 				label = next.collabels[0];
 			}
-			if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
+			if (next !== Fleur.EmptySequence && next.nodeType === Fleur.Node.SEQUENCE_NODE) {
 				if (next.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
 					if (next.childNodes[0].childNodes.length !== 1) {
 						subcurr = new Fleur.Sequence();
@@ -14075,7 +14696,9 @@ Fleur.XQueryEngine[Fleur.XQueryX.stringConstantExpr] = function(ctx, children, c
 Fleur.XQueryEngine[Fleur.XQueryX.textTest] = function(ctx, children, callback) {
 	Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.TEXT_NODE ? Fleur.EmptySequence : ctx._curr);});
 };
-Fleur.XQueryEngine[Fleur.XQueryX.unaryLookup] = Fleur.XQueryEngine[Fleur.XQueryX.lookup];
+Fleur.XQueryEngine[Fleur.XQueryX.unaryLookup] = function(ctx, children, callback) {
+	Fleur.XQueryEngine.lookups(ctx, children, callback, Fleur.XQueryX.unaryLookup);
+};
 Fleur.XQueryEngine[Fleur.XQueryX.uri] = function(ctx, children) {
 };
 Fleur.XQueryEngine[Fleur.XQueryX.varRef] = function(ctx, children, callback) {
@@ -14094,6 +14717,24 @@ Fleur.XQueryEngine[Fleur.XQueryX.Wildcard] = function(ctx, children, callback) {
 		}
 	}
 	Fleur.callback(function() {callback(ctx._curr.nodeType !== Fleur.Node.ELEMENT_NODE && ctx._curr.nodeType !== Fleur.Node.ATTRIBUTE_NODE && ctx._curr.nodeType !== Fleur.Node.ENTRY_NODE ? Fleur.EmptySequence : ctx._curr);});
+};
+Fleur.XQueryEngine[Fleur.XQueryX.whereClause] = function(ctx, children, callback, resarr) {
+	var i = 0;
+	ctx.env.varresolver = resarr[0];
+	var cb = function(n) {
+		if (Fleur.XPathFunctions_fn["boolean#1"].jsfunc(n)) {
+			i++;
+		} else {
+			resarr.splice(i, 1);
+		}
+		if (i !== resarr.length) {
+			ctx.env.varresolver = resarr[i];
+			Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
+		} else {
+			Fleur.callback(function() {callback(Fleur.EmptySequence);});
+		}
+	};
+	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], cb);
 };
 Fleur.XQueryEngine[Fleur.XQueryX.xpathAxis] = function(ctx, children, callback) {
 	var seq, n, i, l;
@@ -14344,7 +14985,6 @@ Fleur.XQueryEngine[Fleur.XQueryX.constructorFunctionExpr] = function(ctx, childr
 Fleur.XQueryEngine[Fleur.XQueryX.contentExpr] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.contextItemDecl] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.copyNamespacesDecl] = function(ctx, children) {};
-Fleur.XQueryEngine[Fleur.XQueryX.countClause] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.currentItem] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.decimalFormatDecl] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.decimalFormatName] = function(ctx, children) {};
@@ -14366,9 +15006,6 @@ Fleur.XQueryEngine[Fleur.XQueryX.forLetClauseItemExtensions] = function(ctx, chi
 Fleur.XQueryEngine[Fleur.XQueryX.functionBody] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.functionItem] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.functionName] = function(ctx, children) {};
-Fleur.XQueryEngine[Fleur.XQueryX.groupByClause] = function(ctx, children) {};
-Fleur.XQueryEngine[Fleur.XQueryX.groupVarInitialize] = function(ctx, children) {};
-Fleur.XQueryEngine[Fleur.XQueryX.groupingSpec] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.inheritMode] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.itemType] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.kindTest] = function(ctx, children) {};
@@ -14383,10 +15020,6 @@ Fleur.XQueryEngine[Fleur.XQueryX.occurrenceIndicator] = function(ctx, children) 
 Fleur.XQueryEngine[Fleur.XQueryX.operand] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.operatorExpr] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.optional] = function(ctx, children) {};
-Fleur.XQueryEngine[Fleur.XQueryX.orderByClause] = function(ctx, children) {};
-Fleur.XQueryEngine[Fleur.XQueryX.orderByExpr] = function(ctx, children) {};
-Fleur.XQueryEngine[Fleur.XQueryX.orderBySpec] = function(ctx, children) {};
-Fleur.XQueryEngine[Fleur.XQueryX.orderModifier] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.orderedExpr] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.orderingKind] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.orderingModeDecl] = function(ctx, children) {};
@@ -14449,7 +15082,6 @@ Fleur.XQueryEngine[Fleur.XQueryX.varValue] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.variableBinding] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.versionDecl] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.voidSequenceType] = function(ctx, children) {};
-Fleur.XQueryEngine[Fleur.XQueryX.whereClause] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.winEndExpr] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.winStartExpr] = function(ctx, children) {};
 Fleur.XQueryEngine[Fleur.XQueryX.windowClause] = function(ctx, children) {};
@@ -15161,6 +15793,144 @@ Fleur.error = function(ctx, ename, emessage) {
 	}
 	return a;
 };
+Fleur.locale = {};
+Fleur.locale["ar"] = {
+	weekdays:["\u0627\u0644\u0623\u062D\u062F","\u0627\u0644\u0627\u062B\u0646\u064A\u0646","\u0627\u0644\u062B\u0644\u0627\u062B\u0627\u0621","\u0627\u0644\u0623\u0631\u0628\u0639\u0627\u0621","\u0627\u0644\u062E\u0645\u064A\u0633","\u0627\u0644\u062C\u0645\u0639\u0629","\u0627\u0644\u0633\u0628\u062A"],
+	months: ["\u0631\u0628\u064A\u0639 \u0627\u0644\u0622\u062E\u0631","\u062C\u0645\u0627\u062F\u0649 \u0627\u0644\u0623\u0648\u0644\u0649","\u062C\u0645\u0627\u062F\u0649 \u0627\u0644\u0622\u062E\u0631\u0629","\u0631\u062C\u0628","\u0634\u0639\u0628\u0627\u0646","\u0631\u0645\u0636\u0627\u0646","\u0634\u0648\u0627\u0644","\u0630\u0648 \u0627\u0644\u0642\u0639\u062F\u0629","\u0630\u0648 \u0627\u0644\u062D\u062C\u0629","\u0645\u062D\u0631\u0645","\u0635\u0641\u0631","\u0631\u0628\u064A\u0639 \u0627\u0644\u0623\u0648\u0644"]};
+Fleur.locale["as"] = {
+	weekdays:["\u09A6\u09C7\u0993\u09AC\u09BE\u09F0","\u09B8\u09CB\u09AE\u09AC\u09BE\u09F0","\u09AE\u0999\u09CD\u0997\u09B2\u09AC\u09BE\u09F0","\u09AC\u09C1\u09A7\u09AC\u09BE\u09F0","\u09AC\u09C3\u09B9\u09B8\u09CD\u09AA\u09A4\u09BF\u09AC\u09BE\u09F0","\u09B6\u09C1\u0995\u09CD\u09F0\u09AC\u09BE\u09F0","\u09B6\u09A8\u09BF\u09AC\u09BE\u09F0"],
+	months: ["\u099C\u09BE\u09A8\u09C1\u09F1\u09BE\u09F0\u09C0","\u09AB\u09C7\u09AC\u09CD\u09F0\u09C1\u09F1\u09BE\u09F0\u09C0","\u09AE\u09BE\u09F0\u09CD\u099A","\u098F\u09AA\u09CD\u09F0\u09BF\u09B2","\u09AE\u09C7\u2019","\u099C\u09C1\u09A8","\u099C\u09C1\u09B2\u09BE\u0987","\u0986\u0997\u09B7\u09CD\u099F","\u099B\u09C7\u09AA\u09CD\u09A4\u09C7\u09AE\u09CD\u09AC\u09F0","\u0985\u0995\u09CD\u099F\u09CB\u09AC\u09F0","\u09A8\u09F1\u09C7\u09AE\u09CD\u09AC\u09F0","\u09A1\u09BF\u099A\u09C7\u09AE\u09CD\u09AC\u09F0"]};
+Fleur.locale["ast"] = {
+	weekdays:["domingu","llunes","martes","mi\u00E9rcoles","xueves","vienres","s\u00E1badu"],
+	months: ["xineru","febreru","marzu","abril","mayu","xunu","xunetu","agostu","setiembre","ochobre","payares","avientu"]};
+Fleur.locale["bg"] = {
+	weekdays:["\u043D\u0435\u0434\u0435\u043B\u044F","\u043F\u043E\u043D\u0435\u0434\u0435\u043B\u043D\u0438\u043A","\u0432\u0442\u043E\u0440\u043D\u0438\u043A","\u0441\u0440\u044F\u0434\u0430","\u0447\u0435\u0442\u0432\u044A\u0440\u0442\u044A\u043A","\u043F\u0435\u0442\u044A\u043A","\u0441\u044A\u0431\u043E\u0442\u0430"],
+	months: ["\u044F\u043D\u0443\u0430\u0440\u0438","\u0444\u0435\u0432\u0440\u0443\u0430\u0440\u0438","\u043C\u0430\u0440\u0442","\u0430\u043F\u0440\u0438\u043B","\u043C\u0430\u0439","\u044E\u043D\u0438","\u044E\u043B\u0438","\u0430\u0432\u0433\u0443\u0441\u0442","\u0441\u0435\u043F\u0442\u0435\u043C\u0432\u0440\u0438","\u043E\u043A\u0442\u043E\u043C\u0432\u0440\u0438","\u043D\u043E\u0435\u043C\u0432\u0440\u0438","\u0434\u0435\u043A\u0435\u043C\u0432\u0440\u0438"]};
+Fleur.locale["bn"] = {
+	weekdays:["\u09B0\u09AC\u09BF\u09AC\u09BE\u09B0","\u09B8\u09CB\u09AE\u09AC\u09BE\u09B0","\u09AE\u0999\u09CD\u0997\u09B2\u09AC\u09BE\u09B0","\u09AC\u09C1\u09A7\u09AC\u09BE\u09B0","\u09AC\u09C3\u09B9\u09B7\u09CD\u09AA\u09A4\u09BF\u09AC\u09BE\u09B0","\u09B6\u09C1\u0995\u09CD\u09B0\u09AC\u09BE\u09B0","\u09B6\u09A8\u09BF\u09AC\u09BE\u09B0"],
+	months: ["\u099C\u09BE\u09A8\u09C1\u09AF\u09BC\u09BE\u09B0\u09C0","\u09AB\u09C7\u09AC\u09CD\u09B0\u09C1\u09AF\u09BC\u09BE\u09B0\u09C0","\u09AE\u09BE\u09B0\u09CD\u099A","\u098F\u09AA\u09CD\u09B0\u09BF\u09B2","\u09AE\u09C7","\u099C\u09C1\u09A8","\u099C\u09C1\u09B2\u09BE\u0987","\u0986\u0997\u09B8\u09CD\u099F","\u09B8\u09C7\u09AA\u09CD\u099F\u09C7\u09AE\u09CD\u09AC\u09B0","\u0985\u0995\u09CD\u099F\u09CB\u09AC\u09B0","\u09A8\u09AD\u09C7\u09AE\u09CD\u09AC\u09B0","\u09A1\u09BF\u09B8\u09C7\u09AE\u09CD\u09AC\u09B0"]};
+Fleur.locale["bs"] = {
+	weekdays:["nedjelja","ponedjeljak","utorak","srijeda","\u010Detvrtak","petak","subota"],
+	months: ["januar","februar","mart","april","maj","juni","juli","avgust","septembar","oktobar","novembar","decembar"]};
+Fleur.locale["ca"] = {
+	weekdays:["diumenge","dilluns","dimarts","dimecres","dijous","divendres","dissabte"],
+	months: ["gener","febrer","mar\u00E7","abril","maig","juny","juliol","agost","setembre","octubre","novembre","desembre"]};
+Fleur.locale["cs"] = {
+	weekdays:["ned\u011Ble","pond\u011Bl\u00ED","\u00FAter\u00FD","st\u0159eda","\u010Dtvrtek","p\u00E1tek","sobota"],
+	months: ["leden","\u00FAnor","b\u0159ezen","duben","kv\u011Bten","\u010Derven","\u010Dervenec","srpen","z\u00E1\u0159\u00ED","\u0159\u00EDjen","listopad","prosinec"]};
+Fleur.locale["da"] = {
+	weekdays:["s\u00F8ndag","mandag","tirsdag","onsdag","torsdag","fredag","l\u00F8rdag"],
+	months: ["januar","februar","marts","april","maj","juni","juli","august","september","oktober","november","december"]};
+Fleur.locale["de"] = {
+	weekdays:["Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"],
+	months: ["Januar","Februar","M\u00E4rz","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"]};
+Fleur.locale["el"] = {
+	weekdays:["\u039A\u03C5\u03C1\u03B9\u03B1\u03BA\u03AE","\u0394\u03B5\u03C5\u03C4\u03AD\u03C1\u03B1","\u03A4\u03C1\u03AF\u03C4\u03B7","\u03A4\u03B5\u03C4\u03AC\u03C1\u03C4\u03B7","\u03A0\u03AD\u03BC\u03C0\u03C4\u03B7","\u03A0\u03B1\u03C1\u03B1\u03C3\u03BA\u03B5\u03C5\u03AE","\u03A3\u03AC\u03B2\u03B2\u03B1\u03C4\u03BF"],
+	months: ["\u0399\u03B1\u03BD\u03BF\u03C5\u03B1\u03C1\u03AF\u03BF\u03C5","\u03A6\u03B5\u03B2\u03C1\u03BF\u03C5\u03B1\u03C1\u03AF\u03BF\u03C5","\u039C\u03B1\u03C1\u03C4\u03AF\u03BF\u03C5","\u0391\u03C0\u03C1\u03B9\u03BB\u03AF\u03BF\u03C5","\u039C\u03B1\u0390\u03BF\u03C5","\u0399\u03BF\u03C5\u03BD\u03AF\u03BF\u03C5","\u0399\u03BF\u03C5\u03BB\u03AF\u03BF\u03C5","\u0391\u03C5\u03B3\u03BF\u03CD\u03C3\u03C4\u03BF\u03C5","\u03A3\u03B5\u03C0\u03C4\u03B5\u03BC\u03B2\u03C1\u03AF\u03BF\u03C5","\u039F\u03BA\u03C4\u03C9\u03B2\u03C1\u03AF\u03BF\u03C5","\u039D\u03BF\u03B5\u03BC\u03B2\u03C1\u03AF\u03BF\u03C5","\u0394\u03B5\u03BA\u03B5\u03BC\u03B2\u03C1\u03AF\u03BF\u03C5"]};
+Fleur.locale["es"] = {
+	weekdays:["domingo","lunes","martes","mi\u00E9rcoles","jueves","viernes","s\u00E1bado"],
+	months: ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"]};
+Fleur.locale["fa"] = {
+	weekdays:["\u06CC\u06A9\u0634\u0646\u0628\u0647","\u062F\u0648\u0634\u0646\u0628\u0647","\u0633\u0647\u200C\u0634\u0646\u0628\u0647","\u0686\u0647\u0627\u0631\u0634\u0646\u0628\u0647","\u067E\u0646\u062C\u0634\u0646\u0628\u0647","\u062C\u0645\u0639\u0647","\u0634\u0646\u0628\u0647"],
+	months: ["\u062F\u06CC","\u0628\u0647\u0645\u0646","\u0627\u0633\u0641\u0646\u062F","\u0641\u0631\u0648\u0631\u062F\u06CC\u0646","\u0627\u0631\u062F\u06CC\u0628\u0647\u0634\u062A","\u062E\u0631\u062F\u0627\u062F","\u062A\u06CC\u0631","\u0645\u0631\u062F\u0627\u062F","\u0634\u0647\u0631\u06CC\u0648\u0631","\u0645\u0647\u0631","\u0622\u0628\u0627\u0646","\u0622\u0630\u0631"]};
+Fleur.locale["fi"] = {
+	weekdays:["sunnuntai","maanantai","tiistai","keskiviikko","torstai","perjantai","lauantai"],
+	months: ["tammikuu","helmikuu","maaliskuu","huhtikuu","toukokuu","kes\u00E4kuu","hein\u00E4kuu","elokuu","syyskuu","lokakuu","marraskuu","joulukuu"]};
+Fleur.locale["fr"] = {
+	weekdays:["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],
+	months: ["janvier","f\u00E9vrier","mars","avril","mai","juin","juillet","ao\u00FBt","septembre","octobre","novembre","d\u00E9cembre"]};
+Fleur.locale["gu"] = {
+	weekdays:["\u0AB0\u0AB5\u0ABF\u0AB5\u0ABE\u0AB0","\u0AB8\u0ACB\u0AAE\u0AB5\u0ABE\u0AB0","\u0AAE\u0A82\u0A97\u0AB3\u0AB5\u0ABE\u0AB0","\u0AAC\u0AC1\u0AA7\u0AB5\u0ABE\u0AB0","\u0A97\u0AC1\u0AB0\u0AC1\u0AB5\u0ABE\u0AB0","\u0AB6\u0AC1\u0A95\u0ACD\u0AB0\u0AB5\u0ABE\u0AB0","\u0AB6\u0AA8\u0ABF\u0AB5\u0ABE\u0AB0"],
+	months: ["\u0A9C\u0ABE\u0AA8\u0ACD\u0AAF\u0AC1\u0A86\u0AB0\u0AC0","\u0AAB\u0AC7\u0AAC\u0ACD\u0AB0\u0AC1\u0A86\u0AB0\u0AC0","\u0AAE\u0ABE\u0AB0\u0ACD\u0A9A","\u0A8F\u0AAA\u0ACD\u0AB0\u0ABF\u0AB2","\u0AAE\u0AC7","\u0A9C\u0AC2\u0AA8","\u0A9C\u0AC1\u0AB2\u0ABE\u0A88","\u0A91\u0A97\u0AB8\u0ACD\u0A9F","\u0AB8\u0AAA\u0ACD\u0A9F\u0AC7\u0AAE\u0ACD\u0AAC\u0AB0","\u0A91\u0A95\u0ACD\u0A9F\u0ACB\u0AAC\u0AB0","\u0AA8\u0AB5\u0AC7\u0AAE\u0ACD\u0AAC\u0AB0","\u0AA1\u0ABF\u0AB8\u0AC7\u0AAE\u0ACD\u0AAC\u0AB0"]};
+Fleur.locale["he"] = {
+	weekdays:["\u05D9\u05D5\u05DD \u05E8\u05D0\u05E9\u05D5\u05DF","\u05D9\u05D5\u05DD \u05E9\u05E0\u05D9","\u05D9\u05D5\u05DD \u05E9\u05DC\u05D9\u05E9\u05D9","\u05D9\u05D5\u05DD \u05E8\u05D1\u05D9\u05E2\u05D9","\u05D9\u05D5\u05DD \u05D7\u05DE\u05D9\u05E9\u05D9","\u05D9\u05D5\u05DD \u05E9\u05D9\u05E9\u05D9","\u05D9\u05D5\u05DD \u05E9\u05D1\u05EA"],
+	months: ["\u05D9\u05E0\u05D5\u05D0\u05E8","\u05E4\u05D1\u05E8\u05D5\u05D0\u05E8","\u05DE\u05E8\u05E5","\u05D0\u05E4\u05E8\u05D9\u05DC","\u05DE\u05D0\u05D9","\u05D9\u05D5\u05E0\u05D9","\u05D9\u05D5\u05DC\u05D9","\u05D0\u05D5\u05D2\u05D5\u05E1\u05D8","\u05E1\u05E4\u05D8\u05DE\u05D1\u05E8","\u05D0\u05D5\u05E7\u05D8\u05D5\u05D1\u05E8","\u05E0\u05D5\u05D1\u05DE\u05D1\u05E8","\u05D3\u05E6\u05DE\u05D1\u05E8"]};
+Fleur.locale["hi"] = {
+	weekdays:["\u0930\u0935\u093F\u0935\u093E\u0930","\u0938\u094B\u092E\u0935\u093E\u0930","\u092E\u0902\u0917\u0932\u0935\u093E\u0930","\u092C\u0941\u0927\u0935\u093E\u0930","\u0917\u0941\u0930\u0941\u0935\u093E\u0930","\u0936\u0941\u0915\u094D\u0930\u0935\u093E\u0930","\u0936\u0928\u093F\u0935\u093E\u0930"],
+	months: ["\u091C\u0928\u0935\u0930\u0940","\u092B\u093C\u0930\u0935\u0930\u0940","\u092E\u093E\u0930\u094D\u091A","\u0905\u092A\u094D\u0930\u0948\u0932","\u092E\u0908","\u091C\u0942\u0928","\u091C\u0941\u0932\u093E\u0908","\u0905\u0917\u0938\u094D\u0924","\u0938\u093F\u0924\u0902\u092C\u0930","\u0905\u0915\u094D\u0924\u0942\u092C\u0930","\u0928\u0935\u0902\u092C\u0930","\u0926\u093F\u0938\u0902\u092C\u0930"]};
+Fleur.locale["hr"] = {
+	weekdays:["nedjelja","ponedjeljak","utorak","srijeda","\u010Detvrtak","petak","subota"],
+	months: ["sije\u010Danj","velja\u010Da","o\u017Eujak","travanj","svibanj","lipanj","srpanj","kolovoz","rujan","listopad","studeni","prosinac"]};
+Fleur.locale["hu"] = {
+	weekdays:["vas\u00E1rnap","h\u00E9tf\u0151","kedd","szerda","cs\u00FCt\u00F6rt\u00F6k","p\u00E9ntek","szombat"],
+	months: ["janu\u00E1r","febru\u00E1r","m\u00E1rcius","\u00E1prilis","m\u00E1jus","j\u00FAnius","j\u00FAlius","augusztus","szeptember","okt\u00F3ber","november","december"]};
+Fleur.locale["is"] = {
+	weekdays:["sunnudagur","m\u00E1nudagur","\u00FEri\u00F0judagur","mi\u00F0vikudagur","fimmtudagur","f\u00F6studagur","laugardagur"],
+	months: ["jan\u00FAar","febr\u00FAar","mars","apr\u00EDl","ma\u00ED","j\u00FAn\u00ED","j\u00FAl\u00ED","\u00E1g\u00FAst","september","okt\u00F3ber","n\u00F3vember","desember"]};
+Fleur.locale["it"] = {
+	weekdays:["domenica","luned\u00EC","marted\u00EC","mercoled\u00EC","gioved\u00EC","venerd\u00EC","sabato"],
+	months: ["gennaio","febbraio","marzo","aprile","maggio","giugno","luglio","agosto","settembre","ottobre","novembre","dicembre"]};
+Fleur.locale["ja"] = {
+	weekdays:["\u65E5\u66DC\u65E5","\u6708\u66DC\u65E5","\u706B\u66DC\u65E5","\u6C34\u66DC\u65E5","\u6728\u66DC\u65E5","\u91D1\u66DC\u65E5","\u571F\u66DC\u65E5"],
+	months: ["1\u6708","2\u6708","3\u6708","4\u6708","5\u6708","6\u6708","7\u6708","8\u6708","9\u6708","10\u6708","11\u6708","12\u6708"]};
+Fleur.locale["kn"] = {
+	weekdays:["\u0CAD\u0CBE\u0CA8\u0CC1\u0CB5\u0CBE\u0CB0","\u0CB8\u0CCB\u0CAE\u0CB5\u0CBE\u0CB0","\u0CAE\u0C82\u0C97\u0CB3\u0CB5\u0CBE\u0CB0","\u0CAC\u0CC1\u0CA7\u0CB5\u0CBE\u0CB0","\u0C97\u0CC1\u0CB0\u0CC1\u0CB5\u0CBE\u0CB0","\u0CB6\u0CC1\u0C95\u0CCD\u0CB0\u0CB5\u0CBE\u0CB0","\u0CB6\u0CA8\u0CBF\u0CB5\u0CBE\u0CB0"],
+	months: ["\u0C9C\u0CA8\u0CB5\u0CB0\u0CBF","\u0CAB\u0CC6\u0CAC\u0CCD\u0CB0\u0CB5\u0CB0\u0CBF","\u0CAE\u0CBE\u0CB0\u0CCD\u0C9A\u0CCD","\u0C8F\u0CAA\u0CCD\u0CB0\u0CBF\u0CB2\u0CCD","\u0CAE\u0CC7","\u0C9C\u0CC2\u0CA8\u0CCD","\u0C9C\u0CC1\u0CB2\u0CC8","\u0C86\u0C97\u0CB8\u0CCD\u0C9F\u0CCD","\u0CB8\u0CC6\u0CAA\u0CCD\u0C9F\u0CC6\u0C82\u0CAC\u0CB0\u0CCD","\u0C85\u0C95\u0CCD\u0C9F\u0CCB\u0CAC\u0CB0\u0CCD","\u0CA8\u0CB5\u0CC6\u0C82\u0CAC\u0CB0\u0CCD","\u0CA1\u0CBF\u0CB8\u0CC6\u0C82\u0CAC\u0CB0\u0CCD"]};
+Fleur.locale["ko"] = {
+	weekdays:["\uC77C\uC694\uC77C","\uC6D4\uC694\uC77C","\uD654\uC694\uC77C","\uC218\uC694\uC77C","\uBAA9\uC694\uC77C","\uAE08\uC694\uC77C","\uD1A0\uC694\uC77C"],
+	months: ["1\uC6D4","2\uC6D4","3\uC6D4","4\uC6D4","5\uC6D4","6\uC6D4","7\uC6D4","8\uC6D4","9\uC6D4","10\uC6D4","11\uC6D4","12\uC6D4"]};
+Fleur.locale["lv"] = {
+	weekdays:["Sv\u0113tdiena","Pirmdiena","Otrdiena","Tre\u0161diena","Ceturtdiena","Piektdiena","Sestdiena"],
+	months: ["janv\u0101ris","febru\u0101ris","marts","apr\u012Blis","maijs","j\u016Bnijs","j\u016Blijs","augusts","septembris","oktobris","novembris","decembris"]};
+Fleur.locale["ml"] = {
+	weekdays:["\u0D1E\u0D3E\u0D2F\u0D31\u0D3E\u0D34\u0D4D\u200C\u0D1A","\u0D24\u0D3F\u0D19\u0D4D\u0D15\u0D33\u0D3E\u0D34\u0D4D\u200C\u0D1A","\u0D1A\u0D4A\u0D35\u0D4D\u0D35\u0D3E\u0D34\u0D4D\u200C\u0D1A","\u0D2C\u0D41\u0D27\u0D28\u0D3E\u0D34\u0D4D\u200C\u0D1A","\u0D35\u0D4D\u0D2F\u0D3E\u0D34\u0D3E\u0D34\u0D4D\u200C\u0D1A","\u0D35\u0D46\u0D33\u0D4D\u0D33\u0D3F\u0D2F\u0D3E\u0D34\u0D4D\u200C\u0D1A","\u0D36\u0D28\u0D3F\u0D2F\u0D3E\u0D34\u0D4D\u200C\u0D1A"],
+	months: ["\u0D1C\u0D28\u0D41\u0D35\u0D30\u0D3F","\u0D2B\u0D46\u0D2C\u0D4D\u0D30\u0D41\u0D35\u0D30\u0D3F","\u0D2E\u0D3E\u0D7C\u0D1A\u0D4D\u0D1A\u0D4D","\u0D0F\u0D2A\u0D4D\u0D30\u0D3F\u0D7D","\u0D2E\u0D47\u0D2F\u0D4D","\u0D1C\u0D42\u0D7A","\u0D1C\u0D42\u0D32\u0D48","\u0D13\u0D17\u0D38\u0D4D\u0D31\u0D4D\u0D31\u0D4D","\u0D38\u0D46\u0D2A\u0D4D\u0D31\u0D4D\u0D31\u0D02\u0D2C\u0D7C","\u0D12\u0D15\u0D4D\u200C\u0D1F\u0D4B\u0D2C\u0D7C","\u0D28\u0D35\u0D02\u0D2C\u0D7C","\u0D21\u0D3F\u0D38\u0D02\u0D2C\u0D7C"]};
+Fleur.locale["mr"] = {
+	weekdays:["\u0930\u0935\u093F\u0935\u093E\u0930","\u0938\u094B\u092E\u0935\u093E\u0930","\u092E\u0902\u0917\u0933\u0935\u093E\u0930","\u092C\u0941\u0927\u0935\u093E\u0930","\u0917\u0941\u0930\u0941\u0935\u093E\u0930","\u0936\u0941\u0915\u094D\u0930\u0935\u093E\u0930","\u0936\u0928\u093F\u0935\u093E\u0930"],
+	months: ["\u091C\u093E\u0928\u0947\u0935\u093E\u0930\u0940","\u092B\u0947\u092C\u094D\u0930\u0941\u0935\u093E\u0930\u0940","\u092E\u093E\u0930\u094D\u091A","\u090F\u092A\u094D\u0930\u093F\u0932","\u092E\u0947","\u091C\u0942\u0928","\u091C\u0941\u0932\u0948","\u0911\u0917\u0938\u094D\u091F","\u0938\u092A\u094D\u091F\u0947\u0902\u092C\u0930","\u0911\u0915\u094D\u091F\u094B\u092C\u0930","\u0928\u094B\u0935\u094D\u0939\u0947\u0902\u092C\u0930","\u0921\u093F\u0938\u0947\u0902\u092C\u0930"]};
+Fleur.locale["nb"] = {
+	weekdays:["s\u00F8ndag","mandag","tirsdag","onsdag","torsdag","fredag","l\u00F8rdag"],
+	months: ["januar","februar","mars","april","mai","juni","juli","august","september","oktober","november","desember"]};
+Fleur.locale["nl"] = {
+	weekdays:["zondag","maandag","dinsdag","woensdag","donderdag","vrijdag","zaterdag"],
+	months: ["januari","februari","maart","april","mei","juni","juli","augustus","september","oktober","november","december"]};
+Fleur.locale["or"] = {
+	weekdays:["\u0B30\u0B2C\u0B3F\u0B2C\u0B3E\u0B30","\u0B38\u0B4B\u0B2E\u0B2C\u0B3E\u0B30","\u0B2E\u0B19\u0B4D\u0B17\u0B33\u0B2C\u0B3E\u0B30","\u0B2C\u0B41\u0B27\u0B2C\u0B3E\u0B30","\u0B17\u0B41\u0B30\u0B41\u0B2C\u0B3E\u0B30","\u0B36\u0B41\u0B15\u0B4D\u0B30\u0B2C\u0B3E\u0B30","\u0B36\u0B28\u0B3F\u0B2C\u0B3E\u0B30"],
+	months: ["\u0B1C\u0B3E\u0B28\u0B41\u0B06\u0B30\u0B40","\u0B2B\u0B47\u0B2C\u0B43\u0B06\u0B30\u0B40","\u0B2E\u0B3E\u0B30\u0B4D\u0B1A\u0B4D\u0B1A","\u0B05\u0B2A\u0B4D\u0B30\u0B47\u0B32","\u0B2E\u0B07","\u0B1C\u0B41\u0B28","\u0B1C\u0B41\u0B32\u0B3E\u0B07","\u0B05\u0B17\u0B37\u0B4D\u0B1F","\u0B38\u0B47\u0B2A\u0B4D\u0B1F\u0B47\u0B2E\u0B4D\u0B2C\u0B30","\u0B05\u0B15\u0B4D\u0B1F\u0B4B\u0B2C\u0B30","\u0B28\u0B2D\u0B47\u0B2E\u0B4D\u0B2C\u0B30","\u0B21\u0B3F\u0B38\u0B47\u0B2E\u0B4D\u0B2C\u0B30"]};
+Fleur.locale["pa"] = {
+	weekdays:["\u0A10\u0A24\u0A35\u0A3E\u0A30","\u0A38\u0A4B\u0A2E\u0A35\u0A3E\u0A30","\u0A2E\u0A70\u0A17\u0A32\u0A35\u0A3E\u0A30","\u0A2C\u0A41\u0A71\u0A27\u0A35\u0A3E\u0A30","\u0A35\u0A40\u0A30\u0A35\u0A3E\u0A30","\u0A38\u0A3C\u0A41\u0A71\u0A15\u0A30\u0A35\u0A3E\u0A30","\u0A38\u0A3C\u0A28\u0A3F\u0A71\u0A1A\u0A30\u0A35\u0A3E\u0A30"],
+	months: ["\u0A1C\u0A28\u0A35\u0A30\u0A40","\u0A2B\u0A3C\u0A30\u0A35\u0A30\u0A40","\u0A2E\u0A3E\u0A30\u0A1A","\u0A05\u0A2A\u0A4D\u0A30\u0A48\u0A32","\u0A2E\u0A08","\u0A1C\u0A42\u0A28","\u0A1C\u0A41\u0A32\u0A3E\u0A08","\u0A05\u0A17\u0A38\u0A24","\u0A38\u0A24\u0A70\u0A2C\u0A30","\u0A05\u0A15\u0A24\u0A42\u0A2C\u0A30","\u0A28\u0A35\u0A70\u0A2C\u0A30","\u0A26\u0A38\u0A70\u0A2C\u0A30"]};
+Fleur.locale["pl"] = {
+	weekdays:["niedziela","poniedzia\u0142ek","wtorek","\u015Broda","czwartek","pi\u0105tek","sobota"],
+	months: ["stycze\u0144","luty","marzec","kwiecie\u0144","maj","czerwiec","lipiec","sierpie\u0144","wrzesie\u0144","pa\u017Adziernik","listopad","grudzie\u0144"]};
+Fleur.locale["pt"] = {
+	weekdays:["domingo","segunda-feira","ter\u00E7a-feira","quarta-feira","quinta-feira","sexta-feira","s\u00E1bado"],
+	months: ["janeiro","fevereiro","mar\u00E7o","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"]};
+Fleur.locale["ru"] = {
+	weekdays:["\u0432\u043E\u0441\u043A\u0440\u0435\u0441\u0435\u043D\u044C\u0435","\u043F\u043E\u043D\u0435\u0434\u0435\u043B\u044C\u043D\u0438\u043A","\u0432\u0442\u043E\u0440\u043D\u0438\u043A","\u0441\u0440\u0435\u0434\u0430","\u0447\u0435\u0442\u0432\u0435\u0440\u0433","\u043F\u044F\u0442\u043D\u0438\u0446\u0430","\u0441\u0443\u0431\u0431\u043E\u0442\u0430"],
+	months: ["\u044F\u043D\u0432\u0430\u0440\u044C","\u0444\u0435\u0432\u0440\u0430\u043B\u044C","\u043C\u0430\u0440\u0442","\u0430\u043F\u0440\u0435\u043B\u044C","\u043C\u0430\u0439","\u0438\u044E\u043D\u044C","\u0438\u044E\u043B\u044C","\u0430\u0432\u0433\u0443\u0441\u0442","\u0441\u0435\u043D\u0442\u044F\u0431\u0440\u044C","\u043E\u043A\u0442\u044F\u0431\u0440\u044C","\u043D\u043E\u044F\u0431\u0440\u044C","\u0434\u0435\u043A\u0430\u0431\u0440\u044C"]};
+Fleur.locale["si"] = {
+	weekdays:["\u0D89\u0DBB\u0DD2\u0DAF\u0DCF","\u0DC3\u0DB3\u0DD4\u0DAF\u0DCF","\u0D85\u0D9F\u0DC4\u0DBB\u0DD4\u0DC0\u0DCF\u0DAF\u0DCF","\u0DB6\u0DAF\u0DCF\u0DAF\u0DCF","\u0DB6\u0DCA\u200D\u0DBB\u0DC4\u0DC3\u0DCA\u0DB4\u0DAD\u0DD2\u0DB1\u0DCA\u0DAF\u0DCF","\u0DC3\u0DD2\u0D9A\u0DD4\u0DBB\u0DCF\u0DAF\u0DCF","\u0DC3\u0DD9\u0DB1\u0DC3\u0DD4\u0DBB\u0DCF\u0DAF\u0DCF"],
+	months: ["\u0DA2\u0DB1\u0DC0\u0DCF\u0DBB\u0DD2","\u0DB4\u0DD9\u0DB6\u0DBB\u0DC0\u0DCF\u0DBB\u0DD2","\u0DB8\u0DCF\u0DBB\u0DCA\u0DAD\u0DD4","\u0D85\u0DB4\u0DCA\u200D\u0DBB\u0DDA\u0DBD\u0DCA","\u0DB8\u0DD0\u0DBA\u0DD2","\u0DA2\u0DD6\u0DB1\u0DD2","\u0DA2\u0DD6\u0DBD\u0DD2","\u0D85\u0D9C\u0DDD\u0DC3\u0DCA\u0DAD\u0DD4","\u0DC3\u0DD0\u0DB4\u0DCA\u0DAD\u0DD0\u0DB8\u0DCA\u0DB6\u0DBB\u0DCA","\u0D94\u0D9A\u0DCA\u0DAD\u0DDD\u0DB6\u0DBB\u0DCA","\u0DB1\u0DDC\u0DC0\u0DD0\u0DB8\u0DCA\u0DB6\u0DBB\u0DCA","\u0DAF\u0DD9\u0DC3\u0DD0\u0DB8\u0DCA\u0DB6\u0DBB\u0DCA"]};Fleur.locale["sk-SK"] = {
+	weekdays:["nede\u013Ea","pondelok","utorok","streda","\u0161tvrtok","piatok","sobota"],
+	months: ["janu\u00E1r","febru\u00E1r","marec","apr\u00EDl","m\u00E1j","j\u00FAn","j\u00FAl","august","september","okt\u00F3ber","november","december"]};
+Fleur.locale["sr-Cyrl-RS"] = {
+	weekdays:["\u043D\u0435\u0434\u0435\u0459\u0430","\u043F\u043E\u043D\u0435\u0434\u0435\u0459\u0430\u043A","\u0443\u0442\u043E\u0440\u0430\u043A","\u0441\u0440\u0435\u0434\u0430","\u0447\u0435\u0442\u0432\u0440\u0442\u0430\u043A","\u043F\u0435\u0442\u0430\u043A","\u0441\u0443\u0431\u043E\u0442\u0430"],
+	months: ["\u0458\u0430\u043D\u0443\u0430\u0440","\u0444\u0435\u0431\u0440\u0443\u0430\u0440","\u043C\u0430\u0440\u0442","\u0430\u043F\u0440\u0438\u043B","\u043C\u0430\u0458","\u0458\u0443\u043D","\u0458\u0443\u043B","\u0430\u0432\u0433\u0443\u0441\u0442","\u0441\u0435\u043F\u0442\u0435\u043C\u0431\u0430\u0440","\u043E\u043A\u0442\u043E\u0431\u0430\u0440","\u043D\u043E\u0432\u0435\u043C\u0431\u0430\u0440","\u0434\u0435\u0446\u0435\u043C\u0431\u0430\u0440"]};
+Fleur.locale["sr-Latn-RS"] = {
+	weekdays:["nedelja","ponedeljak","utorak","sreda","\u010Detvrtak","petak","subota"],
+	months: ["januar","februar","mart","april","maj","jun","jul","avgust","septembar","oktobar","novembar","decembar"]};
+Fleur.locale["sv"] = {
+	weekdays:["s\u00F6ndag","m\u00E5ndag","tisdag","onsdag","torsdag","fredag","l\u00F6rdag"],
+	months: ["januari","februari","mars","april","maj","juni","juli","augusti","september","oktober","november","december"]};
+Fleur.locale["ta"] = {
+	weekdays:["\u0B9E\u0BBE\u0BAF\u0BBF\u0BB1\u0BC1","\u0BA4\u0BBF\u0B99\u0BCD\u0B95\u0BB3\u0BCD","\u0B9A\u0BC6\u0BB5\u0BCD\u0BB5\u0BBE\u0BAF\u0BCD","\u0BAA\u0BC1\u0BA4\u0BA9\u0BCD","\u0BB5\u0BBF\u0BAF\u0BBE\u0BB4\u0BA9\u0BCD","\u0BB5\u0BC6\u0BB3\u0BCD\u0BB3\u0BBF","\u0B9A\u0BA9\u0BBF"],
+	months: ["\u0B9C\u0BA9\u0BB5\u0BB0\u0BBF","\u0BAA\u0BBF\u0BAA\u0BCD\u0BB0\u0BB5\u0BB0\u0BBF","\u0BAE\u0BBE\u0BB0\u0BCD\u0B9A\u0BCD","\u0B8F\u0BAA\u0BCD\u0BB0\u0BB2\u0BCD","\u0BAE\u0BC7","\u0B9C\u0BC2\u0BA9\u0BCD","\u0B9C\u0BC2\u0BB2\u0BC8","\u0B86\u0B95\u0BB8\u0BCD\u0B9F\u0BCD","\u0B9A\u0BC6\u0BAA\u0BCD\u0B9F\u0BAE\u0BCD\u0BAA\u0BB0\u0BCD","\u0B85\u0B95\u0BCD\u0B9F\u0BCB\u0BAA\u0BB0\u0BCD","\u0BA8\u0BB5\u0BAE\u0BCD\u0BAA\u0BB0\u0BCD","\u0B9F\u0BBF\u0B9A\u0BAE\u0BCD\u0BAA\u0BB0\u0BCD"]};
+Fleur.locale["te"] = {
+	weekdays:["\u0C06\u0C26\u0C3F\u0C35\u0C3E\u0C30\u0C02","\u0C38\u0C4B\u0C2E\u0C35\u0C3E\u0C30\u0C02","\u0C2E\u0C02\u0C17\u0C33\u0C35\u0C3E\u0C30\u0C02","\u0C2C\u0C41\u0C27\u0C35\u0C3E\u0C30\u0C02","\u0C17\u0C41\u0C30\u0C41\u0C35\u0C3E\u0C30\u0C02","\u0C36\u0C41\u0C15\u0C4D\u0C30\u0C35\u0C3E\u0C30\u0C02","\u0C36\u0C28\u0C3F\u0C35\u0C3E\u0C30\u0C02"],
+	months: ["\u0C1C\u0C28\u0C35\u0C30\u0C3F","\u0C2B\u0C3F\u0C2C\u0C4D\u0C30\u0C35\u0C30\u0C3F","\u0C2E\u0C3E\u0C30\u0C4D\u0C1A\u0C3F","\u0C0F\u0C2A\u0C4D\u0C30\u0C3F\u0C32\u0C4D","\u0C2E\u0C47","\u0C1C\u0C42\u0C28\u0C4D","\u0C1C\u0C41\u0C32\u0C48","\u0C06\u0C17\u0C38\u0C4D\u0C1F\u0C41","\u0C38\u0C46\u0C2A\u0C4D\u0C1F\u0C46\u0C02\u0C2C\u0C30\u0C4D","\u0C05\u0C15\u0C4D\u0C1F\u0C4B\u0C2C\u0C30\u0C4D","\u0C28\u0C35\u0C02\u0C2C\u0C30\u0C4D","\u0C21\u0C3F\u0C38\u0C46\u0C02\u0C2C\u0C30\u0C4D"]};
+Fleur.locale["th"] = {
+	weekdays:["\u0E27\u0E31\u0E19\u0E2D\u0E32\u0E17\u0E34\u0E15\u0E22\u0E4C","\u0E27\u0E31\u0E19\u0E08\u0E31\u0E19\u0E17\u0E23\u0E4C","\u0E27\u0E31\u0E19\u0E2D\u0E31\u0E07\u0E04\u0E32\u0E23","\u0E27\u0E31\u0E19\u0E1E\u0E38\u0E18","\u0E27\u0E31\u0E19\u0E1E\u0E24\u0E2B\u0E31\u0E2A\u0E1A\u0E14\u0E35","\u0E27\u0E31\u0E19\u0E28\u0E38\u0E01\u0E23\u0E4C","\u0E27\u0E31\u0E19\u0E40\u0E2A\u0E32\u0E23\u0E4C"],
+	months: ["\u0E21\u0E01\u0E23\u0E32\u0E04\u0E21","\u0E01\u0E38\u0E21\u0E20\u0E32\u0E1E\u0E31\u0E19\u0E18\u0E4C","\u0E21\u0E35\u0E19\u0E32\u0E04\u0E21","\u0E40\u0E21\u0E29\u0E32\u0E22\u0E19","\u0E1E\u0E24\u0E29\u0E20\u0E32\u0E04\u0E21","\u0E21\u0E34\u0E16\u0E38\u0E19\u0E32\u0E22\u0E19","\u0E01\u0E23\u0E01\u0E0E\u0E32\u0E04\u0E21","\u0E2A\u0E34\u0E07\u0E2B\u0E32\u0E04\u0E21","\u0E01\u0E31\u0E19\u0E22\u0E32\u0E22\u0E19","\u0E15\u0E38\u0E25\u0E32\u0E04\u0E21","\u0E1E\u0E24\u0E28\u0E08\u0E34\u0E01\u0E32\u0E22\u0E19","\u0E18\u0E31\u0E19\u0E27\u0E32\u0E04\u0E21"]};
+Fleur.locale["uk"] = {
+	weekdays:["\u043D\u0435\u0434\u0456\u043B\u044F","\u043F\u043E\u043D\u0435\u0434\u0456\u043B\u043E\u043A","\u0432\u0456\u0432\u0442\u043E\u0440\u043E\u043A","\u0441\u0435\u0440\u0435\u0434\u0430","\u0447\u0435\u0442\u0432\u0435\u0440","\u043F\u02BC\u044F\u0442\u043D\u0438\u0446\u044F","\u0441\u0443\u0431\u043E\u0442\u0430"],
+	months: ["\u0441\u0456\u0447\u0435\u043D\u044C","\u043B\u044E\u0442\u0438\u0439","\u0431\u0435\u0440\u0435\u0437\u0435\u043D\u044C","\u043A\u0432\u0456\u0442\u0435\u043D\u044C","\u0442\u0440\u0430\u0432\u0435\u043D\u044C","\u0447\u0435\u0440\u0432\u0435\u043D\u044C","\u043B\u0438\u043F\u0435\u043D\u044C","\u0441\u0435\u0440\u043F\u0435\u043D\u044C","\u0432\u0435\u0440\u0435\u0441\u0435\u043D\u044C","\u0436\u043E\u0432\u0442\u0435\u043D\u044C","\u043B\u0438\u0441\u0442\u043E\u043F\u0430\u0434","\u0433\u0440\u0443\u0434\u0435\u043D\u044C"]};
+Fleur.locale["zh-CN"] = {
+	weekdays:["\u661F\u671F\u65E5","\u661F\u671F\u4E00","\u661F\u671F\u4E8C","\u661F\u671F\u4E09","\u661F\u671F\u56DB","\u661F\u671F\u4E94","\u661F\u671F\u516D"],
+	months: ["\u4E00\u6708","\u4E8C\u6708","\u4E09\u6708","\u56DB\u6708","\u4E94\u6708","\u516D\u6708","\u4E03\u6708","\u516B\u6708","\u4E5D\u6708","\u5341\u6708","\u5341\u4E00\u6708","\u5341\u4E8C\u6708"]};
+Fleur.locale["zh-TW"] = {
+	weekdays:["\u661F\u671F\u65E5","\u661F\u671F\u4E00","\u661F\u671F\u4E8C","\u661F\u671F\u4E09","\u661F\u671F\u56DB","\u661F\u671F\u4E94","\u661F\u671F\u516D"],
+	months: ["1\u6708","2\u6708","3\u6708","4\u6708","5\u6708","6\u6708","7\u6708","8\u6708","9\u6708","10\u6708","11\u6708","12\u6708"]};
 Fleur.pad = function(number) {
 	if (number < 10) {
 		return '0' + String(number);
@@ -15541,7 +16311,33 @@ Fleur.msToDayTimeDuration = function(ms) {
     	s += String(sec) + "S";
     }
     return s;
-}
+};
+Fleur.getMonthName = function(language, d) {
+	if (Fleur.inBrowser) {
+		return d.toLocaleString(language, {month: "long"});
+	}
+	var month = d.getMonth();
+	if (!Fleur.locale[language]) {
+		language = language.split("-")[0];
+		if (!Fleur.locale[language]) {
+			language = 'en';
+		}
+	}
+	return Fleur.locale[language].months[month];
+};
+Fleur.getDayName = function(language, d) {
+	if (Fleur.inBrowser) {
+		return d.toLocaleString(language, {weekday: "long"});
+	}
+	var day = d.getDay();
+	if (!Fleur.locale[language]) {
+		language = language.split("-")[0];
+		if (!Fleur.locale[language]) {
+			language = 'en';
+		}
+	}
+	return Fleur.locale[language].weekdays[day];
+};
 Fleur.XsltEngine = Fleur.XQueryEngine.slice(0);
 Fleur.XsltX = {};
 Fleur.XsltX._pattern2xpath = function(xqueryx) {
@@ -16671,6 +17467,7 @@ Fleur.inflate = function(s) {
 };
 Fleur.inBrowser = (new Function("try {return this === window;}catch(e){ return false;}"))();
 Fleur.inNode = (new Function("try {return this === global;}catch(e){return false;}"))();
+Fleur.defaultLanguage = typeof navigator !== "undefined" ? (navigator.languages && navigator.languages.length) ? navigator.languages[0] : navigator.userLanguage || navigator.language || navigator.browserLanguage || 'en' : 'en';
 
 })(typeof exports === 'undefined'? this.Fleur = {} : require.main === module ? global.Fleur = {} : exports);
 if (typeof Object.assign !== 'function') {
@@ -16974,6 +17771,7 @@ if ((new Function("try {return this === window;} catch(e) {return false;}"))()) 
 	global.url = require('url');
 	global.os = require('os');
 	global.dgram = require('dgram');
+	global.child_process = require('child_process');
 	var startparams = process.argv[1].endsWith('fleur.js') || process.argv[1].endsWith('fleur') ? 2 : 3;
 	var params = {argv: []};
 	process.argv.forEach(function(val, i) {

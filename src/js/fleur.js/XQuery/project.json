@@ -6,6 +6,7 @@
 		"Operators/project.json",
 		"callback.js",
 		"error.js",
+		"locale.js",
 		"toJS.js"
 	]
 }

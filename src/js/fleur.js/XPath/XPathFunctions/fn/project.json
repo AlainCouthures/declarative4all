@@ -31,6 +31,7 @@
 		"floor.js",
 		"format-date.js",
 		"format-dateTime.js",
+		"format-number.js",
 		"format-time.js",
 		"function-arity.js",
 		"function-lookup.js",

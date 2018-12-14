@@ -387,4 +387,30 @@ Fleur.msToDayTimeDuration = function(ms) {
     	s += String(sec) + "S";
     }
     return s;
-}
+};
+Fleur.getMonthName = function(language, d) {
+	if (Fleur.inBrowser) {
+		return d.toLocaleString(language, {month: "long"});
+	}
+	var month = d.getMonth();
+	if (!Fleur.locale[language]) {
+		language = language.split("-")[0];
+		if (!Fleur.locale[language]) {
+			language = 'en';
+		}
+	}
+	return Fleur.locale[language].months[month];
+};
+Fleur.getDayName = function(language, d) {
+	if (Fleur.inBrowser) {
+		return d.toLocaleString(language, {weekday: "long"});
+	}
+	var day = d.getDay();
+	if (!Fleur.locale[language]) {
+		language = language.split("-")[0];
+		if (!Fleur.locale[language]) {
+			language = 'en';
+		}
+	}
+	return Fleur.locale[language].weekdays[day];
+};

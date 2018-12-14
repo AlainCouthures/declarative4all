@@ -13,7 +13,7 @@ global.http = require('http');
 global.path = require('path');
 global.url = require('url');
 global.os = require('os');
-//var child_process = require('child_process');
+global.child_process = require('child_process');
 
 var srcname, srcstats;
 var composeResponse = function(resp, components, callback) {
@@ -78,23 +78,26 @@ if (process.argv.length > 2) {
 } else {
 	const port = 81;
 	const contentTypesByExtension = {
-		'.css':   'text/css',
-		'.csv':   'text/csv',
-		'.gif':   'image/gif',
-		'.htm':   'text/html',
-		'.html':  'text/html',
-		'.ico':   'image/vnd.microsoft.icon',
-		'.jpeg':  'image/jpeg',
-		'.jpg':   'image/jpeg',
-		'.js':    'application/javascript',
-		'.json':  'application/json',
-		'.ofx':   'application/x-ofx',
-		'.png':   'image/png',
-		'.svg':   'image/svg+xml',
-		'.txt':   'text/plain',
-		'.xhtml': 'application/xhtml+xml',
-		'.xml':   'application/xml; charset=utf-8',
-		'.xsl':   'text/xsl'
+		".css":   "text/css",
+		".csv":   "text/csv",
+		".docx":  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+		".gif":   "image/gif",
+		".htm":   "text/html",
+		".html":  "text/html",
+		".ico":   "image/x-icon",
+		".jpeg":  "image/jpeg",
+		".jpg":   "image/jpeg",
+		".js":    "application/javascript",
+		".json":  "application/json",
+		".ofx":   "application/x-ofx",
+		".png":   "image/png",
+		".svg":   "image/svg+xml",
+		".txt":   "text/plain",
+		".xhtml": "application/xhtml+xml",
+		".xlsx":  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+		".xml":   "application/xml;charset=utf-8",
+		".xsl":   "text/xsl",
+		".zip":   "application/zip"
 	};
 	global.http.createServer(function(request, response) {
 		var body, uri, method, context, newcontext, newuri, headers, filename, filestats, newfilename, isnewfile, putname, contentType, ifmodifiedsince, lastmodified;

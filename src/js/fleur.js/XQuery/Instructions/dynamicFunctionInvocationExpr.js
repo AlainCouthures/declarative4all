@@ -15,14 +15,15 @@ Fleur.XQueryEngine[Fleur.XQueryX.dynamicFunctionInvocationExpr] = function(ctx, 
 		}
 		var args = children[children.length - 1][0] === Fleur.XQueryX.arguments ? children[children.length - 1][1] : [];
 		var preds = [];
-		children.forEach(function(child) {
-			if (child[0] === Fleur.XQueryX.predicates || child[0] === Fleur.XQueryX.predicate || child[0] === Fleur.XQueryX.lookup) {
+		children[0][1].forEach(function(child) {
+			if (child[0] === Fleur.XQueryX.predicates) {
+				child[1].forEach(function(subchild) {preds.push(subchild);});
+			} else if (child[0] === Fleur.XQueryX.predicate) {
+				preds.push(child[1][0]);
+			} else if (child[0] === Fleur.XQueryX.lookup) {
 				preds.push(child);
 			}
 		});
-		if (preds[0] && preds[0][0] === Fleur.XQueryX.predicates) {
-			preds = preds[0][1];
-		}
 		if (preds.length === 0) {
 			if (!n || n.nodeType !== Fleur.Node.FUNCTION_NODE) {
 				Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});

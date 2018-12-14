@@ -51,7 +51,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.forClauseItem] = function(ctx, children, callba
 						resarr[i].set(ctx, "", pvarname, posvalue);
 					}
 				} else {
-					var newres = new Fleur.varMgr([], resarr[i]);
+					var newres = new Fleur.varMgr([], resarr[i].previous);
 					newres.set(ctx, "", varname, e);
 					if (positionalVariableBinding !== 0) {
 						posvalue = new Fleur.Text();

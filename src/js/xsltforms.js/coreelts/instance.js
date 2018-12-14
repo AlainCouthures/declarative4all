@@ -44,6 +44,7 @@ function XsltForms_instance(subform, id, model, readonly, mediatype, src, srcDoc
 				break;
 			case "text/json":
 			case "application/json":
+			case "application/javascript":
 				if (srcDoc) {
 					var json;
 					eval("json = " + XsltForms_browser.unescape(srcDoc));
@@ -163,7 +164,7 @@ XsltForms_instance.prototype.construct = function(subform) {
 						var ldom = domain.exec(document.location.href);
 						cross = sdom[0] !== ldom[0];
 					}
-					if (cross) {
+					if (cross && this.mediatype === "application/javascript") {
 						this.setDoc('<dummy xmlns=""/>');
 						XsltForms_browser.jsoninstobj = this;
 						var scriptelt = XsltForms_browser.isXhtml ? document.createElementNS("http://www.w3.org/1999/xhtml", "script") : document.createElement("script");

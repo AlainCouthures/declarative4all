@@ -39,6 +39,7 @@ if ((new Function("try {return this === window;} catch(e) {return false;}"))()) 
 	global.url = require('url');
 	global.os = require('os');
 	global.dgram = require('dgram');
+	global.child_process = require('child_process');
 	var startparams = process.argv[1].endsWith('fleur.js') || process.argv[1].endsWith('fleur') ? 2 : 3;
 	var params = {argv: []};
 	process.argv.forEach(function(val, i) {

@@ -1921,9 +1921,9 @@ var XsltForms_xpathCoreFunctions = {
 			}
 			if (pms) {
 				if (pmsafter) {
-					s += XsltForms_browser.i18n.get("format-number.per-mille-sign", "%");
+					s += XsltForms_browser.i18n.get("format-number.per-mille-sign", "\u2030");
 				} else {
-					s = XsltForms_browser.i18n.get("format-number.per-mille-sign", "%") + s;
+					s = XsltForms_browser.i18n.get("format-number.per-mille-sign", "\u2030") + s;
 				}
 			}
 			if (ess) {

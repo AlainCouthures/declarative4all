@@ -15,7 +15,7 @@
 				<root xmlns=""/>
 			</xf:instance>
 			<xf:bind nodeset="search" constraint="instance('iresults')/*[2]/*[translate(.,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz') = translate(current(),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')]"/>
-			<xf:submission id="s1" method="get" replace="instance" instance="iresults" serialization="none" mode="synchronous" mediatype="text/jsonp">
+			<xf:submission id="s1" method="get" replace="instance" instance="iresults" serialization="none" mode="synchronous" mediatype="application/javascript">
 				<xf:resource value="concat('http://en.wikipedia.org/w/api.php?action=opensearch&amp;format=json&amp;search=',search)"/>
 			</xf:submission>
 			<xf:setfocus ev:event="xforms-ready" control="search"/>

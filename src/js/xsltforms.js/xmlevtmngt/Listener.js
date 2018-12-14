@@ -41,7 +41,7 @@ function XsltForms_listener(subform, observer, evtTarget, evtname, phase, handle
 	}
 	observer.listeners.push(this);
 	this.callback = function(evt) {
-		if (!document.getElementById(evt.target.id) || !document.getElementById(this.id)) {
+		if (evt.target.id === "" || !document.getElementById(evt.target.id) || !document.getElementById(this.id)) {
 			return;
 		}
 		if (!document.addEventListener) {

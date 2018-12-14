@@ -8,7 +8,7 @@
  * @description 
  */
 Fleur.XPathFunctions_fn["boolean#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:boolean",
-	function(arg, ctx) {
+	function(arg) {
 		var e;
 		if (arg === Fleur.EmptySequence) {
 			return false;

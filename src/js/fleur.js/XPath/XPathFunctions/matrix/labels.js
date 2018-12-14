@@ -34,9 +34,13 @@ Fleur.XPathFunctions_matrix["labels#3"] = new Fleur.Function("http://www.mathuni
 				res.push(a.data);
 			}
 			return res;
-		}
-		arg.rowlabels = atomlabels(rowlabels);
-		arg.collabels = atomlabels(collabels);
-		return arg;
+		};
+		var seq = new Fleur.Sequence();
+		arg.childNodes.forEach(function(child) {
+			seq.appendChild(child);
+		});
+		seq.rowlabels = atomlabels(rowlabels);
+		seq.collabels = atomlabels(collabels);
+		return seq;
 	},
 	null, [{type: Fleur.Node, occurence: "?"}, {type: Fleur.Node, occurence: "?"}, {type: Fleur.Node, occurence: "?"}], false, false, {type: Fleur.Node, occurence: "?"});

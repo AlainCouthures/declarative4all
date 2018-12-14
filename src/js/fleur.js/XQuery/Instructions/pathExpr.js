@@ -14,15 +14,16 @@ Fleur.XQueryEngine[Fleur.XQueryX.pathExpr] = function(ctx, children, callback) {
 	var tests = [];
 	var preds = [];
 	children[0][1].forEach(function(child) {
-		if (child[0] === Fleur.XQueryX.predicates || child[0] === Fleur.XQueryX.predicate || child[0] === Fleur.XQueryX.lookup) {
+		if (child[0] === Fleur.XQueryX.predicates) {
+			child[1].forEach(function(subchild) {preds.push(subchild);});
+		} else if (child[0] === Fleur.XQueryX.predicate) {
+			preds.push(child[1][0]);
+		} else if (child[0] === Fleur.XQueryX.lookup) {
 			preds.push(child);
 		} else {
 			tests.push(child);
 		}
 	});
-	if (preds[0] && preds[0][0] === Fleur.XQueryX.predicates) {
-		preds = preds[0][1];
-	}
 	var cb = function(n, eob) {
 //console.log("pathExpr - cb - " + Fleur.Serializer._serializeNodeToXQuery(n, false, "") + (eob ? " - " + (eob === Fleur.XQueryX.pathExpr ? "pathExpr" : "stepExpr") : ""));
 		if (eob === Fleur.XQueryX.pathExpr) {

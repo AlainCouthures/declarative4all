@@ -85,12 +85,21 @@ XsltForms_repeat.prototype.deleteNode = function(node) {
  */
 
 XsltForms_repeat.prototype.insertNode = function(node, nodeAfter) {
-	var nodes = this.nodes;
+	var i, len, nodes = this.nodes;
 	if (nodeAfter) {
+		var repeatAfter = null;
+		for (i = 0, len = nodes.length; i < len && repeatAfter === null; i++) {
+			repeatAfter = nodeAfter;
+			while (repeatAfter !== null && repeatAfter !== nodes[i]) {
+				repeatAfter = repeatAfter.nextSibling;
+			}
+		}
+	}
+	if (repeatAfter) {
 		var newNodes = [];
 		var index = 1;
-		for (var i = 0, len = nodes.length; i < len; i++) {
-			if (nodeAfter === nodes[i]) {
+		for (i = 0, len = nodes.length; i < len; i++) {
+			if (repeatAfter === nodes[i]) {
 				newNodes.push(node);
 				index = i + 1;
 			}

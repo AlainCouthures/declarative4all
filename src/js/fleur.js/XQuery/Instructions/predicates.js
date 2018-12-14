@@ -122,7 +122,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.predicates] = function(ctx, children, callback)
 			if (next.collabels) {
 				label = next.collabels[0];
 			}
-			if (next.nodeType === Fleur.Node.SEQUENCE_NODE) {
+			if (next !== Fleur.EmptySequence && next.nodeType === Fleur.Node.SEQUENCE_NODE) {
 				if (next.childNodes[0].nodeType === Fleur.Node.MULTIDIM_NODE) {
 					if (next.childNodes[0].childNodes.length !== 1) {
 						subcurr = new Fleur.Sequence();
