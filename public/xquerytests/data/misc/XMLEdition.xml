@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="misc-XMLEdition" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the XMLEdition</description>
   <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-XMLEdition" type="spec"/>
   <link document="XQuery" idref="id-normative-references" section-number="E.1" type="spec"/>
-  <test-case name="XML10-3ed-Mixed-content">
+  <test-case name="XML10-3ed-Mixed-content"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>CDATA sections, comments and PIs may occur in ANY content. in XML 1.0 3th edition and older </description>
     <created by="Tim Kraska" on="2010-01-20"/>
-    <modified by="O'Neil Delpratt" change="Remove newlines in expected result" on="2011-10-13"/>
+    <modified by="O&apos;Neil Delpratt" change="Remove newlines in expected result" on="2011-10-13"/>
     <dependency type="spec" value="XQ10+"/>
     <test>foo a ![CDATA[cdata section]] in mixed content. a !-- comment -- in mixed content. a ?processing instruction? in mixed content. /foo</test>
     <result-string/>
@@ -16,19 +15,19 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="XML10-4ed-Excluded-char-1">
+  <test-case name="XML10-4ed-Excluded-char-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> The character #x037F is excluded from the start of a Name in XML 1.0 4th edition and older </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <modified by="Michael Kay" change="clarify dependency, split into two tests" on="2011-11-24"/>
     <dependency type="xml-version" value="1.0:4-"/>
     <dependency type="spec" value="XQ10+"/>
     <test>xquery version "1.0" encoding "utf-8"; node/</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="XML10-4ed-Excluded-char-1-new">
+  <test-case name="XML10-4ed-Excluded-char-1-new"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> The character #x037F is allowed at the start of a Name in XML 1.0 5th edition and later </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <modified by="Michael Kay" change="clarify dependency, split into two tests" on="2011-11-24"/>
@@ -45,7 +44,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="XML10-4ed-Excluded-char-2">
+  <test-case name="XML10-4ed-Excluded-char-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>The characters x01 x00 cannot appear at the start of a Name in XML (all editions).
         Note: the query is in a separate file because it cannot be represented in an XML document.
         Note: see bug 13869. The name was intended to start with the single character 0x0100, but 
@@ -59,7 +58,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="XML10-5ed-Included-char-1">
+  <test-case name="XML10-5ed-Included-char-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Written by: Tim Kraska  Contains a DEL, legal in XML 1.0, illegal in XML 1.1 </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <modified by="Michael Kay" change="clarify dependency, split into two tests" on="2011-11-24"/>
@@ -73,20 +72,20 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="XML10-5ed-Included-char-1-new">
+  <test-case name="XML10-5ed-Included-char-1-new"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Written by: Tim Kraska  Contains a DEL, legal in XML 1.0, illegal in XML 1.1.
-        Note: this is questionable. DEL is a legal 'Char' in both XML versions, but in 1.1 it is
+        Note: this is questionable. DEL is a legal &apos;Char&apos; in both XML versions, but in 1.1 it is
         a RestrictedChar. However, XQuery makes no reference to the restrictions associated with 
         RestrictedChar. See bug #14921 and #15966.</description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <modified by="Michael Kay" change="clarify dependency, split into two tests" on="2011-11-24"/>
-    <modified by="Michael Kay" change="allow success; see 'constraint: xml-version', which
-        states 'implementations MAY allow C1 control characters to be used directly' (spec change in response to bug 15966)" on="2013-01-05"/>
+    <modified by="Michael Kay" change="allow success; see &apos;constraint: xml-version&apos;, which
+        states &apos;implementations MAY allow C1 control characters to be used directly&apos; (spec change in response to bug 15966)" on="2013-01-05"/>
     <dependency type="xml-version" value="1.1"/>
     <dependency type="spec" value="XQ10+"/>
     <test>foo&gt;/foo&gt;</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
-    <result-string/>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <any-of>
         <error code="XPST0003"/>
@@ -96,19 +95,19 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="XML11-1ed-Included-char-1">
+  <test-case name="XML11-1ed-Included-char-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Written by: Tim Kraska  Has a "long s" in a name, legal in XML 1.1, illegal in XML 1.0 ed 4 and earlier</description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <modified by="Michael Kay" change="clarify dependency, split into two tests" on="2011-11-24"/>
     <dependency type="xml-version" value="1.0:4-"/>
     <dependency type="spec" value="XQ10+"/>
     <test>egg/&gt;</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="XML11-1ed-Included-char-1-new">
+  <test-case name="XML11-1ed-Included-char-1-new"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Written by: Tim Kraska  Has a "long s" in a name, legal in XML 1.1, illegal in XML 1.0 ed 4 and earlier</description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <modified by="Michael Kay" change="clarify dependency, split into two tests" on="2011-11-24"/>
@@ -125,115 +124,115 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="line-ending-Q001">
+  <test-case name="line-ending-Q001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Normalization of line endings in XQuery</description>
     <created by="Michael Kay" on="2011-11-24"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>deep-equal(string-to-codepoints(''), (10))</test>
+    <test>deep-equal(string-to-codepoints(&apos;&apos;), (10))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="line-ending-Q002">
+  <test-case name="line-ending-Q002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Normalization of line endings in XQuery</description>
     <created by="Michael Kay" on="2011-11-24"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>deep-equal(string-to-codepoints(''), (10))</test>
+    <test>deep-equal(string-to-codepoints(&apos;&apos;), (10))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="line-ending-Q003">
+  <test-case name="line-ending-Q003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Normalization of line endings in XQuery</description>
     <created by="Michael Kay" on="2011-11-24"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>deep-equal(string-to-codepoints('  '), (10, 32, 10, 32, 10, 10))</test>
+    <test>deep-equal(string-to-codepoints(&apos;  &apos;), (10, 32, 10, 32, 10, 10))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="line-ending-Q004">
+  <test-case name="line-ending-Q004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Normalization of line endings in XQuery with XML 1.1</description>
     <created by="Michael Kay" on="2011-11-24"/>
     <dependency type="spec" value="XQ10+"/>
     <dependency type="xml-version" value="1.1"/>
-    <test>deep-equal(string-to-codepoints(''), (10))</test>
+    <test>deep-equal(string-to-codepoints(&apos;&apos;), (10))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="line-ending-Q005">
+  <test-case name="line-ending-Q005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Normalization of line endings in XQuery with XML 1.1</description>
     <created by="Michael Kay" on="2011-11-24"/>
     <dependency type="spec" value="XQ10+"/>
     <dependency type="xml-version" value="1.1"/>
-    <test>deep-equal(string-to-codepoints('  '), (32, 10, 32))</test>
+    <test>deep-equal(string-to-codepoints(&apos;  &apos;), (32, 10, 32))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="line-ending-Q006">
+  <test-case name="line-ending-Q006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Normalization of line endings in XQuery with XML 1.1</description>
     <created by="Michael Kay" on="2011-11-24"/>
     <dependency type="spec" value="XQ10+"/>
     <dependency type="xml-version" value="1.1"/>
-    <test>deep-equal(string-to-codepoints('  '), (32, 10, 32))</test>
+    <test>deep-equal(string-to-codepoints(&apos;  &apos;), (32, 10, 32))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="line-ending-Q007">
+  <test-case name="line-ending-Q007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Normalization of line endings in XQuery with XML 1.0</description>
     <created by="Michael Kay" on="2011-11-24"/>
     <dependency type="spec" value="XQ10+"/>
     <dependency type="xml-version" value="1.0"/>
-    <test>deep-equal(string-to-codepoints(''), (10, 133))</test>
+    <test>deep-equal(string-to-codepoints(&apos;&apos;), (10, 133))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="line-ending-Q008">
+  <test-case name="line-ending-Q008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Normalization of line endings in XQuery with XML 1.1</description>
     <created by="Michael Kay" on="2011-11-24"/>
     <dependency type="spec" value="XQ10+"/>
     <dependency type="xml-version" value="1.0"/>
-    <test>deep-equal(string-to-codepoints('  '), (32, 133, 32))</test>
+    <test>deep-equal(string-to-codepoints(&apos;  &apos;), (32, 133, 32))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="line-ending-Q009">
+  <test-case name="line-ending-Q009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Normalization of line endings in XQuery with XML 1.1</description>
     <created by="Michael Kay" on="2011-11-24"/>
     <dependency type="spec" value="XQ10+"/>
     <dependency type="xml-version" value="1.0"/>
-    <test>deep-equal(string-to-codepoints('  '), (32, 8232, 32))</test>
+    <test>deep-equal(string-to-codepoints(&apos;  &apos;), (32, 8232, 32))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="line-ending-P002">
+  <test-case name="line-ending-P002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Normalization of line endings in XPath. See bug 14917.
         Supplied result assumes line endings are not normalized.</description>
     <created by="Michael Kay" on="2011-11-24"/>
     <modified by="Michael Kay" change="reflect resolution of bug 14917" on="2013-06-13"/>
     <dependency type="spec" value="XP20+"/>
-    <test>deep-equal(string-to-codepoints(''), (13, 10))</test>
+    <test>deep-equal(string-to-codepoints(&apos;&apos;), (13, 10))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="XML11-c0-001">
+  <test-case name="XML11-c0-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Use a C0 control character written in the query as a numeric char reference</description>
     <created by="Michael Kay" on="2012-10-19"/>
     <dependency type="spec" value="XQ30+"/>

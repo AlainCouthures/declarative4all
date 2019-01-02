@@ -9,7 +9,7 @@
  */
 Fleur.XQueryEngine[Fleur.XQueryX.decimalConstantExpr] = function(ctx, children, callback) {
 	var a = new Fleur.Text();
-	a.appendData(children[0][1][0]);
+	a.appendData(Fleur.Type_decimal.canonicalize(children[0][1][0]));
 	a.schemaTypeInfo = Fleur.Type_decimal;
 	Fleur.callback(function() {callback(a);});
 };

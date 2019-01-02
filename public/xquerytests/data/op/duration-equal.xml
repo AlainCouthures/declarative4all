@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="op-duration-equal" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the duration-equal operator</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-duration-equal" type="spec"/>
   <link document="FuncOps" idref="func-duration-equal" section-number="10.4.5" type="spec"/>
-  <test-case name="op-duration-equal-1">
+  <test-case name="op-duration-equal-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator as per example 1 for this operator from Functions and Operators specs. </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>xs:duration("P1Y") eq xs:duration("P12M")</test>
@@ -12,7 +11,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-2">
+  <test-case name="op-duration-equal-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator as per example 2 for this operator from Functions and Operators specs. </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>xs:duration("PT24H") eq xs:duration("P1D")</test>
@@ -21,7 +20,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-3">
+  <test-case name="op-duration-equal-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator as per example 3 for this operator from Functions and Operators specs. </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>xs:duration("P1Y") eq xs:duration("P365D")</test>
@@ -30,7 +29,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-4">
+  <test-case name="op-duration-equal-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator with both operands set to "P1Y" (uses eq operator) </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>xs:duration("P1Y") eq xs:duration("P1Y")</test>
@@ -39,7 +38,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-5">
+  <test-case name="op-duration-equal-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator with both operands set to "P1Y" (uses ne operator) </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>xs:duration("P1Y") ne xs:duration("P1Y")</test>
@@ -48,7 +47,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-6">
+  <test-case name="op-duration-equal-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator with both operands set to "PT24H" (uses eq operator) </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>xs:duration("PT24H") eq xs:duration("PT24H")</test>
@@ -57,7 +56,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-7">
+  <test-case name="op-duration-equal-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator with both operands set to "PT24H" (uses ne operator) </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>xs:duration("PT24H") ne xs:duration("PT24H")</test>
@@ -66,7 +65,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-8">
+  <test-case name="op-duration-equal-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator with both operands set to "P12M" (uses eq operator) </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>xs:duration("P12M") eq xs:duration("P12M")</test>
@@ -75,7 +74,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-9">
+  <test-case name="op-duration-equal-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator with both operands set to "P12M" (uses ne operator) </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>xs:duration("P12M") ne xs:duration("P12M")</test>
@@ -84,7 +83,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-10">
+  <test-case name="op-duration-equal-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator with both operands set to "P365D" (uses eq operator) </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>xs:duration("P365D") eq xs:duration("P365D")</test>
@@ -93,7 +92,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-11">
+  <test-case name="op-duration-equal-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator with both operands set to "P365D" (uses ne operator) </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>xs:duration("P365D") ne xs:duration("P365D")</test>
@@ -102,7 +101,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-12">
+  <test-case name="op-duration-equal-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator with both operands set to "P36D" and "P39D" (uses eq operator) </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>xs:duration("P36D") eq xs:duration("P39D")</test>
@@ -111,7 +110,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-13">
+  <test-case name="op-duration-equal-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator with both operands set to "P36D" and "P39D" (uses ne operator) </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>xs:duration("P36D") ne xs:duration("P39D")</test>
@@ -120,7 +119,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-14">
+  <test-case name="op-duration-equal-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator with both operands set to "P36D" and used as argument to fn:not (uses eq operator) </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>fn:not(xs:duration("P36D") eq xs:duration("P36D"))</test>
@@ -129,7 +128,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-15">
+  <test-case name="op-duration-equal-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator with both operands set to "P36D" and used as argument to fn:not (uses ne operator) </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>fn:not(xs:duration("P36D") ne xs:duration("P36D"))</test>
@@ -138,7 +137,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-16">
+  <test-case name="op-duration-equal-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator with both operands set to "P36D" and used as argument to xs:boolean (uses eq operator) </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>xs:boolean(xs:duration("P36D") eq xs:duration("P36D"))</test>
@@ -147,7 +146,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-17">
+  <test-case name="op-duration-equal-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator with both operands set to "P36D" and used as argument to xs:boolean (uses ne operator) </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>xs:boolean(xs:duration("P36D") ne xs:duration("P36D"))</test>
@@ -156,7 +155,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-18">
+  <test-case name="op-duration-equal-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator as part of boolean expression "and" operator and "fn:true" function (uses eq operator) </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>(xs:duration("P36D") eq xs:duration("P36D")) and fn:true()</test>
@@ -165,7 +164,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-19">
+  <test-case name="op-duration-equal-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator as part of boolean expression "and" operator and "fn:true" function (uses ne operator) </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>(xs:duration("P36D") ne xs:duration("P36D")) and fn:true()</test>
@@ -174,7 +173,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-20">
+  <test-case name="op-duration-equal-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator as part of boolean expression "or" operator and "fn:true" function (uses eq operator) </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>(xs:duration("P36D") eq xs:duration("P36D")) or fn:true()</test>
@@ -183,7 +182,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-21">
+  <test-case name="op-duration-equal-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator as part of boolean expression "or" operator and "fn:true" function (uses ne operator) </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>(xs:duration("P36D") ne xs:duration("P36D")) or fn:true()</test>
@@ -192,7 +191,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-22">
+  <test-case name="op-duration-equal-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator as part of boolean expression "and" operator and "fn:false" function (uses eq operator) </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>(xs:duration("P36D") eq xs:duration("P36D")) and fn:false()</test>
@@ -201,7 +200,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-23">
+  <test-case name="op-duration-equal-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator as part of boolean expression "and" operator and "fn:false" function (uses ne operator) </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>(xs:duration("P36D") ne xs:duration("P36D")) and fn:false()</test>
@@ -210,7 +209,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-24">
+  <test-case name="op-duration-equal-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator as part of boolean expression "or" operator and "fn:false" function (uses eq operator) </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>(xs:duration("P36D") eq xs:duration("P36D")) or fn:false()</test>
@@ -219,7 +218,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-25">
+  <test-case name="op-duration-equal-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator as part of boolean expression "or" operator and "fn:false" function (uses ne operator) </description>
     <created by="Carmelo Montanez" on="2005-02-07"/>
     <test>(xs:duration("P36D") ne xs:duration("P36D")) or fn:false()</test>
@@ -228,25 +227,25 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-26">
+  <test-case name="op-duration-equal-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator as per example 4 for this operator from the F and O specs. </description>
     <created by="Carmelo Montanez" on="2006-03-14"/>
-    <test>xs:yearMonthDuration('P0Y') eq xs:dayTimeDuration('P0D')</test>
+    <test>xs:yearMonthDuration(&apos;P0Y&apos;) eq xs:dayTimeDuration(&apos;P0D&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-duration-equal-27">
+  <test-case name="op-duration-equal-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of duration-equal operator as per example 5 for this operator from the F and O specs. </description>
     <created by="Carmelo Montanez" on="2006-03-14"/>
-    <test>xs:yearMonthDuration('P1Y') eq xs:dayTimeDuration('P365D')</test>
+    <test>xs:yearMonthDuration(&apos;P1Y&apos;) eq xs:dayTimeDuration(&apos;P365D&apos;)</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-yearMonthDuration-equal2args-1">
+  <test-case name="op-yearMonthDuration-equal2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:yearMonthDuration-equal" operator with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P0Y0M") eq xs:yearMonthDuration("P0Y0M")</test>
@@ -255,7 +254,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-yearMonthDuration-equal2args-2">
+  <test-case name="op-yearMonthDuration-equal2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:yearMonthDuration-equal" operator with the arguments set as follows: $arg1 = xs:yearMonthDuration(mid range) $arg2 = xs:yearMonthDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P1000Y6M") eq xs:yearMonthDuration("P0Y0M")</test>
@@ -264,7 +263,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-yearMonthDuration-equal2args-3">
+  <test-case name="op-yearMonthDuration-equal2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:yearMonthDuration-equal" operator with the arguments set as follows: $arg1 = xs:yearMonthDuration(upper bound) $arg2 = xs:yearMonthDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P2030Y12M") eq xs:yearMonthDuration("P0Y0M")</test>
@@ -273,7 +272,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-yearMonthDuration-equal2args-4">
+  <test-case name="op-yearMonthDuration-equal2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:yearMonthDuration-equal" operator with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P0Y0M") eq xs:yearMonthDuration("P1000Y6M")</test>
@@ -282,7 +281,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-yearMonthDuration-equal2args-5">
+  <test-case name="op-yearMonthDuration-equal2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:yearMonthDuration-equal" operator with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P0Y0M") eq xs:yearMonthDuration("P2030Y12M")</test>
@@ -291,7 +290,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-yearMonthDuration-equal2args-6">
+  <test-case name="op-yearMonthDuration-equal2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:yearMonthDuration-equal" operator with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P0Y0M") ne xs:yearMonthDuration("P0Y0M")</test>
@@ -300,7 +299,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-yearMonthDuration-equal2args-7">
+  <test-case name="op-yearMonthDuration-equal2args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:yearMonthDuration-equal" operator with the arguments set as follows: $arg1 = xs:yearMonthDuration(mid range) $arg2 = xs:yearMonthDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P1000Y6M") ne xs:yearMonthDuration("P0Y0M")</test>
@@ -309,7 +308,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-yearMonthDuration-equal2args-8">
+  <test-case name="op-yearMonthDuration-equal2args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:yearMonthDuration-equal" operator with the arguments set as follows: $arg1 = xs:yearMonthDuration(upper bound) $arg2 = xs:yearMonthDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P2030Y12M") ne xs:yearMonthDuration("P0Y0M")</test>
@@ -318,7 +317,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-yearMonthDuration-equal2args-9">
+  <test-case name="op-yearMonthDuration-equal2args-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:yearMonthDuration-equal" operator with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P0Y0M") ne xs:yearMonthDuration("P1000Y6M")</test>
@@ -327,7 +326,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-yearMonthDuration-equal2args-10">
+  <test-case name="op-yearMonthDuration-equal2args-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:yearMonthDuration-equal" operator with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P0Y0M") ne xs:yearMonthDuration("P2030Y12M")</test>
@@ -336,7 +335,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-yearMonthDuration-equal2args-11">
+  <test-case name="op-yearMonthDuration-equal2args-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:yearMonthDuration-equal" operator (le) with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-06-03"/>
     <test>xs:yearMonthDuration("P0Y0M") le xs:yearMonthDuration("P0Y0M")</test>
@@ -345,7 +344,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-yearMonthDuration-equal2args-12">
+  <test-case name="op-yearMonthDuration-equal2args-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:yearMonthDuration-equal" operator (le) with the arguments set as follows: $arg1 = xs:yearMonthDuration(mid range) $arg2 = xs:yearMonthDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-06-03"/>
     <test>xs:yearMonthDuration("P1000Y6M") le xs:yearMonthDuration("P0Y0M")</test>
@@ -354,7 +353,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-yearMonthDuration-equal2args-13">
+  <test-case name="op-yearMonthDuration-equal2args-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:yearMonthDuration-equal" operator (le) with the arguments set as follows: $arg1 = xs:yearMonthDuration(upper bound) $arg2 = xs:yearMonthDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-06-03"/>
     <test>xs:yearMonthDuration("P2030Y12M") le xs:yearMonthDuration("P0Y0M")</test>
@@ -363,7 +362,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-yearMonthDuration-equal2args-14">
+  <test-case name="op-yearMonthDuration-equal2args-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:yearMonthDuration-equal" operator (le) with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(mid range) </description>
     <created by="Carmelo Montanez" on="2004-06-03"/>
     <test>xs:yearMonthDuration("P0Y0M") le xs:yearMonthDuration("P1000Y6M")</test>
@@ -372,7 +371,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-yearMonthDuration-equal2args-15">
+  <test-case name="op-yearMonthDuration-equal2args-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:yearMonthDuration-equal" operator (le) with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-06-03"/>
     <test>xs:yearMonthDuration("P0Y0M") le xs:yearMonthDuration("P2030Y12M")</test>
@@ -381,7 +380,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-yearMonthDuration-equal2args-16">
+  <test-case name="op-yearMonthDuration-equal2args-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:yearMonthDuration-equal" operator (ge) with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-06-03"/>
     <test>xs:yearMonthDuration("P0Y0M") ge xs:yearMonthDuration("P0Y0M")</test>
@@ -390,7 +389,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-yearMonthDuration-equal2args-17">
+  <test-case name="op-yearMonthDuration-equal2args-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:yearMonthDuration-equal" operator (ge) with the arguments set as follows: $arg1 = xs:yearMonthDuration(mid range) $arg2 = xs:yearMonthDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-06-03"/>
     <test>xs:yearMonthDuration("P1000Y6M") ge xs:yearMonthDuration("P0Y0M")</test>
@@ -399,7 +398,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-yearMonthDuration-equal2args-18">
+  <test-case name="op-yearMonthDuration-equal2args-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:yearMonthDuration-equal" operator (ge) with the arguments set as follows: $arg1 = xs:yearMonthDuration(upper bound) $arg2 = xs:yearMonthDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-06-03"/>
     <test>xs:yearMonthDuration("P2030Y12M") ge xs:yearMonthDuration("P0Y0M")</test>
@@ -408,7 +407,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-yearMonthDuration-equal2args-19">
+  <test-case name="op-yearMonthDuration-equal2args-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:yearMonthDuration-equal" operator (ge) with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(mid range) </description>
     <created by="Carmelo Montanez" on="2004-06-03"/>
     <test>xs:yearMonthDuration("P0Y0M") ge xs:yearMonthDuration("P1000Y6M")</test>
@@ -417,7 +416,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-yearMonthDuration-equal2args-20">
+  <test-case name="op-yearMonthDuration-equal2args-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:yearMonthDuration-equal" operator (ge) with the arguments set as follows: $arg1 = xs:yearMonthDuration(lower bound) $arg2 = xs:yearMonthDuration(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-06-03"/>
     <test>xs:yearMonthDuration("P0Y0M") ge xs:yearMonthDuration("P2030Y12M")</test>
@@ -426,7 +425,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-equal2args-1">
+  <test-case name="op-dayTimeDuration-equal2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:dayTimeDuration-equal" operator with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P0DT0H0M0S") eq xs:dayTimeDuration("P0DT0H0M0S")</test>
@@ -435,7 +434,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-equal2args-2">
+  <test-case name="op-dayTimeDuration-equal2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:dayTimeDuration-equal" operator with the arguments set as follows: $arg1 = xs:dayTimeDuration(mid range) $arg2 = xs:dayTimeDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P15DT11H59M59S") eq xs:dayTimeDuration("P0DT0H0M0S")</test>
@@ -444,7 +443,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-equal2args-3">
+  <test-case name="op-dayTimeDuration-equal2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:dayTimeDuration-equal" operator with the arguments set as follows: $arg1 = xs:dayTimeDuration(upper bound) $arg2 = xs:dayTimeDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P31DT23H59M59S") eq xs:dayTimeDuration("P0DT0H0M0S")</test>
@@ -453,7 +452,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-equal2args-4">
+  <test-case name="op-dayTimeDuration-equal2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:dayTimeDuration-equal" operator with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P0DT0H0M0S") eq xs:dayTimeDuration("P15DT11H59M59S")</test>
@@ -462,7 +461,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-equal2args-5">
+  <test-case name="op-dayTimeDuration-equal2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:dayTimeDuration-equal" operator with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P0DT0H0M0S") eq xs:dayTimeDuration("P31DT23H59M59S")</test>
@@ -471,7 +470,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-equal2args-6">
+  <test-case name="op-dayTimeDuration-equal2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:dayTimeDuration-equal" operator with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P0DT0H0M0S") ne xs:dayTimeDuration("P0DT0H0M0S")</test>
@@ -480,7 +479,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-equal2args-7">
+  <test-case name="op-dayTimeDuration-equal2args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:dayTimeDuration-equal" operator with the arguments set as follows: $arg1 = xs:dayTimeDuration(mid range) $arg2 = xs:dayTimeDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P15DT11H59M59S") ne xs:dayTimeDuration("P0DT0H0M0S")</test>
@@ -489,7 +488,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-equal2args-8">
+  <test-case name="op-dayTimeDuration-equal2args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:dayTimeDuration-equal" operator with the arguments set as follows: $arg1 = xs:dayTimeDuration(upper bound) $arg2 = xs:dayTimeDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P31DT23H59M59S") ne xs:dayTimeDuration("P0DT0H0M0S")</test>
@@ -498,7 +497,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-equal2args-9">
+  <test-case name="op-dayTimeDuration-equal2args-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:dayTimeDuration-equal" operator with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P0DT0H0M0S") ne xs:dayTimeDuration("P15DT11H59M59S")</test>
@@ -507,7 +506,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-equal2args-10">
+  <test-case name="op-dayTimeDuration-equal2args-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:dayTimeDuration-equal" operator with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P0DT0H0M0S") ne xs:dayTimeDuration("P31DT23H59M59S")</test>
@@ -516,7 +515,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-equal2args-11">
+  <test-case name="op-dayTimeDuration-equal2args-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:dayTimeDuration-equal" operator (le) with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-06-03"/>
     <test>xs:dayTimeDuration("P0DT0H0M0S") le xs:dayTimeDuration("P0DT0H0M0S")</test>
@@ -525,7 +524,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-equal2args-12">
+  <test-case name="op-dayTimeDuration-equal2args-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:dayTimeDuration-equal" operator (le) with the arguments set as follows: $arg1 = xs:dayTimeDuration(mid range) $arg2 = xs:dayTimeDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-06-03"/>
     <test>xs:dayTimeDuration("P15DT11H59M59S") le xs:dayTimeDuration("P0DT0H0M0S")</test>
@@ -534,7 +533,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-equal2args-13">
+  <test-case name="op-dayTimeDuration-equal2args-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:dayTimeDuration-equal" operator (le) with the arguments set as follows: $arg1 = xs:dayTimeDuration(upper bound) $arg2 = xs:dayTimeDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-06-03"/>
     <test>xs:dayTimeDuration("P31DT23H59M59S") le xs:dayTimeDuration("P0DT0H0M0S")</test>
@@ -543,7 +542,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-equal2args-14">
+  <test-case name="op-dayTimeDuration-equal2args-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:dayTimeDuration-equal" operator (le) with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(mid range) </description>
     <created by="Carmelo Montanez" on="2004-06-03"/>
     <test>xs:dayTimeDuration("P0DT0H0M0S") le xs:dayTimeDuration("P15DT11H59M59S")</test>
@@ -552,7 +551,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-equal2args-15">
+  <test-case name="op-dayTimeDuration-equal2args-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:dayTimeDuration-equal" operator (le) with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-06-03"/>
     <test>xs:dayTimeDuration("P0DT0H0M0S") le xs:dayTimeDuration("P31DT23H59M59S")</test>
@@ -561,7 +560,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-equal2args-16">
+  <test-case name="op-dayTimeDuration-equal2args-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:dayTimeDuration-equal" operator (ge) with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-06-03"/>
     <test>xs:dayTimeDuration("P0DT0H0M0S") ge xs:dayTimeDuration("P0DT0H0M0S")</test>
@@ -570,7 +569,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-equal2args-17">
+  <test-case name="op-dayTimeDuration-equal2args-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:dayTimeDuration-equal" operator (ge) with the arguments set as follows: $arg1 = xs:dayTimeDuration(mid range) $arg2 = xs:dayTimeDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-06-03"/>
     <test>xs:dayTimeDuration("P15DT11H59M59S") ge xs:dayTimeDuration("P0DT0H0M0S")</test>
@@ -579,7 +578,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-equal2args-18">
+  <test-case name="op-dayTimeDuration-equal2args-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:dayTimeDuration-equal" operator (ge) with the arguments set as follows: $arg1 = xs:dayTimeDuration(upper bound) $arg2 = xs:dayTimeDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-06-03"/>
     <test>xs:dayTimeDuration("P31DT23H59M59S") ge xs:dayTimeDuration("P0DT0H0M0S")</test>
@@ -588,7 +587,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-equal2args-19">
+  <test-case name="op-dayTimeDuration-equal2args-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:dayTimeDuration-equal" operator (ge) with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(mid range) </description>
     <created by="Carmelo Montanez" on="2004-06-03"/>
     <test>xs:dayTimeDuration("P0DT0H0M0S") ge xs:dayTimeDuration("P15DT11H59M59S")</test>
@@ -597,7 +596,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-equal2args-20">
+  <test-case name="op-dayTimeDuration-equal2args-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:dayTimeDuration-equal" operator (ge) with the arguments set as follows: $arg1 = xs:dayTimeDuration(lower bound) $arg2 = xs:dayTimeDuration(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-06-03"/>
     <test>xs:dayTimeDuration("P0DT0H0M0S") ge xs:dayTimeDuration("P31DT23H59M59S")</test>
@@ -606,10 +605,10 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="distinct-duration-equal-1">
+  <test-case name="distinct-duration-equal-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:yearMonthDuration("P0M"),xs:dayTimeDuration("PT0S"))</response-string>
     <description> Evaluates The "yearMonthDuration" and "dayTimeDuration" data types with fn:distinct function given on example. </description>
     <created by="Carmelo Montanez" on="2006-03-20"/>
-    <test>fn:distinct-values((xs:yearMonthDuration('P0Y'), xs:dayTimeDuration('P0D')))</test>
+    <test>fn:distinct-values((xs:yearMonthDuration(&apos;P0Y&apos;), xs:dayTimeDuration(&apos;P0D&apos;)))</test>
     <result-string>xs:string("P0M")</result-string>
     <result-string>xs:string("PT0S")</result-string>
     <result>
@@ -619,12 +618,12 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="distinct-duration-equal-2">
+  <test-case name="distinct-duration-equal-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:yearMonthDuration("P1Y"),xs:dayTimeDuration("P365D"))</response-string>
     <description> Evaluates The "yearMonthDuration" and "dayTimeDuration" data types with fn:distinct function given on example. </description>
     <created by="Carmelo Montanez" on="2006-03-20"/>
-    <test>fn:distinct-values((xs:yearMonthDuration('P1Y'), xs:dayTimeDuration('P365D')))</test>
-    <result-string>xs:string("P1Y P365D")</result-string>
-    <result-string>xs:string("P365D P1Y")</result-string>
+    <test>fn:distinct-values((xs:yearMonthDuration(&apos;P1Y&apos;), xs:dayTimeDuration(&apos;P365D&apos;)))</test>
+    <result-string>(xs:yearMonthDuration("P1Y"),xs:dayTimeDuration("P365D"))</result-string>
+    <result-string>(xs:yearMonthDuration("P1Y"),xs:dayTimeDuration("P365D"))</result-string>
     <result>
       <any-of>
         <assert-string-value>P1Y P365D</assert-string-value>
@@ -632,8 +631,8 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-1">
-    <description> Simple test of 'eq' for xs:duration, returning positive. </description>
+  <test-case name="K-DurationEQ-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Simple test of &apos;eq&apos; for xs:duration, returning positive. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("P1999Y10M3DT08H34M12.143S") eq xs:duration("P1999Y10M3DT08H34M12.143S")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -641,8 +640,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-2">
-    <description> Testing 'eq' involving xs:duration with two zeroed values. </description>
+  <test-case name="K-DurationEQ-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Testing &apos;eq&apos; involving xs:duration with two zeroed values. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("PT0S") eq xs:duration("PT0S")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -650,8 +649,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-3">
-    <description> Simple test of 'eq' for xs:duration. </description>
+  <test-case name="K-DurationEQ-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Simple test of &apos;eq&apos; for xs:duration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(xs:duration("P1999Y10M3DT08H34M12.043S") eq xs:duration("P1999Y10M3DT08H34M12.143S"))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -659,8 +658,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-4">
-    <description> Simple test of 'ne' for xs:duration. </description>
+  <test-case name="K-DurationEQ-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Simple test of &apos;ne&apos; for xs:duration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("P1999Y01M3DT08H34M12.143S") ne xs:duration("P1999Y10M3DT08H34M12.143S")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -668,8 +667,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-5">
-    <description> Simple test of 'ne' for xs:duration. </description>
+  <test-case name="K-DurationEQ-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Simple test of &apos;ne&apos; for xs:duration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(xs:duration("P1999Y10M3DT08H34M12.143S") ne xs:duration("P1999Y10M3DT08H34M12.143S"))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -677,7 +676,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-6">
+  <test-case name="K-DurationEQ-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> The xs:duration values P365D and P1Y are not equal. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("P1Y") ne xs:duration("P365D")</test>
@@ -686,7 +685,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-7">
+  <test-case name="K-DurationEQ-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> The xs:duration values P12M and P1Y are equal. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("P1Y") eq xs:duration("P12M")</test>
@@ -695,7 +694,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-8">
+  <test-case name="K-DurationEQ-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> The xs:duration values P1M and P31D are not equal. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("P1M") ne xs:duration("P31D")</test>
@@ -704,7 +703,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-9">
+  <test-case name="K-DurationEQ-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> The xs:duration values -PT0S and PT0S are equal. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("-PT0S") eq xs:duration("PT0S")</test>
@@ -713,7 +712,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-10">
+  <test-case name="K-DurationEQ-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> The xs:duration values -P1Y3M4DT08H4M33S and P1Y3M4DT08H4M33S are not equal. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("-P1Y3M4DT08H4M33S") ne xs:duration("P1Y3M4DT08H4M33S")</test>
@@ -722,44 +721,44 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-11">
-    <description> The 'lt' operator is not available between xs:duration and xs:duration. </description>
+  <test-case name="K-DurationEQ-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;lt&apos; operator is not available between xs:duration and xs:duration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("P1999Y10M3DT08H34M12.142S") lt xs:duration("P1999Y10M3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-12">
-    <description> The 'le' operator is not available between xs:duration and xs:duration. </description>
+  <test-case name="K-DurationEQ-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;le&apos; operator is not available between xs:duration and xs:duration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("P1999Y10M3DT08H34M12.143S") le xs:duration("P1999Y10M3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-13">
-    <description> The 'gt' operator is not available between xs:duration and xs:duration. </description>
+  <test-case name="K-DurationEQ-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;gt&apos; operator is not available between xs:duration and xs:duration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("P1999Y10M3DT08H34M12.144S") gt xs:duration("P1999Y10M3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-14">
-    <description> The 'ge' operator is not available between xs:duration and xs:duration. </description>
+  <test-case name="K-DurationEQ-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;ge&apos; operator is not available between xs:duration and xs:duration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("P1999Y10M3DT08H34M12.143S") ge xs:duration("P1999Y10M3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-15">
-    <description> Simple test of 'eq' for xs:dayTimeDuration with xs:duration on the left hand. Both values are zero. </description>
+  <test-case name="K-DurationEQ-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Simple test of &apos;eq&apos; for xs:dayTimeDuration with xs:duration on the left hand. Both values are zero. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("PT0S") eq xs:dayTimeDuration("PT0S")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -767,8 +766,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-16">
-    <description> Simple test of 'eq' for xs:dayTimeDuration with xs:duration on the right hand. Both values are zero. </description>
+  <test-case name="K-DurationEQ-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Simple test of &apos;eq&apos; for xs:dayTimeDuration with xs:duration on the right hand. Both values are zero. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:dayTimeDuration("PT0S") eq xs:duration("PT0S")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -776,8 +775,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-17">
-    <description> Simple test of 'eq' for xs:yearMonthDuration with xs:duration on the right hand. Both values are zero. </description>
+  <test-case name="K-DurationEQ-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Simple test of &apos;eq&apos; for xs:yearMonthDuration with xs:duration on the right hand. Both values are zero. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:yearMonthDuration("P0M") eq xs:duration("PT0S")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -785,8 +784,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-18">
-    <description> Simple test of 'eq' for xs:dayTimeDuration with xs:duration on the left hand. Both values are zero. </description>
+  <test-case name="K-DurationEQ-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Simple test of &apos;eq&apos; for xs:dayTimeDuration with xs:duration on the left hand. Both values are zero. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("PT0S") eq xs:yearMonthDuration("P0M")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -794,8 +793,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-19">
-    <description> Simple test of 'eq' for xs:yearMonthDuration with xs:dayTimeDuration on the right hand. Both values are zero. </description>
+  <test-case name="K-DurationEQ-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Simple test of &apos;eq&apos; for xs:yearMonthDuration with xs:dayTimeDuration on the right hand. Both values are zero. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:yearMonthDuration("P0M") eq xs:dayTimeDuration("PT0S")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -803,8 +802,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-20">
-    <description> Simple test of 'eq' for xs:dayTimeDuration with xs:dayTimeDuration on the left hand. Both values are zero. </description>
+  <test-case name="K-DurationEQ-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Simple test of &apos;eq&apos; for xs:dayTimeDuration with xs:dayTimeDuration on the left hand. Both values are zero. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:dayTimeDuration("PT0S") eq xs:yearMonthDuration("P0M")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -812,8 +811,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-21">
-    <description> Simple test of 'eq' for xs:dayTimeDuration with xs:duration on the left hand. </description>
+  <test-case name="K-DurationEQ-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Simple test of &apos;eq&apos; for xs:dayTimeDuration with xs:duration on the left hand. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("P1DT2H") eq xs:dayTimeDuration("P1DT2H")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -821,8 +820,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-22">
-    <description> Simple test of 'eq' for xs:dayTimeDuration with xs:duration on the right hand. </description>
+  <test-case name="K-DurationEQ-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Simple test of &apos;eq&apos; for xs:dayTimeDuration with xs:duration on the right hand. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:dayTimeDuration("P1DT2H") eq xs:duration("P1DT2H")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -830,8 +829,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-23">
-    <description> Simple test of 'ne' for xs:dayTimeDuration with xs:duration on the left hand. </description>
+  <test-case name="K-DurationEQ-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Simple test of &apos;ne&apos; for xs:dayTimeDuration with xs:duration on the left hand. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("P1M1DT2H") ne xs:dayTimeDuration("P1DT2H")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -839,8 +838,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-24">
-    <description> Simple test of 'ne' for xs:dayTimeDuration with xs:duration on the left hand. </description>
+  <test-case name="K-DurationEQ-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Simple test of &apos;ne&apos; for xs:dayTimeDuration with xs:duration on the left hand. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:dayTimeDuration("P1DT2H") ne xs:duration("P1M1DT2H")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -848,8 +847,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-25">
-    <description> Simple test of 'eq' for xs:yearMonthDuration with xs:dayTimeDuration on the left hand. </description>
+  <test-case name="K-DurationEQ-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Simple test of &apos;eq&apos; for xs:yearMonthDuration with xs:dayTimeDuration on the left hand. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:yearMonthDuration("P0M") eq xs:dayTimeDuration("PT0S")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -857,8 +856,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-26">
-    <description> Simple test of 'eq' for xs:dayTimeDuration with xs:yearMonthDuration on the right hand. </description>
+  <test-case name="K-DurationEQ-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Simple test of &apos;eq&apos; for xs:dayTimeDuration with xs:yearMonthDuration on the right hand. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:dayTimeDuration("PT0S") eq xs:yearMonthDuration("P0M")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -866,8 +865,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-27">
-    <description> Simple test of 'eq' for xs:yearMonthDuration with xs:duration on the right hand. </description>
+  <test-case name="K-DurationEQ-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Simple test of &apos;eq&apos; for xs:yearMonthDuration with xs:duration on the right hand. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:yearMonthDuration("P1Y12M") eq xs:duration("P1Y12M0D")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -875,8 +874,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-28">
-    <description> Simple test of 'eq' for xs:dayTimeDuration with xs:duration on the left hand. </description>
+  <test-case name="K-DurationEQ-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Simple test of &apos;eq&apos; for xs:dayTimeDuration with xs:duration on the left hand. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("P1Y12M0D") eq xs:yearMonthDuration("P1Y12M")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -884,7 +883,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-29">
+  <test-case name="K-DurationEQ-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test comparing xs:duration and xs:yearMonthDuration stressing value representations are normalized properly. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:yearMonthDuration("P1M") ne xs:duration("P31D")</test>
@@ -893,7 +892,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-30">
+  <test-case name="K-DurationEQ-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test comparing xs:duration and xs:yearMonthDuration stressing value representations are normalized properly(with operand order switched). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("P31D") ne xs:yearMonthDuration("P1M")</test>
@@ -902,7 +901,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-31">
+  <test-case name="K-DurationEQ-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test comparing xs:dayTimeDuration and xs:yearMonthDuration stressing value representations are normalized properly. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:yearMonthDuration("P1M") ne xs:dayTimeDuration("P31D")</test>
@@ -911,7 +910,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-32">
+  <test-case name="K-DurationEQ-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test comparing xs:dayTimeDuration and xs:yearMonthDuration stressing value representations are normalized properly(with operand order switched). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:dayTimeDuration("P31D") ne xs:yearMonthDuration("P1M")</test>
@@ -920,260 +919,260 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-33">
-    <description> The 'ge' operator is not available between xs:duration and xs:dayTimeDuration. </description>
+  <test-case name="K-DurationEQ-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;ge&apos; operator is not available between xs:duration and xs:dayTimeDuration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("P1999Y10M3DT08H34M12.143S") ge xs:dayTimeDuration("P3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-34">
-    <description> The 'gt' operator is not available between xs:duration and xs:dayTimeDuration. </description>
+  <test-case name="K-DurationEQ-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;gt&apos; operator is not available between xs:duration and xs:dayTimeDuration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("P1999Y10M3DT08H34M12.143S") gt xs:dayTimeDuration("P3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-35">
-    <description> The 'lt' operator is not available between xs:duration and xs:dayTimeDuration. </description>
+  <test-case name="K-DurationEQ-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;lt&apos; operator is not available between xs:duration and xs:dayTimeDuration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("P1999Y10M3DT08H34M12.143S") lt xs:dayTimeDuration("P3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-36">
-    <description> The 'le' operator is not available between xs:duration and xs:dayTimeDuration. </description>
+  <test-case name="K-DurationEQ-36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;le&apos; operator is not available between xs:duration and xs:dayTimeDuration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("P1999Y10M3DT08H34M12.143S") le xs:dayTimeDuration("P3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-37">
-    <description> The 'ge' operator is not available between xs:duration and xs:dayTimeDuration(reversed operand order). </description>
+  <test-case name="K-DurationEQ-37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;ge&apos; operator is not available between xs:duration and xs:dayTimeDuration(reversed operand order). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:dayTimeDuration("P3DT08H34M12.143S") ge xs:duration("P1999Y10M3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-38">
-    <description> The 'gt' operator is not available between xs:duration and xs:dayTimeDuration(reversed operand order). </description>
+  <test-case name="K-DurationEQ-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;gt&apos; operator is not available between xs:duration and xs:dayTimeDuration(reversed operand order). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:dayTimeDuration("P3DT08H34M12.143S") gt xs:duration("P1999Y10M3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-39">
-    <description> The 'lt' operator is not available between xs:duration and xs:dayTimeDuration(reversed operand order). </description>
+  <test-case name="K-DurationEQ-39"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;lt&apos; operator is not available between xs:duration and xs:dayTimeDuration(reversed operand order). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:dayTimeDuration("P3DT08H34M12.143S") lt xs:duration("P1999Y10M3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-40">
-    <description> The 'le' operator is not available between xs:duration and xs:dayTimeDuration(reversed operand order). </description>
+  <test-case name="K-DurationEQ-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;le&apos; operator is not available between xs:duration and xs:dayTimeDuration(reversed operand order). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:dayTimeDuration("P3DT08H34M12.143S") le xs:duration("P1999Y10M3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-41">
-    <description> The 'ge' operator is not available between xs:yearMonthDuration and xs:dayTimeDuration. </description>
+  <test-case name="K-DurationEQ-41"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;ge&apos; operator is not available between xs:yearMonthDuration and xs:dayTimeDuration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:yearMonthDuration("P1999Y10M") ge xs:dayTimeDuration("P3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-42">
-    <description> The 'gt' operator is not available between xs:yearMonthDuration and xs:dayTimeDuration. </description>
+  <test-case name="K-DurationEQ-42"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;gt&apos; operator is not available between xs:yearMonthDuration and xs:dayTimeDuration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:yearMonthDuration("P1999Y10M") gt xs:dayTimeDuration("P3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-43">
-    <description> The 'lt' operator is not available between xs:yearMonthDuration and xs:dayTimeDuration. </description>
+  <test-case name="K-DurationEQ-43"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;lt&apos; operator is not available between xs:yearMonthDuration and xs:dayTimeDuration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:yearMonthDuration("P1999Y10M") lt xs:dayTimeDuration("P3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-44">
-    <description> The 'le' operator is not available between xs:yearMonthDuration and xs:dayTimeDuration. </description>
+  <test-case name="K-DurationEQ-44"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;le&apos; operator is not available between xs:yearMonthDuration and xs:dayTimeDuration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:yearMonthDuration("P1999Y10M") le xs:dayTimeDuration("P3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-45">
-    <description> The 'ge' operator is not available between xs:yearMonthDuration and xs:dayTimeDuration(reversed operand order). </description>
+  <test-case name="K-DurationEQ-45"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;ge&apos; operator is not available between xs:yearMonthDuration and xs:dayTimeDuration(reversed operand order). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:dayTimeDuration("P3DT08H34M12.143S") ge xs:yearMonthDuration("P1999Y10M")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-46">
-    <description> The 'gt' operator is not available between xs:yearMonthDuration and xs:dayTimeDuration(reversed operand order). </description>
+  <test-case name="K-DurationEQ-46"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;gt&apos; operator is not available between xs:yearMonthDuration and xs:dayTimeDuration(reversed operand order). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:dayTimeDuration("P3DT08H34M12.143S") gt xs:yearMonthDuration("P1999Y10M")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-47">
-    <description> The 'lt' operator is not available between xs:yearMonthDuration and xs:dayTimeDuration(reversed operand order). </description>
+  <test-case name="K-DurationEQ-47"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;lt&apos; operator is not available between xs:yearMonthDuration and xs:dayTimeDuration(reversed operand order). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:dayTimeDuration("P3DT08H34M12.143S") lt xs:yearMonthDuration("P1999Y10M")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-48">
-    <description> The 'le' operator is not available between xs:yearMonthDuration and xs:dayTimeDuration(reversed operand order). </description>
+  <test-case name="K-DurationEQ-48"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;le&apos; operator is not available between xs:yearMonthDuration and xs:dayTimeDuration(reversed operand order). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:dayTimeDuration("P3DT08H34M12.143S") le xs:yearMonthDuration("P1999Y10M")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-49">
-    <description> The 'ge' operator is not available between xs:yearMonthDuration and xs:duration. </description>
+  <test-case name="K-DurationEQ-49"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;ge&apos; operator is not available between xs:yearMonthDuration and xs:duration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:yearMonthDuration("P1999Y10M") ge xs:duration("P3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-50">
-    <description> The 'gt' operator is not available between xs:yearMonthDuration and xs:duration. </description>
+  <test-case name="K-DurationEQ-50"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;gt&apos; operator is not available between xs:yearMonthDuration and xs:duration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:yearMonthDuration("P1999Y10M") gt xs:duration("P3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-51">
-    <description> The 'lt' operator is not available between xs:yearMonthDuration and xs:duration. </description>
+  <test-case name="K-DurationEQ-51"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;lt&apos; operator is not available between xs:yearMonthDuration and xs:duration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:yearMonthDuration("P1999Y10M") lt xs:duration("P3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-52">
-    <description> The 'le' operator is not available between xs:yearMonthDuration and xs:duration. </description>
+  <test-case name="K-DurationEQ-52"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;le&apos; operator is not available between xs:yearMonthDuration and xs:duration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:yearMonthDuration("P1999Y10M") le xs:duration("P3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-53">
-    <description> The 'ge' operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order). </description>
+  <test-case name="K-DurationEQ-53"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;ge&apos; operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:yearMonthDuration("P1999Y10M") ge xs:duration("P3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-54">
-    <description> The 'gt' operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order). </description>
+  <test-case name="K-DurationEQ-54"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;gt&apos; operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:yearMonthDuration("P1999Y10M") gt xs:duration("P3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-55">
-    <description> The 'lt' operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order). </description>
+  <test-case name="K-DurationEQ-55"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;lt&apos; operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:yearMonthDuration("P1999Y10M") lt xs:duration("P3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-56">
-    <description> The 'le' operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order). </description>
+  <test-case name="K-DurationEQ-56"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;le&apos; operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:yearMonthDuration("P1999Y10M") le xs:duration("P3DT08H34M12.143S")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-57">
-    <description> The 'ge' operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order)(reversed operand order). </description>
+  <test-case name="K-DurationEQ-57"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;ge&apos; operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order)(reversed operand order). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("P3DT08H34M12.143S") ge xs:yearMonthDuration("P1999Y10M")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-58">
-    <description> The 'gt' operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order)(reversed operand order). </description>
+  <test-case name="K-DurationEQ-58"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;gt&apos; operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order)(reversed operand order). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("P3DT08H34M12.143S") gt xs:yearMonthDuration("P1999Y10M")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-59">
-    <description> The 'lt' operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order)(reversed operand order). </description>
+  <test-case name="K-DurationEQ-59"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;lt&apos; operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order)(reversed operand order). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("P3DT08H34M12.143S") lt xs:yearMonthDuration("P1999Y10M")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DurationEQ-60">
-    <description> The 'le' operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order)(reversed operand order). </description>
+  <test-case name="K-DurationEQ-60"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;le&apos; operator is not available between xs:yearMonthDuration and xs:duration(reversed operand order)(reversed operand order). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:duration("P3DT08H34M12.143S") le xs:yearMonthDuration("P1999Y10M")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationEQ-1">
-    <description>Simple test of 'eq' for xs:dayTimeDuration, returning positive. </description>
+  <test-case name="K-DayTimeDurationEQ-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description>Simple test of &apos;eq&apos; for xs:dayTimeDuration, returning positive. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dayTimeDuration("P3DT08H34M12.143S") eq xs:dayTimeDuration("P3DT08H34M12.143S")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -1181,8 +1180,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationEQ-2">
-    <description>Testing 'eq' involving xs:dayTimeDuration with two zeroed values. </description>
+  <test-case name="K-DayTimeDurationEQ-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description>Testing &apos;eq&apos; involving xs:dayTimeDuration with two zeroed values. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dayTimeDuration("PT0S") eq xs:dayTimeDuration("PT0S")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -1190,8 +1189,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationEQ-3">
-    <description> Simple test of 'eq' for xs:dayTimeDuration.  </description>
+  <test-case name="K-DayTimeDurationEQ-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> Simple test of &apos;eq&apos; for xs:dayTimeDuration.  </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:dayTimeDuration("P3DT08H34M12.043S") eq xs:dayTimeDuration("P3DT08H34M12.143S"))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -1199,8 +1198,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationEQ-4">
-    <description>Simple test of 'ne' for xs:dayTimeDuration. </description>
+  <test-case name="K-DayTimeDurationEQ-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description>Simple test of &apos;ne&apos; for xs:dayTimeDuration. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dayTimeDuration("PT08H34M12.143S") ne xs:dayTimeDuration("P3DT08H34M12.143S")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -1208,8 +1207,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationEQ-5">
-    <description> Simple test of 'ne' for xs:dayTimeDuration. </description>
+  <test-case name="K-DayTimeDurationEQ-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> Simple test of &apos;ne&apos; for xs:dayTimeDuration. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:dayTimeDuration("P3DT08H34M12.143S") ne xs:dayTimeDuration("P3DT08H34M12.143S"))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -1217,7 +1216,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationEQ-6">
+  <test-case name="K-DayTimeDurationEQ-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>The xs:dayTimeDuration values -PT0S and PT0S are equal. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dayTimeDuration("-PT0S") eq xs:dayTimeDuration("PT0S")</test>
@@ -1226,7 +1225,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationEQ-7">
+  <test-case name="K-DayTimeDurationEQ-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> The xs:dayTimeDuration values -P2DT5H and P2DT5H are not equal. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dayTimeDuration("-P2DT5H") ne xs:dayTimeDuration("P2DT5H")</test>
@@ -1235,7 +1234,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationEQ-8">
+  <test-case name="K-DayTimeDurationEQ-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Test eq operator for xs:dayTimeDuration values with large milli second component. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dayTimeDuration("P6DT16H34M59.613999S") eq xs:dayTimeDuration("P6DT16H34M59.613999S")</test>
@@ -1244,8 +1243,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationEQ-1">
-    <description> Simple test of 'eq' for xs:yearMonthDuration, returning positive. </description>
+  <test-case name="K-YearMonthDurationEQ-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> Simple test of &apos;eq&apos; for xs:yearMonthDuration, returning positive. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:yearMonthDuration("P1999Y10M") eq xs:yearMonthDuration("P1999Y10M")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -1253,8 +1252,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationEQ-2">
-    <description>Testing 'eq' involving xs:yearMonthDuration with two zeroed values. </description>
+  <test-case name="K-YearMonthDurationEQ-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description>Testing &apos;eq&apos; involving xs:yearMonthDuration with two zeroed values. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:yearMonthDuration("P0M") eq xs:yearMonthDuration("P0M")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -1262,8 +1261,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationEQ-3">
-    <description> Simple test of 'eq' for xs:yearMonthDuration. </description>
+  <test-case name="K-YearMonthDurationEQ-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> Simple test of &apos;eq&apos; for xs:yearMonthDuration. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:yearMonthDuration("P1999Y") eq xs:yearMonthDuration("P1999Y10M"))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -1271,8 +1270,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationEQ-4">
-    <description>Simple test of 'ne' for xs:yearMonthDuration.</description>
+  <test-case name="K-YearMonthDurationEQ-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description>Simple test of &apos;ne&apos; for xs:yearMonthDuration.</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:yearMonthDuration("P1999Y01M") ne xs:yearMonthDuration("P1999Y10M")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -1280,8 +1279,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationEQ-5">
-    <description> Simple test of 'ne' for xs:yearMonthDuration. </description>
+  <test-case name="K-YearMonthDurationEQ-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> Simple test of &apos;ne&apos; for xs:yearMonthDuration. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(xs:yearMonthDuration("P1999Y10M") ne xs:yearMonthDuration("P1999Y10M"))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -1289,7 +1288,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationEQ-6">
+  <test-case name="K-YearMonthDurationEQ-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> The xs:yearMonthDuration values -P0M and P0M are equal. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:yearMonthDuration("-P3Y8M") ne xs:yearMonthDuration("P3Y8M")</test>
@@ -1298,7 +1297,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationEQ-7">
+  <test-case name="K-YearMonthDurationEQ-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>The xs:yearMonthDuration values -P3Y8M and +P3Y8M are not equal. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:yearMonthDuration("-P3Y8M") ne xs:yearMonthDuration("P3Y8M")</test>
@@ -1307,27 +1306,27 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-dayTimeDuration-equal-001">
+  <test-case name="cbcl-dayTimeDuration-equal-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test comparison of dayTimeDurations </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat('P', $days, 'DT', $hours, 'H')) }; not(local:dayTimeDuration(1, 1) eq xs:dayTimeDuration("P0D"))</test>
+    <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat(&apos;P&apos;, $days, &apos;DT&apos;, $hours, &apos;H&apos;)) }; not(local:dayTimeDuration(1, 1) eq xs:dayTimeDuration("P0D"))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-dayTimeDuration-equal-002">
+  <test-case name="cbcl-dayTimeDuration-equal-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test comparison of dayTimeDurations </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat('P', $days, 'DT', $hours, 'H')) }; not(local:dayTimeDuration(1, 1) ne xs:dayTimeDuration("P0D"))</test>
+    <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat(&apos;P&apos;, $days, &apos;DT&apos;, $hours, &apos;H&apos;)) }; not(local:dayTimeDuration(1, 1) ne xs:dayTimeDuration("P0D"))</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-dayTimeDuration-equal-003">
+  <test-case name="cbcl-dayTimeDuration-equal-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> test comparison of xs:dayTimeDuration </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1337,7 +1336,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-dayTimeDuration-equal-004">
+  <test-case name="cbcl-dayTimeDuration-equal-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test comparison of xs:dayTimeDuration </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1347,7 +1346,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-dayTimeDuration-equal-005">
+  <test-case name="cbcl-dayTimeDuration-equal-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> test comparison of xs:dayTimeDuration </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1357,7 +1356,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-dayTimeDuration-equal-006">
+  <test-case name="cbcl-dayTimeDuration-equal-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test comparison of xs:dayTimeDuration </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1367,27 +1366,27 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-duration-equal-001">
+  <test-case name="cbcl-duration-equal-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> test comparison of dayTimeDurations </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:duration($days as xs:integer, $hours as xs:integer) { xs:duration(concat('P', $days, 'DT', $hours, 'H')) }; not(local:duration(1, 1) eq xs:dayTimeDuration("P0D"))</test>
+    <test>declare function local:duration($days as xs:integer, $hours as xs:integer) { xs:duration(concat(&apos;P&apos;, $days, &apos;DT&apos;, $hours, &apos;H&apos;)) }; not(local:duration(1, 1) eq xs:dayTimeDuration("P0D"))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-duration-equal-002">
+  <test-case name="cbcl-duration-equal-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> test comparison of dayTimeDurations </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:duration($days as xs:integer, $hours as xs:integer) { xs:duration(concat('P', $days, 'DT', $hours, 'H')) }; not(local:duration(1, 1) ne xs:dayTimeDuration("P0D"))</test>
+    <test>declare function local:duration($days as xs:integer, $hours as xs:integer) { xs:duration(concat(&apos;P&apos;, $days, &apos;DT&apos;, $hours, &apos;H&apos;)) }; not(local:duration(1, 1) ne xs:dayTimeDuration("P0D"))</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-duration-equal-003">
+  <test-case name="cbcl-duration-equal-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> test comparison of xs:duration </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1397,7 +1396,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-duration-equal-004">
+  <test-case name="cbcl-duration-equal-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> test comparison of xs:duration </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1407,7 +1406,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-duration-equal-005">
+  <test-case name="cbcl-duration-equal-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> test comparison of xs:duration </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1417,7 +1416,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-duration-equal-006">
+  <test-case name="cbcl-duration-equal-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> test comparison of xs:duration </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1427,24 +1426,24 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-yearMonthDuration-equal-001">
+  <test-case name="cbcl-yearMonthDuration-equal-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test equality of xs:yearMonthDuration </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
-        declare function local:yearMonthDuration($years as xs:integer, $months as xs:integer ) { xs:yearMonthDuration(concat('P', $years, 'Y', $months, 'M')) };
+        declare function local:yearMonthDuration($years as xs:integer, $months as xs:integer ) { xs:yearMonthDuration(concat(&apos;P&apos;, $years, &apos;Y&apos;, $months, &apos;M&apos;)) };
         not(local:yearMonthDuration(1, 1) eq xs:yearMonthDuration("P0Y"))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-yearMonthDuration-equal-002">
+  <test-case name="cbcl-yearMonthDuration-equal-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test equality of xs:yearMonthDuration </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
-        declare function local:yearMonthDuration($years as xs:integer, $months as xs:integer ) { xs:yearMonthDuration(concat('P', $years, 'Y', $months, 'M')) };
+        declare function local:yearMonthDuration($years as xs:integer, $months as xs:integer ) { xs:yearMonthDuration(concat(&apos;P&apos;, $years, &apos;Y&apos;, $months, &apos;M&apos;)) };
         not(local:yearMonthDuration(1, 1) ne xs:yearMonthDuration("P0Y"))</test>
     <result-string>xs:boolean("false")</result-string>
     <result>

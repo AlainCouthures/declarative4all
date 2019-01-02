@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="op-multiply-dayTimeDuration" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the multiply-dayTimeDuration() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-multiply-dayTimeDuration" type="spec"/>
-  <test-case name="op-multiply-dayTimeDuration2args-1">
+  <test-case name="op-multiply-dayTimeDuration2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PT0S")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration2args-1                
@@ -16,12 +15,12 @@ $arg2 = xs:double(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P0DT0H0M0S") * xs:double("-1.7976931348623157E308")</test>
-    <result-string>xs:string("PT0S")</result-string>
+    <result-string>xs:dayTimeDuration("PT0S")</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-dayTimeDuration2args-2">
+  <test-case name="op-multiply-dayTimeDuration2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PT0S")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration2args-2                
@@ -35,12 +34,12 @@ $arg2 = xs:double(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P15DT11H59M59S") * xs:double("0")</test>
-    <result-string>xs:string("PT0S")</result-string>
+    <result-string>xs:dayTimeDuration("PT0S")</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-dayTimeDuration2args-3">
+  <test-case name="op-multiply-dayTimeDuration2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PT0S")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration2args-3                
@@ -54,12 +53,12 @@ $arg2 = xs:double(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P31DT23H59M59S") * xs:double("0")</test>
-    <result-string>xs:string("PT0S")</result-string>
+    <result-string>xs:dayTimeDuration("PT0S")</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-dayTimeDuration2args-4">
+  <test-case name="op-multiply-dayTimeDuration2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PT0S")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration2args-4                
@@ -73,12 +72,12 @@ $arg2 = xs:double(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P0DT0H0M0S") * xs:double("0")</test>
-    <result-string>xs:string("PT0S")</result-string>
+    <result-string>xs:dayTimeDuration("PT0S")</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-dayTimeDuration2args-5">
+  <test-case name="op-multiply-dayTimeDuration2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PT0S")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration2args-5                
@@ -92,12 +91,12 @@ $arg2 = xs:double(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P0DT0H0M0S") * xs:double("1.7976931348623157E308")</test>
-    <result-string>xs:string("PT0S")</result-string>
+    <result-string>xs:dayTimeDuration("PT0S")</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-dayTimeDuration-1">
+  <test-case name="op-multiply-dayTimeDuration-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PT4H33M")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration-1                    
@@ -109,12 +108,12 @@ As per example 1 (for this function)of the FO specs.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>xs:dayTimeDuration("PT2H10M") * 2.1</test>
-    <result-string>xs:string("PT4H33M")</result-string>
+    <result-string>xs:dayTimeDuration("PT4H33M")</result-string>
     <result>
       <assert-string-value>PT4H33M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-dayTimeDuration-2">
+  <test-case name="op-multiply-dayTimeDuration-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration-2                    
@@ -131,7 +130,7 @@ used as part of a boolean expression (and operator) and the "fn:false" function.
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-multiply-dayTimeDuration-3">
+  <test-case name="op-multiply-dayTimeDuration-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration-3                    
@@ -147,7 +146,7 @@ part of a boolean expression (or operator) and the "fn:boolean" function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-multiply-dayTimeDuration-4">
+  <test-case name="op-multiply-dayTimeDuration-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration-4                    
@@ -164,7 +163,7 @@ return true and used together with fn:not.
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-multiply-dayTimeDuration-5">
+  <test-case name="op-multiply-dayTimeDuration-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration-5                    
@@ -181,7 +180,7 @@ is used as an argument to the fn:boolean function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-multiply-dayTimeDuration-6">
+  <test-case name="op-multiply-dayTimeDuration-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration-6                    
@@ -193,12 +192,12 @@ is used as an argument to the fn:number function.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:number(xs:dayTimeDuration("P02DT06H09M") *2.0)</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-dayTimeDuration-7">
+  <test-case name="op-multiply-dayTimeDuration-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("P6DT8H16M")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration-7                    
@@ -215,7 +214,7 @@ as an argument to the "fn:string" function).
       <assert-string-value>P6DT8H16M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-dayTimeDuration-8">
+  <test-case name="op-multiply-dayTimeDuration-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("-P20DT2H2M")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration-8                    
@@ -227,12 +226,12 @@ returns a negative value.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>(xs:dayTimeDuration("P10DT01H01M") * -2.0)</test>
-    <result-string>xs:string("-P20DT2H2M")</result-string>
+    <result-string>xs:dayTimeDuration("-P20DT2H2M")</result-string>
     <result>
       <assert-string-value>-P20DT2H2M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-dayTimeDuration-9">
+  <test-case name="op-multiply-dayTimeDuration-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration-9                    
@@ -249,7 +248,7 @@ together with and "and" expression.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-multiply-dayTimeDuration-10">
+  <test-case name="op-multiply-dayTimeDuration-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration-10                   
@@ -266,7 +265,7 @@ together with an "or" expression.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-multiply-dayTimeDuration-11">
+  <test-case name="op-multiply-dayTimeDuration-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration-11                   
@@ -278,12 +277,12 @@ together with a "div" expression.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>(xs:dayTimeDuration("P42DT10H10M") * 2.0) div (xs:dayTimeDuration("P42DT10H10M") * 2.0)</test>
-    <result-string>xs:string("1")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-dayTimeDuration-12">
+  <test-case name="op-multiply-dayTimeDuration-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration-12                   
@@ -300,7 +299,7 @@ with a boolean expression and the "fn:true" function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-multiply-dayTimeDuration-13">
+  <test-case name="op-multiply-dayTimeDuration-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration-13                   
@@ -317,7 +316,7 @@ together with the numeric-equal-operator "eq".
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-multiply-dayTimeDuration-14">
+  <test-case name="op-multiply-dayTimeDuration-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration-14                   
@@ -334,7 +333,7 @@ together with the numeric-equal operator "ne".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-multiply-dayTimeDuration-15">
+  <test-case name="op-multiply-dayTimeDuration-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration-15                   
@@ -351,7 +350,7 @@ together with the numeric-equal operator "le".
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-multiply-dayTimeDuration-16">
+  <test-case name="op-multiply-dayTimeDuration-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration-16                   
@@ -368,7 +367,7 @@ together with the numeric-equal operator "ge".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-multiply-dayTimeDuration-17">
+  <test-case name="op-multiply-dayTimeDuration-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration-17                   
@@ -380,12 +379,12 @@ multiplied by -0. Use fn:count to avoid empty file.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:count(xs:dayTimeDuration("P13DT09H09M") * -0)</test>
-    <result-string>xs:string("1")</result-string>
+    <result-string>xs:integer("1")</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-dayTimeDuration-18">
+  <test-case name="op-multiply-dayTimeDuration-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-dayTimeDuration-18                   
@@ -397,12 +396,12 @@ multiplied by +0. Use fn:count to avoid empty file.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:count(xs:dayTimeDuration("P13DT09H09M") * +0)</test>
-    <result-string>xs:string("1")</result-string>
+    <result-string>xs:integer("1")</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationMultiply-1">
+  <test-case name="K-DayTimeDurationMultiply-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationMultiply-1                     
@@ -418,7 +417,7 @@ multiplied by +0. Use fn:count to avoid empty file.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationMultiply-2">
+  <test-case name="K-DayTimeDurationMultiply-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationMultiply-2                     
@@ -434,7 +433,7 @@ multiplied by +0. Use fn:count to avoid empty file.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationMultiply-3">
+  <test-case name="K-DayTimeDurationMultiply-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationMultiply-3                     
@@ -450,7 +449,7 @@ multiplied by +0. Use fn:count to avoid empty file.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationMultiply-4">
+  <test-case name="K-DayTimeDurationMultiply-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationMultiply-4                     
@@ -466,7 +465,7 @@ multiplied by +0. Use fn:count to avoid empty file.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationMultiply-5">
+  <test-case name="K-DayTimeDurationMultiply-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationMultiply-5                     
@@ -482,7 +481,7 @@ multiplied by +0. Use fn:count to avoid empty file.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationMultiply-6">
+  <test-case name="K-DayTimeDurationMultiply-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationMultiply-6                     
@@ -498,7 +497,7 @@ multiplied by +0. Use fn:count to avoid empty file.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationMultiply-7">
+  <test-case name="K-DayTimeDurationMultiply-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PInfinityDTNaNHNaNMNaNS")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationMultiply-7                     
@@ -514,7 +513,7 @@ multiplied by +0. Use fn:count to avoid empty file.
       <error code="FODT0002"/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationMultiply-8">
+  <test-case name="K-DayTimeDurationMultiply-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("-PInfinityDTNaNHNaNMNaNS")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationMultiply-8                     
@@ -530,7 +529,7 @@ multiplied by +0. Use fn:count to avoid empty file.
       <error code="FODT0002"/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationMultiply-9">
+  <test-case name="K-DayTimeDurationMultiply-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PNaNDTNaNHNaNMNaNS")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationMultiply-9                     
@@ -546,27 +545,27 @@ multiplied by +0. Use fn:count to avoid empty file.
       <error code="FOCA0005"/>
     </result>
   </test-case>
-  <test-case name="cbcl-multiply-dayTimeDuration-001">
+  <test-case name="cbcl-multiply-dayTimeDuration-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PT0S")</response-string>
     <description> test multiplication of xs:dayTimeDuration by 0 </description>
     <created by="Oliver Hallam" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:dayTimeDuration($days as xs:integer) as xs:dayTimeDuration { xs:dayTimeDuration(concat("P", $days, "D")) }; local:dayTimeDuration(2) * 0</test>
-    <result-string>xs:string("PT0S")</result-string>
+    <result-string>xs:dayTimeDuration("PT0S")</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-multiply-dayTimeDuration-002">
+  <test-case name="cbcl-multiply-dayTimeDuration-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("P2D")</response-string>
     <description> test multiplication of xs:dayTimeDuration by 1 </description>
     <created by="Oliver Hallam" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:dayTimeDuration($days as xs:integer) as xs:dayTimeDuration { xs:dayTimeDuration(concat("P", $days, "D")) }; local:dayTimeDuration(2) * 1</test>
-    <result-string>xs:string("P2D")</result-string>
+    <result-string>xs:dayTimeDuration("P2D")</result-string>
     <result>
       <assert-string-value>P2D</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-multiply-dayTimeDuration-003">
+  <test-case name="cbcl-multiply-dayTimeDuration-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PNaNDTNaNHNaNMNaNS")</response-string>
     <description> test multiplication of xs:dayTimeDuration by NaN </description>
     <created by="Oliver Hallam" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
@@ -576,27 +575,27 @@ multiplied by +0. Use fn:count to avoid empty file.
       <error code="FOCA0005"/>
     </result>
   </test-case>
-  <test-case name="cbcl-multiply-dayTimeDuration-004">
+  <test-case name="cbcl-multiply-dayTimeDuration-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PT0S")</response-string>
     <description> test multiplication of xs:dayTimeDuration by 0 </description>
     <created by="Oliver Hallam" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:dayTimeDuration($days as xs:integer) as xs:dayTimeDuration { xs:dayTimeDuration(concat("P", $days, "D")) }; 0 * local:dayTimeDuration(2)</test>
-    <result-string>xs:string("PT0S")</result-string>
+    <result-string>xs:dayTimeDuration("PT0S")</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-multiply-dayTimeDuration-005">
+  <test-case name="cbcl-multiply-dayTimeDuration-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("P2D")</response-string>
     <description> test multiplication of xs:dayTimeDuration by 1 </description>
     <created by="Oliver Hallam" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:dayTimeDuration($days as xs:integer) as xs:dayTimeDuration { xs:dayTimeDuration(concat("P", $days, "D")) }; 1 * local:dayTimeDuration(2)</test>
-    <result-string>xs:string("P2D")</result-string>
+    <result-string>xs:dayTimeDuration("P2D")</result-string>
     <result>
       <assert-string-value>P2D</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-multiply-dayTimeDuration-006">
+  <test-case name="cbcl-multiply-dayTimeDuration-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PNaNDTNaNHNaNMNaNS")</response-string>
     <description> test multiplication of xs:dayTimeDuration by NaN </description>
     <created by="Oliver Hallam" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
@@ -606,98 +605,98 @@ multiplied by +0. Use fn:count to avoid empty file.
       <error code="FOCA0005"/>
     </result>
   </test-case>
-  <test-case name="cbcl-times-001">
+  <test-case name="cbcl-times-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P2M")</response-string>
     <description> Test behaviour of times operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") };
         local:f(false()) * 2</test>
-    <result-string>xs:string("P2M")</result-string>
+    <result-string>xs:yearMonthDuration("P2M")</result-string>
     <result>
       <assert-string-value>P2M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-times-002">
+  <test-case name="cbcl-times-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of times operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") };
         local:f(true()) * 2</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-times-003">
+  <test-case name="cbcl-times-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("P2D")</response-string>
     <description> Test behaviour of times operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:dayTimeDuration("P1D") };
         local:f(false()) * 2</test>
-    <result-string>xs:string("P2D")</result-string>
+    <result-string>xs:dayTimeDuration("P2D")</result-string>
     <result>
       <assert-string-value>P2D</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-times-004">
+  <test-case name="cbcl-times-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of times operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:dayTimeDuration("P1D") };
         local:f(true()) * 2</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-times-005">
+  <test-case name="cbcl-times-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P2M")</response-string>
     <description> Test behaviour of times operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") };
         2 * local:f(false())</test>
-    <result-string>xs:string("P2M")</result-string>
+    <result-string>xs:yearMonthDuration("P2M")</result-string>
     <result>
       <assert-string-value>P2M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-times-006">
+  <test-case name="cbcl-times-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of times operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") };
         2 * local:f(true())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-times-007">
+  <test-case name="cbcl-times-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("P2D")</response-string>
     <description> Test behaviour of times operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:dayTimeDuration("P1D") };
         2 * local:f(false())</test>
-    <result-string>xs:string("P2D")</result-string>
+    <result-string>xs:dayTimeDuration("P2D")</result-string>
     <result>
       <assert-string-value>P2D</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-times-008">
+  <test-case name="cbcl-times-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of times operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:dayTimeDuration("P1D") };
         2 * local:f(true())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>

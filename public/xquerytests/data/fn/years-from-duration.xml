@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-years-from-duration" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the years-from-duration() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-years-from-duration" type="spec"/>
-  <test-case name="fn-years-from-duration1args-1">
+  <test-case name="fn-years-from-duration1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "years-from-duration" function with the arguments set as follows: $arg = xs:yearMonthDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:years-from-duration(xs:yearMonthDuration("P0Y0M"))</test>
@@ -11,7 +10,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-years-from-duration1args-2">
+  <test-case name="fn-years-from-duration1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1000")</response-string>
     <description> Evaluates The "years-from-duration" function with the arguments set as follows: $arg = xs:yearMonthDuration(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:years-from-duration(xs:yearMonthDuration("P1000Y6M"))</test>
@@ -20,7 +19,7 @@
       <assert-eq>1000</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-years-from-duration1args-3">
+  <test-case name="fn-years-from-duration1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2031")</response-string>
     <description> Evaluates The "years-from-duration" function with the arguments set as follows: $arg = xs:yearMonthDuration(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:years-from-duration(xs:yearMonthDuration("P2030Y12M"))</test>
@@ -29,7 +28,7 @@
       <assert-eq>2031</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-years-from-duration-1">
+  <test-case name="fn-years-from-duration-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("21")</response-string>
     <description> Evaluates The "years-from-duration" function As per example 1 (for this function)of the FO specs </description>
     <created by="Carmelo Montanez" on="2005-06-10"/>
     <test>fn:years-from-duration(xs:yearMonthDuration("P20Y15M"))</test>
@@ -38,7 +37,7 @@
       <assert-eq>21</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-years-from-duration-2">
+  <test-case name="fn-years-from-duration-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1")</response-string>
     <description> Evaluates The "years-from-duration" function As per example 2 (for this function) of the FO specs </description>
     <created by="Carmelo Montanez" on="2005-06-10"/>
     <test>fn:years-from-duration(xs:yearMonthDuration("-P15M"))</test>
@@ -47,7 +46,7 @@
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-years-from-duration-3">
+  <test-case name="fn-years-from-duration-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "years-from-duration" function involving a "numeric-less-than" operation (lt operator) </description>
     <created by="Carmelo Montanez" on="2005-06-10"/>
     <test>fn:years-from-duration(xs:yearMonthDuration("P20Y3M")) lt fn:years-from-duration(xs:yearMonthDuration("P21Y2M"))</test>
@@ -56,7 +55,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-years-from-duration-4">
+  <test-case name="fn-years-from-duration-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "years-from-duration" function involving a "numeric-less-than" operation (le operator) </description>
     <created by="Carmelo Montanez" on="2005-06-10"/>
     <test>fn:years-from-duration(xs:yearMonthDuration("P21Y10M")) le fn:years-from-duration(xs:yearMonthDuration("P22Y10M"))</test>
@@ -65,7 +64,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-years-from-duration-5">
+  <test-case name="fn-years-from-duration-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "years-from-duration" function using the empty sequence as an argument. Use count function to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-06-10"/>
     <test>fn:count(fn:years-from-duration(()))</test>
@@ -74,7 +73,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-years-from-duration-6">
+  <test-case name="fn-years-from-duration-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "years-from-duration" function that returns 1. </description>
     <created by="Carmelo Montanez" on="2005-06-10"/>
     <test>fn:years-from-duration(xs:yearMonthDuration("P01Y10M"))</test>
@@ -83,7 +82,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-years-from-duration-7">
+  <test-case name="fn-years-from-duration-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("22")</response-string>
     <description> Evaluates The "years-from-duration" function used as arguments to an avg function. </description>
     <created by="Carmelo Montanez" on="2005-06-10"/>
     <test>fn:avg((fn:years-from-duration(xs:yearMonthDuration("P23Y10M")),fn:years-from-duration(xs:yearMonthDuration("P21Y10M"))))</test>
@@ -92,7 +91,7 @@
       <assert-eq>22</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-years-from-duration-8">
+  <test-case name="fn-years-from-duration-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("43")</response-string>
     <description> Evaluates The "years-from-duration" function as part of a "+" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-10"/>
     <test>fn:years-from-duration(xs:yearMonthDuration("P21Y10M")) + fn:years-from-duration(xs:yearMonthDuration("P22Y10M"))</test>
@@ -101,7 +100,7 @@
       <assert-eq>43</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-years-from-duration-9">
+  <test-case name="fn-years-from-duration-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("20")</response-string>
     <description> Evaluates The "years-from-duration" function as part of a "-" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-10"/>
     <test>fn:years-from-duration(xs:yearMonthDuration("P30Y10M")) - fn:years-from-duration(xs:yearMonthDuration("P10Y10M"))</test>
@@ -110,7 +109,7 @@
       <assert-eq>20</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-years-from-duration-10">
+  <test-case name="fn-years-from-duration-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("40")</response-string>
     <description> Evaluates The "years-from-duration" function as part of a "*" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-10"/>
     <test>fn:years-from-duration(xs:yearMonthDuration("P20Y10M")) * fn:years-from-duration(xs:yearMonthDuration("P02Y10M"))</test>
@@ -119,7 +118,7 @@
       <assert-eq>40</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-years-from-duration-11">
+  <test-case name="fn-years-from-duration-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("4")</response-string>
     <description> Evaluates The "years-from-duration" function as part of a "div" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-10"/>
     <test>fn:years-from-duration(xs:yearMonthDuration("P20Y10M")) div fn:years-from-duration(xs:yearMonthDuration("P05Y10M"))</test>
@@ -128,7 +127,7 @@
       <assert-eq>4</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-years-from-duration-12">
+  <test-case name="fn-years-from-duration-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("5")</response-string>
     <description> Evaluates The "years-from-duration" function as part of a "idiv" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-10"/>
     <test>fn:years-from-duration(xs:yearMonthDuration("P25Y10M")) idiv fn:years-from-duration(xs:yearMonthDuration("P05Y10M"))</test>
@@ -137,7 +136,7 @@
       <assert-eq>5</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-years-from-duration-13">
+  <test-case name="fn-years-from-duration-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "years-from-duration" function as part of a "mod" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-10"/>
     <test>fn:years-from-duration(xs:yearMonthDuration("P10Y10M")) mod fn:years-from-duration(xs:yearMonthDuration("P03Y10M"))</test>
@@ -146,7 +145,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-years-from-duration-14">
+  <test-case name="fn-years-from-duration-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("21")</response-string>
     <description> Evaluates The "years-from-duration" function as part of a "numeric-unary-plus" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-10"/>
     <test>+fn:years-from-duration(xs:yearMonthDuration("P21Y10M"))</test>
@@ -155,7 +154,7 @@
       <assert-eq>21</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-years-from-duration-15">
+  <test-case name="fn-years-from-duration-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-25")</response-string>
     <description> Evaluates The "years-from-duration" function as part of a "numeric-unary-minus" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-10"/>
     <test>-fn:years-from-duration(xs:yearMonthDuration("P25Y10M"))</test>
@@ -164,7 +163,7 @@
       <assert-eq>-25</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-years-from-duration-16">
+  <test-case name="fn-years-from-duration-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "years-from-duration" function as part of a "numeric-equal" expression (eq operator) </description>
     <created by="Carmelo Montanez" on="2005-06-10"/>
     <test>fn:years-from-duration(xs:yearMonthDuration("P22Y10M")) eq fn:years-from-duration(xs:yearMonthDuration("P22Y10M"))</test>
@@ -173,7 +172,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-years-from-duration-17">
+  <test-case name="fn-years-from-duration-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "years-from-duration" function as part of a "numeric-equal" expression (ne operator) </description>
     <created by="Carmelo Montanez" on="2005-06-10"/>
     <test>fn:years-from-duration(xs:yearMonthDuration("P22Y10M")) ne fn:years-from-duration(xs:yearMonthDuration("P23Y10M"))</test>
@@ -182,7 +181,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-years-from-duration-18">
+  <test-case name="fn-years-from-duration-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "years-from-duration" function as part of a "numeric-equal" expression (le operator) </description>
     <created by="Carmelo Montanez" on="2005-06-10"/>
     <test>fn:years-from-duration(xs:yearMonthDuration("P21Y01M")) le fn:years-from-duration(xs:yearMonthDuration("P21Y15M"))</test>
@@ -191,7 +190,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-years-from-duration-19">
+  <test-case name="fn-years-from-duration-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "years-from-duration" function as part of a "numeric-equal" expression (ge operator) </description>
     <created by="Carmelo Montanez" on="2005-06-10"/>
     <test>fn:years-from-duration(xs:yearMonthDuration("P20Y10M")) ge fn:years-from-duration(xs:yearMonthDuration("P20Y10M"))</test>
@@ -200,7 +199,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-years-from-duration-20">
+  <test-case name="fn-years-from-duration-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluates The "years-from-duration" function with wrong argument type. </description>
     <created by="Carmelo Montanez" on="2006-03-24"/>
     <test>fn:years-from-duration(xs:duration("P1Y2M3DT10H30M"))</test>
@@ -209,25 +208,25 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-YearsFromDurationFunc-1">
+  <test-case name="K-YearsFromDurationFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `years-from-duration()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>years-from-duration()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-YearsFromDurationFunc-2">
+  <test-case name="K-YearsFromDurationFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `years-from-duration((), "Wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>years-from-duration((), "Wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-YearsFromDurationFunc-3">
+  <test-case name="K-YearsFromDurationFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(years-from-duration(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(years-from-duration(()))</test>
@@ -236,7 +235,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearsFromDurationFunc-4">
+  <test-case name="K-YearsFromDurationFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `years-from-duration(()) instance of xs:integer?`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>years-from-duration(()) instance of xs:integer?</test>
@@ -245,7 +244,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearsFromDurationFunc-5">
+  <test-case name="K-YearsFromDurationFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `years-from-duration(xs:yearMonthDuration("P0003Y2M")) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>years-from-duration(xs:yearMonthDuration("P0003Y2M")) eq 3</test>
@@ -254,7 +253,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearsFromDurationFunc-6">
+  <test-case name="K-YearsFromDurationFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Simple test invoking years-from-duration() on a negative duration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>years-from-duration(xs:yearMonthDuration("-P0003Y2M")) eq -3</test>
@@ -263,7 +262,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearsFromDurationFunc-7">
+  <test-case name="K-YearsFromDurationFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Simple test invoking years-from-duration() on an negative xs:duration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>years-from-duration(xs:duration("-P3Y4M4DT1H23M2.34S")) eq -3</test>
@@ -272,11 +271,11 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-years-from-duration-001">
+  <test-case name="cbcl-years-from-duration-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> test fn:years-from-duration on xs:dayTimeDuration </description>
     <created by="Tim Mills" on="2008-04-11"/>
-    <test>fn:years-from-duration(xs:dayTimeDuration('P1D'))</test>
-    <result-string>xs:string("0")</result-string>
+    <test>fn:years-from-duration(xs:dayTimeDuration(&apos;P1D&apos;))</test>
+    <result-string>xs:integer("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>

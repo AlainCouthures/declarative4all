@@ -19,3 +19,21 @@ Fleur.XPathFunctions_fn["substring-after#2"] = new Fleur.Function("http://www.w3
 		return index === -1 ? "" : a.substring(index + b.length);
 	},
 	null, [{type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Type_string, occurence: "?"}], false, false, {type: Fleur.Type_string, occurence: "?"});
+
+Fleur.XPathFunctions_fn["substring-after#3"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:substring-after",
+	function(a, b, collation) {
+		var c = Fleur.getCollation(collation);
+		if (!c) {
+			var e = new Error("");
+			e.name = "FOCH0002";
+			return e;
+		}
+		if (!a) {
+			return "";
+		}
+		if (!b || b === "") {
+			return a;
+		}
+		return c.substringAfter(a, b);
+	},
+	null, [{type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Type_string, occurence: "?"}, {type: Fleur.Type_string}], false, false, {type: Fleur.Type_string, occurence: "?"});

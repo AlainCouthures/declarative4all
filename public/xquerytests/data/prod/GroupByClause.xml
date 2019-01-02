@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set covers="group-by" name="prod-GroupByClause" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the GroupByClause production in XQuery 3.0</description>
   <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-GroupByClause" type="spec"/>
@@ -22,7 +21,7 @@
     </source>
   </environment>
   <dependency type="spec" value="XQ30+"/>
-  <test-case name="group-001">
+  <test-case name="group-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("1 11 21 31 41 51 61 71 81 91"),xs:string("2 12 22 32 42 52 62 72 82 92"),xs:string("3 13 23 33 43 53 63 73 83 93"),xs:string("4 14 24 34 44 54 64 74 84 94"),xs:string("5 15 25 35 45 55 65 75 85 95"),xs:string("6 16 26 36 46 56 66 76 86 96"),xs:string("7 17 27 37 47 57 67 77 87 97"),xs:string("8 18 28 38 48 58 68 78 88 98"),xs:string("9 19 29 39 49 59 69 79 89 99"),xs:string("10 20 30 40 50 60 70 80 90 100"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("1 11 21 31 41 51 61 71 81 91"),xs:string("2 12 22 32 42 52 62 72 82 92"),xs:string("3 13 23 33 43 53 63 73 83 93"),xs:string("4 14 24 34 44 54 64 74 84 94"),xs:string("5 15 25 35 45 55 65 75 85 95"),xs:string("6 16 26 36 46 56 66 76 86 96"),xs:string("7 17 27 37 47 57 67 77 87 97"),xs:string("8 18 28 38 48 58 68 78 88 98"),xs:string("9 19 29 39 49 59 69 79 89 99"),xs:string("10 20 30 40 50 60 70 80 90 100"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("1 11 21 31 41 51 61 71 81 91"),xs:string("2 12 22 32 42 52 62 72 82 92"),xs:string("3 13 23 33 43 53 63 73 83 93"),xs:string("4 14 24 34 44 54 64 74 84 94"),xs:string("5 15 25 35 45 55 65 75 85 95"),xs:string("6 16 26 36 46 56 66 76 86 96"),xs:string("7 17 27 37 47 57 67 77 87 97"),xs:string("8 18 28 38 48 58 68 78 88 98"),xs:string("9 19 29 39 49 59 69 79 89 99"),xs:string("10 20 30 40 50 60 70 80 90 100"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("1 11 21 31 41 51 61 71 81 91"),xs:string("2 12 22 32 42 52 62 72 82 92"),xs:string("3 13 23 33 43 53 63 73 83 93"),xs:string("4 14 24 34 44 54 64 74 84 94"),xs:string("5 15 25 35 45 55 65 75 85 95"),xs:string("6 16 26 36 46 56 66 76 86 96"),xs:string("7 17 27 37 47 57 67 77 87 97"),xs:string("8 18 28 38 48 58 68 78 88 98"),xs:string("9 19 29 39 49 59 69 79 89 99"),xs:string("10 20 30 40 50 60 70 80 90 100"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("1 11 21 31 41 51 61 71 81 91"),xs:string("2 12 22 32 42 52 62 72 82 92"),xs:string("3 13 23 33 43 53 63 73 83 93"),xs:string("4 14 24 34 44 54 64 74 84 94"),xs:string("5 15 25 35 45 55 65 75 85 95"),xs:string("6 16 26 36 46 56 66 76 86 96"),xs:string("7 17 27 37 47 57 67 77 87 97"),xs:string("8 18 28 38 48 58 68 78 88 98"),xs:string("9 19 29 39 49 59 69 79 89 99"),xs:string("10 20 30 40 50 60 70 80 90 100"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("1 11 21 31 41 51 61 71 81 91"),xs:string("2 12 22 32 42 52 62 72 82 92"),xs:string("3 13 23 33 43 53 63 73 83 93"),xs:string("4 14 24 34 44 54 64 74 84 94"),xs:string("5 15 25 35 45 55 65 75 85 95"),xs:string("6 16 26 36 46 56 66 76 86 96"),xs:string("7 17 27 37 47 57 67 77 87 97"),xs:string("8 18 28 38 48 58 68 78 88 98"),xs:string("9 19 29 39 49 59 69 79 89 99"),xs:string("10 20 30 40 50 60 70 80 90 100"))</response-string>
     <description>Group atomic values</description>
     <created by="Michael Kay" on="2008-11-26"/>
     <modified by="Michael Kay" change="order of groups is undefined" on="2011-08-01"/>
@@ -32,7 +31,7 @@
             group by $key 
             return string(text{$x})
       </test>
-    <result-string/>
+    <result-string>(xs:string("1 11 21 31 41 51 61 71 81 91"),xs:string("2 12 22 32 42 52 62 72 82 92"),xs:string("3 13 23 33 43 53 63 73 83 93"),xs:string("4 14 24 34 44 54 64 74 84 94"),xs:string("5 15 25 35 45 55 65 75 85 95"),xs:string("6 16 26 36 46 56 66 76 86 96"),xs:string("7 17 27 37 47 57 67 77 87 97"),xs:string("8 18 28 38 48 58 68 78 88 98"),xs:string("9 19 29 39 49 59 69 79 89 99"),xs:string("10 20 30 40 50 60 70 80 90 100"))</result-string>
     <result>
       <assert-permutation>"1 11 21 31 41 51 61 71 81 91", "2 12 22 32 42 52 62 72 82 92", "3 13 23 33 43 53 63 73 83 93", 
             "4 14 24 34 44 54 64 74 84 94", "5 15 25 35 45 55 65 75 85 95", "6 16 26 36 46 56 66 76 86 96", 
@@ -40,7 +39,7 @@
             "10 20 30 40 50 60 70 80 90 100"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="group-001a">
+  <test-case name="group-001a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("1 11 21 31 41 51 61 71 81 91"),xs:string("2 12 22 32 42 52 62 72 82 92"),xs:string("3 13 23 33 43 53 63 73 83 93"),xs:string("4 14 24 34 44 54 64 74 84 94"),xs:string("5 15 25 35 45 55 65 75 85 95"),xs:string("6 16 26 36 46 56 66 76 86 96"),xs:string("7 17 27 37 47 57 67 77 87 97"),xs:string("8 18 28 38 48 58 68 78 88 98"),xs:string("9 19 29 39 49 59 69 79 89 99"),xs:string("10 20 30 40 50 60 70 80 90 100"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("1 11 21 31 41 51 61 71 81 91"),xs:string("2 12 22 32 42 52 62 72 82 92"),xs:string("3 13 23 33 43 53 63 73 83 93"),xs:string("4 14 24 34 44 54 64 74 84 94"),xs:string("5 15 25 35 45 55 65 75 85 95"),xs:string("6 16 26 36 46 56 66 76 86 96"),xs:string("7 17 27 37 47 57 67 77 87 97"),xs:string("8 18 28 38 48 58 68 78 88 98"),xs:string("9 19 29 39 49 59 69 79 89 99"),xs:string("10 20 30 40 50 60 70 80 90 100"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("1 11 21 31 41 51 61 71 81 91"),xs:string("2 12 22 32 42 52 62 72 82 92"),xs:string("3 13 23 33 43 53 63 73 83 93"),xs:string("4 14 24 34 44 54 64 74 84 94"),xs:string("5 15 25 35 45 55 65 75 85 95"),xs:string("6 16 26 36 46 56 66 76 86 96"),xs:string("7 17 27 37 47 57 67 77 87 97"),xs:string("8 18 28 38 48 58 68 78 88 98"),xs:string("9 19 29 39 49 59 69 79 89 99"),xs:string("10 20 30 40 50 60 70 80 90 100"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("1 11 21 31 41 51 61 71 81 91"),xs:string("2 12 22 32 42 52 62 72 82 92"),xs:string("3 13 23 33 43 53 63 73 83 93"),xs:string("4 14 24 34 44 54 64 74 84 94"),xs:string("5 15 25 35 45 55 65 75 85 95"),xs:string("6 16 26 36 46 56 66 76 86 96"),xs:string("7 17 27 37 47 57 67 77 87 97"),xs:string("8 18 28 38 48 58 68 78 88 98"),xs:string("9 19 29 39 49 59 69 79 89 99"),xs:string("10 20 30 40 50 60 70 80 90 100"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("1 11 21 31 41 51 61 71 81 91"),xs:string("2 12 22 32 42 52 62 72 82 92"),xs:string("3 13 23 33 43 53 63 73 83 93"),xs:string("4 14 24 34 44 54 64 74 84 94"),xs:string("5 15 25 35 45 55 65 75 85 95"),xs:string("6 16 26 36 46 56 66 76 86 96"),xs:string("7 17 27 37 47 57 67 77 87 97"),xs:string("8 18 28 38 48 58 68 78 88 98"),xs:string("9 19 29 39 49 59 69 79 89 99"),xs:string("10 20 30 40 50 60 70 80 90 100"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("1 11 21 31 41 51 61 71 81 91"),xs:string("2 12 22 32 42 52 62 72 82 92"),xs:string("3 13 23 33 43 53 63 73 83 93"),xs:string("4 14 24 34 44 54 64 74 84 94"),xs:string("5 15 25 35 45 55 65 75 85 95"),xs:string("6 16 26 36 46 56 66 76 86 96"),xs:string("7 17 27 37 47 57 67 77 87 97"),xs:string("8 18 28 38 48 58 68 78 88 98"),xs:string("9 19 29 39 49 59 69 79 89 99"),xs:string("10 20 30 40 50 60 70 80 90 100"))</response-string>
     <description>Group atomic values using new syntax agreed Sept 2011</description>
     <created by="Michael Kay" on="2011-09-14"/>
     <test> 
@@ -48,7 +47,7 @@
             group by $key := $x mod 10 
             return string(text{$x})
       </test>
-    <result-string/>
+    <result-string>(xs:string("1 11 21 31 41 51 61 71 81 91"),xs:string("2 12 22 32 42 52 62 72 82 92"),xs:string("3 13 23 33 43 53 63 73 83 93"),xs:string("4 14 24 34 44 54 64 74 84 94"),xs:string("5 15 25 35 45 55 65 75 85 95"),xs:string("6 16 26 36 46 56 66 76 86 96"),xs:string("7 17 27 37 47 57 67 77 87 97"),xs:string("8 18 28 38 48 58 68 78 88 98"),xs:string("9 19 29 39 49 59 69 79 89 99"),xs:string("10 20 30 40 50 60 70 80 90 100"))</result-string>
     <result>
       <assert-permutation>"1 11 21 31 41 51 61 71 81 91", "2 12 22 32 42 52 62 72 82 92", "3 13 23 33 43 53 63 73 83 93", 
             "4 14 24 34 44 54 64 74 84 94", "5 15 25 35 45 55 65 75 85 95", "6 16 26 36 46 56 66 76 86 96", 
@@ -56,7 +55,7 @@
             "10 20 30 40 50 60 70 80 90 100"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="group-002">
+  <test-case name="group-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("female:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("male:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("female:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("male:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("female:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("male:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("female:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("male:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("female:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("male:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("female:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("male:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string>
     <description> Basic grouping test, using nodes as input </description>
     <created by="Michael Kay" on="2008-11-26"/>
     <modified by="Michael Kay" change="correct test and allow permutation of results" on="2011-08-01"/>
@@ -65,10 +64,10 @@
             for $x in //employee 
             let $key := $x/@gender 
             group by $key 
-            return concat($key, ':',  
-                   string-join(for $e in $x return $e/@name/string(), ',')) 
+            return concat($key, &apos;:&apos;,  
+                   string-join(for $e in $x return $e/@name/string(), &apos;,&apos;)) 
       </test>
-    <result-string/>
+    <result-string>(xs:string("female:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("male:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</result-string>
     <result>
       <assert-permutation>
             "female:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13",
@@ -76,17 +75,17 @@
          </assert-permutation>
     </result>
   </test-case>
-  <test-case name="group-002a">
+  <test-case name="group-002a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("female:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("male:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("female:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("male:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("female:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("male:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("female:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("male:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("female:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("male:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("female:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("male:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string>
     <description> Basic grouping test, using nodes as input, using new Sept 2011 syntax </description>
     <created by="Michael Kay" on="2011-09-14"/>
     <environment ref="works-mod"/>
     <test> 
             for $x in //employee 
             group by $key := $x/@gender 
-            return concat($key, ':',  
-                   string-join(for $e in $x return $e/@name/string(), ',')) 
+            return concat($key, &apos;:&apos;,  
+                   string-join(for $e in $x return $e/@name/string(), &apos;,&apos;)) 
       </test>
-    <result-string/>
+    <result-string>(xs:string("female:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("male:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</result-string>
     <result>
       <assert-permutation>
             "female:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13",
@@ -94,19 +93,19 @@
          </assert-permutation>
     </result>
   </test-case>
-  <test-case name="group-003">
+  <test-case name="group-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("false:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("true:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("false:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("true:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("false:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("true:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("false:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("true:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("false:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("true:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("false:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("true:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string>
     <description> Basic grouping test, using nodes as input, boolean grouping key </description>
     <created by="Michael Kay" on="2008-11-26"/>
     <modified by="Michael Kay" change="correct test and allow permutation of results" on="2011-08-01"/>
     <environment ref="works-mod"/>
     <test> 
             for $x in //employee 
-            let $key := ($x/@gender = 'male') 
+            let $key := ($x/@gender = &apos;male&apos;) 
             group by $key 
-            return concat($key, ':',  
-                   string-join(for $e in $x return $e/@name/string(), ',')) 
+            return concat($key, &apos;:&apos;,  
+                   string-join(for $e in $x return $e/@name/string(), &apos;,&apos;)) 
       </test>
-    <result-string/>
+    <result-string>(xs:string("false:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("true:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</result-string>
     <result>
       <assert-permutation>
             "false:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13",
@@ -114,18 +113,18 @@
          </assert-permutation>
     </result>
   </test-case>
-  <test-case name="group-003a">
+  <test-case name="group-003a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("false:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("true:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("false:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("true:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("false:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("true:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("false:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("true:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("false:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("true:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("false:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("true:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</response-string>
     <description> Basic grouping test, using nodes as input, boolean grouping key;
           using new Sept 2011 syntax</description>
     <created by="Michael Kay" on="2011-09-14"/>
     <environment ref="works-mod"/>
     <test> 
             for $x in //employee 
-            group by $key := ($x/@gender = 'male') 
-            return concat($key, ':',  
-                   string-join(for $e in $x return $e/@name/string(), ',')) 
+            group by $key := ($x/@gender = &apos;male&apos;) 
+            return concat($key, &apos;:&apos;,  
+                   string-join(for $e in $x return $e/@name/string(), &apos;,&apos;)) 
       </test>
-    <result-string/>
+    <result-string>(xs:string("false:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13"),xs:string("true:John Doe 2,John Doe 4,John Doe 6,John Doe 8,John Doe 10,John Doe 12"))</result-string>
     <result>
       <assert-permutation>
             "false:Jane Doe 1,Jane Doe 3,Jane Doe 5,Jane Doe 7,Jane Doe 9,Jane Doe 11,Jane Doe 13",
@@ -133,7 +132,7 @@
          </assert-permutation>
     </result>
   </test-case>
-  <test-case name="group-004">
+  <test-case name="group-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("female:41.25"),xs:string("male:37.75"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("female:41.25"),xs:string("male:37.75"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("female:41.25"),xs:string("male:37.75"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("female:41.25"),xs:string("male:37.75"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("female:41.25"),xs:string("male:37.75"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("female:41.25"),xs:string("male:37.75"))</response-string>
     <description> Basic grouping test, using nodes as input, aggregate over a group </description>
     <created by="Michael Kay" on="2008-11-26"/>
     <modified by="Michael Kay" change="correct test and allow permutation of results" on="2011-08-01"/>
@@ -142,14 +141,14 @@
             for $x in //employee 
             let $key := $x/@gender 
             group by $key 
-            return concat($key, ':', avg($x/hours)) 
+            return concat($key, &apos;:&apos;, avg($x/hours)) 
       </test>
-    <result-string/>
+    <result-string>(xs:string("female:41.25"),xs:string("male:37.75"))</result-string>
     <result>
       <assert-permutation>"female:41.25", "male:37.75"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="group-005">
+  <test-case name="group-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;group hours="40" avHours="40"/&gt;,&lt;group hours="70 20" avHours="45"/&gt;,&lt;group hours="80" avHours="80"/&gt;,&lt;group hours="20 40" avHours="30"/&gt;,&lt;group hours="20 30" avHours="25"/&gt;,&lt;group hours="12" avHours="12"/&gt;,&lt;group hours="20" avHours="20"/&gt;)</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;group hours="40" avHours="40"/&gt;,&lt;group hours="70 20" avHours="45"/&gt;,&lt;group hours="80" avHours="80"/&gt;,&lt;group hours="20 40" avHours="30"/&gt;,&lt;group hours="20 30" avHours="25"/&gt;,&lt;group hours="12" avHours="12"/&gt;,&lt;group hours="20" avHours="20"/&gt;)</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;group hours="40" avHours="40"/&gt;,&lt;group hours="70 20" avHours="45"/&gt;,&lt;group hours="80" avHours="80"/&gt;,&lt;group hours="20 40" avHours="30"/&gt;,&lt;group hours="20 30" avHours="25"/&gt;,&lt;group hours="12" avHours="12"/&gt;,&lt;group hours="20" avHours="20"/&gt;)</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;group hours="40" avHours="40"/&gt;,&lt;group hours="70 20" avHours="45"/&gt;,&lt;group hours="80" avHours="80"/&gt;,&lt;group hours="20 40" avHours="30"/&gt;,&lt;group hours="20 30" avHours="25"/&gt;,&lt;group hours="12" avHours="12"/&gt;,&lt;group hours="20" avHours="20"/&gt;)</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;group hours="40" avHours="40"/&gt;,&lt;group hours="70 20" avHours="45"/&gt;,&lt;group hours="80" avHours="80"/&gt;,&lt;group hours="20 40" avHours="30"/&gt;,&lt;group hours="20 30" avHours="25"/&gt;,&lt;group hours="12" avHours="12"/&gt;,&lt;group hours="20" avHours="20"/&gt;)</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;group hours="40" avHours="40"/&gt;,&lt;group hours="70 20" avHours="45"/&gt;,&lt;group hours="80" avHours="80"/&gt;,&lt;group hours="20 40" avHours="30"/&gt;,&lt;group hours="20 30" avHours="25"/&gt;,&lt;group hours="12" avHours="12"/&gt;,&lt;group hours="20" avHours="20"/&gt;)</response-string>
     <description> Basic grouping test, multivalued grouping key, currently an error </description>
     <created by="Michael Kay" on="2008-11-26"/>
     <modified by="Michael Kay" change="correct test; change expected error" on="2011-08-01"/>
@@ -167,7 +166,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="group-006">
+  <test-case name="group-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;&lt;group status="" count="12"/&gt;&lt;group status="active" count="1"/&gt;&lt;/out&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;&lt;group status="" count="12"/&gt;&lt;group status="active" count="1"/&gt;&lt;/out&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;&lt;group status="" count="12"/&gt;&lt;group status="active" count="1"/&gt;&lt;/out&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;&lt;group status="" count="12"/&gt;&lt;group status="active" count="1"/&gt;&lt;/out&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;&lt;group status="" count="12"/&gt;&lt;group status="active" count="1"/&gt;&lt;/out&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;&lt;group status="" count="12"/&gt;&lt;group status="active" count="1"/&gt;&lt;/out&gt;</response-string>
     <description> A grouping key can be empty </description>
     <created by="Michael Kay" on="2008-11-26"/>
     <modified by="Michael Kay" change="allow permutations of result" on="2011-08-01"/>
@@ -182,8 +181,8 @@
         }</out>
       ]]>
     </test>
-    <result-string/>
-    <result-string/>
+    <result-string>&lt;out&gt;&lt;group status="" count="12"/&gt;&lt;group status="active" count="1"/&gt;&lt;/out&gt;</result-string>
+    <result-string>&lt;out&gt;&lt;group status="" count="12"/&gt;&lt;group status="active" count="1"/&gt;&lt;/out&gt;</result-string>
     <result>
       <any-of>
         <assert-xml>
@@ -195,7 +194,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="group-007">
+  <test-case name="group-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("40:3"),xs:string("80:3"),xs:string("20:5"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("40:3"),xs:string("80:3"),xs:string("20:5"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("40:3"),xs:string("80:3"),xs:string("20:5"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("40:3"),xs:string("80:3"),xs:string("20:5"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("40:3"),xs:string("80:3"),xs:string("20:5"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("40:3"),xs:string("80:3"),xs:string("20:5"))</response-string>
     <description> Group by with a where clause </description>
     <created by="Michael Kay" on="2008-11-26"/>
     <modified by="Michael Kay" change="allow permutations of result" on="2011-08-01"/>
@@ -205,14 +204,14 @@
             let $key := $x/hours[1] 
             group by $key 
             where count($x) gt 2 
-            return concat($key, ':', count($x)) 
+            return concat($key, &apos;:&apos;, count($x)) 
       </test>
-    <result-string/>
+    <result-string>(xs:string("40:3"),xs:string("80:3"),xs:string("20:5"))</result-string>
     <result>
       <assert-permutation>"40:3", "80:3", "20:5"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="group-008">
+  <test-case name="group-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;&lt;group count="2"&gt; Jane Doe 7|John Doe 8&lt;/group&gt;&lt;group count="2"&gt; Jane Doe 9|John Doe 10&lt;/group&gt;&lt;group count="3"&gt; Jane Doe 11|John Doe 12|Jane Doe 13&lt;/group&gt;&lt;group count="6"&gt; Jane Doe 1|John Doe 2|Jane Doe 3|John Doe 4|Jane Doe 5|John Doe 6&lt;/group&gt;&lt;/out&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;&lt;group count="2"&gt; Jane Doe 7|John Doe 8&lt;/group&gt;&lt;group count="2"&gt; Jane Doe 9|John Doe 10&lt;/group&gt;&lt;group count="3"&gt; Jane Doe 11|John Doe 12|Jane Doe 13&lt;/group&gt;&lt;group count="6"&gt; Jane Doe 1|John Doe 2|Jane Doe 3|John Doe 4|Jane Doe 5|John Doe 6&lt;/group&gt;&lt;/out&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;&lt;group count="2"&gt; Jane Doe 7|John Doe 8&lt;/group&gt;&lt;group count="2"&gt; Jane Doe 9|John Doe 10&lt;/group&gt;&lt;group count="3"&gt; Jane Doe 11|John Doe 12|Jane Doe 13&lt;/group&gt;&lt;group count="6"&gt; Jane Doe 1|John Doe 2|Jane Doe 3|John Doe 4|Jane Doe 5|John Doe 6&lt;/group&gt;&lt;/out&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;&lt;group count="2"&gt; Jane Doe 7|John Doe 8&lt;/group&gt;&lt;group count="2"&gt; Jane Doe 9|John Doe 10&lt;/group&gt;&lt;group count="3"&gt; Jane Doe 11|John Doe 12|Jane Doe 13&lt;/group&gt;&lt;group count="6"&gt; Jane Doe 1|John Doe 2|Jane Doe 3|John Doe 4|Jane Doe 5|John Doe 6&lt;/group&gt;&lt;/out&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;&lt;group count="2"&gt; Jane Doe 7|John Doe 8&lt;/group&gt;&lt;group count="2"&gt; Jane Doe 9|John Doe 10&lt;/group&gt;&lt;group count="3"&gt; Jane Doe 11|John Doe 12|Jane Doe 13&lt;/group&gt;&lt;group count="6"&gt; Jane Doe 1|John Doe 2|Jane Doe 3|John Doe 4|Jane Doe 5|John Doe 6&lt;/group&gt;&lt;/out&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;&lt;group count="2"&gt; Jane Doe 7|John Doe 8&lt;/group&gt;&lt;group count="2"&gt; Jane Doe 9|John Doe 10&lt;/group&gt;&lt;group count="3"&gt; Jane Doe 11|John Doe 12|Jane Doe 13&lt;/group&gt;&lt;group count="6"&gt; Jane Doe 1|John Doe 2|Jane Doe 3|John Doe 4|Jane Doe 5|John Doe 6&lt;/group&gt;&lt;/out&gt;</response-string>
     <description> Group by with an order-by clause </description>
     <created by="Michael Kay" on="2008-11-26"/>
     <modified by="Michael Kay" change="make results predictable by adding second order key" on="2011-08-01"/>
@@ -228,14 +227,14 @@
         }</out>
       ]]>
     </test>
-    <result-string/>
+    <result-string>&lt;out&gt;&lt;group count="2"&gt; Jane Doe 7|John Doe 8&lt;/group&gt;&lt;group count="2"&gt; Jane Doe 9|John Doe 10&lt;/group&gt;&lt;group count="3"&gt; Jane Doe 11|John Doe 12|Jane Doe 13&lt;/group&gt;&lt;group count="6"&gt; Jane Doe 1|John Doe 2|Jane Doe 3|John Doe 4|Jane Doe 5|John Doe 6&lt;/group&gt;&lt;/out&gt;</result-string>
     <result>
       <assert-xml>
         <![CDATA[<out><group count="2">Jane Doe 7|John Doe 8</group><group count="2">Jane Doe 9|John Doe 10</group><group count="3">Jane Doe 11|John Doe 12|Jane Doe 13</group><group count="6">Jane Doe 1|John Doe 2|Jane Doe 3|John Doe 4|Jane Doe 5|John Doe 6</group></out>]]>
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="group-009">
+  <test-case name="group-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Group by with a collation, and with sorting </description>
     <created by="Michael Kay" on="2008-11-26"/>
     <environment ref="works-mod"/>
@@ -257,7 +256,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="group-009a">
+  <test-case name="group-009a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Group by with a collation, and with sorting; using new (Sept 2011) syntax </description>
     <created by="Michael Kay" on="2011-09-14"/>
     <environment ref="works-mod"/>
@@ -278,7 +277,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="group-010">
+  <test-case name="group-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> NaN values go in the same group </description>
     <created by="Michael Kay" on="2008-11-26"/>
     <environment ref="works-mod"/>
@@ -305,7 +304,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="group-011">
+  <test-case name="group-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("1 3 5 7 9"),xs:string("2 4 6 8 10"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("1 3 5 7 9"),xs:string("2 4 6 8 10"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("1 3 5 7 9"),xs:string("2 4 6 8 10"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("1 3 5 7 9"),xs:string("2 4 6 8 10"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("1 3 5 7 9"),xs:string("2 4 6 8 10"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("1 3 5 7 9"),xs:string("2 4 6 8 10"))</response-string>
     <description>Group by with position variable (Bug report on Saxon submitted by Leo W&#246;rteler of BaseX)</description>
     <created by="Michael Kay" on="2011-07-24"/>
     <modified by="Michael Kay" change="correct expected result" on="2011-08-01"/>
@@ -313,14 +312,14 @@
         for $a at $p in 1 to 10
         let $g := $p mod 2
         group by $g
-        return string-join($p!string(), ' ')  
+        return string-join($p!string(), &apos; &apos;)  
      </test>
-    <result-string/>
+    <result-string>(xs:string("1 3 5 7 9"),xs:string("2 4 6 8 10"))</result-string>
     <result>
       <assert-permutation>"1 3 5 7 9", "2 4 6 8 10"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="group-012">
+  <test-case name="group-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out/&gt;</response-string>
     <description> Grouping of an empty sequence </description>
     <created by="Michael Kay" on="2011-07-24"/>
     <environment ref="works-mod"/>
@@ -344,7 +343,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="group-013">
+  <test-case name="group-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Grouping by already existing variable</description>
     <created by="Matthias Brantner" on="2012-06-04"/>
     <test>
@@ -368,7 +367,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="group-014">
+  <test-case name="group-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"))</response-string>
     <description>Referenced grouping variable is not in the tuple stream. </description>
     <created by="Josh Spiegel" on="2012-10-02"/>
     <test>
@@ -384,7 +383,7 @@
       <error code="XQST0094"/>
     </result>
   </test-case>
-  <test-case name="group-015">
+  <test-case name="group-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:string("true"),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004")))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:string("true"),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004")))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:string("true"),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004")))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:string("true"),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004")))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:string("true"),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004")))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:string("true"),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004")))</response-string>
     <description>No value comparisons are available to compare the grouping keys.</description>
     <created by="Josh Spiegel" on="2012-10-02"/>
     <test>
@@ -399,7 +398,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="group-016">
+  <test-case name="group-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>In the first grouping spec, the grouping variable does not reference the generated let binding.  See also group-013 </description>
     <created by="Josh Spiegel" on="2012-10-02"/>
     <test>
@@ -414,7 +413,7 @@
       <assert-eq>2</assert-eq>
     </result>
   </test-case>
-  <test-case name="use-case-groupby-Q1">
+  <test-case name="use-case-groupby-Q1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;sales-qty-by-product/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;sales-qty-by-product/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;sales-qty-by-product/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;sales-qty-by-product/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;sales-qty-by-product/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;sales-qty-by-product/&gt;</response-string>
     <description>Use Case "Group By" - Q1</description>
     <created by="Andrew Eisenberg" on="2012-03-14"/>
     <environment ref="GroupByUseCases"/>
@@ -440,7 +439,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="use-case-groupby-Q2">
+  <test-case name="use-case-groupby-Q2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string>
     <description>Use Case "Group By" - Q2</description>
     <created by="Andrew Eisenberg" on="2012-03-14"/>
     <environment ref="GroupByUseCases"/>
@@ -469,7 +468,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="use-case-groupby-Q3">
+  <test-case name="use-case-groupby-Q3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string>
     <description>Use Case "Group By" - Q3</description>
     <created by="Andrew Eisenberg" on="2012-03-14"/>
     <environment ref="GroupByUseCases"/>
@@ -500,7 +499,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="use-case-groupby-Q4">
+  <test-case name="use-case-groupby-Q4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string>
     <description>Use Case "Group By" - Q4</description>
     <created by="Andrew Eisenberg" on="2012-03-14"/>
     <environment ref="GroupByUseCases"/>
@@ -539,7 +538,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="use-case-groupby-Q5">
+  <test-case name="use-case-groupby-Q5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Use Case "Group By" - Q5</description>
     <created by="Andrew Eisenberg" on="2012-03-14"/>
     <environment ref="GroupByUseCases"/>
@@ -568,7 +567,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="use-case-groupby-Q6">
+  <test-case name="use-case-groupby-Q6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string>
     <description>Use Case "Group By" - Q6</description>
     <created by="Andrew Eisenberg" on="2012-03-14"/>
     <environment ref="GroupByUseCases"/>
@@ -597,7 +596,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="use-case-groupby-Q7">
+  <test-case name="use-case-groupby-Q7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string>
     <description>Use Case "Group By" - Q7</description>
     <created by="Andrew Eisenberg" on="2012-03-14"/>
     <environment ref="GroupByUseCases"/>
@@ -626,7 +625,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="use-case-groupby-Q8">
+  <test-case name="use-case-groupby-Q8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string>
     <description>Use Case "Group By" - Q8</description>
     <created by="Andrew Eisenberg" on="2012-03-14"/>
     <environment ref="GroupByUseCases"/>

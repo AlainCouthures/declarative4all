@@ -1,35 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-seconds-from-time" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the seconds-from-time() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-seconds-from-time" type="spec"/>
-  <test-case name="fn-seconds-from-time1args-1">
+  <test-case name="fn-seconds-from-time1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("0")</response-string>
     <description> Evaluates The "seconds-from-time" function with the arguments set as follows: $arg = xs:time(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:seconds-from-time(xs:time("00:00:00Z"))</test>
-    <result-string>xs:decimal("0.0")</result-string>
+    <result-string>xs:decimal("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-time1args-2">
+  <test-case name="fn-seconds-from-time1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("35")</response-string>
     <description> Evaluates The "seconds-from-time" function with the arguments set as follows: $arg = xs:time(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:seconds-from-time(xs:time("08:03:35Z"))</test>
-    <result-string>xs:decimal("35.0")</result-string>
+    <result-string>xs:decimal("35")</result-string>
     <result>
       <assert-string-value>35</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-time1args-3">
+  <test-case name="fn-seconds-from-time1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("59")</response-string>
     <description> Evaluates The "seconds-from-time" function with the arguments set as follows: $arg = xs:time(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:seconds-from-time(xs:time("23:59:59Z"))</test>
-    <result-string>xs:decimal("59.0")</result-string>
+    <result-string>xs:decimal("59")</result-string>
     <result>
       <assert-string-value>59</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-time-1">
+  <test-case name="fn-seconds-from-time-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("10.5")</response-string>
     <description> Evaluates The "seconds-from-time" function As per example 1 of the FO specs (for this function) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time("13:20:10.5"))</test>
@@ -38,7 +37,7 @@
       <assert-string-value>10.5</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-time-2">
+  <test-case name="fn-seconds-from-time-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "seconds-from-time" function used as part of a numeric less than expression (lt operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time("21:23:04Z")) lt fn:seconds-from-time(xs:time("21:24:00Z"))</test>
@@ -47,7 +46,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-time-3">
+  <test-case name="fn-seconds-from-time-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "seconds-from-time" function as part of a numeric greater than operation (gt operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time("01:23:02Z")) gt fn:seconds-from-time(xs:time("01:23:03Z"))</test>
@@ -56,16 +55,16 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-time-4">
+  <test-case name="fn-seconds-from-time-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("25")</response-string>
     <description> Evaluates The "seconds-from-time" function used as an argument to an avg function. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:avg((fn:seconds-from-time(xs:time("01:10:20Z")), fn:seconds-from-time(xs:time("01:20:30Z"))))</test>
-    <result-string>xs:double("2.5e1")</result-string>
+    <result-string>xs:decimal("25")</result-string>
     <result>
       <assert-string-value>25</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-time-5">
+  <test-case name="fn-seconds-from-time-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "seconds-from-time" function using the empty sequence as an argument. Use count function to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:count(fn:seconds-from-time(()))</test>
@@ -74,61 +73,61 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-time-6">
+  <test-case name="fn-seconds-from-time-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "seconds-from-time" function that returns 0. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:hours-from-time(xs:time("00:59:00Z"))</test>
-    <result-string>xs:decimal("0.0")</result-string>
+    <result-string>xs:integer("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-time-7">
+  <test-case name="fn-seconds-from-time-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("59")</response-string>
     <description> Evaluates The "seconds-from-time" function with the argument set to return 59. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time("23:20:59Z"))</test>
-    <result-string>xs:decimal("59.0")</result-string>
+    <result-string>xs:decimal("59")</result-string>
     <result>
       <assert-string-value>59</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-time-8">
+  <test-case name="fn-seconds-from-time-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("10")</response-string>
     <description> Evaluates The "seconds-from-time" function as part of a "+" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time("02:00:00Z")) + fn:seconds-from-time(xs:time("10:00:10Z"))</test>
-    <result-string>xs:decimal("10.0")</result-string>
+    <result-string>xs:decimal("10")</result-string>
     <result>
       <assert-string-value>10</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-time-9">
+  <test-case name="fn-seconds-from-time-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("3")</response-string>
     <description> Evaluates The "seconds-from-time" function as part of a "-" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time("10:10:10Z")) - fn:seconds-from-time(xs:time("09:02:07Z"))</test>
-    <result-string>xs:decimal("3.0")</result-string>
+    <result-string>xs:decimal("3")</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-time-10">
+  <test-case name="fn-seconds-from-time-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("27")</response-string>
     <description> Evaluates The "seconds-from-time" function as part of a "*" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time("02:02:03Z")) * fn:seconds-from-time(xs:time("10:08:09Z"))</test>
-    <result-string>xs:decimal("27.0")</result-string>
+    <result-string>xs:decimal("27")</result-string>
     <result>
       <assert-string-value>27</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-time-11">
+  <test-case name="fn-seconds-from-time-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("5")</response-string>
     <description> Evaluates The "seconds-from-time" function as part of a "div" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time("22:33:10Z")) div fn:seconds-from-time(xs:time("02:11:02Z"))</test>
-    <result-string>xs:decimal("5.0")</result-string>
+    <result-string>xs:decimal("5")</result-string>
     <result>
       <assert-string-value>5</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-time-12">
+  <test-case name="fn-seconds-from-time-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("5")</response-string>
     <description> Evaluates The "seconds-from-time" function as part of a "idiv" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time("10:12:15Z")) idiv fn:seconds-from-time(xs:time("02:02:03Z"))</test>
@@ -137,34 +136,34 @@
       <assert-string-value>5</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-time-13">
+  <test-case name="fn-seconds-from-time-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("0")</response-string>
     <description> Evaluates The "seconds-from-time" function as part of a "mod" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time("10:10:20Z")) mod fn:seconds-from-time(xs:time("03:03:02Z"))</test>
-    <result-string>xs:decimal("0.0")</result-string>
+    <result-string>xs:decimal("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-time-14">
+  <test-case name="fn-seconds-from-time-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1")</response-string>
     <description> Evaluates The "seconds-from-time" function as part of a "numeric-unary-plus" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>+fn:seconds-from-time(xs:time("10:00:01Z"))</test>
-    <result-string>xs:decimal("1.0")</result-string>
+    <result-string>xs:decimal("1")</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-time-15">
+  <test-case name="fn-seconds-from-time-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1")</response-string>
     <description> Evaluates The "seconds-from-time" function as part of a "numeric-unary-minus" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>-fn:seconds-from-time(xs:time("10:10:01Z"))</test>
-    <result-string>xs:decimal("-1.0")</result-string>
+    <result-string>xs:decimal("-1")</result-string>
     <result>
       <assert-string-value>-1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-time-16">
+  <test-case name="fn-seconds-from-time-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "seconds-from-time" function as part of a "numeric-equal" expression (eq operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time("10:02:01Z")) eq fn:seconds-from-time(xs:time("10:02:00Z"))</test>
@@ -173,7 +172,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-time-17">
+  <test-case name="fn-seconds-from-time-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "seconds-from-time" function as part of a "numeric-equal" expression (ne operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time("10:00:01Z")) ne fn:seconds-from-time(xs:time("01:01:00Z"))</test>
@@ -182,7 +181,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-time-18">
+  <test-case name="fn-seconds-from-time-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "seconds-from-time" function as part of a "numeric-equal" expression (le operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time("10:00:00Z")) le fn:seconds-from-time(xs:time("10:00:00Z"))</test>
@@ -191,7 +190,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-time-19">
+  <test-case name="fn-seconds-from-time-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "seconds-from-time" function as part of a "numeric-equal" expression (ge operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:seconds-from-time(xs:time("10:03:01Z")) ge fn:seconds-from-time(xs:time("10:04:02Z"))</test>
@@ -200,7 +199,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K-SecondsFromTimeFunc-1">
+  <test-case name="K-SecondsFromTimeFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `seconds-from-time()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>seconds-from-time()</test>
@@ -209,7 +208,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SecondsFromTimeFunc-2">
+  <test-case name="K-SecondsFromTimeFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `seconds-from-time((), "Wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>seconds-from-time((), "Wrong param")</test>
@@ -218,7 +217,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SecondsFromTimeFunc-3">
+  <test-case name="K-SecondsFromTimeFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(seconds-from-time(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(seconds-from-time(()))</test>
@@ -227,7 +226,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SecondsFromTimeFunc-4">
+  <test-case name="K-SecondsFromTimeFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `seconds-from-time(()) instance of xs:decimal?`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>seconds-from-time(()) instance of xs:decimal?</test>
@@ -236,7 +235,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SecondsFromTimeFunc-5">
+  <test-case name="K-SecondsFromTimeFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Simple test invoking seconds-from-time(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>seconds-from-time(xs:time("23:11:12.43")) eq 12.43</test>

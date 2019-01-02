@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-local-name-from-QName" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the local-name-from-qname() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-local-name-from-QName" type="spec"/>
@@ -8,7 +7,7 @@
       <created by="Mike Rorke" on="2003-03-25"/>
     </source>
   </environment>
-  <test-case name="LocalNameFromQNameFunc001">
+  <test-case name="LocalNameFromQNameFunc001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:local-name-from-QName. Using QName element as input </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
@@ -18,7 +17,7 @@
       <assert-string-value>bar</assert-string-value>
     </result>
   </test-case>
-  <test-case name="LocalNameFromQNameFunc002">
+  <test-case name="LocalNameFromQNameFunc002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:local-name-from-QName. Using QName attribute as input </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
@@ -28,7 +27,7 @@
       <assert-string-value>bar</assert-string-value>
     </result>
   </test-case>
-  <test-case name="LocalNameFromQNameFunc003">
+  <test-case name="LocalNameFromQNameFunc003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:local-name-from-QName. Using element derived from QName as input </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
@@ -38,7 +37,7 @@
       <assert-string-value>barDeriv</assert-string-value>
     </result>
   </test-case>
-  <test-case name="LocalNameFromQNameFunc004">
+  <test-case name="LocalNameFromQNameFunc004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:local-name-from-QName. Using attribute derived from QName as input </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
@@ -48,7 +47,7 @@
       <assert-string-value>barDeriv</assert-string-value>
     </result>
   </test-case>
-  <test-case name="LocalNameFromQNameFunc005">
+  <test-case name="LocalNameFromQNameFunc005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:local-name-from-QName. Check return type of function is xs:NCName </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
@@ -58,7 +57,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="LocalNameFromQNameFunc006">
+  <test-case name="LocalNameFromQNameFunc006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:local-name-from-QName. Empty sequence literal as input </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <test>fn:local-name-from-QName(())</test>
@@ -67,7 +66,7 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="LocalNameFromQNameFunc007">
+  <test-case name="LocalNameFromQNameFunc007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:local-name-from-QName. Empty sequence literal as input </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <test>fn:local-name-from-QName(((),()))</test>
@@ -76,7 +75,7 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="LocalNameFromQNameFunc009">
+  <test-case name="LocalNameFromQNameFunc009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:local-name-from-QName. Error case - invalid parameter type (string) </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <test>fn:local-name-from-QName("")</test>
@@ -85,7 +84,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="LocalNameFromQNameFunc010">
+  <test-case name="LocalNameFromQNameFunc010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:local-name-from-QName. Error case - multiple input values </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
@@ -95,7 +94,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="LocalNameFromQNameFunc011">
+  <test-case name="LocalNameFromQNameFunc011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:local-name-from-QName. Error case - no input parameter </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <test>fn:local-name-from-QName()</test>
@@ -104,37 +103,37 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="LocalNameFromQNameFunc012">
+  <test-case name="LocalNameFromQNameFunc012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Test function fn:local-name-from-QName. Error case - typo in function name </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
     <test>fn:local-name-from-Qname((/root/elemQN)[1])</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="LocalNameFromQNameFunc013">
+  <test-case name="LocalNameFromQNameFunc013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Test function fn:local-name-from-QName. Error case - typo in function name </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
     <test>fn:local-name-from-qname((/root/elemQN)[1])</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="LocalNameFromQNameFunc014">
+  <test-case name="LocalNameFromQNameFunc014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Test function fn:local-name-from-QName. Error case - typo in function name </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
     <test>fn:localnamefromQName((/root/elemQN)[1])</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="LocalNameFromQNameFunc015">
+  <test-case name="LocalNameFromQNameFunc015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:local-name-from-QName. Error case - invalid parameter type (simple type) </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="fsx"/>
@@ -145,7 +144,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="LocalNameFromQNameFunc015a">
+  <test-case name="LocalNameFromQNameFunc015a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:local-name-from-QName. Error case - invalid parameter type (simple type) </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <modified by="Michael Kay" change="see bug 16088" on="2012-05-17"/>
@@ -157,7 +156,7 @@
       <error code="XPTY0117"/>
     </result>
   </test-case>
-  <test-case name="LocalNameFromQNameFunc016">
+  <test-case name="LocalNameFromQNameFunc016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:local-name-from-QName. Error case - invalid parameter type (integer) </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <test>fn:local-name-from-QName(xs:integer("100"))</test>
@@ -166,7 +165,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="LocalNameFromQNameFunc017">
+  <test-case name="LocalNameFromQNameFunc017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:local-name-from-QName. Error case - invalid parameter type (time) </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <test>fn:local-name-from-QName(xs:time("12:00:00Z"))</test>
@@ -175,7 +174,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="LocalNameFromQNameFunc018">
+  <test-case name="LocalNameFromQNameFunc018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:local-name-from-QName. Explicit call to data to extract simple typed QName value </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
@@ -185,7 +184,7 @@
       <assert-string-value>bar</assert-string-value>
     </result>
   </test-case>
-  <test-case name="LocalNameFromQNameFunc019">
+  <test-case name="LocalNameFromQNameFunc019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:local-name-from-QName. Conditional expression as parameter where both branches result in QName value </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
@@ -195,7 +194,7 @@
       <assert-string-value>bar</assert-string-value>
     </result>
   </test-case>
-  <test-case name="LocalNameFromQNameFunc020">
+  <test-case name="LocalNameFromQNameFunc020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:local-name-from-QName. Conditional expression as parameter where both branches result in QName value </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
@@ -205,13 +204,13 @@
       <assert-string-value>bar</assert-string-value>
     </result>
   </test-case>
-  <test-case name="LocalNameFromQNameFunc021">
+  <test-case name="LocalNameFromQNameFunc021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> 
         Test function fn:local-name-from-QName. 
         Conditional expression as parameter where one branch does NOT result in a QName value 
       </description>
     <created by="Mike Rorke" on="2005-09-28"/>
-    <modified by="O'Neil Delpratt" change="Added schemeImport dependency. See bug issue #21238" on="2013-06-05"/>
+    <modified by="O&apos;Neil Delpratt" change="Added schemeImport dependency. See bug issue #21238" on="2013-06-05"/>
     <modified by="Michael Kay" change="Recombined the 1.0 and 3.0 tests as the error code is the same
         in both cases; see bug 22416. They were previously split as a result of bug 21723." on="2013-06-21"/>
     <environment ref="qname"/>
@@ -223,7 +222,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-LocalNameFromQNameFunc-1">
+  <test-case name="K-LocalNameFromQNameFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `local-name-from-QName()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>local-name-from-QName()</test>
@@ -232,7 +231,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-LocalNameFromQNameFunc-2">
+  <test-case name="K-LocalNameFromQNameFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `local-name-from-QName(1, 2)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>local-name-from-QName(1, 2)</test>
@@ -241,7 +240,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-LocalNameFromQNameFunc-3">
+  <test-case name="K-LocalNameFromQNameFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `empty(local-name-from-QName( () ))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(local-name-from-QName( () ))</test>
@@ -250,7 +249,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-LocalNameFromQNameFunc-4">
+  <test-case name="K-LocalNameFromQNameFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `local-name-from-QName( QName("example.com/", "pre:lname")) eq "lname"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>local-name-from-QName( QName("example.com/", "pre:lname")) eq "lname"</test>

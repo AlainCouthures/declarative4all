@@ -1,17 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="xs-double" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests features of XSD 1.1 doubles</description>
-  <test-case name="xs-double-001">
+  <test-case name="xs-double-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-0")</response-string>
     <description>Test -0 in xs:double</description>
     <created by="Norman Walsh" on="2011-07-28"/>
     <dependency type="xsd-version" value="1.1"/>
     <test>fn:string(xs:double("-0"))</test>
-    <result-string>xs:string("fn:string("-0")")</result-string>
+    <result-string>xs:string("-0")</result-string>
     <result>
       <assert-eq>fn:string("-0")</assert-eq>
     </result>
   </test-case>
-  <test-case name="xs-double-002">
+  <test-case name="xs-double-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Distinguish positive from negative zero</description>
     <created by="Michael Kay" on="2011-07-28"/>
     <dependency type="xsd-version" value="1.1"/>
@@ -21,7 +20,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="xs-double-003">
+  <test-case name="xs-double-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Ensure +INF accepted in XSD 1.1</description>
     <created by="Michael Kay" on="2011-07-28"/>
     <dependency type="xsd-version" value="1.1"/>
@@ -31,17 +30,17 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="xs-double-004">
+  <test-case name="xs-double-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Ensure +INF rejected in XSD 1.0</description>
     <created by="Michael Kay" on="2011-07-28"/>
     <dependency type="xsd-version" value="1.0"/>
     <test>exists(xs:double("+INF"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="xs-double-005">
+  <test-case name="xs-double-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("2.2250738585072014E-308")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("2.2250738585072014E-308")</response-string>
     <description>Parse a particular number known to cause trouble in Java and PHP.
         Some versions of Java go into an infinite loop on this one.
         You may be able to fix this by applying a Java patch: see

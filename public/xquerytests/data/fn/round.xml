@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-round" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the round() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-11/" idref="func-round" type="spec"/>
@@ -22,7 +21,7 @@
       <created by="Michael Kay" on="2010-12-08"/>
     </source>
   </environment>
-  <test-case name="fn-roundint1args-1">
+  <test-case name="fn-roundint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-2147483648")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:int("-2147483648"))</test>
@@ -34,7 +33,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-roundint1args-2">
+  <test-case name="fn-roundint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-1873914410")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:int("-1873914410"))</test>
@@ -43,7 +42,7 @@
       <assert-eq>-1873914410</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundint1args-3">
+  <test-case name="fn-roundint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("2147483647")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:int("2147483647"))</test>
@@ -52,7 +51,7 @@
       <assert-eq>2147483647</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundintg1args-1">
+  <test-case name="fn-roundintg1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:integer("-999999999999999999"))</test>
@@ -61,7 +60,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundintg1args-2">
+  <test-case name="fn-roundintg1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("830993497117024300")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:integer("830993497117024304"))</test>
@@ -70,7 +69,7 @@
       <assert-eq>830993497117024304</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundintg1args-3">
+  <test-case name="fn-roundintg1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1000000000000000000")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:integer("999999999999999999"))</test>
@@ -79,7 +78,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-rounddec1args-1">
+  <test-case name="fn-rounddec1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:decimal("-999999999999999999"))</test>
@@ -88,7 +87,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-rounddec1args-2">
+  <test-case name="fn-rounddec1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("617375191608514800")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:decimal("617375191608514839"))</test>
@@ -100,7 +99,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-rounddec1args-3">
+  <test-case name="fn-rounddec1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1000000000000000000")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:decimal("999999999999999999"))</test>
@@ -109,20 +108,20 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-rounddbl1args-1">
+  <test-case name="fn-rounddbl1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157E308")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:double("-1.7976931348623157E308"))</test>
-    <result-string>xs:double("-1.7976931348623157e308")</result-string>
+    <result-string>xs:double("-1.7976931348623157E308")</result-string>
     <result>
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-rounddbl1args-2">
+  <test-case name="fn-rounddbl1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:double("0"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -130,29 +129,29 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-rounddbl1args-3">
+  <test-case name="fn-rounddbl1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.7976931348623157E308")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:double("1.7976931348623157E308"))</test>
-    <result-string>xs:double("1.7976931348623157e308")</result-string>
+    <result-string>xs:double("1.7976931348623157E308")</result-string>
     <result>
       <assert-eq>1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundflt1args-1">
+  <test-case name="fn-roundflt1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235E38")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:float("-3.4028235E38"))</test>
-    <result-string>xs:float("-3.4028235e38")</result-string>
+    <result-string>xs:float("-3.4028235E38")</result-string>
     <result>
       <assert-eq>xs:float("-3.4028235E38")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundflt1args-2">
+  <test-case name="fn-roundflt1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:float("0"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <all-of>
         <assert-type>xs:float</assert-type>
@@ -160,16 +159,16 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-roundflt1args-3">
+  <test-case name="fn-roundflt1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("3.4028235E38")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:float("3.4028235E38"))</test>
-    <result-string>xs:float("3.4028235e38")</result-string>
+    <result-string>xs:float("3.4028235E38")</result-string>
     <result>
       <assert-eq>xs:float("3.4028235E38")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundlng1args-1">
+  <test-case name="fn-roundlng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-92233720368547760")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:long("-92233720368547758"))</test>
@@ -178,7 +177,7 @@
       <assert-eq>-92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundlng1args-2">
+  <test-case name="fn-roundlng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-47175562203048460")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:long("-47175562203048468"))</test>
@@ -187,7 +186,7 @@
       <assert-eq>-47175562203048468</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundlng1args-3">
+  <test-case name="fn-roundlng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("92233720368547760")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:long("92233720368547758"))</test>
@@ -196,7 +195,7 @@
       <assert-eq>92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundusht1args-1">
+  <test-case name="fn-roundusht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("0")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:unsignedShort("0"))</test>
@@ -205,7 +204,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundusht1args-2">
+  <test-case name="fn-roundusht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("44633")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:unsignedShort("44633"))</test>
@@ -214,7 +213,7 @@
       <assert-eq>44633</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundusht1args-3">
+  <test-case name="fn-roundusht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("65535")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:unsignedShort("65535"))</test>
@@ -223,7 +222,7 @@
       <assert-eq>65535</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundnint1args-1">
+  <test-case name="fn-roundnint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1000000000000000000")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:negativeInteger("-999999999999999999"))</test>
@@ -232,7 +231,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundnint1args-2">
+  <test-case name="fn-roundnint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-297014075999096770")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:negativeInteger("-297014075999096793"))</test>
@@ -241,7 +240,7 @@
       <assert-eq>-297014075999096793</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundnint1args-3">
+  <test-case name="fn-roundnint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:negativeInteger("-1"))</test>
@@ -250,7 +249,7 @@
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundpint1args-1">
+  <test-case name="fn-roundpint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:positiveInteger("1"))</test>
@@ -259,7 +258,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundpint1args-2">
+  <test-case name="fn-roundpint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("52704602390610030")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:positiveInteger("52704602390610033"))</test>
@@ -268,7 +267,7 @@
       <assert-eq>52704602390610033</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundpint1args-3">
+  <test-case name="fn-roundpint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1000000000000000000")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:positiveInteger("999999999999999999"))</test>
@@ -277,7 +276,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundulng1args-1">
+  <test-case name="fn-roundulng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("0")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:unsignedLong("0"))</test>
@@ -286,7 +285,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundulng1args-2">
+  <test-case name="fn-roundulng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("130747108607674660")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:unsignedLong("130747108607674654"))</test>
@@ -295,7 +294,7 @@
       <assert-eq>130747108607674654</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundulng1args-3">
+  <test-case name="fn-roundulng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("184467440737095520")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:unsignedLong("184467440737095516"))</test>
@@ -304,7 +303,7 @@
       <assert-eq>184467440737095516</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundnpi1args-1">
+  <test-case name="fn-roundnpi1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-1000000000000000000")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:nonPositiveInteger("-999999999999999999"))</test>
@@ -313,7 +312,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundnpi1args-2">
+  <test-case name="fn-roundnpi1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-475688437271870460")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:nonPositiveInteger("-475688437271870490"))</test>
@@ -322,7 +321,7 @@
       <assert-eq>-475688437271870490</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundnpi1args-3">
+  <test-case name="fn-roundnpi1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("0")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:nonPositiveInteger("0"))</test>
@@ -331,7 +330,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundnni1args-1">
+  <test-case name="fn-roundnni1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("0")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:nonNegativeInteger("0"))</test>
@@ -340,7 +339,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundnni1args-2">
+  <test-case name="fn-roundnni1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("303884545991464500")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:nonNegativeInteger("303884545991464527"))</test>
@@ -349,7 +348,7 @@
       <assert-eq>303884545991464527</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundnni1args-3">
+  <test-case name="fn-roundnni1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("1000000000000000000")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:nonNegativeInteger("999999999999999999"))</test>
@@ -358,7 +357,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundsht1args-1">
+  <test-case name="fn-roundsht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-32768")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:short("-32768"))</test>
@@ -367,7 +366,7 @@
       <assert-eq>-32768</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundsht1args-2">
+  <test-case name="fn-roundsht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-5324")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:short("-5324"))</test>
@@ -376,7 +375,7 @@
       <assert-eq>-5324</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-roundsht1args-3">
+  <test-case name="fn-roundsht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("32767")</response-string>
     <description> Evaluates The "round" function with the arguments set as follows: $arg = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round(xs:short("32767"))</test>
@@ -385,7 +384,7 @@
       <assert-eq>32767</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-RoundFunc-1">
+  <test-case name="K-RoundFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `round()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round()</test>
@@ -394,10 +393,10 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-RoundFunc-2">
+  <test-case name="K-RoundFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> A test whose essence is: `round(1, 2)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <modified by="O'Neil Delpratt" change="Bug fix related to bug #14854: Modified dependency" on="2012-05-22"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug fix related to bug #14854: Modified dependency" on="2012-05-22"/>
     <dependency type="spec" value="XP20 XQ10"/>
     <test>round(1, 2)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
@@ -405,7 +404,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case covers="fn-round" name="K-RoundFunc-2a">
+  <test-case covers="fn-round" name="K-RoundFunc-2a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> A test whose essence is: `round(1, 2)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -415,7 +414,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-RoundFunc-3">
+  <test-case name="K-RoundFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(round(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(round(()))</test>
@@ -424,7 +423,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-RoundFunc-4">
+  <test-case name="K-RoundFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `round(1) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(1) eq 1</test>
@@ -433,7 +432,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-RoundFunc-5">
+  <test-case name="K-RoundFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `round(1.1) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(1.1) eq 1</test>
@@ -442,7 +441,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-RoundFunc-6">
+  <test-case name="K-RoundFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `round(xs:double(1)) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(xs:double(1)) eq 1</test>
@@ -451,7 +450,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-RoundFunc-7">
+  <test-case name="K-RoundFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `round(xs:float(1)) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(xs:float(1)) eq 1</test>
@@ -460,7 +459,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-RoundFunc-8">
+  <test-case name="K-RoundFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `round(2.4999) eq 2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(2.4999) eq 2</test>
@@ -469,7 +468,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-RoundFunc-9">
+  <test-case name="K-RoundFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `round(-2.5) eq -2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(-2.5) eq -2</test>
@@ -478,7 +477,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-1">
+  <test-case name="K2-RoundFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for unsignedShort. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
@@ -492,7 +491,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-2">
+  <test-case name="K2-RoundFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for unsignedLong. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
@@ -506,7 +505,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-3">
+  <test-case name="K2-RoundFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for unsignedInt. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
@@ -520,7 +519,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-4">
+  <test-case name="K2-RoundFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for unsignedByte. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
@@ -534,11 +533,11 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-5">
+  <test-case name="K2-RoundFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for positiveInteger. </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <modified by="O'Neil Delpratt" change="environment variable e0 to e-1" on="2011-09-06"/>
-    <modified by="O'Neil Delpratt" change="environment variable e-1 to e1" on="2012-05-25"/>
+    <modified by="O&apos;Neil Delpratt" change="environment variable e0 to e-1" on="2011-09-06"/>
+    <modified by="O&apos;Neil Delpratt" change="environment variable e-1 to e1" on="2012-05-25"/>
     <environment ref="e1"/>
     <test>round(xs:positiveInteger(.)) instance of xs:positiveInteger</test>
     <result-string>xs:boolean("false")</result-string>
@@ -550,7 +549,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-6">
+  <test-case name="K2-RoundFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for nonPositiveInteger. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
@@ -564,7 +563,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-7">
+  <test-case name="K2-RoundFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for nonNegativeInteger. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
@@ -578,10 +577,10 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-8">
+  <test-case name="K2-RoundFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for negativeInteger. </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <modified by="O'Neil Delpratt" change="environment variable e0 to e-1" on="2011-09-06"/>
+    <modified by="O&apos;Neil Delpratt" change="environment variable e0 to e-1" on="2011-09-06"/>
     <environment ref="e-1"/>
     <test>round(xs:negativeInteger(.)) instance of xs:negativeInteger</test>
     <result-string>xs:boolean("false")</result-string>
@@ -593,7 +592,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-9">
+  <test-case name="K2-RoundFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for long. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
@@ -607,7 +606,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-10">
+  <test-case name="K2-RoundFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for int. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
@@ -621,7 +620,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-11">
+  <test-case name="K2-RoundFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for short. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
@@ -635,7 +634,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-12">
+  <test-case name="K2-RoundFunc-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for byte. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
@@ -649,7 +648,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-13">
+  <test-case name="K2-RoundFunc-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("INF")</response-string>
     <description> Invoke on xs:double INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(xs:double("INF"))</test>
@@ -658,7 +657,7 @@
       <assert-string-value>INF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-14">
+  <test-case name="K2-RoundFunc-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-INF")</response-string>
     <description> Invoke on xs:double -INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(xs:double("-INF"))</test>
@@ -667,25 +666,25 @@
       <assert-string-value>-INF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-15">
+  <test-case name="K2-RoundFunc-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on xs:double 0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(xs:double("0"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-16">
+  <test-case name="K2-RoundFunc-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on xs:double -0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(xs:double("-0"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-17">
+  <test-case name="K2-RoundFunc-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("INF")</response-string>
     <description> Invoke on xs:float INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(xs:float("INF"))</test>
@@ -694,7 +693,7 @@
       <assert-string-value>INF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-18">
+  <test-case name="K2-RoundFunc-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-INF")</response-string>
     <description> Invoke on xs:float -INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(xs:float("-INF"))</test>
@@ -703,25 +702,25 @@
       <assert-string-value>-INF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-19">
+  <test-case name="K2-RoundFunc-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on xs:float 0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(xs:float("0"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-20">
+  <test-case name="K2-RoundFunc-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on xs:float -0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round(xs:float("-0"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-21">
+  <test-case name="K2-RoundFunc-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> Invoke on xs:float NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("NaN"))</test>
@@ -730,7 +729,7 @@
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-22">
+  <test-case name="K2-RoundFunc-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Invoke on xs:double NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("NaN"))</test>
@@ -739,290 +738,290 @@
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-23">
+  <test-case name="K2-RoundFunc-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.01, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.01"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-24">
+  <test-case name="K2-RoundFunc-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.01, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.01"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-25">
+  <test-case name="K2-RoundFunc-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.01, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.01"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-26">
+  <test-case name="K2-RoundFunc-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.01, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.01"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-27">
+  <test-case name="K2-RoundFunc-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.04, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.04"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-28">
+  <test-case name="K2-RoundFunc-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.04, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.04"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-29">
+  <test-case name="K2-RoundFunc-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.04, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.04"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-30">
+  <test-case name="K2-RoundFunc-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.04, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.04"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-31">
+  <test-case name="K2-RoundFunc-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.05, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.05"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-32">
+  <test-case name="K2-RoundFunc-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.05, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.05"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-33">
+  <test-case name="K2-RoundFunc-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.05, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.05"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-34">
+  <test-case name="K2-RoundFunc-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.05, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.05"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-35">
+  <test-case name="K2-RoundFunc-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.06, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.06"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-36">
+  <test-case name="K2-RoundFunc-36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.06, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.06"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-37">
+  <test-case name="K2-RoundFunc-37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.06, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.06"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-38">
+  <test-case name="K2-RoundFunc-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.06, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.06"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-39">
+  <test-case name="K2-RoundFunc-39"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.09, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.09"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-40">
+  <test-case name="K2-RoundFunc-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.09, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.09"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-41">
+  <test-case name="K2-RoundFunc-41"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.09, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.09"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-42">
+  <test-case name="K2-RoundFunc-42"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.09, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.09"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-43">
+  <test-case name="K2-RoundFunc-43"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.00, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.00"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-44">
+  <test-case name="K2-RoundFunc-44"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.00, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.00"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-45">
+  <test-case name="K2-RoundFunc-45"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.00, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.00"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-46">
+  <test-case name="K2-RoundFunc-46"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.00, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.00"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-47">
+  <test-case name="K2-RoundFunc-47"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.11, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.11"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-48">
+  <test-case name="K2-RoundFunc-48"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.11, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.11"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-49">
+  <test-case name="K2-RoundFunc-49"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.11, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.11"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-50">
+  <test-case name="K2-RoundFunc-50"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.11, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.11"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-51">
+  <test-case name="K2-RoundFunc-51"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.14, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.14"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-52">
+  <test-case name="K2-RoundFunc-52"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.14, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.14"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-53">
+  <test-case name="K2-RoundFunc-53"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.14, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.14"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-54">
+  <test-case name="K2-RoundFunc-54"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.14, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.14"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <all-of>
         <assert-type>xs:double</assert-type>
@@ -1030,1231 +1029,1231 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-55">
+  <test-case name="K2-RoundFunc-55"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.15, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.15"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-56">
+  <test-case name="K2-RoundFunc-56"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.15, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.15"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-57">
+  <test-case name="K2-RoundFunc-57"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.15, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.15"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-58">
+  <test-case name="K2-RoundFunc-58"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.15, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.15"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-59">
+  <test-case name="K2-RoundFunc-59"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.16, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.16"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-60">
+  <test-case name="K2-RoundFunc-60"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.16, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.16"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-61">
+  <test-case name="K2-RoundFunc-61"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.16, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.16"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-62">
+  <test-case name="K2-RoundFunc-62"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.16, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.16"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-63">
+  <test-case name="K2-RoundFunc-63"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.19, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.19"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-64">
+  <test-case name="K2-RoundFunc-64"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.19, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.19"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-65">
+  <test-case name="K2-RoundFunc-65"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.19, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.19"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-66">
+  <test-case name="K2-RoundFunc-66"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.19, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.19"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-67">
+  <test-case name="K2-RoundFunc-67"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.10, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.10"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-68">
+  <test-case name="K2-RoundFunc-68"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.10, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.10"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-69">
+  <test-case name="K2-RoundFunc-69"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.10, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.10"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-70">
+  <test-case name="K2-RoundFunc-70"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.10, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.10"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-71">
+  <test-case name="K2-RoundFunc-71"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.41, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.41"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-72">
+  <test-case name="K2-RoundFunc-72"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.41, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.41"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-73">
+  <test-case name="K2-RoundFunc-73"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.41, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.41"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-74">
+  <test-case name="K2-RoundFunc-74"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.41, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.41"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-75">
+  <test-case name="K2-RoundFunc-75"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.44, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.44"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-76">
+  <test-case name="K2-RoundFunc-76"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.44, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.44"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-77">
+  <test-case name="K2-RoundFunc-77"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.44, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.44"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-78">
+  <test-case name="K2-RoundFunc-78"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.44, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.44"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-79">
+  <test-case name="K2-RoundFunc-79"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.45, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.45"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-80">
+  <test-case name="K2-RoundFunc-80"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.45, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.45"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-81">
+  <test-case name="K2-RoundFunc-81"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.45, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.45"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-82">
+  <test-case name="K2-RoundFunc-82"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.45, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.45"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-83">
+  <test-case name="K2-RoundFunc-83"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.46, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.46"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-84">
+  <test-case name="K2-RoundFunc-84"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.46, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.46"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-85">
+  <test-case name="K2-RoundFunc-85"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.46, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.46"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-86">
+  <test-case name="K2-RoundFunc-86"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.46, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.46"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-87">
+  <test-case name="K2-RoundFunc-87"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.49, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.49"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-88">
+  <test-case name="K2-RoundFunc-88"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.49, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.49"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-89">
+  <test-case name="K2-RoundFunc-89"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.49, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.49"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-90">
+  <test-case name="K2-RoundFunc-90"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.49, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.49"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-91">
+  <test-case name="K2-RoundFunc-91"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.40, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.40"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-92">
+  <test-case name="K2-RoundFunc-92"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.40, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.40"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-93">
+  <test-case name="K2-RoundFunc-93"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.40, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.40"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-94">
+  <test-case name="K2-RoundFunc-94"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.40, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.40"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-95">
+  <test-case name="K2-RoundFunc-95"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1")</response-string>
     <description> Invoke on 0.51, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.51"))</test>
-    <result-string>xs:float("1.0e0")</result-string>
+    <result-string>xs:float("1")</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-96">
+  <test-case name="K2-RoundFunc-96"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Invoke on 0.51, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.51"))</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-97">
+  <test-case name="K2-RoundFunc-97"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1")</response-string>
     <description> Invoke on -0.51, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.51"))</test>
-    <result-string>xs:float("-1.0e0")</result-string>
+    <result-string>xs:float("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-98">
+  <test-case name="K2-RoundFunc-98"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1")</response-string>
     <description> Invoke on -0.51, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.51"))</test>
-    <result-string>xs:double("-1.0e0")</result-string>
+    <result-string>xs:double("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-99">
+  <test-case name="K2-RoundFunc-99"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1")</response-string>
     <description> Invoke on 0.54, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.54"))</test>
-    <result-string>xs:float("1.0e0")</result-string>
+    <result-string>xs:float("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-100">
+  <test-case name="K2-RoundFunc-100"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Invoke on 0.54, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.54"))</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-101">
+  <test-case name="K2-RoundFunc-101"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1")</response-string>
     <description> Invoke on -0.54, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.54"))</test>
-    <result-string>xs:float("-1.0e0")</result-string>
+    <result-string>xs:float("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-102">
+  <test-case name="K2-RoundFunc-102"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1")</response-string>
     <description> Invoke on -0.54, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.54"))</test>
-    <result-string>xs:double("-1.0e0")</result-string>
+    <result-string>xs:double("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-103">
+  <test-case name="K2-RoundFunc-103"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1")</response-string>
     <description> Invoke on 0.55, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.55"))</test>
-    <result-string>xs:float("1.0e0")</result-string>
+    <result-string>xs:float("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-104">
+  <test-case name="K2-RoundFunc-104"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Invoke on 0.55, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.55"))</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-105">
+  <test-case name="K2-RoundFunc-105"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1")</response-string>
     <description> Invoke on -0.55, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.55"))</test>
-    <result-string>xs:float("-1.0e0")</result-string>
+    <result-string>xs:float("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-106">
+  <test-case name="K2-RoundFunc-106"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1")</response-string>
     <description> Invoke on -0.55, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.55"))</test>
-    <result-string>xs:double("-1.0e0")</result-string>
+    <result-string>xs:double("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-107">
+  <test-case name="K2-RoundFunc-107"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1")</response-string>
     <description> Invoke on 0.56, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.56"))</test>
-    <result-string>xs:float("1.0e0")</result-string>
+    <result-string>xs:float("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-108">
+  <test-case name="K2-RoundFunc-108"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Invoke on 0.56, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.56"))</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-109">
+  <test-case name="K2-RoundFunc-109"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1")</response-string>
     <description> Invoke on -0.56, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.56"))</test>
-    <result-string>xs:float("-1.0e0")</result-string>
+    <result-string>xs:float("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-110">
+  <test-case name="K2-RoundFunc-110"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1")</response-string>
     <description> Invoke on -0.56, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.56"))</test>
-    <result-string>xs:double("-1.0e0")</result-string>
+    <result-string>xs:double("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-111">
+  <test-case name="K2-RoundFunc-111"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1")</response-string>
     <description> Invoke on 0.59, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.59"))</test>
-    <result-string>xs:float("1.0e0")</result-string>
+    <result-string>xs:float("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-112">
+  <test-case name="K2-RoundFunc-112"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Invoke on 0.59, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.59"))</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-113">
+  <test-case name="K2-RoundFunc-113"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1")</response-string>
     <description> Invoke on -0.59, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.59"))</test>
-    <result-string>xs:float("-1.0e0")</result-string>
+    <result-string>xs:float("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-114">
+  <test-case name="K2-RoundFunc-114"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1")</response-string>
     <description> Invoke on -0.59, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.59"))</test>
-    <result-string>xs:double("-1.0e0")</result-string>
+    <result-string>xs:double("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-115">
+  <test-case name="K2-RoundFunc-115"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1")</response-string>
     <description> Invoke on 0.50, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.50"))</test>
-    <result-string>xs:float("1.0e0")</result-string>
+    <result-string>xs:float("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-116">
+  <test-case name="K2-RoundFunc-116"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Invoke on 0.50, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.50"))</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-117">
+  <test-case name="K2-RoundFunc-117"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.50, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.50"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-118">
+  <test-case name="K2-RoundFunc-118"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.50, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.50"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-119">
+  <test-case name="K2-RoundFunc-119"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1")</response-string>
     <description> Invoke on 0.61, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.61"))</test>
-    <result-string>xs:float("1.0e0")</result-string>
+    <result-string>xs:float("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-120">
+  <test-case name="K2-RoundFunc-120"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Invoke on 0.61, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.61"))</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-121">
+  <test-case name="K2-RoundFunc-121"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1")</response-string>
     <description> Invoke on -0.61, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.61"))</test>
-    <result-string>xs:float("-1.0e0")</result-string>
+    <result-string>xs:float("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-122">
+  <test-case name="K2-RoundFunc-122"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1")</response-string>
     <description> Invoke on -0.61, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.61"))</test>
-    <result-string>xs:double("-1.0e0")</result-string>
+    <result-string>xs:double("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-123">
+  <test-case name="K2-RoundFunc-123"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1")</response-string>
     <description> Invoke on 0.64, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.64"))</test>
-    <result-string>xs:float("1.0e0")</result-string>
+    <result-string>xs:float("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-124">
+  <test-case name="K2-RoundFunc-124"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Invoke on 0.64, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.64"))</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-125">
+  <test-case name="K2-RoundFunc-125"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1")</response-string>
     <description> Invoke on -0.64, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.64"))</test>
-    <result-string>xs:float("-1.0e0")</result-string>
+    <result-string>xs:float("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-126">
+  <test-case name="K2-RoundFunc-126"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1")</response-string>
     <description> Invoke on -0.64, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.64"))</test>
-    <result-string>xs:double("-1.0e0")</result-string>
+    <result-string>xs:double("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-127">
+  <test-case name="K2-RoundFunc-127"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1")</response-string>
     <description> Invoke on 0.65, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.65"))</test>
-    <result-string>xs:float("1.0e0")</result-string>
+    <result-string>xs:float("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-128">
+  <test-case name="K2-RoundFunc-128"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Invoke on 0.65, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.65"))</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-129">
+  <test-case name="K2-RoundFunc-129"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1")</response-string>
     <description> Invoke on -0.65, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.65"))</test>
-    <result-string>xs:float("-1.0e0")</result-string>
+    <result-string>xs:float("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-130">
+  <test-case name="K2-RoundFunc-130"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1")</response-string>
     <description> Invoke on -0.65, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.65"))</test>
-    <result-string>xs:double("-1.0e0")</result-string>
+    <result-string>xs:double("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-131">
+  <test-case name="K2-RoundFunc-131"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1")</response-string>
     <description> Invoke on 0.66, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.66"))</test>
-    <result-string>xs:float("1.0e0")</result-string>
+    <result-string>xs:float("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-132">
+  <test-case name="K2-RoundFunc-132"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Invoke on 0.66, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.66"))</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-133">
+  <test-case name="K2-RoundFunc-133"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1")</response-string>
     <description> Invoke on -0.66, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.66"))</test>
-    <result-string>xs:float("-1.0e0")</result-string>
+    <result-string>xs:float("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-134">
+  <test-case name="K2-RoundFunc-134"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1")</response-string>
     <description> Invoke on -0.66, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.66"))</test>
-    <result-string>xs:double("-1.0e0")</result-string>
+    <result-string>xs:double("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-135">
+  <test-case name="K2-RoundFunc-135"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1")</response-string>
     <description> Invoke on 0.69, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.69"))</test>
-    <result-string>xs:float("1.0e0")</result-string>
+    <result-string>xs:float("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-136">
+  <test-case name="K2-RoundFunc-136"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Invoke on 0.69, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.69"))</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-137">
+  <test-case name="K2-RoundFunc-137"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1")</response-string>
     <description> Invoke on -0.69, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.69"))</test>
-    <result-string>xs:float("-1.0e0")</result-string>
+    <result-string>xs:float("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-138">
+  <test-case name="K2-RoundFunc-138"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1")</response-string>
     <description> Invoke on -0.69, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.69"))</test>
-    <result-string>xs:double("-1.0e0")</result-string>
+    <result-string>xs:double("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-139">
+  <test-case name="K2-RoundFunc-139"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1")</response-string>
     <description> Invoke on 0.60, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.60"))</test>
-    <result-string>xs:float("1.0e0")</result-string>
+    <result-string>xs:float("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-140">
+  <test-case name="K2-RoundFunc-140"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Invoke on 0.60, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.60"))</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-141">
+  <test-case name="K2-RoundFunc-141"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1")</response-string>
     <description> Invoke on -0.60, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.60"))</test>
-    <result-string>xs:float("-1.0e0")</result-string>
+    <result-string>xs:float("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-142">
+  <test-case name="K2-RoundFunc-142"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1")</response-string>
     <description> Invoke on -0.60, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.60"))</test>
-    <result-string>xs:double("-1.0e0")</result-string>
+    <result-string>xs:double("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-143">
+  <test-case name="K2-RoundFunc-143"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1")</response-string>
     <description> Invoke on 0.91, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.91"))</test>
-    <result-string>xs:float("1.0e0")</result-string>
+    <result-string>xs:float("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-144">
+  <test-case name="K2-RoundFunc-144"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Invoke on 0.91, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.91"))</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-145">
+  <test-case name="K2-RoundFunc-145"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1")</response-string>
     <description> Invoke on -0.91, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.91"))</test>
-    <result-string>xs:float("-1.0e0")</result-string>
+    <result-string>xs:float("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-146">
+  <test-case name="K2-RoundFunc-146"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1")</response-string>
     <description> Invoke on -0.91, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.91"))</test>
-    <result-string>xs:double("-1.0e0")</result-string>
+    <result-string>xs:double("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-147">
+  <test-case name="K2-RoundFunc-147"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1")</response-string>
     <description> Invoke on 0.94, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.94"))</test>
-    <result-string>xs:float("1.0e0")</result-string>
+    <result-string>xs:float("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-148">
+  <test-case name="K2-RoundFunc-148"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Invoke on 0.94, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.94"))</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-149">
+  <test-case name="K2-RoundFunc-149"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1")</response-string>
     <description> Invoke on -0.94, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.94"))</test>
-    <result-string>xs:float("-1.0e0")</result-string>
+    <result-string>xs:float("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-150">
+  <test-case name="K2-RoundFunc-150"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1")</response-string>
     <description> Invoke on -0.94, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.94"))</test>
-    <result-string>xs:double("-1.0e0")</result-string>
+    <result-string>xs:double("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-151">
+  <test-case name="K2-RoundFunc-151"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1")</response-string>
     <description> Invoke on 0.95, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.95"))</test>
-    <result-string>xs:float("1.0e0")</result-string>
+    <result-string>xs:float("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-152">
+  <test-case name="K2-RoundFunc-152"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Invoke on 0.95, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.95"))</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-153">
+  <test-case name="K2-RoundFunc-153"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1")</response-string>
     <description> Invoke on -0.95, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.95"))</test>
-    <result-string>xs:float("-1.0e0")</result-string>
+    <result-string>xs:float("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-154">
+  <test-case name="K2-RoundFunc-154"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1")</response-string>
     <description> Invoke on -0.95, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.95"))</test>
-    <result-string>xs:double("-1.0e0")</result-string>
+    <result-string>xs:double("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-155">
+  <test-case name="K2-RoundFunc-155"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1")</response-string>
     <description> Invoke on 0.96, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.96"))</test>
-    <result-string>xs:float("1.0e0")</result-string>
+    <result-string>xs:float("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-156">
+  <test-case name="K2-RoundFunc-156"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Invoke on 0.96, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.96"))</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-157">
+  <test-case name="K2-RoundFunc-157"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1")</response-string>
     <description> Invoke on -0.96, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.96"))</test>
-    <result-string>xs:float("-1.0e0")</result-string>
+    <result-string>xs:float("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-158">
+  <test-case name="K2-RoundFunc-158"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1")</response-string>
     <description> Invoke on -0.96, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.96"))</test>
-    <result-string>xs:double("-1.0e0")</result-string>
+    <result-string>xs:double("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-159">
+  <test-case name="K2-RoundFunc-159"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1")</response-string>
     <description> Invoke on 0.99, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.99"))</test>
-    <result-string>xs:float("1.0e0")</result-string>
+    <result-string>xs:float("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-160">
+  <test-case name="K2-RoundFunc-160"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Invoke on 0.99, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.99"))</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-161">
+  <test-case name="K2-RoundFunc-161"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1")</response-string>
     <description> Invoke on -0.99, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.99"))</test>
-    <result-string>xs:float("-1.0e0")</result-string>
+    <result-string>xs:float("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-162">
+  <test-case name="K2-RoundFunc-162"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1")</response-string>
     <description> Invoke on -0.99, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.99"))</test>
-    <result-string>xs:double("-1.0e0")</result-string>
+    <result-string>xs:double("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-163">
+  <test-case name="K2-RoundFunc-163"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1")</response-string>
     <description> Invoke on 0.90, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.90"))</test>
-    <result-string>xs:float("1.0e0")</result-string>
+    <result-string>xs:float("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-164">
+  <test-case name="K2-RoundFunc-164"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Invoke on 0.90, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.90"))</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-165">
+  <test-case name="K2-RoundFunc-165"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1")</response-string>
     <description> Invoke on -0.90, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.90"))</test>
-    <result-string>xs:float("-1.0e0")</result-string>
+    <result-string>xs:float("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-166">
+  <test-case name="K2-RoundFunc-166"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1")</response-string>
     <description> Invoke on -0.90, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.90"))</test>
-    <result-string>xs:double("-1.0e0")</result-string>
+    <result-string>xs:double("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-167">
+  <test-case name="K2-RoundFunc-167"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.101, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.101"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-168">
+  <test-case name="K2-RoundFunc-168"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.101, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.101"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-169">
+  <test-case name="K2-RoundFunc-169"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.101, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.101"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-170">
+  <test-case name="K2-RoundFunc-170"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.101, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.101"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-171">
+  <test-case name="K2-RoundFunc-171"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.104, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.104"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-172">
+  <test-case name="K2-RoundFunc-172"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.104, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.104"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-173">
+  <test-case name="K2-RoundFunc-173"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.104, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.104"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-174">
+  <test-case name="K2-RoundFunc-174"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.104, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.104"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-175">
+  <test-case name="K2-RoundFunc-175"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.105, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.105"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-176">
+  <test-case name="K2-RoundFunc-176"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.105, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.105"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-177">
+  <test-case name="K2-RoundFunc-177"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.105, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.105"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-178">
+  <test-case name="K2-RoundFunc-178"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.105, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.105"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-179">
+  <test-case name="K2-RoundFunc-179"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.106, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.106"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-180">
+  <test-case name="K2-RoundFunc-180"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.106, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.106"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-181">
+  <test-case name="K2-RoundFunc-181"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.106, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.106"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-182">
+  <test-case name="K2-RoundFunc-182"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.106, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.106"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-183">
+  <test-case name="K2-RoundFunc-183"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.109, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.109"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-184">
+  <test-case name="K2-RoundFunc-184"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.109, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.109"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-185">
+  <test-case name="K2-RoundFunc-185"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.109, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.109"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-186">
+  <test-case name="K2-RoundFunc-186"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.109, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.109"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-187">
+  <test-case name="K2-RoundFunc-187"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on 0.100, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("0.100"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-188">
+  <test-case name="K2-RoundFunc-188"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on 0.100, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("0.100"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-189">
+  <test-case name="K2-RoundFunc-189"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoke on -0.100, type xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:float("-0.100"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundFunc-190">
+  <test-case name="K2-RoundFunc-190"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoke on -0.100, type xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:round(xs:double("-0.100"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>-0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-round-1">
+  <test-case name="fn-round-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("integer"),xs:string("decimal"),xs:string("float"),xs:string("double"))</response-string>
     <description> check dynamic type of fn:round on argument of union of numeric types. </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>for $x in (1, xs:decimal(2), xs:float(3), xs:double(4)) 
@@ -2268,11 +2267,11 @@
       <assert-deep-eq>"integer", "decimal", "float", "double"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-decimal-2">
+  <test-case name="fn-round-decimal-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("12")</response-string>
     <description> round() applied to xs:decimal </description>
     <created by="Michael Kay" on="2011-06-21"/>
     <test>fn:round(xs:decimal("12.1"))</test>
-    <result-string>xs:decimal("12.0")</result-string>
+    <result-string>xs:decimal("12")</result-string>
     <result>
       <all-of>
         <assert-eq>12</assert-eq>
@@ -2280,11 +2279,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-decimal-3">
+  <test-case name="fn-round-decimal-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("13")</response-string>
     <description> round() applied to xs:decimal </description>
     <created by="Michael Kay" on="2011-06-21"/>
     <test>fn:round(xs:decimal("12.7"))</test>
-    <result-string>xs:decimal("13.0")</result-string>
+    <result-string>xs:decimal("13")</result-string>
     <result>
       <all-of>
         <assert-eq>13</assert-eq>
@@ -2292,11 +2291,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-decimal-4">
+  <test-case name="fn-round-decimal-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("13")</response-string>
     <description> round() applied to xs:decimal </description>
     <created by="Michael Kay" on="2011-06-21"/>
     <test>fn:round(xs:decimal("12.5"))</test>
-    <result-string>xs:decimal("13.0")</result-string>
+    <result-string>xs:decimal("13")</result-string>
     <result>
       <all-of>
         <assert-eq>13</assert-eq>
@@ -2304,11 +2303,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-decimal-5">
+  <test-case name="fn-round-decimal-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-13")</response-string>
     <description> round() applied to xs:decimal </description>
     <created by="Michael Kay" on="2011-06-21"/>
     <test>fn:round(xs:decimal("-12.7"))</test>
-    <result-string>xs:decimal("-13.0")</result-string>
+    <result-string>xs:decimal("-13")</result-string>
     <result>
       <all-of>
         <assert-eq>-13</assert-eq>
@@ -2316,11 +2315,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-decimal-6">
+  <test-case name="fn-round-decimal-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-12")</response-string>
     <description> round() applied to xs:decimal </description>
     <created by="Michael Kay" on="2011-06-21"/>
     <test>fn:round(xs:decimal("-12.1"))</test>
-    <result-string>xs:decimal("-12.0")</result-string>
+    <result-string>xs:decimal("-12")</result-string>
     <result>
       <all-of>
         <assert-eq>-12</assert-eq>
@@ -2328,11 +2327,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-decimal-7">
+  <test-case name="fn-round-decimal-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-12")</response-string>
     <description> round() applied to xs:decimal </description>
     <created by="Michael Kay" on="2011-06-21"/>
     <test>fn:round(xs:decimal("-12.5"))</test>
-    <result-string>xs:decimal("-12.0")</result-string>
+    <result-string>xs:decimal("-12")</result-string>
     <result>
       <all-of>
         <assert-eq>-12</assert-eq>
@@ -2340,7 +2339,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case covers="fn-round" name="fn-round-decimal-8">
+  <test-case covers="fn-round" name="fn-round-decimal-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-12.57")</response-string>
     <description> round() applied to xs:decimal </description>
     <created by="Michael Kay" on="2011-06-21"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -2353,7 +2352,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case covers="fn-round" name="fn-round-decimal-9">
+  <test-case covers="fn-round" name="fn-round-decimal-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-12.567")</response-string>
     <description> round() applied to xs:decimal </description>
     <created by="Michael Kay" on="2011-06-21"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -2366,12 +2365,12 @@
       </all-of>
     </result>
   </test-case>
-  <test-case covers="fn-round" name="fn-round-decimal-10">
+  <test-case covers="fn-round" name="fn-round-decimal-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-13")</response-string>
     <description> round() applied to xs:decimal </description>
     <created by="Michael Kay" on="2011-06-21"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:round(-12.567, 0)</test>
-    <result-string>xs:decimal("-13.0")</result-string>
+    <result-string>xs:decimal("-13")</result-string>
     <result>
       <all-of>
         <assert-eq>-13</assert-eq>
@@ -2379,12 +2378,12 @@
       </all-of>
     </result>
   </test-case>
-  <test-case covers="fn-round" name="fn-round-decimal-11">
+  <test-case covers="fn-round" name="fn-round-decimal-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1200")</response-string>
     <description> round() applied to xs:decimal </description>
     <created by="Michael Kay" on="2011-06-21"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:round(-1234.567, -2)</test>
-    <result-string>xs:decimal("-1200.0")</result-string>
+    <result-string>xs:decimal("-1200")</result-string>
     <result>
       <all-of>
         <assert-eq>-1200</assert-eq>
@@ -2392,12 +2391,12 @@
       </all-of>
     </result>
   </test-case>
-  <test-case covers="fn-round" name="fn-round-decimal-12">
+  <test-case covers="fn-round" name="fn-round-decimal-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("0")</response-string>
     <description> round() applied to xs:decimal </description>
     <created by="Michael Kay" on="2011-06-21"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:round(1.567, -3)</test>
-    <result-string>xs:decimal("0.0")</result-string>
+    <result-string>xs:decimal("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0</assert-eq>
@@ -2405,7 +2404,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case covers="fn-round" name="fn-round2args-1">
+  <test-case covers="fn-round" name="fn-round2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1.13")</response-string>
     <description>Tests the two-argument form of round()</description>
     <created by="Norman Walsh" on="2011-07-28"/>
     <modified by="Michael Kay" change="add dependency, change expected type" on="2011-07-29"/>
@@ -2419,7 +2418,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case covers="fn-round" name="fn-round2args-2">
+  <test-case covers="fn-round" name="fn-round2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("8500")</response-string>
     <description>Tests the two-argument form of round()</description>
     <created by="Norman Walsh" on="2011-07-28"/>
     <modified by="Michael Kay" change="add dependency" on="2011-07-29"/>
@@ -2430,18 +2429,18 @@
       <assert-eq>8500</assert-eq>
     </result>
   </test-case>
-  <test-case covers="fn-round" name="fn-round2args-3">
+  <test-case covers="fn-round" name="fn-round2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("3.14")</response-string>
     <description>Tests the two-argument form of round()</description>
     <created by="Norman Walsh" on="2011-07-28"/>
     <modified by="Michael Kay" change="add dependency" on="2011-07-29"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:round(3.1415e0, 2)</test>
-    <result-string>xs:double("3.14e0")</result-string>
+    <result-string>xs:double("3.14")</result-string>
     <result>
       <assert-eq>3.14e0</assert-eq>
     </result>
   </test-case>
-  <test-case covers="fn-round" name="fn-round2args-4">
+  <test-case covers="fn-round" name="fn-round2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("35.43")</response-string>
     <description>Tests the two-argument form of round()</description>
     <created by="Norman Walsh" on="2011-07-28"/>
     <modified by="Michael Kay" change="add dependency, make test name unique, change expected result" on="2011-07-29"/>

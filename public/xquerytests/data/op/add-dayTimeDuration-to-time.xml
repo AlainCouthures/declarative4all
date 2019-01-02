@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="op-add-dayTimeDuration-to-time" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the add-dayTimeDuration-to-time() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-add-dayTimeDuration-to-time" type="spec"/>
-  <test-case name="op-add-dayTimeDuration-to-time2args-1">
+  <test-case name="op-add-dayTimeDuration-to-time2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:time("00:00:00.000Z")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDuration-to-time2args-1             
@@ -21,7 +20,7 @@ $arg2 = xs:dayTimeDuration(lower bound)
       <assert-string-value>00:00:00Z</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDuration-to-time2args-2">
+  <test-case name="op-add-dayTimeDuration-to-time2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:time("08:03:35.000Z")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDuration-to-time2args-2             
@@ -40,7 +39,7 @@ $arg2 = xs:dayTimeDuration(lower bound)
       <assert-string-value>08:03:35Z</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDuration-to-time2args-3">
+  <test-case name="op-add-dayTimeDuration-to-time2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:time("23:59:59.000Z")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDuration-to-time2args-3             
@@ -59,7 +58,7 @@ $arg2 = xs:dayTimeDuration(lower bound)
       <assert-string-value>23:59:59Z</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDuration-to-time2args-4">
+  <test-case name="op-add-dayTimeDuration-to-time2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:time("11:59:59.000Z")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDuration-to-time2args-4             
@@ -78,7 +77,7 @@ $arg2 = xs:dayTimeDuration(mid range)
       <assert-string-value>11:59:59Z</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDuration-to-time2args-5">
+  <test-case name="op-add-dayTimeDuration-to-time2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:time("23:59:59.000Z")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDuration-to-time2args-5             
@@ -97,7 +96,7 @@ $arg2 = xs:dayTimeDuration(upper bound)
       <assert-string-value>23:59:59Z</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDuration-to-time-1">
+  <test-case name="op-add-dayTimeDuration-to-time-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:time("12:27:00.000Z")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDuration-to-time-1                 
@@ -114,7 +113,7 @@ As per example 1 (for this function)of the FO specs.
       <assert-string-value>12:27:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDuration-to-time-2">
+  <test-case name="op-add-dayTimeDuration-to-time-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:time("02:27:00.000Z")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDuration-to-time-2                 
@@ -131,7 +130,7 @@ as per example 2 (for this function) from the FO specs.
       <assert-string-value>02:27:00+03:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDuration-to-time-3">
+  <test-case name="op-add-dayTimeDuration-to-time-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDuration-to-time-3                 
@@ -148,7 +147,7 @@ part of a boolean expression (or operator) and the "fn:boolean" function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDuration-to-time-4">
+  <test-case name="op-add-dayTimeDuration-to-time-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDuration-to-time-4                 
@@ -166,7 +165,7 @@ return true and used together with fn:not.
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDuration-to-time-5">
+  <test-case name="op-add-dayTimeDuration-to-time-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDuration-to-time-5                 
@@ -184,7 +183,7 @@ is used as an argument to the fn:boolean function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDuration-to-time-6">
+  <test-case name="op-add-dayTimeDuration-to-time-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDuration-to-time-6                 
@@ -196,12 +195,12 @@ is used as an argument to the fn:number function.
 </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>fn:number(xs:time("01:01:01Z") + xs:dayTimeDuration("P10DT08H01M"))</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDuration-to-time-7">
+  <test-case name="op-add-dayTimeDuration-to-time-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("19:04:03.000Z")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDuration-to-time-7                 
@@ -218,7 +217,7 @@ as an argument to the "fn:string" function).
       <assert-string-value>19:04:03Z</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDuration-to-time-8">
+  <test-case name="op-add-dayTimeDuration-to-time-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:time("06:00:06.000Z")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDuration-to-time-8                 
@@ -235,7 +234,7 @@ returns a negative value.
       <assert-string-value>06:00:06</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDuration-to-time-9">
+  <test-case name="op-add-dayTimeDuration-to-time-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDuration-to-time-9                 
@@ -253,7 +252,7 @@ together with and "and" expression.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDuration-to-time-10">
+  <test-case name="op-add-dayTimeDuration-to-time-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDuration-to-time-10                
@@ -271,7 +270,7 @@ together with an "or" expression.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDuration-to-timealt-12">
+  <test-case name="op-add-dayTimeDuration-to-timealt-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDuration-to-time-12                
@@ -289,7 +288,7 @@ with a boolean expression and the "fn:true" function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDuration-to-time-13">
+  <test-case name="op-add-dayTimeDuration-to-time-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDuration-to-time-13                
@@ -306,7 +305,7 @@ together with the numeric-equal-operator "eq".
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDuration-to-time-14">
+  <test-case name="op-add-dayTimeDuration-to-time-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDuration-to-time-14                
@@ -323,7 +322,7 @@ together with the numeric-equal operator "ne".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDuration-to-time-15">
+  <test-case name="op-add-dayTimeDuration-to-time-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDuration-to-time-15                
@@ -340,7 +339,7 @@ together with the numeric-equal operator "le".
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDuration-to-time-16">
+  <test-case name="op-add-dayTimeDuration-to-time-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDuration-to-time-16                
@@ -357,7 +356,7 @@ together with the numeric-equal operator "ge".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDuration-to-time-17">
+  <test-case name="op-add-dayTimeDuration-to-time-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDuration-to-time-17                
@@ -375,13 +374,13 @@ used as part of a boolean expression (and operator) and the "fn:false" function.
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K-TimeAddDTD-1">
+  <test-case name="K-TimeAddDTD-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-TimeAddDTD-1                                  
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: Simple testing involving operator '+' between xs:time and xs:dayTimeDuration. 
+ Purpose: Simple testing involving operator &apos;+&apos; between xs:time and xs:dayTimeDuration. 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -391,13 +390,13 @@ used as part of a boolean expression (and operator) and the "fn:false" function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-TimeAddDTD-2">
+  <test-case name="K-TimeAddDTD-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-TimeAddDTD-2                                  
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: Simple testing involving operator '+' between xs:dayTimeDuration and xs:time. 
+ Purpose: Simple testing involving operator &apos;+&apos; between xs:dayTimeDuration and xs:time. 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -407,29 +406,29 @@ used as part of a boolean expression (and operator) and the "fn:false" function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-TimeAddDTD-1">
+  <test-case name="K2-TimeAddDTD-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K2-TimeAddDTD-1                                 
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: No '+' operator is available between xs:time and xs:time. 
+ Purpose: No &apos;+&apos; operator is available between xs:time and xs:time. 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:time("10:10:10") + xs:time("23:10:10")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-add-dayTimeDuration-to-time-001">
+  <test-case name="cbcl-add-dayTimeDuration-to-time-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test addition of zero duration to time </description>
     <created by="Tim Mills" on="2008-05-12"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
-        declare function local:two-digit($number as xs:integer) { let $string := string($number) return if (string-length($string) lt 2) then concat('0', $string) else $string };
-        declare function local:time($hour as xs:integer, $mins as xs:integer) { let $h := local:two-digit($hour), $m := local:two-digit($mins) return xs:time(concat( $h, ':', $m, ':00')) };
+        declare function local:two-digit($number as xs:integer) { let $string := string($number) return if (string-length($string) lt 2) then concat(&apos;0&apos;, $string) else $string };
+        declare function local:time($hour as xs:integer, $mins as xs:integer) { let $h := local:two-digit($hour), $m := local:two-digit($mins) return xs:time(concat( $h, &apos;:&apos;, $m, &apos;:00&apos;)) };
         local:time(12, 59) + xs:dayTimeDuration("P0D")
       </test>
     <result-string>xs:string("12:59:00")</result-string>
@@ -437,13 +436,13 @@ used as part of a boolean expression (and operator) and the "fn:false" function.
       <assert-string-value>12:59:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-add-dayTimeDuration-to-time-002">
+  <test-case name="cbcl-add-dayTimeDuration-to-time-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test addition of zero duration to time </description>
     <created by="Tim Mills" on="2008-05-12"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
-        declare function local:two-digit($number as xs:integer) { let $string := string($number) return if (string-length($string) lt 2) then concat('0', $string) else $string };
-        declare function local:time($hour as xs:integer, $mins as xs:integer) { let $h := local:two-digit($hour), $m := local:two-digit($mins) return xs:time(concat( $h, ':', $m, ':00')) };
+        declare function local:two-digit($number as xs:integer) { let $string := string($number) return if (string-length($string) lt 2) then concat(&apos;0&apos;, $string) else $string };
+        declare function local:time($hour as xs:integer, $mins as xs:integer) { let $h := local:two-digit($hour), $m := local:two-digit($mins) return xs:time(concat( $h, &apos;:&apos;, $m, &apos;:00&apos;)) };
         xs:dayTimeDuration("P0D") + local:time(12, 59)
       </test>
     <result-string>xs:string("12:59:00")</result-string>

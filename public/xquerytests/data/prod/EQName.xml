@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set covers="eqnames" name="prod-EQName" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the EQName production</description>
   <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-EQName" type="spec"/>
   <link document="XQuery" idref="doc-xquery30-EQName" section-number="2" type="spec"/>
-  <test-case name="eqname-001">
+  <test-case name="eqname-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;&lt;my:b&gt;42&lt;/my:b&gt;&lt;/out&gt;</response-string>
     <description> Use EQName in a path expression </description>
     <created by="Michael Kay" on="2010-03-16"/>
     <modified by="Michael Kay" change="Revised syntax as per bug 15399" on="2012-03-02"/>
@@ -18,7 +17,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="eqname-002">
+  <test-case name="eqname-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Use EQName in a variable name </description>
     <created by="Michael Kay" on="2010-03-16"/>
     <modified by="Michael Kay" change="Revised syntax as per bug 15399" on="2012-03-02"/>
@@ -35,7 +34,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="eqname-003">
+  <test-case name="eqname-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Use EQName in a function name </description>
     <created by="Michael Kay" on="2010-03-16"/>
     <modified by="Michael Kay" change="Revised syntax as per bug 15399" on="2012-03-02"/>
@@ -52,7 +51,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="eqname-004">
+  <test-case name="eqname-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Use EQName in a type name </description>
     <created by="Michael Kay" on="2010-03-16"/>
     <modified by="Michael Kay" change="Revised syntax as per bug 15399" on="2012-03-02"/>
@@ -67,7 +66,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="eqname-005">
+  <test-case name="eqname-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Use EQName in declare option </description>
     <created by="Michael Kay" on="2010-03-16"/>
     <modified by="Michael Kay" change="Revised syntax as per bug 15399" on="2012-03-02"/>
@@ -82,7 +81,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="eqname-006">
+  <test-case name="eqname-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Use EQName in a pragma </description>
     <created by="Michael Kay" on="2010-03-16"/>
     <modified by="Michael Kay" change="Revised syntax as per bug 15399" on="2012-03-02"/>
@@ -97,7 +96,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case covers="decimal-decl" name="eqname-007">
+  <test-case covers="decimal-decl" name="eqname-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Use EQName in a decimal format </description>
     <created by="Michael Kay" on="2010-03-16"/>
     <modified by="Michael Kay" change="Revised syntax as per bug 15399" on="2012-03-02"/>
@@ -115,7 +114,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="eqname-008">
+  <test-case name="eqname-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;&lt;ex:b&gt;93.7&lt;/ex:b&gt;&lt;/out&gt;</response-string>
     <description> Use character references in an EQName </description>
     <created by="Michael Kay" on="2010-03-16"/>
     <modified by="Michael Kay" change="Revised syntax as per bug 15399" on="2012-03-02"/>
@@ -130,7 +129,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="eqname-009">
+  <test-case name="eqname-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out/&gt;</response-string>
     <description> Use whitespace in an EQName </description>
     <created by="Michael Kay" on="2010-03-16"/>
     <modified by="Michael Kay" change="Revised syntax as per bug 15399" on="2012-03-02"/>
@@ -145,7 +144,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="eqname-010">
+  <test-case name="eqname-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Use quotes in an EQName </description>
     <created by="Michael Kay" on="2010-03-16"/>
     <modified by="Michael Kay" change="Revised syntax as per bug 15399" on="2012-03-02"/>
@@ -160,7 +159,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="eqname-011">
+  <test-case name="eqname-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Use quotes in an EQName </description>
     <created by="Michael Kay" on="2010-03-16"/>
     <modified by="Michael Kay" change="Revised syntax as per bug 15399" on="2012-03-02"/>
@@ -175,7 +174,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case covers="wildcard-uri-literals" name="eqname-012">
+  <test-case covers="wildcard-uri-literals" name="eqname-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;47&lt;/out&gt;</response-string>
     <description> Use EQName-style wildcard </description>
     <created by="Michael Kay" on="2010-03-16"/>
     <modified by="Michael Kay" change="Revised syntax as per bug 15399" on="2012-03-02"/>
@@ -190,7 +189,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case covers="wildcard-uri-literals" name="eqname-013">
+  <test-case covers="wildcard-uri-literals" name="eqname-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Use EQName-style wildcard (no namespace) </description>
     <created by="Michael Kay" on="2010-03-16"/>
     <modified by="Michael Kay" change="Revised syntax as per bug 15399" on="2012-03-02"/>
@@ -205,7 +204,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="eqname-014">
+  <test-case name="eqname-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> EQName in XPath element name</description>
     <created by="Michael Kay" on="2010-03-16"/>
     <modified by="Michael Kay" change="Revised syntax as per bug 15399" on="2012-03-02"/>
@@ -217,19 +216,19 @@
       <assert-string-value>3.00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="eqname-015">
+  <test-case name="eqname-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("6"),xs:integer("7"),xs:integer("8"),xs:integer("9"),xs:integer("10"),xs:integer("11"))</response-string>
     <description> EQName in XPath variable name</description>
     <created by="Michael Kay" on="2010-03-16"/>
     <modified by="Michael Kay" change="Revised syntax as per bug 15399" on="2012-03-02"/>
     <environment ref="auction"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>for $Q{http://example.com/ns}x in 1 to 10 return $Q{http://example.com/ns}x + 1</test>
-    <result-string>xs:string("2 3 4 5 6 7 8 9 10 11")</result-string>
+    <result-string>(xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("6"),xs:integer("7"),xs:integer("8"),xs:integer("9"),xs:integer("10"),xs:integer("11"))</result-string>
     <result>
       <assert-string-value>2 3 4 5 6 7 8 9 10 11</assert-string-value>
     </result>
   </test-case>
-  <test-case covers="wildcard-uri-literals" name="eqname-016">
+  <test-case covers="wildcard-uri-literals" name="eqname-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Use EQName-style wildcard (no namespace) to select attribute nodes </description>
     <created by="Michael Kay" on="2010-03-16"/>
     <modified by="Michael Kay" change="Revised syntax as per bug 15399" on="2012-03-02"/>
@@ -247,7 +246,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case covers="wildcard-uri-literals" name="eqname-017">
+  <test-case covers="wildcard-uri-literals" name="eqname-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Use EQName-style wildcard (XML namespace) to select attribute nodes </description>
     <created by="Michael Kay" on="2010-03-16"/>
     <modified by="Michael Kay" change="Revised syntax as per bug 15399" on="2012-03-02"/>
@@ -262,7 +261,7 @@
       <assert-eq>"preserve"</assert-eq>
     </result>
   </test-case>
-  <test-case covers="wildcard-uri-literals" name="eqname-018">
+  <test-case covers="wildcard-uri-literals" name="eqname-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Use EQName-style wildcard (no namespace URI) to select namespace nodes </description>
     <created by="Michael Kay" on="2010-03-16"/>
     <modified by="Michael Kay" change="Revised syntax as per bug 15399" on="2012-03-02"/>
@@ -282,7 +281,7 @@
          </assert-permutation>
     </result>
   </test-case>
-  <test-case covers="wildcard-uri-literals" name="eqname-019">
+  <test-case covers="wildcard-uri-literals" name="eqname-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Use EQName-style wildcard (no namespace URI) to select PI nodes: not allowed </description>
     <created by="Michael Kay" on="2010-03-16"/>
     <modified by="Michael Kay" change="Revised syntax as per bug 15399" on="2012-03-02"/>
@@ -290,12 +289,12 @@
     <test>
       <![CDATA[(<?alpha?>, <?beta?>, <?gamma?>)/processing-instruction(Q{}alpha)]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="eqname-901">
+  <test-case name="eqname-901"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Invalid EQName - superfluous colon </description>
     <created by="Michael Kay" on="2010-03-16"/>
     <modified by="Michael Kay" change="Revised syntax as per bug 15399" on="2012-03-02"/>
@@ -303,12 +302,12 @@
     <test>
       <![CDATA[<out>{ (<a xmlns:ex="http://www.example.com/ns?p='23'"><ex:b>93.7</ex:b></a>) /Q{http://www.example.com/ns?p='23'}:b }</out>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="eqname-902">
+  <test-case name="eqname-902"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Invalid EQName - mismatched braces </description>
     <created by="Michael Kay" on="2010-03-16"/>
     <modified by="Michael Kay" change="Revised syntax as per bug 15399" on="2012-03-02"/>
@@ -316,12 +315,12 @@
     <test>
       <![CDATA[<out>{ (<a xmlns:ex="http://www.example.com/ns?p='23'"><ex:b>93.7</ex:b></a>) /Q{http://www.example.com/ns?p='23'}}b }</out>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="eqname-903">
+  <test-case name="eqname-903"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> EQName - not allowed in element constructor </description>
     <created by="Michael Kay" on="2010-03-16"/>
     <modified by="Michael Kay" change="Revised syntax as per bug 15399" on="2012-03-02"/>
@@ -329,7 +328,7 @@
     <test>
       <![CDATA[<out>{ <Q{http://www.example.com/ns}/> }</out>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>

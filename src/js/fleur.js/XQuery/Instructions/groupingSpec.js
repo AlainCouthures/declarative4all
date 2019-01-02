@@ -13,6 +13,9 @@ Fleur.XQueryEngine[Fleur.XQueryX.groupingSpec] = function(ctx, children, callbac
 	groupkeynames.push(varname);
 	var i = 0;
 	var cb = function(n) {
+		if (n.nodeType === Fleur.Node.SEQUENCE_NODE && n !== Fleur.EmptySequence) {
+			Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
+		}
 		var a = Fleur.Atomize(n);
 		resarr[i].set(ctx, "", varname, a);
 		i++;

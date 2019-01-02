@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="prod-CompCommentConstructor" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the CompCommentConstructor (computed comment constructor) production </description>
   <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-CompCommentConstructor" type="spec"/>
@@ -10,10 +9,10 @@
     </source>
   </environment>
   <dependency type="spec" value="XQ10+"/>
-  <test-case name="Constr-compcomment-enclexpr-1">
+  <test-case name="Constr-compcomment-enclexpr-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;!--undefined--&gt;</response-string>
     <description> enclosed expression in computed comment node - atomic values </description>
     <created by="Andreas Behm" on="2005-05-20"/>
-    <test>comment {1,'string',3.14,xs:float('1.2345e-2'),xs:dateTime('2002-04-02T12:00:00-01:00')}</test>
+    <test>comment {1,&apos;string&apos;,3.14,xs:float(&apos;1.2345e-2&apos;),xs:dateTime(&apos;2002-04-02T12:00:00-01:00&apos;)}</test>
     <result-string/>
     <result>
       <assert-xml>
@@ -21,7 +20,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-compcomment-enclexpr-2">
+  <test-case name="Constr-compcomment-enclexpr-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;!--undefined--&gt;</response-string>
     <description> enclosed expression in computed comment node - nodes </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -35,10 +34,10 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-compcomment-enclexpr-3">
+  <test-case name="Constr-compcomment-enclexpr-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;!--undefined--&gt;</response-string>
     <description> enclosed expression in computed comment node - empty string </description>
     <created by="Andreas Behm" on="2005-05-20"/>
-    <test>comment {1,'',2}</test>
+    <test>comment {1,&apos;&apos;,2}</test>
     <result-string/>
     <result>
       <assert-xml>
@@ -46,7 +45,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-compcomment-enclexpr-4">
+  <test-case name="Constr-compcomment-enclexpr-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;!--undefined--&gt;</response-string>
     <description> enclosed expression in computed comment node - empty node </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -60,7 +59,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-compcomment-enclexpr-5">
+  <test-case name="Constr-compcomment-enclexpr-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;!--undefined--&gt;</response-string>
     <description> enclosed expression in computed comment node - nodes </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <environment ref="DupNode"/>
@@ -72,7 +71,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-compcomment-doc-1">
+  <test-case name="Constr-compcomment-doc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;!--undefined--&gt;</response-string>
     <description> strip document nodes </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <environment ref="DupNode"/>
@@ -84,37 +83,37 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-compcomment-parent-1">
+  <test-case name="Constr-compcomment-parent-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> empty parent </description>
     <created by="Andreas Behm" on="2005-05-20"/>
-    <test>count((comment {'comment'})/..)</test>
+    <test>count((comment {&apos;comment&apos;})/..)</test>
     <result-string>xs:integer("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-compcomment-string-1">
+  <test-case name="Constr-compcomment-string-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> string value of computed comment node </description>
     <created by="Andreas Behm" on="2005-05-20"/>
-    <test>fn:string(comment {'a', element a {}, 'b'})</test>
+    <test>fn:string(comment {&apos;a&apos;, element a {}, &apos;b&apos;})</test>
     <result-string>xs:string("a  b")</result-string>
     <result>
       <assert-string-value>a  b</assert-string-value>
     </result>
   </test-case>
-  <test-case name="Constr-compcomment-data-1">
+  <test-case name="Constr-compcomment-data-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> typed value of computed comment node </description>
     <created by="Andreas Behm" on="2005-05-20"/>
-    <test>fn:data(comment {'a', element a {}, 'b'})</test>
+    <test>fn:data(comment {&apos;a&apos;, element a {}, &apos;b&apos;})</test>
     <result-string>xs:string("a  b")</result-string>
     <result>
       <assert-string-value>a  b</assert-string-value>
     </result>
   </test-case>
-  <test-case name="Constr-compcomment-nested-1">
+  <test-case name="Constr-compcomment-nested-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;!--undefined--&gt;</response-string>
     <description> nested computed comment node constructor </description>
     <created by="Andreas Behm" on="2005-05-20"/>
-    <test>comment {comment {'one', comment {'two'}}, 'three', comment {'four'}}</test>
+    <test>comment {comment {&apos;one&apos;, comment {&apos;two&apos;}}, &apos;three&apos;, comment {&apos;four&apos;}}</test>
     <result-string/>
     <result>
       <assert-xml>
@@ -122,7 +121,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-compcomment-nested-2">
+  <test-case name="Constr-compcomment-nested-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> nested computed comment nodes in element constructor </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -136,7 +135,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-compcomment-nested-3">
+  <test-case name="Constr-compcomment-nested-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">document {&lt;!--one--&gt;&lt;a/&gt;&lt;!--two--&gt;&lt;b/&gt;&lt;!--three--&gt;}</response-string>
     <description> nested computed comment nodes in element constructor </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -150,25 +149,25 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-compcomment-dash-1">
+  <test-case name="Constr-compcomment-dash-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;!-----&gt;</response-string>
     <description> dash as comment </description>
     <created by="Andreas Behm" on="2005-05-20"/>
-    <test>comment {'-'}</test>
+    <test>comment {&apos;-&apos;}</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQDY0072"))</result-string>
     <result>
       <error code="XQDY0072"/>
     </result>
   </test-case>
-  <test-case name="Constr-compcomment-dash-2">
+  <test-case name="Constr-compcomment-dash-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;!--comment---&gt;</response-string>
     <description> comment ends with a dash </description>
     <created by="Andreas Behm" on="2005-05-20"/>
-    <test>comment {'comment-'}</test>
+    <test>comment {&apos;comment-&apos;}</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQDY0072"))</result-string>
     <result>
       <error code="XQDY0072"/>
     </result>
   </test-case>
-  <test-case name="Constr-compcomment-dash-3">
+  <test-case name="Constr-compcomment-dash-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;!--comment---&gt;</response-string>
     <description> character ref as dash </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <test>
@@ -179,7 +178,7 @@
       <error code="XQDY0072"/>
     </result>
   </test-case>
-  <test-case name="Constr-compcomment-dash-4">
+  <test-case name="Constr-compcomment-dash-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;!--undefined--&gt;</response-string>
     <description>dash at the end of content -</description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <environment>
@@ -191,25 +190,25 @@
       <error code="XQDY0072"/>
     </result>
   </test-case>
-  <test-case name="Constr-compcomment-doubledash-1">
+  <test-case name="Constr-compcomment-doubledash-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;!------&gt;</response-string>
     <description> double dash as comment </description>
     <created by="Andreas Behm" on="2005-05-20"/>
-    <test>comment {'--'}</test>
+    <test>comment {&apos;--&apos;}</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQDY0072"))</result-string>
     <result>
       <error code="XQDY0072"/>
     </result>
   </test-case>
-  <test-case name="Constr-compcomment-doubledash-2">
+  <test-case name="Constr-compcomment-doubledash-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;!--com--ment--&gt;</response-string>
     <description> comment contains double dash </description>
     <created by="Andreas Behm" on="2005-05-20"/>
-    <test>comment {'com--ment'}</test>
+    <test>comment {&apos;com--ment&apos;}</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQDY0072"))</result-string>
     <result>
       <error code="XQDY0072"/>
     </result>
   </test-case>
-  <test-case name="Constr-compcomment-doubledash-3">
+  <test-case name="Constr-compcomment-doubledash-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;!--com--ment--&gt;</response-string>
     <description> character ref as double dash </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <test>
@@ -220,7 +219,7 @@
       <error code="XQDY0072"/>
     </result>
   </test-case>
-  <test-case name="Constr-compcomment-doubledash-4">
+  <test-case name="Constr-compcomment-doubledash-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;!--undefined--&gt;</response-string>
     <description> double dash -- in content </description>
     <created by="Andreas Behm" on="2005-05-20"/>
     <environment>
@@ -232,10 +231,10 @@
       <error code="XQDY0072"/>
     </result>
   </test-case>
-  <test-case name="Constr-compcomment-doubledash-5">
+  <test-case name="Constr-compcomment-doubledash-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;!--undefined--&gt;</response-string>
     <description> adjacent dashes in seperate expressions </description>
     <created by="Andreas Behm" on="2005-05-20"/>
-    <test>comment {'com','-','-','ment'}</test>
+    <test>comment {&apos;com&apos;,&apos;-&apos;,&apos;-&apos;,&apos;ment&apos;}</test>
     <result-string/>
     <result>
       <assert-xml>
@@ -243,25 +242,25 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-ComputeConComment-1">
+  <test-case name="K2-ComputeConComment-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Comment constructors cannot specify a name. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>comment {"name"} {"content"}</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-ComputeConComment-2">
+  <test-case name="K2-ComputeConComment-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Comment constructors cannot specify a name. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>comment name {"content"}</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-ComputeConComment-3">
+  <test-case name="K2-ComputeConComment-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;!--undefined--&gt;</response-string>
     <description> A computed comment constructor having an empty sequence as input. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>comment {()}</test>
@@ -272,16 +271,16 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-ComputeConComment-4">
-    <description> The enclosed expression isn't optional. </description>
+  <test-case name="K2-ComputeConComment-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> The enclosed expression isn&apos;t optional. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>comment{}</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-ComputeConComment-5">
+  <test-case name="K2-ComputeConComment-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test the atomized type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>data(comment {"content"}) instance of xs:string</test>
@@ -290,8 +289,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-constr-compcomment-001">
-    <description> test detection of '--' in computed comment </description>
+  <test-case name="cbcl-constr-compcomment-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;element&gt; &lt;!--undefined--&gt;&lt;/element&gt;</response-string>
+    <description> test detection of &apos;--&apos; in computed comment </description>
     <created by="Tim Mills" on="2008-07-01"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -302,8 +301,8 @@
       <error code="XQDY0072"/>
     </result>
   </test-case>
-  <test-case name="cbcl-constr-compcomment-002">
-    <description> test detection of '--' in computed comment </description>
+  <test-case name="cbcl-constr-compcomment-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> test detection of &apos;--&apos; in computed comment </description>
     <created by="Tim Mills" on="2008-07-01"/>
     <dependency type="spec" value="XQ10+"/>
     <test>

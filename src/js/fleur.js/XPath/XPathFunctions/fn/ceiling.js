@@ -9,6 +9,6 @@
  */
 Fleur.XPathFunctions_fn["ceiling#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:ceiling",
 	function(a) {
-		return Math.ceil(a);
+		return a ? [Math.ceil(a[0]), a[1]] : null;
 	},
-	null, [{type: Fleur.Type_double, occurence: "?"}], false, false, {type: Fleur.Type_integer});
+	null, [{type: Fleur.numericTypes, adaptative: true, occurence: "?"}], false, false, {type: Fleur.numericTypes, adaptative: true, occurence: "?"});

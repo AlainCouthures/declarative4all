@@ -9,15 +9,15 @@
  */
 Fleur.XPathFunctions_fn["index-of#2"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:index-of",
 	function(seq, search) {
-		return Fleur.XPathFunctions_fn["index-of#3"].jsfunc(seq, search, null);
+		return Fleur.XPathFunctions_fn["index-of#3"].jsfunc(seq, search, "http://www.w3.org/2005/xpath-functions/collation/codepoint");
 	},
 	null, [{type: Fleur.Node, occurence: "*"}, {type: Fleur.Node}], false, false, {type: Fleur.Type_integer, occurence: "*"});
 
 Fleur.XPathFunctions_fn["index-of#3"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:index-of",
 	function(seq, search, collation) {
-		var e;
-		if (collation) {
-			e = new Error("The requested collation is not recognized");
+		var c = Fleur.getCollation(collation);
+		if (!c) {
+			var e = new Error("");
 			e.name = "FOCH0002";
 			return e;
 		}
@@ -35,20 +35,10 @@ Fleur.XPathFunctions_fn["index-of#3"] = new Fleur.Function("http://www.w3.org/20
 			return e;
 
 		}
-		if (Fleur.numericTypes.indexOf(a2.schemaTypeInfo) !== -1) {
-			a2.schemaTypeInfo = Fleur.Type_double;
-		} else if (a2.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-			a2.schemaTypeInfo = Fleur.Type_string;
-		}
+		var v2 = Fleur.toJSValue(a2, true, true, true, true);
 		if (a1.nodeType !== Fleur.Node.SEQUENCE_NODE) {
-			if (Fleur.numericTypes.indexOf(a1.schemaTypeInfo) !== -1) {
-				a1.schemaTypeInfo = Fleur.Type_double;
-			} else if (a1.schemaTypeInfo === Fleur.Type_untypedAtomic) {
-				a1.schemaTypeInfo = Fleur.Type_string;
-			}
-			if (a1.schemaTypeInfo === Fleur.Type_string && a2.schemaTypeInfo === Fleur.Type_string ?
-				a1.data.localeCompare(a2.data) === 0 :
-				a1.schemaTypeInfo === a2.schemaTypeInfo && a1.data === a2.data) {
+			var v1 = Fleur.toJSValue(a1, v2[0] < 4, true, true, true);
+			if (v1[0] === v2[0] && Fleur.eqOp(v1, v2, c)) {
 				a2.schemaTypeInfo = Fleur.Type_integer;
 				a2.data = "1";
 				return a2;
@@ -56,14 +46,13 @@ Fleur.XPathFunctions_fn["index-of#3"] = new Fleur.Function("http://www.w3.org/20
 			return null;
 		}
 		var result = new Fleur.Sequence();
-		a1.childNodes.forEach(function(c, i) {
-			if (c.schemaTypeInfo === Fleur.Type_string && a2.schemaTypeInfo === Fleur.Type_string ?
-				c.data.localeCompare(a2.data) === 0 :
-				c.schemaTypeInfo === c.schemaTypeInfo && c.data === a2.data) {
-					var b = new Fleur.Text();
-					b.schemaTypeInfo = Fleur.Type_integer;
-					b.data = String(i + 1);
-					result.appendChild(b);
+		a1.childNodes.forEach(function(d, i) {
+			var vd = Fleur.toJSValue(d, v2[0] < 4, true, true, true);
+			if (vd[0] === v2[0] && Fleur.eqOp(vd, v2, c)) {
+				var b = new Fleur.Text();
+				b.schemaTypeInfo = Fleur.Type_integer;
+				b.data = String(i + 1);
+				result.appendChild(b);
 			}
 		});
 		if (result.childNodes.length === 0) {

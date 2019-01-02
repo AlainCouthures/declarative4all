@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-local-name" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description/>
   <link document="http://www.w3.org/TR/xpath-functions-11/" idref="func-local-name" type="spec"/>
-  <test-case name="fn-local-name-1">
+  <test-case name="fn-local-name-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Evaluation of the fn:local-name function with an undefined context node and no argument. </description>
     <created by="Carmelo Montanez" on="2005-09-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -16,7 +15,7 @@
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="fn-local-name-1a">
+  <test-case name="fn-local-name-1a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Name: fn-local-name-1 Description: Evaluation of the fn:local-name function with
          an undefined context node and no argument. </description>
     <created by="Carmelo Montanez" on="2005-09-20"/>
@@ -27,7 +26,7 @@
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="fn-local-name-2">
+  <test-case name="fn-local-name-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Name: fn-local-name-2 Description: Evaluation of the fn:local-name function with
          context item not a node. </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
@@ -37,18 +36,18 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-local-name-3">
+  <test-case name="fn-local-name-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Name: fn-local-name-3 Description: Evaluation of the fn:local-name function with
          incorrect arity. </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
     <environment ref="atomic"/>
     <test>fn:local-name(/*, /*)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="fn-local-name-4">
+  <test-case name="fn-local-name-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Name: fn-local-name-4 Description: Evaluation of the fn:local-name function
          argument set to empty sequence. Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
@@ -59,7 +58,7 @@
       <assert-eq>""</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-local-name-5">
+  <test-case name="fn-local-name-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Name: fn-local-name-5 Description: Evaluation of the fn:local-name function
          argument set to a text node. Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
@@ -70,7 +69,7 @@
       <assert-eq>""</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-local-name-6">
+  <test-case name="fn-local-name-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluation of the fn:local-name function argument set computed comment node. Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -80,7 +79,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-local-name-7">
+  <test-case name="fn-local-name-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Evaluation of the fn:local-name function argument set to a directly constructed comment node. Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -92,7 +91,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-local-name-8">
+  <test-case name="fn-local-name-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluation of the fn:local-name function argument set to a directly constructed Document node. Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -104,7 +103,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-local-name-8a">
+  <test-case name="fn-local-name-8a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Name: fn-local-name-8 Description: Evaluation of the fn:local-name function
          argument set to a Document node. Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
@@ -115,7 +114,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-local-name-9">
+  <test-case name="fn-local-name-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of the fn:local-name function argument set to a computed element node with no prefix. Use fn:string. </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -125,7 +124,7 @@
       <assert-string-value>anElement</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-10">
+  <test-case name="fn-local-name-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("anElement")</response-string>
     <description> Evaluation of the fn:local-name function argument set to a directly constructed element node with no prefix. Use fn:string. </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -137,7 +136,7 @@
       <assert-string-value>anElement</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-11">
+  <test-case name="fn-local-name-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("anElement")</response-string>
     <description> Evaluation of the fn:local-name function argument set to a directly constructed element node with a prefix. Use fn:string. </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -149,7 +148,7 @@
       <assert-string-value>anElement</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-11a">
+  <test-case name="fn-local-name-11a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("root")</response-string>
     <description> Name: fn-local-name-11 Description: Evaluation of the fn:local-name function
          argument set to an element node with a prefix. Use fn:string. </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
@@ -160,7 +159,7 @@
       <assert-string-value>root</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-12">
+  <test-case name="fn-local-name-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("anAttribute")</response-string>
     <description> Evaluation of the fn:local-name function argument set to a computed attribute node with no prefix. Use fn:string. </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -170,7 +169,7 @@
       <assert-string-value>anAttribute</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-13">
+  <test-case name="fn-local-name-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("p1:anAttribute")</response-string>
     <description> Evaluation of the fn:local-name function argument set to a computed attribute node with a prefix. Use fn:string. </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -181,7 +180,7 @@
       <assert-string-value>anAttribute</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-13a">
+  <test-case name="fn-local-name-13a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Name: fn-local-name-13 Description: Evaluation of the fn:local-name function
          argument set to an attribute node with a prefix. Use fn:string. </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
@@ -192,7 +191,7 @@
       <assert-string-value>attr</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-14">
+  <test-case name="fn-local-name-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of the fn:local-name function argument set to a computed PI node with no prefix. Use fn:string. </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -202,7 +201,7 @@
       <assert-string-value>PITarget</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-15">
+  <test-case name="fn-local-name-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Evaluation of the fn:local-name function argument set to a directly constructed PI node. Use fn:string. </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -214,7 +213,7 @@
       <assert-string-value>format</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-16">
+  <test-case name="fn-local-name-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("anElement")</response-string>
     <description> Evaluation of the fn:local-name function argument set to a directly constructed element node with prefix and a declare namespace declaration. Use fn:string. </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -226,7 +225,7 @@
       <assert-string-value>anElement</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-17">
+  <test-case name="fn-local-name-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("9")</response-string>
     <description> Evaluation of the fn:local-name function argument set to a directly constructed element node with no prefix used as argument to string-length function. Use fn:string. </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -238,7 +237,7 @@
       <assert-eq>9</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-local-name-18">
+  <test-case name="fn-local-name-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of the fn:local-name function argument set to a computed element node with prefix and a declare namespace declaration. Use fn:string. </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -251,7 +250,7 @@
       <assert-string-value>anElement</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-19">
+  <test-case name="fn-local-name-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("ANELEMENT")</response-string>
     <description> Evaluation of the fn:local-name function argument set to a directly constructed element node with no prefix used as argument to upper-case function. Use fn:string. </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -263,7 +262,7 @@
       <assert-string-value>ANELEMENT</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-20">
+  <test-case name="fn-local-name-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("anelement")</response-string>
     <description> Evaluation of the fn:local-name function argument set to a directly constructed element node with no prefix used as argument to lower-case function. Use fn:string. </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -275,7 +274,7 @@
       <assert-string-value>anelement</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-21">
+  <test-case name="fn-local-name-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("ANATTRIBUTE")</response-string>
     <description> Evaluation of the fn:local-name function argument set to a computed attribite node with no prefix used as argument to upper-case function. Use fn:string. </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -285,7 +284,7 @@
       <assert-string-value>ANATTRIBUTE</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-22">
+  <test-case name="fn-local-name-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("anattribute")</response-string>
     <description> Evaluation of the fn:local-name function argument set to a computed attribite node with no prefix used as argument to lower-case function. Use fn:string. </description>
     <created by="Carmelo Montanez" on="2005-11-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -295,7 +294,7 @@
       <assert-string-value>anattribute</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-23">
+  <test-case name="fn-local-name-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Evaluation of the fn:local-name function with second argument set to "." and no context node set. Use fn:string. </description>
     <created by="Carmelo Montanez" on="2006-02-07"/>
     <dependency type="spec" value="XQ10+"/>
@@ -309,7 +308,7 @@
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="fn-local-name-51">
+  <test-case name="fn-local-name-51"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Name: fn-local-name-51 Description: Evaluation of the fn:local-name function
          with the argument set to the empty sequence. Uses the fn:string-length function to avoid
          empty file. </description>
@@ -321,7 +320,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-local-name-52">
+  <test-case name="fn-local-name-52"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("employee")</response-string>
     <description> Name: fn-local-name-52 Description: Evaluation of the fn:local-name function
          with the argument set to an element node. </description>
     <created by="Carmelo Montanez" on="2005-09-07"/>
@@ -332,7 +331,7 @@
       <assert-string-value>employee</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-53">
+  <test-case name="fn-local-name-53"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("name")</response-string>
     <description> Name: fn-local-name-53 Description: Evaluation of the fn:local-name function
          with the argument set to an attribute node. insert-start insert-end </description>
     <created by="Carmelo Montanez" on="2005-09-07"/>
@@ -343,7 +342,7 @@
       <assert-string-value>name</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-54">
+  <test-case name="fn-local-name-54"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Name: fn-local-name-54 Description: Evaluation of the fn:local-name function
          with the argument set to a document node. Use of "fn:string-length" to avoid empty file.
          insert-start insert-end </description>
@@ -355,7 +354,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-local-name-55">
+  <test-case name="fn-local-name-55"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Name: fn-local-name-55 Description: Evaluation of the fn:local-name function
          with the argument set to a non existing element. Use of "fn:string-length" to avoid empty
          file. insert-start insert-end </description>
@@ -367,7 +366,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-local-name-56">
+  <test-case name="fn-local-name-56"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Name: fn-local-name-56 Description: Evaluation of the fn:local-name function
          with the argument set to a non existing element. Use of "fn:string-length" to avoid empty
          file. </description>
@@ -380,7 +379,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-local-name-57">
+  <test-case name="fn-local-name-57"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Name: fn-local-name-57 Description: Evaluation of the fn:local-name function
          with an undefined context node. </description>
     <created by="Carmelo Montanez" on="2005-09-07"/>
@@ -391,7 +390,7 @@
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="fn-local-name-58">
+  <test-case name="fn-local-name-58"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Name: fn-local-name-58 Description: Evaluation of the fn:local-name function
          used as an argument to the fn:upper-case function </description>
     <created by="Carmelo Montanez" on="2005-09-07"/>
@@ -402,7 +401,7 @@
       <assert-string-value>EMPLOYEE</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-59">
+  <test-case name="fn-local-name-59"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Name: fn-local-name-59 Description: Evaluation of the fn:local-name function
          used as an argument to the fn:lower-case function </description>
     <created by="Carmelo Montanez" on="2005-09-07"/>
@@ -413,7 +412,7 @@
       <assert-string-value>employee</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-60">
+  <test-case name="fn-local-name-60"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Name: fn-local-name-60 Description: Evaluation of the fn:local-name function
          with argument that uses the "parent" axes </description>
     <created by="Carmelo Montanez" on="2005-09-07"/>
@@ -424,7 +423,7 @@
       <assert-string-value>works</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-61">
+  <test-case name="fn-local-name-61"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Name: fn-local-name-61 Description: Evaluation of the fn:local-name function
          with argument that uses the "descendant" axes </description>
     <created by="Carmelo Montanez" on="2005-09-07"/>
@@ -436,7 +435,7 @@
       <assert-string-value>empnum</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-62">
+  <test-case name="fn-local-name-62"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Name: fn-local-name-62 Description: Evaluation of the fn:local-name function
          with argument that uses the "descendant-or-self" axes </description>
     <created by="Carmelo Montanez" on="2005-09-07"/>
@@ -448,7 +447,7 @@
       <assert-string-value>empnum</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-63">
+  <test-case name="fn-local-name-63"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Name: fn-local-name-63 Description: Evaluation of the fn:local-name function
          used as argument to the fn-subtstring function. </description>
     <created by="Carmelo Montanez" on="2005-09-07"/>
@@ -459,7 +458,7 @@
       <assert-string-value>mployee</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-64">
+  <test-case name="fn-local-name-64"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Name: fn-local-name-64 Description: Evaluation of the fn:local-name function
          used as argument to the fn:concat function. </description>
     <created by="Carmelo Montanez" on="2005-09-07"/>
@@ -470,7 +469,7 @@
       <assert-string-value>employeeA String</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-65">
+  <test-case name="fn-local-name-65"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Name: fn-local-name-65 Description: Evaluation of the fn:local-name function
          with argument that uses the "self" axes. Returns a string </description>
     <created by="Carmelo Montanez" on="2005-09-07"/>
@@ -481,7 +480,7 @@
       <assert-string-value>employee</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-66">
+  <test-case name="fn-local-name-66"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Name: fn-local-name-66 Description: Evaluation of the fn:local-name function
          with argument that uses the "self" axes. Returns a empty sequence Uses fn:count to avoid
          empty file. </description>
@@ -497,7 +496,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-local-name-67">
+  <test-case name="fn-local-name-67"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Name: fn-local-name-67 Description: Evaluation of the fn:local-name function
          with argument that uses the "parent::node()". The context node is an attribute node. </description>
     <created by="Carmelo Montanez" on="2005-09-07"/>
@@ -508,41 +507,41 @@
       <assert-string-value>employee</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-68">
+  <test-case name="fn-local-name-68"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("4")</response-string>
     <description> Name: fn-local-name-68 Description: Evaluation of the fn:local-name function as
          an argument to the string-length function. The context node is an attribute node. </description>
     <created by="Carmelo Montanez" on="2005-09-07"/>
     <environment ref="works-mod"/>
     <test>fn:string-length(fn:local-name(./works[1]/employee[2]/@name))</test>
-    <result-string>xs:string("4")</result-string>
+    <result-string>xs:integer("4")</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-71">
+  <test-case name="fn-local-name-71"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("employee employee")</response-string>
     <description> Name: fn-local-name-71 Description: Evaluation of the fn:local-name function
          used as part of a sequence. </description>
     <created by="Carmelo Montanez" on="2005-09-07"/>
     <environment ref="works-mod"/>
     <test>string-join((fn:local-name(./works[1]/employee[1]),fn:local-name(./works[1]/employee[2])),
-         ' ')</test>
+         &apos; &apos;)</test>
     <result-string>xs:string("employee employee")</result-string>
     <result>
       <assert-string-value>employee employee</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-72">
+  <test-case name="fn-local-name-72"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> Name: fn-local-name-72 Description: Evaluation of the fn:local-name function as
          argument to fn:count. </description>
     <created by="Carmelo Montanez" on="2005-09-07"/>
     <environment ref="works-mod"/>
     <test>fn:count(((fn:local-name(/works[1]/employee[1]),fn:local-name(/works[1]/employee[2]))))</test>
-    <result-string>xs:string("2")</result-string>
+    <result-string>xs:integer("2")</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-73">
+  <test-case name="fn-local-name-73"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Name: fn-local-name-73 Description: Evaluation of the fn:local-name function
          with an undefined context node and argument set to ".". </description>
     <created by="Carmelo Montanez" on="2006-02-08"/>
@@ -553,7 +552,7 @@
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="fn-local-name-74">
+  <test-case name="fn-local-name-74"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("ma:AuctionWatchList")</response-string>
     <description> Name: fn-local-name-74 Description: Get the name of an element in a namespace. </description>
     <created by="Michael Kay" on="2010-12-10"/>
     <environment ref="auction"/>
@@ -563,7 +562,7 @@
       <assert-string-value>ma:AuctionWatchList</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-75">
+  <test-case name="fn-local-name-75"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("#sequence")</response-string>
     <description> Name: fn-local-name-75 Description: Get the name of an attribute in a namespace. </description>
     <created by="Michael Kay" on="2010-12-10"/>
     <environment ref="auction"/>
@@ -573,7 +572,7 @@
       <assert-string-value>ma:currency</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-76">
+  <test-case name="fn-local-name-76"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("#sequence")</response-string>
     <description> Name: fn-local-name-76 Description: Get the name of the xml:lang attribute. </description>
     <created by="Michael Kay" on="2010-12-10"/>
     <environment ref="auction"/>
@@ -583,19 +582,19 @@
       <assert-string-value>xml:lang</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-77">
+  <test-case name="fn-local-name-77"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Description: Get the name of a namespace node. </description>
     <created by="Michael Kay" on="2010-12-10"/>
     <environment ref="auction"/>
     <dependency type="feature" value="namespace-axis"/>
     <dependency type="spec" value="XP20+"/>
-    <test>name((//namespace::*[.='http://www.w3.org/1999/xlink'])[1])</test>
+    <test>name((//namespace::*[.=&apos;http://www.w3.org/1999/xlink&apos;])[1])</test>
     <result-string>xs:string("xlink")</result-string>
     <result>
       <assert-string-value>xlink</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-78">
+  <test-case name="fn-local-name-78"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("xml-stylesheet")</response-string>
     <description> Get the name of a processing-instruction node. </description>
     <created by="Michael Kay" on="2010-12-10"/>
     <environment ref="auction"/>
@@ -605,46 +604,46 @@
       <assert-string-value>xml-stylesheet</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-79">
+  <test-case name="fn-local-name-79"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("recorded")</response-string>
     <description> Get the name of an element in a default but non-null namespace. </description>
     <created by="Michael Kay" on="2010-12-10"/>
     <environment ref="auction"/>
-    <test>name((//*[.='1983'])[1])</test>
+    <test>name((//*[.=&apos;1983&apos;])[1])</test>
     <result-string>xs:string("recorded")</result-string>
     <result>
       <assert-string-value>recorded</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-local-name-80">
+  <test-case name="fn-local-name-80"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Get the name of a comment node </description>
     <created by="Michael Kay" on="2010-12-10"/>
     <environment ref="auction"/>
-    <test>name((//comment())[1]) = ''</test>
+    <test>name((//comment())[1]) = &apos;&apos;</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-local-name-81">
+  <test-case name="fn-local-name-81"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Get the name of a text node </description>
     <created by="Michael Kay" on="2010-12-10"/>
     <environment ref="auction"/>
-    <test>name((//text())[1]) = ''</test>
+    <test>name((//text())[1]) = &apos;&apos;</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NodeLocalNameFunc-1">
+  <test-case name="K-NodeLocalNameFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `local-name((), "wrong param")`.</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>local-name((), "wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-NodeLocalNameFunc-2">
+  <test-case name="K-NodeLocalNameFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>A test whose essence is: `if(false()) then local-name() else true()`.</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>if(false()) then local-name() else true()</test>
@@ -657,7 +656,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-NodeLocalNameFunc-3">
+  <test-case name="K-NodeLocalNameFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>A test whose essence is: `local-name(()) eq ""`.</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>local-name(()) eq ""</test>
@@ -666,7 +665,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-NodeLocalNameFunc-1">
+  <test-case name="K2-NodeLocalNameFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("name")</response-string>
     <description> Call fn:local-name() on an attribute node.</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <environment ref="works-mod"/>

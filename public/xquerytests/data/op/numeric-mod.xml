@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="op-numeric-mod" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the numeric-mod() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-numeric-mod" type="spec"/>
-  <test-case name="op-numeric-modint2args-1">
+  <test-case name="op-numeric-modint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1")</response-string>
     <description> Evaluates The "op:numeric-mod" operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int("-2147483648") mod xs:int("2147483647")</test>
@@ -11,7 +10,7 @@
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-modintg2args-1">
+  <test-case name="op-numeric-modintg2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-169006502882975740")</response-string>
     <description> Evaluates The "op:numeric-mod" operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer("-999999999999999999") mod xs:integer("830993497117024304")</test>
@@ -20,7 +19,7 @@
       <assert-eq>-169006502882975695</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-modintg2args-2">
+  <test-case name="op-numeric-modintg2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "op:numeric-mod" operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer("-999999999999999999") mod xs:integer("999999999999999999")</test>
@@ -29,7 +28,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-moddec2args-1">
+  <test-case name="op-numeric-moddec2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-382624808391485200")</response-string>
     <description> Evaluates The "op:numeric-mod" operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("-999999999999999999") mod xs:decimal("617375191608514839")</test>
@@ -38,7 +37,7 @@
       <assert-eq>-382624808391485160</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-moddec2args-2">
+  <test-case name="op-numeric-moddec2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string>
     <description> Evaluates The "op:numeric-mod" operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("-999999999999999999") mod xs:decimal("999999999999999999")</test>
@@ -47,7 +46,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-moddbl2args-1">
+  <test-case name="op-numeric-moddbl2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157e+308")</response-string>
     <description> Evaluates The "op:numeric-mod" operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double("-1.7976931348623157E308") mod xs:double("1.7976931348623157E308")</test>
@@ -56,7 +55,7 @@
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-modflt2args-1">
+  <test-case name="op-numeric-modflt2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235e+38")</response-string>
     <description> Evaluates The "op:numeric-mod" operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float("-3.4028235E38") mod xs:float("3.4028235E38")</test>
@@ -65,7 +64,7 @@
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-modlng2args-1">
+  <test-case name="op-numeric-modlng2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-92233720368547760")</response-string>
     <description> Evaluates The "op:numeric-mod" operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long("-92233720368547758") mod xs:long("92233720368547758")</test>
@@ -74,7 +73,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-modusht2args-1">
+  <test-case name="op-numeric-modusht2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-mod" operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort("0") mod xs:unsignedShort("44633")</test>
@@ -83,7 +82,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-modusht2args-2">
+  <test-case name="op-numeric-modusht2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-mod" operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort("0") mod xs:unsignedShort("65535")</test>
@@ -92,7 +91,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-modpint2args-1">
+  <test-case name="op-numeric-modpint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-mod" operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("1") mod xs:positiveInteger("1")</test>
@@ -101,7 +100,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-modpint2args-2">
+  <test-case name="op-numeric-modpint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-mod" operator with the arguments set as follows: $arg1 = xs:positiveInteger(mid range) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("52704602390610033") mod xs:positiveInteger("1")</test>
@@ -110,7 +109,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-modpint2args-3">
+  <test-case name="op-numeric-modpint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-mod" operator with the arguments set as follows: $arg1 = xs:positiveInteger(upper bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("999999999999999999") mod xs:positiveInteger("1")</test>
@@ -119,7 +118,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-modpint2args-4">
+  <test-case name="op-numeric-modpint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "op:numeric-mod" operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("1") mod xs:positiveInteger("52704602390610033")</test>
@@ -128,7 +127,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-modpint2args-5">
+  <test-case name="op-numeric-modpint2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "op:numeric-mod" operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("1") mod xs:positiveInteger("999999999999999999")</test>
@@ -137,7 +136,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-modulng2args-1">
+  <test-case name="op-numeric-modulng2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-mod" operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("0") mod xs:unsignedLong("130747108607674654")</test>
@@ -146,7 +145,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-modulng2args-2">
+  <test-case name="op-numeric-modulng2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-mod" operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("0") mod xs:unsignedLong("184467440737095516")</test>
@@ -155,7 +154,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-modnni2args-1">
+  <test-case name="op-numeric-modnni2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-mod" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("0") mod xs:nonNegativeInteger("303884545991464527")</test>
@@ -164,7 +163,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-modnni2args-2">
+  <test-case name="op-numeric-modnni2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-mod" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("0") mod xs:nonNegativeInteger("999999999999999999")</test>
@@ -173,7 +172,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-modsht2args-1">
+  <test-case name="op-numeric-modsht2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1")</response-string>
     <description> Evaluates The "op:numeric-mod" operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short("-32768") mod xs:short("32767")</test>
@@ -182,7 +181,7 @@
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-modmix2args-1">
+  <test-case name="op-numeric-modmix2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Simple mod test with () as one operand should return null </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <test>() mod 1</test>
@@ -195,25 +194,25 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="op-numeric-modmix2args-2">
+  <test-case name="op-numeric-modmix2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Simple mod test pass string for second operator </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
-    <test>1 mod '1'</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <test>1 mod &apos;1&apos;</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="op-numeric-modmix2args-3">
+  <test-case name="op-numeric-modmix2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Simple mod test, second operator cast string to integer </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
-    <test>1 mod xs:integer('1')</test>
+    <test>1 mod xs:integer(&apos;1&apos;)</test>
     <result-string>xs:integer("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-modmix2args-4">
+  <test-case name="op-numeric-modmix2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Simple mod test, second operator is a node, atomization applied </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -225,7 +224,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-modmix2args-5">
+  <test-case name="op-numeric-modmix2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Simple mod test, second operator is a node, atomization applied </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -237,7 +236,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-modmix2args-6">
+  <test-case name="op-numeric-modmix2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Simple mod test, second operator node which is not atomizable </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -249,7 +248,7 @@
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="op-numeric-modmix2args-7">
+  <test-case name="op-numeric-modmix2args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Simple mod test, two operands are nodes </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -261,7 +260,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-modmix2args-8">
+  <test-case name="op-numeric-modmix2args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Simple mod test, second operator is a node, atomizable but not castable to integer </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -273,7 +272,7 @@
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="op-numeric-modmix2args-9">
+  <test-case name="op-numeric-modmix2args-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Simple mod test pass an empty node for second operator </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -285,7 +284,7 @@
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-1">
+  <test-case name="K-NumericMod-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:decimal(6) mod xs:integer(2)) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) mod xs:integer(2)) instance of xs:decimal</test>
@@ -294,7 +293,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-2">
+  <test-case name="K-NumericMod-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:integer(6) mod xs:decimal(2)) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) mod xs:decimal(2)) instance of xs:decimal</test>
@@ -303,7 +302,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-3">
+  <test-case name="K-NumericMod-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:integer(6) mod xs:integer(2)) instance of xs:integer`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) mod xs:integer(2)) instance of xs:integer</test>
@@ -312,7 +311,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-4">
+  <test-case name="K-NumericMod-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:decimal(6) mod xs:decimal(2)) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) mod xs:decimal(2)) instance of xs:decimal</test>
@@ -321,7 +320,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-5">
+  <test-case name="K-NumericMod-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:decimal(6) mod xs:float(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) mod xs:float(2)) instance of xs:float</test>
@@ -330,7 +329,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-6">
+  <test-case name="K-NumericMod-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:float(6) mod xs:decimal(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) mod xs:decimal(2)) instance of xs:float</test>
@@ -339,7 +338,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-7">
+  <test-case name="K-NumericMod-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:float(6) mod xs:integer(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) mod xs:integer(2)) instance of xs:float</test>
@@ -348,7 +347,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-8">
+  <test-case name="K-NumericMod-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:integer(6) mod xs:float(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) mod xs:float(2)) instance of xs:float</test>
@@ -357,7 +356,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-9">
+  <test-case name="K-NumericMod-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:float(6) mod xs:float(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) mod xs:float(2)) instance of xs:float</test>
@@ -366,7 +365,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-10">
+  <test-case name="K-NumericMod-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:decimal(6) mod xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) mod xs:double(2)) instance of xs:double</test>
@@ -375,7 +374,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-11">
+  <test-case name="K-NumericMod-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:double(6) mod xs:decimal(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) mod xs:decimal(2)) instance of xs:double</test>
@@ -384,7 +383,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-12">
+  <test-case name="K-NumericMod-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:double(6) mod xs:float(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) mod xs:float(2)) instance of xs:double</test>
@@ -393,7 +392,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-13">
+  <test-case name="K-NumericMod-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:float(6) mod xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) mod xs:double(2)) instance of xs:double</test>
@@ -402,7 +401,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-14">
+  <test-case name="K-NumericMod-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:double(6) mod xs:integer(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) mod xs:integer(2)) instance of xs:double</test>
@@ -411,7 +410,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-15">
+  <test-case name="K-NumericMod-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:integer(6) mod xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) mod xs:double(2)) instance of xs:double</test>
@@ -420,7 +419,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-16">
+  <test-case name="K-NumericMod-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:double(6) mod xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) mod xs:double(2)) instance of xs:double</test>
@@ -429,7 +428,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-17">
+  <test-case name="K-NumericMod-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `10 mod 3 eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>10 mod 3 eq 1</test>
@@ -438,7 +437,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-18">
+  <test-case name="K-NumericMod-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `6 mod -2 eq 0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>6 mod -2 eq 0</test>
@@ -447,7 +446,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-19">
+  <test-case name="K-NumericMod-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `4.5 mod 1.2 eq 0.9`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>4.5 mod 1.2 eq 0.9</test>
@@ -456,7 +455,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-20">
+  <test-case name="K-NumericMod-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `1.23E2 mod 0.6E1 eq 3.0E0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1.23E2 mod 0.6E1 eq 3.0E0</test>
@@ -465,17 +464,17 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-21">
-    <description> Invalid whitespace for the 'mod' operator. </description>
+  <test-case name="K-NumericMod-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Invalid whitespace for the &apos;mod&apos; operator. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>10 mod3</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-22">
-    <description> Invalid whitespace for the 'mod' operator. </description>
+  <test-case name="K-NumericMod-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
+    <description> Invalid whitespace for the &apos;mod&apos; operator. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>10mod 3</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
@@ -483,34 +482,34 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-23">
-    <description> Invalid whitespace for the 'mod' operator. </description>
+  <test-case name="K-NumericMod-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Invalid whitespace for the &apos;mod&apos; operator. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>10mod3</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-24">
-    <description> Invoke the 'mod operator with invalid operands. </description>
+  <test-case name="K-NumericMod-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Invoke the &apos;mod operator with invalid operands. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>"3" mod "3"</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-25">
-    <description> Invoke the 'mod operator with invalid operands. </description>
+  <test-case name="K-NumericMod-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Invoke the &apos;mod operator with invalid operands. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>"3" mod 1.1</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-26">
+  <test-case name="K-NumericMod-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:untypedAtomic("5") mod xs:double(3)) eq 2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:untypedAtomic("5") mod xs:double(3)) eq 2</test>
@@ -519,7 +518,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-27">
+  <test-case name="K-NumericMod-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:decimal(5) mod xs:untypedAtomic("3")) eq 2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(5) mod xs:untypedAtomic("3")) eq 2</test>
@@ -528,7 +527,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-28">
+  <test-case name="K-NumericMod-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Operand(s) which are the empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(() mod ())</test>
@@ -541,7 +540,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-NumericMod-29">
+  <test-case name="K-NumericMod-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Operand(s) which are the empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(xs:float(3) mod ())</test>
@@ -554,7 +553,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-1">
+  <test-case name="K2-NumericMod-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Divisor is small negative xs:integer. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>-1 mod -1</test>
@@ -563,7 +562,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-2">
+  <test-case name="K2-NumericMod-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("0")</response-string>
     <description> Divisor is small negative xs:decimal. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>-1.0 mod -1.0</test>
@@ -572,7 +571,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-3">
+  <test-case name="K2-NumericMod-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Divisor is small negative xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>-1.0e0 mod -1.0e0</test>
@@ -581,7 +580,7 @@
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-4">
+  <test-case name="K2-NumericMod-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Divisor is small negative xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>-1.0e0 mod xs:float(-1.0e0)</test>
@@ -590,7 +589,7 @@
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-5">
+  <test-case name="K2-NumericMod-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1")</response-string>
     <description> Divisor is large negative xs:integer. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>-1 mod -9223372036854775808</test>
@@ -603,7 +602,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-6">
+  <test-case name="K2-NumericMod-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1")</response-string>
     <description> Divisor is large negative xs:decimal. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>-1.0 mod -9223372036854775808.0</test>
@@ -612,7 +611,7 @@
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-7">
+  <test-case name="K2-NumericMod-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1")</response-string>
     <description> Divisor is large negative xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>-1.0e0 mod xs:double(-9223372036854775808)</test>
@@ -625,7 +624,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-8">
+  <test-case name="K2-NumericMod-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1")</response-string>
     <description> Divisor is large negative xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(-1.0e0) mod xs:float(-9223372036854775808)</test>
@@ -638,70 +637,70 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-9">
+  <test-case name="K2-NumericMod-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> Left op is xs:float/NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("NaN") mod 3</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:float("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-10">
+  <test-case name="K2-NumericMod-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> Right op is xs:float/NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 mod xs:float("NaN")</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:float("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-11">
+  <test-case name="K2-NumericMod-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> Both ops are xs:float/NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("NaN") mod xs:float("NaN")</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:float("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-12">
+  <test-case name="K2-NumericMod-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Left op is xs:double/NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("NaN") mod 3</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-13">
+  <test-case name="K2-NumericMod-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Right op is xs:double/NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 mod xs:double("NaN")</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-14">
+  <test-case name="K2-NumericMod-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Both ops are xs:double/NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("NaN") mod xs:double("NaN")</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-15">
+  <test-case name="K2-NumericMod-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Left op is xs:double/positive INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("INF") mod 3</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-16">
+  <test-case name="K2-NumericMod-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Right op is xs:double/positive INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 mod xs:double("INF")</test>
@@ -710,25 +709,25 @@
       <assert-eq>3</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-17">
+  <test-case name="K2-NumericMod-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Both ops are xs:double/positive INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("INF") mod xs:double("INF")</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-18">
+  <test-case name="K2-NumericMod-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Left op is xs:double/-INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("-INF") mod 3</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-19">
+  <test-case name="K2-NumericMod-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Right op is xs:double/-INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 mod xs:double("-INF")</test>
@@ -737,16 +736,16 @@
       <assert-eq>3</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-20">
+  <test-case name="K2-NumericMod-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Both ops are xs:double/-INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("-INF") mod xs:double("-INF")</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-21">
+  <test-case name="K2-NumericMod-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Left op is xs:double/positive 0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("0") mod 3</test>
@@ -755,16 +754,16 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-22">
+  <test-case name="K2-NumericMod-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Right op is xs:double/positive 0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 mod xs:double("0")</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-23">
+  <test-case name="K2-NumericMod-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Both ops are xs:double/positive 0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("0") mod xs:double("INF")</test>
@@ -773,7 +772,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-24">
+  <test-case name="K2-NumericMod-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Left op is xs:double/-0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("-0") mod 3</test>
@@ -782,34 +781,34 @@
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-25">
+  <test-case name="K2-NumericMod-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Right op is xs:double/-0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 mod xs:double("-0")</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-26">
+  <test-case name="K2-NumericMod-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Both ops are xs:double/-0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("-0") mod xs:double("-0")</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-27">
+  <test-case name="K2-NumericMod-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> Left op is xs:float/positive INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("INF") mod 3</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:float("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-28">
+  <test-case name="K2-NumericMod-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> Right op is xs:float/positive INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 mod xs:float("INF")</test>
@@ -818,25 +817,25 @@
       <assert-eq>3</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-29">
+  <test-case name="K2-NumericMod-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> Both ops are xs:float/positive INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("INF") mod xs:float("INF")</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:float("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-30">
+  <test-case name="K2-NumericMod-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> Left op is xs:float/-INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("-INF") mod 3</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:float("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-31">
+  <test-case name="K2-NumericMod-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> Right op is xs:float/-INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 mod xs:float("-INF")</test>
@@ -845,16 +844,16 @@
       <assert-eq>3</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-32">
+  <test-case name="K2-NumericMod-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> Both ops are xs:float/-INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("-INF") mod xs:float("-INF")</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:float("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-33">
+  <test-case name="K2-NumericMod-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Left op is xs:float/positive 0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("0") mod 3</test>
@@ -863,7 +862,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-34">
+  <test-case name="K2-NumericMod-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> Right op is xs:float/positive 0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 mod xs:float("0")</test>
@@ -872,7 +871,7 @@
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-35">
+  <test-case name="K2-NumericMod-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> Both ops are xs:float/positive 0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("0") mod xs:float("INF")</test>
@@ -881,7 +880,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-36">
+  <test-case name="K2-NumericMod-36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Left op is xs:float/-0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("-0") mod 3</test>
@@ -890,7 +889,7 @@
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-37">
+  <test-case name="K2-NumericMod-37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> Right op is xs:float/-0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 mod xs:float("-0")</test>
@@ -899,7 +898,7 @@
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-38">
+  <test-case name="K2-NumericMod-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> Both ops are xs:float/-0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("-0") mod xs:float("-0")</test>
@@ -908,7 +907,7 @@
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-39">
+  <test-case name="K2-NumericMod-39"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Left op is xs:float/-0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("-0") mod xs:float("4")</test>
@@ -917,7 +916,7 @@
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-40">
+  <test-case name="K2-NumericMod-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Left op is xs:float/0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("0") mod xs:float("4")</test>
@@ -926,7 +925,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-41">
+  <test-case name="K2-NumericMod-41"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Left op is xs:double/-0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("-0") mod xs:double("4")</test>
@@ -935,7 +934,7 @@
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-42">
+  <test-case name="K2-NumericMod-42"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Left op is xs:double/0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("0") mod xs:double("4")</test>
@@ -944,7 +943,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-43">
+  <test-case name="K2-NumericMod-43"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> Left op is xs:float/-0 with INF as divisor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("-0") mod xs:float("INF")</test>
@@ -953,7 +952,7 @@
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-44">
+  <test-case name="K2-NumericMod-44"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> Left op is xs:float/0 with INF as divisor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("0") mod xs:float("INF")</test>
@@ -962,7 +961,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-45">
+  <test-case name="K2-NumericMod-45"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Left op is xs:double/-0 with INF as divisor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("-0") mod xs:double("INF")</test>
@@ -971,7 +970,7 @@
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-46">
+  <test-case name="K2-NumericMod-46"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Left op is xs:double/0 with INF as divisor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("0") mod xs:double("INF")</test>
@@ -980,7 +979,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-47">
+  <test-case name="K2-NumericMod-47"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> Left op is xs:float/-0 with -INF as divisor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("-0") mod xs:float("-INF")</test>
@@ -989,7 +988,7 @@
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-48">
+  <test-case name="K2-NumericMod-48"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> Left op is xs:float/0 with -INF as divisor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("0") mod xs:float("-INF")</test>
@@ -998,7 +997,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-49">
+  <test-case name="K2-NumericMod-49"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Left op is xs:double/-0 with -INF as divisor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("-0") mod xs:double("-INF")</test>
@@ -1007,7 +1006,7 @@
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-50">
+  <test-case name="K2-NumericMod-50"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Left op is xs:double/0 with -INF as divisor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("0") mod xs:double("-INF")</test>
@@ -1016,7 +1015,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-51">
+  <test-case name="K2-NumericMod-51"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Trival mod with xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("10000000") mod xs:double("10000000")</test>
@@ -1025,7 +1024,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-52">
+  <test-case name="K2-NumericMod-52"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Trival mod with xs:double(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("-10000000") mod xs:double("-10000000")</test>
@@ -1034,7 +1033,7 @@
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-53">
+  <test-case name="K2-NumericMod-53"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("10000000")</response-string>
     <description> Trival mod with xs:double(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("10000000") mod xs:double("-10000000")</test>
@@ -1043,7 +1042,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-54">
+  <test-case name="K2-NumericMod-54"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-10000000")</response-string>
     <description> Trival mod with xs:double(#4). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("-10000000") mod xs:double("10000000")</test>
@@ -1052,7 +1051,7 @@
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-55">
+  <test-case name="K2-NumericMod-55"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Trival mod with xs:float. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("10000000") mod xs:float("10000000")</test>
@@ -1061,7 +1060,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-56">
+  <test-case name="K2-NumericMod-56"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Trival mod with xs:float(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("-10000000") mod xs:float("-10000000")</test>
@@ -1070,7 +1069,7 @@
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-57">
+  <test-case name="K2-NumericMod-57"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("10000000")</response-string>
     <description> Trival mod with xs:float(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("10000000") mod xs:float("-10000000")</test>
@@ -1079,7 +1078,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-58">
+  <test-case name="K2-NumericMod-58"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-10000000")</response-string>
     <description> Trival mod with xs:float(#4). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("-10000000") mod xs:float("10000000")</test>
@@ -1088,7 +1087,7 @@
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-59">
+  <test-case name="K2-NumericMod-59"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("NaN")</response-string>
     <description> Divide xs:integer by 0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 mod 0</test>
@@ -1097,7 +1096,7 @@
       <error code="FOAR0001"/>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-60">
+  <test-case name="K2-NumericMod-60"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("NaN")</response-string>
     <description> Divide an xs:decimal by 0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3.0 mod 0</test>
@@ -1106,7 +1105,7 @@
       <error code="FOAR0001"/>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-61">
+  <test-case name="K2-NumericMod-61"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("NaN")</response-string>
     <description> Divide xs:integer by 0.0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 mod 0.0</test>
@@ -1115,8 +1114,8 @@
       <error code="FOAR0001"/>
     </result>
   </test-case>
-  <test-case name="K2-NumericMod-62">
-    <description> Ensure the 'div' keyword is parsed correctly. </description>
+  <test-case name="K2-NumericMod-62"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+    <description> Ensure the &apos;div&apos; keyword is parsed correctly. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -1127,7 +1126,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-mod-1">
+  <test-case name="op-numeric-mod-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Check dynamic type of numeric mod on arguments of union of numeric types and untypedAtomic. </description>
     <created by="Oliver Hallam" on="2010-03-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1137,7 +1136,7 @@
       <assert-string-value>integer decimal float double double decimal decimal float double double float float float double double double double double double double double double double double double</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-mod-001">
+  <test-case name="cbcl-numeric-mod-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> ensure that taking the modulo xs:integers returns an xs:integer </description>
     <created by="Oliver Hallam" on="2008-05-29"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1149,7 +1148,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-mod-002">
+  <test-case name="cbcl-numeric-mod-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> ensure that taking the modulo xs:integers returns an xs:integer </description>
     <created by="Oliver Hallam" on="2008-05-29"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1161,12 +1160,12 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-mod-003">
+  <test-case name="cbcl-numeric-mod-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Test numeric mod with a potential type check error </description>
     <created by="Tim Mills" on="2008-06-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
-      	declare function local:value($number as xs:boolean) { if ($number) then 1 else xs:string('1') }; 
+      	declare function local:value($number as xs:boolean) { if ($number) then 1 else xs:string(&apos;1&apos;) }; 
       	local:value(true()) mod local:value(true())</test>
     <result-string>xs:string("0")</result-string>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>

@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-node-name" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the node-name() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-node-name" type="spec"/>
-  <test-case name="fn-node-name-1">
+  <test-case name="fn-node-name-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of node function with argument set empty sequence. Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-11-16"/>
     <test>fn:count(fn:node-name(()))</test>
@@ -11,7 +10,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-2">
+  <test-case name="fn-node-name-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluation of node-name function with argument set to comment node. Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-11-16"/>
     <environment ref="works-mod"/>
@@ -21,7 +20,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-3">
+  <test-case name="fn-node-name-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of node-name function with argument set to an element node. Uses local-name-from-QName to get local part </description>
     <created by="Carmelo Montanez" on="2005-11-16"/>
     <environment ref="works-mod"/>
@@ -31,7 +30,7 @@
       <assert-string-value>employee</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-4">
+  <test-case name="fn-node-name-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of node-name function with argument set to an element node. use local-name-from-QName to get the local part. </description>
     <created by="Carmelo Montanez" on="2005-11-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -43,7 +42,7 @@
       <assert-string-value>shoe</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-5">
+  <test-case name="fn-node-name-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Evaluation of node-name function with argument set to comment node. Use of fn:count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-11-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -55,7 +54,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-6">
+  <test-case name="fn-node-name-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Evaluation of node-name function with argument set to a Processing Instruction node. Use local-name-from-QName to get local part </description>
     <created by="Carmelo Montanez" on="2005-11-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -67,7 +66,7 @@
       <assert-string-value>format</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-7">
+  <test-case name="fn-node-name-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of node-name function with argument set to a directly constructed element node with namespace declaration. Use namespace-uri-from-qName to retrive values from QName. </description>
     <created by="Carmelo Montanez" on="2005-11-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -79,7 +78,7 @@
       <assert-string-value>http://example.com/examples</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-8">
+  <test-case name="fn-node-name-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of node-name function with argument set to a computed constructed element node with no namespace declaration and no children. Use local-name-from-qName to retrieve local part. </description>
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
@@ -89,7 +88,7 @@
       <assert-string-value>elementName</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-9">
+  <test-case name="fn-node-name-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of node-name function with argument set to a computed constructed element node with no namespace declaration and no children. Use fn:namespace-uri-from-qName to retrieve namespace. Should return empty string. Use fn:count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
@@ -99,7 +98,7 @@
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-10">
+  <test-case name="fn-node-name-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of node-name function with argument set to a computed constructed element node with no namespace declaration and one child. Use fn:local-name-from-qName to retrieve local part. </description>
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
@@ -109,7 +108,7 @@
       <assert-string-value>elementName</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-11">
+  <test-case name="fn-node-name-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of node-name function with argument set to a computed constructed attribute node with value set to empty string. Use fn:local-name-from-qName to retrieve local name. </description>
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
@@ -119,7 +118,7 @@
       <assert-string-value>attributeName</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-12">
+  <test-case name="fn-node-name-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of node-name function with argument set to a computed constructed attribute node with value set to a non empty value. Use fn:local-name-from-qName to retrieve local name. </description>
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
@@ -129,7 +128,7 @@
       <assert-string-value>attributeName</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-13">
+  <test-case name="fn-node-name-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of node-name function with argument set to a computed constructed attribute node with value set to a non empty value. Use fn:namespace-uri-from-qName to retrieve local name and fn:count. to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
@@ -139,7 +138,7 @@
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-14">
+  <test-case name="fn-node-name-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of node-name function with argument set to a computed constructed document node with value set to the empty string. Use fn:local-name-from-qName to retrieve local name and fn:count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
@@ -149,7 +148,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-15">
+  <test-case name="fn-node-name-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of node-name function with argument set to a computed constructed document node with value set to the empty string. Use fn:namspace-uri-from-qName to retrieve local name and fn:count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
@@ -159,7 +158,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-16">
+  <test-case name="fn-node-name-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of node-name function with argument set to a computed constructed document node with value set to the a non empty value. Use fn:local-name-from-qName to retrieve local name and fn:count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
@@ -171,7 +170,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-17">
+  <test-case name="fn-node-name-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of node-name function with argument set to a computed constructed document node with value set to the a non empty value. Use fn:namespace-uri-from-qName to retrieve local name and fn:count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
@@ -183,7 +182,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-18">
+  <test-case name="fn-node-name-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of node-name function with argument set to a computed constructed text node with value set to the the empty string. Use fn:local-name-from-qName to retrieve local name and fn:count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
@@ -193,7 +192,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-19">
+  <test-case name="fn-node-name-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of node-name function with argument set to a computed constructed text node with value set to the the empty string. Use fn:namespace-uri-from-qName to retrieve namespace and fn:count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
@@ -203,7 +202,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-20">
+  <test-case name="fn-node-name-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of node-name function with argument set to a computed constructed text node with value set to a non empty value. Use fn:local-name-from-QName to retrieve local name and fn:count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
@@ -213,7 +212,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-21">
+  <test-case name="fn-node-name-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of node-name function with argument set to a computed constructed text node with value set to a non empty value. Use fn:namespace-uri-from-QName to retrieve namespace and fn:count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
@@ -223,7 +222,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-22">
+  <test-case name="fn-node-name-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of node-name function with argument set to a computed constructed processing instruction node. Use fn:fn-local-name-from-QName to retrieve local name. </description>
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
@@ -233,7 +232,7 @@
       <assert-string-value>piName</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-23">
+  <test-case name="fn-node-name-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of node-name function with argument set to a computed constructed processing instruction node. Use fn:fn-namespace-uri-from-QName to retrieve namespace and fn:count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
@@ -243,17 +242,17 @@
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-node-name-24">
+  <test-case name="fn-node-name-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Evaluation of node-name function with wrong number of arguments. </description>
     <created by="Carmelo Montanez" on="2005-11-17"/>
     <dependency type="spec" value="XQ10+"/>
     <test>fn:node-name(processing-instruction piName {"Processing Instruction content"},"A Second Argument")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case covers="fn-node-name" name="fn-node-name-25">
+  <test-case covers="fn-node-name" name="fn-node-name-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("node")</response-string>
     <description> Evaluation of node-name function with no arguments on element node. </description>
     <created by="Michael Kay" on="2013-01-07"/>
     <dependency type="spec" value="XQ30+"/>
@@ -265,7 +264,7 @@
       <assert-eq>QName("http://example.com/ns", "node")</assert-eq>
     </result>
   </test-case>
-  <test-case covers="fn-node-name" name="fn-node-name-26">
+  <test-case covers="fn-node-name" name="fn-node-name-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Evaluation of node-name function with no arguments on attribute node. </description>
     <created by="Michael Kay" on="2013-01-07"/>
     <modified by="Michael Kay" change="See bug 20650" on="2013-01-11"/>
@@ -278,7 +277,7 @@
       <assert-eq>QName("http://www.w3.org/XML/1998/namespace", "space")</assert-eq>
     </result>
   </test-case>
-  <test-case covers="fn-node-name" name="fn-node-name-27">
+  <test-case covers="fn-node-name" name="fn-node-name-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Evaluation of node-name function with no arguments on processing instruction node. </description>
     <created by="Michael Kay" on="2013-01-07"/>
     <dependency type="spec" value="XQ30+"/>
@@ -290,7 +289,7 @@
       <assert-eq>QName("", "test")</assert-eq>
     </result>
   </test-case>
-  <test-case covers="fn-node-name" name="fn-node-name-28">
+  <test-case covers="fn-node-name" name="fn-node-name-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Evaluation of node-name function with no arguments on namespace node. </description>
     <created by="Michael Kay" on="2013-01-07"/>
     <dependency type="spec" value="XQ30+"/>
@@ -302,7 +301,7 @@
       <assert-eq>QName("", "foo")</assert-eq>
     </result>
   </test-case>
-  <test-case covers="fn-node-name" name="fn-node-name-29">
+  <test-case covers="fn-node-name" name="fn-node-name-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Evaluation of node-name function with no arguments on text node. </description>
     <created by="Michael Kay" on="2013-01-07"/>
     <dependency type="spec" value="XQ30+"/>
@@ -314,7 +313,7 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case covers="fn-node-name" name="fn-node-name-30">
+  <test-case covers="fn-node-name" name="fn-node-name-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of node-name function with no arguments on atomic value. </description>
     <created by="Michael Kay" on="2013-01-07"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -324,7 +323,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case covers="fn-node-name" name="fn-node-name-31">
+  <test-case covers="fn-node-name" name="fn-node-name-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("fn:node-name")</response-string>
     <description> Evaluation of node-name function with no arguments on function item. </description>
     <created by="Michael Kay" on="2013-01-07"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -334,7 +333,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case covers="fn-node-name" name="fn-node-name-32">
+  <test-case covers="fn-node-name" name="fn-node-name-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Evaluation of node-name function with no arguments with absent context. </description>
     <created by="Michael Kay" on="2013-01-07"/>
     <environment ref="empty"/>
@@ -345,10 +344,10 @@
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="K-NodeNameFunc-1">
-    <description> node-name() must be passed one argument, it doesn't use the context item by default in XPath 2.0. </description>
+  <test-case name="K-NodeNameFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
+    <description> node-name() must be passed one argument, it doesn&apos;t use the context item by default in XPath 2.0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <modified by="O'Neil Delpratt" change="Bug fix related to bug #14854: Modified dependency" on="2012-05-22"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug fix related to bug #14854: Modified dependency" on="2012-05-22"/>
     <dependency type="spec" value="XP20 XQ10"/>
     <test>node-name()</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
@@ -356,7 +355,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case covers="fn-node-name" name="K-NodeNameFunc-1a">
+  <test-case covers="fn-node-name" name="K-NodeNameFunc-1a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>Written by: Frans Englich modified by Michael Kay  node-name() does use the context item by default in XPath 3.0. </description>
     <created by="Frans Englich / Michael Kay" on="2011-07-04"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -366,16 +365,16 @@
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="K-NodeNameFunc-2">
+  <test-case name="K-NodeNameFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `node-name((), "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>node-name((), "wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-NodeNameFunc-3">
+  <test-case name="K-NodeNameFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> A test whose essence is: `empty(node-name(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(node-name(()))</test>
@@ -384,17 +383,17 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-NodeNameFunc-1">
+  <test-case name="K2-NodeNameFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Invoke fn:node-name() with too many arguments. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="works-mod"/>
     <test>node-name(/*, ())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeNameFunc-2">
+  <test-case name="K2-NodeNameFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Invoke fn:node-name() with an invalid argument. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>node-name("string")</test>
@@ -403,7 +402,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeNameFunc-3">
+  <test-case name="K2-NodeNameFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Check the return value of fn:node-name(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="works-mod"/>
@@ -413,7 +412,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K3-NodeNameFunc-1">
+  <test-case name="K3-NodeNameFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Check invalid inputs to fn:node-name(). </description>
     <created by="Zhen Hua Liu" on="2012-01-18"/>
     <environment ref="works-mod"/>
@@ -423,7 +422,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K3-NodeNameFunc-2">
+  <test-case name="K3-NodeNameFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Check invalid multi-node input sequence to fn:node-name().</description>
     <created by="Zhen Hua Liu" on="2012-01-18"/>
     <modified by="Michael Dyck" change="Add dependency on XQ10+ because the query has DirectConstructors." on="2012-03-04"/>
@@ -435,7 +434,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K3-NodeNameFunc-3">
+  <test-case name="K3-NodeNameFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Check invalid mix node,item input sequence to fn:node-name().</description>
     <created by="Zhen Hua Liu" on="2012-01-18"/>
     <modified by="Michael Dyck" change="Add dependency on XQ10+ because the query has a DirectConstructor." on="2012-03-04"/>
@@ -447,7 +446,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K3-NodeNameFunc-4">
+  <test-case name="K3-NodeNameFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Check invalid input sequence to fn:node-name() from fn:node-name() call.</description>
     <created by="Zhen Hua Liu" on="2012-01-18"/>
     <modified by="Michael Dyck" change="Add dependency on XQ10+ because the query has a DirectConstructor." on="2012-03-04"/>
@@ -459,7 +458,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-node-name-001">
+  <test-case name="cbcl-node-name-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test fn:node-name on a comment(). </description>
     <created by="Tim Mills" on="2008-10-04"/>
     <dependency type="spec" value="XQ10+"/>

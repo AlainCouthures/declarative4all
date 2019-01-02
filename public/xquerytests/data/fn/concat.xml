@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-concat" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description/>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-concat" type="spec"/>
-  <test-case name="fn-concatint2args-1">
+  <test-case name="fn-concatint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-2147483648-2147483648")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:int("-2147483648"),xs:int("-2147483648"))</test>
@@ -11,7 +10,7 @@
       <assert-string-value>-2147483648-2147483648</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatint2args-2">
+  <test-case name="fn-concatint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-1873914410-2147483648")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:int(mid range) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:int("-1873914410"),xs:int("-2147483648"))</test>
@@ -20,7 +19,7 @@
       <assert-string-value>-1873914410-2147483648</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatint2args-3">
+  <test-case name="fn-concatint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("2147483647-2147483648")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:int(upper bound) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:int("2147483647"),xs:int("-2147483648"))</test>
@@ -29,7 +28,7 @@
       <assert-string-value>2147483647-2147483648</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatint2args-4">
+  <test-case name="fn-concatint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-2147483648-1873914410")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:int("-2147483648"),xs:int("-1873914410"))</test>
@@ -38,7 +37,7 @@
       <assert-string-value>-2147483648-1873914410</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatint2args-5">
+  <test-case name="fn-concatint2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-21474836482147483647")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:int("-2147483648"),xs:int("2147483647"))</test>
@@ -47,7 +46,7 @@
       <assert-string-value>-21474836482147483647</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatintg2args-1">
+  <test-case name="fn-concatintg2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-999999999999999999-999999999999999999")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:integer("-999999999999999999"),xs:integer("-999999999999999999"))</test>
@@ -56,7 +55,7 @@
       <assert-string-value>-999999999999999999-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatintg2args-2">
+  <test-case name="fn-concatintg2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("830993497117024304-999999999999999999")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:integer(mid range) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:integer("830993497117024304"),xs:integer("-999999999999999999"))</test>
@@ -65,7 +64,7 @@
       <assert-string-value>830993497117024304-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatintg2args-3">
+  <test-case name="fn-concatintg2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("999999999999999999-999999999999999999")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:integer(upper bound) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:integer("999999999999999999"),xs:integer("-999999999999999999"))</test>
@@ -74,7 +73,7 @@
       <assert-string-value>999999999999999999-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatintg2args-4">
+  <test-case name="fn-concatintg2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-999999999999999999830993497117024304")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:integer("-999999999999999999"),xs:integer("830993497117024304"))</test>
@@ -83,7 +82,7 @@
       <assert-string-value>-999999999999999999830993497117024304</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatintg2args-5">
+  <test-case name="fn-concatintg2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-999999999999999999999999999999999999")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:integer("-999999999999999999"),xs:integer("999999999999999999"))</test>
@@ -92,7 +91,7 @@
       <assert-string-value>-999999999999999999999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatdec2args-1">
+  <test-case name="fn-concatdec2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-999999999999999999-999999999999999999")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:decimal("-999999999999999999"),xs:decimal("-999999999999999999"))</test>
@@ -101,7 +100,7 @@
       <assert-string-value>-999999999999999999-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatdec2args-2">
+  <test-case name="fn-concatdec2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("617375191608514839-999999999999999999")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:decimal(mid range) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:decimal("617375191608514839"),xs:decimal("-999999999999999999"))</test>
@@ -110,7 +109,7 @@
       <assert-string-value>617375191608514839-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatdec2args-3">
+  <test-case name="fn-concatdec2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("999999999999999999-999999999999999999")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:decimal(upper bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:decimal("999999999999999999"),xs:decimal("-999999999999999999"))</test>
@@ -119,7 +118,7 @@
       <assert-string-value>999999999999999999-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatdec2args-4">
+  <test-case name="fn-concatdec2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-999999999999999999617375191608514839")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:decimal("-999999999999999999"),xs:decimal("617375191608514839"))</test>
@@ -128,7 +127,7 @@
       <assert-string-value>-999999999999999999617375191608514839</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatdec2args-5">
+  <test-case name="fn-concatdec2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-999999999999999999999999999999999999")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:decimal("-999999999999999999"),xs:decimal("999999999999999999"))</test>
@@ -137,97 +136,97 @@
       <assert-string-value>-999999999999999999999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatdbl2args-1">
+  <test-case name="fn-concatdbl2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-1.7976931348623157E308-1.7976931348623157E308")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:double("-1.7976931348623157E308"),xs:double("-1.7976931348623157E308"))</test>
-    <result-string>xs:string("-1.7976931348623157e308-1.7976931348623157e308")</result-string>
+    <result-string>xs:string("-1.7976931348623157E308-1.7976931348623157E308")</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E308-1.7976931348623157E308</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatdbl2args-2">
+  <test-case name="fn-concatdbl2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0-1.7976931348623157E308")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:double(mid range) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:double("0"),xs:double("-1.7976931348623157E308"))</test>
-    <result-string>xs:string("0-1.7976931348623157e308")</result-string>
+    <result-string>xs:string("0-1.7976931348623157E308")</result-string>
     <result>
       <assert-string-value>0-1.7976931348623157E308</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatdbl2args-3">
+  <test-case name="fn-concatdbl2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1.7976931348623157E308-1.7976931348623157E308")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:double(upper bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:double("1.7976931348623157E308"),xs:double("-1.7976931348623157E308"))</test>
-    <result-string>xs:string("1.7976931348623157e308-1.7976931348623157e308")</result-string>
+    <result-string>xs:string("1.7976931348623157E308-1.7976931348623157E308")</result-string>
     <result>
       <assert-string-value>1.7976931348623157E308-1.7976931348623157E308</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatdbl2args-4">
+  <test-case name="fn-concatdbl2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-1.7976931348623157E3080")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:double("-1.7976931348623157E308"),xs:double("0"))</test>
-    <result-string>xs:string("-1.7976931348623157e3080")</result-string>
+    <result-string>xs:string("-1.7976931348623157E3080")</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E3080</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatdbl2args-5">
+  <test-case name="fn-concatdbl2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-1.7976931348623157E3081.7976931348623157E308")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:double("-1.7976931348623157E308"),xs:double("1.7976931348623157E308"))</test>
-    <result-string>xs:string("-1.7976931348623157e3081.7976931348623157e308")</result-string>
+    <result-string>xs:string("-1.7976931348623157E3081.7976931348623157E308")</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E3081.7976931348623157E308</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatflt2args-1">
+  <test-case name="fn-concatflt2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-3.4028235E38-3.4028235E38")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:float("-3.4028235E38"),xs:float("-3.4028235E38"))</test>
-    <result-string>xs:string("-3.4028235e38-3.4028235e38")</result-string>
+    <result-string>xs:string("-3.4028235E38-3.4028235E38")</result-string>
     <result>
       <assert-string-value>-3.4028235E38-3.4028235E38</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatflt2args-2">
+  <test-case name="fn-concatflt2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0-3.4028235E38")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:float(mid range) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:float("0"),xs:float("-3.4028235E38"))</test>
-    <result-string>xs:string("0-3.4028235e38")</result-string>
+    <result-string>xs:string("0-3.4028235E38")</result-string>
     <result>
       <assert-string-value>0-3.4028235E38</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatflt2args-3">
+  <test-case name="fn-concatflt2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("3.4028235E38-3.4028235E38")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:float(upper bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:float("3.4028235E38"),xs:float("-3.4028235E38"))</test>
-    <result-string>xs:string("3.4028235e38-3.4028235e38")</result-string>
+    <result-string>xs:string("3.4028235E38-3.4028235E38")</result-string>
     <result>
       <assert-string-value>3.4028235E38-3.4028235E38</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatflt2args-4">
+  <test-case name="fn-concatflt2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-3.4028235E380")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:float("-3.4028235E38"),xs:float("0"))</test>
-    <result-string>xs:string("-3.4028235e380")</result-string>
+    <result-string>xs:string("-3.4028235E380")</result-string>
     <result>
       <assert-string-value>-3.4028235E380</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatflt2args-5">
+  <test-case name="fn-concatflt2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-3.4028235E383.4028235E38")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:float("-3.4028235E38"),xs:float("3.4028235E38"))</test>
-    <result-string>xs:string("-3.4028235e383.4028235e38")</result-string>
+    <result-string>xs:string("-3.4028235E383.4028235E38")</result-string>
     <result>
       <assert-string-value>-3.4028235E383.4028235E38</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatlng2args-1">
+  <test-case name="fn-concatlng2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-92233720368547760-92233720368547760")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:long("-92233720368547758"),xs:long("-92233720368547758"))</test>
@@ -236,7 +235,7 @@
       <assert-string-value>-92233720368547758-92233720368547758</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatlng2args-2">
+  <test-case name="fn-concatlng2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-47175562203048460-92233720368547760")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:long(mid range) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:long("-47175562203048468"),xs:long("-92233720368547758"))</test>
@@ -245,7 +244,7 @@
       <assert-string-value>-47175562203048468-92233720368547758</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatlng2args-3">
+  <test-case name="fn-concatlng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("92233720368547760-92233720368547760")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:long(upper bound) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:long("92233720368547758"),xs:long("-92233720368547758"))</test>
@@ -254,7 +253,7 @@
       <assert-string-value>92233720368547758-92233720368547758</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatlng2args-4">
+  <test-case name="fn-concatlng2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-92233720368547760-47175562203048460")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:long("-92233720368547758"),xs:long("-47175562203048468"))</test>
@@ -263,7 +262,7 @@
       <assert-string-value>-92233720368547758-47175562203048468</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatlng2args-5">
+  <test-case name="fn-concatlng2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-9223372036854776092233720368547760")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:long("-92233720368547758"),xs:long("92233720368547758"))</test>
@@ -272,7 +271,7 @@
       <assert-string-value>-9223372036854775892233720368547758</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatusht2args-1">
+  <test-case name="fn-concatusht2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("00")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:unsignedShort("0"),xs:unsignedShort("0"))</test>
@@ -281,7 +280,7 @@
       <assert-string-value>00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatusht2args-2">
+  <test-case name="fn-concatusht2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("446330")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:unsignedShort(mid range) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:unsignedShort("44633"),xs:unsignedShort("0"))</test>
@@ -290,7 +289,7 @@
       <assert-string-value>446330</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatusht2args-3">
+  <test-case name="fn-concatusht2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("655350")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:unsignedShort(upper bound) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:unsignedShort("65535"),xs:unsignedShort("0"))</test>
@@ -299,7 +298,7 @@
       <assert-string-value>655350</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatusht2args-4">
+  <test-case name="fn-concatusht2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("044633")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:unsignedShort("0"),xs:unsignedShort("44633"))</test>
@@ -308,7 +307,7 @@
       <assert-string-value>044633</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatusht2args-5">
+  <test-case name="fn-concatusht2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("065535")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:unsignedShort("0"),xs:unsignedShort("65535"))</test>
@@ -317,7 +316,7 @@
       <assert-string-value>065535</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatnint2args-1">
+  <test-case name="fn-concatnint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-999999999999999999-999999999999999999")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:negativeInteger("-999999999999999999"),xs:negativeInteger("-999999999999999999"))</test>
@@ -326,7 +325,7 @@
       <assert-string-value>-999999999999999999-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatnint2args-2">
+  <test-case name="fn-concatnint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-297014075999096793-999999999999999999")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:negativeInteger(mid range) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:negativeInteger("-297014075999096793"),xs:negativeInteger("-999999999999999999"))</test>
@@ -335,7 +334,7 @@
       <assert-string-value>-297014075999096793-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatnint2args-3">
+  <test-case name="fn-concatnint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-1-999999999999999999")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:negativeInteger(upper bound) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:negativeInteger("-1"),xs:negativeInteger("-999999999999999999"))</test>
@@ -344,7 +343,7 @@
       <assert-string-value>-1-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatnint2args-4">
+  <test-case name="fn-concatnint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-999999999999999999-297014075999096793")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:negativeInteger("-999999999999999999"),xs:negativeInteger("-297014075999096793"))</test>
@@ -353,7 +352,7 @@
       <assert-string-value>-999999999999999999-297014075999096793</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatnint2args-5">
+  <test-case name="fn-concatnint2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-999999999999999999-1")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:negativeInteger("-999999999999999999"),xs:negativeInteger("-1"))</test>
@@ -362,7 +361,7 @@
       <assert-string-value>-999999999999999999-1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatpint2args-1">
+  <test-case name="fn-concatpint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("11")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:positiveInteger("1"),xs:positiveInteger("1"))</test>
@@ -371,7 +370,7 @@
       <assert-string-value>11</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatpint2args-2">
+  <test-case name="fn-concatpint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("527046023906100331")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:positiveInteger(mid range) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:positiveInteger("52704602390610033"),xs:positiveInteger("1"))</test>
@@ -380,7 +379,7 @@
       <assert-string-value>527046023906100331</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatpint2args-3">
+  <test-case name="fn-concatpint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("9999999999999999991")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:positiveInteger(upper bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:positiveInteger("999999999999999999"),xs:positiveInteger("1"))</test>
@@ -389,7 +388,7 @@
       <assert-string-value>9999999999999999991</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatpint2args-4">
+  <test-case name="fn-concatpint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("152704602390610033")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:positiveInteger("1"),xs:positiveInteger("52704602390610033"))</test>
@@ -398,7 +397,7 @@
       <assert-string-value>152704602390610033</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatpint2args-5">
+  <test-case name="fn-concatpint2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1999999999999999999")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:positiveInteger("1"),xs:positiveInteger("999999999999999999"))</test>
@@ -407,7 +406,7 @@
       <assert-string-value>1999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatulng2args-1">
+  <test-case name="fn-concatulng2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("00")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:unsignedLong("0"),xs:unsignedLong("0"))</test>
@@ -416,7 +415,7 @@
       <assert-string-value>00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatulng2args-2">
+  <test-case name="fn-concatulng2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1307471086076746600")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:unsignedLong(mid range) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:unsignedLong("130747108607674654"),xs:unsignedLong("0"))</test>
@@ -425,7 +424,7 @@
       <assert-string-value>1307471086076746540</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatulng2args-3">
+  <test-case name="fn-concatulng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1844674407370955200")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:unsignedLong(upper bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:unsignedLong("184467440737095516"),xs:unsignedLong("0"))</test>
@@ -434,7 +433,7 @@
       <assert-string-value>1844674407370955160</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatulng2args-4">
+  <test-case name="fn-concatulng2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0130747108607674660")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:unsignedLong("0"),xs:unsignedLong("130747108607674654"))</test>
@@ -443,7 +442,7 @@
       <assert-string-value>0130747108607674654</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatulng2args-5">
+  <test-case name="fn-concatulng2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0184467440737095520")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:unsignedLong("0"),xs:unsignedLong("184467440737095516"))</test>
@@ -452,7 +451,7 @@
       <assert-string-value>0184467440737095516</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatnpi2args-1">
+  <test-case name="fn-concatnpi2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-999999999999999999-999999999999999999")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:nonPositiveInteger("-999999999999999999"),xs:nonPositiveInteger("-999999999999999999"))</test>
@@ -461,7 +460,7 @@
       <assert-string-value>-999999999999999999-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatnpi2args-2">
+  <test-case name="fn-concatnpi2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-475688437271870490-999999999999999999")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(mid range) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:nonPositiveInteger("-475688437271870490"),xs:nonPositiveInteger("-999999999999999999"))</test>
@@ -470,7 +469,7 @@
       <assert-string-value>-475688437271870490-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatnpi2args-3">
+  <test-case name="fn-concatnpi2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0-999999999999999999")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(upper bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:nonPositiveInteger("0"),xs:nonPositiveInteger("-999999999999999999"))</test>
@@ -479,7 +478,7 @@
       <assert-string-value>0-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatnpi2args-4">
+  <test-case name="fn-concatnpi2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-999999999999999999-475688437271870490")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:nonPositiveInteger("-999999999999999999"),xs:nonPositiveInteger("-475688437271870490"))</test>
@@ -488,7 +487,7 @@
       <assert-string-value>-999999999999999999-475688437271870490</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatnpi2args-5">
+  <test-case name="fn-concatnpi2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-9999999999999999990")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:nonPositiveInteger("-999999999999999999"),xs:nonPositiveInteger("0"))</test>
@@ -497,7 +496,7 @@
       <assert-string-value>-9999999999999999990</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatnni2args-1">
+  <test-case name="fn-concatnni2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("00")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:nonNegativeInteger("0"),xs:nonNegativeInteger("0"))</test>
@@ -506,7 +505,7 @@
       <assert-string-value>00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatnni2args-2">
+  <test-case name="fn-concatnni2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("3038845459914645270")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(mid range) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:nonNegativeInteger("303884545991464527"),xs:nonNegativeInteger("0"))</test>
@@ -515,7 +514,7 @@
       <assert-string-value>3038845459914645270</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatnni2args-3">
+  <test-case name="fn-concatnni2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("9999999999999999990")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(upper bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:nonNegativeInteger("999999999999999999"),xs:nonNegativeInteger("0"))</test>
@@ -524,7 +523,7 @@
       <assert-string-value>9999999999999999990</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatnni2args-4">
+  <test-case name="fn-concatnni2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0303884545991464527")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:nonNegativeInteger("0"),xs:nonNegativeInteger("303884545991464527"))</test>
@@ -533,7 +532,7 @@
       <assert-string-value>0303884545991464527</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatnni2args-5">
+  <test-case name="fn-concatnni2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0999999999999999999")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:nonNegativeInteger("0"),xs:nonNegativeInteger("999999999999999999"))</test>
@@ -542,7 +541,7 @@
       <assert-string-value>0999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatsht2args-1">
+  <test-case name="fn-concatsht2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-32768-32768")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:short("-32768"),xs:short("-32768"))</test>
@@ -551,7 +550,7 @@
       <assert-string-value>-32768-32768</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatsht2args-2">
+  <test-case name="fn-concatsht2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-5324-32768")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:short(mid range) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:short("-5324"),xs:short("-32768"))</test>
@@ -560,7 +559,7 @@
       <assert-string-value>-5324-32768</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatsht2args-3">
+  <test-case name="fn-concatsht2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("32767-32768")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:short(upper bound) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:short("32767"),xs:short("-32768"))</test>
@@ -569,7 +568,7 @@
       <assert-string-value>32767-32768</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatsht2args-4">
+  <test-case name="fn-concatsht2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-32768-5324")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:short("-32768"),xs:short("-5324"))</test>
@@ -578,7 +577,7 @@
       <assert-string-value>-32768-5324</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concatsht2args-5">
+  <test-case name="fn-concatsht2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-3276832767")</response-string>
     <description> Evaluates The "concat" function with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:concat(xs:short("-32768"),xs:short("32767"))</test>
@@ -587,43 +586,43 @@
       <assert-string-value>-3276832767</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concat-1">
+  <test-case name="fn-concat-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("ungrateful")</response-string>
     <description>Evaluation of concat function as per example 1 (for this function) from the FO specs. </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
-    <test>fn:concat('un', 'grateful')</test>
+    <test>fn:concat(&apos;un&apos;, &apos;grateful&apos;)</test>
     <result-string>xs:string("ungrateful")</result-string>
     <result>
       <assert-string-value>ungrateful</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concat-2">
+  <test-case name="fn-concat-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("Thy old groans ring yet in my ancient ears.")</response-string>
     <description>Evaluation of concat function as per example 2 (for this function) from the FO specs. </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
-    <test>fn:concat('Thy ', (), 'old ', "groans", "", ' ring', ' yet', ' in', ' my', ' ancient',' ears.')</test>
+    <test>fn:concat(&apos;Thy &apos;, (), &apos;old &apos;, "groans", "", &apos; ring&apos;, &apos; yet&apos;, &apos; in&apos;, &apos; my&apos;, &apos; ancient&apos;,&apos; ears.&apos;)</test>
     <result-string>xs:string("Thy old groans ring yet in my ancient ears.")</result-string>
     <result>
       <assert-string-value>Thy old groans ring yet in my ancient ears.</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concat-3">
+  <test-case name="fn-concat-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("Ciao!")</response-string>
     <description>Evaluation of concat function as per example 3 (for this function) from the FO specs. </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
-    <test>fn:concat('Ciao!',())</test>
+    <test>fn:concat(&apos;Ciao!&apos;,())</test>
     <result-string>xs:string("Ciao!")</result-string>
     <result>
       <assert-string-value>Ciao!</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concat-4">
+  <test-case name="fn-concat-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("Ingratitude, thou marble-hearted fiend!")</response-string>
     <description>Evaluation of concat function as per example 4 (for this function) from the FO specs. </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
-    <test>fn:concat('Ingratitude, ', 'thou ', 'marble-hearted', ' fiend!')</test>
+    <test>fn:concat(&apos;Ingratitude, &apos;, &apos;thou &apos;, &apos;marble-hearted&apos;, &apos; fiend!&apos;)</test>
     <result-string>xs:string("Ingratitude, thou marble-hearted fiend!")</result-string>
     <result>
       <assert-string-value>Ingratitude, thou marble-hearted fiend!</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concat-5">
+  <test-case name="fn-concat-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("ABCD")</response-string>
     <description>Evaluation of concat function that uses only upper case letters as part of argument </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat("AB","CD")</test>
@@ -632,7 +631,7 @@
       <assert-string-value>ABCD</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concat-6">
+  <test-case name="fn-concat-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abcde")</response-string>
     <description>Evaluation of concat function that uses only lower case letters as part of argument </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat("abc","de")</test>
@@ -641,7 +640,7 @@
       <assert-string-value>abcde</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concat-7">
+  <test-case name="fn-concat-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("ABCDEabcde")</response-string>
     <description>Evaluation of concat function that uses both upper and lower case letters as part of argument </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat("ABCDE","abcde")</test>
@@ -650,7 +649,7 @@
       <assert-string-value>ABCDEabcde</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concat-8">
+  <test-case name="fn-concat-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description>Evaluation of concat function that uses the empty string as part of argument Uses "fn:count" to avoid the empty file </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:count(fn:concat("",""))</test>
@@ -659,7 +658,7 @@
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concat-9">
+  <test-case name="fn-concat-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("ABCDH")</response-string>
     <description>Evaluation of concat function that uses the "upper-case" function as part of argument </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat(fn:upper-case("Abc"),fn:upper-case("DH"))</test>
@@ -668,7 +667,7 @@
       <assert-string-value>ABCDH</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concat-10">
+  <test-case name="fn-concat-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("*****")</response-string>
     <description>Evaluation of concat function with argument set to "*****" </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat("**","***")</test>
@@ -677,7 +676,7 @@
       <assert-string-value>*****</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concat-11">
+  <test-case name="fn-concat-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("zzzzz123")</response-string>
     <description>Evaluation of concat function with argument that uses another concat function </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat(fn:concat("zzz","zz"),"123")</test>
@@ -686,7 +685,7 @@
       <assert-string-value>zzzzz123</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concat-12">
+  <test-case name="fn-concat-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluation of concat function as an argument to the "fn:boolean" function </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:boolean(fn:concat("ab","cde"))</test>
@@ -695,7 +694,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-concat-13">
+  <test-case name="fn-concat-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abcde")</response-string>
     <description>Evaluation of concat function as an argument to the "fn:string" function </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:string(fn:concat("abc","de"))</test>
@@ -704,7 +703,7 @@
       <assert-string-value>abcde</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concat-14">
+  <test-case name="fn-concat-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Evaluation of concat function as an argument to the "fn:not" function </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:not(fn:concat("ab","cde"))</test>
@@ -713,7 +712,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-concat-15">
+  <test-case name="fn-concat-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("%$#@!")</response-string>
     <description>Evaluation of concat function with argument set to "%$",#@!" </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat("%$","#@!")</test>
@@ -722,7 +721,7 @@
       <assert-string-value>%$#@!</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concat-16">
+  <test-case name="fn-concat-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("concatconcat")</response-string>
     <description>Evaluation of concat function with argument set to "concat","concat" </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat("concat","concat")</test>
@@ -731,7 +730,7 @@
       <assert-string-value>concatconcat</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-concat-17">
+  <test-case name="fn-concat-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluation of concat function as part of a boolean expression </description>
     <created by="Carmelo Montanez" on="2005-08-11"/>
     <test>fn:concat("abc","abc") and fn:concat("abc","abc")</test>
@@ -740,8 +739,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case covers="named-function-ref" name="fn-concat-18">
-    <description>Can't have a function item as an argument to concat </description>
+  <test-case covers="named-function-ref" name="fn-concat-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abcabc")</response-string>
+    <description>Can&apos;t have a function item as an argument to concat </description>
     <created by="Michael Kay" on="2011-06-24"/>
     <modified by="Michael Kay" change="see bug 14904" on="2012-05-17"/>
     <dependency type="feature" value="higherOrderFunctions"/>
@@ -752,7 +751,7 @@
       <error code="FOTY0013"/>
     </result>
   </test-case>
-  <test-case name="K-ConcatFunc-1">
+  <test-case name="K-ConcatFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `concat()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat()</test>
@@ -761,7 +760,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-ConcatFunc-2">
+  <test-case name="K-ConcatFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `concat("a string")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat("a string")</test>
@@ -770,7 +769,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-ConcatFunc-3">
+  <test-case name="K-ConcatFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `concat("ab", "c") eq "abc"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat("ab", "c") eq "abc"</test>
@@ -779,7 +778,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ConcatFunc-4">
+  <test-case name="K-ConcatFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `concat("ab", "c") instance of xs:string`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat("ab", "c") instance of xs:string</test>
@@ -788,7 +787,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ConcatFunc-5">
+  <test-case name="K-ConcatFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `concat((), ()) instance of xs:string`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat((), ()) instance of xs:string</test>
@@ -797,7 +796,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ConcatFunc-6">
+  <test-case name="K-ConcatFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `concat((), ()) eq ""`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat((), ()) eq ""</test>
@@ -806,16 +805,16 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ConcatFunc-7">
-    <description> A test whose essence is: `concat('a', 'b', 'c', (), 'd', 'e', 'f', 'g', 'h', ' ', 'i', 'j', 'k l') eq "abcdefgh ijk l"`. </description>
+  <test-case name="K-ConcatFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> A test whose essence is: `concat(&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, (), &apos;d&apos;, &apos;e&apos;, &apos;f&apos;, &apos;g&apos;, &apos;h&apos;, &apos; &apos;, &apos;i&apos;, &apos;j&apos;, &apos;k l&apos;) eq "abcdefgh ijk l"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <test>concat('a', 'b', 'c', (), 'd', 'e', 'f', 'g', 'h', ' ', 'i', 'j', 'k l') eq "abcdefgh ijk l"</test>
+    <test>concat(&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, (), &apos;d&apos;, &apos;e&apos;, &apos;f&apos;, &apos;g&apos;, &apos;h&apos;, &apos; &apos;, &apos;i&apos;, &apos;j&apos;, &apos;k l&apos;) eq "abcdefgh ijk l"</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ConcatFunc-8">
+  <test-case name="K-ConcatFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `concat(1, 2, 3) eq "123"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat(1, 2, 3) eq "123"</test>
@@ -824,7 +823,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ConcatFunc-9">
+  <test-case name="K-ConcatFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `concat(1, "2", 3) eq "123"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat(1, "2", 3) eq "123"</test>
@@ -833,7 +832,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-ConcatFunc-1">
+  <test-case name="K2-ConcatFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Invalid amount of arguments to fn:concat(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat(("a", "b"), "c")</test>
@@ -842,7 +841,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-ConcatFunc-2">
+  <test-case name="K2-ConcatFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Invalid amount of arguments to fn:concat(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat("1", "2", "3", ("a", "b"), "c")</test>
@@ -851,7 +850,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-ConcatFunc-3">
+  <test-case name="K2-ConcatFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Invalid arguments to fn:concat(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>concat("1", "2", "3", "c", ("a", "b"))</test>
@@ -860,10 +859,10 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-concat-001">
+  <test-case name="cbcl-concat-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test fn:boolean(fn:concat()) where concat returns empty string </description>
     <created by="Tim Mills" on="2008-04-11"/>
-    <test>fn:boolean(fn:concat('', ''))</test>
+    <test>fn:boolean(fn:concat(&apos;&apos;, &apos;&apos;))</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>

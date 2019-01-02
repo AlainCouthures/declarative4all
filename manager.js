@@ -384,6 +384,7 @@ if (process.argv.length > 2) {
 						global.fs.readFile(filename, 'binary', sendfile);
 					}
 					break;
+				case 'PUT':
 				case 'POST':
 					if (filename.endsWith('.xqy')) {
 						global.fs.readFile(filename, 'binary', execfile);

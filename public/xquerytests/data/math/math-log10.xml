@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set covers="math-log10" name="math-log10" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the math:log10 function introduced in XPath 3.0</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-log" type="spec"/>
   <dependency type="spec" value="XP30+ XQ30+"/>
-  <test-case name="math-log10-001">
+  <test-case name="math-log10-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Evaluate the function log10() with the argument set to empty sequence</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:log10(())</test>
     <result-string>()</result-string>
@@ -13,49 +12,49 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="math-log10-002">
+  <test-case name="math-log10-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-INF")</response-string>
     <description>Evaluate the function log10() with the argument set to 0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:log10(0)</test>
     <result-string>xs:double("-INF")</result-string>
     <result>
-      <assert-eq>xs:double('-INF')</assert-eq>
+      <assert-eq>xs:double(&apos;-INF&apos;)</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-log10-003">
+  <test-case name="math-log10-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("3")</response-string>
     <description>Evaluate the function log10() with the argument set to 1.0e3</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:log10(1.0e3)</test>
-    <result-string>xs:double("3.0e0")</result-string>
+    <result-string>xs:double("3")</result-string>
     <result>
       <assert-eq>3.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-log10-004">
+  <test-case name="math-log10-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-3")</response-string>
     <description>Evaluate the function log10() with the argument set to 1.0e-3</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:log10(1.0e-3)</test>
-    <result-string>xs:double("-3.0e0")</result-string>
+    <result-string>xs:double("-3")</result-string>
     <result>
       <assert-eq>-3.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-log10-005">
+  <test-case name="math-log10-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0.3010299956639812")</response-string>
     <description>Evaluate the function log10() with the argument set to 2</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:log10(2)</test>
-    <result-string>xs:double("3.010299956639812e-1")</result-string>
+    <result-string>xs:double("0.3010299956639812")</result-string>
     <result>
       <assert-eq>0.3010299956639812e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-log10-006">
+  <test-case name="math-log10-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description>Evaluate the function log10() with the argument set to -1</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:log10(-1)</test>
     <result-string>xs:double("NaN")</result-string>
@@ -63,31 +62,31 @@
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="math-log10-007">
-    <description>Evaluate the function log10() with the argument set to xs:double('NaN')</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+  <test-case name="math-log10-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
+    <description>Evaluate the function log10() with the argument set to xs:double(&apos;NaN&apos;)</description>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
-    <test>math:log10(xs:double('NaN'))</test>
+    <test>math:log10(xs:double(&apos;NaN&apos;))</test>
     <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="math-log10-008">
-    <description>Evaluate the function log10() with the argument set to xs:double('INF')</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+  <test-case name="math-log10-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("INF")</response-string>
+    <description>Evaluate the function log10() with the argument set to xs:double(&apos;INF&apos;)</description>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
-    <test>math:log10(xs:double('INF'))</test>
+    <test>math:log10(xs:double(&apos;INF&apos;))</test>
     <result-string>xs:double("INF")</result-string>
     <result>
-      <assert-eq>xs:double('INF')</assert-eq>
+      <assert-eq>xs:double(&apos;INF&apos;)</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-log10-009">
-    <description>Evaluate the function log10() with the argument set to xs:double('-INF')</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+  <test-case name="math-log10-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
+    <description>Evaluate the function log10() with the argument set to xs:double(&apos;-INF&apos;)</description>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
-    <test>math:log10(xs:double('-INF'))</test>
+    <test>math:log10(xs:double(&apos;-INF&apos;))</test>
     <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>

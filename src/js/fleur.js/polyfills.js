@@ -28,6 +28,16 @@ if (typeof Object.assign !== 'function') {
 }
 
 /**
+ * String.normalize
+ */
+
+if (!String.prototype.normalize) {
+  String.prototype.normalize = function (form) {
+      return this;
+  };
+}
+
+/**
  * String.startsWith
  */
 

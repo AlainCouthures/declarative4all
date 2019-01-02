@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="op-numeric-subtract" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the numeric-subtract() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-numeric-subtract" type="spec"/>
-  <test-case name="op-numeric-subtractint2args-1">
+  <test-case name="op-numeric-subtractint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int("-2147483648") - xs:int("-2147483648")</test>
@@ -11,7 +10,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractint2args-2">
+  <test-case name="op-numeric-subtractint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("273569238")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:int(mid range) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int("-1873914410") - xs:int("-2147483648")</test>
@@ -20,7 +19,7 @@
       <assert-eq>273569238</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractint2args-3">
+  <test-case name="op-numeric-subtractint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2147483647")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:int(upper bound) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int("-1") - xs:int("-2147483648")</test>
@@ -29,7 +28,7 @@
       <assert-eq>2147483647</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractint2args-4">
+  <test-case name="op-numeric-subtractint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-273569238")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int("-2147483648") - xs:int("-1873914410")</test>
@@ -38,7 +37,7 @@
       <assert-eq>-273569238</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractint2args-5">
+  <test-case name="op-numeric-subtractint2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-2147483648")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int("-1") - xs:int("2147483647")</test>
@@ -47,7 +46,7 @@
       <assert-eq>-2147483648</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractintg2args-1">
+  <test-case name="op-numeric-subtractintg2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer("-999999999999999999") - xs:integer("-999999999999999999")</test>
@@ -56,7 +55,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractintg2args-2">
+  <test-case name="op-numeric-subtractintg2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1000000000000000000")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:integer(mid range) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer("0") - xs:integer("-999999999999999999")</test>
@@ -65,7 +64,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractintg2args-3">
+  <test-case name="op-numeric-subtractintg2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1000000000000000000")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:integer(upper bound) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer("0") - xs:integer("-999999999999999999")</test>
@@ -74,7 +73,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractintg2args-4">
+  <test-case name="op-numeric-subtractintg2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer("-169006502882975695") - xs:integer("830993497117024304")</test>
@@ -83,7 +82,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractintg2args-5">
+  <test-case name="op-numeric-subtractintg2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer("0") - xs:integer("999999999999999999")</test>
@@ -92,16 +91,16 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractdec2args-1">
+  <test-case name="op-numeric-subtractdec2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("0")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("-999999999999999999") - xs:decimal("-999999999999999999")</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:decimal("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractdec2args-2">
+  <test-case name="op-numeric-subtractdec2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1000000000000000000")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:decimal(mid range) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("0") - xs:decimal("-999999999999999999")</test>
@@ -110,7 +109,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractdec2args-3">
+  <test-case name="op-numeric-subtractdec2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1000000000000000000")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:decimal(upper bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("0") - xs:decimal("-999999999999999999")</test>
@@ -119,7 +118,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractdec2args-4">
+  <test-case name="op-numeric-subtractdec2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("-382624808391485160") - xs:decimal("617375191608514839")</test>
@@ -128,7 +127,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractdec2args-5">
+  <test-case name="op-numeric-subtractdec2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("0") - xs:decimal("999999999999999999")</test>
@@ -137,16 +136,16 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractdbl2args-1">
+  <test-case name="op-numeric-subtractdbl2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double("-1.7976931348623157E308") - xs:double("-1.7976931348623157E308")</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractdbl2args-2">
+  <test-case name="op-numeric-subtractdbl2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.7976931348623157e+308")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:double(mid range) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double("0") - xs:double("-1.7976931348623157E308")</test>
@@ -155,7 +154,7 @@
       <assert-eq>1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractdbl2args-3">
+  <test-case name="op-numeric-subtractdbl2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.7976931348623157e+308")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:double(upper bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double("0") - xs:double("-1.7976931348623157E308")</test>
@@ -164,7 +163,7 @@
       <assert-eq>1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractdbl2args-4">
+  <test-case name="op-numeric-subtractdbl2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157e+308")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double("-1.7976931348623157E308") - xs:double("0")</test>
@@ -173,7 +172,7 @@
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractdbl2args-5">
+  <test-case name="op-numeric-subtractdbl2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157e+308")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double("0") - xs:double("1.7976931348623157E308")</test>
@@ -182,16 +181,16 @@
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractflt2args-1">
+  <test-case name="op-numeric-subtractflt2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float("-3.4028235E38") - xs:float("-3.4028235E38")</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractflt2args-2">
+  <test-case name="op-numeric-subtractflt2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("3.4028235e+38")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:float(mid range) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float("0") - xs:float("-3.4028235E38")</test>
@@ -200,7 +199,7 @@
       <assert-eq>xs:float(3.4028235E38)</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractflt2args-3">
+  <test-case name="op-numeric-subtractflt2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("3.4028235e+38")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:float(upper bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float("0") - xs:float("-3.4028235E38")</test>
@@ -209,7 +208,7 @@
       <assert-eq>xs:float(3.4028235E38)</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractflt2args-4">
+  <test-case name="op-numeric-subtractflt2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235e+38")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float("-3.4028235E38") - xs:float("0")</test>
@@ -218,7 +217,7 @@
       <assert-eq>xs:float(-3.4028235E38)</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractflt2args-5">
+  <test-case name="op-numeric-subtractflt2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235e+38")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float("0") - xs:float("3.4028235E38")</test>
@@ -227,7 +226,7 @@
       <assert-eq>xs:float(-3.4028235E38)</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractlng2args-1">
+  <test-case name="op-numeric-subtractlng2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long("-92233720368547758") - xs:long("-92233720368547758")</test>
@@ -236,7 +235,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractlng2args-2">
+  <test-case name="op-numeric-subtractlng2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("45058158165499300")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:long(mid range) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long("-47175562203048468") - xs:long("-92233720368547758")</test>
@@ -245,7 +244,7 @@
       <assert-eq>45058158165499290</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractlng2args-3">
+  <test-case name="op-numeric-subtractlng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("92233720368547760")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:long(upper bound) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long("0") - xs:long("-92233720368547758")</test>
@@ -254,7 +253,7 @@
       <assert-eq>92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractlng2args-4">
+  <test-case name="op-numeric-subtractlng2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-45058158165499300")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long("-92233720368547758") - xs:long("-47175562203048468")</test>
@@ -263,7 +262,7 @@
       <assert-eq>-45058158165499290</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractlng2args-5">
+  <test-case name="op-numeric-subtractlng2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-92233720368547760")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long("0") - xs:long("92233720368547758")</test>
@@ -272,7 +271,7 @@
       <assert-eq>-92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractusht2args-1">
+  <test-case name="op-numeric-subtractusht2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort("0") - xs:unsignedShort("0")</test>
@@ -281,7 +280,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractusht2args-2">
+  <test-case name="op-numeric-subtractusht2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("44633")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:unsignedShort(mid range) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort("44633") - xs:unsignedShort("0")</test>
@@ -290,7 +289,7 @@
       <assert-eq>44633</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractusht2args-3">
+  <test-case name="op-numeric-subtractusht2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("65535")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:unsignedShort(upper bound) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort("65535") - xs:unsignedShort("0")</test>
@@ -299,7 +298,7 @@
       <assert-eq>65535</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractusht2args-4">
+  <test-case name="op-numeric-subtractusht2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort("44633") - xs:unsignedShort("44633")</test>
@@ -308,7 +307,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractusht2args-5">
+  <test-case name="op-numeric-subtractusht2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort("65535") - xs:unsignedShort("65535")</test>
@@ -317,7 +316,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractnint2args-1">
+  <test-case name="op-numeric-subtractnint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-702985924000903200")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger("-999999999999999999") - xs:negativeInteger("-297014075999096793")</test>
@@ -326,7 +325,7 @@
       <assert-eq>-702985924000903206</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractnint2args-2">
+  <test-case name="op-numeric-subtractnint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger("-999999999999999999") - xs:negativeInteger("-1")</test>
@@ -335,7 +334,7 @@
       <assert-eq>-999999999999999998</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractpint2args-1">
+  <test-case name="op-numeric-subtractpint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("52704602390610030")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:positiveInteger(mid range) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("52704602390610033") - xs:positiveInteger("1")</test>
@@ -344,7 +343,7 @@
       <assert-eq>52704602390610032</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractpint2args-2">
+  <test-case name="op-numeric-subtractpint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1000000000000000000")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:positiveInteger(upper bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("999999999999999999") - xs:positiveInteger("1")</test>
@@ -353,7 +352,7 @@
       <assert-eq>999999999999999998</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractpint2args-3">
+  <test-case name="op-numeric-subtractpint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("52704602390610034") - xs:positiveInteger("52704602390610033")</test>
@@ -362,7 +361,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractulng2args-1">
+  <test-case name="op-numeric-subtractulng2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("0") - xs:unsignedLong("0")</test>
@@ -371,7 +370,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractulng2args-2">
+  <test-case name="op-numeric-subtractulng2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("130747108607674660")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:unsignedLong(mid range) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("130747108607674654") - xs:unsignedLong("0")</test>
@@ -380,7 +379,7 @@
       <assert-eq>130747108607674654</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractulng2args-3">
+  <test-case name="op-numeric-subtractulng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("184467440737095520")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:unsignedLong(upper bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("184467440737095516") - xs:unsignedLong("0")</test>
@@ -389,7 +388,7 @@
       <assert-eq>184467440737095516</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractulng2args-4">
+  <test-case name="op-numeric-subtractulng2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("130747108607674654") - xs:unsignedLong("130747108607674654")</test>
@@ -398,7 +397,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractulng2args-5">
+  <test-case name="op-numeric-subtractulng2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("184467440737095516") - xs:unsignedLong("184467440737095516")</test>
@@ -407,7 +406,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractnpi2args-1">
+  <test-case name="op-numeric-subtractnpi2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger("-999999999999999999") - xs:nonPositiveInteger("-999999999999999999")</test>
@@ -416,7 +415,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractnpi2args-2">
+  <test-case name="op-numeric-subtractnpi2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(mid range) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger("-999999999999999999") - xs:nonPositiveInteger("-999999999999999999")</test>
@@ -425,7 +424,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractnpi2args-3">
+  <test-case name="op-numeric-subtractnpi2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(upper bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger("-999999999999999999") - xs:nonPositiveInteger("-999999999999999999")</test>
@@ -434,7 +433,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractnpi2args-4">
+  <test-case name="op-numeric-subtractnpi2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-524311562728129540")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger("-999999999999999999") - xs:nonPositiveInteger("-475688437271870490")</test>
@@ -443,7 +442,7 @@
       <assert-eq>-524311562728129509</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractnpi2args-5">
+  <test-case name="op-numeric-subtractnpi2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger("-999999999999999999") - xs:nonPositiveInteger("0")</test>
@@ -452,7 +451,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractnni2args-1">
+  <test-case name="op-numeric-subtractnni2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("0") - xs:nonNegativeInteger("0")</test>
@@ -461,7 +460,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractnni2args-2">
+  <test-case name="op-numeric-subtractnni2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("303884545991464500")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(mid range) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("303884545991464527") - xs:nonNegativeInteger("0")</test>
@@ -470,7 +469,7 @@
       <assert-eq>303884545991464527</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractnni2args-3">
+  <test-case name="op-numeric-subtractnni2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1000000000000000000")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(upper bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("999999999999999999") - xs:nonNegativeInteger("0")</test>
@@ -479,7 +478,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractnni2args-4">
+  <test-case name="op-numeric-subtractnni2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("303884545991464527") - xs:nonNegativeInteger("303884545991464527")</test>
@@ -488,7 +487,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractnni2args-5">
+  <test-case name="op-numeric-subtractnni2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("999999999999999999") - xs:nonNegativeInteger("999999999999999999")</test>
@@ -497,7 +496,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractsht2args-1">
+  <test-case name="op-numeric-subtractsht2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short("-32768") - xs:short("-32768")</test>
@@ -506,7 +505,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractsht2args-2">
+  <test-case name="op-numeric-subtractsht2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("27444")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:short(mid range) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short("-5324") - xs:short("-32768")</test>
@@ -515,7 +514,7 @@
       <assert-eq>27444</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractsht2args-3">
+  <test-case name="op-numeric-subtractsht2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("32767")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:short(upper bound) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short("-1") - xs:short("-32768")</test>
@@ -524,7 +523,7 @@
       <assert-eq>32767</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractsht2args-4">
+  <test-case name="op-numeric-subtractsht2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-27444")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short("-32768") - xs:short("-5324")</test>
@@ -533,7 +532,7 @@
       <assert-eq>-27444</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractsht2args-5">
+  <test-case name="op-numeric-subtractsht2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-32768")</response-string>
     <description> Evaluates The "op:numeric-subtract" operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short("-1") - xs:short("32767")</test>
@@ -542,7 +541,7 @@
       <assert-eq>-32768</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractmix2args-1">
+  <test-case name="op-numeric-subtractmix2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Simple subtraction test with () as one operand should return null </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <test>1 - ()</test>
@@ -555,25 +554,25 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractmix2args-2">
+  <test-case name="op-numeric-subtractmix2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Simple subtraction test pass string for second operator </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
-    <test>1 - '1'</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <test>1 - &apos;1&apos;</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractmix2args-3">
+  <test-case name="op-numeric-subtractmix2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Simple subtraction test, second operator cast string to integer </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
-    <test>1 - xs:integer('1')</test>
+    <test>1 - xs:integer(&apos;1&apos;)</test>
     <result-string>xs:integer("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractmix2args-4">
+  <test-case name="op-numeric-subtractmix2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Simple subtraction test, second operator is a node, atomization applied </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -585,7 +584,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractmix2args-5">
+  <test-case name="op-numeric-subtractmix2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Simple subtraction test, second operator is a node, atomization applied </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -597,7 +596,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractmix2args-6">
+  <test-case name="op-numeric-subtractmix2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Simple subtraction test, second operator node which is not atomizable </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -609,7 +608,7 @@
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractmix2args-7">
+  <test-case name="op-numeric-subtractmix2args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Simple subtraction test, two operands are nodes </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -621,7 +620,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractmix2args-8">
+  <test-case name="op-numeric-subtractmix2args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Simple subtraction test, second operator is a node, atomizable but not castable to integer </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -633,7 +632,7 @@
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtractmix2args-9">
+  <test-case name="op-numeric-subtractmix2args-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Simple subtraction test pass an empty node for second operator </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -645,7 +644,7 @@
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-1">
+  <test-case name="K-NumericSubtract-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:double(6) - xs:double(2) eq 4`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(6) - xs:double(2) eq 4</test>
@@ -654,7 +653,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-2">
+  <test-case name="K-NumericSubtract-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:decimal(6) - xs:decimal(2) eq 4`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:decimal(6) - xs:decimal(2) eq 4</test>
@@ -663,7 +662,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-3">
+  <test-case name="K-NumericSubtract-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:integer(6) - xs:integer(2) eq 4`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:integer(6) - xs:integer(2) eq 4</test>
@@ -672,7 +671,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-4">
+  <test-case name="K-NumericSubtract-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:float(5) - xs:float(1) eq 4`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(5) - xs:float(1) eq 4</test>
@@ -681,7 +680,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-5">
+  <test-case name="K-NumericSubtract-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:decimal(6) - xs:integer(2)) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) - xs:integer(2)) instance of xs:decimal</test>
@@ -690,7 +689,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-6">
+  <test-case name="K-NumericSubtract-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:integer(6) - xs:decimal(2)) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) - xs:decimal(2)) instance of xs:decimal</test>
@@ -699,7 +698,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-7">
+  <test-case name="K-NumericSubtract-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:integer(6) - xs:integer(2)) instance of xs:integer`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) - xs:integer(2)) instance of xs:integer</test>
@@ -708,7 +707,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-8">
+  <test-case name="K-NumericSubtract-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:decimal(6) - xs:decimal(2)) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) - xs:decimal(2)) instance of xs:decimal</test>
@@ -717,7 +716,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-9">
+  <test-case name="K-NumericSubtract-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:decimal(6) - xs:float(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) - xs:float(2)) instance of xs:float</test>
@@ -726,7 +725,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-10">
+  <test-case name="K-NumericSubtract-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:float(6) - xs:decimal(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) - xs:decimal(2)) instance of xs:float</test>
@@ -735,7 +734,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-11">
+  <test-case name="K-NumericSubtract-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:float(6) - xs:integer(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) - xs:integer(2)) instance of xs:float</test>
@@ -744,7 +743,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-12">
+  <test-case name="K-NumericSubtract-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:integer(6) - xs:float(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) - xs:float(2)) instance of xs:float</test>
@@ -753,7 +752,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-13">
+  <test-case name="K-NumericSubtract-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:float(6) - xs:float(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) - xs:float(2)) instance of xs:float</test>
@@ -762,7 +761,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-14">
+  <test-case name="K-NumericSubtract-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:decimal(6) - xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) - xs:double(2)) instance of xs:double</test>
@@ -771,7 +770,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-15">
+  <test-case name="K-NumericSubtract-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:double(6) - xs:decimal(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) - xs:decimal(2)) instance of xs:double</test>
@@ -780,7 +779,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-16">
+  <test-case name="K-NumericSubtract-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:double(6) - xs:float(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) - xs:float(2)) instance of xs:double</test>
@@ -789,7 +788,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-17">
+  <test-case name="K-NumericSubtract-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:float(6) - xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) - xs:double(2)) instance of xs:double</test>
@@ -798,7 +797,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-18">
+  <test-case name="K-NumericSubtract-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:double(6) - xs:integer(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) - xs:integer(2)) instance of xs:double</test>
@@ -807,7 +806,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-19">
+  <test-case name="K-NumericSubtract-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:integer(6) - xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) - xs:double(2)) instance of xs:double</test>
@@ -816,7 +815,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-20">
+  <test-case name="K-NumericSubtract-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:double(6) - xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) - xs:double(2)) instance of xs:double</test>
@@ -825,7 +824,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-21">
+  <test-case name="K-NumericSubtract-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(xs:float("NaN") - 3) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(xs:float("NaN") - 3) eq "NaN"</test>
@@ -834,7 +833,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-22">
+  <test-case name="K-NumericSubtract-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(xs:double("NaN") - 3) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(xs:double("NaN") - 3) eq "NaN"</test>
@@ -843,7 +842,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-23">
+  <test-case name="K-NumericSubtract-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(3 - xs:float("NaN")) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(3 - xs:float("NaN")) eq "NaN"</test>
@@ -852,7 +851,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-24">
+  <test-case name="K-NumericSubtract-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(3 - xs:double("NaN")) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(3 - xs:double("NaN")) eq "NaN"</test>
@@ -861,25 +860,25 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-25">
-    <description> Invoke the '-' operator with invalid operands. </description>
+  <test-case name="K-NumericSubtract-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Invoke the &apos;-&apos; operator with invalid operands. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>"3" - "3"</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-26">
-    <description> Invoke the '-' operator with invalid operands. </description>
+  <test-case name="K-NumericSubtract-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Invoke the &apos;-&apos; operator with invalid operands. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:untypedAtomic("3") - "3"</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-27">
+  <test-case name="K-NumericSubtract-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:untypedAtomic("3") - 3) eq 0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:untypedAtomic("3") - 3) eq 0</test>
@@ -888,7 +887,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-28">
+  <test-case name="K-NumericSubtract-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(3 - xs:untypedAtomic("3")) eq 0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(3 - xs:untypedAtomic("3")) eq 0</test>
@@ -897,7 +896,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-29">
+  <test-case name="K-NumericSubtract-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Operand(s) which are the empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(() - ())</test>
@@ -910,7 +909,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-30">
+  <test-case name="K-NumericSubtract-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Operand(s) which are the empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(() - xs:float(3))</test>
@@ -923,7 +922,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-31">
+  <test-case name="K-NumericSubtract-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Operand(s) which are the empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(() - xs:double(3))</test>
@@ -936,7 +935,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-32">
+  <test-case name="K-NumericSubtract-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:untypedAtomic("3") - xs:untypedAtomic("3")) eq 0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:untypedAtomic("3") - xs:untypedAtomic("3")) eq 0</test>
@@ -945,7 +944,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-33">
+  <test-case name="K-NumericSubtract-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:untypedAtomic("3") - xs:untypedAtomic("3")) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:untypedAtomic("3") - xs:untypedAtomic("3")) instance of xs:double</test>
@@ -954,7 +953,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-34">
+  <test-case name="K-NumericSubtract-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:untypedAtomic("3") - 1.1) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:untypedAtomic("3") - 1.1) instance of xs:double</test>
@@ -963,7 +962,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-35">
+  <test-case name="K-NumericSubtract-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(1.1 - xs:untypedAtomic("3")) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1.1 - xs:untypedAtomic("3")) instance of xs:double</test>
@@ -972,7 +971,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-36">
+  <test-case name="K-NumericSubtract-36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Substracting zero, with complex operands. Implementations supporting the static typing feature may raise XPTY0004. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 eq (remove((current-time(), 1), 1) - 0)</test>
@@ -985,7 +984,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-37">
+  <test-case name="K-NumericSubtract-37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Adding zero, with complex operands. Implementations supporting the static typing feature may raise XPTY0004. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 eq (remove((current-time(), 1), 1) + 0)</test>
@@ -998,7 +997,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-NumericSubtract-38">
+  <test-case name="K-NumericSubtract-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Adding zero, with complex operands. Implementations supporting the static typing feature may raise XPTY0004. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 eq (0 + remove((current-time(), 1), 1))</test>
@@ -1011,25 +1010,25 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-NumericSubtract-1">
+  <test-case name="K2-NumericSubtract-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Substract xs:double(0) from xs:integer(0). </description>
     <created by="Frans Englich" on="2007-12-28"/>
     <test>0 - xs:double(0)</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NumericSubtract-2">
+  <test-case name="K2-NumericSubtract-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Substract xs:double(0) from xs:integer(0). </description>
     <created by="Frans Englich" on="2007-12-28"/>
     <test>0 - xs:float(0)</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtract-1">
+  <test-case name="op-numeric-subtract-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Check dynamic type of numeric subtract on arguments of union of numeric types and untypedAtomic. </description>
     <created by="Oliver Hallam" on="2010-03-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1047,7 +1046,7 @@
       <assert-string-value>integer decimal float double double decimal decimal float double double float float float double double double double double double double double double double double double</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-subtract-001">
+  <test-case name="cbcl-numeric-subtract-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test subtraction of large xs:decimal </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <test>-79228162514264337593543950335.0 - 1.0 lt 0.0</test>
@@ -1060,7 +1059,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-subtract-002">
+  <test-case name="cbcl-numeric-subtract-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test subtraction of large xs:integer </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <test>-79228162514264337593543950335 - 1 lt 0</test>
@@ -1073,31 +1072,31 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-subtract-003">
+  <test-case name="cbcl-numeric-subtract-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("56.25")</response-string>
     <description> test subtraction of xs:decimal 0 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:decimal) as xs:decimal { $arg * $arg }; 
       	local:square(7.5) - 0.0</test>
-    <result-string>xs:string("56.25")</result-string>
+    <result-string>xs:decimal("56.25")</result-string>
     <result>
       <assert-string-value>56.25</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-subtract-004">
+  <test-case name="cbcl-numeric-subtract-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("49")</response-string>
     <description> test subtraction of xs:integer 0 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:integer) as xs:integer { $arg * $arg }; 
       	local:square(7) - 0</test>
-    <result-string>xs:string("49")</result-string>
+    <result-string>xs:integer("49")</result-string>
     <result>
       <assert-string-value>49</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-subtract-005">
+  <test-case name="cbcl-numeric-subtract-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> ensure that subtracting xs:integers returns an xs:integer </description>
     <created by="Oliver Hallam" on="2008-05-29"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1109,43 +1108,43 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-subtract-006">
+  <test-case name="cbcl-numeric-subtract-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> test subtraction of negated integers </description>
     <created by="Tim Mills" on="2008-07-01"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:integer($x as xs:decimal) { if ($x mod 1 eq 0) then xs:integer($x) else $x }; 
       	-(local:integer(2)) - -(local:integer(4))</test>
-    <result-string>xs:string("2")</result-string>
+    <result-string>xs:integer("2")</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-subtract-007">
+  <test-case name="cbcl-numeric-subtract-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("6")</response-string>
     <description> test subtraction of negated integers </description>
     <created by="Tim Mills" on="2008-07-01"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:integer($x as xs:decimal) { if ($x mod 1 eq 0) then xs:integer($x) else $x }; 
       	local:integer(2) - -(local:integer(4))</test>
-    <result-string>xs:string("6")</result-string>
+    <result-string>xs:integer("6")</result-string>
     <result>
       <assert-string-value>6</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-subtract-008">
+  <test-case name="cbcl-numeric-subtract-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-6")</response-string>
     <description> test subtraction of negated integers </description>
     <created by="Tim Mills" on="2008-07-01"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:integer($x as xs:decimal) { if ($x mod 1 eq 0) then xs:integer($x) else $x }; 
       	-(local:integer(2)) - local:integer(4)</test>
-    <result-string>xs:string("-6")</result-string>
+    <result-string>xs:integer("-6")</result-string>
     <result>
       <assert-string-value>-6</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-numeric-subtract-big-01">
+  <test-case name="op-numeric-subtract-big-01"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-7.922816251426434e+28")</response-string>
     <description> test subtraction of large xs:decimal </description>
     <created by="Andrew Eisenberg" on="2012-10-31"/>
     <modified by="Michael Kay" change="see bug 20473" on="2012-12-21"/>

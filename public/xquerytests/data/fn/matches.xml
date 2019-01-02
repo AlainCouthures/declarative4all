@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-matches" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Test the fn:matches() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-matches" type="spec"/>
-  <test-case name="fn-matches2args-1">
+  <test-case name="fn-matches2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "matches" function with the arguments set as follows: $input = xs:string(lower bound) $pattern = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:matches("This is a characte","This is a characte")</test>
@@ -11,7 +10,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches2args-2">
+  <test-case name="fn-matches2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "matches" function with the arguments set as follows: $input = xs:string(mid range) $pattern = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:matches("This is a characte","This is a characte")</test>
@@ -20,7 +19,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches2args-3">
+  <test-case name="fn-matches2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "matches" function with the arguments set as follows: $input = xs:string(upper bound) $pattern = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:matches("This is a characte","This is a characte")</test>
@@ -29,7 +28,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches2args-4">
+  <test-case name="fn-matches2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "matches" function with the arguments set as follows: $input = xs:string(lower bound) $pattern = xs:string(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:matches("This is a characte","This is a characte")</test>
@@ -38,7 +37,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches2args-5">
+  <test-case name="fn-matches2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "matches" function with the arguments set as follows: $input = xs:string(lower bound) $pattern = xs:string(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:matches("This is a characte","This is a characte")</test>
@@ -47,7 +46,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matchesErr-1">
+  <test-case name="fn-matchesErr-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Invalid flag for third argument of fn:matches. </description>
     <created by="Carmelo Montanez" on="2005-10-04"/>
     <test>fn:matches("abracadabra", "bra", "p")</test>
@@ -56,7 +55,7 @@
       <error code="FORX0001"/>
     </result>
   </test-case>
-  <test-case name="fn-matchesErr-2">
+  <test-case name="fn-matchesErr-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> back-reference illegal in square brackets See erratum FO.E24 </description>
     <created by="Michael Kay" on="2009-03-04"/>
     <test>fn:matches("#abc#1", "^(#)abc[\1]1$")</test>
@@ -65,7 +64,7 @@
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="fn-matchesErr-3">
+  <test-case name="fn-matchesErr-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> single-digit back-reference to non-existent group See erratum FO.E24 </description>
     <created by="Michael Kay" on="2009-03-04"/>
     <test>fn:matches("#abc#1", "^(#)abc\2$")</test>
@@ -74,7 +73,7 @@
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="fn-matchesErr-4">
+  <test-case name="fn-matchesErr-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> single-digit back-reference to group not yet closed See erratum FO.E24 </description>
     <created by="Michael Kay" on="2009-03-04"/>
     <test>fn:matches("#abc#1", "^((#)abc\1)$")</test>
@@ -83,7 +82,7 @@
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="fn-matchesErr-5">
+  <test-case name="fn-matchesErr-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> double-digit back-reference to group not yet closed See erratum FO.E24 </description>
     <created by="Michael Kay" on="2009-03-04"/>
     <test>fn:matches("abcdefghijklmnopq", "(a)(b)(c)(d)(e)(f)(g)(h)(i)(j)(k)(l)((m)(n)(o)(p)(q)\13)$")</test>
@@ -92,7 +91,7 @@
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="fn-matches-1">
+  <test-case name="fn-matches-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of matches function as per example 1 (for this function) </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:matches("abracadabra", "bra")</test>
@@ -101,7 +100,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-2">
+  <test-case name="fn-matches-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of matches function as per example 2 (for this function). Pattern set to "^a.*a$". </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:matches("abracadabra", "^a.*a$")</test>
@@ -110,7 +109,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-3">
+  <test-case name="fn-matches-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluation of matches function as per example 3 (for this function). Pattern set to "^bra" </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:matches("abracadabra", "^bra")</test>
@@ -119,7 +118,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-matches-4">
+  <test-case name="fn-matches-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("falsefalse")</response-string>
     <description> Test that calling the function with flags set to the empty string is the same as ommiting the flags. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:concat(fn:matches("abracadabra", "^bra"),fn:matches("abracadabra", "^bra", ""))</test>
@@ -128,16 +127,16 @@
       <assert-string-value>falsefalse</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-matches-5">
+  <test-case name="fn-matches-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluate the fn:mathes function with the input string set to the empty sequence. fn:count used to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:count(fn:matches("()", "^bra"))</test>
-    <result-string>xs:string("1")</result-string>
+    <result-string>xs:integer("1")</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-matches-6">
+  <test-case name="fn-matches-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of matches function with pattern set to "\^". </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:matches("abracadabra^abracadabra", "\^")</test>
@@ -146,7 +145,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-7">
+  <test-case name="fn-matches-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of matches function with pattern set to "\?" for an input string that contains "?". </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:matches("abracadabra?abracadabra", "\?")</test>
@@ -155,7 +154,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-8">
+  <test-case name="fn-matches-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of matches function with pattern set to "\*" for an input string that contains "*". </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:matches("abracadabra*abracadabra", "\*")</test>
@@ -164,7 +163,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-9">
+  <test-case name="fn-matches-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of matches function with pattern set to "\+" for an input string that contains "+". </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:matches("abracadabra+abracadabra", "\+")</test>
@@ -173,7 +172,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-10">
+  <test-case name="fn-matches-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of matches function with pattern set to "\{" for an input string that contains "}". </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:matches("abracadabra{abracadabra", "\{")</test>
@@ -182,7 +181,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-11">
+  <test-case name="fn-matches-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of matches function with pattern set to "\}" for an input string that contains "}". </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:matches("abracadabra}abracadabra", "\}")</test>
@@ -191,7 +190,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-12">
+  <test-case name="fn-matches-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of matches function with pattern set to "\(" for an input string that contains "(". </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:matches("abracadabra(abracadabra", "\(")</test>
@@ -200,7 +199,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-13">
+  <test-case name="fn-matches-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of matches function with pattern set to "\)" for an input string that contains ")". </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:matches("abracadabra)abracadabra", "\)")</test>
@@ -209,7 +208,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-14">
+  <test-case name="fn-matches-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of matches function with pattern set to "\[" for an input string that contains "[". </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:matches("abracadabra[abracadabra", "\[")</test>
@@ -218,7 +217,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-15">
+  <test-case name="fn-matches-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of matches function with pattern set to "\]" for an input string that contains "]". </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:matches("abracadabra]abracadabra", "\]")</test>
@@ -227,7 +226,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-16">
+  <test-case name="fn-matches-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of matches function with pattern set to "\-" for an input string that contains "-". </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:matches("abracadabra-abracadabra", "\-")</test>
@@ -236,7 +235,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-17">
+  <test-case name="fn-matches-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of matches function with pattern set to "\." for an input string that contains ".". </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:matches("abracadabra.abracadabra", "\.")</test>
@@ -245,7 +244,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-18">
+  <test-case name="fn-matches-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of matches function with pattern set to "\|" for an input string that contains "|". </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:matches("abracadabra|abracadabra", "\|")</test>
@@ -254,7 +253,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-19">
+  <test-case name="fn-matches-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of matches function with pattern set to "\\" for an input string that contains "\". </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:matches("abracadabra\abracadabra", "\\")</test>
@@ -263,7 +262,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-20">
+  <test-case name="fn-matches-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of matches function with pattern set to "\t" for an input string that contains the tab character. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:matches("abracadabra	abracadabra", "\t")</test>
@@ -272,7 +271,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-21">
+  <test-case name="fn-matches-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of matches function with pattern set to "\n" for an input string that contains the newline character. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:matches("abracadabra
@@ -282,7 +281,7 @@ abracadabra", "\n")</test>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-22">
+  <test-case name="fn-matches-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of matches function with pattern set to "aa{1}" (exact quantity) for an input string that contains the "aa" string. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:matches("abracadabraabracadabra", "aa{1}")</test>
@@ -291,7 +290,7 @@ abracadabra", "\n")</test>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-23">
+  <test-case name="fn-matches-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of matches function with pattern set to "aa{1,}" (min quantity) for an input string that contains the "aa" string twice. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:matches("abracadabraabracadabraabracadabra", "aa{1,}")</test>
@@ -300,7 +299,7 @@ abracadabra", "\n")</test>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-24">
+  <test-case name="fn-matches-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of matches function with pattern set to "aa{1,2}" (range quantity) for an input string that contains the "aa" string twice. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:matches("abracadabraabracadabraabracadabra", "aa{1,2}")</test>
@@ -309,7 +308,7 @@ abracadabra", "\n")</test>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-25">
+  <test-case name="fn-matches-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluation of matches function with invalid regular expression </description>
     <created by="Carmelo Montanez" on="2005-12-07"/>
     <test>fn:matches("abracadabra", "**%%")</test>
@@ -318,19 +317,19 @@ abracadabra", "\n")</test>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="fn-matches-26">
+  <test-case name="fn-matches-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Check for the correct behavior of ^ and $ in multi-line mode This test case was motivated by the resolution of Bug Report 4543.
-      Note that '^' matches the position after any newline other than a newline that is the last character in the input string.</description>
+      Note that &apos;^&apos; matches the position after any newline other than a newline that is the last character in the input string.</description>
     <created by="Andrew Eisenberg" on="2006-09-25"/>
     <modified by="Michael Kay" change="avoid character entities, so it works in both XPath and XQuery" on="2012-01-15"/>
     <modified by="Michael Kay" change="remove quotes around first argument so the test does what was intended" on="2012-04-19"/>
-    <test>fn:matches(concat('abcd', codepoints-to-string(10), 'defg', codepoints-to-string(10)), "^$", "m")</test>
+    <test>fn:matches(concat(&apos;abcd&apos;, codepoints-to-string(10), &apos;defg&apos;, codepoints-to-string(10)), "^$", "m")</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-matches-27">
+  <test-case name="fn-matches-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Check for the correct behavior of ^ and $ in multi-line mode This test case was motivated by the resolution of Bug Report 4543 </description>
     <created by="Andrew Eisenberg" on="2006-09-25"/>
     <test>fn:matches("
@@ -342,7 +341,7 @@ defg
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-28">
+  <test-case name="fn-matches-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Check for the correct behavior of ^ and $ in multi-line mode This test case was motivated by the resolution of Bug Report 4543 </description>
     <created by="Andrew Eisenberg" on="2006-09-25"/>
     <test>fn:matches("abcd
@@ -354,7 +353,7 @@ defg
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-29">
+  <test-case name="fn-matches-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> 2-digits not treated as a back-reference See erratum FO.E24 </description>
     <created by="Michael Kay" on="2009-03-05"/>
     <test>fn:matches("#abc#1", "^(#)abc\11$")</test>
@@ -363,7 +362,7 @@ defg
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-30">
+  <test-case name="fn-matches-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> 2-digits treated as a back-reference See erratum FO.E24 </description>
     <created by="Michael Kay" on="2009-03-05"/>
     <test>fn:matches("#abcdefghijklmnopq#1", "^(#)(a)(b)(c)(d)(e)(f)(g)(h)(i)(j)(k)(l)(m)(n)(o)(p)(q)\11$")</test>
@@ -372,7 +371,7 @@ defg
       <assert-false/>
     </result>
   </test-case>
-  <test-case covers="regex-non-capturing" name="fn-matches-31">
+  <test-case covers="regex-non-capturing" name="fn-matches-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of matches function with non-capturing groups (allowed in XPath 3.0) </description>
     <created by="Michael Kay" on="2009-10-23"/>
     <modified by="Michael Kay" change="remove option of returning error code" on="2011-09-05"/>
@@ -383,7 +382,7 @@ defg
       <assert-true/>
     </result>
   </test-case>
-  <test-case covers="regex-non-capturing regex-q-flag" name="fn-matches-32">
+  <test-case covers="regex-non-capturing regex-q-flag" name="fn-matches-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluation of matches function with "q" flag (allowed in XQuery 3.0) </description>
     <created by="Michael Kay" on="2009-10-23"/>
     <modified by="Michael Kay" change="remove option of returning error code" on="2011-09-05"/>
@@ -394,7 +393,7 @@ defg
       <assert-false/>
     </result>
   </test-case>
-  <test-case covers="regex-q-flag" name="fn-matches-33">
+  <test-case covers="regex-q-flag" name="fn-matches-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluation of matches function with "q" flag (allowed in XQuery 3.0) </description>
     <created by="Michael Kay" on="2009-10-23"/>
     <modified by="Michael Kay" change="remove option of returning error code" on="2011-09-05"/>
@@ -405,7 +404,7 @@ defg
       <assert-true/>
     </result>
   </test-case>
-  <test-case covers="regex-q-flag" name="fn-matches-34">
+  <test-case covers="regex-q-flag" name="fn-matches-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluation of matches function with "q" and "i" flags (allowed in XQuery 3.0) </description>
     <created by="Michael Kay" on="2009-10-23"/>
     <modified by="Michael Kay" change="remove option of returning error code" on="2011-09-05"/>
@@ -416,127 +415,127 @@ defg
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-35">
+  <test-case name="fn-matches-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test for bug fix of 5348 in Errata for F+O. Expect FORX0002 err because \99 is an invalid reference as 99th subexpression does not exist </description>
     <created by="Zhen Hua  Liu" on="2009-11-15"/>
-    <test>fn:matches('aA', '(a)\99')</test>
+    <test>fn:matches(&apos;aA&apos;, &apos;(a)\99&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="fn-matches-36">
+  <test-case name="fn-matches-36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test for bug fix of 5348 in Errata for F+O. ok match here </description>
     <created by="Zhen Hua  Liu" on="2009-11-15"/>
-    <test>fn:matches('abcdefghijj', '(a)(b)(c)(d)(e)(f)(g)(h)(i)(j)\10')</test>
+    <test>fn:matches(&apos;abcdefghijj&apos;, &apos;(a)(b)(c)(d)(e)(f)(g)(h)(i)(j)\10&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-37">
+  <test-case name="fn-matches-37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test for bug fix of 5348 in Errata for F+O. Expect FORX0002 err because \11 reference is made before the closing right parenthesis of 11th reference </description>
     <created by="Zhen Hua  Liu" on="2009-11-15"/>
-    <test>fn:matches('abcdefghijk', '(a)(b)(c)(d)(e)(f)(g)(h)(i)(j)(k\11)')</test>
+    <test>fn:matches(&apos;abcdefghijk&apos;, &apos;(a)(b)(c)(d)(e)(f)(g)(h)(i)(j)(k\11)&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="fn-matches-38">
+  <test-case name="fn-matches-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test for bug fix of 5348 in Errata for F+O. Expect FORX0002 err because \10 reference is made before the closing right parenthesis of 10th reference </description>
     <created by="Andrew Eisenberg" on="2009-12-23"/>
-    <test>fn:matches('abcdefghijj', '(a)(b)(c)(d)(e)(f)(g)(h)(i)(j\10)')</test>
+    <test>fn:matches(&apos;abcdefghijj&apos;, &apos;(a)(b)(c)(d)(e)(f)(g)(h)(i)(j\10)&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="fn-matches-39">
+  <test-case name="fn-matches-39"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test for bug fix of 5348 in Errata for F+O. Expect FORX0002 err because \9 reference is made before the closing right parenthesis of 9th reference </description>
     <created by="Andrew Eisenberg" on="2009-12-23"/>
-    <test>fn:matches('abcdefghii', '(a)(b)(c)(d)(e)(f)(g)(h)(i\9)')</test>
+    <test>fn:matches(&apos;abcdefghii&apos;, &apos;(a)(b)(c)(d)(e)(f)(g)(h)(i\9)&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="fn-matches-40">
+  <test-case name="fn-matches-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test for bug fix of 5348 in Errata for F+O. Expect FORX0002 err because \1 reference is made before the closing right parenthesis of 1st reference </description>
     <created by="Andrew Eisenberg" on="2009-12-23"/>
-    <test>fn:matches('aa', '(a\1)')</test>
+    <test>fn:matches(&apos;aa&apos;, &apos;(a\1)&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="fn-matches-41">
+  <test-case name="fn-matches-41"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Handling of final newline with non-multiline mode </description>
     <created by="Michael Kay" on="2012-01-13"/>
-    <test>fn:matches(concat('Mary', codepoints-to-string(10)), 'Mary$')</test>
+    <test>fn:matches(concat(&apos;Mary&apos;, codepoints-to-string(10)), &apos;Mary$&apos;)</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-matches-42">
+  <test-case name="fn-matches-42"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Handling of final newline with $ in dot-all mode </description>
     <created by="Michael Kay" on="2012-01-13"/>
-    <test>fn:matches(concat('Mary', codepoints-to-string(10)), 'Mary$', 's')</test>
+    <test>fn:matches(concat(&apos;Mary&apos;, codepoints-to-string(10)), &apos;Mary$&apos;, &apos;s&apos;)</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-matches-43">
-    <description> "." doesn't normally match newline </description>
+  <test-case name="fn-matches-43"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
+    <description> "." doesn&apos;t normally match newline </description>
     <created by="Michael Kay" on="2012-01-13"/>
-    <test>fn:matches(concat('Mary', codepoints-to-string(10), 'Jones'), 'Mary.Jones')</test>
+    <test>fn:matches(concat(&apos;Mary&apos;, codepoints-to-string(10), &apos;Jones&apos;), &apos;Mary.Jones&apos;)</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-matches-44">
+  <test-case name="fn-matches-44"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> "." does match newline in dot-all mode</description>
     <created by="Michael Kay" on="2012-01-13"/>
-    <test>fn:matches(concat('Mary', codepoints-to-string(10), 'Jones'), 'Mary.Jones', 's')</test>
+    <test>fn:matches(concat(&apos;Mary&apos;, codepoints-to-string(10), &apos;Jones&apos;), &apos;Mary.Jones&apos;, &apos;s&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case covers="regex-dot-matching-cr" name="fn-matches-45">
+  <test-case covers="regex-dot-matching-cr" name="fn-matches-45"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> "." does NOT match CR in default mode</description>
     <created by="Michael Kay" on="2012-01-13"/>
-    <modified by="Michael Kay" change="See bug 15594. WG agreed that '.' should match everything except CR and NL" on="2012-03-28"/>
-    <test>fn:matches(concat('Mary', codepoints-to-string(13), 'Jones'), 'Mary.Jones')</test>
+    <modified by="Michael Kay" change="See bug 15594. WG agreed that &apos;.&apos; should match everything except CR and NL" on="2012-03-28"/>
+    <test>fn:matches(concat(&apos;Mary&apos;, codepoints-to-string(13), &apos;Jones&apos;), &apos;Mary.Jones&apos;)</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case covers="regex-dot-matching-cr" name="fn-matches-46">
+  <test-case covers="regex-dot-matching-cr" name="fn-matches-46"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> "." does match CR in dot-all mode</description>
     <created by="Michael Kay" on="2012-01-13"/>
-    <test>fn:matches(concat('Mary', codepoints-to-string(13), 'Jones'), 'Mary.Jones', 's')</test>
+    <test>fn:matches(concat(&apos;Mary&apos;, codepoints-to-string(13), &apos;Jones&apos;), &apos;Mary.Jones&apos;, &apos;s&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-47">
+  <test-case name="fn-matches-47"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Check for the correct behavior of $ when not in multi-line mode.
          The correct answer according to the spec is false; though some regex engines
          are known to report true.</description>
     <created by="Michael Kay" on="2012-04-19"/>
-    <test>fn:matches(concat('abcd', codepoints-to-string(10), 'defg', codepoints-to-string(10)), "g$")</test>
+    <test>fn:matches(concat(&apos;abcd&apos;, codepoints-to-string(10), &apos;defg&apos;, codepoints-to-string(10)), "g$")</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-matches-48">
+  <test-case name="fn-matches-48"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Edge condition: match occurs at last character. </description>
     <created by="Michael Kay" on="2012-12-14"/>
     <test>fn:matches("abracadabra-abracadabra.", "\.")</test>
@@ -545,7 +544,7 @@ defg
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-matches-49">
+  <test-case name="fn-matches-49"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Edge condition: match occurs at last character. </description>
     <created by="Michael Kay" on="2012-12-14"/>
     <test>fn:matches("abracadabra-abracadabra-3", "(124|864|377|3)")</test>
@@ -554,147 +553,147 @@ defg
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="caselessmatch01">
+  <test-case name="caselessmatch01"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Simple call of matches() with "i" flag </description>
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
-    <test>matches('abc', 'ABC', 'i')</test>
+    <test>matches(&apos;abc&apos;, &apos;ABC&apos;, &apos;i&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="caselessmatch02">
+  <test-case name="caselessmatch02"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Call of matches() with "i" flag and a character range </description>
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
-    <test>matches('abZ', '[A-Z]*', 'i')</test>
+    <test>matches(&apos;abZ&apos;, &apos;[A-Z]*&apos;, &apos;i&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="caselessmatch03">
+  <test-case name="caselessmatch03"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Call of matches() with "i" flag and a character range </description>
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
-    <test>matches('abZ', '[a-z]*', 'i')</test>
+    <test>matches(&apos;abZ&apos;, &apos;[a-z]*&apos;, &apos;i&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="caselessmatch04">
+  <test-case name="caselessmatch04"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Call of matches() with "i" flag and Kelvin sign Kelvin sign </description>
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
     <modified by="Michael Kay" change="Changed to work under both XPath and XQuery" on="2012-01-15"/>
-    <test>matches(codepoints-to-string(8490), '[A-Z]', 'i')</test>
+    <test>matches(codepoints-to-string(8490), &apos;[A-Z]&apos;, &apos;i&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="caselessmatch05">
+  <test-case name="caselessmatch05"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Call of matches() with "i" flag and Kelvin sign Kelvin sign </description>
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
     <modified by="Michael Kay" change="Changed to work under both XPath and XQuery" on="2012-01-15"/>
-    <test>matches(codepoints-to-string(8490), '[a-z]', 'i')</test>
+    <test>matches(codepoints-to-string(8490), &apos;[a-z]&apos;, &apos;i&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="caselessmatch06">
+  <test-case name="caselessmatch06"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Call of matches() with "i" flag and Kelvin sign Kelvin sign </description>
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
     <modified by="Michael Kay" change="Changed to work under both XPath and XQuery" on="2012-01-15"/>
-    <test>matches(codepoints-to-string(8490), 'K', 'i')</test>
+    <test>matches(codepoints-to-string(8490), &apos;K&apos;, &apos;i&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="caselessmatch07">
+  <test-case name="caselessmatch07"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Call of matches() with "i" flag and Kelvin sign Kelvin sign </description>
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
     <modified by="Michael Kay" change="Changed to work under both XPath and XQuery" on="2012-01-15"/>
-    <test>matches(codepoints-to-string(8490), 'k', 'i')</test>
+    <test>matches(codepoints-to-string(8490), &apos;k&apos;, &apos;i&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="caselessmatch08">
+  <test-case name="caselessmatch08"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Call of matches() with "i" flag and range subtraction </description>
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
-    <test>matches('x', '[A-Z-[OI]]', 'i')</test>
+    <test>matches(&apos;x&apos;, &apos;[A-Z-[OI]]&apos;, &apos;i&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="caselessmatch09">
+  <test-case name="caselessmatch09"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Call of matches() with "i" flag and range subtraction </description>
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
-    <test>matches('X', '[A-Z-[OI]]', 'i')</test>
+    <test>matches(&apos;X&apos;, &apos;[A-Z-[OI]]&apos;, &apos;i&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="caselessmatch10">
+  <test-case name="caselessmatch10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Call of matches() with "i" flag and range subtraction </description>
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
-    <test>matches('O', '[A-Z-[OI]]', 'i')</test>
+    <test>matches(&apos;O&apos;, &apos;[A-Z-[OI]]&apos;, &apos;i&apos;)</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="caselessmatch11">
+  <test-case name="caselessmatch11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Call of matches() with "i" flag and range subtraction </description>
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
-    <test>matches('i', '[A-Z-[OI]]', 'i')</test>
+    <test>matches(&apos;i&apos;, &apos;[A-Z-[OI]]&apos;, &apos;i&apos;)</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="caselessmatch12">
+  <test-case name="caselessmatch12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Call of matches() with "i" flag and negation </description>
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
-    <test>matches('Q', '[^Q]', 'i')</test>
+    <test>matches(&apos;Q&apos;, &apos;[^Q]&apos;, &apos;i&apos;)</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="caselessmatch13">
+  <test-case name="caselessmatch13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Call of matches() with "i" flag and negation </description>
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
-    <test>matches('q', '[^Q]', 'i')</test>
+    <test>matches(&apos;q&apos;, &apos;[^Q]&apos;, &apos;i&apos;)</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="caselessmatch14">
+  <test-case name="caselessmatch14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Call of matches() with "i" flag and upper-case category </description>
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
-    <test>matches('m', '\p{Lu}', 'i')</test>
+    <test>matches(&apos;m&apos;, &apos;\p{Lu}&apos;, &apos;i&apos;)</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="caselessmatch15">
+  <test-case name="caselessmatch15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Call of matches() with "i" flag and upper-case category </description>
     <created by="Michael Kay, Saxonica" on="2006-02-01"/>
-    <test>matches('m', '\P{Lu}', 'i')</test>
+    <test>matches(&apos;m&apos;, &apos;\P{Lu}&apos;, &apos;i&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-MatchesFunc-1">
-    <description> The pattern can't be the empty sequence. </description>
+  <test-case name="K-MatchesFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+    <description> The pattern can&apos;t be the empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>matches("input", ())</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
@@ -702,16 +701,16 @@ defg
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-MatchesFunc-2">
+  <test-case name="K-MatchesFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> fn:matches() takes at least two arguments, not one. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>matches("input")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-MatchesFunc-3">
+  <test-case name="K-MatchesFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> The third argument cannot be the empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>matches("input", "pattern", ())</test>
@@ -720,16 +719,16 @@ defg
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-MatchesFunc-4">
+  <test-case name="K-MatchesFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Only three arguments are accepted. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>matches("input", "pattern", "", ())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-MatchesFunc-5">
+  <test-case name="K-MatchesFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> The flags argument cannot contain whitespace. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>matches("input", "pattern", " ")</test>
@@ -738,8 +737,8 @@ defg
       <error code="FORX0001"/>
     </result>
   </test-case>
-  <test-case name="K-MatchesFunc-6">
-    <description> The flags argument cannot contain 'X'. </description>
+  <test-case name="K-MatchesFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
+    <description> The flags argument cannot contain &apos;X&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>matches("input", "pattern", "X")</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0001"))</result-string>
@@ -747,7 +746,7 @@ defg
       <error code="FORX0001"/>
     </result>
   </test-case>
-  <test-case name="K2-MatchesFunc-1">
+  <test-case name="K2-MatchesFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Whitespace in the regexp is collapsed. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:matches("hello world", "hello\ sworld", "x")</test>
@@ -756,7 +755,7 @@ defg
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-MatchesFunc-2">
+  <test-case name="K2-MatchesFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Whitespace(before) in the regexp is collapsed, but not inside a character class. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:matches("hello world", " hello[ ]world", "x")</test>
@@ -765,7 +764,7 @@ defg
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-MatchesFunc-3">
+  <test-case name="K2-MatchesFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Whitespace(after) in the regexp is collapsed, but not inside a character class. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:matches("hello world", "hello[ ]world ", "x")</test>
@@ -774,7 +773,7 @@ defg
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-MatchesFunc-4">
+  <test-case name="K2-MatchesFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Whitespace(in the middle) in the regexp is collapsed, but not inside a character class. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:matches("hello world", "he ll o[ ]worl d", "x")</test>
@@ -783,7 +782,7 @@ defg
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-MatchesFunc-5">
+  <test-case name="K2-MatchesFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> whitespace in the regexp is collapsed, and should therefore compile. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:matches("hello world", "\p{ IsBasicLatin}+", "x")</test>
@@ -792,7 +791,7 @@ defg
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-MatchesFunc-6">
+  <test-case name="K2-MatchesFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> whitespace in the regexp is collapsed completely, and should therefore compile and match. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:matches("hello world", "\p{ I s B a s i c L a t i n }+", "x")</test>
@@ -801,7 +800,7 @@ defg
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-MatchesFunc-7">
+  <test-case name="K2-MatchesFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> whitespace in the regexp is not collapsed, and should therefore not compile. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:matches("hello world", "\p{ IsBasicLatin}+")</test>
@@ -810,7 +809,7 @@ defg
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="K2-MatchesFunc-8">
+  <test-case name="K2-MatchesFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Since no string is captured by the back-reference, the single character is matched. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:matches("h", "(.)\3")</test>
@@ -819,7 +818,7 @@ defg
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="K2-MatchesFunc-9">
+  <test-case name="K2-MatchesFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Since no string is captured by the back-reference, the single character is matched(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:matches("h", "(.)\2")</test>
@@ -828,7 +827,7 @@ defg
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="K2-MatchesFunc-10">
+  <test-case name="K2-MatchesFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A non-matching backwards-reference matches the empty string. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>matches("input", "\3")</test>
@@ -837,7 +836,7 @@ defg
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="K2-MatchesFunc-11">
+  <test-case name="K2-MatchesFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Use a back reference inside a character class. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>matches("abcd", "(asd)[\1]")</test>
@@ -846,7 +845,7 @@ defg
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="K2-MatchesFunc-12">
+  <test-case name="K2-MatchesFunc-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Use a back reference inside a character class(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>matches("abcd", "(asd)[asd\1]")</test>
@@ -855,7 +854,7 @@ defg
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="K2-MatchesFunc-13">
+  <test-case name="K2-MatchesFunc-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Use a back reference inside a character class(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>matches("abcd", "(asd)[asd\0]")</test>
@@ -864,7 +863,7 @@ defg
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="K2-MatchesFunc-14">
+  <test-case name="K2-MatchesFunc-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Use a back reference inside a character class(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>matches("abcd", "1[asd\0]")</test>
@@ -873,7 +872,7 @@ defg
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="K2-MatchesFunc-15">
+  <test-case name="K2-MatchesFunc-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("false"),xs:boolean("true"))</response-string>
     <description> A negative character class never match a non-character. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:matches("a", "a[^b]"), fn:matches("a ", "a[^b]")</test>
@@ -882,7 +881,7 @@ defg
       <assert-deep-eq>false(), true()</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="K2-MatchesFunc-16">
+  <test-case name="K2-MatchesFunc-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Use a pattern whose interpretation is unknown. See public report 4466 and 21425. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <modified by="Michael Kay" change="see bug 21425" on="2013-06-13"/>
@@ -893,7 +892,7 @@ defg
       <assert-string-value>false</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-MatchesFunc-16a">
+  <test-case name="K2-MatchesFunc-16a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Use a pattern whose interpretation is unknown. See public report 4466 and 21425. </description>
     <created by="Michael Kay" on="2013-06-13"/>
     <dependency type="xsd-version" value="1.0"/>
@@ -903,61 +902,61 @@ defg
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="K2-MatchesFunc-17">
+  <test-case name="K2-MatchesFunc-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Caseless match with back-reference. </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <test>matches('aA', '(a)\1', 'i')</test>
+    <test>matches(&apos;aA&apos;, &apos;(a)\1&apos;, &apos;i&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-001">
+  <test-case name="cbcl-matches-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test an invalid negative pos char group </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '[^]')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;[^]&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-002">
+  <test-case name="cbcl-matches-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test an invalid char range </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '[a-\b]')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;[a-\b]&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-003">
+  <test-case name="cbcl-matches-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test a two-digit back reference </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('abcdefghijkabcdefghijk', '(a)(b)(c)(d)(e)(f)(g)(h)(i)(j)(k)\1\2\3\4\5\6\7\8\9\10\11')</test>
+    <test>fn:matches(&apos;abcdefghijkabcdefghijk&apos;, &apos;(a)(b)(c)(d)(e)(f)(g)(h)(i)(j)(k)\1\2\3\4\5\6\7\8\9\10\11&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-004">
+  <test-case name="cbcl-matches-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test a very large exact quantifier </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('aaa', 'a{99999999999999999999999999}')</test>
+    <test>fn:matches(&apos;aaa&apos;, &apos;a{99999999999999999999999999}&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-005">
+  <test-case name="cbcl-matches-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test with an invalid character range </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('a', '[a--]')</test>
+    <test>fn:matches(&apos;a&apos;, &apos;[a--]&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-006">
+  <test-case name="cbcl-matches-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test with a character class containing an escaped character </description>
     <created by="Tim Mills" on="2008-07-17"/>
     <dependency type="spec" value="XQ10+"/>
@@ -969,287 +968,287 @@ defg
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-006b">
+  <test-case name="cbcl-matches-006b"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test with a character class containing an escaped character </description>
     <created by="Tim Mills" on="2008-07-17"/>
     <dependency type="spec" value="XP10+"/>
-    <test>fn:matches('', '[\t]')</test>
+    <test>fn:matches(&apos;&apos;, &apos;[\t]&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-007">
-    <description> test with a character class beginning with a '-' </description>
+  <test-case name="cbcl-matches-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> test with a character class beginning with a &apos;-&apos; </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('-abba-', '[-ab]+')</test>
+    <test>fn:matches(&apos;-abba-&apos;, &apos;[-ab]+&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-008">
+  <test-case name="cbcl-matches-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test a badly formed category name </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{L')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{L&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-009">
+  <test-case name="cbcl-matches-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test a badly formed category name </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{M')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{M&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-010">
+  <test-case name="cbcl-matches-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test a badly formed category name </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{N')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{N&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-011">
+  <test-case name="cbcl-matches-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test a badly formed category name </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{P')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{P&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-012">
+  <test-case name="cbcl-matches-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test a badly formed category name </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{Z')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{Z&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-013">
+  <test-case name="cbcl-matches-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test a badly formed category name </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{S')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{S&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-014">
+  <test-case name="cbcl-matches-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test a badly formed category name </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{C')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{C&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-015">
+  <test-case name="cbcl-matches-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test category name L </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{L}')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{L}&apos;)</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-016">
+  <test-case name="cbcl-matches-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test category name M </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{M}')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{M}&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-017">
+  <test-case name="cbcl-matches-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test category name N </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{N}')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{N}&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-018">
+  <test-case name="cbcl-matches-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test category name P </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{P}')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{P}&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-019">
+  <test-case name="cbcl-matches-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test category name Z </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{Z}')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{Z}&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-020">
+  <test-case name="cbcl-matches-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test category name S </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{S}')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{S}&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-021">
+  <test-case name="cbcl-matches-021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test category name C </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{C}')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{C}&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-022">
+  <test-case name="cbcl-matches-022"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test category name Lu </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{Lu}')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{Lu}&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-023">
+  <test-case name="cbcl-matches-023"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test category name Me </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{Me}')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{Me}&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-024">
+  <test-case name="cbcl-matches-024"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test category name No </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{No}')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{No}&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-025">
+  <test-case name="cbcl-matches-025"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test category name Pf </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{Pf}')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{Pf}&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-026">
+  <test-case name="cbcl-matches-026"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test category name Zs </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{Zs}')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{Zs}&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-027">
+  <test-case name="cbcl-matches-027"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test category name Sk </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{Sk}')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{Sk}&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-028">
+  <test-case name="cbcl-matches-028"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test category name Cc </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{Cc}')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{Cc}&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-029">
+  <test-case name="cbcl-matches-029"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test invalid category name La </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{La}')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{La}&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-030">
+  <test-case name="cbcl-matches-030"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test invalid category name Ma </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{Ma}')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{Ma}&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-031">
+  <test-case name="cbcl-matches-031"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test invalid category name Na </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{Na}')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{Na}&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-032">
+  <test-case name="cbcl-matches-032"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test invalid category name Pa </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{Pa}')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{Pa}&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-033">
+  <test-case name="cbcl-matches-033"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test invalid category name Za </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{Za}')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{Za}&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-034">
+  <test-case name="cbcl-matches-034"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test invalid category name Sa </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{Sa}')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{Sa}&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-035">
+  <test-case name="cbcl-matches-035"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test invalid category name Ca </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', '\P{Ca}')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;\P{Ca}&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
     <result>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-036">
+  <test-case name="cbcl-matches-036"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test an empty branch </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('foo', 'a()b')</test>
+    <test>fn:matches(&apos;foo&apos;, &apos;a()b&apos;)</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-037">
+  <test-case name="cbcl-matches-037"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test a multibyte Unicode character </description>
     <created by="Tim Mills" on="2008-07-17"/>
     <test>
@@ -1260,34 +1259,34 @@ defg
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-038">
+  <test-case name="cbcl-matches-038"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test a large exact quantifier </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('aaa', 'a{2147483647}')</test>
+    <test>fn:matches(&apos;aaa&apos;, &apos;a{2147483647}&apos;)</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-039">
+  <test-case name="cbcl-matches-039"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test a two-digit back reference </description>
     <created by="Tim Mills" on="2008-07-17"/>
-    <test>fn:matches('abcdefghiabcdefghia0a1', '(a)(b)(c)(d)(e)(f)(g)(h)(i)\1\2\3\4\5\6\7\8\9\10\11')</test>
+    <test>fn:matches(&apos;abcdefghiabcdefghia0a1&apos;, &apos;(a)(b)(c)(d)(e)(f)(g)(h)(i)\1\2\3\4\5\6\7\8\9\10\11&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-040">
+  <test-case name="cbcl-matches-040"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test the multi-character escape \S </description>
     <created by="Tim Mills" on="2008-07-29"/>
-    <test>fn:matches('abc', '\S+')</test>
+    <test>fn:matches(&apos;abc&apos;, &apos;\S+&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-041">
+  <test-case name="cbcl-matches-041"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test the multi-character escape \S </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1299,62 +1298,62 @@ defg
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-041b">
+  <test-case name="cbcl-matches-041b"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test the multi-character escape \S </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <dependency type="spec" value="XP10+"/>
-    <test>fn:matches('', '\S+')</test>
+    <test>fn:matches(&apos;&apos;, &apos;\S+&apos;)</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-042">
+  <test-case name="cbcl-matches-042"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test the multi-character escape \i </description>
     <created by="Tim Mills" on="2008-07-29"/>
-    <test>fn:matches('a_:', '\i+')</test>
+    <test>fn:matches(&apos;a_:&apos;, &apos;\i+&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-043">
+  <test-case name="cbcl-matches-043"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test the multi-character escape \i </description>
     <created by="Tim Mills" on="2008-07-29"/>
-    <test>fn:matches('1.0', '\i+')</test>
+    <test>fn:matches(&apos;1.0&apos;, &apos;\i+&apos;)</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-044">
+  <test-case name="cbcl-matches-044"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test the multi-character escape \I </description>
     <created by="Tim Mills" on="2008-07-29"/>
-    <test>fn:matches('1.0', '\I+')</test>
+    <test>fn:matches(&apos;1.0&apos;, &apos;\I+&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-045">
+  <test-case name="cbcl-matches-045"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test the multi-character escape \I </description>
     <created by="Tim Mills" on="2008-07-29"/>
-    <test>fn:matches('a_:', '\I+')</test>
+    <test>fn:matches(&apos;a_:&apos;, &apos;\I+&apos;)</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-046">
+  <test-case name="cbcl-matches-046"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test the multi-character escape \c </description>
     <created by="Tim Mills" on="2008-07-29"/>
-    <test>fn:matches('abc', '\c+')</test>
+    <test>fn:matches(&apos;abc&apos;, &apos;\c+&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-047">
+  <test-case name="cbcl-matches-047"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test the multi-character escape \c </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1366,17 +1365,17 @@ defg
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-047b">
+  <test-case name="cbcl-matches-047b"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test the multi-character escape \c </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <dependency type="spec" value="XP10+"/>
-    <test>fn:matches('', '\c+')</test>
+    <test>fn:matches(&apos;&apos;, &apos;\c+&apos;)</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-048">
+  <test-case name="cbcl-matches-048"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test the multi-character escape \C </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>
@@ -1387,25 +1386,25 @@ defg
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-049">
+  <test-case name="cbcl-matches-049"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test the multi-character escape \C </description>
     <created by="Tim Mills" on="2008-07-29"/>
-    <test>fn:matches('abc', '\C+')</test>
+    <test>fn:matches(&apos;abc&apos;, &apos;\C+&apos;)</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-050">
+  <test-case name="cbcl-matches-050"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A back-reference is compared using case-blind comparison: that is, each character must either be the same as the corresponding character of the previously matched string, or must be a case-variant of that character. the back reference. For example, the strings "Mum", "mom", "Dad", and "DUD" all match the regular expression "([md])[aeiou]\1" when the "i" flag is used. </description>
     <created by="Tim Mills" on="2008-07-29"/>
-    <test>fn:matches('Mum', '([md])[aeiou]\1', 'i')</test>
+    <test>fn:matches(&apos;Mum&apos;, &apos;([md])[aeiou]\1&apos;, &apos;i&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-051">
+  <test-case name="cbcl-matches-051"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test back-reference to character above #FFFF; </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>
@@ -1416,7 +1415,7 @@ defg
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-052">
+  <test-case name="cbcl-matches-052"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test back-reference to character above #FFFF; </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>
@@ -1427,10 +1426,10 @@ defg
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-matches-053">
+  <test-case name="cbcl-matches-053"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A back-reference is compared using case-blind comparison: that is, each character must either be the same as the corresponding character of the previously matched string, or must be a case-variant of that character. the back reference. For example, the strings "Mum", "mom", "Dad", and "DUD" all match the regular expression "([md])[aeiou]\1" when the "i" flag is used. </description>
     <created by="Tim Mills" on="2008-07-29"/>
-    <test>fn:matches('Mud', '([md])[aeiou]\1', 'i')</test>
+    <test>fn:matches(&apos;Mud&apos;, &apos;([md])[aeiou]\1&apos;, &apos;i&apos;)</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>

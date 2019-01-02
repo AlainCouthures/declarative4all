@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="op-divide-dayTimeDuration-by-dayTimeDuration" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the divide-dayTimeDuration-by-dayTimeDuration() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-divide-dayTimeDuration-by-dayTimeDuration" type="spec"/>
-  <test-case name="op-divide-dayTimeDuration-by-dayTimeDuration2args-1">
+  <test-case name="op-divide-dayTimeDuration-by-dayTimeDuration2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-by-dayTimeDuration2args-1
@@ -21,7 +20,7 @@ $arg2 = xs:dayTimeDuration(lower bound)
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-by-dayTimeDuration2args-2">
+  <test-case name="op-divide-dayTimeDuration-by-dayTimeDuration2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.339199E6")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-by-dayTimeDuration2args-2
@@ -35,12 +34,12 @@ $arg2 = xs:dayTimeDuration(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P15DT11H59M59S") div xs:dayTimeDuration("P0DT0H0M01S")</test>
-    <result-string>xs:integer("1339199")</result-string>
+    <result-string>xs:double("1.339199E6")</result-string>
     <result>
       <assert-eq>1339199</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-by-dayTimeDuration2args-3">
+  <test-case name="op-divide-dayTimeDuration-by-dayTimeDuration2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("2.764799E6")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-by-dayTimeDuration2args-3
@@ -54,12 +53,12 @@ $arg2 = xs:dayTimeDuration(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P31DT23H59M59S") div xs:dayTimeDuration("P0DT0H0M01S")</test>
-    <result-string>xs:integer("2764799")</result-string>
+    <result-string>xs:double("2.764799E6")</result-string>
     <result>
       <assert-eq>2764799</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-by-dayTimeDuration2args-4">
+  <test-case name="op-divide-dayTimeDuration-by-dayTimeDuration2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-by-dayTimeDuration2args-4
@@ -73,12 +72,12 @@ $arg2 = xs:dayTimeDuration(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P0DT0H0M0S") div xs:dayTimeDuration("P15DT11H59M59S")</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-by-dayTimeDuration2args-5">
+  <test-case name="op-divide-dayTimeDuration-by-dayTimeDuration2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-by-dayTimeDuration2args-5
@@ -97,7 +96,7 @@ $arg2 = xs:dayTimeDuration(upper bound)
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-by-dTD-1">
+  <test-case name="op-divide-dayTimeDuration-by-dTD-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.4378349673202622")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-by-dTD-1             
@@ -118,7 +117,7 @@ As per example 1 (for this function)of the FO specs.
       </any-of>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-by-dTD-2">
+  <test-case name="op-divide-dayTimeDuration-by-dTD-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-by-dTD-2               
@@ -135,7 +134,7 @@ used as part of a boolean expression (and operator) and the "fn:false" function.
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-by-dTD-3">
+  <test-case name="op-divide-dayTimeDuration-by-dTD-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-by-dTD-3               
@@ -152,7 +151,7 @@ part of a boolean expression (or operator) and the "fn:boolean" function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-by-dTD-4">
+  <test-case name="op-divide-dayTimeDuration-by-dTD-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-by-dTD-4               
@@ -169,7 +168,7 @@ return true and used together with fn:not.
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-by-dTD-5">
+  <test-case name="op-divide-dayTimeDuration-by-dTD-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-by-dTD-5               
@@ -186,7 +185,7 @@ is used as an argument to the fn:boolean function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-by-dTD-6">
+  <test-case name="op-divide-dayTimeDuration-by-dTD-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-by-dTD-6               
@@ -203,7 +202,7 @@ is used as an argument to the fn:number function.
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-by-dTD-7">
+  <test-case name="op-divide-dayTimeDuration-by-dTD-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-by-dTD-7               
@@ -215,12 +214,12 @@ as an argument to the "fn:string" function.
 </description>
     <created by="Carmelo Montanez" on="2005-06-30"/>
     <test>fn:string(xs:dayTimeDuration("P08DT06H08M") div xs:dayTimeDuration("P08DT06H08M"))</test>
-    <result-string>xs:string(""1"")</result-string>
+    <result-string>xs:string("1")</result-string>
     <result>
       <assert-eq>"1"</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-by-dTD-8">
+  <test-case name="op-divide-dayTimeDuration-by-dTD-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-by-dTD-8               
@@ -237,7 +236,7 @@ returns a negative value.
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-by-dTD-9">
+  <test-case name="op-divide-dayTimeDuration-by-dTD-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-by-dTD-9               
@@ -254,7 +253,7 @@ together with and "and" expression.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-by-dTD-10">
+  <test-case name="op-divide-dayTimeDuration-by-dTD-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-by-dTD-10              
@@ -271,7 +270,7 @@ together with an "or" expression.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-by-dTD-11">
+  <test-case name="op-divide-dayTimeDuration-by-dTD-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("3.6713996177545485")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-by-dTD-11              
@@ -288,7 +287,7 @@ together with multiple "div" expressions.
       <assert-eq>3.671399617754547</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-by-dTD-12">
+  <test-case name="op-divide-dayTimeDuration-by-dTD-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-by-dTD-12              
@@ -305,7 +304,7 @@ with a boolean expression and the "fn:true" function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-by-dTD-13">
+  <test-case name="op-divide-dayTimeDuration-by-dTD-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-by-dTD-13              
@@ -322,7 +321,7 @@ together with the numeric-equal-operator "eq".
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-by-dTD-14">
+  <test-case name="op-divide-dayTimeDuration-by-dTD-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-by-dTD-14              
@@ -339,7 +338,7 @@ together with the numeric-equal operator "ne".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-by-dTD-15">
+  <test-case name="op-divide-dayTimeDuration-by-dTD-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-by-dTD-15              
@@ -356,7 +355,7 @@ together with the numeric-equal operator "le".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-by-dTD-16">
+  <test-case name="op-divide-dayTimeDuration-by-dTD-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-by-dTD-16              
@@ -373,7 +372,7 @@ together with the numeric-equal operator "ge".
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationDivideDTD-1">
+  <test-case name="K-DayTimeDurationDivideDTD-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationDivideDTD-1                    
@@ -389,7 +388,7 @@ together with the numeric-equal operator "ge".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-divide-dayTimeDuration-by-dayTimeDuration-001">
+  <test-case name="cbcl-divide-dayTimeDuration-by-dayTimeDuration-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test division of xs:dayTimeDuration by zero </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <test>xs:dayTimeDuration("P9223372036854775807D") div xs:dayTimeDuration("P0D")</test>
@@ -402,7 +401,7 @@ together with the numeric-equal operator "ge".
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-divide-dayTimeDuration-by-dayTimeDuration-002">
+  <test-case name="cbcl-divide-dayTimeDuration-by-dayTimeDuration-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test division of xs:dayTimeDuration by a small duration </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <test>xs:dayTimeDuration("P9223372036854775807D") div xs:dayTimeDuration("P0DT0H0M0.000000001S")</test>
@@ -415,7 +414,7 @@ together with the numeric-equal operator "ge".
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-divide-dayTimeDuration-by-dayTimeDuration-003">
+  <test-case name="cbcl-divide-dayTimeDuration-by-dayTimeDuration-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("2")</response-string>
     <description> test division of xs:dayTimeDuration by a small duration </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <modified by="Michael Kay" change="allow implementation to blow its limits" on="2012-12-21"/>

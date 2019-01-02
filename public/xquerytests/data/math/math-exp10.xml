@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set covers="math-exp10" name="math-exp10" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the math:exp10 function introduced in XPath 3.0</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-exp10" type="spec"/>
   <dependency type="spec" value="XP30+ XQ30+"/>
-  <test-case name="math-exp10-001">
+  <test-case name="math-exp10-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Evaluate the function exp10() with the argument set to empty sequence</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:exp10(())</test>
     <result-string>()</result-string>
@@ -13,29 +12,29 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="math-exp10-002">
+  <test-case name="math-exp10-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description>Evaluate the function exp10() with the argument set to 0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:exp10(0)</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-exp10-003">
+  <test-case name="math-exp10-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("10")</response-string>
     <description>Evaluate the function exp10() with the argument set to 1</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:exp10(1)</test>
-    <result-string>xs:double("1.0e1")</result-string>
+    <result-string>xs:double("10")</result-string>
     <result>
       <assert-eq>1.0e1</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-exp10-004">
+  <test-case name="math-exp10-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("3.162277660168379")</response-string>
     <description>Evaluate the function exp10() with the argument set to 0.5</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <modified by="Michael Kay, Saxonica" change="add alternative result, see bug 15233" on="2012-05-29"/>
     <environment ref="math"/>
     <test>math:exp10(0.5)</test>
@@ -49,42 +48,42 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="math-exp10-005">
+  <test-case name="math-exp10-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0.1")</response-string>
     <description>Evaluate the function exp10() with the argument set to -1</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:exp10(-1)</test>
-    <result-string>xs:double("1.0e-1")</result-string>
+    <result-string>xs:double("0.1")</result-string>
     <result>
       <assert-eq>1.0e-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-exp10-006">
-    <description>Evaluate the function exp10() with the argument set to xs:double('NaN')</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+  <test-case name="math-exp10-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
+    <description>Evaluate the function exp10() with the argument set to xs:double(&apos;NaN&apos;)</description>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
-    <test>math:exp10(xs:double('NaN'))</test>
+    <test>math:exp10(xs:double(&apos;NaN&apos;))</test>
     <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="math-exp10-007">
-    <description>Evaluate the function exp10() with the argument xs:double('INF')</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+  <test-case name="math-exp10-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("INF")</response-string>
+    <description>Evaluate the function exp10() with the argument xs:double(&apos;INF&apos;)</description>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
-    <test>math:exp10(xs:double('INF'))</test>
+    <test>math:exp10(xs:double(&apos;INF&apos;))</test>
     <result-string>xs:double("INF")</result-string>
     <result>
-      <assert-eq>xs:double('INF')</assert-eq>
+      <assert-eq>xs:double(&apos;INF&apos;)</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-exp10-008">
-    <description>Evaluate the function exp10() with the argument xs:double('NaN')</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+  <test-case name="math-exp10-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
+    <description>Evaluate the function exp10() with the argument xs:double(&apos;NaN&apos;)</description>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
-    <test>math:exp10(xs:double('-INF'))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <test>math:exp10(xs:double(&apos;-INF&apos;))</test>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0.0e0</assert-eq>
     </result>

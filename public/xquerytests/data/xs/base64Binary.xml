@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="xs-base64Binary" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for conversion to/from base64Binary</description>
-  <test-case name="base64-001">
+  <test-case name="base64-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert empty string to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:base64Binary(xs:hexBinary(""))</test>
@@ -10,7 +9,7 @@
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="base64-002">
+  <test-case name="base64-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert single byte to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:base64Binary(xs:hexBinary("00"))</test>
@@ -19,7 +18,7 @@
       <assert-string-value>AA==</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-003">
+  <test-case name="base64-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert single byte to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:base64Binary(xs:hexBinary("01"))</test>
@@ -28,7 +27,7 @@
       <assert-string-value>AQ==</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-004">
+  <test-case name="base64-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert single byte to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:base64Binary(xs:hexBinary("ff"))</test>
@@ -37,7 +36,7 @@
       <assert-string-value>/w==</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-005">
+  <test-case name="base64-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:base64Binary("0000")</response-string>
     <description> Convert two bytes to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:base64Binary(xs:hexBinary("0000"))</test>
@@ -46,7 +45,7 @@
       <assert-string-value>AAA=</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-006">
+  <test-case name="base64-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:base64Binary("00FF")</response-string>
     <description> Convert two bytes to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:base64Binary(xs:hexBinary("00ff"))</test>
@@ -55,7 +54,7 @@
       <assert-string-value>AP8=</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-007">
+  <test-case name="base64-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:base64Binary("80C0")</response-string>
     <description> Convert two bytes to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:base64Binary(xs:hexBinary("80c0"))</test>
@@ -64,7 +63,7 @@
       <assert-string-value>gMA=</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-008">
+  <test-case name="base64-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert three bytes to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:base64Binary(xs:hexBinary("aabbcc"))</test>
@@ -73,7 +72,7 @@
       <assert-string-value>qrvM</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-009">
+  <test-case name="base64-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert three bytes to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:base64Binary(xs:hexBinary("010203"))</test>
@@ -82,7 +81,7 @@
       <assert-string-value>AQID</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-010">
+  <test-case name="base64-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:base64Binary("01020304")</response-string>
     <description> Convert four bytes to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:base64Binary(xs:hexBinary("01020304"))</test>
@@ -91,7 +90,7 @@
       <assert-string-value>AQIDBA==</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-011">
+  <test-case name="base64-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert five bytes to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:base64Binary(xs:hexBinary("0102030405"))</test>
@@ -100,7 +99,7 @@
       <assert-string-value>AQIDBAU=</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-012">
+  <test-case name="base64-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:base64Binary("010203040506")</response-string>
     <description> Convert six bytes to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:base64Binary(xs:hexBinary("010203040506"))</test>
@@ -109,7 +108,7 @@
       <assert-string-value>AQIDBAUG</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-013">
+  <test-case name="base64-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert seven bytes to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:base64Binary(xs:hexBinary("01020304050607"))</test>
@@ -118,7 +117,7 @@
       <assert-string-value>AQIDBAUGBw==</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-014">
+  <test-case name="base64-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert a longer byte array to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:base64Binary(xs:hexBinary("0102030405060708090A0B0C0D0E0F10111213131415161718191A1B1C1D1F202122232425262728292A2B2C2D2E2F"))</test>
@@ -127,7 +126,7 @@
       <assert-string-value>AQIDBAUGBwgJCgsMDQ4PEBESExMUFRYXGBkaGxwdHyAhIiMkJSYnKCkqKywtLi8=</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-101">
+  <test-case name="base64-101"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:base64Binary("")</response-string>
     <description> Convert empty string to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:base64Binary("")</test>
@@ -136,7 +135,7 @@
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="base64-102">
+  <test-case name="base64-102"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert single byte to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:hexBinary(xs:base64Binary("AA=="))</test>
@@ -145,7 +144,7 @@
       <assert-string-value>00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-103">
+  <test-case name="base64-103"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert single byte to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:hexBinary(xs:base64Binary("AQ=="))</test>
@@ -154,7 +153,7 @@
       <assert-string-value>01</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-104">
+  <test-case name="base64-104"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert single byte to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:hexBinary(xs:base64Binary("/w=="))</test>
@@ -163,7 +162,7 @@
       <assert-string-value>FF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-105">
+  <test-case name="base64-105"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert two bytes to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:hexBinary(xs:base64Binary("AAA="))</test>
@@ -172,7 +171,7 @@
       <assert-string-value>0000</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-106">
+  <test-case name="base64-106"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert two bytes to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:hexBinary(xs:base64Binary("AP8="))</test>
@@ -181,7 +180,7 @@
       <assert-string-value>00FF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-107">
+  <test-case name="base64-107"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert two bytes to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:hexBinary(xs:base64Binary("gMA="))</test>
@@ -190,7 +189,7 @@
       <assert-string-value>80C0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-108">
+  <test-case name="base64-108"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert three bytes to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:hexBinary(xs:base64Binary("qrvM"))</test>
@@ -199,7 +198,7 @@
       <assert-string-value>AABBCC</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-109">
+  <test-case name="base64-109"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert three bytes to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:hexBinary(xs:base64Binary("AQID"))</test>
@@ -208,7 +207,7 @@
       <assert-string-value>010203</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-110">
+  <test-case name="base64-110"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert four bytes to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:hexBinary(xs:base64Binary("AQIDBA=="))</test>
@@ -217,7 +216,7 @@
       <assert-string-value>01020304</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-111">
+  <test-case name="base64-111"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert five bytes to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:hexBinary(xs:base64Binary("AQIDBAU="))</test>
@@ -226,7 +225,7 @@
       <assert-string-value>0102030405</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-112">
+  <test-case name="base64-112"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert six bytes to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:hexBinary(xs:base64Binary("AQIDBAUG"))</test>
@@ -235,7 +234,7 @@
       <assert-string-value>010203040506</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-113">
+  <test-case name="base64-113"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert seven bytes to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:hexBinary(xs:base64Binary("AQIDBAUGBw=="))</test>
@@ -244,7 +243,7 @@
       <assert-string-value>01020304050607</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-114">
+  <test-case name="base64-114"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert a longer string of bytes to b64 </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:hexBinary(xs:base64Binary("AQIDBAUGBwgJCgsMDQ4PEBESExMUFRYXGBkaGxwdHyAhIiMkJSYnKCkqKywtLi8="))</test>
@@ -253,7 +252,7 @@
       <assert-string-value>0102030405060708090A0B0C0D0E0F10111213131415161718191A1B1C1D1F202122232425262728292A2B2C2D2E2F</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-115">
+  <test-case name="base64-115"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Convert a longer string of bytes to b64; include whitespace </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:hexBinary(xs:base64Binary(" AQIDBAUG BwgJCgsM DQ4PEBES ExMUFRYX  GBkaGxwdH yAhIiMkJ SYnKCkqK y w t L i 8 = "))</test>
@@ -262,52 +261,52 @@
       <assert-string-value>0102030405060708090A0B0C0D0E0F10111213131415161718191A1B1C1D1F202122232425262728292A2B2C2D2E2F</assert-string-value>
     </result>
   </test-case>
-  <test-case name="base64-901">
+  <test-case name="base64-901"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Invalid input: not a multiple of 4 characters </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:base64Binary("AQI")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="base64-902">
-    <description> Invalid input: '=' not at end </description>
+  <test-case name="base64-902"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
+    <description> Invalid input: &apos;=&apos; not at end </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:base64Binary("AQ=I")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="base64-903">
-    <description> Invalid input: '=' not at end </description>
+  <test-case name="base64-903"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
+    <description> Invalid input: &apos;=&apos; not at end </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:base64Binary("=AQI")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="base64-904">
-    <description> Invalid input: too many '=' signs </description>
+  <test-case name="base64-904"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
+    <description> Invalid input: too many &apos;=&apos; signs </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:base64Binary("qrvM====")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="base64-905">
+  <test-case name="base64-905"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Invalid input: disallowed character </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:base64Binary("gMA-")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0001"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</result-string>
     <result>
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="base64-906">
+  <test-case name="base64-906"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:base64Binary("AP9=")</response-string>
     <description> Invalid input: wrong character before final = </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:base64Binary("AP9=")</test>
@@ -316,7 +315,7 @@
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="base64-907">
+  <test-case name="base64-907"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:base64Binary("Ay==")</response-string>
     <description> Invalid input: wrong character before final = </description>
     <created by="Michael Kay" on="2012-07-18"/>
     <test>xs:base64Binary("Ay==")</test>
@@ -325,7 +324,7 @@
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="cbcl-base64binary-001">
+  <test-case name="cbcl-base64binary-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description>Tests for the xs:base64Binary constructor</description>
     <created by="Oliver Hallam" on="2008-04-14"/>
     <test>count(xs:base64Binary(()))</test>

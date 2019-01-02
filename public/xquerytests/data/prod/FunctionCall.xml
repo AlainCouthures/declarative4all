@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="prod-FunctionCall" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the FunctionCall production.
     Contains tests verifying the function calling mechanism; not a particular function implementation.</description>
@@ -9,7 +8,7 @@
       <created by="Anonymous" on="2006-06-07"/>
     </schema>
   </environment>
-  <test-case name="FunctionCall-001">
+  <test-case name="FunctionCall-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("XY")</response-string>
     <description>Test that arguments are atomized - built in function</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <dependency type="spec" value="XQ10+"/>
@@ -21,7 +20,7 @@
       <assert-string-value>XY</assert-string-value>
     </result>
   </test-case>
-  <test-case name="FunctionCall-002">
+  <test-case name="FunctionCall-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Test that arguments are atomized - constructor function</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <dependency type="spec" value="XQ10+"/>
@@ -33,7 +32,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case covers="validate-by-type" name="FunctionCall-003">
+  <test-case covers="validate-by-type" name="FunctionCall-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that arguments are atomized - constructor function</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <dependency type="spec" value="XQ30+"/>
@@ -49,7 +48,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="FunctionCall-004">
+  <test-case name="FunctionCall-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:untypedAtomic("0")</response-string>
     <description>Test that arguments are atomized - user-defined function</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <dependency type="spec" value="XQ10+"/>
@@ -63,7 +62,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case covers="validate-by-type" name="FunctionCall-005">
+  <test-case covers="validate-by-type" name="FunctionCall-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that arguments are atomized - user-defined function</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <dependency type="spec" value="XQ30+"/>
@@ -78,7 +77,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case covers="dynamic-function-call" name="FunctionCall-006">
+  <test-case covers="dynamic-function-call" name="FunctionCall-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:untypedAtomic("0")</response-string>
     <description>Test that arguments are atomized - anonymous inline function</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <dependency type="spec" value="XQ30+"/>
@@ -94,7 +93,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case covers="dynamic-function-call" name="FunctionCall-007">
+  <test-case covers="dynamic-function-call" name="FunctionCall-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that arguments are atomized - dynamic call to a user-defined function</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <dependency type="spec" value="XQ30+"/>
@@ -111,7 +110,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case covers="dynamic-function-call" name="FunctionCall-008">
+  <test-case covers="dynamic-function-call" name="FunctionCall-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that arguments are atomized - dynamic call to a constructor function</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <dependency type="spec" value="XQ30+"/>
@@ -131,7 +130,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case covers="cast-to-list bang-operator" name="FunctionCall-009">
+  <test-case covers="cast-to-list bang-operator" name="FunctionCall-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Test that a sequence of untypedAtomic values is cast to the target type: user-defined function.
          Also tests XPath 3.0 casting to list, and bang operator.</description>
     <created by="Michael Kay" on="2011-10-31"/>
@@ -150,13 +149,13 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="FunctionCall-010">
+  <test-case name="FunctionCall-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Test that a sequence of untypedAtomic values is cast to the target type: inline function.
          Also tests XPath 3.0 inline functions, casting to list, and bang operator.</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <dependency type="spec" value="XP30+"/>
     <dependency type="feature" value="higherOrderFunctions"/>
-    <test>function($in as xs:decimal*) as xs:decimal {sum($in, 0.0)}(xs:NMTOKENS('1 1.2 1.3 1.4')!xs:untypedAtomic(.))</test>
+    <test>function($in as xs:decimal*) as xs:decimal {sum($in, 0.0)}(xs:NMTOKENS(&apos;1 1.2 1.3 1.4&apos;)!xs:untypedAtomic(.))</test>
     <result-string/>
     <result>
       <all-of>
@@ -165,12 +164,12 @@
       </all-of>
     </result>
   </test-case>
-  <test-case covers="cast-to-list bang-operator" name="FunctionCall-011">
+  <test-case covers="cast-to-list bang-operator" name="FunctionCall-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Test that a sequence of untypedAtomic values is cast to the target type: built-in function.
          Also tests casting to list, and bang operator.</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <dependency type="spec" value="XP30+"/>
-    <test>codepoints-to-string(xs:NMTOKENS('48 49 50 51')!xs:untypedAtomic(.))</test>
+    <test>codepoints-to-string(xs:NMTOKENS(&apos;48 49 50 51&apos;)!xs:untypedAtomic(.))</test>
     <result-string/>
     <result>
       <all-of>
@@ -179,18 +178,18 @@
       </all-of>
     </result>
   </test-case>
-  <test-case covers="cast-to-list" name="FunctionCall-012">
+  <test-case covers="cast-to-list" name="FunctionCall-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Test that a sequence of NON-untypedAtomic values is NOT cast to the target type: built-in function.
          Also tests casting to list.</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <dependency type="spec" value="XP30+"/>
-    <test>codepoints-to-string(xs:NMTOKENS('30 31 32 33'))</test>
+    <test>codepoints-to-string(xs:NMTOKENS(&apos;30 31 32 33&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="FunctionCall-013">
+  <test-case name="FunctionCall-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:untypedAtomic("1234")</response-string>
     <description>Test that the untypedAtomic result of a user-defined function is cast to the declared type.</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <dependency type="spec" value="XQ10+"/>
@@ -210,7 +209,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case covers="inline-function" name="FunctionCall-014">
+  <test-case covers="inline-function" name="FunctionCall-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:untypedAtomic("1234")</response-string>
     <description>Test that the untypedAtomic result of an inline function is cast to the declared type.</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <dependency type="spec" value="XQ30+"/>
@@ -231,10 +230,10 @@
       </all-of>
     </result>
   </test-case>
-  <test-case covers="dynamic-function-call" name="FunctionCall-015">
+  <test-case covers="dynamic-function-call" name="FunctionCall-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that arguments are atomized - but not the argument of casting to QName</description>
     <created by="Michael Kay" on="2011-10-31"/>
-    <modified by="O'Neil Delpratt" change="fix bug 14873" on="2012-08-08"/>
+    <modified by="O&apos;Neil Delpratt" change="fix bug 14873" on="2012-08-08"/>
     <dependency type="spec" value="XQ30+"/>
     <dependency type="feature" value="schemaValidation"/>
     <dependency type="feature" value="higherOrderFunctions"/>
@@ -249,7 +248,7 @@
       <assert-eq>13</assert-eq>
     </result>
   </test-case>
-  <test-case covers="cast-to-qname" name="FunctionCall-016">
+  <test-case covers="cast-to-qname" name="FunctionCall-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Test that untyped arguments are converted - but not when the expected type is QName</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <dependency type="spec" value="XQ30+"/>
@@ -265,7 +264,7 @@
       <error code="XPTY0117"/>
     </result>
   </test-case>
-  <test-case covers="cast-to-qname" name="FunctionCall-017">
+  <test-case covers="cast-to-qname" name="FunctionCall-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Test that untyped arguments are converted - but not when the expected type is QName</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <dependency type="spec" value="XQ30+"/>
@@ -282,7 +281,7 @@
       <error code="XPTY0117"/>
     </result>
   </test-case>
-  <test-case covers="cast-to-qname" name="FunctionCall-018">
+  <test-case covers="cast-to-qname" name="FunctionCall-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Test that untyped arguments are converted - but not when the expected type is QName</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <dependency type="spec" value="XQ30+"/>
@@ -297,7 +296,7 @@
       <error code="XPTY0117"/>
     </result>
   </test-case>
-  <test-case covers="cast-to-qname" name="FunctionCall-019">
+  <test-case covers="cast-to-qname" name="FunctionCall-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;a&gt;fn:abs&lt;/a&gt;</response-string>
     <description>Test that untyped results are converted - but not when the expected type is QName</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <dependency type="spec" value="XQ30+"/>
@@ -315,7 +314,7 @@
       <error code="XPTY0117"/>
     </result>
   </test-case>
-  <test-case covers="cast-to-qname" name="FunctionCall-020">
+  <test-case covers="cast-to-qname" name="FunctionCall-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;a&gt;fn:abs&lt;/a&gt;</response-string>
     <description>Test that untyped results are converted - but not when the expected type is QName</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <dependency type="spec" value="XQ30+"/>
@@ -333,7 +332,7 @@
       <error code="XPTY0117"/>
     </result>
   </test-case>
-  <test-case covers="cast-to-qname" name="FunctionCall-021">
+  <test-case covers="cast-to-qname" name="FunctionCall-021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that untyped results are converted - but not when the expected type is QName</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <dependency type="spec" value="XQ30+"/>
@@ -352,7 +351,7 @@
       <error code="XPTY0117"/>
     </result>
   </test-case>
-  <test-case name="FunctionCall-023">
+  <test-case name="FunctionCall-023"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>Test that a sequence of arguments is atomized</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <dependency type="spec" value="XQ10+"/>
@@ -364,7 +363,7 @@
       <assert-string-value>XYZ</assert-string-value>
     </result>
   </test-case>
-  <test-case covers="inline-function dynamic-function-call" name="FunctionCall-025">
+  <test-case covers="inline-function dynamic-function-call" name="FunctionCall-025"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Test that a sequence of numeric values undergoes numeric promotion to the target type.
          Also tests XPath 3.0 inline functions.</description>
     <created by="Michael Kay" on="2011-10-31"/>
@@ -379,13 +378,13 @@
       </all-of>
     </result>
   </test-case>
-  <test-case covers="inline-function dynamic-function-call" name="FunctionCall-026">
+  <test-case covers="inline-function dynamic-function-call" name="FunctionCall-026"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("http://one.com/;http://two.com/")</response-string>
     <description>Test that a sequence of anyURI values undergoes numeric promotion to the target type.
          Also tests XPath 3.0 inline functions.</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <dependency type="spec" value="XP30+"/>
     <dependency type="feature" value="higherOrderFunctions"/>
-    <test>function($in as xs:string*) as xs:string {string-join($in, ';')}((xs:anyURI('http://one.com/'), xs:anyURI('http://two.com/')))</test>
+    <test>function($in as xs:string*) as xs:string {string-join($in, &apos;;&apos;)}((xs:anyURI(&apos;http://one.com/&apos;), xs:anyURI(&apos;http://two.com/&apos;)))</test>
     <result-string/>
     <result>
       <all-of>
@@ -394,18 +393,18 @@
       </all-of>
     </result>
   </test-case>
-  <test-case covers="union-as-sequence-type" name="FunctionCall-027">
+  <test-case covers="union-as-sequence-type" name="FunctionCall-027"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that an untypedAtomic value is NOT cast to the target type where the target type is a list type.
          This is an error because although casting to a list type is allowed, a list type cannot be used in a function signature.</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <dependency type="spec" value="XP30+"/>
-    <test>function($in as xs:NMTOKENS) as item()* {$in}(xs:untypedAtomic('abc def'))</test>
+    <test>function($in as xs:NMTOKENS) as item()* {$in}(xs:untypedAtomic(&apos;abc def&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0051"))</result-string>
     <result>
       <error code="XPST0051"/>
     </result>
   </test-case>
-  <test-case covers="union-as-sequence-type" name="FunctionCall-028">
+  <test-case covers="union-as-sequence-type" name="FunctionCall-028"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that the target type can be a union type.</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <environment ref="ListUnionTypes"/>
@@ -413,7 +412,7 @@
     <dependency type="feature" value="schemaImport"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>
-        declare namespace lu = 'http://www.w3.org/XQueryTest/ListUnionTypes' ;
+        declare namespace lu = &apos;http://www.w3.org/XQueryTest/ListUnionTypes&apos; ;
         import schema "http://www.w3.org/XQueryTest/ListUnionTypes";
       	function($in as lu:unionType) as xs:boolean {$in instance of xs:integer}(23)</test>
     <result-string>xs:boolean("true")</result-string>
@@ -421,7 +420,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case covers="union-as-sequence-type" name="FunctionCall-029">
+  <test-case covers="union-as-sequence-type" name="FunctionCall-029"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that the target type can be a union type.</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <environment ref="ListUnionTypes"/>
@@ -429,7 +428,7 @@
     <dependency type="feature" value="schemaImport"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>
-        declare namespace lu = 'http://www.w3.org/XQueryTest/ListUnionTypes' ;
+        declare namespace lu = &apos;http://www.w3.org/XQueryTest/ListUnionTypes&apos; ;
         import schema "http://www.w3.org/XQueryTest/ListUnionTypes";
       	function($in as lu:unionType) as xs:boolean {$in instance of xs:integer}(xs:float(12))</test>
     <result-string>xs:boolean("false")</result-string>
@@ -437,7 +436,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case covers="union-as-sequence-type" name="FunctionCall-030">
+  <test-case covers="union-as-sequence-type" name="FunctionCall-030"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that numeric promotion does not occur when the target type is a union type.</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <environment ref="ListUnionTypes"/>
@@ -445,7 +444,7 @@
     <dependency type="feature" value="schemaImport"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>
-        declare namespace lu = 'http://www.w3.org/XQueryTest/ListUnionTypes' ;
+        declare namespace lu = &apos;http://www.w3.org/XQueryTest/ListUnionTypes&apos; ;
         import schema "http://www.w3.org/XQueryTest/ListUnionTypes";
       	function($in as lu:unionType) as xs:boolean {$in instance of xs:integer}(12.3)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
@@ -453,7 +452,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case covers="union-as-sequence-type" name="FunctionCall-031">
+  <test-case covers="union-as-sequence-type" name="FunctionCall-031"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that casting of untypedAtomic does occur when the target type is a union type.</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <environment ref="ListUnionTypes"/>
@@ -461,15 +460,15 @@
     <dependency type="feature" value="schemaImport"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>
-        declare namespace lu = 'http://www.w3.org/XQueryTest/ListUnionTypes' ;
+        declare namespace lu = &apos;http://www.w3.org/XQueryTest/ListUnionTypes&apos; ;
         import schema "http://www.w3.org/XQueryTest/ListUnionTypes";
-      	function($in as lu:unionType) as xs:boolean {$in instance of xs:integer}(xs:untypedAtomic('123'))</test>
+      	function($in as lu:unionType) as xs:boolean {$in instance of xs:integer}(xs:untypedAtomic(&apos;123&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case covers="union-as-sequence-type" name="FunctionCall-032">
+  <test-case covers="union-as-sequence-type" name="FunctionCall-032"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that the argument type cannot be a union type having a list type in its membership.</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <environment ref="ListUnionTypes"/>
@@ -477,7 +476,7 @@
     <dependency type="feature" value="schemaImport"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>
-        declare namespace lu = 'http://www.w3.org/XQueryTest/ListUnionTypes' ;
+        declare namespace lu = &apos;http://www.w3.org/XQueryTest/ListUnionTypes&apos; ;
         import schema "http://www.w3.org/XQueryTest/ListUnionTypes";
       	function($in as lu:unionOfListType) as xs:boolean {$in instance of xs:integer}(23)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0051"))</result-string>
@@ -485,7 +484,7 @@
       <error code="XPST0051"/>
     </result>
   </test-case>
-  <test-case covers="union-as-sequence-type" name="FunctionCall-033">
+  <test-case covers="union-as-sequence-type" name="FunctionCall-033"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that the argument type cannot be a union type derived by restriction from another union type.</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <environment ref="ListUnionTypes"/>
@@ -493,7 +492,7 @@
     <dependency type="feature" value="schemaImport"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>
-        declare namespace lu = 'http://www.w3.org/XQueryTest/ListUnionTypes' ;
+        declare namespace lu = &apos;http://www.w3.org/XQueryTest/ListUnionTypes&apos; ;
         import schema "http://www.w3.org/XQueryTest/ListUnionTypes";
       	function($in as lu:restrictedUnionType) as xs:boolean {$in instance of xs:integer}(23)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0051"))</result-string>
@@ -501,7 +500,7 @@
       <error code="XPST0051"/>
     </result>
   </test-case>
-  <test-case covers="union-as-sequence-type" name="FunctionCall-034">
+  <test-case covers="union-as-sequence-type" name="FunctionCall-034"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that the argument type cannot be a list type.</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <environment ref="ListUnionTypes"/>
@@ -509,7 +508,7 @@
     <dependency type="feature" value="schemaImport"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>
-        declare namespace lu = 'http://www.w3.org/XQueryTest/ListUnionTypes' ;
+        declare namespace lu = &apos;http://www.w3.org/XQueryTest/ListUnionTypes&apos; ;
         import schema "http://www.w3.org/XQueryTest/ListUnionTypes";
       	function($in as lu:listType) as xs:boolean {$in instance of xs:integer}(23)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0051"))</result-string>
@@ -517,7 +516,7 @@
       <error code="XPST0051"/>
     </result>
   </test-case>
-  <test-case covers="union-as-sequence-type" name="FunctionCall-035">
+  <test-case covers="union-as-sequence-type" name="FunctionCall-035"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that the result type can be a union type and that the return value can be a member of the union.</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <environment ref="ListUnionTypes"/>
@@ -525,7 +524,7 @@
     <dependency type="feature" value="schemaImport"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>
-        declare namespace lu = 'http://www.w3.org/XQueryTest/ListUnionTypes' ;
+        declare namespace lu = &apos;http://www.w3.org/XQueryTest/ListUnionTypes&apos; ;
         import schema "http://www.w3.org/XQueryTest/ListUnionTypes";
       	function($in as xs:integer) as lu:unionOfUnionType {$in + 23}(9)</test>
     <result-string/>
@@ -536,16 +535,16 @@
       </all-of>
     </result>
   </test-case>
-  <test-case covers="union-as-sequence-type" name="FunctionCall-036">
+  <test-case covers="union-as-sequence-type" name="FunctionCall-036"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that the result type can be a union type and that the return value can be a member of the union.</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <environment ref="ListUnionTypes"/>
     <dependency type="spec" value="XQ30+"/>
     <dependency type="feature" value="schemaImport"/>
     <test>
-        declare namespace lu = 'http://www.w3.org/XQueryTest/ListUnionTypes' ;
+        declare namespace lu = &apos;http://www.w3.org/XQueryTest/ListUnionTypes&apos; ;
         import schema "http://www.w3.org/XQueryTest/ListUnionTypes";
-      	declare function local:daysAhead($in as xs:integer) as lu:unionOfUnionType {current-date() + (xs:dayTimeDuration('P1D')*$in)};
+      	declare function local:daysAhead($in as xs:integer) as lu:unionOfUnionType {current-date() + (xs:dayTimeDuration(&apos;P1D&apos;)*$in)};
       	local:daysAhead(9)
       </test>
     <result-string/>
@@ -553,28 +552,28 @@
       <assert-type>xs:date</assert-type>
     </result>
   </test-case>
-  <test-case covers="union-as-sequence-type" name="FunctionCall-037">
+  <test-case covers="union-as-sequence-type" name="FunctionCall-037"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that the result type can be a union type and that the return value can be cast to the union type.</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <environment ref="ListUnionTypes"/>
     <dependency type="spec" value="XQ30+"/>
     <dependency type="feature" value="schemaImport"/>
     <test>
-        declare namespace lu = 'http://www.w3.org/XQueryTest/ListUnionTypes' ;
+        declare namespace lu = &apos;http://www.w3.org/XQueryTest/ListUnionTypes&apos; ;
         import schema "http://www.w3.org/XQueryTest/ListUnionTypes";
       	declare function local:makeDate($in as xs:string) as lu:unionOfUnionType {
       	  if ($in castable as xs:date)
       	  then xs:untypedAtomic($in)
       	  else current-date()
       	};
-      	local:makeDate('2012-12-12')
+      	local:makeDate(&apos;2012-12-12&apos;)
       </test>
     <result-string/>
     <result>
       <assert-type>xs:date</assert-type>
     </result>
   </test-case>
-  <test-case covers="partial-function-application" name="FunctionCall-038">
+  <test-case covers="partial-function-application" name="FunctionCall-038"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that the result type can be a union type and that the return value can be cast to the union type.</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <environment ref="ListUnionTypes"/>
@@ -582,16 +581,16 @@
     <dependency type="feature" value="schemaImport"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>
-        declare namespace lu = 'http://www.w3.org/XQueryTest/ListUnionTypes' ;
+        declare namespace lu = &apos;http://www.w3.org/XQueryTest/ListUnionTypes&apos; ;
         import schema "http://www.w3.org/XQueryTest/ListUnionTypes";
       	declare function local:makeDate($in as xs:string, $year as xs:integer) as lu:unionOfUnionType {
-      	  let $date := $year || '-' || $in
+      	  let $date := $year || &apos;-&apos; || $in
       	  return if ($date castable as xs:date)
       	         then xs:untypedAtomic($date)
       	         else current-date()
       	};
       	let $make2012date := local:makeDate(?, 2012)
-      	return $make2012date('12-12')
+      	return $make2012date(&apos;12-12&apos;)
       </test>
     <result-string/>
     <result>
@@ -601,7 +600,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case covers="inline-function dynamic-function-call" name="FunctionCall-039">
+  <test-case covers="inline-function dynamic-function-call" name="FunctionCall-039"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that the result type cannot be a union type derived by restriction from another union.</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <environment ref="ListUnionTypes"/>
@@ -609,7 +608,7 @@
     <dependency type="feature" value="schemaImport"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>
-        declare namespace lu = 'http://www.w3.org/XQueryTest/ListUnionTypes' ;
+        declare namespace lu = &apos;http://www.w3.org/XQueryTest/ListUnionTypes&apos; ;
         import schema "http://www.w3.org/XQueryTest/ListUnionTypes";
       	function() as lu:restrictedUnionType {23}()</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0051"))</result-string>
@@ -617,7 +616,7 @@
       <error code="XPST0051"/>
     </result>
   </test-case>
-  <test-case covers="inline-function dynamic-function-call" name="FunctionCall-040">
+  <test-case covers="inline-function dynamic-function-call" name="FunctionCall-040"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that the result type can be a namespace-sensitive union type.</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <environment ref="ListUnionTypes"/>
@@ -637,7 +636,7 @@
       <assert-string-value>a</assert-string-value>
     </result>
   </test-case>
-  <test-case covers="inline-function dynamic-function-call" name="FunctionCall-041">
+  <test-case covers="inline-function dynamic-function-call" name="FunctionCall-041"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that if the result type is a namespace-sensitive union type, casting from untypedAtomic is not allowed.</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <environment ref="ListUnionTypes"/>
@@ -645,16 +644,16 @@
     <dependency type="feature" value="schemaImport"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>
-        declare namespace lu = 'http://www.w3.org/XQueryTest/ListUnionTypes' ;
+        declare namespace lu = &apos;http://www.w3.org/XQueryTest/ListUnionTypes&apos; ;
         import schema "http://www.w3.org/XQueryTest/ListUnionTypes";
-      	let $f := function() as lu:namespaceSensitiveUnionType {xs:untypedAtomic('xsi:type')}
+      	let $f := function() as lu:namespaceSensitiveUnionType {xs:untypedAtomic(&apos;xsi:type&apos;)}
       	return local-name-from-QName($f())</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0117"))</result-string>
     <result>
       <error code="XPTY0117"/>
     </result>
   </test-case>
-  <test-case covers="inline-function dynamic-function-call type-derivation-with-unions" name="FunctionCall-042">
+  <test-case covers="inline-function dynamic-function-call type-derivation-with-unions" name="FunctionCall-042"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that Union(A, B) is substitutable for A as a function argument type</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <environment ref="ListUnionTypes"/>
@@ -662,7 +661,7 @@
     <dependency type="feature" value="schemaImport"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>
-        declare namespace lu = 'http://www.w3.org/XQueryTest/ListUnionTypes' ;
+        declare namespace lu = &apos;http://www.w3.org/XQueryTest/ListUnionTypes&apos; ;
         import schema "http://www.w3.org/XQueryTest/ListUnionTypes";
         declare function local:hof($f as function(xs:integer) as xs:integer) as xs:integer {$f(3) + 1};
       	let $f := function($a as lu:unionType) as xs:integer {$a + 2}
@@ -675,7 +674,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case covers="type-derivation-with-unions" name="FunctionCall-043">
+  <test-case covers="type-derivation-with-unions" name="FunctionCall-043"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test that Union(Union(A, B), c) is substitutable for Union(A, B) as a function argument type</description>
     <created by="Michael Kay" on="2011-10-31"/>
     <environment ref="ListUnionTypes"/>
@@ -683,7 +682,7 @@
     <dependency type="feature" value="schemaImport"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <test>
-        declare namespace lu = 'http://www.w3.org/XQueryTest/ListUnionTypes' ;
+        declare namespace lu = &apos;http://www.w3.org/XQueryTest/ListUnionTypes&apos; ;
         import schema "http://www.w3.org/XQueryTest/ListUnionTypes";
         declare function local:hof($f as function(lu:unionType) as xs:integer) as xs:integer {$f(3) + 1};
       	let $f := function($a as lu:unionOfUnionType) as xs:integer {$a + 2}
@@ -696,44 +695,44 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-1">
+  <test-case name="K-FunctionCallExpr-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `func-does-not-exist(1, 2, 3)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>func-does-not-exist(1, 2, 3)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-2">
+  <test-case name="K-FunctionCallExpr-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `fn:func-does-not-exist(1, 2, 3)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:func-does-not-exist(1, 2, 3)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-3">
+  <test-case name="K-FunctionCallExpr-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `xs:func-does-not-exist(1, 2, 3)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:func-does-not-exist(1, 2, 3)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-4">
+  <test-case name="K-FunctionCallExpr-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `local:func-does-not-exist(1, 2, 3)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>local:func-does-not-exist(1, 2, 3)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-5">
+  <test-case name="K-FunctionCallExpr-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A test whose essence is: `prefix-does-not-exist:func-does-not-exist(1, 2, 3)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>prefix-does-not-exist:func-does-not-exist(1, 2, 3)</test>
@@ -742,12 +741,12 @@
       <error code="XPST0081"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-6">
+  <test-case name="K-FunctionCallExpr-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A function call containing an invalid QName as name. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>f:f:()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0081"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <any-of>
         <error code="XPST0003"/>
@@ -755,39 +754,39 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-7">
+  <test-case name="K-FunctionCallExpr-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A function call containing an invalid QName as name. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>:f()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-8">
+  <test-case name="K-FunctionCallExpr-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A function call containing an invalid QName as name. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>:f()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-9">
+  <test-case name="K-FunctionCallExpr-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A function call containing an invalid QName as name. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1fd()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-10">
+  <test-case name="K-FunctionCallExpr-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A function call containing an invalid QName as name. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>p:f:lname()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0081"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <any-of>
         <error code="XPST0003"/>
@@ -795,19 +794,19 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-11">
+  <test-case name="K-FunctionCallExpr-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> No function by name fn:document() exists(although one does in XSL-T). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>document("example.com/file.ext")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-12">
+  <test-case name="K-FunctionCallExpr-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description> No function by name fn:unparsed-text() exists(although one does in XSL-T). </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <modified by="Tim Mills" change="Added dependency on XP20/XQ10.  Removed possible result 'XTDE1170'" on="2012-03-29"/>
+    <modified by="Tim Mills" change="Added dependency on XP20/XQ10.  Removed possible result &apos;XTDE1170&apos;" on="2012-03-29"/>
     <dependency type="spec" value="XP20 XQ10"/>
     <test>unparsed-text("example.com/file.ext")</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
@@ -815,10 +814,10 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-13">
+  <test-case name="K-FunctionCallExpr-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> No function by name fn:unparsed-text() exists(although one does in XSL-T). </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <modified by="Tim Mills" change="Added dependency on XP20/XQ10.  Removed possible result 'false'" on="2012-03-29"/>
+    <modified by="Tim Mills" change="Added dependency on XP20/XQ10.  Removed possible result &apos;false&apos;" on="2012-03-29"/>
     <dependency type="spec" value="XP20 XQ10"/>
     <test>unparsed-text-available("example.com/file.ext")</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
@@ -826,16 +825,16 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-14">
+  <test-case name="K-FunctionCallExpr-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> No function by name fn:key() exists(although one does in XSL-T). </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <test>key('func', "a value")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <test>key(&apos;func&apos;, "a value")</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-15">
+  <test-case name="K-FunctionCallExpr-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0003")</response-string>
     <description> No function by name fn:format-number() exists in XQuery 1.0 (although one does in XSLT and in XQuery 3.0). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <modified by="Michael Kay" change="fix bug 14855" on="2011-11-17"/>
@@ -846,7 +845,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-15a">
+  <test-case name="K-FunctionCallExpr-15a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0003")</response-string>
     <description> No function by name fn:format-number() exists in XQuery 1.0 (although one does in XSLT and in XQuery 3.0). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <modified by="Michael Kay" change="fix bug 14855" on="2011-11-17"/>
@@ -858,7 +857,7 @@
       <assert-eq>"0003"</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-16">
+  <test-case name="K-FunctionCallExpr-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> No function by name fn:format-time() exists in XQuery 1.0 (although one does in XSLT). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <modified by="Michael Kay" change="make results repeatable" on="2011-05-21"/>
@@ -870,7 +869,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case covers="fn-format-time" name="K-FunctionCallExpr-16a">
+  <test-case covers="fn-format-time" name="K-FunctionCallExpr-16a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> No function by name fn:format-time() exists in XQuery 1.0 (although one does in XSLT). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <modified by="Michael Kay" change="make results repeatable" on="2011-05-21"/>
@@ -882,7 +881,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-17">
+  <test-case name="K-FunctionCallExpr-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> No function by name fn:format-time() exists in XQuery 1.0 (although one does in XSLT). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <modified by="Michael Kay" change="make results repeatable" on="2011-05-21"/>
@@ -894,7 +893,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case covers="fn-format-time" name="K-FunctionCallExpr-17a">
+  <test-case covers="fn-format-time" name="K-FunctionCallExpr-17a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> No function by name fn:format-time() exists in XQuery 1.0 (although one does in XSLT). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <modified by="Michael Kay" change="make results repeatable" on="2011-05-21"/>
@@ -906,7 +905,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-18">
+  <test-case name="K-FunctionCallExpr-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> No function by name fn:format-date() exists in XQuery 1.0 (although one does in XSLT and XQuery 1.1). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>matches(format-dateTime(current-dateTime(), "[Y0001]-[M01]-[D01]"), "[0-9]{4}-[0-9]{2}-[0-9]{2}")</test>
@@ -919,7 +918,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case covers="fn-format-dateTime" name="K-FunctionCallExpr-19">
+  <test-case covers="fn-format-dateTime" name="K-FunctionCallExpr-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> No function by name fn:format-dateTime() exists in XQuery 1.0 (although one does in XSLT and XQuery 1.1). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>matches(format-dateTime(current-dateTime(), "[Y0001]-[M01]-[D01]", (), (), ()), "....-..-..")</test>
@@ -932,7 +931,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-20">
+  <test-case name="K-FunctionCallExpr-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> No function by name fn:format-dateTime() exists in XQuery 1.0 (although one does in XSLT and XQuery 1.1). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>matches(format-dateTime(current-dateTime(), "[M01]/[D01]/[Y0001] at [H01]:[m01]:[s01]"), "[0-1][0-9]/[0-3][0-9]/[0-9]{4} at [0-9]{2}:[0-9]{2}:[0-9]{2}")</test>
@@ -945,7 +944,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case covers="fn-format-dateTime" name="K-FunctionCallExpr-21">
+  <test-case covers="fn-format-dateTime" name="K-FunctionCallExpr-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> No function by name fn:format-dateTime() exists in XQuery 1.0 (although it does exist in XSLT and XQuery 1.1). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>matches(format-dateTime(current-dateTime(), "[M01]/[D01]/[Y0001] at [H01]:[m01]:[s01]", (), (), ()), "../../.... at ..:..:..")</test>
@@ -958,7 +957,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-22">
+  <test-case name="K-FunctionCallExpr-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">document {&lt;dummy/&gt;}</response-string>
     <description> No function by name fn:current() exists(although one does in XSLT). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>current()</test>
@@ -967,25 +966,25 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-23">
+  <test-case name="K-FunctionCallExpr-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> No function by name fn:unparsed-entity-uri() exists(although one does in XSLT). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>unparsed-entity-uri("example.com/file.ext")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-24">
+  <test-case name="K-FunctionCallExpr-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> No function by name fn:unparsed-entity-public-id() exists(although one does in XSL-T). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>unparsed-entity-public-id("entity")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-25">
+  <test-case name="K-FunctionCallExpr-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> No function by name fn:generate-id() exists(although one does in XSLT). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10"/>
@@ -997,7 +996,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case covers="fn-generate-id" name="K-FunctionCallExpr-25a">
+  <test-case covers="fn-generate-id" name="K-FunctionCallExpr-25a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Function by name fn:generate-id() does exist in XQuery 3.0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ30+"/>
@@ -1009,34 +1008,34 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-26">
+  <test-case name="K-FunctionCallExpr-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> No function by name fn:system-property() exists(although one does in XSL-T). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>system-property("xsl:vendor")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-27">
-    <description> No function by name fn:escape-uri() exists(although one did in older 'Functions  Operators' drafts). </description>
+  <test-case name="K-FunctionCallExpr-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
+    <description> No function by name fn:escape-uri() exists(although one did in older &apos;Functions  Operators&apos; drafts). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:escape-uri("http:/example.com/")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionCallExpr-28">
+  <test-case name="K-FunctionCallExpr-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> No function by name fn:sub-sequence() exists(although one by name fn:subsequence does). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:sub-sequence("http:/example.com/", 1, 1)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionCallExpr-1">
+  <test-case name="K2-FunctionCallExpr-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Two user functions with many arguments. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1049,16 +1048,16 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-FunctionCallExpr-2">
+  <test-case name="K2-FunctionCallExpr-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Function current-grouping-key() is not available in XQuery. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>current-grouping-key()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionCallExpr-3">
+  <test-case name="K2-FunctionCallExpr-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">document {&lt;dummy/&gt;}</response-string>
     <description> Function current() is not available in XQuery. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>current()</test>
@@ -1067,28 +1066,28 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionCallExpr-4">
+  <test-case name="K2-FunctionCallExpr-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Function unparsed-entity-uri() is not available in XQuery. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>unparsed-entity-uri("str")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionCallExpr-5">
+  <test-case name="K2-FunctionCallExpr-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Function unparsed-entity-public-id() is not available in XQuery. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>unparsed-entity-public-id("str")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionCallExpr-6">
+  <test-case name="K2-FunctionCallExpr-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Function generate-id() is not available in XQuery. </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <modified by="O'Neil Delpratt" change="Bug fix related to bug #14854: Added dependency" on="2012-05-22"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug fix related to bug #14854: Added dependency" on="2012-05-22"/>
     <dependency type="spec" value="XP20 XQ10"/>
     <test>generate-id("str")</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
@@ -1096,10 +1095,10 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionCallExpr-7">
+  <test-case name="K2-FunctionCallExpr-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Function generate-id() is not available in XQuery(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <modified by="O'Neil Delpratt" change="Bug fix related to bug #14854: Added dependency" on="2012-05-22"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug fix related to bug #14854: Added dependency" on="2012-05-22"/>
     <dependency type="spec" value="XP20 XQ10"/>
     <test>generate-id()</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
@@ -1107,25 +1106,25 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionCallExpr-8">
+  <test-case name="K2-FunctionCallExpr-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Function system-property() is not available in XQuery(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>system-property("property")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionCallExpr-9">
+  <test-case name="K2-FunctionCallExpr-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Function key() is not available in XQuery. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>key("id")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionCallExpr-10">
+  <test-case name="K2-FunctionCallExpr-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Check that nodes, when passed through function arguments, have proper node identities. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1142,7 +1141,7 @@
       <assert-string-value>true false true</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-FunctionCallExpr-11">
+  <test-case name="K2-FunctionCallExpr-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A very simple string-difference function. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1167,12 +1166,12 @@
       <assert-string-value>0 1 1 0 2 1 0 1 3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-FunctionCallExpr-12">
+  <test-case name="K2-FunctionCallExpr-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("3")</response-string>
     <description> Trigger an infinite recursion in one implementation. </description>
     <created by="Frans Englich" on="2008-05-08"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
-        declare function local:func1() { if(local:func2('b')) then 3 else local:func1() }; 
+        declare function local:func1() { if(local:func2(&apos;b&apos;)) then 3 else local:func1() }; 
         declare function local:func2($a) { if(matches("",$a)) then () else 4 }; 
         local:func1()</test>
     <result-string>xs:integer("3")</result-string>
@@ -1180,7 +1179,7 @@
       <assert-eq>3</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-FunctionCallExpr-13">
+  <test-case name="K2-FunctionCallExpr-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Have a function which recurses infintely, but which never is called. </description>
     <created by="Frans Englich" on="2008-11-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1190,18 +1189,18 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="cbcl-promotion-001">
+  <test-case name="cbcl-promotion-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("http://www.microsoft.com http://www.google.com/")</response-string>
     <description> Ensure sequence types are promoted correctly </description>
     <created by="Tim Mills" on="2008-05-01"/>
     <test>
-        string-join( (xs:anyURI('http://www.microsoft.com'), xs:anyURI('http://www.google.com/')), ' ')
+        string-join( (xs:anyURI(&apos;http://www.microsoft.com&apos;), xs:anyURI(&apos;http://www.google.com/&apos;)), &apos; &apos;)
       </test>
     <result-string>xs:string("http://www.microsoft.com http://www.google.com/")</result-string>
     <result>
       <assert-string-value>http://www.microsoft.com http://www.google.com/</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-promotion-002">
+  <test-case name="cbcl-promotion-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test that type promotion occurs correctly for values passed to user-defined functions </description>
     <created by="Oliver Hallam" on="2008-06-12"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1214,10 +1213,10 @@
       <assert-string-value>2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-promotion-003">
+  <test-case name="cbcl-promotion-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test that type promotion occurs correctly for values returned from user-defined functions </description>
     <created by="Oliver Hallam" on="2008-06-12"/>
-    <modified by="O'Neil Delpratt" change="Then branch changed to -1. Bug 20314." on="2013-01-02"/>
+    <modified by="O&apos;Neil Delpratt" change="Then branch changed to -1. Bug 20314." on="2013-01-02"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:index-of($seq as xs:integer*, $item as xs:integer?) as xs:float* { 
@@ -1231,10 +1230,10 @@
       <assert-string-value>3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-promotion-004">
+  <test-case name="cbcl-promotion-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("4")</response-string>
     <description> Test that type promotion occurs correctly for sequence values returned from user-defined functions </description>
     <created by="Oliver Hallam" on="2008-06-12"/>
-    <modified by="O'Neil Delpratt" change="else branch changed to -1. Bug 20314." on="2013-01-02"/>
+    <modified by="O&apos;Neil Delpratt" change="else branch changed to -1. Bug 20314." on="2013-01-02"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[
@@ -1248,7 +1247,7 @@
       <assert-string-value>4</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-promotion-005">
+  <test-case name="cbcl-promotion-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test a function declared to return optional returning more than one value </description>
     <created by="Oliver Hallam" on="2008-06-12"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1260,7 +1259,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-promotion-006">
+  <test-case name="cbcl-promotion-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("4"))</response-string>
     <description> Test a function taking optional argument being passed more than one </description>
     <created by="Oliver Hallam" on="2008-06-12"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1272,7 +1271,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-promotion-007">
+  <test-case name="cbcl-promotion-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"))</response-string>
     <description> Check that correct type constraint is inserted. </description>
     <created by="Oliver Hallam" on="2008-07-03"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1285,7 +1284,7 @@
       <assert-string-value>1 2 3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-001">
+  <test-case name="function-call-reserved-function-names-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Check that reserved function name attribute is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1299,7 +1298,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-002">
+  <test-case name="function-call-reserved-function-names-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Check that reserved function name comment is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1313,7 +1312,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-003">
+  <test-case name="function-call-reserved-function-names-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Check that reserved function name document-node is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1327,7 +1326,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-004">
+  <test-case name="function-call-reserved-function-names-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;dummy/&gt;</response-string>
     <description>Check that reserved function name element is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1341,7 +1340,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-005">
+  <test-case name="function-call-reserved-function-names-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name empty-sequence is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1355,7 +1354,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-006">
+  <test-case name="function-call-reserved-function-names-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name if is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1369,7 +1368,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-007">
+  <test-case name="function-call-reserved-function-names-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name item is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1383,7 +1382,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-008">
+  <test-case name="function-call-reserved-function-names-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;dummy/&gt;</response-string>
     <description>Check that reserved function name node is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1397,7 +1396,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-009">
+  <test-case name="function-call-reserved-function-names-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Check that reserved function name processing-instruction is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1406,12 +1405,12 @@
 	declare function local:processing-instruction($arg) { fn:true() };
 	processing-instruction(1)
       </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-010">
+  <test-case name="function-call-reserved-function-names-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Check that reserved function name schema-attribute is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1425,7 +1424,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-011">
+  <test-case name="function-call-reserved-function-names-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Check that reserved function name schema-element is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1439,7 +1438,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-012">
+  <test-case name="function-call-reserved-function-names-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Check that reserved function name text is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1453,7 +1452,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-013">
+  <test-case name="function-call-reserved-function-names-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name typeswitch is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1467,7 +1466,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-014">
+  <test-case name="function-call-reserved-function-names-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Check that reserved function name function is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10"/>
@@ -1481,7 +1480,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-015">
+  <test-case name="function-call-reserved-function-names-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Check that reserved function name namespace-node is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10"/>
@@ -1495,7 +1494,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-016">
+  <test-case name="function-call-reserved-function-names-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name switch is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10"/>
@@ -1509,7 +1508,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-017">
+  <test-case name="function-call-reserved-function-names-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Check that reserved function name function is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ30+"/>
@@ -1518,12 +1517,12 @@
 	declare function local:function() { fn:true() };
 	function()
       </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-018">
+  <test-case name="function-call-reserved-function-names-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Check that reserved function name namespace-node is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ30+"/>
@@ -1537,7 +1536,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-019">
+  <test-case name="function-call-reserved-function-names-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name switch is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ30+"/>
@@ -1551,7 +1550,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-020">
+  <test-case name="function-call-reserved-function-names-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Check that reserved function name attribute is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XP20+"/>
@@ -1563,7 +1562,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-021">
+  <test-case name="function-call-reserved-function-names-021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Check that reserved function name comment is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XP20+"/>
@@ -1575,7 +1574,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-022">
+  <test-case name="function-call-reserved-function-names-022"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Check that reserved function name document-node is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XP20+"/>
@@ -1587,7 +1586,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-023">
+  <test-case name="function-call-reserved-function-names-023"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;dummy/&gt;</response-string>
     <description>Check that reserved function name element is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XP20+"/>
@@ -1599,7 +1598,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-024">
+  <test-case name="function-call-reserved-function-names-024"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Check that reserved function name empty-sequence is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XP20+"/>
@@ -1611,7 +1610,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-025">
+  <test-case name="function-call-reserved-function-names-025"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Check that reserved function name if is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XP20+"/>
@@ -1623,7 +1622,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-026">
+  <test-case name="function-call-reserved-function-names-026"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Check that reserved function name item is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XP20+"/>
@@ -1635,7 +1634,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-027">
+  <test-case name="function-call-reserved-function-names-027"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;dummy/&gt;</response-string>
     <description>Check that reserved function name node is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XP20+"/>
@@ -1647,19 +1646,19 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-028">
+  <test-case name="function-call-reserved-function-names-028"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Check that reserved function name processing-instruction is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XP20+"/>
     <test>
 	processing-instruction(1)
       </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-029">
+  <test-case name="function-call-reserved-function-names-029"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Check that reserved function name schema-attribute is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XP20+"/>
@@ -1671,7 +1670,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-030">
+  <test-case name="function-call-reserved-function-names-030"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Check that reserved function name schema-element is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XP20+"/>
@@ -1683,7 +1682,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-031">
+  <test-case name="function-call-reserved-function-names-031"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Check that reserved function name text is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XP20+"/>
@@ -1695,7 +1694,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-032">
+  <test-case name="function-call-reserved-function-names-032"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Check that reserved function name typeswitch is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XP20+"/>
@@ -1707,7 +1706,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-033">
+  <test-case name="function-call-reserved-function-names-033"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Check that reserved function name function is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XP20"/>
@@ -1719,7 +1718,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-034">
+  <test-case name="function-call-reserved-function-names-034"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Check that reserved function name namespace-node is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XP20"/>
@@ -1731,31 +1730,31 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-035">
+  <test-case name="function-call-reserved-function-names-035"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Check that reserved function name switch is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XP20"/>
     <test>
 	switch()
       </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-036">
+  <test-case name="function-call-reserved-function-names-036"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Check that reserved function name function is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XP30+"/>
     <test>
 	function()
       </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-037">
+  <test-case name="function-call-reserved-function-names-037"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Check that reserved function name namespace-node is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XP30+"/>
@@ -1767,7 +1766,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-call-reserved-function-names-038">
+  <test-case name="function-call-reserved-function-names-038"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Check that reserved function name switch is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XP30+"/>

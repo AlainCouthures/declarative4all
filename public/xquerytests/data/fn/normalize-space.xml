@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-normalize-space" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the fn:normalize-space function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-normalize-space" type="spec"/>
-  <test-case name="fn-normalize-space1args-1">
+  <test-case name="fn-normalize-space1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("This is a charac")</response-string>
     <description> Evaluates The "normalize-space" function with the arguments set as follows: $arg = notNormalizedString(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:normalize-space("This is a charac")</test>
@@ -11,7 +10,7 @@
       <assert-string-value>This is a charac</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space1args-2">
+  <test-case name="fn-normalize-space1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("This is a ch")</response-string>
     <description> Evaluates The "normalize-space" function with the arguments set as follows: $arg = notNormalizedString(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:normalize-space("This is a ch")</test>
@@ -20,7 +19,7 @@
       <assert-string-value>This is a ch</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space1args-3">
+  <test-case name="fn-normalize-space1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("This is a charac")</response-string>
     <description> Evaluates The "normalize-space" function with the arguments set as follows: $arg = notNormalizedString(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:normalize-space("This is a charac")</test>
@@ -29,7 +28,7 @@
       <assert-string-value>This is a charac</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space1args-4">
+  <test-case name="fn-normalize-space1args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Test normalize-space with an empty sequence argument </description>
     <created by="Joanne Tong" on="2005-09-23"/>
     <test>normalize-space(())</test>
@@ -42,7 +41,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space0args-1">
+  <test-case name="fn-normalize-space0args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Test normalize-space without argument </description>
     <created by="Joanne Tong" on="2005-09-23"/>
     <environment>
@@ -51,13 +50,13 @@
         <created by="Joanne Tong" on="2005-09-29"/>
       </source>
     </environment>
-    <test>//doc/normalize-space(zero-or-one(a[normalize-space() = 'Hello, How are you?']))</test>
+    <test>//doc/normalize-space(zero-or-one(a[normalize-space() = &apos;Hello, How are you?&apos;]))</test>
     <result-string>xs:string("Hello, How are you?")</result-string>
     <result>
       <assert-string-value>Hello, How are you?</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-1">
+  <test-case name="fn-normalize-space-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("The wealthy curled darlings of our nation.")</response-string>
     <description> Evaluation of fn-normalize-space function as per example 1 for this function from the Functions and Operators specs. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:normalize-space(" The wealthy curled darlings of our nation. ")</test>
@@ -66,7 +65,7 @@
       <assert-string-value>The wealthy curled darlings of our nation.</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-2">
+  <test-case name="fn-normalize-space-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Evaluation of fn-normalize-space function with no arguments and no context node. </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <environment ref="empty"/>
@@ -76,7 +75,7 @@
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-3">
+  <test-case name="fn-normalize-space-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("This text should contains no tabs")</response-string>
     <description> Evaluation of fn-normalize-space function with argument containing one tab character. </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space("This	text should contains no tabs")</test>
@@ -85,7 +84,7 @@
       <assert-string-value>This text should contains no tabs</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-4">
+  <test-case name="fn-normalize-space-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("This text should contains no newline characters.")</response-string>
     <description> Evaluation of fn-normalize-space function with argument containing one newline character. </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space("This text should contains
@@ -95,7 +94,7 @@ no newline characters.")</test>
       <assert-string-value>This text should contains no newline characters.</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-5">
+  <test-case name="fn-normalize-space-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("This text should contains no tab characters.")</response-string>
     <description> Evaluation of fn-normalize-space function with argument containing multiple tab character. </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space("This	text	should	contains	no	tab	characters.")</test>
@@ -104,7 +103,7 @@ no newline characters.")</test>
       <assert-string-value>This text should contains no tab characters.</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-6">
+  <test-case name="fn-normalize-space-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("This text should contains no newline characters.")</response-string>
     <description> Evaluation of fn-normalize-space function with argument containing multiple newline characters. </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space("This
@@ -119,7 +118,7 @@ characters.")</test>
       <assert-string-value>This text should contains no newline characters.</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-7">
+  <test-case name="fn-normalize-space-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("This text should contains no tabs or newline characters.")</response-string>
     <description> Evaluation of fn-normalize-space function with argument containing a tab and a newline characters. </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space("This text	should contains no tabs or
@@ -129,7 +128,7 @@ newline characters.")</test>
       <assert-string-value>This text should contains no tabs or newline characters.</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-8">
+  <test-case name="fn-normalize-space-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("This text should contains no tabs or newline characters.")</response-string>
     <description> Evaluation of fn-normalize-space function with argument containing multiple tab and a newline characters. </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space("This	 text	 should	 contains
@@ -139,7 +138,7 @@ newline characters.")</test>
       <assert-string-value>This text should contains no tabs or newline characters.</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-9">
+  <test-case name="fn-normalize-space-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Evaluation of fn-normalize-space function with argument string containing only spaces. Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space("    ")</test>
@@ -151,7 +150,7 @@ newline characters.")</test>
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-10">
+  <test-case name="fn-normalize-space-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Evaluation of fn-normalize-space function with argument string containing only a single space. Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space(" ")</test>
@@ -163,7 +162,7 @@ newline characters.")</test>
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-11">
+  <test-case name="fn-normalize-space-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Evaluation of fn-normalize-space function with argument string containing the zero length string. Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space("")</test>
@@ -175,7 +174,7 @@ newline characters.")</test>
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-12">
+  <test-case name="fn-normalize-space-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Evaluation of fn-normalize-space function with argument string containing a single tab character. Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space("	")</test>
@@ -187,7 +186,7 @@ newline characters.")</test>
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-13">
+  <test-case name="fn-normalize-space-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Evaluation of fn-normalize-space function with argument string containing only tab characters. Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space("		")</test>
@@ -199,7 +198,7 @@ newline characters.")</test>
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-14">
+  <test-case name="fn-normalize-space-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Evaluation of fn-normalize-space function with argument string containing only a single newline character. Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space("
@@ -212,7 +211,7 @@ newline characters.")</test>
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-15">
+  <test-case name="fn-normalize-space-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Evaluation of fn-normalize-space function with argument string containing only multiple newline characters. Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space("
@@ -226,7 +225,7 @@ newline characters.")</test>
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-16">
+  <test-case name="fn-normalize-space-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Evaluation of fn-normalize-space function with argument string containing only spaces and tab characters. Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space(" 	  	 ")</test>
@@ -238,7 +237,7 @@ newline characters.")</test>
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-17">
+  <test-case name="fn-normalize-space-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Evaluation of fn-normalize-space function with argument string containing only spaces and newline characters. Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space("   
@@ -251,7 +250,7 @@ newline characters.")</test>
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-18">
+  <test-case name="fn-normalize-space-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Evaluation of fn-normalize-space function with argument string containing only tab and newline characters. Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space("	
@@ -264,7 +263,7 @@ newline characters.")</test>
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-19">
+  <test-case name="fn-normalize-space-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("12345")</response-string>
     <description> Evaluation of fn-normalize-space function with argument string containing tabs and numerical characters. Use fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space("	12345")</test>
@@ -273,7 +272,7 @@ newline characters.")</test>
       <assert-string-value>12345</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-20">
+  <test-case name="fn-normalize-space-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("ABC")</response-string>
     <description> Evaluation of fn-normalize-space function with argument referencing fn:string function. </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space(fn:string(" ABC "))</test>
@@ -282,7 +281,7 @@ newline characters.")</test>
       <assert-string-value>ABC</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-21">
+  <test-case name="fn-normalize-space-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("ABC")</response-string>
     <description> Evaluation of fn-normalize-space function with argument set to another fn:normalize-space function. </description>
     <created by="Carmelo Montanez" on="2005-10-18"/>
     <test>fn:normalize-space(fn:normalize-space(" ABC"))</test>
@@ -291,7 +290,7 @@ newline characters.")</test>
       <assert-string-value>ABC</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-23">
+  <test-case name="fn-normalize-space-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("is a PI ns:bar ns:bar2 ns:barDeriv urn1 test1 test2")</response-string>
     <description>Evaluation of normalize-space applied to a node that cannot be atomized because it has element-only content. This succeeds, because although getting the typed value of such a node is an error, the string value is well defined, and normalize-space with no arguments uses the string value. Note, we assume construction from PSVI, therefore insignificant whitespace is stripped.</description>
     <created by="Michael Kay" on="2011-06-25"/>
     <environment ref="qname"/>
@@ -302,7 +301,7 @@ newline characters.")</test>
       <assert-eq>"ns:barns:bar2ns:barDerivurn1test1test2"</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-24">
+  <test-case name="fn-normalize-space-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("is a PI ns:bar ns:bar2 ns:barDeriv urn1 test1 test2")</response-string>
     <description>Evaluation of normalize-space applied to a node that cannot be atomized because it has element-only content. Unlike normalize-space-23, this fails, because when normalize-space() has an argument it atomizes the argument in the usual way.</description>
     <created by="Michael Kay" on="2011-06-25"/>
     <environment ref="qname"/>
@@ -313,7 +312,7 @@ newline characters.")</test>
       <error code="FOTY0012"/>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-25">
+  <test-case name="fn-normalize-space-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Evaluation of normalize-space#0 when the context item is a date. Succeeds because the default argument is string(.) rather than .</description>
     <created by="Michael Kay" on="2011-06-25"/>
     <environment ref="qname"/>
@@ -327,7 +326,7 @@ newline characters.")</test>
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-normalize-space-26">
+  <test-case name="fn-normalize-space-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Evaluation of normalize-space#1 when the context item is a date. Succeeds because the default argument is string(.) rather than .</description>
     <created by="Michael Kay" on="2011-06-25"/>
     <environment ref="qname"/>
@@ -338,16 +337,16 @@ newline characters.")</test>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-NormalizeSpaceFunc-1">
+  <test-case name="K-NormalizeSpaceFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `normalize-space("a string", "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-space("a string", "wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-NormalizeSpaceFunc-2">
+  <test-case name="K-NormalizeSpaceFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `if(false()) then normalize-space() else true()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>if(false()) then normalize-space() else true()</test>
@@ -360,7 +359,7 @@ newline characters.")</test>
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-NormalizeSpaceFunc-3">
+  <test-case name="K-NormalizeSpaceFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `normalize-space("foo") eq "foo"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-space("foo") eq "foo"</test>
@@ -369,7 +368,7 @@ newline characters.")</test>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NormalizeSpaceFunc-4">
+  <test-case name="K-NormalizeSpaceFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `normalize-space(" foo") eq "foo"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-space(" foo") eq "foo"</test>
@@ -378,7 +377,7 @@ newline characters.")</test>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NormalizeSpaceFunc-5">
+  <test-case name="K-NormalizeSpaceFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `normalize-space("foo ") eq "foo"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-space("foo ") eq "foo"</test>
@@ -387,7 +386,7 @@ newline characters.")</test>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NormalizeSpaceFunc-6">
+  <test-case name="K-NormalizeSpaceFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `normalize-space(()) eq ""`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-space(()) eq ""</test>
@@ -396,7 +395,7 @@ newline characters.")</test>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NormalizeSpaceFunc-7">
+  <test-case name="K-NormalizeSpaceFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `normalize-space("f o o ") eq "f o o"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-space("f o o ") eq "f o o"</test>
@@ -405,7 +404,7 @@ newline characters.")</test>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NormalizeSpaceFunc-8">
+  <test-case name="K-NormalizeSpaceFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `normalize-space(" 143 1239 fhjkls ") eq "143 1239 fhjkls"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-space(" 143 1239 fhjkls ") eq "143 1239 fhjkls"</test>
@@ -414,7 +413,7 @@ newline characters.")</test>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NormalizeSpaceFunc-9">
+  <test-case name="K-NormalizeSpaceFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Invoke normalize-space on itself. Implementations supporting the static typing feature may raise XPTY0004. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-space(normalize-space(("foo", current-time())[1])) eq "foo"</test>

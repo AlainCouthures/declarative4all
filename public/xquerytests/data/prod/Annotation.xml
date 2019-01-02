@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set covers="annotations" name="prod-Annotation" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for function and variable annotations</description>
   <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-Annotation" type="spec"/>
   <link document="XQuery" idref="id-annotations" section-number="5.15" type="spec"/>
   <dependency type="spec" value="XQ30+"/>
-  <test-case name="annotation-1">
+  <test-case name="annotation-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("bar")</response-string>
     <description>A function annotation</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <dependency type="spec" value="XQ30+"/>
@@ -24,7 +23,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="annotation-2">
+  <test-case name="annotation-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>A variable annotation</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <dependency type="spec" value="XQ30+"/>
@@ -42,7 +41,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="annotation-3">
+  <test-case name="annotation-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>An inline function annotation</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <dependency type="spec" value="XQ30+"/>
@@ -59,7 +58,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="annotation-4">
+  <test-case name="annotation-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>String literal annotation parameter</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <dependency type="spec" value="XQ30+"/>
@@ -81,7 +80,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="annotation-5">
+  <test-case name="annotation-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Integer literal annotation parameter</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <dependency type="spec" value="XQ30+"/>
@@ -103,7 +102,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="annotation-6">
+  <test-case name="annotation-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Decimal literal annotation parameter</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <dependency type="spec" value="XQ30+"/>
@@ -125,7 +124,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="annotation-7">
+  <test-case name="annotation-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Double literal annotation parameter</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <dependency type="spec" value="XQ30+"/>
@@ -147,7 +146,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="annotation-8">
+  <test-case name="annotation-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Non-literal annotation parameter</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <dependency type="spec" value="XQ30+"/>
@@ -160,12 +159,12 @@
          local:foo()
       ]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="annotation-9">
+  <test-case name="annotation-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Multiple annotation parameters</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <dependency type="spec" value="XQ30+"/>
@@ -187,7 +186,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="annotation-10">
+  <test-case name="annotation-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Annotations with expanded QNames</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <modified by="Michael Dyck" change="Revised URIQualifiedName syntax as per bug 15399" on="2012-03-11"/>
@@ -208,7 +207,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="annotation-11">
+  <test-case name="annotation-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Multiple annotations</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <dependency type="spec" value="XQ30+"/>
@@ -230,7 +229,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="annotation-12">
+  <test-case name="annotation-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Multiple annotations without whitespace ("%" is a delimiting terminal symbol)</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <dependency type="spec" value="XQ30+"/>
@@ -252,7 +251,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="annotation-13">
+  <test-case name="annotation-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Multiple annotations with extra whitespace </description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <modified by="Michael Dyck" change="Revised URIQualifiedName syntax as per bug 15399" on="2012-03-11"/>
@@ -287,7 +286,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="annotation-14">
+  <test-case name="annotation-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Multiple annotations, multiple parameters</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <dependency type="spec" value="XQ30+"/>
@@ -309,7 +308,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="annotation-15">
+  <test-case name="annotation-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("bar")</response-string>
     <description>Annotation in a reserved namespace</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <dependency type="spec" value="XQ30+"/>
@@ -326,7 +325,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case covers="reserved-namespaces" name="annotation-16">
+  <test-case covers="reserved-namespaces" name="annotation-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Annotation in a reserved namespace</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <modified by="Michael Dyck" change="Revised URIQualifiedName syntax as per bug 15399" on="2012-03-11"/>
@@ -342,7 +341,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case covers="reserved-namespaces" name="annotation-17">
+  <test-case covers="reserved-namespaces" name="annotation-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("bar")</response-string>
     <description>Annotation in a reserved namespace</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <dependency type="spec" value="XQ30+"/>
@@ -359,7 +358,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case covers="reserved-namespaces" name="annotation-18">
+  <test-case covers="reserved-namespaces" name="annotation-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Annotation in a reserved namespace</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <modified by="Michael Dyck" change="Revised URIQualifiedName syntax as per bug 15399" on="2012-03-11"/>
@@ -375,7 +374,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case covers="reserved-namespaces" name="annotation-19">
+  <test-case covers="reserved-namespaces" name="annotation-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("bar")</response-string>
     <description>Annotation in a reserved namespace</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <dependency type="spec" value="XQ30+"/>
@@ -392,7 +391,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case covers="reserved-namespaces" name="annotation-20">
+  <test-case covers="reserved-namespaces" name="annotation-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Annotation in a reserved namespace</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <modified by="Michael Dyck" change="Revised URIQualifiedName syntax as per bug 15399" on="2012-03-11"/>
@@ -408,7 +407,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case covers="reserved-namespaces" name="annotation-21">
+  <test-case covers="reserved-namespaces" name="annotation-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("bar")</response-string>
     <description>Annotation in a reserved namespace</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <dependency type="spec" value="XQ30+"/>
@@ -425,7 +424,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case covers="reserved-namespaces" name="annotation-22">
+  <test-case covers="reserved-namespaces" name="annotation-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Annotation in a reserved namespace</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <modified by="Michael Dyck" change="Revised URIQualifiedName syntax as per bug 15399" on="2012-03-11"/>
@@ -441,7 +440,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case name="annotation-23">
+  <test-case name="annotation-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Annotation in no namespace</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <dependency type="spec" value="XQ30+"/>
@@ -456,7 +455,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case covers="reserved-namespaces" name="annotation-24">
+  <test-case covers="reserved-namespaces" name="annotation-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("bar")</response-string>
     <description>Annotation in a reserved namespace</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <dependency type="spec" value="XQ30+"/>
@@ -474,7 +473,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case covers="reserved-namespaces" name="annotation-25">
+  <test-case covers="reserved-namespaces" name="annotation-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Annotation in a reserved namespace</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <modified by="Michael Dyck" change="Revised URIQualifiedName syntax as per bug 15399" on="2012-03-11"/>
@@ -490,7 +489,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case covers="reserved-namespaces" name="annotation-26">
+  <test-case covers="reserved-namespaces" name="annotation-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("bar")</response-string>
     <description>Annotation in a reserved namespace</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <modified by="Josh Spiegel" change="Changed reserved namespace (bug 16199)" on="2012-10-08"/>
@@ -509,7 +508,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case covers="reserved-namespaces" name="annotation-27">
+  <test-case covers="reserved-namespaces" name="annotation-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Annotation in a reserved namespace</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <modified by="Michael Dyck" change="Revised URIQualifiedName syntax as per bug 15399" on="2012-03-11"/>
@@ -526,7 +525,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case name="annotation-28">
+  <test-case name="annotation-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>A function annotation (default function namespace does not affect annotations)</description>
     <created by="Josh Spiegel" on="2012-01-08"/>
     <modified by="John Snelson" change="Changed per bug 16199" on="2012-06-19"/>
@@ -543,7 +542,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case name="annotation-29">
+  <test-case name="annotation-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>A variable annotation (per bug 16199)</description>
     <created by="John Snelson" on="2012-06-19"/>
     <dependency type="spec" value="XQ30+"/>
@@ -556,7 +555,7 @@
       <assert-eq>"bar"</assert-eq>
     </result>
   </test-case>
-  <test-case name="annotation-30">
+  <test-case name="annotation-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>An inline function annotation with parameters</description>
     <created by="Michael Kay" on="2012-12-15"/>
     <dependency type="spec" value="XQ30+"/>
@@ -571,7 +570,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="annotation-31">
+  <test-case name="annotation-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>An inline function annotation using an EQName</description>
     <created by="Michael Kay" on="2012-12-15"/>
     <dependency type="spec" value="XQ30+"/>
@@ -588,7 +587,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="annotation-32">
+  <test-case name="annotation-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>An inline function with multiple annotations </description>
     <created by="Michael Kay" on="2012-12-15"/>
     <dependency type="spec" value="XQ30+"/>
@@ -605,7 +604,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="annotation-33">
+  <test-case name="annotation-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>An inline function using true() as an annotation parameter </description>
     <created by="Michael Kay" on="2012-12-15"/>
     <dependency type="spec" value="XQ30+"/>
@@ -615,12 +614,12 @@
          %eg:sequential(true())  function () { "bar" } ()
       ]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case covers="annotation-assertions" name="annotation-assertion-1">
+  <test-case covers="annotation-assertions" name="annotation-assertion-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>
          Tests that a function test with an annotation assertion
          parses. The behavior of annotation assertions is
@@ -641,7 +640,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case covers="annotation-assertions" name="annotation-assertion-2">
+  <test-case covers="annotation-assertions" name="annotation-assertion-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>
           An annotation assertion with a string literal parameter.  
           Tests the parsing of annotation assertions. 
@@ -659,7 +658,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case covers="annotation-assertions" name="annotation-assertion-3">
+  <test-case covers="annotation-assertions" name="annotation-assertion-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>
           An annotation assertion with an integer literal parameter.
           Tests the parsing of annotation assertions. 
@@ -677,7 +676,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case covers="annotation-assertions" name="annotation-assertion-4">
+  <test-case covers="annotation-assertions" name="annotation-assertion-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>
           An annotation assertion with a decimal literal parameter.
           Tests the parsing of annotation assertions. 
@@ -695,7 +694,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case covers="annotation-assertions" name="annotation-assertion-5">
+  <test-case covers="annotation-assertions" name="annotation-assertion-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>
           An annotation assertion with a double literal parameter
           Tests the parsing of annotation assertions. 
@@ -713,7 +712,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case covers="annotation-assertions" name="annotation-assertion-6">
+  <test-case covers="annotation-assertions" name="annotation-assertion-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>
           An annotation assertion with multiple parameters
           Tests the parsing of annotation assertions. 
@@ -731,7 +730,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case covers="annotation-assertions" name="annotation-assertion-7">
+  <test-case covers="annotation-assertions" name="annotation-assertion-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>
           An annotation assertion with an expanded QName
           Tests the parsing of annotation assertions. 
@@ -749,7 +748,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case covers="annotation-assertions" name="annotation-assertion-8">
+  <test-case covers="annotation-assertions" name="annotation-assertion-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>
           An annotation assertion with an expanded QName.
           Tests the parsing of annotation assertions. 
@@ -767,7 +766,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case covers="annotation-assertions" name="annotation-assertion-9">
+  <test-case covers="annotation-assertions" name="annotation-assertion-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>
           Multiple annotation assertions.
           Tests the parsing of annotation assertions. 
@@ -785,7 +784,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case covers="annotation-assertions" name="annotation-assertion-10">
+  <test-case covers="annotation-assertions" name="annotation-assertion-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>
           An annotation assertion on a typed function test.
           Tests the parsing of annotation assertions. 
@@ -803,7 +802,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case covers="annotation-assertions" name="annotation-assertion-11">
+  <test-case covers="annotation-assertions" name="annotation-assertion-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>An annotation assertion in a reserved namespace.</description>
     <created by="Josh Spiegel" on="2012-01-09"/>
     <dependency type="spec" value="XQ30+"/>
@@ -817,7 +816,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case covers="annotation-assertions" name="annotation-assertion-12">
+  <test-case covers="annotation-assertions" name="annotation-assertion-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>An annotation assertion in a reserved namespace.</description>
     <created by="Josh Spiegel" on="2012-01-09"/>
     <modified by="Michael Dyck" change="Revised URIQualifiedName syntax as per bug 15399" on="2012-03-11"/>
@@ -832,7 +831,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case covers="annotation-assertions" name="annotation-assertion-13">
+  <test-case covers="annotation-assertions" name="annotation-assertion-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>An annotation assertion in a reserved namespace.</description>
     <created by="Josh Spiegel" on="2012-01-09"/>
     <dependency type="spec" value="XQ30+"/>
@@ -846,7 +845,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case covers="annotation-assertions" name="annotation-assertion-14">
+  <test-case covers="annotation-assertions" name="annotation-assertion-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>An annotation assertion in a reserved namespace.</description>
     <created by="Josh Spiegel" on="2012-01-09"/>
     <modified by="Michael Dyck" change="Revised URIQualifiedName syntax as per bug 15399" on="2012-03-11"/>
@@ -861,7 +860,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case covers="annotation-assertions" name="annotation-assertion-15">
+  <test-case covers="annotation-assertions" name="annotation-assertion-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>An annotation assertion in a reserved namespace.</description>
     <created by="Josh Spiegel" on="2012-01-09"/>
     <dependency type="spec" value="XQ30+"/>
@@ -875,7 +874,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case covers="annotation-assertions" name="annotation-assertion-16">
+  <test-case covers="annotation-assertions" name="annotation-assertion-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>An annotation assertion in a reserved namespace.</description>
     <created by="Josh Spiegel" on="2012-01-09"/>
     <dependency type="spec" value="XQ30+"/>
@@ -889,7 +888,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case covers="annotation-assertions" name="annotation-assertion-17">
+  <test-case covers="annotation-assertions" name="annotation-assertion-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>An annotation assertion in a reserved namespace.</description>
     <created by="Josh Spiegel" on="2012-01-09"/>
     <dependency type="spec" value="XQ30+"/>
@@ -904,7 +903,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case covers="annotation-assertions" name="annotation-assertion-18">
+  <test-case covers="annotation-assertions" name="annotation-assertion-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>An annotation assertion in a reserved namespace.</description>
     <created by="Josh Spiegel" on="2012-01-09"/>
     <modified by="Josh Spiegel" change="Changed reserved namespace (bug 16199)" on="2012-10-08"/>

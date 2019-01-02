@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set covers="math-pow" name="math-pow" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the math:pow function introduced in XPath 3.0</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-pow" type="spec"/>
   <dependency type="spec" value="XP30+ XQ30+"/>
-  <test-case name="math-pow-001">
+  <test-case name="math-pow-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Evaluate the function math:pow() with the arguments () and 93.7</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow((), 93.7)</test>
     <result-string>()</result-string>
@@ -13,329 +12,329 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="math-pow-002">
+  <test-case name="math-pow-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("8")</response-string>
     <description>Evaluate the function math:pow() with  the arguments 2 and 3</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(2, 3)</test>
-    <result-string>xs:double("8.0e0")</result-string>
+    <result-string>xs:double("8")</result-string>
     <result>
       <assert-eq>8.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-003">
+  <test-case name="math-pow-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-8")</response-string>
     <description>Evaluate the function math:pow() with  the arguments -2 and 3</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-2, 3)</test>
-    <result-string>xs:double("-8.0e0")</result-string>
+    <result-string>xs:double("-8")</result-string>
     <result>
       <assert-eq>-8.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-004">
+  <test-case name="math-pow-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-0.125")</response-string>
     <description>Evaluate the function math:pow() with  the arguments -2 and -3</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-2, -3)</test>
-    <result-string>xs:double("-1.25e-1")</result-string>
+    <result-string>xs:double("-0.125")</result-string>
     <result>
       <assert-eq>-0.125e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-005">
+  <test-case name="math-pow-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description>Evaluate the function math:pow() with  the arguments 2 and 0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(2, 0)</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-006">
+  <test-case name="math-pow-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description>Evaluate the function math:pow() with  the arguments 0 and 0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(0, 0)</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-007">
-    <description>Evaluate the function math:pow() with  the arguments xs:double('INF') and 0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+  <test-case name="math-pow-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
+    <description>Evaluate the function math:pow() with  the arguments xs:double(&apos;INF&apos;) and 0</description>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
-    <test>math:pow(xs:double('INF'), 0)</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <test>math:pow(xs:double(&apos;INF&apos;), 0)</test>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-008">
-    <description>Evaluate the function math:pow() with  the arguments xs:double('NaN') and 0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+  <test-case name="math-pow-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
+    <description>Evaluate the function math:pow() with  the arguments xs:double(&apos;NaN&apos;) and 0</description>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
-    <test>math:pow(xs:double('NaN'), 0)</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <test>math:pow(xs:double(&apos;NaN&apos;), 0)</test>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-009">
+  <test-case name="math-pow-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description>Evaluate the function math:pow() with  the arguments -math:pi() and 0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-math:pi(), 0)</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-010">
+  <test-case name="math-pow-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>Evaluate the function math:pow() with  the arguments 0e0 and 3</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(0e0, 3)</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-011">
+  <test-case name="math-pow-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>Evaluate the function math:pow() with  the arguments 0e0 and 4</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(0e0, 4)</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-012">
+  <test-case name="math-pow-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>Evaluate the function math:pow() with  the arguments -0e0 and 3</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-0e0, 3)</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>-0.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-013">
+  <test-case name="math-pow-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>Evaluate the function math:pow() with  the arguments 0 and 4</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(0, 4)</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-014">
+  <test-case name="math-pow-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("INF")</response-string>
     <description>Evaluate the function math:pow() with  the arguments 0e0 and -3</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(0e0, -3)</test>
     <result-string>xs:double("INF")</result-string>
     <result>
-      <assert-eq>xs:double('INF')</assert-eq>
+      <assert-eq>xs:double(&apos;INF&apos;)</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-015">
+  <test-case name="math-pow-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("INF")</response-string>
     <description>Evaluate the function math:pow() with  the arguments 0e0 and -4</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(0e0, -4)</test>
     <result-string>xs:double("INF")</result-string>
     <result>
-      <assert-eq>xs:double('INF')</assert-eq>
+      <assert-eq>xs:double(&apos;INF&apos;)</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-016">
+  <test-case name="math-pow-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-INF")</response-string>
     <description>Evaluate the function math:pow() with  the arguments -0e0 and -3</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-0e0, -3)</test>
     <result-string>xs:double("-INF")</result-string>
     <result>
-      <assert-eq>xs:double('-INF')</assert-eq>
+      <assert-eq>xs:double(&apos;-INF&apos;)</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-017">
+  <test-case name="math-pow-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("INF")</response-string>
     <description>Evaluate the function math:pow() with  the arguments 0 and -4</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(0, -4)</test>
     <result-string>xs:double("INF")</result-string>
     <result>
-      <assert-eq>xs:double('INF')</assert-eq>
+      <assert-eq>xs:double(&apos;INF&apos;)</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-018">
+  <test-case name="math-pow-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("4")</response-string>
     <description>Evaluate the function math:pow() with  the arguments 16 and 0.5e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(16, 0.5e0)</test>
-    <result-string>xs:double("4.0e0")</result-string>
+    <result-string>xs:double("4")</result-string>
     <result>
       <assert-eq>4.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-019">
+  <test-case name="math-pow-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("2")</response-string>
     <description>Evaluate the function math:pow() with  the arguments 16 and 0.25e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(16, 0.25e0)</test>
-    <result-string>xs:double("2.0e0")</result-string>
+    <result-string>xs:double("2")</result-string>
     <result>
       <assert-eq>2.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-020">
+  <test-case name="math-pow-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("INF")</response-string>
     <description>Evaluate the function math:pow() with  the arguments 0e0 and -3.0e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(0e0, -3.0e0)</test>
     <result-string>xs:double("INF")</result-string>
     <result>
-      <assert-eq>xs:double('INF')</assert-eq>
+      <assert-eq>xs:double(&apos;INF&apos;)</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-021">
+  <test-case name="math-pow-021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-INF")</response-string>
     <description>Evaluate the function math:pow() with  the arguments -0e0 and -3.0e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-0e0, -3.0e0)</test>
     <result-string>xs:double("-INF")</result-string>
     <result>
-      <assert-eq>xs:double('-INF')</assert-eq>
+      <assert-eq>xs:double(&apos;-INF&apos;)</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-022">
+  <test-case name="math-pow-022"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("INF")</response-string>
     <description>Evaluate the function math:pow() with  the arguments 0e0 and -3.1e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(0e0, -3.1e0)</test>
     <result-string>xs:double("INF")</result-string>
     <result>
-      <assert-eq>xs:double('INF')</assert-eq>
+      <assert-eq>xs:double(&apos;INF&apos;)</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-023">
+  <test-case name="math-pow-023"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("INF")</response-string>
     <description>Evaluate the function math:pow() with  the arguments -0e0 and -3.1e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-0e0, -3.1e0)</test>
     <result-string>xs:double("INF")</result-string>
     <result>
-      <assert-eq>xs:double('INF')</assert-eq>
+      <assert-eq>xs:double(&apos;INF&apos;)</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-024">
+  <test-case name="math-pow-024"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>Evaluate the function math:pow() with  the arguments 0e0 3.0e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(0e0, 3.0e0)</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-025">
+  <test-case name="math-pow-025"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>Evaluate the function math:pow() with  the arguments -0e0 and 3.0e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-0e0, 3.0e0)</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>-0.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-026">
+  <test-case name="math-pow-026"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>Evaluate the function math:pow() with  the arguments 0e0 3.1e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(0e0, 3.1e0)</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-027">
+  <test-case name="math-pow-027"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>Evaluate the function math:pow() with  the arguments -0e0 and 3.1e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-0e0, 3.1e0)</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-028">
-    <description>Evaluate the function math:pow() with  the arguments -1 and xs:double('INF')</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+  <test-case name="math-pow-028"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
+    <description>Evaluate the function math:pow() with  the arguments -1 and xs:double(&apos;INF&apos;)</description>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
-    <test>math:pow(-1, xs:double('INF'))</test>
+    <test>math:pow(-1, xs:double(&apos;INF&apos;))</test>
     <result-string>xs:double("1.0e0")</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-029">
-    <description>Evaluate the function math:pow() with  the arguments -1 and xs:double('-INF')</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+  <test-case name="math-pow-029"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
+    <description>Evaluate the function math:pow() with  the arguments -1 and xs:double(&apos;-INF&apos;)</description>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
-    <test>math:pow(-1, xs:double('-INF'))</test>
+    <test>math:pow(-1, xs:double(&apos;-INF&apos;))</test>
     <result-string>xs:double("1.0e0")</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-030">
-    <description>Evaluate the function math:pow() with  the arguments 1 and xs:double('INF')</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+  <test-case name="math-pow-030"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
+    <description>Evaluate the function math:pow() with  the arguments 1 and xs:double(&apos;INF&apos;)</description>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
-    <test>math:pow(1, xs:double('INF'))</test>
+    <test>math:pow(1, xs:double(&apos;INF&apos;))</test>
     <result-string>xs:double("1.0e0")</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-031">
-    <description>Evaluate the function math:pow() with the arguments 1 and xs:double('-INF')</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+  <test-case name="math-pow-031"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
+    <description>Evaluate the function math:pow() with the arguments 1 and xs:double(&apos;-INF&apos;)</description>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
-    <test>math:pow(1, xs:double('-INF'))</test>
+    <test>math:pow(1, xs:double(&apos;-INF&apos;))</test>
     <result-string>xs:double("1.0e0")</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-032">
-    <description>Evaluate the function math:pow() with the arguments 1 and xs:double('NaN')</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+  <test-case name="math-pow-032"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
+    <description>Evaluate the function math:pow() with the arguments 1 and xs:double(&apos;NaN&apos;)</description>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
-    <test>math:pow(1, xs:double('NaN'))</test>
+    <test>math:pow(1, xs:double(&apos;NaN&apos;))</test>
     <result-string>xs:double("1.0e0")</result-string>
     <result>
       <assert-eq>1.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-033">
+  <test-case name="math-pow-033"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("6.25")</response-string>
     <description>Evaluate the function math:pow() with the arguments -2.5 and 2.0e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-2.5e0, 2.0e0)</test>
-    <result-string>xs:double("6.25e0")</result-string>
+    <result-string>xs:double("6.25")</result-string>
     <result>
       <assert-eq>6.25e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pow-034">
+  <test-case name="math-pow-034"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description>Evaluate the function math:pow() with  the arguments -2.5 and 2.0000001</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:pow(-2.5e0, 2.00000001e0)</test>
     <result-string>xs:double("NaN")</result-string>

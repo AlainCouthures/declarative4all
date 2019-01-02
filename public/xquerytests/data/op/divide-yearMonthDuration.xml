@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="op-divide-yearMonthDuration" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the divide-yearMonthDuration() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-divide-yearMonthDuration" type="spec"/>
-  <test-case name="op-divide-yearMonthDuration2args-1">
+  <test-case name="op-divide-yearMonthDuration2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P0M")</response-string>
     <description>
 *******************************************************
 Test: op-divide-yearMonthDuration2args-1                
@@ -16,12 +15,12 @@ $arg2 = xs:double(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P0Y0M") div xs:double("-1.7976931348623157E308")</test>
-    <result-string>xs:string("P0M")</result-string>
+    <result-string>xs:yearMonthDuration("P0M")</result-string>
     <result>
       <assert-string-value>P0M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-divide-yearMonthDuration2args-2">
+  <test-case name="op-divide-yearMonthDuration2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P0M")</response-string>
     <description>
 *******************************************************
 Test: op-divide-yearMonthDuration2args-2                
@@ -35,12 +34,12 @@ $arg2 = xs:double(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P1000Y6M") div xs:double("-1.7976931348623157E308")</test>
-    <result-string>xs:string("P0M")</result-string>
+    <result-string>xs:yearMonthDuration("P0M")</result-string>
     <result>
       <assert-string-value>P0M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-divide-yearMonthDuration2args-3">
+  <test-case name="op-divide-yearMonthDuration2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P0M")</response-string>
     <description>
 *******************************************************
 Test: op-divide-yearMonthDuration2args-3                
@@ -54,12 +53,12 @@ $arg2 = xs:double(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P2030Y12M") div xs:double("-1.7976931348623157E308")</test>
-    <result-string>xs:string("P0M")</result-string>
+    <result-string>xs:yearMonthDuration("P0M")</result-string>
     <result>
       <assert-string-value>P0M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-divide-yearMonthDuration2args-4">
+  <test-case name="op-divide-yearMonthDuration2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P0M")</response-string>
     <description>
 *******************************************************
 Test: op-divide-yearMonthDuration2args-4                
@@ -73,12 +72,12 @@ $arg2 = xs:double(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P0Y0M") div xs:double("0.1")</test>
-    <result-string>xs:string("P0M")</result-string>
+    <result-string>xs:yearMonthDuration("P0M")</result-string>
     <result>
       <assert-string-value>P0M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-divide-yearMonthDuration2args-5">
+  <test-case name="op-divide-yearMonthDuration2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P0M")</response-string>
     <description>
 *******************************************************
 Test: op-divide-yearMonthDuration2args-5                
@@ -92,12 +91,12 @@ $arg2 = xs:double(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P0Y0M") div xs:double("1.7976931348623157E308")</test>
-    <result-string>xs:string("P0M")</result-string>
+    <result-string>xs:yearMonthDuration("P0M")</result-string>
     <result>
       <assert-string-value>P0M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-divide-yearMonthDuration-1">
+  <test-case name="op-divide-yearMonthDuration-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P1Y11M")</response-string>
     <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-1                    
@@ -109,12 +108,12 @@ As per example 1 (for this function)of the FO specs.
 </description>
     <created by="Carmelo Montanez" on="2005-06-30"/>
     <test>(xs:yearMonthDuration("P2Y11M") div 1.5)</test>
-    <result-string>xs:string("P1Y11M")</result-string>
+    <result-string>xs:yearMonthDuration("P1Y11M")</result-string>
     <result>
       <assert-string-value>P1Y11M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-divide-yearMonthDuration-2">
+  <test-case name="op-divide-yearMonthDuration-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-2                    
@@ -131,7 +130,7 @@ used as part of a boolean expression (and operator) and the "fn:false" function.
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-divide-yearMonthDuration-3">
+  <test-case name="op-divide-yearMonthDuration-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-3                    
@@ -148,7 +147,7 @@ part of a boolean expression (or operator) and the "fn:boolean" function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-divide-yearMonthDuration-4">
+  <test-case name="op-divide-yearMonthDuration-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-4                    
@@ -165,7 +164,7 @@ return true and used together with fn:not.
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-divide-yearMonthDuration-5">
+  <test-case name="op-divide-yearMonthDuration-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-5                    
@@ -183,7 +182,7 @@ is used as an argument to the fn:boolean function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-divide-yearMonthDuration-6">
+  <test-case name="op-divide-yearMonthDuration-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-6                    
@@ -194,12 +193,12 @@ is used as an argument to the fn:number function.
 </description>
     <created by="Carmelo Montanez" on="2005-06-30"/>
     <test>fn:number(xs:yearMonthDuration("P02Y09M") div 2.0)</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-divide-yearMonthDuration-7">
+  <test-case name="op-divide-yearMonthDuration-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("P1Y10M")</response-string>
     <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-7                    
@@ -216,7 +215,7 @@ as an argument to the "fn:string" function).
       <assert-string-value>P1Y10M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-divide-yearMonthDuration-8">
+  <test-case name="op-divide-yearMonthDuration-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("-P5Y")</response-string>
     <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-8                    
@@ -228,12 +227,12 @@ returns a negative value.
 </description>
     <created by="Carmelo Montanez" on="2005-06-30"/>
     <test>(xs:yearMonthDuration("P10Y01M") div -2.0)</test>
-    <result-string>xs:string("-P5Y")</result-string>
+    <result-string>xs:yearMonthDuration("-P5Y")</result-string>
     <result>
       <assert-string-value>-P5Y</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-divide-yearMonthDuration-9">
+  <test-case name="op-divide-yearMonthDuration-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-9                    
@@ -251,7 +250,7 @@ together with and "and" expression.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-divide-yearMonthDuration-10">
+  <test-case name="op-divide-yearMonthDuration-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-10                   
@@ -269,7 +268,7 @@ together with an "or" expression.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-divide-yearMonthDuration-11">
+  <test-case name="op-divide-yearMonthDuration-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-11                   
@@ -286,7 +285,7 @@ together with a multiple "div" expressions.
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-divide-yearMonthDuration-12">
+  <test-case name="op-divide-yearMonthDuration-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-12                   
@@ -304,7 +303,7 @@ with a boolean expression and the "fn:true" function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-divide-yearMonthDuration-13">
+  <test-case name="op-divide-yearMonthDuration-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-13                   
@@ -321,7 +320,7 @@ together with the numeric-equal- operator "eq".
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-divide-yearMonthDuration-14">
+  <test-case name="op-divide-yearMonthDuration-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-14                   
@@ -338,7 +337,7 @@ together with the numeric-equal operator "ne".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-divide-yearMonthDuration-15">
+  <test-case name="op-divide-yearMonthDuration-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-15                   
@@ -355,7 +354,7 @@ together with the numeric-equal operator "le".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-divide-yearMonthDuration-16">
+  <test-case name="op-divide-yearMonthDuration-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-16                   
@@ -372,7 +371,7 @@ together with the numeric-equal operator "ge".
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-divide-yearMonthDuration-17">
+  <test-case name="op-divide-yearMonthDuration-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:yearMonthDuration("-P2M"),xs:yearMonthDuration("-P1M"),xs:yearMonthDuration("P0M"),xs:yearMonthDuration("P0M"),xs:yearMonthDuration("P0M"),xs:yearMonthDuration("P1M"),xs:yearMonthDuration("P1M"),xs:yearMonthDuration("P3M"))</response-string>
     <description>
 *******************************************************
 Test: op-divide-yearMonthDuration-17                   
@@ -384,12 +383,12 @@ See Erratum FO.E12                           .
 </description>
     <created by="Michael Kay" on="2009-03-05"/>
     <test>for $i in (-2, -4, -10, -50, +50, +10, +4, +2) return (xs:yearMonthDuration("P5M") div $i)</test>
-    <result-string>xs:string("-P2M -P1M P0M P0M P0M P1M P1M P3M")</result-string>
+    <result-string>(xs:yearMonthDuration("-P2M"),xs:yearMonthDuration("-P1M"),xs:yearMonthDuration("P0M"),xs:yearMonthDuration("P0M"),xs:yearMonthDuration("P0M"),xs:yearMonthDuration("P1M"),xs:yearMonthDuration("P1M"),xs:yearMonthDuration("P3M"))</result-string>
     <result>
       <assert-string-value>-P2M -P1M P0M P0M P0M P1M P1M P3M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationDivide-1">
+  <test-case name="K-YearMonthDurationDivide-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationDivide-1                     
@@ -405,13 +404,13 @@ See Erratum FO.E12                           .
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationDivide-2">
+  <test-case name="K-YearMonthDurationDivide-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationDivide-2                     
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: Simple test of dividing a xs:yearMonthDuration with xs:double('-INF'). 
+ Purpose: Simple test of dividing a xs:yearMonthDuration with xs:double(&apos;-INF&apos;). 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -421,13 +420,13 @@ See Erratum FO.E12                           .
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationDivide-3">
+  <test-case name="K-YearMonthDurationDivide-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationDivide-3                     
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: Simple test of dividing a xs:yearMonthDuration with xs:double('INF'). 
+ Purpose: Simple test of dividing a xs:yearMonthDuration with xs:double(&apos;INF&apos;). 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -437,7 +436,7 @@ See Erratum FO.E12                           .
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationDivide-4">
+  <test-case name="K-YearMonthDurationDivide-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("PInfinityYNaNM")</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationDivide-4                     
@@ -453,7 +452,7 @@ See Erratum FO.E12                           .
       <error code="FODT0002"/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationDivide-5">
+  <test-case name="K-YearMonthDurationDivide-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("PNaNYNaNM")</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationDivide-5                     
@@ -469,13 +468,13 @@ See Erratum FO.E12                           .
       <error code="FOCA0005"/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationDivide-6">
+  <test-case name="K-YearMonthDurationDivide-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("PInfinityYNaNM")</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationDivide-6                     
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: Simple test of dividing a xs:yearMonthDuration with xs:double('-0'). 
+ Purpose: Simple test of dividing a xs:yearMonthDuration with xs:double(&apos;-0&apos;). 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -485,7 +484,7 @@ See Erratum FO.E12                           .
       <error code="FODT0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-divide-yearMonthDuration-001">
+  <test-case name="cbcl-divide-yearMonthDuration-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("PInfinityYNaNM")</response-string>
     <description> test division of xs:yearMonthDuration by 0 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
@@ -497,19 +496,19 @@ See Erratum FO.E12                           .
       <error code="FODT0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-divide-yearMonthDuration-002">
+  <test-case name="cbcl-divide-yearMonthDuration-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P2Y")</response-string>
     <description> test division of xs:yearMonthDuration by 1 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:yearMonthDuration($years as xs:integer) as xs:yearMonthDuration { xs:yearMonthDuration(concat("P", $years, "Y")) };
         local:yearMonthDuration(2) div 1</test>
-    <result-string>xs:string("P2Y")</result-string>
+    <result-string>xs:yearMonthDuration("P2Y")</result-string>
     <result>
       <assert-string-value>P2Y</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-divide-yearMonthDuration-003">
+  <test-case name="cbcl-divide-yearMonthDuration-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P1537228672809129200Y4M")</response-string>
     <description> test possible overflow in division of xs:yearMonthDuration </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>

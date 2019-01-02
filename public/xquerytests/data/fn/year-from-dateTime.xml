@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-year-from-dateTime" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the year-from-dateTime() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-year-from-dateTime" type="spec"/>
-  <test-case name="fn-year-from-dateTime1args-1">
+  <test-case name="fn-year-from-dateTime1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1970")</response-string>
     <description> Evaluates The "year-from-dateTime" function with the arguments set as follows: $arg = xs:dateTime(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:year-from-dateTime(xs:dateTime("1970-01-01T00:00:00Z"))</test>
@@ -11,7 +10,7 @@
       <assert-string-value>1970</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-year-from-dateTime1args-2">
+  <test-case name="fn-year-from-dateTime1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1996")</response-string>
     <description> Evaluates The "year-from-dateTime" function with the arguments set as follows: $arg = xs:dateTime(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:year-from-dateTime(xs:dateTime("1996-04-07T01:40:52Z"))</test>
@@ -20,7 +19,7 @@
       <assert-string-value>1996</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-year-from-dateTime1args-3">
+  <test-case name="fn-year-from-dateTime1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2030")</response-string>
     <description> Evaluates The "year-from-dateTime" function with the arguments set as follows: $arg = xs:dateTime(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:year-from-dateTime(xs:dateTime("2030-12-31T23:59:59Z"))</test>
@@ -29,7 +28,7 @@
       <assert-string-value>2030</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-year-from-dateTime-1">
+  <test-case name="fn-year-from-dateTime-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1999")</response-string>
     <description> Evaluates The "year-from-dateTime" function As per example 1 (of this fucntion) of the FO specs </description>
     <created by="Carmelo Montanez" on="2005-08-06"/>
     <test>fn:year-from-dateTime(xs:dateTime("1999-05-31T13:20:00-05:00"))</test>
@@ -38,7 +37,7 @@
       <assert-string-value>1999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-year-from-dateTime-2">
+  <test-case name="fn-year-from-dateTime-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1999")</response-string>
     <description> Evaluates The "year-from-dateTime" function As per example 2 (for this function)of the FO specs </description>
     <created by="Carmelo Montanez" on="2005-08-06"/>
     <test>fn:year-from-dateTime(xs:dateTime("1999-05-31T21:30:00-05:00"))</test>
@@ -47,7 +46,7 @@
       <assert-string-value>1999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-year-from-dateTime-3">
+  <test-case name="fn-year-from-dateTime-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1999")</response-string>
     <description> Evaluates The "year-from-dateTime" function As per example 3 (for this function) of the FO specs </description>
     <created by="Carmelo Montanez" on="2005-08-06"/>
     <test>fn:year-from-dateTime(xs:dateTime("1999-12-31T19:20:00"))</test>
@@ -56,16 +55,16 @@
       <assert-string-value>1999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-year-from-dateTime-4">
+  <test-case name="fn-year-from-dateTime-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1998")</response-string>
     <description> Evaluates The "year-from-dateTime" function used as an argument to an "avg" function. </description>
     <created by="Carmelo Montanez" on="2005-08-06"/>
     <test>fn:avg((fn:year-from-dateTime(xs:dateTime("1996-12-31T12:00:00Z")),fn:year-from-dateTime(xs:dateTime("2000-12-31T12:00:00Z"))))</test>
-    <result-string>xs:double("1.998e3")</result-string>
+    <result-string>xs:integer("1998")</result-string>
     <result>
       <assert-string-value>1998</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-year-from-dateTime-5">
+  <test-case name="fn-year-from-dateTime-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "year-from-dateTime" function using the empty sequence as an argument. Use count function to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-08-06"/>
     <test>fn:count(fn:year-from-dateTime(()))</test>
@@ -74,7 +73,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-year-from-dateTime-6">
+  <test-case name="fn-year-from-dateTime-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> Evaluates The "year-from-dateTime" function that returns a negative number. </description>
     <created by="Carmelo Montanez" on="2005-08-06"/>
     <test>fn:year-from-dateTime(xs:dateTime("-1999-05-31T00:20:00-05:00"))</test>
@@ -83,7 +82,7 @@
       <assert-string-value>-1999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-year-from-dateTime-7">
+  <test-case name="fn-year-from-dateTime-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "year-from-dateTime" function that returns 0001. </description>
     <created by="Carmelo Montanez" on="2005-08-06"/>
     <test>fn:year-from-dateTime(xs:dateTime("0001-05-31T23:20:00-05:00"))</test>
@@ -92,7 +91,7 @@
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-year-from-dateTime-8">
+  <test-case name="fn-year-from-dateTime-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("3940")</response-string>
     <description> Evaluates The "year-from-dateTime" function as part of a "+" expression. </description>
     <created by="Carmelo Montanez" on="2005-08-06"/>
     <test>fn:year-from-dateTime(xs:dateTime("1970-01-01T00:00:00Z")) + fn:year-from-dateTime(xs:dateTime("1970-01-01T10:00:00Z"))</test>
@@ -101,7 +100,7 @@
       <assert-string-value>3940</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-year-from-dateTime-9">
+  <test-case name="fn-year-from-dateTime-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "year-from-dateTime" function as part of a "-" expression. </description>
     <created by="Carmelo Montanez" on="2005-08-06"/>
     <test>fn:year-from-dateTime(xs:dateTime("1970-01-01T00:00:00Z")) - fn:year-from-dateTime(xs:dateTime("1969-01-01T10:00:00Z"))</test>
@@ -110,7 +109,7 @@
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-year-from-dateTime-10">
+  <test-case name="fn-year-from-dateTime-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("3940")</response-string>
     <description> Evaluates The "year-from-dateTime" function as part of a "*" expression. </description>
     <created by="Carmelo Montanez" on="2005-08-06"/>
     <test>fn:year-from-dateTime(xs:dateTime("1970-01-01T02:00:00Z")) * fn:year-from-dateTime(xs:dateTime("0002-01-01T10:00:00Z"))</test>
@@ -119,7 +118,7 @@
       <assert-string-value>3940</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-year-from-dateTime-11">
+  <test-case name="fn-year-from-dateTime-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("20")</response-string>
     <description> Evaluates The "year-from-dateTime" function as part of a "div" expression. </description>
     <created by="Carmelo Montanez" on="2005-08-06"/>
     <test>fn:year-from-dateTime(xs:dateTime("1000-01-01T02:00:00Z")) div fn:year-from-dateTime(xs:dateTime("0050-01-01T10:00:00Z"))</test>
@@ -128,7 +127,7 @@
       <assert-string-value>20</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-year-from-dateTime-12">
+  <test-case name="fn-year-from-dateTime-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "year-from-dateTime" function as part of a "idiv" expression. </description>
     <created by="Carmelo Montanez" on="2005-08-06"/>
     <test>fn:year-from-dateTime(xs:dateTime("1970-01-01T10:00:00Z")) idiv fn:year-from-dateTime(xs:dateTime("1970-01-01T02:00:00Z"))</test>
@@ -137,7 +136,7 @@
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-year-from-dateTime-13">
+  <test-case name="fn-year-from-dateTime-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "year-from-dateTime" function as part of a "mod" expression. </description>
     <created by="Carmelo Montanez" on="2005-08-06"/>
     <test>fn:year-from-dateTime(xs:dateTime("1970-01-01T10:00:00Z")) mod fn:year-from-dateTime(xs:dateTime("1970-01-01T03:00:00Z"))</test>
@@ -146,7 +145,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-year-from-dateTimeNew-14">
+  <test-case name="fn-year-from-dateTimeNew-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1971")</response-string>
     <description> Evaluates The "year-from-dateTime" function as part of a "numeric-unary-plus" expression. </description>
     <created by="Carmelo Montanez" on="2005-08-06"/>
     <test>+fn:year-from-dateTime(xs:dateTime("1971-01-01T10:00:00Z"))</test>
@@ -155,7 +154,7 @@
       <assert-string-value>1971</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-year-from-dateTimeNew-15">
+  <test-case name="fn-year-from-dateTimeNew-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1970")</response-string>
     <description> Evaluates The "year-from-dateTime" function as part of a "numeric-unary-minus" expression. </description>
     <created by="Carmelo Montanez" on="2005-08-06"/>
     <test>-fn:year-from-dateTime(xs:dateTime("1970-01-01T10:00:00Z"))</test>
@@ -164,7 +163,7 @@
       <assert-string-value>-1970</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-year-from-dateTime-16">
+  <test-case name="fn-year-from-dateTime-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "year-from-dateTime" function as part of a "numeric-equal" expression (eq operator) </description>
     <created by="Carmelo Montanez" on="2005-08-06"/>
     <test>fn:year-from-dateTime(xs:dateTime("1970-01-01T10:00:00Z")) eq fn:year-from-dateTime(xs:dateTime("1970-01-01T10:00:00Z"))</test>
@@ -173,7 +172,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-year-from-dateTime-17">
+  <test-case name="fn-year-from-dateTime-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "year-from-dateTime" function as part of a "numeric-equal" expression (ne operator) </description>
     <created by="Carmelo Montanez" on="2005-08-06"/>
     <test>fn:year-from-dateTime(xs:dateTime("1970-01-01T10:00:00Z")) ne fn:year-from-dateTime(xs:dateTime("1970-01-01T10:00:00Z"))</test>
@@ -182,7 +181,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-year-from-dateTime-18">
+  <test-case name="fn-year-from-dateTime-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "year-from-dateTime" function as part of a "numeric-equal" expression (le operator) </description>
     <created by="Carmelo Montanez" on="2005-08-06"/>
     <test>fn:year-from-dateTime(xs:dateTime("1970-01-01T10:00:00Z")) le fn:year-from-dateTime(xs:dateTime("1971-01-01T10:00:00Z"))</test>
@@ -191,7 +190,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-year-from-dateTime-19">
+  <test-case name="fn-year-from-dateTime-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "year-from-dateTime" function as part of a "numeric-equal" expression (ge operator) </description>
     <created by="Carmelo Montanez" on="2005-08-06"/>
     <test>fn:year-from-dateTime(xs:dateTime("1971-01-01T10:00:00Z")) ge fn:year-from-dateTime(xs:dateTime("1970-01-01T10:00:00Z"))</test>
@@ -200,7 +199,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearFromDateTimeFunc-1">
+  <test-case name="K-YearFromDateTimeFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `year-from-dateTime()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>year-from-dateTime()</test>
@@ -209,7 +208,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-YearFromDateTimeFunc-2">
+  <test-case name="K-YearFromDateTimeFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `year-from-dateTime((), "Wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>year-from-dateTime((), "Wrong param")</test>
@@ -218,7 +217,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-YearFromDateTimeFunc-3">
+  <test-case name="K-YearFromDateTimeFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(year-from-dateTime(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(year-from-dateTime(()))</test>
@@ -227,7 +226,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearFromDateTimeFunc-4">
+  <test-case name="K-YearFromDateTimeFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `year-from-dateTime(()) instance of xs:integer?`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>year-from-dateTime(()) instance of xs:integer?</test>
@@ -236,7 +235,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearFromDateTimeFunc-5">
+  <test-case name="K-YearFromDateTimeFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `year-from-dateTime(xs:dateTime("2001-02-03T08:23:12.43")) eq 2001`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>year-from-dateTime(xs:dateTime("2001-02-03T08:23:12.43")) eq 2001</test>

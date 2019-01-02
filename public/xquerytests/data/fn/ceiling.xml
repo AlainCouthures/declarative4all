@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-ceiling" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description/>
   <link document="http://www.w3.org/TR/xpath-functions-11/" idref="func-ceiling" type="spec"/>
@@ -24,37 +23,37 @@
       <created by="Michael Kay" on="2010-12-08"/>
     </source>
   </environment>
-  <test-case name="fn-ceilingint1args-1">
+  <test-case name="fn-ceilingint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-2147483648")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-2147483648")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:int("-2147483648"))</test>
-    <result-string>xs:integer("-2147483648")</result-string>
+    <result-string>xs:int("-2147483648")</result-string>
     <result>
       <assert-eq>-2147483648</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingint1args-2">
+  <test-case name="fn-ceilingint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-1873914410")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-1873914410")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:int("-1873914410"))</test>
-    <result-string>xs:integer("-1873914410")</result-string>
+    <result-string>xs:int("-1873914410")</result-string>
     <result>
       <assert-eq>-1873914410</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingint1args-3">
+  <test-case name="fn-ceilingint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("2147483647")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("2147483647")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:int("2147483647"))</test>
-    <result-string>xs:integer("2147483647")</result-string>
+    <result-string>xs:int("2147483647")</result-string>
     <result>
       <assert-eq>2147483647</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingintg1args-1">
+  <test-case name="fn-ceilingintg1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
@@ -64,7 +63,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingintg1args-2">
+  <test-case name="fn-ceilingintg1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("830993497117024300")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("830993497117024300")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
@@ -74,7 +73,7 @@
       <assert-eq>830993497117024304</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingintg1args-3">
+  <test-case name="fn-ceilingintg1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1000000000000000000")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1000000000000000000")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
@@ -84,7 +83,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingdec1args-1">
+  <test-case name="fn-ceilingdec1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
@@ -94,7 +93,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingdec1args-2">
+  <test-case name="fn-ceilingdec1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("617375191608514800")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("617375191608514800")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
@@ -104,7 +103,7 @@
       <assert-eq>617375191608514839</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingdec1args-3">
+  <test-case name="fn-ceilingdec1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1000000000000000000")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1000000000000000000")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
@@ -114,67 +113,67 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingdbl1args-1">
+  <test-case name="fn-ceilingdbl1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157E308")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157E308")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:double("-1.7976931348623157E308"))</test>
-    <result-string>xs:string("-1.7976931348623157E308")</result-string>
+    <result-string>xs:double("-1.7976931348623157E308")</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E308</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-ceilingdbl1args-2">
+  <test-case name="fn-ceilingdbl1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:double("0"))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingdbl1args-3">
+  <test-case name="fn-ceilingdbl1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.7976931348623157E308")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.7976931348623157E308")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:double("1.7976931348623157E308"))</test>
-    <result-string>xs:string("1.7976931348623157E308")</result-string>
+    <result-string>xs:double("1.7976931348623157E308")</result-string>
     <result>
       <assert-string-value>1.7976931348623157E308</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-ceilingflt1args-1">
+  <test-case name="fn-ceilingflt1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235E38")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235E38")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:float("-3.4028235E38"))</test>
-    <result-string>xs:string("-3.4028235E38")</result-string>
+    <result-string>xs:float("-3.4028235E38")</result-string>
     <result>
       <assert-string-value>-3.4028235E38</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-ceilingflt1args-2">
+  <test-case name="fn-ceilingflt1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:float("0"))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingflt1args-3">
+  <test-case name="fn-ceilingflt1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("3.4028235E38")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("3.4028235E38")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:float("3.4028235E38"))</test>
-    <result-string>xs:string("3.4028235E38")</result-string>
+    <result-string>xs:float("3.4028235E38")</result-string>
     <result>
       <assert-string-value>3.4028235E38</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-ceilinglng1args-1">
+  <test-case name="fn-ceilinglng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-92233720368547760")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-92233720368547760")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
@@ -184,7 +183,7 @@
       <assert-eq>-92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilinglng1args-2">
+  <test-case name="fn-ceilinglng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-47175562203048460")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-47175562203048460")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
@@ -194,7 +193,7 @@
       <assert-eq>-47175562203048468</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilinglng1args-3">
+  <test-case name="fn-ceilinglng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("92233720368547760")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("92233720368547760")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
@@ -204,37 +203,37 @@
       <assert-eq>92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingusht1args-1">
+  <test-case name="fn-ceilingusht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("0")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:unsignedShort("0"))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:unsignedShort("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingusht1args-2">
+  <test-case name="fn-ceilingusht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("44633")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("44633")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:unsignedShort("44633"))</test>
-    <result-string>xs:integer("44633")</result-string>
+    <result-string>xs:unsignedShort("44633")</result-string>
     <result>
       <assert-eq>44633</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingusht1args-3">
+  <test-case name="fn-ceilingusht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("65535")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("65535")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:unsignedShort("65535"))</test>
-    <result-string>xs:integer("65535")</result-string>
+    <result-string>xs:unsignedShort("65535")</result-string>
     <result>
       <assert-eq>65535</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingnint1args-1">
+  <test-case name="fn-ceilingnint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1000000000000000000")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1000000000000000000")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
@@ -244,7 +243,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingnint1args-2">
+  <test-case name="fn-ceilingnint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-297014075999096770")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-297014075999096770")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
@@ -254,27 +253,27 @@
       <assert-eq>-297014075999096793</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingnint1args-3">
+  <test-case name="fn-ceilingnint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:negativeInteger("-1"))</test>
-    <result-string>xs:integer("-1")</result-string>
+    <result-string>xs:negativeInteger("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingpint1args-1">
+  <test-case name="fn-ceilingpint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:positiveInteger("1"))</test>
-    <result-string>xs:integer("1")</result-string>
+    <result-string>xs:positiveInteger("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingpint1args-2">
+  <test-case name="fn-ceilingpint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("52704602390610030")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("52704602390610030")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
@@ -284,7 +283,7 @@
       <assert-eq>52704602390610033</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingpint1args-3">
+  <test-case name="fn-ceilingpint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1000000000000000000")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1000000000000000000")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
@@ -294,17 +293,17 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingulng1args-1">
+  <test-case name="fn-ceilingulng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("0")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:unsignedLong("0"))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:unsignedLong("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingulng1args-2">
+  <test-case name="fn-ceilingulng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("130747108607674660")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("130747108607674660")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
@@ -314,7 +313,7 @@
       <assert-eq>130747108607674654</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingulng1args-3">
+  <test-case name="fn-ceilingulng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("184467440737095520")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("184467440737095520")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
@@ -324,7 +323,7 @@
       <assert-eq>184467440737095516</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingnpi1args-1">
+  <test-case name="fn-ceilingnpi1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-1000000000000000000")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-1000000000000000000")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
@@ -334,7 +333,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingnpi1args-2">
+  <test-case name="fn-ceilingnpi1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-475688437271870460")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-475688437271870460")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
@@ -344,27 +343,27 @@
       <assert-eq>-475688437271870490</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingnpi1args-3">
+  <test-case name="fn-ceilingnpi1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("0")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:nonPositiveInteger("0"))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:nonPositiveInteger("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingnni1args-1">
+  <test-case name="fn-ceilingnni1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("0")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:nonNegativeInteger("0"))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:nonNegativeInteger("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingnni1args-2">
+  <test-case name="fn-ceilingnni1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("303884545991464500")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("303884545991464500")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
@@ -374,7 +373,7 @@
       <assert-eq>303884545991464527</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingnni1args-3">
+  <test-case name="fn-ceilingnni1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("1000000000000000000")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("1000000000000000000")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
@@ -384,57 +383,57 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingsht1args-1">
+  <test-case name="fn-ceilingsht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-32768")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-32768")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:short("-32768"))</test>
-    <result-string>xs:integer("-32768")</result-string>
+    <result-string>xs:short("-32768")</result-string>
     <result>
       <assert-eq>-32768</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingsht1args-2">
+  <test-case name="fn-ceilingsht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-5324")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-5324")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:short("-5324"))</test>
-    <result-string>xs:integer("-5324")</result-string>
+    <result-string>xs:short("-5324")</result-string>
     <result>
       <assert-eq>-5324</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceilingsht1args-3">
+  <test-case name="fn-ceilingsht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("32767")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("32767")</response-string>
     <description> Evaluates The "ceiling" function with the arguments set as follows: $arg = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <environment ref="emptydoc"/>
     <test>fn:ceiling(xs:short("32767"))</test>
-    <result-string>xs:integer("32767")</result-string>
+    <result-string>xs:short("32767")</result-string>
     <result>
       <assert-eq>32767</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-CeilingFunc-1">
+  <test-case name="K-CeilingFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `ceiling()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="emptydoc"/>
     <test>ceiling()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-CeilingFunc-2">
+  <test-case name="K-CeilingFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `ceiling(1, 2)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="emptydoc"/>
     <test>ceiling(1, 2)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-CeilingFunc-3">
+  <test-case name="K-CeilingFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(ceiling(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="emptydoc"/>
@@ -444,7 +443,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-CeilingFunc-4">
+  <test-case name="K-CeilingFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `ceiling(10.5) eq 11`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="emptydoc"/>
@@ -454,7 +453,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-CeilingFunc-5">
+  <test-case name="K-CeilingFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `ceiling(-10.5) eq -10`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="emptydoc"/>
@@ -464,17 +463,17 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-CeilingFunc-6">
+  <test-case name="K-CeilingFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `ceiling("a string")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="emptydoc"/>
     <test>ceiling("a string")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-CeilingFunc-1">
+  <test-case name="K2-CeilingFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for unsignedShort. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
@@ -484,7 +483,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-CeilingFunc-2">
+  <test-case name="K2-CeilingFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for unsignedLong. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
@@ -494,7 +493,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-CeilingFunc-3">
+  <test-case name="K2-CeilingFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for unsignedInt. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
@@ -504,7 +503,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-CeilingFunc-4">
+  <test-case name="K2-CeilingFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for unsignedByte. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
@@ -514,10 +513,10 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-CeilingFunc-5">
+  <test-case name="K2-CeilingFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for positiveInteger. </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <modified by="O'Neil Delpratt" change="environement variable from e0 to e1" on="2011-09-06"/>
+    <modified by="O&apos;Neil Delpratt" change="environement variable from e0 to e1" on="2011-09-06"/>
     <environment ref="e1"/>
     <test>ceiling(xs:positiveInteger(.)) instance of xs:integer</test>
     <result-string>xs:boolean("true")</result-string>
@@ -525,7 +524,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-CeilingFunc-6">
+  <test-case name="K2-CeilingFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for nonPositiveInteger. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
@@ -535,7 +534,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-CeilingFunc-7">
+  <test-case name="K2-CeilingFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for nonNegativeInteger. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
@@ -545,7 +544,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-CeilingFunc-8">
+  <test-case name="K2-CeilingFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for negativeInteger. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e-1"/>
@@ -555,7 +554,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-CeilingFunc-9">
+  <test-case name="K2-CeilingFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for long. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
@@ -565,7 +564,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-CeilingFunc-10">
+  <test-case name="K2-CeilingFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for int. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
@@ -575,7 +574,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-CeilingFunc-11">
+  <test-case name="K2-CeilingFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for short. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
@@ -585,7 +584,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-CeilingFunc-12">
+  <test-case name="K2-CeilingFunc-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for byte. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="e0"/>
@@ -595,7 +594,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-1">
+  <test-case name="fn-ceiling-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("integer"),xs:string("decimal"),xs:string("float"),xs:string("double"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("integer"),xs:string("decimal"),xs:string("float"),xs:string("double"))</response-string>
     <description> check dynamic type of fn:ceiling on argument of union of numeric types. </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>for $x in (1, xs:decimal(2), xs:float(3), xs:double(4)) return 
@@ -605,16 +604,16 @@
            else if ((ceiling($x)) instance of xs:double) then "double" 
            else error()
       </test>
-    <result-string/>
+    <result-string>(xs:string("integer"),xs:string("decimal"),xs:string("float"),xs:string("double"))</result-string>
     <result>
       <assert-deep-eq>"integer", "decimal", "float", "double"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-decimal-1">
+  <test-case name="fn-ceiling-decimal-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("13")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("13")</response-string>
     <description>Basic test of ceiling(decimal)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>ceiling(12.5)</test>
-    <result-string/>
+    <result-string>xs:decimal("13")</result-string>
     <result>
       <all-of>
         <assert-eq>13.0</assert-eq>
@@ -622,11 +621,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-decimal-2">
+  <test-case name="fn-ceiling-decimal-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("13")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("13")</response-string>
     <description>Basic test of ceiling(decimal)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>ceiling(12.9)</test>
-    <result-string/>
+    <result-string>xs:decimal("13")</result-string>
     <result>
       <all-of>
         <assert-eq>13.0</assert-eq>
@@ -634,11 +633,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-decimal-3">
+  <test-case name="fn-ceiling-decimal-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1")</response-string>
     <description>Basic test of ceiling(decimal)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>ceiling(0.000000001)</test>
-    <result-string/>
+    <result-string>xs:decimal("1")</result-string>
     <result>
       <all-of>
         <assert-eq>1.0</assert-eq>
@@ -646,11 +645,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-decimal-4">
+  <test-case name="fn-ceiling-decimal-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("0")</response-string>
     <description>Basic test of ceiling(decimal)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>ceiling(0.0)</test>
-    <result-string/>
+    <result-string>xs:decimal("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0.0</assert-eq>
@@ -658,11 +657,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-decimal-5">
+  <test-case name="fn-ceiling-decimal-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("0")</response-string>
     <description>Basic test of ceiling(decimal)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>ceiling(-0.1)</test>
-    <result-string/>
+    <result-string>xs:decimal("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0.0</assert-eq>
@@ -670,11 +669,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-decimal-6">
+  <test-case name="fn-ceiling-decimal-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-12345678")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-12345678")</response-string>
     <description>Basic test of ceiling(decimal)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>ceiling(-12345678.567890)</test>
-    <result-string/>
+    <result-string>xs:decimal("-12345678")</result-string>
     <result>
       <all-of>
         <assert-eq>-12345678</assert-eq>
@@ -682,11 +681,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-decimal-7">
+  <test-case name="fn-ceiling-decimal-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1234567891234567")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1234567891234567")</response-string>
     <description>Basic test of ceiling(decimal)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>ceiling(-1234567891234567.2)</test>
-    <result-string/>
+    <result-string>xs:decimal("-1234567891234567")</result-string>
     <result>
       <all-of>
         <assert-eq>-1234567891234567.0</assert-eq>
@@ -694,11 +693,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-double-1">
+  <test-case name="fn-ceiling-double-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("13")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("13")</response-string>
     <description>Basic test of ceiling(double)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>ceiling(12.5e0)</test>
-    <result-string/>
+    <result-string>xs:double("13")</result-string>
     <result>
       <all-of>
         <assert-eq>13.0e0</assert-eq>
@@ -706,11 +705,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-double-2">
+  <test-case name="fn-ceiling-double-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("13")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("13")</response-string>
     <description>Basic test of ceiling(double)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>ceiling(12.9e0)</test>
-    <result-string/>
+    <result-string>xs:double("13")</result-string>
     <result>
       <all-of>
         <assert-eq>13.0e0</assert-eq>
@@ -718,11 +717,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-double-3">
+  <test-case name="fn-ceiling-double-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description>Basic test of ceiling(double)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>ceiling(0.000000001e0)</test>
-    <result-string/>
+    <result-string>xs:double("1")</result-string>
     <result>
       <all-of>
         <assert-eq>1.0e0</assert-eq>
@@ -730,11 +729,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-double-4">
+  <test-case name="fn-ceiling-double-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>Basic test of ceiling(double)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>ceiling(0.0e0)</test>
-    <result-string/>
+    <result-string>xs:double("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0.0e0</assert-eq>
@@ -742,11 +741,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-double-5">
+  <test-case name="fn-ceiling-double-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>Basic test of ceiling(double)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>ceiling(-0.1e0)</test>
-    <result-string/>
+    <result-string>xs:double("0")</result-string>
     <result>
       <all-of>
         <assert-eq>-0.0e0</assert-eq>
@@ -755,11 +754,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-double-6">
+  <test-case name="fn-ceiling-double-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.2345678E7")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.2345678E7")</response-string>
     <description>Basic test of ceiling(double)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>ceiling(-12345678.567890e0)</test>
-    <result-string/>
+    <result-string>xs:double("-1.2345678E7")</result-string>
     <result>
       <all-of>
         <assert-eq>-12345678e0</assert-eq>
@@ -767,11 +766,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-double-7">
+  <test-case name="fn-ceiling-double-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.234567891234567E15")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.234567891234567E15")</response-string>
     <description>Basic test of ceiling(double)</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>ceiling(-1234567891234567.2e0)</test>
-    <result-string/>
+    <result-string>xs:double("-1.234567891234567E15")</result-string>
     <result>
       <all-of>
         <assert-eq>-1234567891234567.0e0</assert-eq>
@@ -779,11 +778,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-double-8">
+  <test-case name="fn-ceiling-double-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description>Basic test of ceiling(double)</description>
     <created by="Michael Kay" on="2011-06-24"/>
-    <test>ceiling(xs:double('NaN'))</test>
-    <result-string/>
+    <test>ceiling(xs:double(&apos;NaN&apos;))</test>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <all-of>
         <assert-string-value>NaN</assert-string-value>
@@ -791,11 +790,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-double-9">
+  <test-case name="fn-ceiling-double-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("INF")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("INF")</response-string>
     <description>Basic test of ceiling(double)</description>
     <created by="Michael Kay" on="2011-06-24"/>
-    <test>ceiling(xs:double('INF'))</test>
-    <result-string/>
+    <test>ceiling(xs:double(&apos;INF&apos;))</test>
+    <result-string>xs:double("INF")</result-string>
     <result>
       <all-of>
         <assert-string-value>INF</assert-string-value>
@@ -803,11 +802,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-double-10">
+  <test-case name="fn-ceiling-double-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-INF")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-INF")</response-string>
     <description>Basic test of ceiling(double)</description>
     <created by="Michael Kay" on="2011-06-24"/>
-    <test>ceiling(xs:double('-INF'))</test>
-    <result-string/>
+    <test>ceiling(xs:double(&apos;-INF&apos;))</test>
+    <result-string>xs:double("-INF")</result-string>
     <result>
       <all-of>
         <assert-string-value>-INF</assert-string-value>
@@ -815,11 +814,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-double-11">
+  <test-case name="fn-ceiling-double-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>Basic test of ceiling(double)</description>
     <created by="Michael Kay" on="2011-06-24"/>
-    <test>ceiling(xs:double('-0'))</test>
-    <result-string/>
+    <test>ceiling(xs:double(&apos;-0&apos;))</test>
+    <result-string>xs:double("0")</result-string>
     <result>
       <all-of>
         <assert-eq>-0</assert-eq>
@@ -827,11 +826,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-float-1">
+  <test-case name="fn-ceiling-float-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("13")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("13")</response-string>
     <description>Basic test of ceiling(float))</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>ceiling(xs:float(12.5e0))</test>
-    <result-string/>
+    <result-string>xs:float("13")</result-string>
     <result>
       <all-of>
         <assert-eq>13.0e0</assert-eq>
@@ -839,11 +838,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-float-2">
+  <test-case name="fn-ceiling-float-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("13")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("13")</response-string>
     <description>Basic test of ceiling(float))</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>ceiling(xs:float(12.9e0))</test>
-    <result-string/>
+    <result-string>xs:float("13")</result-string>
     <result>
       <all-of>
         <assert-eq>13.0e0</assert-eq>
@@ -851,11 +850,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-float-3">
+  <test-case name="fn-ceiling-float-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1")</response-string>
     <description>Basic test of ceiling(float))</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>ceiling(xs:float(0.000000001e0))</test>
-    <result-string/>
+    <result-string>xs:float("1")</result-string>
     <result>
       <all-of>
         <assert-eq>1.0e0</assert-eq>
@@ -863,11 +862,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-float-4">
+  <test-case name="fn-ceiling-float-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description>Basic test of ceiling(float))</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>ceiling(xs:float(0.0e0))</test>
-    <result-string/>
+    <result-string>xs:float("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0.0e0</assert-eq>
@@ -875,11 +874,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-float-5">
+  <test-case name="fn-ceiling-float-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description>Basic test of ceiling(float))</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>ceiling(xs:float(-0.1e0))</test>
-    <result-string/>
+    <result-string>xs:float("0")</result-string>
     <result>
       <all-of>
         <assert-eq>0.0e0</assert-eq>
@@ -888,11 +887,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-float-6">
+  <test-case name="fn-ceiling-float-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1.2345678E7")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1.2345678E7")</response-string>
     <description>Basic test of ceiling(float))</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>ceiling(xs:float(-12345678.1e0))</test>
-    <result-string/>
+    <result-string>xs:float("-1.2345678E7")</result-string>
     <result>
       <all-of>
         <assert-eq>-12345678e0</assert-eq>
@@ -900,11 +899,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-float-7">
+  <test-case name="fn-ceiling-float-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1.234567E6")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1.234567E6")</response-string>
     <description>Basic test of ceiling(float))</description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>ceiling(xs:float(-1234567.2e0))</test>
-    <result-string/>
+    <result-string>xs:float("-1.234567E6")</result-string>
     <result>
       <all-of>
         <assert-eq>-1234567e0</assert-eq>
@@ -912,11 +911,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-float-8">
+  <test-case name="fn-ceiling-float-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description>Basic test of ceiling(float))</description>
     <created by="Michael Kay" on="2011-06-24"/>
-    <test>ceiling(xs:float(xs:float('NaN')))</test>
-    <result-string/>
+    <test>ceiling(xs:float(xs:float(&apos;NaN&apos;)))</test>
+    <result-string>xs:float("NaN")</result-string>
     <result>
       <all-of>
         <assert-string-value>NaN</assert-string-value>
@@ -924,11 +923,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-float-9">
+  <test-case name="fn-ceiling-float-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("INF")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("INF")</response-string>
     <description>Basic test of ceiling(float))</description>
     <created by="Michael Kay" on="2011-06-24"/>
-    <test>ceiling(xs:float(xs:float('INF')))</test>
-    <result-string/>
+    <test>ceiling(xs:float(xs:float(&apos;INF&apos;)))</test>
+    <result-string>xs:float("INF")</result-string>
     <result>
       <all-of>
         <assert-string-value>INF</assert-string-value>
@@ -936,11 +935,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-float-10">
+  <test-case name="fn-ceiling-float-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-INF")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-INF")</response-string>
     <description>Basic test of ceiling(float))</description>
     <created by="Michael Kay" on="2011-06-24"/>
-    <test>ceiling(xs:float(xs:float('-INF')))</test>
-    <result-string/>
+    <test>ceiling(xs:float(xs:float(&apos;-INF&apos;)))</test>
+    <result-string>xs:float("-INF")</result-string>
     <result>
       <all-of>
         <assert-string-value>-INF</assert-string-value>
@@ -948,11 +947,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-ceiling-float-11">
+  <test-case name="fn-ceiling-float-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description>Basic test of ceiling(float))</description>
     <created by="Michael Kay" on="2011-06-24"/>
-    <test>ceiling(xs:float(xs:float('-0')))</test>
-    <result-string/>
+    <test>ceiling(xs:float(xs:float(&apos;-0&apos;)))</test>
+    <result-string>xs:float("0")</result-string>
     <result>
       <all-of>
         <assert-eq>-0</assert-eq>

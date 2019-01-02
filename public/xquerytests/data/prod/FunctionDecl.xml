@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="prod-FunctionDecl" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the FunctionDecl production</description>
   <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-FunctionDecl" type="spec"/>
@@ -22,7 +21,7 @@
     </source>
   </environment>
   <dependency type="spec" value="XQ10+"/>
-  <test-case name="function-declaration-001">
+  <test-case name="function-declaration-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Demonstrate function declaration in different combination </description>
     <created by="Pulkita Tyagi" on="2005-08-30"/>
     <test>
@@ -35,7 +34,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="function-declaration-002">
+  <test-case name="function-declaration-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("4")</response-string>
     <description> Demonstrate function declaration in different combination </description>
     <created by="Pulkita Tyagi" on="2005-08-30"/>
     <dependency type="spec" value="XQ10+"/>
@@ -52,7 +51,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="function-declaration-003">
+  <test-case name="function-declaration-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Demonstrate function declaration in different combination </description>
     <created by="Pulkita Tyagi" on="2005-08-30"/>
     <environment ref="bib"/>
@@ -66,7 +65,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="function-declaration-004">
+  <test-case name="function-declaration-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Demonstrate function declaration in different combination </description>
     <created by="Pulkita Tyagi" on="2005-08-30"/>
     <environment ref="acme_corp"/>
@@ -92,19 +91,19 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="function-declaration-005">
+  <test-case name="function-declaration-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("6"))</response-string>
     <description> Demonstrate function declaration in different combination </description>
     <created by="Pulkita Tyagi" on="2005-08-30"/>
     <test>
         declare function local:mysum($i as xs:integer, $j as xs:integer) { let $j := $i + $j return $j };
         declare function local:invoke_mysum() { let $s := 1 for $d in (1,2,3,4,5) let $s := local:mysum($s, $d) return $s };
         local:invoke_mysum()</test>
-    <result-string>xs:string("2 3 4 5 6")</result-string>
+    <result-string>(xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("6"))</result-string>
     <result>
       <assert-string-value>2 3 4 5 6</assert-string-value>
     </result>
   </test-case>
-  <test-case name="function-declaration-006">
+  <test-case name="function-declaration-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("15"),xs:integer("15"),xs:integer("15"),xs:integer("15"),xs:integer("15"))</response-string>
     <description> Demonstrate function declaration in different combination </description>
     <created by="Pulkita Tyagi" on="2005-08-30"/>
     <test>
@@ -116,7 +115,7 @@
       <assert-string-value>1 2 3 4 5</assert-string-value>
     </result>
   </test-case>
-  <test-case name="function-declaration-007">
+  <test-case name="function-declaration-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Demonstrate function declaration in different combination </description>
     <created by="Pulkita Tyagi" on="2005-08-30"/>
     <test>
@@ -129,7 +128,7 @@
       <assert-eq>101</assert-eq>
     </result>
   </test-case>
-  <test-case name="function-declaration-008">
+  <test-case name="function-declaration-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Demonstrate function declaration in different combination </description>
     <created by="Pulkita Tyagi" on="2005-08-30"/>
     <dependency type="spec" value="XQ10+"/>
@@ -147,7 +146,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="function-declaration-009">
+  <test-case name="function-declaration-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;table&gt; &lt;tr&gt;&lt;td&gt;1! = 1&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;2! = 2&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;3! = 6&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;4! = 24&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;5! = 120&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;6! = 720&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;7! = 5040&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;8! = 40320&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;9! = 362880&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;10! = 3628800&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</response-string>
     <description> Demonstrate function declaration in different combination </description>
     <created by="Pulkita Tyagi" on="2005-08-30"/>
     <dependency type="spec" value="XQ10+"/>
@@ -163,7 +162,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="function-declaration-010">
+  <test-case name="function-declaration-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;table&gt; &lt;td&gt;Value is = 4 hello 2005-02-22 5 well 1.2&lt;/td&gt;&lt;/table&gt;</response-string>
     <description> Demonstrate function declaration in different combination </description>
     <created by="Pulkita Tyagi" on="2005-08-30"/>
     <dependency type="spec" value="XQ10+"/>
@@ -179,7 +178,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="function-declaration-011">
+  <test-case name="function-declaration-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("10")</response-string>
     <description> Demonstrate function declaration - forward declaration </description>
     <created by="Pulkita Tyagi" on="2005-08-30"/>
     <test>       
@@ -191,7 +190,7 @@
       <assert-eq>10</assert-eq>
     </result>
   </test-case>
-  <test-case name="function-declaration-012">
+  <test-case name="function-declaration-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("10")</response-string>
     <description> Demonstrate function declaration in different combination </description>
     <created by="Pulkita Tyagi" on="2005-08-30"/>
     <test>       
@@ -203,7 +202,7 @@
       <assert-eq>10</assert-eq>
     </result>
   </test-case>
-  <test-case name="function-declaration-013">
+  <test-case name="function-declaration-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abc")</response-string>
     <description> Demonstrate function declaration in different combination </description>
     <created by="Pulkita Tyagi" on="2005-08-30"/>
     <test>       
@@ -215,7 +214,7 @@
       <assert-string-value>abc</assert-string-value>
     </result>
   </test-case>
-  <test-case name="function-declaration-014">
+  <test-case name="function-declaration-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Demonstrate function declaration in different combination </description>
     <created by="Pulkita Tyagi" on="2005-08-30"/>
     <test>
@@ -227,7 +226,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="function-declaration-015">
+  <test-case name="function-declaration-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Demonstrate function declaration in different combination </description>
     <created by="Pulkita Tyagi" on="2005-08-30"/>
     <test>
@@ -239,7 +238,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="function-declaration-016">
+  <test-case name="function-declaration-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Demonstrate function declaration in different combination </description>
     <created by="Pulkita Tyagi" on="2005-08-30"/>
     <environment ref="bib2"/>
@@ -253,7 +252,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="function-declaration-017">
+  <test-case name="function-declaration-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Demonstrate function declaration in different combination </description>
     <created by="Pulkita Tyagi" on="2005-08-30"/>
     <dependency type="spec" value="XQ10+"/>
@@ -272,7 +271,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="function-declaration-018">
+  <test-case name="function-declaration-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;empty&gt; 100&lt;/empty&gt;</response-string>
     <description> Demonstrate function declaration in different combination </description>
     <created by="Pulkita Tyagi" on="2005-08-30"/>
     <dependency type="spec" value="XQ10+"/>
@@ -290,7 +289,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="function-declaration-019">
+  <test-case name="function-declaration-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;A&gt; &lt;empty&gt; 100&lt;/empty&gt; &lt;empty/&gt;&lt;/A&gt;</response-string>
     <description> Demonstrate function declaration in different combination </description>
     <created by="Pulkita Tyagi" on="2005-08-30"/>
     <dependency type="spec" value="XQ10+"/>
@@ -310,7 +309,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="function-declaration-020">
+  <test-case name="function-declaration-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("100"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("15"))</response-string>
     <description> Demonstrate function declaration - overloading </description>
     <created by="Pulkita Tyagi" on="2005-08-30"/>
     <test>declare namespace foo = "http://www..oracle.com/xquery/test";
@@ -319,12 +318,12 @@
         declare function foo:price ($x as xs:integer, $y as xs:integer) as xs:integer+ { $x, $y };
         declare function foo:price ($x as xs:integer, $y as xs:integer, $z as xs:integer) as xs:integer+ { $x+$y+$z };
         foo:price(), foo:price(1), foo:price(2,3), foo:price(4,5,6)</test>
-    <result-string>xs:string("100 1 2 3 15")</result-string>
+    <result-string>(xs:integer("100"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("15"))</result-string>
     <result>
       <assert-string-value>100 1 2 3 15</assert-string-value>
     </result>
   </test-case>
-  <test-case name="function-declaration-021">
+  <test-case name="function-declaration-021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("4")</response-string>
     <description> Demonstrate function declaration - negative tests </description>
     <created by="Ravindranath Chennoju" on="2005-08-30"/>
     <test>
@@ -335,7 +334,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="function-declaration-022">
+  <test-case name="function-declaration-022"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("4")</response-string>
     <description> Demonstrate function declaration - negative tests </description>
     <created by="Ravindranath Chennoju" on="2005-08-30"/>
     <test>
@@ -347,7 +346,7 @@
       <error code="XQST0034"/>
     </result>
   </test-case>
-  <test-case name="function-declaration-023">
+  <test-case name="function-declaration-023"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("4")</response-string>
     <description> Demonstrate function declaration - negative tests </description>
     <created by="Ravindranath Chennoju" on="2005-08-30"/>
     <test>
@@ -362,7 +361,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="function-declaration-024">
+  <test-case name="function-declaration-024"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Demonstrate function declaration - negative tests </description>
     <created by="Ravindranath Chennoju" on="2005-08-30"/>
     <test>
@@ -373,7 +372,7 @@
       <error code="XQST0039"/>
     </result>
   </test-case>
-  <test-case name="function-declaration-025">
+  <test-case name="function-declaration-025"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Function Declaration with no namespace. </description>
     <created by="Carmelo Montanez" on="2006-02-06"/>
     <test>declare default function namespace "";
@@ -384,7 +383,7 @@
       <error code="XQST0060"/>
     </result>
   </test-case>
-  <test-case name="function-declaration-026">
+  <test-case name="function-declaration-026"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Function Declaration using global variable. A global node test, which uses the focus in the dynamic context. </description>
     <created by="Frans Englich" on="2008-10-20"/>
     <environment ref="bib2"/>
@@ -397,8 +396,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-1">
-    <description> The 'XPath Data Types' namespace is not reserved anymore, although it was in older drafts. </description>
+  <test-case name="K-FunctionProlog-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> The &apos;XPath Data Types&apos; namespace is not reserved anymore, although it was in older drafts. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare namespace test = "http://www.w3.org/2005/xpath-datatypes";
         declare function test:myFunction() { 1};
@@ -408,8 +407,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-2">
-    <description> A function cannot be declared in the 'http://www.w3.org/2005/xpath-functions' namespace. </description>
+  <test-case name="K-FunctionProlog-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
+    <description> A function cannot be declared in the &apos;http://www.w3.org/2005/xpath-functions&apos; namespace. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function wrongNS() { 1 };
@@ -419,8 +418,8 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case covers="reserved-namespaces" name="K-FunctionProlog-3">
-    <description> A function cannot be declared in the 'http://www.w3.org/XML/1998/namespace' namespace. </description>
+  <test-case covers="reserved-namespaces" name="K-FunctionProlog-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
+    <description> A function cannot be declared in the &apos;http://www.w3.org/XML/1998/namespace&apos; namespace. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function xml:wrongNS() { 1 };
@@ -430,8 +429,8 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case covers="reserved-namespaces" name="K-FunctionProlog-4">
-    <description> A function cannot be declared in the 'http://www.w3.org/2001/XMLSchema-instance' namespace. </description>
+  <test-case covers="reserved-namespaces" name="K-FunctionProlog-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
+    <description> A function cannot be declared in the &apos;http://www.w3.org/2001/XMLSchema-instance&apos; namespace. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare namespace my = "http://www.w3.org/2001/XMLSchema-instance";
         declare function my:wrongNS() { 1 };
@@ -441,8 +440,8 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case covers="reserved-namespaces" name="K-FunctionProlog-5">
-    <description> A function cannot be declared in the 'http://www.w3.org/2001/XMLSchema' namespace. </description>
+  <test-case covers="reserved-namespaces" name="K-FunctionProlog-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
+    <description> A function cannot be declared in the &apos;http://www.w3.org/2001/XMLSchema&apos; namespace. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare namespace my = "http://www.w3.org/2001/XMLSchema";
         declare function my:wrongNS() { 1 };
@@ -452,63 +451,63 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-6">
-    <description> Arguments in functions cannot have default values initialized with '='(or in any other way). </description>
+  <test-case name="K-FunctionProlog-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Arguments in functions cannot have default values initialized with &apos;=&apos;(or in any other way). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:myFunction($arg = 1) {1};
         true()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-7">
-    <description> Arguments in functions cannot have default values initialized with '='(or in any other way). </description>
+  <test-case name="K-FunctionProlog-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Arguments in functions cannot have default values initialized with &apos;=&apos;(or in any other way). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:myFunction($arg = 1 as xs:integer) {1};
         true()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-8">
-    <description> Arguments in functions cannot have default values initialized with ':='(or in any other way). </description>
+  <test-case name="K-FunctionProlog-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Arguments in functions cannot have default values initialized with &apos;:=&apos;(or in any other way). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:myFunction($arg := 1) {1};
         true()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-9">
-    <description> Arguments in functions cannot have default values initialized with ':='(or in any other way). </description>
+  <test-case name="K-FunctionProlog-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Arguments in functions cannot have default values initialized with &apos;:=&apos;(or in any other way). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:myFunction($arg := 1 as xs:integer) {1};
         true()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-10">
-    <description> A user declared function whose return value simply doesn't match the return type. </description>
+  <test-case name="K-FunctionProlog-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("This is not a double, it&amp;apos;s an xs:string.")</response-string>
+    <description> A user declared function whose return value simply doesn&apos;t match the return type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
-        declare function local:myFunction() as xs:double { "This is not a double, it's an xs:string." };
+        declare function local:myFunction() as xs:double { "This is not a double, it&apos;s an xs:string." };
         local:myFunction()</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-11">
-    <description> A user declared function whose return value simply doesn't match the return type(#2). </description>
+  <test-case name="K-FunctionProlog-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> A user declared function whose return value simply doesn&apos;t match the return type(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:myFunction() as item() { () };
@@ -518,7 +517,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-12a">
+  <test-case name="K-FunctionProlog-12a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> XQuery 1.0: Variable appearing after a function declaration is not in scope inside the function. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <modified by="Michael Kay" change="see bug 15790" on="2012-05-18"/>
@@ -532,7 +531,7 @@
       <error code="XPST0008"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-12b">
+  <test-case name="K-FunctionProlog-12b"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> XQuery 3.0: Variable appearing after a function declaration is in scope inside the function. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <modified by="Michael Kay" change="see bug 15790" on="2012-05-18"/>
@@ -546,7 +545,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-13">
+  <test-case name="K-FunctionProlog-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Namespaces declarations appearing after a function declaration are not in scope inside the function. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -562,8 +561,8 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-14">
-    <description> A user function which when run doesn't match the declared returned type. </description>
+  <test-case name="K-FunctionProlog-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> A user function which when run doesn&apos;t match the declared returned type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:myFunction() as xs:integer { subsequence((1, 2, "a string"), 3 ,1) };
@@ -573,8 +572,8 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-15">
-    <description> A user function whose return type doesn't match the body, which can be statically inferred. </description>
+  <test-case name="K-FunctionProlog-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> A user function whose return type doesn&apos;t match the body, which can be statically inferred. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:myFunction() as xs:anyURI { 1 };
@@ -588,29 +587,29 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-16">
-    <description> When declaring a function, the paranteses must be present even though it doesn't have any arguments. </description>
+  <test-case name="K-FunctionProlog-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> When declaring a function, the paranteses must be present even though it doesn&apos;t have any arguments. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:myFunction as xs:integer { 1 };
         true()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-17">
-    <description> When declaring a function, the paranteses must be present even though it doesn't have any arguments. </description>
+  <test-case name="K-FunctionProlog-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> When declaring a function, the paranteses must be present even though it doesn&apos;t have any arguments. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:myFunction { 1 };
         true()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-18">
+  <test-case name="K-FunctionProlog-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Two user functions using global variables. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare variable $var1 := 1;
@@ -623,7 +622,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-19">
+  <test-case name="K-FunctionProlog-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> A user function where all its arguments are unused. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -634,7 +633,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-20">
+  <test-case name="K-FunctionProlog-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> User functions which in some implementations causes constant propagation combined with function versioning. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -645,7 +644,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-21">
+  <test-case name="K-FunctionProlog-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("4")</response-string>
     <description> User functions where the middle argument of three arguments is unused. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -656,7 +655,7 @@
       <assert-eq>4</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-22">
+  <test-case name="K-FunctionProlog-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("5")</response-string>
     <description> User functions where the first argument of three arguments is unused. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -667,7 +666,7 @@
       <assert-eq>5</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-23">
+  <test-case name="K-FunctionProlog-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("3")</response-string>
     <description> User functions where the last argument of three arguments is unused. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -678,8 +677,8 @@
       <assert-eq>3</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-24">
-    <description> A function cannot be declared in the 'http://www.w3.org/2005/xpath-functions' namespace. </description>
+  <test-case name="K-FunctionProlog-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
+    <description> A function cannot be declared in the &apos;http://www.w3.org/2005/xpath-functions&apos; namespace. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function wrongNS() { 1 };
@@ -689,7 +688,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-25">
+  <test-case name="K-FunctionProlog-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A function and a variable can have the same name. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare variable $local:myName := 1;
@@ -700,7 +699,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-26">
+  <test-case name="K-FunctionProlog-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> A function declaration duplicated. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -712,7 +711,7 @@
       <error code="XQST0034"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-27">
+  <test-case name="K-FunctionProlog-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> A function declaration duplicated; difference in return types is insignificant. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -724,7 +723,7 @@
       <error code="XQST0034"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-28">
+  <test-case name="K-FunctionProlog-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> A function declaration duplicated; difference in arguments types is insignificant. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -736,7 +735,7 @@
       <error code="XQST0034"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-29">
+  <test-case name="K-FunctionProlog-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> A function declaration duplicated; difference in arguments name is insignificant. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -748,7 +747,7 @@
       <error code="XQST0034"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-30">
+  <test-case name="K-FunctionProlog-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Overloading user functions based on arity. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -760,7 +759,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-31">
+  <test-case name="K-FunctionProlog-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> One cannot declare a user function as fn:count. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -771,7 +770,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-32">
+  <test-case name="K-FunctionProlog-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> One cannot declare a user function as xs:gYear. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -782,7 +781,7 @@
       <error code="XQST0045"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-33">
+  <test-case name="K-FunctionProlog-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A type error inside a function. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -797,7 +796,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-34">
+  <test-case name="K-FunctionProlog-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A call to a user declared function which almost is spelled correctly(capitalization wrong). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -808,30 +807,30 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-35">
+  <test-case name="K-FunctionProlog-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A call to a user declared function which almost is spelled correctly(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:MyFunction() { 1 };
         local:myFunctionn()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-36">
-    <description> The variable '$myArg' is in scope inside the function, but not in the query body. </description>
+  <test-case name="K-FunctionProlog-36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
+    <description> The variable &apos;$myArg&apos; is in scope inside the function, but not in the query body. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:MyFunction($myArg) { 0 };
         $myArg</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0008"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</result-string>
     <result>
       <error code="XPST0008"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-37">
-    <description> The variable '$myArg' is in scope inside one function, but not the other function. </description>
+  <test-case name="K-FunctionProlog-37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
+    <description> The variable &apos;$myArg&apos; is in scope inside one function, but not the other function. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:MyFunction($myArg) { 0 };
@@ -842,8 +841,8 @@
       <error code="XPST0008"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-38">
-    <description> The variable '$myArg2' is in scope inside one function, but not the other function. </description>
+  <test-case name="K-FunctionProlog-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
+    <description> The variable &apos;$myArg2&apos; is in scope inside one function, but not the other function. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:MyFunction($myArg) { $myArg2 };
@@ -854,7 +853,7 @@
       <error code="XPST0008"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-39">
+  <test-case name="K-FunctionProlog-39"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Function arguments shadows global variables. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare variable $local:myVar := 1;
@@ -865,7 +864,7 @@
       <assert-string-value>1 2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-40">
+  <test-case name="K-FunctionProlog-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Variables declared inside functions shadow function arguments. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -876,7 +875,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-41">
+  <test-case name="K-FunctionProlog-41"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")))</response-string>
     <description> Type error in body of user function caused by the argument value. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -887,7 +886,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-42">
+  <test-case name="K-FunctionProlog-42"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Type error(cardinality) in return value of user function caused by the argument value. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -898,7 +897,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-43">
+  <test-case name="K-FunctionProlog-43"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Item type error in argument value. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -909,7 +908,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-44">
+  <test-case name="K-FunctionProlog-44"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Cardinality error in argument value. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -920,8 +919,8 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-45">
-    <description> Item type error in argument value. xs:decimal doesn't match xs:integer. </description>
+  <test-case name="K-FunctionProlog-45"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Item type error in argument value. xs:decimal doesn&apos;t match xs:integer. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:myFunction($arg as item()?, $arg2 as xs:integer) { $arg, $arg2 };
@@ -931,8 +930,8 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-46">
-    <description> '1' doesn't match the empty-sequence(). </description>
+  <test-case name="K-FunctionProlog-46"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> &apos;1&apos; doesn&apos;t match the empty-sequence(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:myFunction($arg as empty-sequence()) { $arg };
@@ -946,8 +945,8 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-47">
-    <description> 'empty-sequence()+' is syntactically invalid. </description>
+  <test-case name="K-FunctionProlog-47"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> &apos;empty-sequence()+&apos; is syntactically invalid. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:myFunction($arg as empty-sequence()+) { $arg };
@@ -957,8 +956,8 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-48">
-    <description> 'empty-sequence()? is syntactically invalid. </description>
+  <test-case name="K-FunctionProlog-48"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> &apos;empty-sequence()? is syntactically invalid. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:myFunction($arg as empty-sequence()?) { $arg };
@@ -968,7 +967,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-49">
+  <test-case name="K-FunctionProlog-49"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> It is valid to declare an argument to be of type empty-sequence(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -983,8 +982,8 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-50">
-    <description> empty-sequence() as return type, but body doesn't match when run. </description>
+  <test-case name="K-FunctionProlog-50"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> empty-sequence() as return type, but body doesn&apos;t match when run. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:myFunction($arg) as empty-sequence() { $arg };
@@ -994,7 +993,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-51">
+  <test-case name="K-FunctionProlog-51"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Too few arguments passed to a user function. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1005,7 +1004,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-52">
+  <test-case name="K-FunctionProlog-52"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> empty-sequence() as return type, and a body containing fn:error(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1016,12 +1015,12 @@
       <error code="FOER0000"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-53">
+  <test-case name="K-FunctionProlog-53"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A global variable referenced from inside a function. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare namespace my = "http://example.com/MyNamespace/";
         declare variable $my:error-qname := QName("http:example.org/", "prefix:ncname");
-        declare function my:error($choice, $msg as xs:string) as empty-sequence() { if($choice) then error($my:error-qname, concat('No luck: ', $msg)) else () };
+        declare function my:error($choice, $msg as xs:string) as empty-sequence() { if($choice) then error($my:error-qname, concat(&apos;No luck: &apos;, $msg)) else () };
         empty((my:error(false(), "msg"), my:error(false(), "The message")))</test>
     <result-string>xs:boolean("true")</result-string>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0005"))</result-string>
@@ -1032,36 +1031,36 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-54">
+  <test-case name="K-FunctionProlog-54"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A more realistic case involving fn:error(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare namespace my = "http://example.com/MyNamespace/";
         declare variable $my:error-qname := QName("http://example.com/MyErrorNS", "my:qName");
-        declare function my:error($msg as xs:string) as empty-sequence() { error($my:error-qname, concat('No luck: ', $msg)) };
+        declare function my:error($msg as xs:string) as empty-sequence() { error($my:error-qname, concat(&apos;No luck: &apos;, $msg)) };
         my:error("The message")</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "*"))</result-string>
     <result>
       <error code="*"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-55">
+  <test-case name="K-FunctionProlog-55"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A more realistic case involving fn:error(), #2. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare namespace my = "http://example.com/MyNamespace/";
         declare variable $my:error-qname := QName("http://example.com/MyErrorNS", "my:qName");
-        declare function my:error($choice, $msg as xs:string) as empty-sequence() { if($choice) then error($my:error-qname, concat('No luck: ', $msg)) else () };
+        declare function my:error($choice, $msg as xs:string) as empty-sequence() { if($choice) then error($my:error-qname, concat(&apos;No luck: &apos;, $msg)) else () };
         my:error(false(), "msg"), my:error(true(), "The message")</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "*"))</result-string>
     <result>
       <error code="*"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-56">
+  <test-case name="K-FunctionProlog-56"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A more realistic case involving fn:error(), #3. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare namespace my = "http://example.com/MyNamespace/";
         declare variable $my:error-qname := QName("http://example.com/MyErrorNS", "my:qName");
-        declare function my:error($choice, $msg as xs:string) as empty-sequence() { if($choice) then error($my:error-qname, concat('No luck: ', $msg)) else () };
+        declare function my:error($choice, $msg as xs:string) as empty-sequence() { if($choice) then error($my:error-qname, concat(&apos;No luck: &apos;, $msg)) else () };
         empty((my:error(false(), "msg"), my:error(false(), "The message")))</test>
     <result-string>xs:boolean("true")</result-string>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0005"))</result-string>
@@ -1072,8 +1071,8 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-57">
-    <description> The type 'none' isn't available to users. </description>
+  <test-case name="K-FunctionProlog-57"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
+    <description> The type &apos;none&apos; isn&apos;t available to users. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:error() as none { 1 };
@@ -1083,8 +1082,8 @@
       <error code="XPST0051"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-58">
-    <description> The type 'none()' isn't available to users. </description>
+  <test-case name="K-FunctionProlog-58"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> The type &apos;none()&apos; isn&apos;t available to users. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:error() as none() { 1 };
@@ -1098,7 +1097,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-59">
+  <test-case name="K-FunctionProlog-59"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A call to a user function where the argument in the callsite corresponding to an unused argument contains a type error. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1113,7 +1112,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-60">
+  <test-case name="K-FunctionProlog-60"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description> An argument in a user function is not in scope in the query body. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1124,7 +1123,7 @@
       <error code="XPST0008"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-61">
+  <test-case name="K-FunctionProlog-61"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description> An argument in a user function is not in scope in the query body. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1135,7 +1134,7 @@
       <error code="XPST0008"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-62">
+  <test-case name="K-FunctionProlog-62"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Check that a global variable is in scope despite an unused function being declared. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare variable $my := 3;
@@ -1146,7 +1145,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-63">
+  <test-case name="K-FunctionProlog-63"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> A function call that could be a call to a hypotehical user function. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>local:myFunction(1)</test>
@@ -1155,7 +1154,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-64">
+  <test-case name="K-FunctionProlog-64"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A function call that could be a call to a hypothetical user function(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare namespace my = "http://example.com/ANamespace";
@@ -1165,8 +1164,8 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-65">
-    <description> Since the return type is empty-sequence() it is a type error(XPTY0004) to pass its return value to anything which requires cardinality exactly-one. That the function's body is of type 'none', doesn't affect that, it only adapts to the declared return type. However, there's no constraints on what is reported first, so FOER0000 can also be issued. </description>
+  <test-case name="K-FunctionProlog-65"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Since the return type is empty-sequence() it is a type error(XPTY0004) to pass its return value to anything which requires cardinality exactly-one. That the function&apos;s body is of type &apos;none&apos;, doesn&apos;t affect that, it only adapts to the declared return type. However, there&apos;s no constraints on what is reported first, so FOER0000 can also be issued. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:myFunction() as empty-sequence() { fn:error() };
@@ -1180,7 +1179,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-66">
+  <test-case name="K-FunctionProlog-66"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
     <description> If static typing is in use, XPTY004 is issued since local:myFunction() has static type item()*. However, if the function is invoked FOER0000 is issued. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1195,7 +1194,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-67">
+  <test-case name="K-FunctionProlog-67"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A function call that reminds of the range expression. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare default function namespace "http://www.w3.org/2005/xquery-local-functions";
@@ -1206,7 +1205,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-FunctionProlog-68">
+  <test-case name="K-FunctionProlog-68"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A call to a user function where the argument in the callsite corresponding to a used argument contains a type error. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1217,8 +1216,8 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-1">
-    <description> Have two function callsites as arguments to 'eq'. </description>
+  <test-case name="K2-FunctionProlog-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Have two function callsites as arguments to &apos;eq&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:myFunction($arg as xs:integer) as xs:integer { ((if($arg eq 1) then 1 else $arg - 1), current-time())[1] treat as xs:integer };
@@ -1228,8 +1227,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-2">
-    <description> Have two function callsites as arguments to 'ne'. </description>
+  <test-case name="K2-FunctionProlog-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Have two function callsites as arguments to &apos;ne&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:myFunction($arg as xs:integer) as xs:integer { ((if($arg eq 1) then 1 else $arg - 1), current-time())[1] treat as xs:integer };
@@ -1239,8 +1238,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-3">
-    <description> Have two function callsites as arguments to '='. </description>
+  <test-case name="K2-FunctionProlog-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Have two function callsites as arguments to &apos;=&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:myFunction($arg as xs:integer) as xs:integer { ((if($arg eq 1) then 1 else $arg - 1), current-time())[1] treat as xs:integer };
@@ -1250,8 +1249,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-4">
-    <description> Have two function callsites as arguments to '!='. </description>
+  <test-case name="K2-FunctionProlog-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Have two function callsites as arguments to &apos;!=&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:myFunction($arg as xs:integer) as xs:integer { ((if($arg eq 1) then 1 else $arg - 1), current-time())[1] treat as xs:integer };
@@ -1261,7 +1260,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-5">
+  <test-case name="K2-FunctionProlog-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1.0")</response-string>
     <description> A function requiring xs:integer but is passed an xs:decimal. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1272,7 +1271,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-6">
+  <test-case name="K2-FunctionProlog-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1.0")</response-string>
     <description> A function requiring xs:integer as return value, but is passed xs:decimal. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1283,7 +1282,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-7">
+  <test-case name="K2-FunctionProlog-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A declared return value invokes numeric promotion. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1295,7 +1294,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-8">
+  <test-case name="K2-FunctionProlog-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A recursive function stretching through several function calls. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1308,7 +1307,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-9">
+  <test-case name="K2-FunctionProlog-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("120")</response-string>
     <description> A recursive function multiplying a sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1319,8 +1318,8 @@
       <assert-eq>120</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-10">
-    <description> A function whose name is only '_' and is declared in the default namespace. </description>
+  <test-case name="K2-FunctionProlog-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> A function whose name is only &apos;_&apos; and is declared in the default namespace. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare default function namespace "http://example.com";
         declare function _() { 1 };
@@ -1330,8 +1329,8 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-11">
-    <description> A function whose name is only '_'. </description>
+  <test-case name="K2-FunctionProlog-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
+    <description> A function whose name is only &apos;_&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
         declare function local:_() { 1 };
@@ -1341,7 +1340,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-12">
+  <test-case name="K2-FunctionProlog-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> An argument requiring a node, but is passed an integer. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1352,7 +1351,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-13">
+  <test-case name="K2-FunctionProlog-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> An argument requiring a node, but is passed an integer(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1367,8 +1366,8 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-14">
-    <description> A focus doesn't propagate into function. </description>
+  <test-case name="K2-FunctionProlog-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+    <description> A focus doesn&apos;t propagate into function. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -1384,7 +1383,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-15">
+  <test-case name="K2-FunctionProlog-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Use a range variable inside the assignment expression of a global variable. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare variable $var1 := let $var1 := 1 return 1;
@@ -1394,7 +1393,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-16">
+  <test-case name="K2-FunctionProlog-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Ensure three subsequent stars are parsed. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1409,7 +1408,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-17">
+  <test-case name="K2-FunctionProlog-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;e&gt;1&lt;/e&gt;</response-string>
     <description> Conversions are invoked when an element is returned from a function with declared return type xs:integer. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1422,7 +1421,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-18">
+  <test-case name="K2-FunctionProlog-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">attribute name {"1"}</response-string>
     <description> Conversions are invoked when an attribute is returned from a function with declared return type xs:integer. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1433,7 +1432,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-19">
+  <test-case name="K2-FunctionProlog-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">document {1}</response-string>
     <description> Conversions are invoked when a document is returned from a function with declared return type xs:integer. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1444,7 +1443,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-20">
+  <test-case name="K2-FunctionProlog-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Comments cannot be converted into xs:integer. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1457,7 +1456,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-21">
+  <test-case name="K2-FunctionProlog-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Processing instructions cannot be converted into xs:integer. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1470,7 +1469,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-22">
+  <test-case name="K2-FunctionProlog-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1")</response-string>
     <description> Conversions are invoked when a text node is returned from a function with declared return type xs:integer. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1481,7 +1480,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-23">
+  <test-case name="K2-FunctionProlog-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("8")</response-string>
     <description> Call a function that subsequently calls a recursive function. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1493,7 +1492,7 @@
       <assert-eq>8</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-24">
+  <test-case name="K2-FunctionProlog-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> The empty string cannot be cast to an xs:boolean. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1506,7 +1505,7 @@
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-25">
+  <test-case name="K2-FunctionProlog-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A call site that has an operand that gets treated as an xs:integer. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1521,8 +1520,8 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-26">
-    <description> A type declaration whose body doesn't match. </description>
+  <test-case name="K2-FunctionProlog-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> A type declaration whose body doesn&apos;t match. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -1534,8 +1533,8 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-27">
-    <description> A type declaration whose body doesn't match(#2). </description>
+  <test-case name="K2-FunctionProlog-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> A type declaration whose body doesn&apos;t match(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -1547,7 +1546,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-28">
+  <test-case name="K2-FunctionProlog-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("0"),xs:integer("0"),xs:integer("0"),xs:integer("0"),xs:integer("2"),xs:integer("2"),xs:integer("1"),xs:integer("3"))</response-string>
     <description> Compute the levenshtein distance between strings. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1558,8 +1557,8 @@
       <assert-string-value>0 0 0 0 2 2 1 3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-29">
-    <description> Ensure the 'function' keyword is parsed correctly. </description>
+  <test-case name="K2-FunctionProlog-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
+    <description> Ensure the &apos;function&apos; keyword is parsed correctly. </description>
     <created by="Frans Englich" on="2008-01-03"/>
     <test>function gt function</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0002"))</result-string>
@@ -1567,7 +1566,7 @@
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-30">
+  <test-case name="K2-FunctionProlog-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;e/&gt;</response-string>
     <description> Ensure an invalid value, reached through conversions, is reported as invalid. </description>
     <created by="Frans Englich" on="2008-03-05"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1584,7 +1583,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-31">
+  <test-case name="K2-FunctionProlog-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;e&gt;true&lt;/e&gt;,xs:boolean("true"),xs:untypedAtomic("false"),xs:boolean("false"),&lt;e&gt; true &lt;/e&gt;)</response-string>
     <description> Pass a sequence of mixed atomic values and nodes to an argument which has no type declared. </description>
     <created by="Frans Englich" on="2008-03-05"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1597,8 +1596,8 @@
       <assert-string-value>true true false false true</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-32">
-    <description> Pass a value which cannot be converted to the expected type. $arg doesn't have a type declared. </description>
+  <test-case name="K2-FunctionProlog-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:date("2018-12-23+01:00")</response-string>
+    <description> Pass a value which cannot be converted to the expected type. $arg doesn&apos;t have a type declared. </description>
     <created by="Frans Englich" on="2008-03-05"/>
     <test>
         declare function local:foo($arg ) as xs:boolean* { $arg };
@@ -1608,8 +1607,8 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-33">
-    <description> Mix in an atomic value which matches the type it's being converted to. $arg doesn't have a type declared. </description>
+  <test-case name="K2-FunctionProlog-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;e&gt;true&lt;/e&gt;,xs:boolean("true"),xs:untypedAtomic("false"),xs:boolean("false"),&lt;e&gt; true &lt;/e&gt;)</response-string>
+    <description> Mix in an atomic value which matches the type it&apos;s being converted to. $arg doesn&apos;t have a type declared. </description>
     <created by="Frans Englich" on="2008-03-05"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -1621,7 +1620,7 @@
       <assert-string-value>true true false false true</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-34">
+  <test-case name="K2-FunctionProlog-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:untypedAtomic("false"),xs:boolean("false"),xs:untypedAtomic("false"))</response-string>
     <description> Call fn:true() and fn:false() and pass to a user function. </description>
     <created by="Frans Englich" on="2008-03-05"/>
     <test>
@@ -1632,7 +1631,7 @@
       <assert-string-value>true false false false</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-35">
+  <test-case name="K2-FunctionProlog-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:untypedAtomic("false")</response-string>
     <description> Pass an untyped value. </description>
     <created by="Frans Englich" on="2008-03-05"/>
     <test>
@@ -1643,7 +1642,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-36">
+  <test-case name="K2-FunctionProlog-36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:untypedAtomic("false")</response-string>
     <description> Pass an untyped value(different cardinality). </description>
     <created by="Frans Englich" on="2008-03-05"/>
     <test>
@@ -1654,8 +1653,8 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-37">
-    <description> Mix in an atomic value which matches the type it's being converted to. $arg doesn't have a type declared. </description>
+  <test-case name="K2-FunctionProlog-37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;e&gt;true&lt;/e&gt;,xs:boolean("true"),xs:untypedAtomic("false"),xs:boolean("false"),&lt;e&gt; true &lt;/e&gt;)</response-string>
+    <description> Mix in an atomic value which matches the type it&apos;s being converted to. $arg doesn&apos;t have a type declared. </description>
     <created by="Frans Englich" on="2008-03-05"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -1667,7 +1666,7 @@
       <assert-string-value>true true false false true</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-38">
+  <test-case name="K2-FunctionProlog-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Trigger a crash in an implementation by having a user declared function with type, that has a text node constructor containing a call to a nonexisting function. </description>
     <created by="Frans Englich" on="2008-11-13"/>
     <test>
@@ -1678,7 +1677,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-39">
+  <test-case name="K2-FunctionProlog-39"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Use complex real-world case for function calls, with automatic conversion not needed. </description>
     <created by="Frans Englich" on="2008-11-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1694,7 +1693,7 @@
       <assert-string-value>testing ...</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-FunctionProlog-40">
+  <test-case name="K2-FunctionProlog-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Use complex real-world case for function calls, with automatic conversion. </description>
     <created by="Frans Englich" on="2008-11-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1710,7 +1709,7 @@
       <assert-string-value>testing ...</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-function-decl-001">
+  <test-case name="cbcl-function-decl-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> check that XPST0005 is NOT a valid response </description>
     <created by="Tim Mills" on="2008-07-17"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1720,7 +1719,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-function-declaration-002">
+  <test-case name="cbcl-function-declaration-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test passing a large sequence to a function. </description>
     <created by="Oliver Hallam" on="2008-11-25"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1730,7 +1729,7 @@
       <assert-string-value>200000</assert-string-value>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-001">
+  <test-case name="function-decl-reserved-function-names-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name attribute is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10"/>
@@ -1744,7 +1743,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-002">
+  <test-case name="function-decl-reserved-function-names-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name attribute is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ30+"/>
@@ -1758,7 +1757,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-003">
+  <test-case name="function-decl-reserved-function-names-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name comment is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10"/>
@@ -1772,7 +1771,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-004">
+  <test-case name="function-decl-reserved-function-names-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name comment is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ30+"/>
@@ -1786,7 +1785,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-005">
+  <test-case name="function-decl-reserved-function-names-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name document-node is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10"/>
@@ -1800,7 +1799,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-006">
+  <test-case name="function-decl-reserved-function-names-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name document-node is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ30+"/>
@@ -1814,7 +1813,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-007">
+  <test-case name="function-decl-reserved-function-names-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name element is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10"/>
@@ -1828,7 +1827,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-008">
+  <test-case name="function-decl-reserved-function-names-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name element is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ30+"/>
@@ -1842,7 +1841,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-009">
+  <test-case name="function-decl-reserved-function-names-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name empty-sequence is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10"/>
@@ -1856,7 +1855,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-010">
+  <test-case name="function-decl-reserved-function-names-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name empty-sequence is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ30+"/>
@@ -1870,7 +1869,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-011">
+  <test-case name="function-decl-reserved-function-names-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name function is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10"/>
@@ -1884,7 +1883,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-012">
+  <test-case name="function-decl-reserved-function-names-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name function is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ30+"/>
@@ -1898,7 +1897,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-013">
+  <test-case name="function-decl-reserved-function-names-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name if is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10"/>
@@ -1912,7 +1911,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-014">
+  <test-case name="function-decl-reserved-function-names-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name if is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ30+"/>
@@ -1926,7 +1925,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-015">
+  <test-case name="function-decl-reserved-function-names-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name item is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10"/>
@@ -1940,7 +1939,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-016">
+  <test-case name="function-decl-reserved-function-names-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name item is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ30+"/>
@@ -1954,7 +1953,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-017">
+  <test-case name="function-decl-reserved-function-names-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name namespace-node is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10"/>
@@ -1968,7 +1967,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-018">
+  <test-case name="function-decl-reserved-function-names-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name namespace-node is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ30+"/>
@@ -1982,7 +1981,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-019">
+  <test-case name="function-decl-reserved-function-names-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name node is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10"/>
@@ -1996,7 +1995,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-020">
+  <test-case name="function-decl-reserved-function-names-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name node is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ30+"/>
@@ -2010,7 +2009,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-021">
+  <test-case name="function-decl-reserved-function-names-021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name processing-instruction is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10"/>
@@ -2024,7 +2023,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-022">
+  <test-case name="function-decl-reserved-function-names-022"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name processing-instruction is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ30+"/>
@@ -2038,7 +2037,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-023">
+  <test-case name="function-decl-reserved-function-names-023"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name schema-attribute is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10"/>
@@ -2052,7 +2051,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-024">
+  <test-case name="function-decl-reserved-function-names-024"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name schema-attribute is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ30+"/>
@@ -2066,7 +2065,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-025">
+  <test-case name="function-decl-reserved-function-names-025"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name schema-element is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10"/>
@@ -2080,7 +2079,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-026">
+  <test-case name="function-decl-reserved-function-names-026"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name schema-element is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ30+"/>
@@ -2094,7 +2093,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-027">
+  <test-case name="function-decl-reserved-function-names-027"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name switch is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10"/>
@@ -2108,7 +2107,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-028">
+  <test-case name="function-decl-reserved-function-names-028"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name switch is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ30+"/>
@@ -2122,7 +2121,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-029">
+  <test-case name="function-decl-reserved-function-names-029"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name text is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10"/>
@@ -2136,7 +2135,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-030">
+  <test-case name="function-decl-reserved-function-names-030"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name text is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ30+"/>
@@ -2150,7 +2149,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-031">
+  <test-case name="function-decl-reserved-function-names-031"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name typeswitch is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ10"/>
@@ -2164,7 +2163,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="function-decl-reserved-function-names-032">
+  <test-case name="function-decl-reserved-function-names-032"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Check that reserved function name typeswitch is handled correctly. </description>
     <created by="Tim Mills" on="2013-01-24"/>
     <dependency type="spec" value="XQ30+"/>

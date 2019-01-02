@@ -11,6 +11,9 @@ Fleur.XQueryEngine[Fleur.XQueryX.namedFunctionRef] = function(ctx, children, cal
 	var fname = children[0][1][0];
 	var uri = ctx.env.nsresolver.lookupNamespaceURI(" function");
 	var nbargs = parseInt(children[1][1][0][1][0], 10);
+	var a = new Fleur.Text();
+	a.schemaTypeInfo = Fleur.Type_error;
+	a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPST0017");
 	if (children[0][1][1]) {
 		if (children[0][1][1][0] === Fleur.XQueryX.URI) {
 			uri = children[0][1][1][1][0];
@@ -18,5 +21,5 @@ Fleur.XQueryEngine[Fleur.XQueryX.namedFunctionRef] = function(ctx, children, cal
 			uri = ctx.env.nsresolver.lookupNamespaceURI(children[0][1][1][1][0]);
 		}
 	}
-	Fleur.callback(function() {callback(Fleur.XPathFunctions[uri] ? Fleur.XPathFunctions[uri][fname + "#" + nbargs] || Fleur.EmptySequence : Fleur.EmptySequence);});
+	Fleur.callback(function() {callback(Fleur.XPathFunctions[uri] ? Fleur.XPathFunctions[uri][fname + "#" + nbargs] || a : a);});
 };

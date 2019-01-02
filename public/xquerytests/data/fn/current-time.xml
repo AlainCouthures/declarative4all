@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-current-time" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the current-time() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-current-time" type="spec"/>
-  <test-case name="fn-current-time-1">
+  <test-case name="fn-current-time-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:time("11:09:28.391+01:00")</response-string>
     <description> Evaluates a simple call to the fn:current-time" function. Uses a String Value. </description>
     <created by="Carmelo Montanez" on="2005-12-01"/>
     <test>fn:current-time()</test>
@@ -11,7 +10,7 @@
       <assert-type>xs:time</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-current-time-2">
+  <test-case name="fn-current-time-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("11")</response-string>
     <description> Evaluates The "current-time" function as argument to fn:hours-from-time function. </description>
     <created by="Carmelo Montanez" on="2005-12-01"/>
     <test>fn:hours-from-time(fn:current-time())</test>
@@ -20,7 +19,7 @@
       <assert-type>xs:integer</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-current-time-3">
+  <test-case name="fn-current-time-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("9")</response-string>
     <description> Evaluates The "current-time" function as argument to fn-minutes-from-time-function. </description>
     <created by="Carmelo Montanez" on="2005-12-01"/>
     <test>fn:minutes-from-time(fn:current-time())</test>
@@ -29,7 +28,7 @@
       <assert-type>xs:integer</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-current-time-4">
+  <test-case name="fn-current-time-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("28")</response-string>
     <description> Evaluates The "current-time" function used as as argument to "seconds-from-time" function. </description>
     <created by="Carmelo Montanez" on="2005-12-01"/>
     <test>fn:seconds-from-time(fn:current-time())</test>
@@ -38,7 +37,7 @@
       <assert-type>xs:decimal</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-current-time-5">
+  <test-case name="fn-current-time-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("0")</response-string>
     <description> Evaluates The "current-time" function as part of a "-" operation. </description>
     <created by="Carmelo Montanez" on="2005-12-01"/>
     <test>fn:current-time() - fn:current-time()</test>
@@ -47,7 +46,7 @@
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-current-time-6">
+  <test-case name="fn-current-time-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:time("12:24:28.400Z")</response-string>
     <description> Evaluates The "fn-current-time" function used as part of a "+" expression and a dayTimeDuration. </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:current-time() + xs:dayTimeDuration("P3DT1H15M")</test>
@@ -56,7 +55,7 @@
       <assert-type>xs:time</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-current-time-7">
+  <test-case name="fn-current-time-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:time("09:54:28.401Z")</response-string>
     <description> Evaluates The "fn-current-time" function used as part of a "-" expression and a dayTimeDuration. </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:current-time() - xs:dayTimeDuration("P3DT1H15M")</test>
@@ -65,7 +64,7 @@
       <assert-type>xs:time</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-current-time-8">
+  <test-case name="fn-current-time-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Evaluates The "current-time" function invoked with incorrect arity. </description>
     <created by="Carmelo Montanez" on="2005-12-05"/>
     <test>fn:current-time("Argument 1")</test>
@@ -74,7 +73,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="fn-current-time-9">
+  <test-case name="fn-current-time-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("0")</response-string>
     <description> Evaluates The "current-time" function as part of of a subtraction expression. Both operands are the equal to "current-time". </description>
     <created by="Carmelo Montanez" on="2005-12-01"/>
     <test>fn:current-time() - fn:current-time()</test>
@@ -83,7 +82,7 @@
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-current-time-10">
+  <test-case name="fn-current-time-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("11:09:28.407+01:00")</response-string>
     <description> Evaluates The "current-time" function as an argument to the xs:string function. </description>
     <created by="Carmelo Montanez" on="2005-12-01"/>
     <test>xs:string(fn:current-time())</test>
@@ -92,7 +91,7 @@
       <assert-type>xs:string</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-current-time-11">
+  <test-case name="fn-current-time-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluates The "current-time" function as an argument to the timezone-from-time function. </description>
     <created by="Carmelo Montanez" on="2005-12-01"/>
     <test>fn:timezone-from-time(current-time())</test>
@@ -101,7 +100,7 @@
       <assert-type>xs:dayTimeDuration</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-current-time-12">
+  <test-case name="fn-current-time-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates string value The "current-time" as part of a "numeric-equal" expression (eq operator) </description>
     <created by="Carmelo Montanez" on="2005-12-01"/>
     <test>fn:string(fn:current-time()) eq fn:string(fn:current-time())</test>
@@ -110,7 +109,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-current-time-13">
+  <test-case name="fn-current-time-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "current-time" function as part of an equal expression (ne operator) </description>
     <created by="Carmelo Montanez" on="2005-12-01"/>
     <test>fn:string(fn:current-time()) ne fn:string(fn:current-time())</test>
@@ -119,7 +118,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-current-time-14">
+  <test-case name="fn-current-time-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "current-time" function as part of an equal expression (le operator) </description>
     <created by="Carmelo Montanez" on="2005-12-01"/>
     <test>fn:string(fn:current-time()) le fn:string(fn:current-time())</test>
@@ -128,7 +127,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-current-time-15">
+  <test-case name="fn-current-time-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "current-time" function as part of an equal expression (ge operator) </description>
     <created by="Carmelo Montanez" on="2005-12-01"/>
     <test>fn:string(fn:current-time()) ge fn:string(fn:current-time())</test>
@@ -137,7 +136,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-current-time-16">
+  <test-case name="fn-current-time-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "current-time" function as part of a boolean expression ("and" opeartor and fn:true function. </description>
     <created by="Carmelo Montanez" on="2005-12-01"/>
     <test>fn:string(fn:current-time()) and fn:true()</test>
@@ -146,7 +145,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-current-time-17">
+  <test-case name="fn-current-time-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "current-time" function as part of a boolean expression ("and" opeartor and fn:false function. </description>
     <created by="Carmelo Montanez" on="2005-12-01"/>
     <test>fn:string(fn:current-time()) and fn:false()</test>
@@ -155,7 +154,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-current-time-18">
+  <test-case name="fn-current-time-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "current-time" function as part of a boolean expression ("or" opeartor and fn:true function. </description>
     <created by="Carmelo Montanez" on="2005-12-01"/>
     <test>fn:string(fn:current-time()) or fn:true()</test>
@@ -164,7 +163,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-current-time-19">
+  <test-case name="fn-current-time-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "current-time" function as part of a boolean expression ("or" opeartor and fn:false function. </description>
     <created by="Carmelo Montanez" on="2005-12-01"/>
     <test>fn:string(fn:current-time()) or fn:false()</test>
@@ -173,7 +172,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-current-time-20">
+  <test-case name="fn-current-time-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "current-time" function (string value)as an argument to the fn:not function. </description>
     <created by="Carmelo Montanez" on="2005-12-01"/>
     <test>fn:not(fn:string(fn:current-time()))</test>
@@ -182,7 +181,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-current-time-21">
+  <test-case name="fn-current-time-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Test that the current time has a timezone</description>
     <created by="Michael Kay" on="2011-06-30"/>
     <test>exists(timezone-from-time(current-time()))</test>
@@ -191,7 +190,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-current-time-22">
+  <test-case name="fn-current-time-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description>Test that the current time is the same as the time part of current dateTime</description>
     <created by="Michael Kay" on="2011-06-30"/>
     <test>current-time() = xs:time(current-dateTime())</test>
@@ -200,17 +199,17 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextCurrentTimeFunc-1">
+  <test-case name="K-ContextCurrentTimeFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `current-time("WRONG PARAM")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>current-time("WRONG PARAM")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-ContextCurrentTimeFunc-2">
-    <description> Test that the Dynamic Context property 'current dateTime' when presented as a xs:time is stable during execution. </description>
+  <test-case name="K-ContextCurrentTimeFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> Test that the Dynamic Context property &apos;current dateTime&apos; when presented as a xs:time is stable during execution. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>current-time() eq current-time()</test>
     <result-string>xs:boolean("true")</result-string>

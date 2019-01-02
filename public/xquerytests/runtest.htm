@@ -34,10 +34,10 @@
 				try {
 					xmldoc.evaluate(xexpr).then(
 						function(res) {
-							document.getElementById("effectiveresult").innerHTML = res.toXQuery().replace(/</mg, "&lt;");
+							document.getElementById("effectiveresult").innerHTML = res.toXQuery().replace(/&/mg, "&amp;").replace(/</mg, "&lt;");
 						},
 						function(err) {
-							document.getElementById("effectiveresult").innerHTML = err.toXQuery().replace(/</mg, "&lt;");
+							document.getElementById("effectiveresult").innerHTML = err.toXQuery().replace(/&/mg, "&amp;").replace(/</mg, "&lt;");
 						}
 					);
 				} catch(e) {
@@ -62,16 +62,16 @@
 					function(xmlBuf) {
 						xmldoc = parser.parseFromString(xmlBuf, "application/xml");
 						document.getElementById("run").disabled = false;
-						document.getElementById("doc").innerHTML = xmlBuf.replace(/</mg, "&lt;");
+						document.getElementById("doc").innerHTML = xmlBuf.replace(/&/mg, "&amp;").replace(/</mg, "&lt;");
 					},
 					function(s) {
-						document.getElementById("doc").innerHTML = s.replace(/</mg, "&lt;");
+						document.getElementById("doc").innerHTML = s.replace(/&/mg, "&amp;").replace(/</mg, "&lt;");
 					}
 				);
 			} else {
 				xmldoc = parser.parseFromString(xmlBuf, "application/xml");
 				document.getElementById("run").disabled = false;
-				document.getElementById("doc").innerHTML = xmlBuf.replace(/</mg, "&lt;");
+				document.getElementById("doc").innerHTML = xmlBuf.replace(/&/mg, "&amp;").replace(/</mg, "&lt;");
 			}
 			function run() {
 				try {
@@ -80,8 +80,8 @@
 					eval("arr = " + jsret + ";");
 					var doc = parser.parseFromArray([Fleur.XQueryXNames, [arr]]);
 					var ser = new Fleur.XMLSerializer();
-					document.getElementById("xqueryx").innerHTML = ser.serializeToString(doc, true).replace(/</mg, "&lt;");
-					document.getElementById("xqueryarr").innerHTML = jsret.replace(/</mg, "&lt;");
+					document.getElementById("xqueryx").innerHTML = ser.serializeToString(doc, true).replace(/&/mg, "&amp;").replace(/</mg, "&lt;");
+					document.getElementById("xqueryarr").innerHTML = jsret.replace(/&/mg, "&amp;").replace(/</mg, "&lt;");
 				} catch(e) {
 					document.getElementById("xqueryx").innerHTML = "Exception!\n" + e.message + "\n\n" + jsret;
 				}

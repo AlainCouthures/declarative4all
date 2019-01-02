@@ -9,7 +9,7 @@
  */
 Fleur.XQueryEngine[Fleur.XQueryX.integerConstantExpr] = function(ctx, children, callback) {
 	var a = new Fleur.Text();
-	a.appendData(children[0][1][0]);
+	a.appendData(Fleur.Type_integer.canonicalize(children[0][1][0]));
 	a.schemaTypeInfo = Fleur.Type_integer;
 	Fleur.callback(function() {callback(a);});
 };

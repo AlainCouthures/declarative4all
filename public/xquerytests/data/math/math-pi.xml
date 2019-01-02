@@ -1,54 +1,53 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set covers="math-pi" name="math-pi" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the math:pi function introduced in XPath 3.0</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-pi" type="spec"/>
   <dependency type="spec" value="XP30+ XQ30+"/>
-  <test-case name="math-pi-001">
+  <test-case name="math-pi-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("6.283185307179586")</response-string>
     <description>function pi() multipled by 2</description>
-    <created by="O'Neil Delpratt" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt" on="2010-12-10"/>
     <environment ref="math"/>
     <test>2*math:pi()</test>
-    <result-string>xs:double("6.283185307179586e0")</result-string>
+    <result-string>xs:double("6.283185307179586")</result-string>
     <result>
       <assert-eq>6.283185307179586e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pi-002">
+  <test-case name="math-pi-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.0471975511965976")</response-string>
     <description>function pi() converts an angle of 60 degrees to radians</description>
-    <created by="O'Neil Delpratt" on="2010-12-10"/>
-    <modified by="O'Neil Delpratt" change="Bug #19783 - change expected result" on="2012-11-08"/>
+    <created by="O&apos;Neil Delpratt" on="2010-12-10"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug #19783 - change expected result" on="2012-11-08"/>
     <environment ref="math"/>
     <test>60 * (math:pi() div 180)</test>
-    <result-string>xs:double("1.0471975511965976e0")</result-string>
+    <result-string>xs:double("1.0471975511965976")</result-string>
     <result>
       <assert>abs($result - 1.0471975511965976e0) lt 1e-14</assert>
     </result>
   </test-case>
-  <test-case name="math-pi-003">
+  <test-case name="math-pi-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("3.141592653589793")</response-string>
     <description>function pi() itself</description>
     <created by="Michael Kay" on="2013-01-07"/>
     <environment ref="math"/>
     <test>math:pi()</test>
-    <result-string>xs:double("3.141592653589793e0")</result-string>
+    <result-string>xs:double("3.141592653589793")</result-string>
     <result>
       <assert-eq>3.141592653589793e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pi-004">
+  <test-case name="math-pi-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("3.141592653589793")</response-string>
     <description>function pi() as a function item</description>
     <created by="Michael Kay" on="2013-01-07"/>
     <environment ref="math"/>
     <test>math:pi#0()</test>
-    <result-string>xs:double("3.141592653589793e0")</result-string>
+    <result-string>xs:double("3.141592653589793")</result-string>
     <result>
       <assert-eq>3.141592653589793e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-pi-005">
+  <test-case name="math-pi-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>function pi() via function lookup</description>
     <created by="Michael Kay" on="2013-01-07"/>
     <environment ref="math"/>
-    <test>function-lookup(xs:QName('math:pi'), 0)()</test>
+    <test>function-lookup(xs:QName(&apos;math:pi&apos;), 0)()</test>
     <result-string>xs:double("3.141592653589793e0")</result-string>
     <result>
       <assert-eq>3.141592653589793e0</assert-eq>

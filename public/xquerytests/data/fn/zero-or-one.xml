@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-zero-or-one" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the zero-or-one() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-zero-or-one" type="spec"/>
-  <test-case name="fn-zero-or-oneint1args-1">
+  <test-case name="fn-zero-or-oneint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-2147483648")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:int("-2147483648"))</test>
@@ -11,7 +10,7 @@
       <assert-string-value>-2147483648</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-oneint1args-2">
+  <test-case name="fn-zero-or-oneint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-1873914410")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:int("-1873914410"))</test>
@@ -20,7 +19,7 @@
       <assert-string-value>-1873914410</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-oneint1args-3">
+  <test-case name="fn-zero-or-oneint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("2147483647")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:int("2147483647"))</test>
@@ -29,7 +28,7 @@
       <assert-string-value>2147483647</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-oneintg1args-1">
+  <test-case name="fn-zero-or-oneintg1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-999999999999999999")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:integer("-999999999999999999"))</test>
@@ -38,7 +37,7 @@
       <assert-string-value>-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-oneintg1args-2">
+  <test-case name="fn-zero-or-oneintg1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("830993497117024304")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:integer("830993497117024304"))</test>
@@ -47,7 +46,7 @@
       <assert-string-value>830993497117024304</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-oneintg1args-3">
+  <test-case name="fn-zero-or-oneintg1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("999999999999999999")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:integer("999999999999999999"))</test>
@@ -56,88 +55,88 @@
       <assert-string-value>999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onedec1args-1">
+  <test-case name="fn-zero-or-onedec1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-999999999999999999")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:decimal("-999999999999999999"))</test>
-    <result-string>xs:decimal("-999999999999999999.0")</result-string>
+    <result-string>xs:decimal("-999999999999999999")</result-string>
     <result>
       <assert-string-value>-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onedec1args-2">
+  <test-case name="fn-zero-or-onedec1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("617375191608514839")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:decimal("617375191608514839"))</test>
-    <result-string>xs:decimal("617375191608514839.0")</result-string>
+    <result-string>xs:decimal("617375191608514839")</result-string>
     <result>
       <assert-string-value>617375191608514839</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onedec1args-3">
+  <test-case name="fn-zero-or-onedec1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("999999999999999999")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:decimal("999999999999999999"))</test>
-    <result-string>xs:decimal("999999999999999999.0")</result-string>
+    <result-string>xs:decimal("999999999999999999")</result-string>
     <result>
       <assert-string-value>999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onedbl1args-1">
+  <test-case name="fn-zero-or-onedbl1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157E308")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:double("-1.7976931348623157E308"))</test>
-    <result-string>xs:double("-1.7976931348623157e308")</result-string>
+    <result-string>xs:double("-1.7976931348623157E308")</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E308</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onedbl1args-2">
+  <test-case name="fn-zero-or-onedbl1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:double("0"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onedbl1args-3">
+  <test-case name="fn-zero-or-onedbl1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.7976931348623157E308")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:double("1.7976931348623157E308"))</test>
-    <result-string>xs:double("1.7976931348623157e308")</result-string>
+    <result-string>xs:double("1.7976931348623157E308")</result-string>
     <result>
       <assert-string-value>1.7976931348623157E308</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-oneflt1args-1">
+  <test-case name="fn-zero-or-oneflt1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235E38")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:float("-3.4028235E38"))</test>
-    <result-string>xs:float("-3.4028235e38")</result-string>
+    <result-string>xs:float("-3.4028235E38")</result-string>
     <result>
       <assert-string-value>-3.4028235E38</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-oneflt1args-2">
+  <test-case name="fn-zero-or-oneflt1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:float("0"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-oneflt1args-3">
+  <test-case name="fn-zero-or-oneflt1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("3.4028235E38")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:float("3.4028235E38"))</test>
-    <result-string>xs:float("3.4028235e38")</result-string>
+    <result-string>xs:float("3.4028235E38")</result-string>
     <result>
       <assert-string-value>3.4028235E38</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onelng1args-1">
+  <test-case name="fn-zero-or-onelng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-92233720368547760")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:long("-92233720368547758"))</test>
@@ -146,7 +145,7 @@
       <assert-string-value>-92233720368547758</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onelng1args-2">
+  <test-case name="fn-zero-or-onelng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-47175562203048460")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:long("-47175562203048468"))</test>
@@ -155,7 +154,7 @@
       <assert-string-value>-47175562203048468</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onelng1args-3">
+  <test-case name="fn-zero-or-onelng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("92233720368547760")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:long("92233720368547758"))</test>
@@ -164,7 +163,7 @@
       <assert-string-value>92233720368547758</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-oneusht1args-1">
+  <test-case name="fn-zero-or-oneusht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("0")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:unsignedShort("0"))</test>
@@ -173,7 +172,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-oneusht1args-2">
+  <test-case name="fn-zero-or-oneusht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("44633")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:unsignedShort("44633"))</test>
@@ -182,7 +181,7 @@
       <assert-string-value>44633</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-oneusht1args-3">
+  <test-case name="fn-zero-or-oneusht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("65535")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:unsignedShort("65535"))</test>
@@ -191,7 +190,7 @@
       <assert-string-value>65535</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onenint1args-1">
+  <test-case name="fn-zero-or-onenint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-999999999999999999")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:negativeInteger("-999999999999999999"))</test>
@@ -200,7 +199,7 @@
       <assert-string-value>-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onenint1args-2">
+  <test-case name="fn-zero-or-onenint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-297014075999096793")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:negativeInteger("-297014075999096793"))</test>
@@ -209,7 +208,7 @@
       <assert-string-value>-297014075999096793</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onenint1args-3">
+  <test-case name="fn-zero-or-onenint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:negativeInteger("-1"))</test>
@@ -218,7 +217,7 @@
       <assert-string-value>-1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onepint1args-1">
+  <test-case name="fn-zero-or-onepint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:positiveInteger("1"))</test>
@@ -227,7 +226,7 @@
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onepint1args-2">
+  <test-case name="fn-zero-or-onepint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("52704602390610033")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:positiveInteger("52704602390610033"))</test>
@@ -236,7 +235,7 @@
       <assert-string-value>52704602390610033</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onepint1args-3">
+  <test-case name="fn-zero-or-onepint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("999999999999999999")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:positiveInteger("999999999999999999"))</test>
@@ -245,7 +244,7 @@
       <assert-string-value>999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-oneulng1args-1">
+  <test-case name="fn-zero-or-oneulng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("0")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:unsignedLong("0"))</test>
@@ -254,7 +253,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-oneulng1args-2">
+  <test-case name="fn-zero-or-oneulng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("130747108607674660")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:unsignedLong("130747108607674654"))</test>
@@ -263,7 +262,7 @@
       <assert-string-value>130747108607674654</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-oneulng1args-3">
+  <test-case name="fn-zero-or-oneulng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("184467440737095520")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:unsignedLong("184467440737095516"))</test>
@@ -272,7 +271,7 @@
       <assert-string-value>184467440737095516</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onenpi1args-1">
+  <test-case name="fn-zero-or-onenpi1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-999999999999999999")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:nonPositiveInteger("-999999999999999999"))</test>
@@ -281,7 +280,7 @@
       <assert-string-value>-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onenpi1args-2">
+  <test-case name="fn-zero-or-onenpi1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-475688437271870490")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:nonPositiveInteger("-475688437271870490"))</test>
@@ -290,7 +289,7 @@
       <assert-string-value>-475688437271870490</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onenpi1args-3">
+  <test-case name="fn-zero-or-onenpi1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("0")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:nonPositiveInteger("0"))</test>
@@ -299,7 +298,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onenni1args-1">
+  <test-case name="fn-zero-or-onenni1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("0")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:nonNegativeInteger("0"))</test>
@@ -308,7 +307,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onenni1args-2">
+  <test-case name="fn-zero-or-onenni1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("303884545991464527")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:nonNegativeInteger("303884545991464527"))</test>
@@ -317,7 +316,7 @@
       <assert-string-value>303884545991464527</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onenni1args-3">
+  <test-case name="fn-zero-or-onenni1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("999999999999999999")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:nonNegativeInteger("999999999999999999"))</test>
@@ -326,7 +325,7 @@
       <assert-string-value>999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onesht1args-1">
+  <test-case name="fn-zero-or-onesht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-32768")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:short("-32768"))</test>
@@ -335,7 +334,7 @@
       <assert-string-value>-32768</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onesht1args-2">
+  <test-case name="fn-zero-or-onesht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-5324")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:short("-5324"))</test>
@@ -344,7 +343,7 @@
       <assert-string-value>-5324</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-onesht1args-3">
+  <test-case name="fn-zero-or-onesht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("32767")</response-string>
     <description> Evaluates The "zero-or-one" function with the arguments set as follows: $arg = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:zero-or-one(xs:short("32767"))</test>
@@ -353,7 +352,7 @@
       <assert-string-value>32767</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-zero-or-one-1">
+  <test-case name="fn-zero-or-one-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0003"))</response-string>
     <description> Evaluation of the fn:zero-or-one function with argument sequence containing more than one item </description>
     <created by="Carmelo Montanez" on="2005-09-20"/>
     <test>fn:zero-or-one((1,2))</test>
@@ -362,7 +361,7 @@
       <error code="FORG0003"/>
     </result>
   </test-case>
-  <test-case name="K-SeqZeroOrOneFunc-1">
+  <test-case name="K-SeqZeroOrOneFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `zero-or-one(1, 2)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>zero-or-one(1, 2)</test>
@@ -371,7 +370,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqZeroOrOneFunc-2">
+  <test-case name="K-SeqZeroOrOneFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `zero-or-one()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>zero-or-one()</test>
@@ -380,7 +379,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqZeroOrOneFunc-3">
+  <test-case name="K-SeqZeroOrOneFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `zero-or-one(true())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>zero-or-one(true())</test>
@@ -389,7 +388,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqZeroOrOneFunc-4">
+  <test-case name="K-SeqZeroOrOneFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(zero-or-one(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(zero-or-one(()))</test>
@@ -398,7 +397,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqZeroOrOneFunc-5">
+  <test-case name="K-SeqZeroOrOneFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(zero-or-one( "one" )) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(zero-or-one( "one" )) eq 1</test>
@@ -407,7 +406,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqZeroOrOneFunc-6">
+  <test-case name="K-SeqZeroOrOneFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(zero-or-one( () )) eq 0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(zero-or-one( () )) eq 0</test>
@@ -416,7 +415,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqZeroOrOneFunc-7">
+  <test-case name="K-SeqZeroOrOneFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
     <description> A test whose essence is: `zero-or-one(error())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>zero-or-one(error())</test>
@@ -425,7 +424,7 @@
       <error code="FOER0000"/>
     </result>
   </test-case>
-  <test-case name="K-SeqZeroOrOneFunc-8">
+  <test-case name="K-SeqZeroOrOneFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0003"))</response-string>
     <description> A test whose essence is: `zero-or-one( (1, 2, 3) )`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>zero-or-one( (1, 2, 3) )</test>
@@ -434,7 +433,7 @@
       <error code="FORG0003"/>
     </result>
   </test-case>
-  <test-case name="cbcl-if-not-empty-001">
+  <test-case name="cbcl-if-not-empty-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test an optimization in if-not-empoty for empty return </description>
     <created by="Nick Jones" on="2008-07-01"/>
     <test>for $x in zero-or-one((1 to 10)[. div 2 = 0]) return ()</test>
@@ -443,7 +442,7 @@
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="cbcl-zero-or-one-001">
+  <test-case name="cbcl-zero-or-one-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test fn:zero-or-one on a count-preserving function </description>
     <created by="Tim Mills" on="2008-04-10"/>
     <dependency type="spec" value="XQ10+"/>
@@ -455,14 +454,14 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-zero-or-one-002">
+  <test-case name="cbcl-zero-or-one-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> test fn:zero-or-one on a sequence of one-or-more items </description>
     <created by="Tim Mills" on="2008-04-10"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:generate($arg as xs:integer?) { if ($arg = 0) then () else if ($arg = 1) then $arg else ($arg, $arg) };
         1 + fn:zero-or-one(fn:one-or-more( local:generate( 1 ) ))</test>
-    <result-string>xs:string("2")</result-string>
+    <result-string>xs:integer("2")</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>

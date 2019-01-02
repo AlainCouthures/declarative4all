@@ -19,18 +19,22 @@ Fleur.XQueryEngine[Fleur.XQueryX.forClauseItem] = function(ctx, children, callba
 		//console.log("forClause - cb - " + Fleur.Serializer._serializeNodeToXQuery(n, false, ""));
 		var posvalue;
 		if (n === Fleur.EmptySequence) {
-			if (!allowingEmpty) {
-				Fleur.callback(function() {callback(Fleur.EmptySequence, true);});
-				return;
+			if (allowingEmpty) {
+				resarr[i].set(ctx, "", varname, n);
+				if (positionalVariableBinding !== 0) {
+					posvalue = new Fleur.Text();
+					posvalue.data = "0";
+					posvalue.schemaTypeInfo = Fleur.Type_integer;
+					resarr[i].set(ctx, "", pvarname, posvalue);
+				}
+				i++;
+			} else {
+				resarr.splice(i, 1);
+				if (resarr.length === 0) {
+					Fleur.callback(function() {callback(Fleur.EmptySequence, true);});
+					return;
+				}
 			}
-			resarr[i].set(ctx, "", varname, n);
-			if (positionalVariableBinding !== 0) {
-				posvalue = new Fleur.Text();
-				posvalue.data = "0";
-				posvalue.schemaTypeInfo = Fleur.Type_integer;
-				resarr[i].set(ctx, "", pvarname, posvalue);
-			}
-			i++;
 		} else if (n.nodeType !== Fleur.Node.SEQUENCE_NODE) {
 			resarr[i].set(ctx, "", varname, n);
 			if (positionalVariableBinding !== 0) {
@@ -51,7 +55,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.forClauseItem] = function(ctx, children, callba
 						resarr[i].set(ctx, "", pvarname, posvalue);
 					}
 				} else {
-					var newres = new Fleur.varMgr([], resarr[i].previous);
+					var newres = resarr[i].clone();
 					newres.set(ctx, "", varname, e);
 					if (positionalVariableBinding !== 0) {
 						posvalue = new Fleur.Text();

@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="op-subtract-dateTimes" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the subtract-dateTimes() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-subtract-dateTimes" type="spec"/>
-  <test-case name="op-subtract-dateTimes-yielding-DTD-1">
+  <test-case name="op-subtract-dateTimes-yielding-DTD-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("2.910672E10")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-dateTimes-yielding-DTD-1             
@@ -19,7 +18,7 @@ As per example 1 (for this function)of the FO specs.
       <assert-string-value>P337DT2H12M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-subtract-dateTimes-yielding-DTD-2">
+  <test-case name="op-subtract-dateTimes-yielding-DTD-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("3.16224E10")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-dateTimes-yielding-DTD-2             
@@ -36,7 +35,7 @@ for which the value uses a timezone of "+5:00"
       <assert-string-value>P366D</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-subtract-dateTimes-yielding-DTD-3">
+  <test-case name="op-subtract-dateTimes-yielding-DTD-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("6.3072E10")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-dateTimes-yielding-DTD-3             
@@ -52,7 +51,7 @@ value includes a timezone of "-6.00".
       <assert-string-value>P730D</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-subtract-dateTimes-yielding-DTD-4">
+  <test-case name="op-subtract-dateTimes-yielding-DTD-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-dateTimes-yielding-DTD-4             
@@ -69,7 +68,7 @@ return true and used together with fn:not.
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-subtract-dateTimes-yielding-DTD-5">
+  <test-case name="op-subtract-dateTimes-yielding-DTD-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-dateTimes-yielding-DTD-5             
@@ -86,7 +85,7 @@ is used as an argument to the fn:boolean function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-subtract-dateTimes-yielding-DTD-6">
+  <test-case name="op-subtract-dateTimes-yielding-DTD-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("3.3901686E10")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-dateTimes-yielding-DTD-6             
@@ -103,7 +102,7 @@ is used as an argument to the fn:number function.
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-subtract-dateTimes-yielding-DTD-7">
+  <test-case name="op-subtract-dateTimes-yielding-DTD-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("4.5266339E10")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-dateTimes-yielding-DTD-7             
@@ -120,7 +119,7 @@ as an argument to the "fn:string" function).
       <assert-string-value>P523DT22H58M59S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-subtract-dateTimes-yielding-DTD-8">
+  <test-case name="op-subtract-dateTimes-yielding-DTD-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("-3.298094432E12")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-dateTimes-yielding-DTD-8             
@@ -137,7 +136,7 @@ returns a negative value.
       <assert-string-value>-P732132DT11H11M11S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-subtract-dateTimes-yielding-DTD-9">
+  <test-case name="op-subtract-dateTimes-yielding-DTD-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-dateTimes-yielding-DTD-9             
@@ -154,7 +153,7 @@ together with an "and" expression.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-subtract-dateTimes-yielding-DTD-10">
+  <test-case name="op-subtract-dateTimes-yielding-DTD-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-dateTimes-yielding-DTD-10            
@@ -171,7 +170,7 @@ together with an "or" expression.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-subtract-dateTimes-yielding-DTD-11">
+  <test-case name="op-subtract-dateTimes-yielding-DTD-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>
 *******************************************************
 Test: op-subtract-dateTimes-yielding-DTD-11            
@@ -188,7 +187,7 @@ as part of a "div" expression.
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-subtract-dateTimes-yielding-DTD-12">
+  <test-case name="op-subtract-dateTimes-yielding-DTD-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-dateTimes-yielding-DTD-12            
@@ -205,7 +204,7 @@ with a boolean expression and the "fn:true" function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-subtract-dateTimes-yielding-DTD-13">
+  <test-case name="op-subtract-dateTimes-yielding-DTD-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-dateTimes-yielding-DTD-13            
@@ -222,7 +221,7 @@ together with the numeric-equal-operator "eq".
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-subtract-dateTimes-yielding-DTD-14">
+  <test-case name="op-subtract-dateTimes-yielding-DTD-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-dateTimes-yielding-DTD-14            
@@ -239,7 +238,7 @@ together with the numeric-equal operator "ne".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-subtract-dateTimes-yielding-DTD-15">
+  <test-case name="op-subtract-dateTimes-yielding-DTD-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-dateTimes-yielding-DTD-15            
@@ -256,7 +255,7 @@ together with the numeric-equal operator "le".
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-subtract-dateTimes-yielding-DTD-16">
+  <test-case name="op-subtract-dateTimes-yielding-DTD-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-dateTimes-yielding-DTD-16             
@@ -273,7 +272,7 @@ together with the numeric-equal operator "ge".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-subtract-dateTimes-yielding-DTD-17">
+  <test-case name="op-subtract-dateTimes-yielding-DTD-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-dateTimes-yielding-DTD-17            
@@ -290,7 +289,7 @@ used as part of a boolean expression (and operator) and the "fn:false" function.
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-subtract-dateTimes-yielding-DTD-18">
+  <test-case name="op-subtract-dateTimes-yielding-DTD-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-dateTimes-yielding-DTD-18           
@@ -306,7 +305,7 @@ part of a boolean expression (or operator) and the "fn:false" function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-subtract-dateTimes-yielding-DTD-19">
+  <test-case name="op-subtract-dateTimes-yielding-DTD-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>
 *******************************************************
 Test: op-subtract-dateTimes-yielding-DTD-19            
@@ -322,7 +321,7 @@ part of a multiplication expression
       <assert-string-value>P817DT21H57M58S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-subtract-dateTimes-yielding-DTD-20">
+  <test-case name="op-subtract-dateTimes-yielding-DTD-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>
 *******************************************************
 Test: op-subtract-dateTimes-yielding-DTD-20            
@@ -338,13 +337,13 @@ part of a addition expression.
       <assert-string-value>P426DT15H7M5S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K-dateTimesSubtract-1">
+  <test-case name="K-dateTimesSubtract-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>
 *******************************************************
  Test: K-dateTimesSubtract-1                           
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: Simple testing involving operator '-' between xs:date and xs:date that evaluates to zero. 
+ Purpose: Simple testing involving operator &apos;-&apos; between xs:date and xs:date that evaluates to zero. 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -354,87 +353,87 @@ part of a addition expression.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-dateTimesSubtract-2">
+  <test-case name="K-dateTimesSubtract-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-dateTimesSubtract-2                           
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: The '+' operator is not available between xs:dateTime and xs:dateTime. 
+ Purpose: The &apos;+&apos; operator is not available between xs:dateTime and xs:dateTime. 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dateTime("1999-10-12T08:01:23") + xs:dateTime("1999-10-12T08:01:23")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-dateTimesSubtract-3">
+  <test-case name="K-dateTimesSubtract-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-dateTimesSubtract-3                           
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: The 'div' operator is not available between xs:dateTime and xs:dateTime. 
+ Purpose: The &apos;div&apos; operator is not available between xs:dateTime and xs:dateTime. 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dateTime("1999-10-12T08:01:23") div xs:dateTime("1999-10-12T08:01:23")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-dateTimesSubtract-4">
+  <test-case name="K-dateTimesSubtract-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-dateTimesSubtract-4                           
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: The '*' operator is not available between xs:dateTime and xs:dateTime. 
+ Purpose: The &apos;*&apos; operator is not available between xs:dateTime and xs:dateTime. 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dateTime("1999-10-12T08:01:23") * xs:dateTime("1999-10-12T08:01:23")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-dateTimesSubtract-5">
+  <test-case name="K-dateTimesSubtract-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-dateTimesSubtract-5                           
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: The 'mod' operator is not available between xs:dateTime and xs:dateTime. 
+ Purpose: The &apos;mod&apos; operator is not available between xs:dateTime and xs:dateTime. 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dateTime("1999-10-12T08:01:23") mod xs:dateTime("1999-10-12T08:01:23")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-dateTimesSubtract-6">
+  <test-case name="K-dateTimesSubtract-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-dateTimesSubtract-6                           
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: The '-' operator is not available between xs:dayTimeDuration and xs:dateTime. 
+ Purpose: The &apos;-&apos; operator is not available between xs:dayTimeDuration and xs:dateTime. 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dayTimeDuration("P3D") - xs:dateTime("1999-08-12T08:01:23")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-subtract-dateTimes-001">
+  <test-case name="cbcl-subtract-dateTimes-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> test subtraction of large to dateTime </description>
     <created by="Tim Mills" on="2008-05-15"/>
     <test>xs:dateTime("-25252734927766554-12-31T12:00:00") - xs:dateTime("25252734927766554-12-31T12:00:00")</test>
@@ -443,7 +442,7 @@ part of a addition expression.
       <error code="FODT0001"/>
     </result>
   </test-case>
-  <test-case name="cbcl-subtract-dateTimes-002">
+  <test-case name="cbcl-subtract-dateTimes-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> test subtraction of large dateTimes </description>
     <created by="Tim Mills" on="2008-05-15"/>
     <test>xs:dateTime("-25252734927766554-12-31T12:00:00") - xs:dateTime("25252734927766554-12-31T12:00:00+01:00")</test>
@@ -452,7 +451,7 @@ part of a addition expression.
       <error code="FODT0001"/>
     </result>
   </test-case>
-  <test-case name="cbcl-subtract-dateTimes-003">
+  <test-case name="cbcl-subtract-dateTimes-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test subtraction of large dateTimes </description>
     <created by="Tim Mills" on="2008-05-15"/>
     <modified by="Tim Mills" change="Bug 21222" on="2013-03-15"/>
@@ -462,7 +461,7 @@ part of a addition expression.
       <assert-string-value>P2192DT1H</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-subtract-dateTimes-004">
+  <test-case name="cbcl-subtract-dateTimes-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> test subtraction of large to dateTimes </description>
     <created by="Tim Mills" on="2008-05-15"/>
     <modified by="Tim Mills" change="Bug 21222" on="2013-03-15"/>

@@ -1,19 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="prod-TreatExpr" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the TreatExpr production</description>
   <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-TreatExpr" type="spec"/>
   <link document="XQuery" idref="id-treat" section-number="3.12.6" type="spec"/>
-  <test-case name="treat-as-1">
+  <test-case name="treat-as-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string>
     <description> Evaluation of treat as expression where the dynamic type does not match expected type. </description>
     <created by="Carmelo Montanez" on="2005-11-29"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
     <test>let $var := (100+200) div 2 return fn:concat($var treat as xs:string,"a string")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0050"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</result-string>
     <result>
       <error code="XPDY0050"/>
     </result>
   </test-case>
-  <test-case name="treat-as-2">
+  <test-case name="treat-as-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("String 1String 2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("String 1String 2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("String 1String 2")</response-string>
     <description> Evaluation of treat as expression where involving a string data type. </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -23,7 +22,7 @@
       <assert-string-value>String 1String 2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="treat-as-3">
+  <test-case name="treat-as-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("50")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("50")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("50")</response-string>
     <description> Evaluation of treat as expression where involving an integer data type and div expression. </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -33,7 +32,7 @@
       <assert-eq>50</assert-eq>
     </result>
   </test-case>
-  <test-case name="treat-as-4">
+  <test-case name="treat-as-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("100")</response-string>
     <description> Evaluation of treat as expression where involving an integer data type and div expression. </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -43,7 +42,7 @@
       <assert-eq>100</assert-eq>
     </result>
   </test-case>
-  <test-case name="treat-as-5">
+  <test-case name="treat-as-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("100")</response-string>
     <description> Evaluation of treat as expression where involving an decimal/integer data types and abs function. decimal treated as integer </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -53,27 +52,27 @@
       <assert-eq>100</assert-eq>
     </result>
   </test-case>
-  <test-case name="treat-as-6">
+  <test-case name="treat-as-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("100")</response-string>
     <description> Evaluation of treat as expression where involving an xs:float data types and abs function. </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
     <test>let $var := xs:float(100) return fn:abs($var treat as xs:float)</test>
-    <result-string>xs:integer("100")</result-string>
+    <result-string>xs:float("100")</result-string>
     <result>
       <assert-eq>100</assert-eq>
     </result>
   </test-case>
-  <test-case name="treat-as-7">
+  <test-case name="treat-as-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("100")</response-string>
     <description> Evaluation of treat as expression where involving an xs:double data type and abs function. </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
     <test>let $var := xs:double(100) return fn:abs($var treat as xs:double)</test>
-    <result-string>xs:integer("100")</result-string>
+    <result-string>xs:double("100")</result-string>
     <result>
       <assert-eq>100</assert-eq>
     </result>
   </test-case>
-  <test-case name="treat-as-8">
+  <test-case name="treat-as-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluation of treat as expression where involving an xs:boolean data type and fn:not function. </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -83,7 +82,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="treat-as-9">
+  <test-case name="treat-as-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2000")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2000")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2000")</response-string>
     <description> Evaluation of treat as expression where involving an xs:date data type and fn:year-from-date function. </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -93,7 +92,7 @@
       <assert-eq>2000</assert-eq>
     </result>
   </test-case>
-  <test-case name="treat-as-10">
+  <test-case name="treat-as-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("20")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("20")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("20")</response-string>
     <description> Evaluation of treat as expression where involving an xs:dateTime data type and fn:minutes-from-dateTime function. </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -103,7 +102,7 @@
       <assert-eq>20</assert-eq>
     </result>
   </test-case>
-  <test-case name="treat-as-11">
+  <test-case name="treat-as-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluation of treat as expression where involving an xs:time data type and fn:hours-from-time function. </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -113,47 +112,47 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="treat-as-12">
+  <test-case name="treat-as-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("100"),xs:integer("100"),xs:integer("100"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("100"),xs:integer("100"),xs:integer("100"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("100"),xs:integer("100"),xs:integer("100"))</response-string>
     <description> Evaluation of treat as expression where involving an xs:integer data type and a homogeneous sequence. </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
     <test>let $var := 100 return ($var treat as xs:integer, $var treat as xs:integer, $var treat as xs:integer)</test>
-    <result-string>xs:string("100 100 100")</result-string>
+    <result-string>(xs:integer("100"),xs:integer("100"),xs:integer("100"))</result-string>
     <result>
       <assert-string-value>100 100 100</assert-string-value>
     </result>
   </test-case>
-  <test-case name="treat-as-13">
+  <test-case name="treat-as-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:decimal("100"),xs:double("100"),xs:float("100"),xs:integer("100"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:decimal("100"),xs:double("100"),xs:float("100"),xs:integer("100"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:decimal("100"),xs:double("100"),xs:float("100"),xs:integer("100"))</response-string>
     <description> Evaluation of treat as expression where involving an xs:integer data type and a heterogeneous sequence. </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
     <test>let $var := 100 return (xs:decimal($var) treat as xs:decimal, xs:double($var) treat as xs:double, xs:float($var) treat as xs:float, $var treat as xs:integer)</test>
-    <result-string>xs:string("100 100 100 100")</result-string>
+    <result-string>(xs:decimal("100"),xs:double("100"),xs:float("100"),xs:integer("100"))</result-string>
     <result>
       <assert-string-value>100 100 100 100</assert-string-value>
     </result>
   </test-case>
-  <test-case name="treat-as-14">
+  <test-case name="treat-as-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("100")</response-string>
     <description> Evaluation of treat as expression with a "cast as" expression and integer/float data types. </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
     <test>let $var := -100 return fn:abs($var cast as xs:float treat as xs:float)</test>
-    <result-string>xs:integer("100")</result-string>
+    <result-string>xs:float("100")</result-string>
     <result>
       <assert-eq>100</assert-eq>
     </result>
   </test-case>
-  <test-case name="treat-as-15">
+  <test-case name="treat-as-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("100")</response-string>
     <description> Evaluation of treat as expression with a "cast as" expression and integer/double data types. </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
     <test>let $var := -100 return fn:abs($var cast as xs:double treat as xs:double)</test>
-    <result-string>xs:integer("100")</result-string>
+    <result-string>xs:double("100")</result-string>
     <result>
       <assert-eq>100</assert-eq>
     </result>
   </test-case>
-  <test-case name="treat-as-16">
+  <test-case name="treat-as-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("100")</response-string>
     <description> Evaluation of treat as expression with a "cast as" expression and float/integer data types. </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -163,7 +162,7 @@
       <assert-eq>100</assert-eq>
     </result>
   </test-case>
-  <test-case name="treat-as-17">
+  <test-case name="treat-as-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("100")</response-string>
     <description> Evaluation of treat as expression with a "cast as" expression and double/integer data types. </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -173,67 +172,67 @@
       <assert-eq>100</assert-eq>
     </result>
   </test-case>
-  <test-case name="treat-as-18">
+  <test-case name="treat-as-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("100")</response-string>
     <description> Evaluation of treat as expression with a "cast as" expression and double/float data types. </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
     <test>let $var := xs:double(-100) return fn:abs($var cast as xs:float treat as xs:float)</test>
-    <result-string>xs:integer("100")</result-string>
+    <result-string>xs:float("100")</result-string>
     <result>
       <assert-eq>100</assert-eq>
     </result>
   </test-case>
-  <test-case name="treat-as-19">
+  <test-case name="treat-as-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("100")</response-string>
     <description> Evaluation of treat as expression with a "cast as" expression and float/double data types. </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
     <test>let $var := xs:float(-100) return fn:abs($var cast as xs:double treat as xs:double)</test>
-    <result-string>xs:integer("100")</result-string>
+    <result-string>xs:double("100")</result-string>
     <result>
       <assert-eq>100</assert-eq>
     </result>
   </test-case>
-  <test-case name="treat-as-20">
+  <test-case name="treat-as-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("100")</response-string>
     <description> Evaluation of treat as expression with a "cast as" expression and decimal/double data types. </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
     <test>let $var := xs:decimal(-100) return fn:abs($var cast as xs:double treat as xs:double)</test>
-    <result-string>xs:integer("100")</result-string>
+    <result-string>xs:double("100")</result-string>
     <result>
       <assert-eq>100</assert-eq>
     </result>
   </test-case>
-  <test-case name="treat-as-21">
+  <test-case name="treat-as-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("100")</response-string>
     <description> Evaluation of treat as expression with a "cast as" expression and decimal/float data types. </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
     <test>let $var := xs:decimal(-100) return fn:abs($var cast as xs:float treat as xs:float)</test>
-    <result-string>xs:integer("100")</result-string>
+    <result-string>xs:float("100")</result-string>
     <result>
       <assert-eq>100</assert-eq>
     </result>
   </test-case>
-  <test-case name="treat-as-22">
+  <test-case name="treat-as-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("100")</response-string>
     <description> Evaluation of treat as expression with a "cast as" expression and float/decimal data types (float cast as decimal treat as decimal). </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
     <test>let $var := xs:float(-100) return fn:abs($var cast as xs:decimal treat as xs:decimal)</test>
-    <result-string>xs:integer("100")</result-string>
+    <result-string>xs:decimal("100")</result-string>
     <result>
       <assert-eq>100</assert-eq>
     </result>
   </test-case>
-  <test-case name="treat-as-23">
+  <test-case name="treat-as-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("100")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("100")</response-string>
     <description> Evaluation of treat as expression with a "cast as" expression and double/decimal data types (double cast as decimal treat as decimal). </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
     <test>let $var := xs:double(-100) return fn:abs($var cast as xs:decimal treat as xs:decimal)</test>
-    <result-string>xs:integer("100")</result-string>
+    <result-string>xs:decimal("100")</result-string>
     <result>
       <assert-eq>100</assert-eq>
     </result>
   </test-case>
-  <test-case name="treat-as-24">
+  <test-case name="treat-as-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("40")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("40")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("40")</response-string>
     <description> Evaluation of treat as expression used as part of an addition operation. </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -243,7 +242,7 @@
       <assert-eq>40</assert-eq>
     </result>
   </test-case>
-  <test-case name="treat-as-25">
+  <test-case name="treat-as-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("20")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("20")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("20")</response-string>
     <description> Evaluation of treat as expression used as part of an subtraction operation. </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -253,43 +252,43 @@
       <assert-eq>20</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-SeqExprTreat-1">
+  <test-case name="K-SeqExprTreat-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string>
     <description> A test whose essence is: `3 treat as xs:string`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 treat as xs:string</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0050"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</result-string>
     <result>
       <error code="XPDY0050"/>
     </result>
   </test-case>
-  <test-case name="K-SeqExprTreat-2">
+  <test-case name="K-SeqExprTreat-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string>
     <description> A test whose essence is: `xs:double("3") treat as xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("3") treat as xs:float</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0050"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</result-string>
     <result>
       <error code="XPDY0050"/>
     </result>
   </test-case>
-  <test-case name="K-SeqExprTreat-3">
+  <test-case name="K-SeqExprTreat-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string>
     <description> A test whose essence is: `xs:anyURI("example.com/") treat as xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:anyURI("example.com/") treat as xs:float</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0050"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</result-string>
     <result>
       <error code="XPDY0050"/>
     </result>
   </test-case>
-  <test-case name="K-SeqExprTreat-4">
+  <test-case name="K-SeqExprTreat-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string>
     <description> A test whose essence is: `3.0 treat as xs:integer`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3.0 treat as xs:integer</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0050"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</result-string>
     <result>
       <error code="XPDY0050"/>
     </result>
   </test-case>
-  <test-case name="K-SeqExprTreat-5">
+  <test-case name="K-SeqExprTreat-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:integer(3) treat as xs:decimal instance of xs:integer`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:integer(3) treat as xs:decimal instance of xs:integer</test>
@@ -298,16 +297,16 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqExprTreat-6">
-    <description> A test whose essence is: `"3" treat as xs:string eq '3'`. </description>
+  <test-case name="K-SeqExprTreat-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> A test whose essence is: `"3" treat as xs:string eq &apos;3&apos;`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <test>"3" treat as xs:string eq '3'</test>
+    <test>"3" treat as xs:string eq &apos;3&apos;</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqExprTreat-7">
+  <test-case name="K-SeqExprTreat-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:integer("3") treat as xs:decimal instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:integer("3") treat as xs:decimal instance of xs:decimal</test>
@@ -316,8 +315,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqExprTreat-8">
-    <description> A type is specified which doesn't exist. </description>
+  <test-case name="K-SeqExprTreat-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> A type is specified which doesn&apos;t exist. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 treat as prefixDoesNotExist:integer</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0081"))</result-string>
@@ -325,8 +324,8 @@
       <error code="XPST0081"/>
     </result>
   </test-case>
-  <test-case name="K-SeqExprTreat-9">
-    <description> A type is specified which doesn't exist. </description>
+  <test-case name="K-SeqExprTreat-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string>
+    <description> A type is specified which doesn&apos;t exist. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 treat as xs:doesNotExist</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0051"))</result-string>
@@ -334,7 +333,7 @@
       <error code="XPST0051"/>
     </result>
   </test-case>
-  <test-case name="K-SeqExprTreat-10">
+  <test-case name="K-SeqExprTreat-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Exactly-one xs:integer does not match empty-sequence(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 treat as empty-sequence()</test>
@@ -343,8 +342,8 @@
       <error code="XPDY0050"/>
     </result>
   </test-case>
-  <test-case name="K-SeqExprTreat-11">
-    <description> Implementations using the static typing feature, may raise XPTY0004 because one of the operands to operator 'eq' has cardinality 'one-or-more'. </description>
+  <test-case name="K-SeqExprTreat-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> Implementations using the static typing feature, may raise XPTY0004 because one of the operands to operator &apos;eq&apos; has cardinality &apos;one-or-more&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>("asda" treat as xs:string +) eq "asda"</test>
     <result-string>xs:boolean("true")</result-string>
@@ -356,8 +355,8 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-SeqExprTreat-12">
-    <description> Implementations using the static typing feature, may raise XPTY0004 because one of the operands to operator 'eq' has cardinality 'zero-or-more'. </description>
+  <test-case name="K-SeqExprTreat-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> Implementations using the static typing feature, may raise XPTY0004 because one of the operands to operator &apos;eq&apos; has cardinality &apos;zero-or-more&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>("asda" treat as xs:string *) eq "asda"</test>
     <result-string>xs:boolean("true")</result-string>
@@ -369,8 +368,8 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-SeqExprTreat-13">
-    <description> Implementations using the static typing feature, may raise XPTY0004 because one of the operands to the multiply-operator has cardinality 'zero-or-more'. </description>
+  <test-case name="K-SeqExprTreat-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Implementations using the static typing feature, may raise XPTY0004 because one of the operands to the multiply-operator has cardinality &apos;zero-or-more&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(3 treat as xs:integer * * 3) eq 9</test>
     <result-string>xs:boolean("true")</result-string>
@@ -382,7 +381,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-SeqExprTreat-14">
+  <test-case name="K-SeqExprTreat-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A test whose essence is: `(3 treat as xs:integer ? * 3) eq 9`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(3 treat as xs:integer ? * 3) eq 9</test>
@@ -391,8 +390,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqExprTreat-15">
-    <description> A complex 'treat as' expression, stressing parser and evaluation logic. Implementations supporting the static typing feature may issue XPTY0004. </description>
+  <test-case name="K-SeqExprTreat-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> A complex &apos;treat as&apos; expression, stressing parser and evaluation logic. Implementations supporting the static typing feature may issue XPTY0004. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(4 treat as item() + - 5) = ((4 treat as item()+) - 5)</test>
     <result-string>xs:boolean("true")</result-string>
@@ -404,16 +403,16 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-SeqExprTreat-16">
-    <description> '3 treat as item(' is a syntatically invalid expression. </description>
+  <test-case name="K-SeqExprTreat-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> &apos;3 treat as item(&apos; is a syntatically invalid expression. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 treat as item(</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-SeqExprTreat-17">
+  <test-case name="K-SeqExprTreat-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(remove((5, 1e0), 2) treat as xs:integer) eq 5`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(remove((5, 1e0), 2) treat as xs:integer) eq 5</test>
@@ -422,17 +421,17 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqExprTreat-1">
+  <test-case name="K2-SeqExprTreat-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string>
     <description> An xs:decimal, despite being a valid integer, cannot be treated as an xs:integer. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:decimal(3) treat as xs:integer</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0050"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</result-string>
     <result>
       <error code="XPDY0050"/>
     </result>
   </test-case>
-  <test-case name="K2-SeqExprTreat-2">
-    <description> Use three pluses on a row, combined with 'treat as'. </description>
+  <test-case name="K2-SeqExprTreat-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Use three pluses on a row, combined with &apos;treat as&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 treat as item()+ + +1</test>
     <result-string>xs:integer("4")</result-string>
@@ -440,7 +439,7 @@
       <assert-eq>4</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-SeqExprTreat-3">
+  <test-case name="K2-SeqExprTreat-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Lhs must be a StepExpr, and TreatExpr is not. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:root(self::node()) treat as document-node()/X</test>
@@ -449,7 +448,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-SeqExprTreat-4">
+  <test-case name="K2-SeqExprTreat-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Treat the result of an empty node test, as the empty-sequence(). </description>
     <created by="Frans Englich" on="2008-11-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -461,133 +460,133 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-001">
+  <test-case name="cbcl-treat-as-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("4"),xs:integer("6"),xs:integer("8"),xs:integer("10"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("4"),xs:integer("6"),xs:integer("8"),xs:integer("10"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("4"),xs:integer("6"),xs:integer("8"),xs:integer("10"))</response-string>
     <description> Tests treat as with + quantifier </description>
     <created by="Nick Jones" on="2008-06-24"/>
     <test>(1 to 10)[. mod 2 = 0] treat as xs:integer+</test>
-    <result-string>xs:string("2 4 6 8 10")</result-string>
+    <result-string>(xs:integer("2"),xs:integer("4"),xs:integer("6"),xs:integer("8"),xs:integer("10"))</result-string>
     <result>
       <assert-string-value>2 4 6 8 10</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-002">
+  <test-case name="cbcl-treat-as-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("4"),xs:integer("6"),xs:integer("8"),xs:integer("10"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("4"),xs:integer("6"),xs:integer("8"),xs:integer("10"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("4"),xs:integer("6"),xs:integer("8"),xs:integer("10"))</response-string>
     <description> Tests treat as with * quantifier </description>
     <created by="Nick Jones" on="2008-06-24"/>
     <test>(1 to 10)[. mod 2 = 0] treat as xs:integer*</test>
-    <result-string>xs:string("2 4 6 8 10")</result-string>
+    <result-string>(xs:integer("2"),xs:integer("4"),xs:integer("6"),xs:integer("8"),xs:integer("10"))</result-string>
     <result>
       <assert-string-value>2 4 6 8 10</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-003">
+  <test-case name="cbcl-treat-as-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> Tests treat as with + quantifier with ? input </description>
     <created by="Nick Jones" on="2008-06-24"/>
     <test>zero-or-one((1 to 10)[. div 2 = 1]) treat as xs:integer+</test>
-    <result-string>xs:string("2")</result-string>
+    <result-string>xs:integer("2")</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-004">
+  <test-case name="cbcl-treat-as-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> Tests treat as with * quantifier with ? input </description>
     <created by="Nick Jones" on="2008-06-24"/>
     <test>zero-or-one((1 to 10)[. div 2 = 1]) treat as xs:integer*</test>
-    <result-string>xs:string("2")</result-string>
+    <result-string>xs:integer("2")</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-005">
+  <test-case name="cbcl-treat-as-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> Tests treat as with + quantifier with 1 input </description>
     <created by="Nick Jones" on="2008-06-24"/>
     <test>exactly-one((1 to 10)[. div 2 = 1]) treat as xs:integer+</test>
-    <result-string>xs:string("2")</result-string>
+    <result-string>xs:integer("2")</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-006">
+  <test-case name="cbcl-treat-as-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> Tests treat as with * quantifier and 1 input </description>
     <created by="Nick Jones" on="2008-06-24"/>
     <test>exactly-one((1 to 10)[. div 2 = 1]) treat as xs:integer*</test>
-    <result-string>xs:string("2")</result-string>
+    <result-string>xs:integer("2")</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-007">
+  <test-case name="cbcl-treat-as-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("5")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("5")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("5")</response-string>
     <description> Tests treat as with + quantifier </description>
     <created by="Nick Jones" on="2008-06-24"/>
     <test>count((1 to 10)[. mod 2 = 0] treat as xs:integer+)</test>
-    <result-string>xs:string("5")</result-string>
+    <result-string>xs:integer("5")</result-string>
     <result>
       <assert-string-value>5</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-008">
+  <test-case name="cbcl-treat-as-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("4"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("4"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("4"))</response-string>
     <description> Tests treat as with + quantifier </description>
     <created by="Nick Jones" on="2008-06-24"/>
     <test>subsequence((1 to 10)[. mod 2 = 0] treat as xs:integer+,1,2)</test>
-    <result-string>xs:string("2 4")</result-string>
+    <result-string>(xs:integer("2"),xs:integer("4"))</result-string>
     <result>
       <assert-string-value>2 4</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-009">
+  <test-case name="cbcl-treat-as-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string>
     <description> Tests treat as with + quantifier </description>
     <created by="Nick Jones" on="2008-06-24"/>
     <test>(1 to 10)[. div 2 = 0] treat as xs:integer+</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0050"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</result-string>
     <result>
       <error code="XPDY0050"/>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-010">
+  <test-case name="cbcl-treat-as-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string>
     <description> Tests treat as with + quantifier </description>
     <created by="Nick Jones" on="2008-06-24"/>
     <test>(1 to 10)[. mod 2 = 0] treat as xs:negativeInteger+</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0050"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</result-string>
     <result>
       <error code="XPDY0050"/>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-011">
+  <test-case name="cbcl-treat-as-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string>
     <description> Tests treat as with + quantifier </description>
     <created by="Nick Jones" on="2008-06-24"/>
     <test>(1 to 10)[. mod 2 = 0] treat as xs:integer</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0050"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</result-string>
     <result>
       <error code="XPDY0050"/>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-012">
+  <test-case name="cbcl-treat-as-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string>
     <description> Tests treat as with + quantifier </description>
     <created by="Nick Jones" on="2008-06-24"/>
     <test>(1 to 10)[. mod 2 = 0] treat as xs:negativeInteger*</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0050"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</result-string>
     <result>
       <error code="XPDY0050"/>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-013">
+  <test-case name="cbcl-treat-as-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string>
     <description> Tests treat as with + quantifier </description>
     <created by="Nick Jones" on="2008-06-24"/>
     <test>zero-or-one((1 to 10)[. div 2 = 0]) treat as xs:integer</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0050"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</result-string>
     <result>
       <error code="XPDY0050"/>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-014">
+  <test-case name="cbcl-treat-as-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string>
     <description> Tests treat as with + quantifier with ? input </description>
     <created by="Nick Jones" on="2008-06-24"/>
     <test>zero-or-one((1 to 10)[. div 2 = 0]) treat as xs:integer+</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0050"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</result-string>
     <result>
       <error code="XPDY0050"/>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-015">
+  <test-case name="cbcl-treat-as-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string>
     <description> test treat as cardinality checks are correct </description>
     <created by="Tim Mills" on="2008-09-19"/>
     <dependency type="spec" value="XQ10+"/>
@@ -595,12 +594,12 @@
         declare function local:range($arg as xs:integer) as xs:integer* { 1 to $arg };
         declare function local:double($arg as xs:integer) { $arg * 2 };
         local:double(local:range(0) treat as xs:integer)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0050"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</result-string>
     <result>
       <error code="XPDY0050"/>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-016">
+  <test-case name="cbcl-treat-as-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> test treat as cardinality checks are correct </description>
     <created by="Tim Mills" on="2008-09-19"/>
     <dependency type="spec" value="XQ10+"/>
@@ -608,12 +607,12 @@
         declare function local:range($arg as xs:integer) as xs:integer* { 1 to $arg };
         declare function local:double($arg as xs:integer) { $arg * 2 };
         local:double(local:range(1) treat as xs:integer)</test>
-    <result-string>xs:string("2")</result-string>
+    <result-string>xs:integer("2")</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-017">
+  <test-case name="cbcl-treat-as-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string>
     <description> test treat as cardinality checks are correct </description>
     <created by="Tim Mills" on="2008-09-19"/>
     <dependency type="spec" value="XQ10+"/>
@@ -621,12 +620,12 @@
         declare function local:range($arg as xs:integer) as xs:integer* { 1 to $arg };
         declare function local:double($arg as xs:integer) { $arg * 2 };
         local:double(local:range(3) treat as xs:integer)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0050"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</result-string>
     <result>
       <error code="XPDY0050"/>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-018">
+  <test-case name="cbcl-treat-as-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test treat as cardinality checks are correct </description>
     <created by="Tim Mills" on="2008-09-19"/>
     <dependency type="spec" value="XQ10+"/>
@@ -639,7 +638,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-019">
+  <test-case name="cbcl-treat-as-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test treat as cardinality checks are correct </description>
     <created by="Tim Mills" on="2008-09-19"/>
     <dependency type="spec" value="XQ10+"/>
@@ -652,7 +651,7 @@
       <assert-string-value>2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-020">
+  <test-case name="cbcl-treat-as-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test treat as cardinality checks are correct </description>
     <created by="Tim Mills" on="2008-09-19"/>
     <dependency type="spec" value="XQ10+"/>
@@ -665,7 +664,7 @@
       <error code="XPDY0050"/>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-021">
+  <test-case name="cbcl-treat-as-021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</response-string>
     <description> test treat as cardinality checks are correct </description>
     <created by="Tim Mills" on="2008-09-19"/>
     <dependency type="spec" value="XQ10+"/>
@@ -673,12 +672,12 @@
         declare function local:range($arg as xs:integer) as xs:integer* { 1 to $arg };
         declare function local:double($arg as xs:integer+) { for $a in $arg return $a * 2 };
         local:double(local:range(0) treat as xs:integer+)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0050"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0050"))</result-string>
     <result>
       <error code="XPDY0050"/>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-022">
+  <test-case name="cbcl-treat-as-022"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> test treat as cardinality checks are correct </description>
     <created by="Tim Mills" on="2008-09-19"/>
     <dependency type="spec" value="XQ10+"/>
@@ -686,12 +685,12 @@
         declare function local:range($arg as xs:integer) as xs:integer* { 1 to $arg };
         declare function local:double($arg as xs:integer+) { for $a in $arg return $a * 2 };
         local:double(local:range(1) treat as xs:integer+)</test>
-    <result-string>xs:string("2")</result-string>
+    <result-string>xs:integer("2")</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-treat-as-023">
+  <test-case name="cbcl-treat-as-023"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("4"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("4"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("4"))</response-string>
     <description> test treat as cardinality checks are correct </description>
     <created by="Tim Mills" on="2008-09-19"/>
     <dependency type="spec" value="XQ10+"/>
@@ -699,7 +698,7 @@
         declare function local:range($arg as xs:integer) as xs:integer* { 1 to $arg };
         declare function local:double($arg as xs:integer+) { for $a in $arg return $a * 2 };
         local:double(local:range(2) treat as xs:integer+)</test>
-    <result-string>xs:string("2 4")</result-string>
+    <result-string>(xs:integer("2"),xs:integer("4"))</result-string>
     <result>
       <assert-string-value>2 4</assert-string-value>
     </result>

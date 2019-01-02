@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-contains" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the contains() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-contains" type="spec"/>
-  <test-case name="fn-contains2args-1">
+  <test-case name="fn-contains2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "contains" function with the arguments set as follows: $arg1 = xs:string(lower bound) $arg2 = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:contains(xs:string("This is a characte"),xs:string("This is a characte"))</test>
@@ -11,7 +10,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-contains2args-2">
+  <test-case name="fn-contains2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "contains" function with the arguments set as follows: $arg1 = xs:string(mid range) $arg2 = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:contains(xs:string("This is a characte"),xs:string("This is a characte"))</test>
@@ -20,7 +19,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-contains2args-3">
+  <test-case name="fn-contains2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "contains" function with the arguments set as follows: $arg1 = xs:string(upper bound) $arg2 = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:contains(xs:string("This is a characte"),xs:string("This is a characte"))</test>
@@ -29,7 +28,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-contains2args-4">
+  <test-case name="fn-contains2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "contains" function with the arguments set as follows: $arg1 = xs:string(lower bound) $arg2 = xs:string(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:contains(xs:string("This is a characte"),xs:string("This is a characte"))</test>
@@ -38,7 +37,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-contains2args-5">
+  <test-case name="fn-contains2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "contains" function with the arguments set as follows: $arg1 = xs:string(lower bound) $arg2 = xs:string(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:contains(xs:string("This is a characte"),xs:string("This is a characte"))</test>
@@ -47,7 +46,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-contains-1">
+  <test-case name="fn-contains-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "contains" function with the arguments set as follows: $arg1 = "" $arg2 = "" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains("","")</test>
@@ -56,7 +55,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-contains-2">
+  <test-case name="fn-contains-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "contains" function with the arguments set as follows: $arg1 = "" $arg2 = "A Character String" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains("","A Character String")</test>
@@ -65,7 +64,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-contains-3">
+  <test-case name="fn-contains-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "contains" function with the arguments set as follows: $arg1 = "" $arg2 = "A Character String" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains("A Character String","")</test>
@@ -74,7 +73,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-contains-4">
+  <test-case name="fn-contains-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "contains" function with the arguments set as follows: $arg1 = () $arg2 = "" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains((),"")</test>
@@ -83,7 +82,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-contains-5">
+  <test-case name="fn-contains-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "contains" function with the arguments set as follows: $arg1 = "" $arg2 = () </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains("",())</test>
@@ -92,7 +91,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-contains-6">
+  <test-case name="fn-contains-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "contains" function with the arguments set as follows: $arg1 = "A Character String" $arg2 = () </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains("A Character String",())</test>
@@ -101,7 +100,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-contains-7">
+  <test-case name="fn-contains-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "contains" function with the arguments set as follows: $arg1 = () $arg2 = "A Character String" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains((),"A Character String")</test>
@@ -110,7 +109,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-contains-8">
+  <test-case name="fn-contains-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "contains" function with the arguments set as follows: $arg1 = "AAAAABBBBBCCCCC" $arg2 = "BBBBB" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains("AAAAABBBBBCCCCC","BBBBB")</test>
@@ -119,7 +118,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-contains-9">
+  <test-case name="fn-contains-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "contains" function with the arguments set as follows: $arg1 = "AAAAABBBBB" $arg2 = " " </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains("AAAAABBBBB"," ")</test>
@@ -128,7 +127,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-contains-10">
+  <test-case name="fn-contains-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "contains" function with the arguments set as follows: $arg1 = " " $arg2 = " AAAAABBBBB" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains(" ","AAAAABBBBB")</test>
@@ -137,7 +136,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-contains-11">
+  <test-case name="fn-contains-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "contains" function using it as a argument of a fn:not - returns false </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:not(fn:contains("A","A"))</test>
@@ -146,7 +145,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-contains-12">
+  <test-case name="fn-contains-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "contains" function using it as a argument of a fn:not - returns true </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:not(fn:contains("A","B"))</test>
@@ -155,7 +154,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-contains-13">
+  <test-case name="fn-contains-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "contains" function with the arguments set as follows: $arg1 = xs:string("A") $arg2 = "A" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains(xs:string("A"),"A")</test>
@@ -164,7 +163,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-contains-14">
+  <test-case name="fn-contains-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "contains" function with the arguments set as follows: $arg1 = "A" $arg2 = xs:string("A") </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains("A",xs:string("A"))</test>
@@ -173,7 +172,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-contains-15">
+  <test-case name="fn-contains-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "contains" function with the arguments set as follows: $arg1 = "A" $arg2 = "a" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains("A","a")</test>
@@ -182,7 +181,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-contains-16">
+  <test-case name="fn-contains-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "contains" function with the arguments set as follows: $arg1 = "a" $arg2 = "A" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:contains("a","A")</test>
@@ -191,7 +190,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K-ContainsFunc-1">
+  <test-case name="K-ContainsFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `contains()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>contains()</test>
@@ -200,7 +199,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-ContainsFunc-2">
+  <test-case name="K-ContainsFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `contains(())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>contains(())</test>
@@ -209,7 +208,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-ContainsFunc-3">
+  <test-case name="K-ContainsFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `contains((), (), "http://www.w3.org/2005/xpath-functions/collation/codepoint", "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>contains((), (), "http://www.w3.org/2005/xpath-functions/collation/codepoint", "wrong param")</test>
@@ -218,7 +217,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-ContainsFunc-4">
+  <test-case name="K-ContainsFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002"))</response-string>
     <description> A test whose essence is: `contains("a string", "a string", "http://www.example.com/COLLATION/NOT/SUPPORTED")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>contains("a string", "a string", "http://www.example.com/COLLATION/NOT/SUPPORTED")</test>
@@ -227,7 +226,7 @@
       <error code="FOCH0002"/>
     </result>
   </test-case>
-  <test-case name="K-ContainsFunc-5">
+  <test-case name="K-ContainsFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `contains("foo", "foo", "http://www.w3.org/2005/xpath-functions/collation/codepoint")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>contains("foo", "foo", "http://www.w3.org/2005/xpath-functions/collation/codepoint")</test>
@@ -236,7 +235,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContainsFunc-6">
+  <test-case name="K-ContainsFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `contains("tattoo", "t")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>contains("tattoo", "t")</test>
@@ -245,7 +244,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContainsFunc-7">
+  <test-case name="K-ContainsFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(contains("tattoo", "ttt"))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(contains("tattoo", "ttt"))</test>
@@ -254,7 +253,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContainsFunc-8">
+  <test-case name="K-ContainsFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `contains("", ())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>contains("", ())</test>
@@ -263,7 +262,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContainsFunc-9">
+  <test-case name="K-ContainsFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `contains("a string", ())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>contains("a string", ())</test>
@@ -272,7 +271,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContainsFunc-10">
+  <test-case name="K-ContainsFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `contains("foo", "foo")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>contains("foo", "foo")</test>
@@ -281,7 +280,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContainsFunc-11">
+  <test-case name="K-ContainsFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(contains("", "a string"))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(contains("", "a string"))</test>
@@ -290,7 +289,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-ContainsFunc-1">
+  <test-case name="K2-ContainsFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Compare two values returned from fn:lower-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -302,7 +301,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-ContainsFunc-2">
+  <test-case name="K2-ContainsFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Compare two values returned from fn:upper-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -314,7 +313,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-ContainsFunc-3">
+  <test-case name="K2-ContainsFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Compare two non-matching values returned from fn:lower-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -326,7 +325,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-ContainsFunc-4">
+  <test-case name="K2-ContainsFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Compare two non-matching values returned from fn:upper-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -338,7 +337,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-ContainsFunc-5">
+  <test-case name="K2-ContainsFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Compare two non-matching values returned from fn:lower-case() and fn:upper-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -350,7 +349,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-ContainsFunc-6">
+  <test-case name="K2-ContainsFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Compare two non-matching values returned from fn:lower-case() and fn:upper-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -362,29 +361,29 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-contains-001">
+  <test-case name="cbcl-contains-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test fn:contains with collation and $arg2 as empty string </description>
     <created by="Tim Mills" on="2008-04-11"/>
-    <test>fn:boolean(fn:contains('input', '', 'http://www.w3.org/2005/xpath-functions/collation/codepoint'))</test>
+    <test>fn:boolean(fn:contains(&apos;input&apos;, &apos;&apos;, &apos;http://www.w3.org/2005/xpath-functions/collation/codepoint&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-contains-002">
+  <test-case name="cbcl-contains-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test fn:contains with collation and $arg1 as empty string Author: Tim Mills </description>
     <created by="Oliver Hallam" on="2008-04-11"/>
-    <test>fn:boolean(fn:contains('', 'empty', 'http://www.w3.org/2005/xpath-functions/collation/codepoint'))</test>
+    <test>fn:boolean(fn:contains(&apos;&apos;, &apos;empty&apos;, &apos;http://www.w3.org/2005/xpath-functions/collation/codepoint&apos;))</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-contains-003">
+  <test-case name="cbcl-contains-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> test evaluation of fn:contains to exactly one item Author: Tim Mills </description>
     <created by="Oliver Hallam" on="2008-04-11"/>
-    <test>fn:index-of( ( fn:true(), fn:false()), fn:contains('input', 'in', 'http://www.w3.org/2005/xpath-functions/collation/codepoint'))</test>
-    <result-string>xs:string("1")</result-string>
+    <test>fn:index-of( ( fn:true(), fn:false()), fn:contains(&apos;input&apos;, &apos;in&apos;, &apos;http://www.w3.org/2005/xpath-functions/collation/codepoint&apos;))</test>
+    <result-string>xs:integer("1")</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>

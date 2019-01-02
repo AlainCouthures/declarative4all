@@ -1,17 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-normalize-unicode" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the normalize-unicode() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-normalize-unicode" type="spec"/>
-  <test-case name="fn-normalize-unicode1args-1">
+  <test-case name="fn-normalize-unicode1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("Nothing to normalize.")</response-string>
     <description>Test normalize-unicode with simple text input </description>
     <created by="Joanne Tong" on="2005-09-29"/>
-    <test>normalize-unicode('Nothing to normalize.')</test>
+    <test>normalize-unicode(&apos;Nothing to normalize.&apos;)</test>
     <result-string>xs:string("Nothing to normalize.")</result-string>
     <result>
       <assert-string-value>Nothing to normalize.</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode1args-2">
+  <test-case name="fn-normalize-unicode1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Test normalize-unicode with empty sequence argument </description>
     <created by="Joanne Tong" on="2005-09-29"/>
     <test>normalize-unicode(())</test>
@@ -20,115 +19,115 @@
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode1args-3">
+  <test-case name="fn-normalize-unicode1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Test fn:normalize-unicode on combining characters for LATIN CAPITAL LETTER A WITH RING (w/ ACUTE) and ANGSTROM SIGN </description>
     <created by="Joanne Tong" on="2005-09-29"/>
-    <test>matches('', normalize-unicode('A'))</test>
+    <test>matches(&apos;&apos;, normalize-unicode(&apos;A&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode1args-4">
+  <test-case name="fn-normalize-unicode1args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Test fn:normalize-unicode on combining characters for LATIN CAPITAL LETTER A WITH RING (w/ ACUTE) and ANGSTROM SIGN </description>
     <created by="Joanne Tong" on="2005-09-29"/>
-    <test>matches('', normalize-unicode('A'))</test>
+    <test>matches(&apos;&apos;, normalize-unicode(&apos;A&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode1args-5">
+  <test-case name="fn-normalize-unicode1args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Test fn:normalize-unicode on combining characters for LATIN CAPITAL LETTER A WITH RING (w/ ACUTE) and ANGSTROM SIGN </description>
     <created by="Joanne Tong" on="2005-09-29"/>
-    <test>matches('A', normalize-unicode('A'))</test>
+    <test>matches(&apos;A&apos;, normalize-unicode(&apos;A&apos;))</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode1args-6">
+  <test-case name="fn-normalize-unicode1args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Test fn:normalize-unicode on combining characters for LATIN CAPITAL LETTER A WITH RING (w/ ACUTE) and ANGSTROM SIGN </description>
     <created by="Joanne Tong" on="2005-09-29"/>
-    <test>(normalize-unicode('') eq normalize-unicode(''))</test>
+    <test>(normalize-unicode(&apos;&apos;) eq normalize-unicode(&apos;&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode1args-7">
+  <test-case name="fn-normalize-unicode1args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>Test normalize-unicode with invalid argument types </description>
     <created by="Joanne Tong" on="2005-09-29"/>
     <test>normalize-unicode(12)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode1args-8">
+  <test-case name="fn-normalize-unicode1args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Test normalize-unicode with incorrect arity </description>
     <created by="Joanne Tong" on="2005-09-29"/>
-    <test>normalize-unicode('','','')</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <test>normalize-unicode(&apos;&apos;,&apos;&apos;,&apos;&apos;)</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode2args-1">
+  <test-case name="fn-normalize-unicode2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("Nothing to normalize.")</response-string>
     <description>Test normalize-unicode with simple text input and NFC </description>
     <created by="Joanne Tong" on="2005-09-29"/>
-    <test>normalize-unicode('Nothing to normalize.', 'NFC')</test>
+    <test>normalize-unicode(&apos;Nothing to normalize.&apos;, &apos;NFC&apos;)</test>
     <result-string>xs:string("Nothing to normalize.")</result-string>
     <result>
       <assert-string-value>Nothing to normalize.</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode2args-2">
+  <test-case name="fn-normalize-unicode2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("Nothing to normalize.")</response-string>
     <description>Test normalize-unicode with simple text input and NFC spelled differently </description>
     <created by="Joanne Tong" on="2005-09-29"/>
-    <test>normalize-unicode('Nothing to normalize.', 'nFc')</test>
+    <test>normalize-unicode(&apos;Nothing to normalize.&apos;, &apos;nFc&apos;)</test>
     <result-string>xs:string("Nothing to normalize.")</result-string>
     <result>
       <assert-string-value>Nothing to normalize.</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode2args-3">
+  <test-case name="fn-normalize-unicode2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Test normalize-unicode with empty sequence argument and NFC </description>
     <created by="Joanne Tong" on="2005-09-29"/>
-    <test>normalize-unicode((), 'NFC')</test>
+    <test>normalize-unicode((), &apos;NFC&apos;)</test>
     <result-string>xs:string("")</result-string>
     <result>
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode2args-4">
+  <test-case name="fn-normalize-unicode2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Test fn:normalize-unicode where the second argument is the zero-length string, no normalization is performed </description>
     <created by="Joanne Tong" on="2005-09-29"/>
-    <test>(normalize-unicode('', '') eq normalize-unicode('', ''))</test>
+    <test>(normalize-unicode(&apos;&apos;, &apos;&apos;) eq normalize-unicode(&apos;&apos;, &apos;&apos;))</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode2args-5">
+  <test-case name="fn-normalize-unicode2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Test normalize-unicode with invalid argument types </description>
     <created by="Joanne Tong" on="2005-09-29"/>
-    <test>normalize-unicode('',())</test>
+    <test>normalize-unicode(&apos;&apos;,())</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode2args-6">
+  <test-case name="fn-normalize-unicode2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>Test normalize-unicode with invalid argument types </description>
     <created by="Joanne Tong" on="2005-09-29"/>
-    <test>normalize-unicode('',12)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <test>normalize-unicode(&apos;&apos;,12)</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode-1">
+  <test-case name="fn-normalize-unicode-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Evaluation of fn:normalize-unicode to ensure that " NFC " is the same as "NFC". </description>
     <created by="Carmelo Montanez" on="2005-11-29"/>
     <test>fn:concat(fn:normalize-unicode(""," NFC "),fn:normalize-unicode("","NFC"))</test>
@@ -137,7 +136,7 @@
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode-2">
+  <test-case name="fn-normalize-unicode-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Evaluation of fn:normalize-unicode with a normalization form that attempts to raise a non-implemented form </description>
     <created by="Carmelo Montanez" on="2005-11-29"/>
     <test>fn:normalize-unicode("","chancesareyoudonotsupportthis123ifyoudowaoo")</test>
@@ -146,7 +145,7 @@
       <error code="FOCH0003"/>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode-3">
+  <test-case name="fn-normalize-unicode-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("NORMALIZEDSTRING")</response-string>
     <description> Evaluation of fn:normalize-unicode with nothing to normalize and used as argument to fn:upper-case </description>
     <created by="Carmelo Montanez" on="2005-11-29"/>
     <test>fn:upper-case(fn:normalize-unicode("normalizedstring"))</test>
@@ -155,7 +154,7 @@
       <assert-string-value>NORMALIZEDSTRING</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode-4">
+  <test-case name="fn-normalize-unicode-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("normalizedstring")</response-string>
     <description> Evaluation of fn:normalize-unicode with nothing to normalize and used as argument to fn:lower-case </description>
     <created by="Carmelo Montanez" on="2005-11-29"/>
     <test>fn:lower-case(fn:normalize-unicode("NORMALIZEDSTRING"))</test>
@@ -164,16 +163,16 @@
       <assert-string-value>normalizedstring</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode-5">
+  <test-case name="fn-normalize-unicode-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("16")</response-string>
     <description> Evaluation of fn:normalize-unicode with nothing to normalize and used as argument to fn:string-length </description>
     <created by="Carmelo Montanez" on="2005-11-29"/>
     <test>fn:string-length(fn:normalize-unicode("NORMALIZEDSTRING"))</test>
-    <result-string>xs:string("16")</result-string>
+    <result-string>xs:integer("16")</result-string>
     <result>
       <assert-string-value>16</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode-6">
+  <test-case name="fn-normalize-unicode-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("NORMALIZEDSTRINGanother string")</response-string>
     <description> Evaluation of fn:normalize-unicode with nothing to normalize and used as argument to fn:concat </description>
     <created by="Carmelo Montanez" on="2005-11-29"/>
     <test>fn:concat(fn:normalize-unicode("NORMALIZEDSTRING"),"another string")</test>
@@ -182,7 +181,7 @@
       <assert-string-value>NORMALIZEDSTRINGanother string</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode-7">
+  <test-case name="fn-normalize-unicode-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("ALIZEDSTRING")</response-string>
     <description> Evaluation of fn:normalize-unicode with nothing to normalize and used as argument to fn:substring </description>
     <created by="Carmelo Montanez" on="2005-11-29"/>
     <test>fn:substring(fn:normalize-unicode("NORMALIZEDSTRING"),5)</test>
@@ -191,34 +190,34 @@
       <assert-string-value>ALIZEDSTRING</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode-8">
+  <test-case name="fn-normalize-unicode-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of fn:normalize-unicode with noncharacter argument </description>
     <created by="Oliver Hallam" on="2009-12-08"/>
-    <test>string-to-codepoints(normalize-unicode(''))</test>
+    <test>string-to-codepoints(normalize-unicode(&apos;&apos;))</test>
     <result-string>xs:string("64976")</result-string>
     <result>
       <assert-string-value>64976</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode-9">
+  <test-case name="fn-normalize-unicode-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("101"),xs:integer("101"),xs:integer("101"))</response-string>
     <description> Evaluation of fn:normalize-unicode with noncharacters in argument </description>
     <created by="Oliver Hallam" on="2009-12-08"/>
-    <test>string-to-codepoints(fn:normalize-unicode('eee'))</test>
+    <test>string-to-codepoints(fn:normalize-unicode(&apos;eee&apos;))</test>
     <result-string/>
     <result>
       <assert-deep-eq>234, 64976, 234, 64976, 234</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode-10">
+  <test-case name="fn-normalize-unicode-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("101")</response-string>
     <description> Evaluation of fn:normalize-unicode with noncharacters in argument </description>
     <created by="Oliver Hallam" on="2009-12-08"/>
-    <test>string-to-codepoints(fn:normalize-unicode('e'))</test>
+    <test>string-to-codepoints(fn:normalize-unicode(&apos;e&apos;))</test>
     <result-string/>
     <result>
       <assert-deep-eq>101, 64976, 770</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-normalize-unicode-11">
+  <test-case name="fn-normalize-unicode-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Bug 7935: normalize-unicode() applied to unassigned codepoints 
         Result should be empty, indicating that normalization is idempotent on these 
         characters derived from the Unicode 5.2 database - essentially a list of characters 
@@ -233,25 +232,25 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K-NormalizeUnicodeFunc-1">
+  <test-case name="K-NormalizeUnicodeFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `normalize-unicode()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-unicode()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-NormalizeUnicodeFunc-2">
+  <test-case name="K-NormalizeUnicodeFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `normalize-unicode("a string", "NFC", "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-unicode("a string", "NFC", "wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-NormalizeUnicodeFunc-3">
+  <test-case name="K-NormalizeUnicodeFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("a string")</response-string>
     <description> A test whose essence is: `normalize-unicode("a string", "example.com/notSupported/")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-unicode("a string", "example.com/notSupported/")</test>
@@ -260,7 +259,7 @@
       <error code="FOCH0003"/>
     </result>
   </test-case>
-  <test-case name="K-NormalizeUnicodeFunc-4">
+  <test-case name="K-NormalizeUnicodeFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `normalize-unicode("foo") eq "foo"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-unicode("foo") eq "foo"</test>
@@ -269,7 +268,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NormalizeUnicodeFunc-5">
+  <test-case name="K-NormalizeUnicodeFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `normalize-unicode("foo", "NFC") eq "foo"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-unicode("foo", "NFC") eq "foo"</test>
@@ -278,7 +277,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NormalizeUnicodeFunc-6">
+  <test-case name="K-NormalizeUnicodeFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `normalize-unicode("foo", "NFD") eq "foo"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="unicode-normalization-form" value="NFD"/>
@@ -288,7 +287,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NormalizeUnicodeFunc-7">
+  <test-case name="K-NormalizeUnicodeFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `normalize-unicode("foo", "NFKD") eq "foo"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="unicode-normalization-form" value="NFKD"/>
@@ -298,7 +297,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NormalizeUnicodeFunc-8">
+  <test-case name="K-NormalizeUnicodeFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `normalize-unicode("foo", "NFKC") eq "foo"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="unicode-normalization-form" value="NFKC"/>
@@ -308,7 +307,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NormalizeUnicodeFunc-9">
+  <test-case name="K-NormalizeUnicodeFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `normalize-unicode("f oo", "") eq "f oo"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-unicode("f oo", "") eq "f oo"</test>
@@ -317,7 +316,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NormalizeUnicodeFunc-10">
+  <test-case name="K-NormalizeUnicodeFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `normalize-unicode("foo", "") eq "foo"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-unicode("foo", "") eq "foo"</test>
@@ -326,7 +325,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NormalizeUnicodeFunc-11">
+  <test-case name="K-NormalizeUnicodeFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `normalize-unicode("f oo") eq "f oo"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-unicode("f oo") eq "f oo"</test>
@@ -335,7 +334,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NormalizeUnicodeFunc-12">
+  <test-case name="K-NormalizeUnicodeFunc-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `normalize-unicode("f oo", "NFC") eq "f oo"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-unicode("f oo", "NFC") eq "f oo"</test>
@@ -344,7 +343,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NormalizeUnicodeFunc-13">
+  <test-case name="K-NormalizeUnicodeFunc-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Static typing implementations may raise XPTY0004. See http://www.w3.org/Bugs/Public/show_bug.cgi?id=4551 for details. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>normalize-unicode(("a string", error()), "NFC")</test>
@@ -357,7 +356,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-normalize-unicode-001">
+  <test-case name="cbcl-fn-normalize-unicode-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("blah")</response-string>
     <description> tests FULLY-NORMALIZED </description>
     <created by="Nick Jones" on="2008-06-13"/>
     <modified by="Michael Kay" on="2012-10-30"/>
@@ -368,7 +367,7 @@
       <assert-string-value>blah</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-normalize-unicode-001a">
+  <test-case name="cbcl-fn-normalize-unicode-001a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("blah")</response-string>
     <description> tests FULLY-NORMALIZED; alternative version of test for processors
          that do not implement this normalization form </description>
     <created by="Nick Jones" on="2008-06-13"/>
@@ -380,7 +379,7 @@
       <error code="FOCH0003"/>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-normalize-unicode-002">
+  <test-case name="cbcl-fn-normalize-unicode-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Tests boolean(normalize-unicode(...)) </description>
     <created by="Nick Jones" on="2008-06-13"/>
     <test>boolean(normalize-unicode("blah","NFC"))</test>
@@ -389,7 +388,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-normalize-unicode-003">
+  <test-case name="cbcl-fn-normalize-unicode-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Tests boolean(normalize-unicode(....)) with an error thrown </description>
     <created by="Nick Jones" on="2008-06-13"/>
     <test>boolean(normalize-unicode("blah","ZZZ"))</test>
@@ -398,7 +397,7 @@
       <error code="FOCH0003"/>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-normalize-unicode-004">
+  <test-case name="cbcl-fn-normalize-unicode-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> tests normalize-unicode on empty </description>
     <created by="Nick Jones" on="2008-06-13"/>
     <test>normalize-unicode((),"NFC")</test>
@@ -407,7 +406,7 @@
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-normalize-unicode-005">
+  <test-case name="cbcl-fn-normalize-unicode-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> Tests normalize-unicode on empty </description>
     <created by="Nick Jones" on="2008-06-13"/>
     <test>normalize-unicode("","NFC")</test>
@@ -416,7 +415,7 @@
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-normalize-unicode-006">
+  <test-case name="cbcl-fn-normalize-unicode-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("&amp;#2494;")</response-string>
     <description> Tests a composing character by itself </description>
     <created by="Nick Jones" on="2008-06-16"/>
     <modified by="Michael Kay" on="2012-10-30"/>
@@ -428,7 +427,7 @@
        </assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-normalize-unicode-006a">
+  <test-case name="cbcl-fn-normalize-unicode-006a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("&amp;#2494;")</response-string>
     <description> Tests a composing character by itself; alternative version of test
         for processors that do not implement FULLY-NORMALIZED </description>
     <created by="Nick Jones" on="2008-06-16"/>

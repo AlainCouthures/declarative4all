@@ -1,49 +1,48 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set covers="fn-function-name" name="fn-function-name" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the function-name() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-function-name" type="spec"/>
   <dependency type="feature" value="higherOrderFunctions"/>
-  <test-case name="fn-function-name-001">
+  <test-case name="fn-function-name-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Attempts to evaluate the "function-name" function with no arguments.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:function-name()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="fn-function-name-002">
+  <test-case name="fn-function-name-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Attempts to reference the "function-name" function with arity zero.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:function-name#0</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="fn-function-name-003">
+  <test-case name="fn-function-name-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Attempts to evaluate the "function-name" function with two arguments.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:function-name( fn:dateTime#2, fn:dateTime#2 )</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="fn-function-name-004">
+  <test-case name="fn-function-name-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Attempts to reference the "function-name" function with arity two.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:function-name#2</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="fn-function-name-005">
+  <test-case name="fn-function-name-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Attempts to reference the "function-name" function with arity one.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -53,7 +52,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-function-name-006">
+  <test-case name="fn-function-name-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Evaluates the "function-name" function with the argument set as follows: $func = () </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -63,7 +62,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-function-name-007">
+  <test-case name="fn-function-name-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:QName("undefined", "#text")</response-string>
     <description>Evaluates the "function-name" function with an argument of type xs:anyAtomicType.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -73,7 +72,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-function-name-008">
+  <test-case name="fn-function-name-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluates the "function-name" function with an argument of type node().</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -83,7 +82,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-function-name-009">
+  <test-case name="fn-function-name-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:QName("undefined", "#sequence")</response-string>
     <description>Tests the type checking of the argument.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -93,7 +92,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-function-name-010">
+  <test-case name="fn-function-name-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Tests the type checking of the argument.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -108,14 +107,14 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-function-name-011">
+  <test-case name="fn-function-name-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(fn:QName("undefined", "#text"),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017")))</response-string>
     <description>Tests the type checking of the argument.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
-    <test>( fn:function-name( if (current-date() eq xs:date('1900-01-01'))
+    <test>( fn:function-name( if (current-date() eq xs:date(&apos;1900-01-01&apos;))
                                 then fn:dateTime#2
                                 else 1 ),
-              fn:function-name( if (current-date() eq xs:date('1900-01-01'))
+              fn:function-name( if (current-date() eq xs:date(&apos;1900-01-01&apos;))
                                 then 1
                                 else fn:dateTime#2 ) )</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
@@ -123,7 +122,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-function-name-012">
+  <test-case name="fn-function-name-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:QName("http://www.w3.org/2005/xpath-functions", "fn:substring")</response-string>
     <description>Tests the return type of the "function-name" function.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -133,7 +132,7 @@
       <assert-type>xs:QName</assert-type>
     </result>
   </test-case>
-  <test-case covers="partial-function-application" name="fn-function-name-013">
+  <test-case covers="partial-function-application" name="fn-function-name-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Tests the return type of the "function-name" function.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -147,7 +146,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-function-name-014">
+  <test-case name="fn-function-name-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Tests the return type of the "function-name" function.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -161,7 +160,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-function-name-015">
+  <test-case name="fn-function-name-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Evaluates the "function-name" function with the argument set as follows: $func = dateTime#2 </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -173,7 +172,7 @@
                               "fn:dateTime")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-function-name-016">
+  <test-case name="fn-function-name-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:QName("http://www.w3.org/2005/xpath-functions/math", "math:pow")</response-string>
     <description>Evaluates the "function-name" function with the argument set as follows: $func = math:pow#2 </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="math"/>
@@ -186,7 +185,7 @@
                               "math:pow")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-function-name-017">
+  <test-case name="fn-function-name-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Evaluates the "function-name" function with the argument set as follows: $func = concat#99 </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -198,7 +197,7 @@
                               "fn:concat")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-function-name-018">
+  <test-case name="fn-function-name-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Evaluates the "function-name" function with the argument set as follows: $func = concat#340282366920938463463374607431768211456</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -214,7 +213,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-function-name-019">
+  <test-case name="fn-function-name-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Evaluates the "function-name" function with the argument set as follows: function($node){name($node)} </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -224,7 +223,7 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="fn-function-name-020">
+  <test-case name="fn-function-name-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Evaluates the "function-name" function with the argument set as follows: function($arg1, $arg2){subsequence($arg1, $arg2, 1)} </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -235,7 +234,7 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case covers="partial-function-application" name="fn-function-name-021">
+  <test-case covers="partial-function-application" name="fn-function-name-021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Evaluates the "function-name" function with the argument refereing to a partial function application.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -246,7 +245,7 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="fn-function-name-022">
+  <test-case name="fn-function-name-022"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:QName("http://www.w3.org/2005/xquery-local-functions", "local:add")</response-string>
     <description>Evaluates the "function-name" function with the argument refereing a global user-defined function.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XQ30+"/>
@@ -265,7 +264,7 @@
                               "local:add")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-function-name-023">
+  <test-case name="fn-function-name-023"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Evaluates the "function-name" function with the argument refereing a partial application of a global user-defined function.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XQ30+"/>
@@ -282,7 +281,7 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case covers="function-item-coercion" name="fn-function-name-024">
+  <test-case covers="function-item-coercion" name="fn-function-name-024"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Evaluates the "function-name" function with the argument refereing to a function item returned by function coercion.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XQ30+"/>

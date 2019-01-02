@@ -66,7 +66,7 @@ Fleur.toJSONYearMonthDuration = function(s) {
 };
 Fleur.toJSONDayTimeDuration = function(s) {
 	var m = s.match(/^-?P(?!$)(([0-9]+)D)?(T(?!$)(([0-9]+)H)?(([0-9]+)M)?(([0-9]+(\.[0-9]+)?)S)?)?$/);
-	var retvalue = (((m[2] ? parseInt(m[2], 10) : 0) * 24 + (m[5] ? parseInt(m[5], 10) : 0)) * 60 + (m[7] ? parseInt(m[7], 10) : 0)) * 60 + (m[9] ? parseInt(m[9], 10) : 0);
+	var retvalue = (((m[2] ? parseInt(m[2], 10) : 0) * 24 + (m[5] ? parseInt(m[5], 10) : 0)) * 60 + (m[7] ? parseInt(m[7], 10) : 0)) * 60 + (m[9] ? parseFloat(m[9]) : 0);
 	var ret = {sign: s.startsWith("-") && retvalue !== 0 ? -1 : 1};
 	ret.day = Math.floor(retvalue / 86400);
 	retvalue = retvalue % 86400;

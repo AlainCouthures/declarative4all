@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-substring-before" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description/>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-substring-before" type="spec"/>
-  <test-case name="fn-substring-before-1">
+  <test-case name="fn-substring-before-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>fn-substring-before-1 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "" $arg2 = "" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before("","")</test>
@@ -14,7 +13,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-2">
+  <test-case name="fn-substring-before-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>fn-substring-before-2 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "" $arg2 = "A Character String" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before("","A Character String")</test>
@@ -26,7 +25,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-3">
+  <test-case name="fn-substring-before-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>fn-substring-before-3 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "" $arg2 = "A Character String" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before("A Character String","")</test>
@@ -38,7 +37,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-4">
+  <test-case name="fn-substring-before-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>fn-substring-before-4 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = () $arg2 = "" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before((),"")</test>
@@ -50,7 +49,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-5">
+  <test-case name="fn-substring-before-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>fn-substring-before-5 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "" $arg2 = () </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before("",())</test>
@@ -62,7 +61,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-6">
+  <test-case name="fn-substring-before-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>fn-substring-before-6 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "A Character String" $arg2 = () </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before("A Character String",())</test>
@@ -74,7 +73,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-7">
+  <test-case name="fn-substring-before-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>fn-substring-before-7 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = () $arg2 = "A Character String" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before((),"A Character String")</test>
@@ -86,7 +85,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-8">
+  <test-case name="fn-substring-before-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("AAAAA")</response-string>
     <description>fn-substring-before-8 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "AAAAABBBBBCCCCC" $arg2 = "BBBBB" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before("AAAAABBBBBCCCCC","BBBBB")</test>
@@ -95,7 +94,7 @@
       <assert-string-value>AAAAA</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-9">
+  <test-case name="fn-substring-before-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>fn-substring-before-9 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "AAAAABBBBB" $arg2 = " " </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before("AAAAABBBBB"," ")</test>
@@ -107,7 +106,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-10">
+  <test-case name="fn-substring-before-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>fn-substring-before-10 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = " " $arg2 = " AAAAABBBBB" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before(" ","AAAAABBBBB")</test>
@@ -119,7 +118,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-11">
+  <test-case name="fn-substring-before-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>fn-substring-before-11 Evaluates The "substring-before" function using it as a argument of a fn:not - returns true </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:not(fn:substring-before("A","A"))</test>
@@ -128,7 +127,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-12">
+  <test-case name="fn-substring-before-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>fn-substring-before-12 Evaluates The "substring-before" function using it as a argument of a fn:not - returns true </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:not(fn:substring-before("A","B"))</test>
@@ -137,7 +136,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-13">
+  <test-case name="fn-substring-before-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>fn-substring-before-13 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = xs:string("A") $arg2 = "A" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before(xs:string("A"),"A")</test>
@@ -149,7 +148,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-14">
+  <test-case name="fn-substring-before-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>fn-substring-before-14 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "A" $arg2 = xs:string("A") </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before("A",xs:string("A"))</test>
@@ -161,7 +160,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-15">
+  <test-case name="fn-substring-before-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>fn-substring-before-15 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "A" $arg2 = "a" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before("A","a")</test>
@@ -173,7 +172,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-16">
+  <test-case name="fn-substring-before-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>fn-substring-before-16 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "a" $arg2 = "A" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:substring-before("a","A")</test>
@@ -185,7 +184,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-17">
+  <test-case name="fn-substring-before-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>fn-substring-before-17 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "substring-before" $arg2 = "substring-before" </description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:substring-before("substring-before","substring-before")</test>
@@ -197,7 +196,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-18">
+  <test-case name="fn-substring-before-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>fn-substring-before-18 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "substring-beforesubstring-before" $arg2 = "substring-before" </description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:substring-before("substring-beforesubstring-before","substring-before")</test>
@@ -209,7 +208,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-19">
+  <test-case name="fn-substring-before-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>fn-substring-before-19 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "****" $arg2 = "***" </description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:substring-before("****","***")</test>
@@ -221,7 +220,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-20">
+  <test-case name="fn-substring-before-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1")</response-string>
     <description>fn-substring-before-20 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "12345" $arg2 = "2345" </description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:substring-before("12345","2345")</test>
@@ -233,7 +232,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-21">
+  <test-case name="fn-substring-before-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>fn-substring-before-21 Evaluates The "substring-before" function with the arguments set as follows: $arg1 = "substring-before $arg2 = "erofeb-gnirtsbus ("substring-before" backwards) </description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:substring-before("substring-before","erofeb-gnirtsbus")</test>
@@ -245,7 +244,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-22">
+  <test-case name="fn-substring-before-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("b")</response-string>
     <description>Use absolute collation URI</description>
     <created by="Michael Kay" on="2011-06-28"/>
     <test>substring-before("banana", "a",
@@ -255,7 +254,7 @@
       <assert-eq>"b"</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-23">
+  <test-case name="fn-substring-before-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("b")</response-string>
     <description>Use relative collation URI</description>
     <created by="Michael Kay" on="2011-06-28"/>
     <environment>
@@ -267,7 +266,7 @@
       <assert-eq>"b"</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-24">
+  <test-case name="fn-substring-before-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("b")</response-string>
     <description>Use case-blind collation (if supported)</description>
     <created by="Michael Kay" on="2011-06-28"/>
     <environment>
@@ -280,7 +279,7 @@
       <assert-eq>"b"</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-substring-before-25">
+  <test-case name="fn-substring-before-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>Use non-BMP characters</description>
     <created by="Michael Kay" on="2011-06-28"/>
     <test>substring-before("", "")</test>
@@ -289,7 +288,7 @@
       <assert-eq>""</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-SubstringBeforeFunc-1">
+  <test-case name="K-SubstringBeforeFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>K-SubstringBeforeFunc-1  A test whose essence is: `substring-before()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-before()</test>
@@ -298,7 +297,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SubstringBeforeFunc-2">
+  <test-case name="K-SubstringBeforeFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>K-SubstringBeforeFunc-2  A test whose essence is: `substring-before(())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-before(())</test>
@@ -307,7 +306,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SubstringBeforeFunc-3">
+  <test-case name="K-SubstringBeforeFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>K-SubstringBeforeFunc-3  A test whose essence is: `substring-before((), (), "http://www.w3.org/2005/xpath-functions/collation/codepoint", "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-before((), (), "http://www.w3.org/2005/xpath-functions/collation/codepoint",
@@ -317,7 +316,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SubstringBeforeFunc-4">
+  <test-case name="K-SubstringBeforeFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002"))</response-string>
     <description>K-SubstringBeforeFunc-4  A test whose essence is: `substring-before("a string", "a string", "http://www.example.com/COLLATION/NOT/SUPPORTED")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-before("a string", "a string",
@@ -327,7 +326,7 @@
       <error code="FOCH0002"/>
     </result>
   </test-case>
-  <test-case name="K-SubstringBeforeFunc-5">
+  <test-case name="K-SubstringBeforeFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>K-SubstringBeforeFunc-5  A test whose essence is: `substring-before("foo", "oo", "http://www.w3.org/2005/xpath-functions/collation/codepoint") eq "f"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-before("foo", "oo",
@@ -337,7 +336,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SubstringBeforeFunc-6">
+  <test-case name="K-SubstringBeforeFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>K-SubstringBeforeFunc-6  A test whose essence is: `substring-before("tattoo", "attoo") eq "t"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-before("tattoo", "attoo") eq "t"</test>
@@ -346,7 +345,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SubstringBeforeFunc-7">
+  <test-case name="K-SubstringBeforeFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>K-SubstringBeforeFunc-7  A test whose essence is: `substring-before("tattoo", "tatto") eq ""`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-before("tattoo", "tatto") eq ""</test>
@@ -355,7 +354,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SubstringBeforeFunc-8">
+  <test-case name="K-SubstringBeforeFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>K-SubstringBeforeFunc-8  A test whose essence is: `substring-before((), ()) eq ""`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-before((), ()) eq ""</test>
@@ -364,7 +363,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SubstringBeforeFunc-9">
+  <test-case name="K-SubstringBeforeFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>K-SubstringBeforeFunc-9  A test whose essence is: `substring-before("a string", "") eq ""`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-before("a string", "") eq ""</test>
@@ -373,7 +372,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SubstringBeforeFunc-10">
+  <test-case name="K-SubstringBeforeFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>K-SubstringBeforeFunc-10  A test whose essence is: `substring-before("a string", "not in other") eq ""`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>substring-before("a string", "not in other") eq ""</test>
@@ -382,11 +381,11 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-substring-before-001">
+  <test-case name="cbcl-substring-before-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test fn:substring-before with collation and empty string </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <test>
-        fn:boolean(fn:substring-before('input', '', 'http://www.w3.org/2005/xpath-functions/collation/codepoint'))
+        fn:boolean(fn:substring-before(&apos;input&apos;, &apos;&apos;, &apos;http://www.w3.org/2005/xpath-functions/collation/codepoint&apos;))
       </test>
     <result-string>xs:boolean("false")</result-string>
     <result>

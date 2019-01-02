@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="op-divide-dayTimeDuration" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the divide-dayTimeDuration() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-divide-dayTimeDuration" type="spec"/>
-  <test-case name="op-divide-dayTimeDuration2args-1">
+  <test-case name="op-divide-dayTimeDuration2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PT0S")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration2args-1                  
@@ -16,12 +15,12 @@ $arg2 = xs:double(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P0DT0H0M0S") div xs:double("-1.7976931348623157E308")</test>
-    <result-string>xs:string("PT0S")</result-string>
+    <result-string>xs:dayTimeDuration("PT0S")</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration2args-2">
+  <test-case name="op-divide-dayTimeDuration2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("-PT7.449541715597465e-303S")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration2args-2                  
@@ -40,7 +39,7 @@ $arg2 = xs:double(lower bound)
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration2args-3">
+  <test-case name="op-divide-dayTimeDuration2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("-PT1.5379704947317132e-302S")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration2args-3                  
@@ -59,7 +58,7 @@ $arg2 = xs:double(lower bound)
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration2args-4">
+  <test-case name="op-divide-dayTimeDuration2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PT0S")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration2args-4                  
@@ -73,12 +72,12 @@ $arg2 = xs:double(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P0DT0H0M0S") div xs:double("0.1")</test>
-    <result-string>xs:string("PT0S")</result-string>
+    <result-string>xs:dayTimeDuration("PT0S")</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration2args-5">
+  <test-case name="op-divide-dayTimeDuration2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PT0S")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration2args-5                  
@@ -92,12 +91,12 @@ $arg2 = xs:double(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P0DT0H0M0S") div xs:double("1.7976931348623157E308")</test>
-    <result-string>xs:string("PT0S")</result-string>
+    <result-string>xs:dayTimeDuration("PT0S")</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-2">
+  <test-case name="op-divide-dayTimeDuration-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-2                      
@@ -114,7 +113,7 @@ used as part of a boolean expression (and operator) and the "fn:false" function.
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-3">
+  <test-case name="op-divide-dayTimeDuration-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-3                      
@@ -130,7 +129,7 @@ part of a boolean expression (or operator) and the "fn:boolean" function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-4">
+  <test-case name="op-divide-dayTimeDuration-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-4                      
@@ -147,7 +146,7 @@ return true and used together with fn:not.
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-5">
+  <test-case name="op-divide-dayTimeDuration-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-5                      
@@ -164,7 +163,7 @@ is used as an argument to the fn:boolean function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-6">
+  <test-case name="op-divide-dayTimeDuration-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-6                      
@@ -176,12 +175,12 @@ is used as an argument to the fn:number function.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:number(xs:dayTimeDuration("P02DT06H09M") div 2.0)</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-7">
+  <test-case name="op-divide-dayTimeDuration-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("P1DT14H4M")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-7                      
@@ -198,7 +197,7 @@ as an argument to the "fn:string" function).
       <assert-string-value>P1DT14H4M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-8">
+  <test-case name="op-divide-dayTimeDuration-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("-P5DT30M30S")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-8                      
@@ -210,12 +209,12 @@ returns a negative value.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>(xs:dayTimeDuration("P10DT01H01M") div -2.0)</test>
-    <result-string>xs:string("-P5DT30M30S")</result-string>
+    <result-string>xs:dayTimeDuration("-P5DT30M30S")</result-string>
     <result>
       <assert-string-value>-P5DT30M30S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-9">
+  <test-case name="op-divide-dayTimeDuration-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-9                      
@@ -232,7 +231,7 @@ together with and "and" expression.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-10">
+  <test-case name="op-divide-dayTimeDuration-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-10                     
@@ -249,7 +248,7 @@ together with an "or" expression.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-11">
+  <test-case name="op-divide-dayTimeDuration-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-11                     
@@ -266,7 +265,7 @@ together with multiple "div" expressions.
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-12">
+  <test-case name="op-divide-dayTimeDuration-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-12                     
@@ -283,7 +282,7 @@ with a boolean expression and the "fn:true" function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-13">
+  <test-case name="op-divide-dayTimeDuration-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-13                     
@@ -300,7 +299,7 @@ together with the numeric-equal-operator "eq".
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-14">
+  <test-case name="op-divide-dayTimeDuration-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-14                     
@@ -317,7 +316,7 @@ together with the numeric-equal operator "ne".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-15">
+  <test-case name="op-divide-dayTimeDuration-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-15                     
@@ -334,7 +333,7 @@ together with the numeric-equal operator "le".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-divide-dayTimeDuration-16">
+  <test-case name="op-divide-dayTimeDuration-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-divide-dayTimeDuration-16                     
@@ -350,7 +349,7 @@ together with the numeric-equal operator "ge".
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationDivide-1">
+  <test-case name="K-DayTimeDurationDivide-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationDivide-1                       
@@ -366,13 +365,13 @@ together with the numeric-equal operator "ge".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationDivide-2">
+  <test-case name="K-DayTimeDurationDivide-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationDivide-2                       
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: Simple test of dividing a xs:dayTimeDuration with xs:double('-INF'). 
+ Purpose: Simple test of dividing a xs:dayTimeDuration with xs:double(&apos;-INF&apos;). 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -382,13 +381,13 @@ together with the numeric-equal operator "ge".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationDivide-3">
+  <test-case name="K-DayTimeDurationDivide-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationDivide-3                       
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: Simple test of dividing a xs:dayTimeDuration with xs:double('INF'). 
+ Purpose: Simple test of dividing a xs:dayTimeDuration with xs:double(&apos;INF&apos;). 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -398,7 +397,7 @@ together with the numeric-equal operator "ge".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationDivide-4">
+  <test-case name="K-DayTimeDurationDivide-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PInfinityDTNaNHNaNMNaNS")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationDivide-4                       
@@ -414,7 +413,7 @@ together with the numeric-equal operator "ge".
       <error code="FODT0002"/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationDivide-5">
+  <test-case name="K-DayTimeDurationDivide-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PNaNDTNaNHNaNMNaNS")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationDivide-5                       
@@ -430,13 +429,13 @@ together with the numeric-equal operator "ge".
       <error code="FOCA0005"/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationDivide-6">
+  <test-case name="K-DayTimeDurationDivide-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PInfinityDTNaNHNaNMNaNS")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationDivide-6                       
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: Simple test of dividing a xs:dayTimeDuration with xs:double('-0'). 
+ Purpose: Simple test of dividing a xs:dayTimeDuration with xs:double(&apos;-0&apos;). 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -446,7 +445,7 @@ together with the numeric-equal operator "ge".
       <error code="FODT0002"/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationDivide-7">
+  <test-case name="K-DayTimeDurationDivide-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationDivide-7                       
@@ -457,12 +456,12 @@ together with the numeric-equal operator "ge".
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:duration("P1Y3M") div 3</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationDivide-8">
+  <test-case name="K-DayTimeDurationDivide-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationDivide-8                       
@@ -473,12 +472,12 @@ together with the numeric-equal operator "ge".
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>3 div xs:duration("P1Y3M")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationDivide-9">
+  <test-case name="K-DayTimeDurationDivide-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationDivide-9                       
@@ -489,12 +488,12 @@ together with the numeric-equal operator "ge".
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>3 div xs:yearMonthDuration("P1Y3M")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationDivide-10">
+  <test-case name="K-DayTimeDurationDivide-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationDivide-10                      
@@ -505,12 +504,12 @@ together with the numeric-equal operator "ge".
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>3 div xs:dayTimeDuration("P3D")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationDivide-11">
+  <test-case name="K-DayTimeDurationDivide-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationDivide-11                      
@@ -521,12 +520,12 @@ together with the numeric-equal operator "ge".
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dayTimeDuration("P3D") div xs:yearMonthDuration("P3Y3M")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationDivide-12">
+  <test-case name="K-DayTimeDurationDivide-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationDivide-12                      
@@ -537,12 +536,12 @@ together with the numeric-equal operator "ge".
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:yearMonthDuration("P3Y3M") div xs:dayTimeDuration("P3D")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationDivide-13">
+  <test-case name="K-DayTimeDurationDivide-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationDivide-13                      
@@ -553,12 +552,12 @@ together with the numeric-equal operator "ge".
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:duration("P3D") div xs:yearMonthDuration("P3Y3M")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationDivide-14">
+  <test-case name="K-DayTimeDurationDivide-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationDivide-14                      
@@ -569,12 +568,12 @@ together with the numeric-equal operator "ge".
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:yearMonthDuration("P3Y3M") div xs:duration("P3D")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationDivide-15">
+  <test-case name="K-DayTimeDurationDivide-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationDivide-15                      
@@ -585,12 +584,12 @@ together with the numeric-equal operator "ge".
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dayTimeDuration("P3D") div xs:duration("P3Y3M")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationDivide-16">
+  <test-case name="K-DayTimeDurationDivide-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationDivide-16                      
@@ -601,12 +600,12 @@ together with the numeric-equal operator "ge".
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:duration("P3Y3M") div xs:dayTimeDuration("P3D")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-divide-dayTimeDuration-001">
+  <test-case name="cbcl-divide-dayTimeDuration-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PInfinityDTNaNHNaNMNaNS")</response-string>
     <description> test division of xs:dayTimeDuration by 0 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
@@ -616,7 +615,7 @@ together with the numeric-equal operator "ge".
       <error code="FODT0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-divide-dayTimeDuration-002">
+  <test-case name="cbcl-divide-dayTimeDuration-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("P2D")</response-string>
     <description> test division of xs:dayTimeDuration by 1 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
@@ -626,7 +625,7 @@ together with the numeric-equal operator "ge".
       <assert-string-value>P2D</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-divide-dayTimeDuration-003">
+  <test-case name="cbcl-divide-dayTimeDuration-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("P18446744073709552000D")</response-string>
     <description> test possible overflow in divison of xs:dayTimeDuration by </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <test>xs:dayTimeDuration("P9223372036854775807D") div 0.5</test>
@@ -635,7 +634,7 @@ together with the numeric-equal operator "ge".
       <error code="FODT0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-div-001">
+  <test-case name="cbcl-div-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("12")</response-string>
     <description> Test behaviour of division operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -645,7 +644,7 @@ together with the numeric-equal operator "ge".
       <assert-string-value>12</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-div-002">
+  <test-case name="cbcl-div-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of division operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -655,7 +654,7 @@ together with the numeric-equal operator "ge".
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-div-003">
+  <test-case name="cbcl-div-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("24")</response-string>
     <description> Test behaviour of division operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -665,17 +664,17 @@ together with the numeric-equal operator "ge".
       <assert-string-value>24</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-div-004">
+  <test-case name="cbcl-div-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of division operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:dayTimeDuration("P1D") }; local:f(true()) div xs:dayTimeDuration("PT1H")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-div-005">
+  <test-case name="cbcl-div-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("12")</response-string>
     <description> Test behaviour of division operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -685,17 +684,17 @@ together with the numeric-equal operator "ge".
       <assert-string-value>12</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-div-006">
+  <test-case name="cbcl-div-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of division operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") }; xs:yearMonthDuration("P1Y") div local:f(true())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-div-007">
+  <test-case name="cbcl-div-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("24")</response-string>
     <description> Test behaviour of division operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -705,17 +704,17 @@ together with the numeric-equal operator "ge".
       <assert-string-value>24</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-div-008">
+  <test-case name="cbcl-div-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of division operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:dayTimeDuration("PT1H") }; xs:dayTimeDuration("P1D") div local:f(true())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-div-009">
+  <test-case name="cbcl-div-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Test behaviour of division operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -725,17 +724,17 @@ together with the numeric-equal operator "ge".
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-div-010">
+  <test-case name="cbcl-div-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of division operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") }; local:f(true()) div local:f(false())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-div-011">
+  <test-case name="cbcl-div-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Test behaviour of division operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -745,52 +744,52 @@ together with the numeric-equal operator "ge".
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-div-012">
+  <test-case name="cbcl-div-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of division operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:dayTimeDuration("PT1H") }; local:f(false()) div local:f(true())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-div-013">
+  <test-case name="cbcl-div-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P1M")</response-string>
     <description> Test behaviour of division operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:f($x) { if ($x) then xs:duration("P2M") else xs:yearMonthDuration("P2M") }; local:f(false()) div 2</test>
-    <result-string>xs:string("P1M")</result-string>
+    <result-string>xs:yearMonthDuration("P1M")</result-string>
     <result>
       <assert-string-value>P1M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-div-014">
+  <test-case name="cbcl-div-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of division operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:f($x) { if ($x) then xs:duration("P2M") else xs:yearMonthDuration("P2M") }; local:f(true()) div 2</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-div-015">
+  <test-case name="cbcl-div-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PT12H")</response-string>
     <description> Test behaviour of division operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:dayTimeDuration("P1D") }; local:f(false()) div 2</test>
-    <result-string>xs:string("PT12H")</result-string>
+    <result-string>xs:dayTimeDuration("PT12H")</result-string>
     <result>
       <assert-string-value>PT12H</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-div-016">
+  <test-case name="cbcl-div-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of division operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:dayTimeDuration("P1D") }; local:f(true()) div 2</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>

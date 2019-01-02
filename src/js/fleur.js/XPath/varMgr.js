@@ -12,6 +12,17 @@ Fleur.varMgr = function(vars, previous) {
 	this.previous = previous;
 	this.globals = 0;
 };
+Fleur.varMgr.prototype.clone = function() {
+	var vars = [];
+	this.vars.forEach(function(v) {
+		vars.push({
+			vuri: v.vuri,
+			vname: v.vname,
+			value: v.value
+		});
+	});
+	return new Fleur.varMgr(vars, this.previous);
+};
 Fleur.varMgr.prototype.get = function(ctx, vuri, vname) {
 	var i;
 	var r = this;

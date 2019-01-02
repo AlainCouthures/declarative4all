@@ -1,35 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-seconds-from-duration" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the seconds-from-duration() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-seconds-from-duration" type="spec"/>
-  <test-case name="fn-seconds-from-duration1args-1">
+  <test-case name="fn-seconds-from-duration1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("0")</response-string>
     <description> Evaluates The "seconds-from-duration" function with the arguments set as follows: $arg = xs:dayTimeDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:seconds-from-duration(xs:dayTimeDuration("P0DT0H0M0S"))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:decimal("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration1args-2">
+  <test-case name="fn-seconds-from-duration1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("59")</response-string>
     <description> Evaluates The "seconds-from-duration" function with the arguments set as follows: $arg = xs:dayTimeDuration(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:seconds-from-duration(xs:dayTimeDuration("P15DT11H59M59S"))</test>
-    <result-string>xs:integer("59")</result-string>
+    <result-string>xs:decimal("59")</result-string>
     <result>
       <assert-eq>59</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration1args-3">
+  <test-case name="fn-seconds-from-duration1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("59")</response-string>
     <description> Evaluates The "seconds-from-duration" function with the arguments set as follows: $arg = xs:dayTimeDuration(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:seconds-from-duration(xs:dayTimeDuration("P31DT23H59M59S"))</test>
-    <result-string>xs:integer("59")</result-string>
+    <result-string>xs:decimal("59")</result-string>
     <result>
       <assert-eq>59</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration-1">
+  <test-case name="fn-seconds-from-duration-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("12.5")</response-string>
     <description> Evaluates The "seconds-from-duration" function As per example 1 (for this function)of the FO specs </description>
     <created by="Carmelo Montanez" on="2006-06-12"/>
     <test>fn:seconds-from-duration(xs:dayTimeDuration("P3DT10H12.5S"))</test>
@@ -38,16 +37,16 @@
       <assert-eq>12.5</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration-2">
+  <test-case name="fn-seconds-from-duration-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-16")</response-string>
     <description> Evaluates The "seconds-from-duration" function As per example 2 (for this function) of the FO specs </description>
     <created by="Carmelo Montanez" on="2006-06-12"/>
     <test>fn:seconds-from-duration(xs:dayTimeDuration("-PT256S"))</test>
-    <result-string>xs:integer("-16")</result-string>
+    <result-string>xs:decimal("-16")</result-string>
     <result>
       <assert-eq>-16</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration-3">
+  <test-case name="fn-seconds-from-duration-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "seconds-from-duration" function involving a "numeric-less-than" operation (lt operator) </description>
     <created by="Carmelo Montanez" on="2006-06-12"/>
     <test>fn:seconds-from-duration(xs:dayTimeDuration("P20DT20H20M10S")) lt fn:seconds-from-duration(xs:dayTimeDuration("P03DT02H10M20S"))</test>
@@ -56,7 +55,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration-4">
+  <test-case name="fn-seconds-from-duration-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "seconds-from-duration" function involving a "numeric-less-than" operation (le operator) </description>
     <created by="Carmelo Montanez" on="2006-06-12"/>
     <test>fn:seconds-from-duration(xs:dayTimeDuration("P21DT10H10M09S")) le fn:seconds-from-duration(xs:dayTimeDuration("P22DT10H09M31S"))</test>
@@ -65,7 +64,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration-5">
+  <test-case name="fn-seconds-from-duration-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "seconds-from-duration" function using the empty sequence as an argument. Use count function to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2006-06-12"/>
     <test>fn:count(fn:seconds-from-duration(()))</test>
@@ -74,61 +73,61 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration-6">
+  <test-case name="fn-seconds-from-duration-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1")</response-string>
     <description> Evaluates The "seconds-from-duration" function that returns 1. </description>
     <created by="Carmelo Montanez" on="2006-06-12"/>
     <test>fn:seconds-from-duration(xs:dayTimeDuration("P01DT01H01M01S"))</test>
-    <result-string>xs:integer("1")</result-string>
+    <result-string>xs:decimal("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration-7">
+  <test-case name="fn-seconds-from-duration-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("31")</response-string>
     <description> Evaluates The "seconds-from-duration" function used as arguments to an avg function. </description>
     <created by="Carmelo Montanez" on="2006-06-12"/>
     <test>fn:avg((fn:seconds-from-duration(xs:dayTimeDuration("P23DT10H20M30S")),fn:seconds-from-duration(xs:dayTimeDuration("P21DT10H10M32S"))))</test>
-    <result-string>xs:integer("31")</result-string>
+    <result-string>xs:decimal("31")</result-string>
     <result>
       <assert-eq>31</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration-8">
+  <test-case name="fn-seconds-from-duration-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("30")</response-string>
     <description> Evaluates The "seconds-from-duration" function as part of a "+" expression. </description>
     <created by="Carmelo Montanez" on="2006-06-12"/>
     <test>fn:seconds-from-duration(xs:dayTimeDuration("P21DT10H10M09S")) + fn:seconds-from-duration(xs:dayTimeDuration("P22DT11H30M21S"))</test>
-    <result-string>xs:integer("30")</result-string>
+    <result-string>xs:decimal("30")</result-string>
     <result>
       <assert-eq>30</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration-9">
+  <test-case name="fn-seconds-from-duration-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("8")</response-string>
     <description> Evaluates The "seconds-from-duration" function as part of a "-" expression. </description>
     <created by="Carmelo Montanez" on="2006-06-12"/>
     <test>fn:seconds-from-duration(xs:dayTimeDuration("P30DT10H20M10S")) - fn:seconds-from-duration(xs:dayTimeDuration("P10DT09H10M02S"))</test>
-    <result-string>xs:integer("8")</result-string>
+    <result-string>xs:decimal("8")</result-string>
     <result>
       <assert-eq>8</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration-10">
+  <test-case name="fn-seconds-from-duration-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("60")</response-string>
     <description> Evaluates The "seconds-from-duration" function as part of a "*" expression. </description>
     <created by="Carmelo Montanez" on="2006-06-12"/>
     <test>fn:seconds-from-duration(xs:dayTimeDuration("P20DT09H04M20S")) * fn:seconds-from-duration(xs:dayTimeDuration("P03DT10H10M03S"))</test>
-    <result-string>xs:integer("60")</result-string>
+    <result-string>xs:decimal("60")</result-string>
     <result>
       <assert-eq>60</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration-11">
+  <test-case name="fn-seconds-from-duration-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("15")</response-string>
     <description> Evaluates The "seconds-from-duration" function as part of a "div" expression. </description>
     <created by="Carmelo Montanez" on="2006-06-12"/>
     <test>fn:seconds-from-duration(xs:dayTimeDuration("P20DT10H10M30S")) div fn:seconds-from-duration(xs:dayTimeDuration("P05DT05H02M02S"))</test>
-    <result-string>xs:integer("15")</result-string>
+    <result-string>xs:decimal("15")</result-string>
     <result>
       <assert-eq>15</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration-12">
+  <test-case name="fn-seconds-from-duration-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> Evaluates The "seconds-from-duration" function as part of a "idiv" expression. </description>
     <created by="Carmelo Montanez" on="2006-06-12"/>
     <test>fn:seconds-from-duration(xs:dayTimeDuration("P25DT10H20M40S")) idiv fn:seconds-from-duration(xs:dayTimeDuration("P05DT02H04M20S"))</test>
@@ -137,34 +136,34 @@
       <assert-eq>2</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration-13">
+  <test-case name="fn-seconds-from-duration-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1")</response-string>
     <description> Evaluates The "seconds-from-duration" function as part of a "mod" expression. </description>
     <created by="Carmelo Montanez" on="2006-06-12"/>
     <test>fn:seconds-from-duration(xs:dayTimeDuration("P10DT10H20M10S")) mod fn:seconds-from-duration(xs:dayTimeDuration("P03DT03H03M03S"))</test>
-    <result-string>xs:integer("1")</result-string>
+    <result-string>xs:decimal("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration-14">
+  <test-case name="fn-seconds-from-duration-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("20")</response-string>
     <description> Evaluates The "seconds-from-duration" function as part of a "numeric-unary-plus" expression. </description>
     <created by="Carmelo Montanez" on="2006-06-12"/>
     <test>+fn:seconds-from-duration(xs:dayTimeDuration("P21DT10H10M20S"))</test>
-    <result-string>xs:integer("20")</result-string>
+    <result-string>xs:decimal("20")</result-string>
     <result>
       <assert-eq>20</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration-15">
+  <test-case name="fn-seconds-from-duration-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-30")</response-string>
     <description> Evaluates The "seconds-from-duration" function as part of a "numeric-unary-minus" expression. </description>
     <created by="Carmelo Montanez" on="2006-06-12"/>
     <test>-fn:seconds-from-duration(xs:dayTimeDuration("P20DT03H20M30S"))</test>
-    <result-string>xs:integer("-30")</result-string>
+    <result-string>xs:decimal("-30")</result-string>
     <result>
       <assert-eq>-30</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration-16">
+  <test-case name="fn-seconds-from-duration-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "seconds-from-duration" function as part of a "numeric-equal" expression (eq operator) </description>
     <created by="Carmelo Montanez" on="2006-06-12"/>
     <test>fn:seconds-from-duration(xs:dayTimeDuration("P22DT10H10M01S")) eq fn:seconds-from-duration(xs:dayTimeDuration("P22DT09H10M01S"))</test>
@@ -173,7 +172,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration-17">
+  <test-case name="fn-seconds-from-duration-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "seconds-from-duration" function as part of a "numeric-equal" expression (ne operator) </description>
     <created by="Carmelo Montanez" on="2006-06-12"/>
     <test>fn:seconds-from-duration(xs:dayTimeDuration("P23DT08H20M02S")) ne fn:seconds-from-duration(xs:dayTimeDuration("P12DT05H22M03S"))</test>
@@ -182,7 +181,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration-18">
+  <test-case name="fn-seconds-from-duration-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "seconds-from-duration" function as part of a "numeric-equal" expression (le operator) </description>
     <created by="Carmelo Montanez" on="2006-06-12"/>
     <test>fn:seconds-from-duration(xs:dayTimeDuration("P20DT03H09M20S")) le fn:seconds-from-duration(xs:dayTimeDuration("P21DT15H21M31S"))</test>
@@ -191,7 +190,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration-19">
+  <test-case name="fn-seconds-from-duration-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "seconds-from-duration" function as part of a "numeric-equal" expression (ge operator) </description>
     <created by="Carmelo Montanez" on="2006-06-12"/>
     <test>fn:seconds-from-duration(xs:dayTimeDuration("P21DT07H12M59S")) ge fn:seconds-from-duration(xs:dayTimeDuration("P20DT01H13M01S"))</test>
@@ -200,7 +199,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration-20">
+  <test-case name="fn-seconds-from-duration-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluates The "seconds-from-duration" function with wrong argument type. </description>
     <created by="Carmelo Montanez" on="2006-03-24"/>
     <test>fn:seconds-from-duration(xs:duration("P1Y2M3DT10H30M911S"))</test>
@@ -209,34 +208,34 @@
       <assert-eq>11</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-seconds-from-duration-21">
+  <test-case name="fn-seconds-from-duration-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("30")</response-string>
     <description> Evaluates The "seconds-from-duration" function to evaluate normalization of dayTimeDuration </description>
     <created by="Carmelo Montanez" on="2006-07-12"/>
     <test>fn:seconds-from-duration(xs:dayTimeDuration("P21DT10H10M90S"))</test>
-    <result-string>xs:integer("30")</result-string>
+    <result-string>xs:decimal("30")</result-string>
     <result>
       <assert-eq>30</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-SecondsFromDurationFunc-1">
+  <test-case name="K-SecondsFromDurationFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `seconds-from-duration()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>seconds-from-duration()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SecondsFromDurationFunc-2">
+  <test-case name="K-SecondsFromDurationFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `seconds-from-duration((), "Wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>seconds-from-duration((), "Wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SecondsFromDurationFunc-3">
+  <test-case name="K-SecondsFromDurationFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(seconds-from-duration(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(seconds-from-duration(()))</test>
@@ -245,7 +244,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SecondsFromDurationFunc-4">
+  <test-case name="K-SecondsFromDurationFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `seconds-from-duration(()) instance of xs:decimal?`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>seconds-from-duration(()) instance of xs:decimal?</test>
@@ -254,7 +253,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SecondsFromDurationFunc-5">
+  <test-case name="K-SecondsFromDurationFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Simple test invoking seconds-from-duration() on a positive duration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>seconds-from-duration(xs:dayTimeDuration("P3DT8H2M1.03S")) eq 1.03</test>
@@ -263,7 +262,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SecondsFromDurationFunc-6">
+  <test-case name="K-SecondsFromDurationFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Simple test invoking seconds-from-duration() on a negative duration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>seconds-from-duration(xs:dayTimeDuration("-P3DT8H2M1.03S")) eq -1.03</test>
@@ -272,7 +271,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SecondsFromDurationFunc-7">
+  <test-case name="K-SecondsFromDurationFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Simple test invoking minutes-from-seconds() on an negative xs:duration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>seconds-from-duration(xs:duration("-P3Y4M8DT1H23M2.34S")) eq -2.34</test>
@@ -281,11 +280,11 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-seconds-from-duration-001">
+  <test-case name="cbcl-seconds-from-duration-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("0")</response-string>
     <description> test fn:seconds-from-duration on xs:dayTimeDuration </description>
     <created by="Tim Mills" on="2008-04-11"/>
-    <test>fn:seconds-from-duration(xs:yearMonthDuration('P1Y'))</test>
-    <result-string>xs:string("0")</result-string>
+    <test>fn:seconds-from-duration(xs:yearMonthDuration(&apos;P1Y&apos;))</test>
+    <result-string>xs:decimal("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>

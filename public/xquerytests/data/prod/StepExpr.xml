@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="prod-StepExpr" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the StepExpr production</description>
   <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-StepExpr" type="spec"/>
-  <test-case name="K2-Steps-1">
-    <description> A 'first-item' predicate combined with a name test inside a function. </description>
+  <test-case name="K2-Steps-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+    <description> A &apos;first-item&apos; predicate combined with a name test inside a function. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare function local:myFunc() { e[1] }; local:myFunc()</test>
@@ -12,7 +11,7 @@
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="K2-Steps-2">
+  <test-case name="K2-Steps-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> A numeric predicate combined with a name test inside a function. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -26,7 +25,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-Steps-3">
+  <test-case name="K2-Steps-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> A truth predicate combined with a name test inside a function. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -40,7 +39,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-Steps-4">
+  <test-case name="K2-Steps-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> A predicate with last() combined with a name test inside a function. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -50,7 +49,7 @@
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="K2-Steps-5">
+  <test-case name="K2-Steps-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A direct element constructor as step, followed by a name test. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -62,7 +61,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-Steps-6">
+  <test-case name="K2-Steps-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;a/&gt;</response-string>
     <description> A direct element constructor as step, followed by the context item. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -76,24 +75,24 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-Steps-7">
+  <test-case name="K2-Steps-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Apply fn:count to an atomic step. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[count((<a/>, <!--comment-->)/3)]]>
     </test>
-    <result-string>xs:integer("2")</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-Steps-8">
-    <description> '//' by itself is a syntax error. </description>
+  <test-case name="K2-Steps-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> &apos;//&apos; by itself is a syntax error. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(/)/(//)/foo</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0002"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <any-of>
         <error code="XPST0003"/>
@@ -101,16 +100,16 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-Steps-9">
+  <test-case name="K2-Steps-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A syntax error in a path step. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>child::local:b(:ada</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-Steps-10">
+  <test-case name="K2-Steps-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> The last step containing a mixture of nodes and atomic values. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -122,8 +121,8 @@
       <error code="XPTY0018"/>
     </result>
   </test-case>
-  <test-case name="K2-Steps-11">
-    <description> '///' is an invalid expression. </description>
+  <test-case name="K2-Steps-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(document {&lt;dummy/&gt;},document {&lt;dummy/&gt;})</response-string>
+    <description> &apos;///&apos; is an invalid expression. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>///</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
@@ -131,7 +130,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-Steps-12">
+  <test-case name="K2-Steps-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Combine variables, the context item and path expressions. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -149,7 +148,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-Steps-13">
+  <test-case name="K2-Steps-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the focus is available through a for-expression. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -161,7 +160,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-Steps-14">
+  <test-case name="K2-Steps-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;r&gt; &lt;/r&gt;</response-string>
     <description> Ensure sorting and de-duplication is applied to variables when appearing in paths. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -179,7 +178,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-Steps-15">
+  <test-case name="K2-Steps-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;r&gt; &lt;b/&gt;&lt;a/&gt;&lt;b/&gt;&lt;a/&gt;&lt;/r&gt;</response-string>
     <description> Ensure sorting and de-duplication is applied to variables when appearing in paths(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -193,7 +192,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-Steps-16">
+  <test-case name="K2-Steps-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;r&gt; &lt;b/&gt;&lt;a/&gt;&lt;b/&gt;&lt;a/&gt;&lt;/r&gt;</response-string>
     <description> Ensure sorting and de-duplication is applied to variables when appearing in paths(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -207,7 +206,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-Steps-17">
+  <test-case name="K2-Steps-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;r&gt; &lt;b/&gt;&lt;a/&gt;&lt;b/&gt;&lt;a/&gt;&lt;/r&gt;</response-string>
     <description> Ensure sorting and de-duplication is applied to variables when appearing in paths(#4). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -221,7 +220,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-Steps-18">
+  <test-case name="K2-Steps-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;a/&gt;,&lt;a/&gt;)</response-string>
     <description> Trigger node sorting of a peculiar case. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -235,7 +234,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-Steps-19">
+  <test-case name="K2-Steps-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;e&gt;&lt;a/&gt;&lt;/e&gt;,&lt;e&gt;&lt;a/&gt;&lt;/e&gt;)</response-string>
     <description> Trigger node sorting of a peculiar case(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -249,7 +248,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-Steps-20">
+  <test-case name="K2-Steps-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;b/&gt;,&lt;a/&gt;,&lt;e&gt;&lt;a/&gt;&lt;b/&gt;&lt;/e&gt;,&lt;a/&gt;,&lt;b/&gt;,&lt;a/&gt;,&lt;b/&gt;)</response-string>
     <description> Use nested name tests. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -263,7 +262,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-Steps-21">
+  <test-case name="K2-Steps-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Tricky combination of focuses and function calls. </description>
     <created by="Frans Englich" on="2008-02-14"/>
     <dependency type="spec" value="XQ10+"/>
@@ -277,7 +276,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-Steps-22">
+  <test-case name="K2-Steps-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Tricky combination of focuses, function calls, and a cardinality check. </description>
     <created by="Frans Englich" on="2008-02-14"/>
     <dependency type="spec" value="XQ10+"/>
@@ -291,7 +290,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-Steps-23">
+  <test-case name="K2-Steps-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Tricky combination of focuses and function calls(#2). </description>
     <created by="Frans Englich" on="2008-02-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -305,7 +304,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-Steps-24">
+  <test-case name="K2-Steps-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Tricky combination of focuses and function calls(#2). </description>
     <created by="Frans Englich" on="2008-02-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -319,7 +318,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-Steps-25">
+  <test-case name="K2-Steps-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Tricky combination of focuses and function calls(#3). </description>
     <created by="Frans Englich" on="2008-02-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -336,7 +335,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-Steps-26">
+  <test-case name="K2-Steps-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Tricky combination of focuses and function calls(#4). </description>
     <created by="Frans Englich" on="2008-02-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -350,7 +349,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-Steps-27">
+  <test-case name="K2-Steps-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Tricky combination of focuses and function calls(#5). </description>
     <created by="Frans Englich" on="2008-02-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -364,7 +363,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-Steps-28">
+  <test-case name="K2-Steps-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Tricky combination of focuses and function calls(#6). </description>
     <created by="Frans Englich" on="2008-02-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -378,7 +377,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-Steps-29">
+  <test-case name="K2-Steps-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Tricky combination of focuses and function calls(#7). </description>
     <created by="Frans Englich" on="2008-02-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -392,7 +391,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-Steps-30">
+  <test-case name="K2-Steps-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Tricky combination of focuses and function calls(#8). </description>
     <created by="Frans Englich" on="2008-02-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -406,7 +405,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-Steps-31">
+  <test-case name="K2-Steps-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Tricky combination of focuses and function calls(#9). </description>
     <created by="Frans Englich" on="2008-02-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -420,7 +419,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-Steps-32">
+  <test-case name="K2-Steps-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Tricky combination of focus and a recursive function call. </description>
     <created by="Frans Englich" on="2008-02-18"/>
     <dependency type="spec" value="XQ10+"/>
@@ -434,7 +433,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-Steps-33">
+  <test-case name="K2-Steps-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Tricky combination of focus and a recursive function call(#2). </description>
     <created by="Frans Englich" on="2008-03-05"/>
     <dependency type="spec" value="XQ10+"/>
@@ -448,7 +447,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-Steps-34">
+  <test-case name="K2-Steps-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Tricky combination of focus and a recursive function call(#3). </description>
     <created by="Frans Englich" on="2008-03-05"/>
     <dependency type="spec" value="XQ10+"/>
@@ -462,7 +461,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-Steps-35">
+  <test-case name="K2-Steps-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string(""),xs:integer("1"))</response-string>
     <description> Combine predicate with an element and text node constructor. </description>
     <created by="Frans Englich" on="2008-05-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -478,19 +477,19 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-1">
+  <test-case name="Steps-leading-lone-slash-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a syntax error: /*5 </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[declare variable $var := document {<a>123</a>}; $var[/*5]]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-1a">
+  <test-case name="Steps-leading-lone-slash-1a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a valid expression (/)*5 </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -502,19 +501,19 @@
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-2">
+  <test-case name="Steps-leading-lone-slash-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a syntax error: /a </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[declare variable $var := document {<a>123</a>}; $var[/<a]]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-2a">
+  <test-case name="Steps-leading-lone-slash-2a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a valid expression (/)a </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -526,19 +525,19 @@
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-3">
+  <test-case name="Steps-leading-lone-slash-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a syntax error: /5 </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[declare variable $var := document {<a>123</a>}; $var[/<5]]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-3a">
+  <test-case name="Steps-leading-lone-slash-3a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a valid expression (/)5 </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -550,31 +549,31 @@
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-4">
+  <test-case name="Steps-leading-lone-slash-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a syntax error: //b </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[declare variable $var := document {<a>123</a>}; $var[/</b]]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-5">
+  <test-case name="Steps-leading-lone-slash-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a syntax error: /a div 3 </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[declare variable $var := document {<a>123</a>}; $var[/<a div 3]]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-5a">
+  <test-case name="Steps-leading-lone-slash-5a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a valid expression (/)a div 3 </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -586,31 +585,31 @@
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-6">
+  <test-case name="Steps-leading-lone-slash-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a syntax error: /if ($doclevel) then / else /* </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[declare variable $var := document {<a>123</a>}; $var[/if ($doclevel) then / else /*]]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-7">
+  <test-case name="Steps-leading-lone-slash-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a syntax error: / is $a </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[declare variable $var := document {<a>123</a>}; declare variable $a := document {<a>123</a>}; $var[/ is $a]]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-7a">
+  <test-case name="Steps-leading-lone-slash-7a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a valid expression (/) is $a </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -622,19 +621,19 @@
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-8">
+  <test-case name="Steps-leading-lone-slash-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a syntax error: / instance of document-node(element(x)) </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[declare variable $var := document {<a>123</a>}; $var[/ instance of document-node(element(x))]]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-8a">
+  <test-case name="Steps-leading-lone-slash-8a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a valid expression (/) instance of document-node(element(x)) </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -646,19 +645,19 @@
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-9">
+  <test-case name="Steps-leading-lone-slash-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a syntax error: let $doc := / return $doc/* </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[declare variable $var := document {<a>123</a>}; let $doc := / return $doc/*]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-10">
+  <test-case name="Steps-leading-lone-slash-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a valid path expression /* </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -672,7 +671,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-11">
+  <test-case name="Steps-leading-lone-slash-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a valid path expression /a/ </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -686,7 +685,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-12">
+  <test-case name="Steps-leading-lone-slash-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a valid path expression /a div="3"/ </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -700,7 +699,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-13">
+  <test-case name="Steps-leading-lone-slash-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a valid path expression /unordered{a} </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -714,7 +713,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-14">
+  <test-case name="Steps-leading-lone-slash-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a valid path expression /max(a) </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -726,7 +725,7 @@
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-15">
+  <test-case name="Steps-leading-lone-slash-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a valid expression /* </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -738,7 +737,7 @@
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-16">
+  <test-case name="Steps-leading-lone-slash-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a valid expression /=$a </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -752,7 +751,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Steps-leading-lone-slash-17">
+  <test-case name="Steps-leading-lone-slash-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Verify xgc:leading-lone-slash implementation This expression is a valid expression 5*/ </description>
     <created by="Jim Melton" on="2009-10-01"/>
     <dependency type="spec" value="XQ10+"/>

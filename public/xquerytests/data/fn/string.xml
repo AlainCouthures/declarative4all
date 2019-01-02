@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-string" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests the fn:string() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-string" type="spec"/>
-  <test-case name="fn-stringint1args-1">
+  <test-case name="fn-stringint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-2147483648")</response-string>
     <description>stringint1args-1 The "string" function with the arguments set as follows: $arg = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:int("-2147483648"))</test>
@@ -11,7 +10,7 @@
       <assert-string-value>-2147483648</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringint1args-2">
+  <test-case name="fn-stringint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-1873914410")</response-string>
     <description>stringint1args-2 The "string" function with the arguments set as follows: $arg = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:int("-1873914410"))</test>
@@ -20,7 +19,7 @@
       <assert-string-value>-1873914410</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringint1args-3">
+  <test-case name="fn-stringint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("2147483647")</response-string>
     <description>stringint1args-3 The "string" function with the arguments set as follows: $arg = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:int("2147483647"))</test>
@@ -29,7 +28,7 @@
       <assert-string-value>2147483647</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringintg1args-1">
+  <test-case name="fn-stringintg1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-999999999999999999")</response-string>
     <description>stringintg1args-1 The "string" function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:integer("-999999999999999999"))</test>
@@ -38,7 +37,7 @@
       <assert-string-value>-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringintg1args-2">
+  <test-case name="fn-stringintg1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("830993497117024304")</response-string>
     <description>stringintg1args-2 The "string" function with the arguments set as follows: $arg = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:integer("830993497117024304"))</test>
@@ -47,7 +46,7 @@
       <assert-string-value>830993497117024304</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringintg1args-3">
+  <test-case name="fn-stringintg1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("999999999999999999")</response-string>
     <description>stringintg1args-3 The "string" function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:integer("999999999999999999"))</test>
@@ -56,7 +55,7 @@
       <assert-string-value>999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringdec1args-1">
+  <test-case name="fn-stringdec1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-999999999999999999")</response-string>
     <description>stringdec1args-1 The "string" function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:decimal("-999999999999999999"))</test>
@@ -65,7 +64,7 @@
       <assert-string-value>-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringdec1args-2">
+  <test-case name="fn-stringdec1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("617375191608514839")</response-string>
     <description>stringdec1args-2 The "string" function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:decimal("617375191608514839"))</test>
@@ -74,7 +73,7 @@
       <assert-string-value>617375191608514839</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringdec1args-3">
+  <test-case name="fn-stringdec1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("999999999999999999")</response-string>
     <description>stringdec1args-3 The "string" function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:decimal("999999999999999999"))</test>
@@ -83,7 +82,7 @@
       <assert-string-value>999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringdbl1args-1">
+  <test-case name="fn-stringdbl1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-1.7976931348623157E308")</response-string>
     <description>stringdbl1args-1 The "string" function with the arguments set as follows: $arg = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:double("-1.7976931348623157E308"))</test>
@@ -92,7 +91,7 @@
       <assert-string-value>-1.7976931348623157E308</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringdbl1args-2">
+  <test-case name="fn-stringdbl1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0")</response-string>
     <description>stringdbl1args-2 The "string" function with the arguments set as follows: $arg = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:double("0"))</test>
@@ -101,7 +100,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringdbl1args-3">
+  <test-case name="fn-stringdbl1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1.7976931348623157E308")</response-string>
     <description>stringdbl1args-3 The "string" function with the arguments set as follows: $arg = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:double("1.7976931348623157E308"))</test>
@@ -110,7 +109,7 @@
       <assert-string-value>1.7976931348623157E308</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringflt1args-1">
+  <test-case name="fn-stringflt1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-3.4028235E38")</response-string>
     <description>stringflt1args-1 The "string" function with the arguments set as follows: $arg = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:float("-3.4028235E38"))</test>
@@ -119,7 +118,7 @@
       <assert-string-value>-3.4028235E38</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringflt1args-2">
+  <test-case name="fn-stringflt1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0")</response-string>
     <description>stringflt1args-2 The "string" function with the arguments set as follows: $arg = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:float("0"))</test>
@@ -128,7 +127,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringflt1args-3">
+  <test-case name="fn-stringflt1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("3.4028235E38")</response-string>
     <description>stringflt1args-3 The "string" function with the arguments set as follows: $arg = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:float("3.4028235E38"))</test>
@@ -137,7 +136,7 @@
       <assert-string-value>3.4028235E38</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringlng1args-1">
+  <test-case name="fn-stringlng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-92233720368547760")</response-string>
     <description>stringlng1args-1 The "string" function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:long("-92233720368547758"))</test>
@@ -146,7 +145,7 @@
       <assert-string-value>-92233720368547758</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringlng1args-2">
+  <test-case name="fn-stringlng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-47175562203048460")</response-string>
     <description>stringlng1args-2 The "string" function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:long("-47175562203048468"))</test>
@@ -155,7 +154,7 @@
       <assert-string-value>-47175562203048468</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringlng1args-3">
+  <test-case name="fn-stringlng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("92233720368547760")</response-string>
     <description>stringlng1args-3 The "string" function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:long("92233720368547758"))</test>
@@ -164,7 +163,7 @@
       <assert-string-value>92233720368547758</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringusht1args-1">
+  <test-case name="fn-stringusht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0")</response-string>
     <description>stringusht1args-1 The "string" function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:unsignedShort("0"))</test>
@@ -173,7 +172,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringusht1args-2">
+  <test-case name="fn-stringusht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("44633")</response-string>
     <description>stringusht1args-2 The "string" function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:unsignedShort("44633"))</test>
@@ -182,7 +181,7 @@
       <assert-string-value>44633</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringusht1args-3">
+  <test-case name="fn-stringusht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("65535")</response-string>
     <description>stringusht1args-3 The "string" function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:unsignedShort("65535"))</test>
@@ -191,7 +190,7 @@
       <assert-string-value>65535</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringnint1args-1">
+  <test-case name="fn-stringnint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-999999999999999999")</response-string>
     <description>stringnint1args-1 The "string" function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:negativeInteger("-999999999999999999"))</test>
@@ -200,7 +199,7 @@
       <assert-string-value>-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringnint1args-2">
+  <test-case name="fn-stringnint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-297014075999096793")</response-string>
     <description>stringnint1args-2 The "string" function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:negativeInteger("-297014075999096793"))</test>
@@ -209,7 +208,7 @@
       <assert-string-value>-297014075999096793</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringnint1args-3">
+  <test-case name="fn-stringnint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-1")</response-string>
     <description>stringnint1args-3 The "string" function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:negativeInteger("-1"))</test>
@@ -218,7 +217,7 @@
       <assert-string-value>-1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringpint1args-1">
+  <test-case name="fn-stringpint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1")</response-string>
     <description>stringpint1args-1 The "string" function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:positiveInteger("1"))</test>
@@ -227,7 +226,7 @@
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringpint1args-2">
+  <test-case name="fn-stringpint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("52704602390610033")</response-string>
     <description>stringpint1args-2 The "string" function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:positiveInteger("52704602390610033"))</test>
@@ -236,7 +235,7 @@
       <assert-string-value>52704602390610033</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringpint1args-3">
+  <test-case name="fn-stringpint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("999999999999999999")</response-string>
     <description>stringpint1args-3 The "string" function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:positiveInteger("999999999999999999"))</test>
@@ -245,7 +244,7 @@
       <assert-string-value>999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringulng1args-1">
+  <test-case name="fn-stringulng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0")</response-string>
     <description>stringulng1args-1 The "string" function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:unsignedLong("0"))</test>
@@ -254,7 +253,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringulng1args-2">
+  <test-case name="fn-stringulng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("130747108607674660")</response-string>
     <description>stringulng1args-2 The "string" function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:unsignedLong("130747108607674654"))</test>
@@ -263,7 +262,7 @@
       <assert-string-value>130747108607674654</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringulng1args-3">
+  <test-case name="fn-stringulng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("184467440737095520")</response-string>
     <description>stringulng1args-3 The "string" function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:unsignedLong("184467440737095516"))</test>
@@ -272,7 +271,7 @@
       <assert-string-value>184467440737095516</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringnpi1args-1">
+  <test-case name="fn-stringnpi1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-999999999999999999")</response-string>
     <description>stringnpi1args-1 The "string" function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:nonPositiveInteger("-999999999999999999"))</test>
@@ -281,7 +280,7 @@
       <assert-string-value>-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringnpi1args-2">
+  <test-case name="fn-stringnpi1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-475688437271870490")</response-string>
     <description>stringnpi1args-2 The "string" function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:nonPositiveInteger("-475688437271870490"))</test>
@@ -290,7 +289,7 @@
       <assert-string-value>-475688437271870490</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringnpi1args-3">
+  <test-case name="fn-stringnpi1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0")</response-string>
     <description>stringnpi1args-3 The "string" function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:nonPositiveInteger("0"))</test>
@@ -299,7 +298,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringnni1args-1">
+  <test-case name="fn-stringnni1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0")</response-string>
     <description>stringnni1args-1 The "string" function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:nonNegativeInteger("0"))</test>
@@ -308,7 +307,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringnni1args-2">
+  <test-case name="fn-stringnni1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("303884545991464527")</response-string>
     <description>stringnni1args-2 The "string" function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:nonNegativeInteger("303884545991464527"))</test>
@@ -317,7 +316,7 @@
       <assert-string-value>303884545991464527</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringnni1args-3">
+  <test-case name="fn-stringnni1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("999999999999999999")</response-string>
     <description>stringnni1args-3 The "string" function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:nonNegativeInteger("999999999999999999"))</test>
@@ -326,7 +325,7 @@
       <assert-string-value>999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringsht1args-1">
+  <test-case name="fn-stringsht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-32768")</response-string>
     <description>stringsht1args-1 The "string" function with the arguments set as follows: $arg = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:short("-32768"))</test>
@@ -335,7 +334,7 @@
       <assert-string-value>-32768</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringsht1args-2">
+  <test-case name="fn-stringsht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-5324")</response-string>
     <description>stringsht1args-2 The "string" function with the arguments set as follows: $arg = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:short("-5324"))</test>
@@ -344,7 +343,7 @@
       <assert-string-value>-5324</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-stringsht1args-3">
+  <test-case name="fn-stringsht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("32767")</response-string>
     <description>stringsht1args-3 The "string" function with the arguments set as follows: $arg = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:string(xs:short("32767"))</test>
@@ -353,7 +352,7 @@
       <assert-string-value>32767</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-string-1">
+  <test-case name="fn-string-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>argument and no context item defined.</description>
     <created by="Carmelo Montanez" on="2005-09-25"/>
     <environment ref="empty"/>
@@ -363,7 +362,7 @@
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="fn-string-2">
+  <test-case name="fn-string-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>argument set to the empty sequence. Use fn:count to avoid empty file.</description>
     <created by="Carmelo Montanez" on="2005-09-25"/>
     <test>fn:string(())</test>
@@ -375,7 +374,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-string-3">
+  <test-case name="fn-string-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>argument set to "." and no context node set.</description>
     <created by="Carmelo Montanez" on="2006-02-08"/>
     <environment ref="empty"/>
@@ -385,7 +384,7 @@
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="fn-string-4">
+  <test-case name="fn-string-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("2018-12-22+01:00")</response-string>
     <description>string() applied to a date</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>string(current-date())</test>
@@ -394,7 +393,7 @@
       <assert-count>1</assert-count>
     </result>
   </test-case>
-  <test-case name="fn-string-5">
+  <test-case name="fn-string-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description>string() applied to a time</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>string(xs:time("24:00:00"))</test>
@@ -403,7 +402,7 @@
       <assert-eq>"00:00:00"</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-string-6">
+  <test-case name="fn-string-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>string() applied to a dateTime</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>string(dateTime(xs:date("2011-06-29"), xs:time("24:00:00")))</test>
@@ -412,7 +411,7 @@
       <assert-eq>"2011-06-29T00:00:00"</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-string-7">
+  <test-case name="fn-string-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("P24M")</response-string>
     <description>string() applied to a duration</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>string(xs:duration("P24M"))</test>
@@ -421,7 +420,7 @@
       <assert-eq>"P2Y"</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-string-8">
+  <test-case name="fn-string-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>string() applied to a QName</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>string(QName("http://www.w3.org/", "test:example"))</test>
@@ -430,16 +429,16 @@
       <assert-eq>"test:example"</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-string-9">
+  <test-case name="fn-string-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-INF")</response-string>
     <description>string() with no arguments applied to a double</description>
     <created by="Michael Kay" on="2011-06-29"/>
-    <test>xs:double('-INF')[string() = '-INF']</test>
+    <test>xs:double(&apos;-INF&apos;)[string() = &apos;-INF&apos;]</test>
     <result-string/>
     <result>
       <assert-count>1</assert-count>
     </result>
   </test-case>
-  <test-case name="fn-string-22">
+  <test-case name="fn-string-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("&amp;#10;&amp;#9;is a PI &amp;#10;&amp;#9;&amp;#10;&amp;#9;ns:bar&amp;#10;&amp;#9;ns:bar2&amp;#10;&amp;#9;ns:barDeriv&amp;#10;&amp;#9;urn1&amp;#10;&amp;#9;test1&amp;#10;&amp;#9;test2&amp;#10;")</response-string>
     <description>Evaluation of string() applied to a node that cannot be atomized because it has element-only content. This succeeds, because although getting the typed value of such a node is an error, the string value is well defined. Note, we assume construction from PSVI, therefore insignificant whitespace is stripped.</description>
     <created by="Michael Kay" on="2011-06-28"/>
     <environment ref="qname"/>
@@ -450,7 +449,7 @@
       <assert-eq>"ns:barns:bar2ns:barDerivurn1test1test2"</assert-eq>
     </result>
   </test-case>
-  <test-case covers="named-function-ref" name="fn-string-23">
+  <test-case covers="named-function-ref" name="fn-string-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Evaluation of string() applied to a function item</description>
     <created by="Michael Kay" on="2011-06-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -461,7 +460,7 @@
       <error code="FOTY0014"/>
     </result>
   </test-case>
-  <test-case name="fn-string-24">
+  <test-case name="fn-string-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("2000-03-21:07:41:34-05:00 2000-03-19:17:03:00-04:00")</response-string>
     <description>Get the string-value of an element in a namespace.</description>
     <created by="Michael Kay" on="2011-06-28"/>
     <environment ref="auction"/>
@@ -471,7 +470,7 @@
       <assert-string-value>2000-03-21:07:41:34-05:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-string-25">
+  <test-case name="fn-string-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("USD USD")</response-string>
     <description>Get the string-value of an attribute in a namespace.</description>
     <created by="Michael Kay" on="2011-06-28"/>
     <environment ref="auction"/>
@@ -481,7 +480,7 @@
       <assert-string-value>USD</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-string-26">
+  <test-case name="fn-string-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0321K372910 simple timeInstant timeInstant USD USD simple simple 13143816 simple timeInstant timeInstant USD USD simple simple en de")</response-string>
     <description>Get the string-value of the xml:lang attribute.</description>
     <created by="Michael Kay" on="2011-06-28"/>
     <environment ref="auction"/>
@@ -491,19 +490,19 @@
       <assert-string-value>en</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-string-27">
+  <test-case name="fn-string-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Get the string value of a namespace node.</description>
     <created by="Michael Kay" on="2011-06-28"/>
     <environment ref="auction"/>
     <dependency type="feature" value="namespace-axis"/>
     <dependency type="spec" value="XP20+"/>
-    <test>string((//namespace::*[.='http://www.w3.org/1999/xlink'])[1])</test>
+    <test>string((//namespace::*[.=&apos;http://www.w3.org/1999/xlink&apos;])[1])</test>
     <result-string>xs:string("http://www.w3.org/1999/xlink")</result-string>
     <result>
       <assert-string-value>http://www.w3.org/1999/xlink</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-string-28">
+  <test-case name="fn-string-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Get the string-value of a processing-instruction node.</description>
     <created by="Michael Kay" on="2011-06-28"/>
     <environment ref="auction"/>
@@ -513,7 +512,7 @@
       <assert-string-value>href="none"</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-string-29">
+  <test-case name="fn-string-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("3.00 10.00 5 3.00 3.00 0")</response-string>
     <description>Get the string value of an element with children.</description>
     <created by="Michael Kay" on="2011-06-28"/>
     <environment ref="auction"/>
@@ -523,7 +522,7 @@
       <assert-eq>"3.00 10.00 5"</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-string-30">
+  <test-case name="fn-string-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Get the string value of a comment node</description>
     <created by="Michael Kay" on="2011-06-28"/>
     <environment ref="auction"/>
@@ -533,7 +532,7 @@
       <assert>contains($result, "______________________________________________________")</assert>
     </result>
   </test-case>
-  <test-case name="fn-string-31">
+  <test-case name="fn-string-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>Get the string value of a text node</description>
     <created by="Michael Kay" on="2011-06-28"/>
     <environment ref="auction"/>
@@ -543,17 +542,17 @@
       <assert-eq>"2000-03-21:07:41:34-05:00"</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-StringFunc-1">
+  <test-case name="K-StringFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>K-StringFunc-1 `string(1, 2)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(1, 2)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-StringFunc-2">
-    <description>K-StringFunc-2 ensures that no arguments isn't flagged as invalid. </description>
+  <test-case name="K-StringFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description>K-StringFunc-2 ensures that no arguments isn&apos;t flagged as invalid. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>if(true()) then true() else string()</test>
     <result-string>xs:boolean("true")</result-string>
@@ -565,7 +564,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-StringFunc-3">
+  <test-case name="K-StringFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>K-StringFunc-3 `string(1) eq "1"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(1) eq "1"</test>
@@ -574,7 +573,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-StringFunc-4">
+  <test-case name="K-StringFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>K-StringFunc-4 `string(()) eq ""`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(()) eq ""</test>
@@ -583,7 +582,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-StringFunc-5">
+  <test-case name="K-StringFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>K-StringFunc-5 xs:string. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string-length(string(xs:string(current-time()))) gt 2</test>
@@ -592,7 +591,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-StringFunc-6">
+  <test-case name="K-StringFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1 2")</response-string>
     <description>K-StringFunc-6 `string( (1, 2) )`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string( (1, 2) )</test>

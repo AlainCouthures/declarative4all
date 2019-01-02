@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="prod-Comment" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the Comment production</description>
   <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-Comment" type="spec"/>
@@ -16,7 +15,7 @@
       <created by="David Marston" on="2003-03-25"/>
     </source>
   </environment>
-  <test-case name="XQueryComment001">
+  <test-case name="XQueryComment001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string>
     <description> Simple use case for XQuery comments This is a comment </description>
     <created by="Mike Rorke" on="2005-04-14"/>
     <dependency type="spec" value="XQ10+"/>
@@ -37,7 +36,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="XQueryComment002">
+  <test-case name="XQueryComment002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Simple use case for XQuery comments This is a comment </description>
     <created by="Mike Rorke" on="2005-04-14"/>
     <environment ref="fsx_NS"/>
@@ -57,8 +56,8 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="XQueryComment003">
-    <description> Simple use case for XQuery comment containing '-' This is a comment- </description>
+  <test-case name="XQueryComment003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string>
+    <description> Simple use case for XQuery comment containing &apos;-&apos; This is a comment- </description>
     <created by="Mike Rorke" on="2005-04-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -77,7 +76,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="XQueryComment004">
+  <test-case name="XQueryComment004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string>
     <description> Empty comment </description>
     <created by="Mike Rorke" on="2005-04-14"/>
     <dependency type="spec" value="XQ10+"/>
@@ -97,8 +96,8 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="XQueryComment005">
-    <description> Comment containing only '-' - </description>
+  <test-case name="XQueryComment005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string>
+    <description> Comment containing only &apos;-&apos; - </description>
     <created by="Mike Rorke" on="2005-04-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -117,8 +116,8 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="XQueryComment006">
-    <description> Comment containing ':' this is a comment : </description>
+  <test-case name="XQueryComment006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string>
+    <description> Comment containing &apos;:&apos; this is a comment : </description>
     <created by="Mike Rorke" on="2005-04-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -137,8 +136,8 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="XQueryComment007">
-    <description> Comment containing ')' this is a comment ) </description>
+  <test-case name="XQueryComment007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string>
+    <description> Comment containing &apos;)&apos; this is a comment ) </description>
     <created by="Mike Rorke" on="2005-04-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -157,7 +156,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="XQueryComment008">
+  <test-case name="XQueryComment008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string>
     <description> Simple example of embedded comments this is a comment (: this is an embedded comment </description>
     <created by="Mike Rorke" on="2005-04-14"/>
     <dependency type="spec" value="XQ10+"/>
@@ -177,7 +176,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="XQueryComment009">
+  <test-case name="XQueryComment009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("true")</response-string>
     <description> Comments inside a conditional expression test (: yada (: neato yada yada yada </description>
     <created by="Mike Rorke" on="2005-04-14"/>
     <environment ref="fsx_NS"/>
@@ -195,7 +194,7 @@ if (:test (: yada (: neato :) :) :) (/fs:MyComputer)
       <assert-string-value>true</assert-string-value>
     </result>
   </test-case>
-  <test-case name="XQueryComment010">
+  <test-case name="XQueryComment010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Comments inside a conditional expression comment this is the then case this is the else case </description>
     <created by="Mike Rorke" on="2003-02-10"/>
     <environment ref="fsx_NS"/>
@@ -215,7 +214,7 @@ else (: this is the else case :) ( false() )
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="XQueryComment011">
+  <test-case name="XQueryComment011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("true")</response-string>
     <description> Comments inside a conditional expression test t2 t3 </description>
     <created by="Mike Rorke" on="2005-04-14"/>
     <environment ref="fsx_NS"/>
@@ -234,7 +233,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
       <assert-string-value>true</assert-string-value>
     </result>
   </test-case>
-  <test-case name="XQueryComment012">
+  <test-case name="XQueryComment012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;south mark="s0"/&gt;</response-string>
     <description> Comments that looks like a function call test </description>
     <created by="Mike Rorke" on="2005-04-14"/>
     <environment ref="TreeEmpty"/>
@@ -252,7 +251,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="XQueryComment013">
+  <test-case name="XQueryComment013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"))</response-string>
     <description> Comments inside a sequence expression comment </description>
     <created by="Mike Rorke" on="2005-04-14"/>
     <test>(: Name: XQueryComment013 :)
@@ -262,12 +261,12 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
 (1, 2, (: comment :) 3, 4)
 
 </test>
-    <result-string>xs:string("1 2 3 4")</result-string>
+    <result-string>(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"))</result-string>
     <result>
       <assert-string-value>1 2 3 4</assert-string-value>
     </result>
   </test-case>
-  <test-case name="XQueryComment014">
+  <test-case name="XQueryComment014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("10")</response-string>
     <description> Comments inside a cast expression type comment </description>
     <created by="Mike Rorke" on="2005-04-14"/>
     <test>(: Name: XQueryComment014 :)
@@ -282,7 +281,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
       <assert-eq>10</assert-eq>
     </result>
   </test-case>
-  <test-case name="XQueryComment015">
+  <test-case name="XQueryComment015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Incorrect comment syntax </description>
     <created by="Mike Rorke" on="2005-04-14"/>
     <dependency type="spec" value="XQ10+"/>
@@ -294,12 +293,12 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
 (! Wrong syntax :)
 <empty/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="XQueryComment016">
+  <test-case name="XQueryComment016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Invalid comment </description>
     <created by="Mike Rorke" on="2005-04-14"/>
     <dependency type="spec" value="XQ10+"/>
@@ -311,12 +310,12 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
 (:)
 <empty/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="XQueryComment017">
+  <test-case name="XQueryComment017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Invalid comment </description>
     <created by="Mike Rorke" on="2005-04-14"/>
     <dependency type="spec" value="XQ10+"/>
@@ -328,12 +327,12 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
 (:: )
 <empty/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="XQueryComment018">
+  <test-case name="XQueryComment018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Invalid comment </description>
     <created by="Mike Rorke" on="2005-04-14"/>
     <dependency type="spec" value="XQ10+"/>
@@ -345,12 +344,12 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
 -- Wrong comment format
 <empty/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="XQueryComment019">
+  <test-case name="XQueryComment019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Old style comment syntax </description>
     <created by="Mike Rorke" on="2005-04-14"/>
     <dependency type="spec" value="XQ10+"/>
@@ -362,12 +361,12 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
 {-- Wrong comment format --}
 <empty/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="XQueryComment020">
+  <test-case name="XQueryComment020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result/&gt;</response-string>
     <description> Comment containing an enclosed expression { "comment" } </description>
     <created by="Mike Rorke" on="2005-04-14"/>
     <dependency type="spec" value="XQ10+"/>
@@ -386,7 +385,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K-XQueryComment-1">
+  <test-case name="K-XQueryComment-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(3(: comment inbetween comment inbetween </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(:*******************************************************:)
@@ -401,7 +400,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-XQueryComment-2">
+  <test-case name="K-XQueryComment-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `1 (: a (: nested a (: nested </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(:*******************************************************:)
@@ -416,7 +415,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-XQueryComment-3">
+  <test-case name="K-XQueryComment-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `1 (: comment (: inside comment (: inside </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(:*******************************************************:)
@@ -431,7 +430,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-XQueryComment-4">
+  <test-case name="K-XQueryComment-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Comparison of two string literals, whose content reminds of comments. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(:*******************************************************:)
@@ -447,7 +446,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-XQueryComment-5">
+  <test-case name="K-XQueryComment-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A test whose essence is: `5 instance (: strange place for a comment strange place for a comment </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(:*******************************************************:)
@@ -462,7 +461,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-XQueryComment-6">
+  <test-case name="K-XQueryComment-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `1 (: simple comment simple comment </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(:*******************************************************:)
@@ -477,7 +476,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-XQueryComment-7">
+  <test-case name="K-XQueryComment-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `1 (: comment (: inside comment (: inside </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(:*******************************************************:)
@@ -493,7 +492,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-XQueryComment-8">
+  <test-case name="K-XQueryComment-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A test whose essence is: `(: "recursive comments must be balanced, this one is not "recursive comments must be balanced, this one is not </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(:*******************************************************:)
@@ -504,19 +503,19 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
 (:*******************************************************:)
 (: "recursive comments must be 
 	balanced, this one is not :)" :)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-XQueryComment-9">
-    <description> An empty comment inbetween the 'eq' operator and a number literal. </description>
+  <test-case name="K-XQueryComment-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> An empty comment inbetween the &apos;eq&apos; operator and a number literal. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(:*******************************************************:)
 (: Test: K-XQueryComment-9                               :)
 (: Written by: Frans Englich                             :)
 (: Date: 2007-11-22T11:31:22+01:00                       :)
-(: Purpose: An empty comment inbetween the 'eq' operator and a number literal. :)
+(: Purpose: An empty comment inbetween the &apos;eq&apos; operator and a number literal. :)
 (:*******************************************************:)
 1 eq (::)1</test>
     <result-string>xs:boolean("true")</result-string>
@@ -524,7 +523,7 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-XQueryComment-10">
+  <test-case name="K-XQueryComment-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> An empty comment at the very beginning of an expression. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(:*******************************************************:)
@@ -539,14 +538,14 @@ if (:test:)(:t2:)(:t3:) (/fs:MyComputer)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-XQueryComment-11">
-    <description> An empty comment after a function's paranteses. </description>
+  <test-case name="K-XQueryComment-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> An empty comment after a function&apos;s paranteses. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(:*******************************************************:)
 (: Test: K-XQueryComment-11                              :)
 (: Written by: Frans Englich                             :)
 (: Date: 2007-11-22T11:31:22+01:00                       :)
-(: Purpose: An empty comment after a function's paranteses. :)
+(: Purpose: An empty comment after a function&apos;s paranteses. :)
 (:*******************************************************:)
 true()(::)</test>
     <result-string>xs:boolean("true")</result-string>
@@ -554,7 +553,7 @@ true()(::)</test>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-XQueryComment-12">
+  <test-case name="K-XQueryComment-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A for loop with a comment inbetween. set up loop </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(:*******************************************************:)
@@ -569,7 +568,7 @@ for (: set up loop :) $i in 3 return $i eq 3</test>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-XQueryComment-13">
+  <test-case name="K-XQueryComment-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A test whose essence is: `if((: comment inbetween comment inbetween </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(:*******************************************************:)
@@ -579,12 +578,12 @@ for (: set up loop :) $i in 3 return $i eq 3</test>
 (: Purpose: A test whose essence is: `if((: comment inbetween :)) then 1 else 1`. :)
 (:*******************************************************:)
 if((: comment inbetween :)) then 1 else 1</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-XQueryComment-14">
+  <test-case name="K-XQueryComment-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A syntactically invalid comment that never ends. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(:*******************************************************:)
@@ -594,27 +593,27 @@ if((: comment inbetween :)) then 1 else 1</test>
 (: Purpose: A syntactically invalid comment that never ends. :)
 (:*******************************************************:)
 1(: this comment does not end:</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-XQueryComment-15">
-    <description> A comment inside a comment that isn't terminated. content (: this comment does not end </description>
+  <test-case name="K-XQueryComment-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> A comment inside a comment that isn&apos;t terminated. content (: this comment does not end </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(:*******************************************************:)
 (: Test: K-XQueryComment-15                              :)
 (: Written by: Frans Englich                             :)
 (: Date: 2007-11-22T11:31:22+01:00                       :)
-(: Purpose: A comment inside a comment that isn't terminated. :)
+(: Purpose: A comment inside a comment that isn&apos;t terminated. :)
 (:*******************************************************:)
 1(: content (: this comment does not end :)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-XQueryComment-16">
+  <test-case name="K-XQueryComment-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A comment inside a comment that does not start properly. content this comment does not start properly </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(:*******************************************************:)
@@ -624,12 +623,12 @@ if((: comment inbetween :)) then 1 else 1</test>
 (: Purpose: A comment inside a comment that does not start properly. :)
 (:*******************************************************:)
 1(: content this comment does not start properly :) :)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-XQueryComment-17">
+  <test-case name="K-XQueryComment-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Colons and paranteses appearing freely in comment content. ((( : )) ))ladl: :(): ()()(dahsi ()()( dad: ) </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(:*******************************************************:)
@@ -644,7 +643,7 @@ if((: comment inbetween :)) then 1 else 1</test>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-XQueryComment-18">
+  <test-case name="K-XQueryComment-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Three comments appearing serially inside a comment. (:one comment another comment a third </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(:*******************************************************:)
@@ -660,7 +659,7 @@ if((: comment inbetween :)) then 1 else 1</test>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-XQueryComment-19">
+  <test-case name="K-XQueryComment-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test stressing many nested comments. (:(:(:(:(:(:(: </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(:*******************************************************:)
@@ -675,22 +674,22 @@ if((: comment inbetween :)) then 1 else 1</test>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-XQueryComment-20">
-    <description> A syntactically invalid comment that doesn't properly start. </description>
+  <test-case name="K-XQueryComment-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> A syntactically invalid comment that doesn&apos;t properly start. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(:*******************************************************:)
 (: Test: K-XQueryComment-20                              :)
 (: Written by: Frans Englich                             :)
 (: Date: 2007-11-22T11:31:22+01:00                       :)
-(: Purpose: A syntactically invalid comment that doesn't properly start. :)
+(: Purpose: A syntactically invalid comment that doesn&apos;t properly start. :)
 (:*******************************************************:)
 : :) 1</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-XQueryComment-1">
+  <test-case name="K2-XQueryComment-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> An invalid comment after a name test. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -708,12 +707,12 @@ let $i := <e>
                                         </e>
                               return $i/b(:  ]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-XQueryComment-2">
+  <test-case name="K2-XQueryComment-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> An invalid comment after a name test(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -731,12 +730,12 @@ let $i := <e>
                                         </e>
                               return $i/b(: some : content (:some content  ]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-XQueryComment-3">
+  <test-case name="K2-XQueryComment-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;!--content--&gt;&lt;!--content--&gt;&lt;!--content--&gt;)</response-string>
     <description> Have a computed comment constructor as a last step. some : content (:some content </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -761,7 +760,7 @@ let $i := <e>
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-XQueryComment-4">
+  <test-case name="K2-XQueryComment-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Have a direct comment constructor as a last step. some : content (:some content </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -786,7 +785,7 @@ let $i := <e>
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-XQueryComment-5">
+  <test-case name="K2-XQueryComment-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Have a direct comment constructor as a last step(#2). some : content (:some content </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>

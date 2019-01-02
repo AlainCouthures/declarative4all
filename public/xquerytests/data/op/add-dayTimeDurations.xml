@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="op-add-dayTimeDurations" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the add-dayTimeDurations() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-add-dayTimeDurations" type="spec"/>
-  <test-case name="op-add-dayTimeDurations2args-1">
+  <test-case name="op-add-dayTimeDurations2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("PT0S")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDurations2args-1                    
@@ -16,12 +15,12 @@ $arg2 = xs:dayTimeDuration(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P0DT0H0M0S") + xs:dayTimeDuration("P0DT0H0M0S")</test>
-    <result-string>xs:string("PT0S")</result-string>
+    <result-string>xs:dayTimeDuration("PT0S")</result-string>
     <result>
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDurations2args-2">
+  <test-case name="op-add-dayTimeDurations2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("P15DT11H59M59S")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDurations2args-2                    
@@ -35,12 +34,12 @@ $arg2 = xs:dayTimeDuration(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P15DT11H59M59S") + xs:dayTimeDuration("P0DT0H0M0S")</test>
-    <result-string>xs:string("P15DT11H59M59S")</result-string>
+    <result-string>xs:dayTimeDuration("P15DT11H59M59S")</result-string>
     <result>
       <assert-string-value>P15DT11H59M59S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDurations2args-3">
+  <test-case name="op-add-dayTimeDurations2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("P31DT23H59M59S")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDurations2args-3                    
@@ -54,12 +53,12 @@ $arg2 = xs:dayTimeDuration(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P31DT23H59M59S") + xs:dayTimeDuration("P0DT0H0M0S")</test>
-    <result-string>xs:string("P31DT23H59M59S")</result-string>
+    <result-string>xs:dayTimeDuration("P31DT23H59M59S")</result-string>
     <result>
       <assert-string-value>P31DT23H59M59S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDurations2args-4">
+  <test-case name="op-add-dayTimeDurations2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("P15DT11H59M59S")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDurations2args-4                    
@@ -73,12 +72,12 @@ $arg2 = xs:dayTimeDuration(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P0DT0H0M0S") + xs:dayTimeDuration("P15DT11H59M59S")</test>
-    <result-string>xs:string("P15DT11H59M59S")</result-string>
+    <result-string>xs:dayTimeDuration("P15DT11H59M59S")</result-string>
     <result>
       <assert-string-value>P15DT11H59M59S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDurations2args-5">
+  <test-case name="op-add-dayTimeDurations2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("P31DT23H59M59S")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDurations2args-5                    
@@ -92,12 +91,12 @@ $arg2 = xs:dayTimeDuration(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dayTimeDuration("P0DT0H0M0S") + xs:dayTimeDuration("P31DT23H59M59S")</test>
-    <result-string>xs:string("P31DT23H59M59S")</result-string>
+    <result-string>xs:dayTimeDuration("P31DT23H59M59S")</result-string>
     <result>
       <assert-string-value>P31DT23H59M59S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDurations-1">
+  <test-case name="op-add-dayTimeDurations-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("P8DT5M")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDurations-1                        
@@ -109,12 +108,12 @@ As per example 1 (for this function)of the FO specs.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>xs:dayTimeDuration("P2DT12H5M") + xs:dayTimeDuration("P5DT12H")</test>
-    <result-string>xs:string("P8DT5M")</result-string>
+    <result-string>xs:dayTimeDuration("P8DT5M")</result-string>
     <result>
       <assert-string-value>P8DT5M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDurations-2">
+  <test-case name="op-add-dayTimeDurations-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDurations-2                        
@@ -132,7 +131,7 @@ used as part of a boolean expression (and operator) and the "fn:false" function.
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDurations-3">
+  <test-case name="op-add-dayTimeDurations-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDurations-3                        
@@ -149,7 +148,7 @@ part of a boolean expression (or operator) and the "fn:boolean" function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDurations-4">
+  <test-case name="op-add-dayTimeDurations-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDurations-4                        
@@ -167,7 +166,7 @@ return true and used together with fn:not.
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDurations-5">
+  <test-case name="op-add-dayTimeDurations-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDurations-5                        
@@ -185,7 +184,7 @@ is used as an argument to the fn:boolean function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDurations-6">
+  <test-case name="op-add-dayTimeDurations-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDurations-6                        
@@ -197,12 +196,12 @@ is used as an argument to the fn:number function.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:number(xs:dayTimeDuration("P02DT06H09M") + xs:dayTimeDuration("P10DT08H01M"))</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDurations-7">
+  <test-case name="op-add-dayTimeDurations-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("P4DT13H10M")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDurations-7                        
@@ -219,7 +218,7 @@ as an argument to the "fn:string" function).
       <assert-string-value>P4DT13H10M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDurations-8">
+  <test-case name="op-add-dayTimeDurations-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("-P1DT1H1M")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDurations-8                        
@@ -231,12 +230,12 @@ returns a negative value.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>(xs:dayTimeDuration("P10DT01H01M") + xs:dayTimeDuration("-P11DT02H02M"))</test>
-    <result-string>xs:string("-P1DT1H1M")</result-string>
+    <result-string>xs:dayTimeDuration("-P1DT1H1M")</result-string>
     <result>
       <assert-string-value>-P1DT1H1M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDurations-9">
+  <test-case name="op-add-dayTimeDurations-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDurations-9                        
@@ -254,7 +253,7 @@ together with and "and" expression.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDurations-10">
+  <test-case name="op-add-dayTimeDurations-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDurations-10                       
@@ -272,7 +271,7 @@ together with an "or" expression.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDurations-11">
+  <test-case name="op-add-dayTimeDurations-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDurations-11                       
@@ -284,12 +283,12 @@ together with a "div" expression.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>(xs:dayTimeDuration("P42DT10H10M") + xs:dayTimeDuration("P10DT10H10M")) div (xs:dayTimeDuration("P42DT10H10M") + xs:dayTimeDuration("P10DT10H10M"))</test>
-    <result-string>xs:string("1")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDurations-12">
+  <test-case name="op-add-dayTimeDurations-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDurations-12                       
@@ -307,7 +306,7 @@ with a boolean expression and the "fn:true" function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDurations-13">
+  <test-case name="op-add-dayTimeDurations-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDurations-13                       
@@ -324,7 +323,7 @@ together with the numeric-equal-operator "eq".
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDurations-14">
+  <test-case name="op-add-dayTimeDurations-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDurations-14                       
@@ -341,7 +340,7 @@ together with the numeric-equal operator "ne".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDurations-15">
+  <test-case name="op-add-dayTimeDurations-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDurations-15                       
@@ -358,7 +357,7 @@ together with the numeric-equal operator "le".
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-add-dayTimeDurations-16">
+  <test-case name="op-add-dayTimeDurations-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-add-dayTimeDurations-16                       
@@ -375,7 +374,7 @@ together with the numeric-equal operator "ge".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationAdd-1">
+  <test-case name="K-DayTimeDurationAdd-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationAdd-1                          
@@ -391,7 +390,7 @@ together with the numeric-equal operator "ge".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationAdd-2">
+  <test-case name="K-DayTimeDurationAdd-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationAdd-2                          
@@ -407,7 +406,7 @@ together with the numeric-equal operator "ge".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationAdd-3">
+  <test-case name="K-DayTimeDurationAdd-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationAdd-3                          
@@ -423,421 +422,421 @@ together with the numeric-equal operator "ge".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-add-dayTimeDurations-001">
+  <test-case name="cbcl-add-dayTimeDurations-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("P1DT1H")</response-string>
     <description> test addition of zero duration to dayTimeDuration </description>
     <created by="Tim Mills" on="2008-05-12"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat('P', $days, 'DT', $hours, 'H')) }; local:dayTimeDuration(1, 1) + xs:dayTimeDuration("P0D")</test>
-    <result-string>xs:string("P1DT1H")</result-string>
+    <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat(&apos;P&apos;, $days, &apos;DT&apos;, $hours, &apos;H&apos;)) }; local:dayTimeDuration(1, 1) + xs:dayTimeDuration("P0D")</test>
+    <result-string>xs:dayTimeDuration("P1DT1H")</result-string>
     <result>
       <assert-string-value>P1DT1H</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-add-dayTimeDurations-002">
+  <test-case name="cbcl-add-dayTimeDurations-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("P1DT1H")</response-string>
     <description> test addition of zero duration to dayTimeDuration </description>
     <created by="Tim Mills" on="2008-05-12"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat('P', $days, 'DT', $hours, 'H')) }; xs:dayTimeDuration("P0D") + local:dayTimeDuration(1, 1)</test>
-    <result-string>xs:string("P1DT1H")</result-string>
+    <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat(&apos;P&apos;, $days, &apos;DT&apos;, $hours, &apos;H&apos;)) }; xs:dayTimeDuration("P0D") + local:dayTimeDuration(1, 1)</test>
+    <result-string>xs:dayTimeDuration("P1DT1H")</result-string>
     <result>
       <assert-string-value>P1DT1H</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-add-dayTimeDurations-003">
+  <test-case name="cbcl-add-dayTimeDurations-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("P2DT2H")</response-string>
     <description> test addition of dayTimeDurations </description>
     <created by="Tim Mills" on="2008-05-12"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat('P', $days, 'DT', $hours, 'H')) }; local:dayTimeDuration(1, 1) + local:dayTimeDuration(1, 1)</test>
-    <result-string>xs:string("P2DT2H")</result-string>
+    <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat(&apos;P&apos;, $days, &apos;DT&apos;, $hours, &apos;H&apos;)) }; local:dayTimeDuration(1, 1) + local:dayTimeDuration(1, 1)</test>
+    <result-string>xs:dayTimeDuration("P2DT2H")</result-string>
     <result>
       <assert-string-value>P2DT2H</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-001">
+  <test-case name="cbcl-plus-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:date("1997-01-02")</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:dayTimeDuration("P1D") };
         xs:date("1997-01-01") + local:f(false())</test>
-    <result-string>xs:string("1997-01-02")</result-string>
+    <result-string>xs:date("1997-01-02")</result-string>
     <result>
       <assert-string-value>1997-01-02</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-002">
+  <test-case name="cbcl-plus-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:dayTimeDuration("P1D") };
         xs:date("1997-01-01") + local:f(true())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-003">
+  <test-case name="cbcl-plus-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:date("1997-02-01")</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:yearMonthDuration("P1M") };
         xs:date("1997-01-01") + local:f(false())</test>
-    <result-string>xs:string("1997-02-01")</result-string>
+    <result-string>xs:date("1997-02-01")</result-string>
     <result>
       <assert-string-value>1997-02-01</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-004">
+  <test-case name="cbcl-plus-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:yearMonthDuration("P1M") };
         xs:date("1997-01-01") + local:f(true())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-005">
+  <test-case name="cbcl-plus-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("1997-01-02T12:00:00.000Z")</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:dayTimeDuration("P1D") };
         xs:dateTime("1997-01-01T12:00:00") + local:f(false())</test>
-    <result-string>xs:string("1997-01-02T12:00:00")</result-string>
+    <result-string>xs:dateTime("1997-01-02T12:00:00.000Z")</result-string>
     <result>
       <assert-string-value>1997-01-02T12:00:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-006">
+  <test-case name="cbcl-plus-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:dayTimeDuration("P1D") };
         xs:dateTime("1997-01-01T12:00:00") + local:f(true())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-007">
+  <test-case name="cbcl-plus-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("1997-02-01T12:00:00.000Z")</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:yearMonthDuration("P1M") };
         xs:dateTime("1997-01-01T12:00:00") + local:f(false())</test>
-    <result-string>xs:string("1997-02-01T12:00:00")</result-string>
+    <result-string>xs:dateTime("1997-02-01T12:00:00.000Z")</result-string>
     <result>
       <assert-string-value>1997-02-01T12:00:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-008">
+  <test-case name="cbcl-plus-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:yearMonthDuration("P1M") };
         xs:dateTime("1997-01-01T12:00:00") + local:f(true())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-009">
+  <test-case name="cbcl-plus-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:time("13:00:00.000Z")</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:dayTimeDuration("PT1H") };
         xs:time("12:00:00") + local:f(false())</test>
-    <result-string>xs:string("13:00:00")</result-string>
+    <result-string>xs:time("13:00:00.000Z")</result-string>
     <result>
       <assert-string-value>13:00:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-010">
+  <test-case name="cbcl-plus-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:dayTimeDuration("P1H") };
         xs:time("12:00:00") + local:f(true())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-011">
+  <test-case name="cbcl-plus-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("P1DT1H")</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:dayTimeDuration("P1D") };
         xs:dayTimeDuration("PT1H") + local:f(false())</test>
-    <result-string>xs:string("P1DT1H")</result-string>
+    <result-string>xs:dayTimeDuration("P1DT1H")</result-string>
     <result>
       <assert-string-value>P1DT1H</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-012">
+  <test-case name="cbcl-plus-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:dayTimeDuration("P1D") };
         xs:dayTimeDuration("PT1H") + local:f(true())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-013">
+  <test-case name="cbcl-plus-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P1Y1M")</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") };
         xs:yearMonthDuration("P1Y") + local:f(false())</test>
-    <result-string>xs:string("P1Y1M")</result-string>
+    <result-string>xs:yearMonthDuration("P1Y1M")</result-string>
     <result>
       <assert-string-value>P1Y1M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-014">
+  <test-case name="cbcl-plus-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") };
         xs:yearMonthDuration("P1Y") + local:f(true())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-015">
+  <test-case name="cbcl-plus-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:date("1997-01-02")</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:dayTimeDuration("P1D") };
         local:f(false()) + xs:date("1997-01-01")</test>
-    <result-string>xs:string("1997-01-02")</result-string>
+    <result-string>xs:date("1997-01-02")</result-string>
     <result>
       <assert-string-value>1997-01-02</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-016">
+  <test-case name="cbcl-plus-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:dayTimeDuration("P1D") };
         local:f(true()) + xs:date("1997-01-01")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-017">
+  <test-case name="cbcl-plus-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:date("1997-02-01")</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:yearMonthDuration("P1M") };
         local:f(false()) + xs:date("1997-01-01")</test>
-    <result-string>xs:string("1997-02-01")</result-string>
+    <result-string>xs:date("1997-02-01")</result-string>
     <result>
       <assert-string-value>1997-02-01</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-018">
+  <test-case name="cbcl-plus-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:yearMonthDuration("P1M") };
         local:f(true()) + xs:date("1997-01-01")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-019">
+  <test-case name="cbcl-plus-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("1997-01-02T12:00:00.000Z")</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:dayTimeDuration("P1D") };
         local:f(false()) + xs:dateTime("1997-01-01T12:00:00")</test>
-    <result-string>xs:string("1997-01-02T12:00:00")</result-string>
+    <result-string>xs:dateTime("1997-01-02T12:00:00.000Z")</result-string>
     <result>
       <assert-string-value>1997-01-02T12:00:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-020">
+  <test-case name="cbcl-plus-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:dayTimeDuration("P1D") };
         local:f(true()) + xs:dateTime("1997-01-01T12:00:00")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-021">
+  <test-case name="cbcl-plus-021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("1997-02-01T12:00:00.000Z")</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:yearMonthDuration("P1M") };
         local:f(false()) + xs:dateTime("1997-01-01T12:00:00")</test>
-    <result-string>xs:string("1997-02-01T12:00:00")</result-string>
+    <result-string>xs:dateTime("1997-02-01T12:00:00.000Z")</result-string>
     <result>
       <assert-string-value>1997-02-01T12:00:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-022">
+  <test-case name="cbcl-plus-022"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:yearMonthDuration("P1M") };
         local:f(true()) + xs:dateTime("1997-01-01T12:00:00")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-023">
+  <test-case name="cbcl-plus-023"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:time("13:00:00.000Z")</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:dayTimeDuration("PT1H") };
         local:f(false()) + xs:time("12:00:00")</test>
-    <result-string>xs:string("13:00:00")</result-string>
+    <result-string>xs:time("13:00:00.000Z")</result-string>
     <result>
       <assert-string-value>13:00:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-024">
+  <test-case name="cbcl-plus-024"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:dayTimeDuration("PT1H") };
         local:f(true()) + xs:time("12:00:00")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-025">
+  <test-case name="cbcl-plus-025"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("P1DT1H")</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:dayTimeDuration("P1D") };
         local:f(false()) + xs:dayTimeDuration("PT1H")</test>
-    <result-string>xs:string("P1DT1H")</result-string>
+    <result-string>xs:dayTimeDuration("P1DT1H")</result-string>
     <result>
       <assert-string-value>P1DT1H</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-026">
+  <test-case name="cbcl-plus-026"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:dayTimeDuration("P1D") };
         local:f(true()) + xs:dayTimeDuration("PT1H")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-027">
+  <test-case name="cbcl-plus-027"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P1Y1M")</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") };
         local:f(false()) + xs:yearMonthDuration("P1Y")</test>
-    <result-string>xs:string("P1Y1M")</result-string>
+    <result-string>xs:yearMonthDuration("P1Y1M")</result-string>
     <result>
       <assert-string-value>P1Y1M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-028">
+  <test-case name="cbcl-plus-028"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") };
         local:f(true()) + xs:yearMonthDuration("P1Y")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-029">
+  <test-case name="cbcl-plus-029"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P2M")</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") };
         local:f(false()) + local:f(false())</test>
-    <result-string>xs:string("P2M")</result-string>
+    <result-string>xs:yearMonthDuration("P2M")</result-string>
     <result>
       <assert-string-value>P2M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-030">
+  <test-case name="cbcl-plus-030"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") };
         local:f(true()) + local:f(true())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-031">
+  <test-case name="cbcl-plus-031"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dayTimeDuration("P2D")</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:dayTimeDuration("P1D") };
         local:f(false()) + local:f(false())</test>
-    <result-string>xs:string("P2D")</result-string>
+    <result-string>xs:dayTimeDuration("P2D")</result-string>
     <result>
       <assert-string-value>P2D</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-032">
+  <test-case name="cbcl-plus-032"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:dayTimeDuration("P1D") };
         local:f(true()) + local:f(true())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-033">
+  <test-case name="cbcl-plus-033"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -845,12 +844,12 @@ together with the numeric-equal operator "ge".
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:dayTimeDuration("P1D") };
         declare function local:g($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") };
         local:f(false()) + local:g(false())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-plus-034">
+  <test-case name="cbcl-plus-034"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of plus operator when presented with an expression with static type duration </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -858,7 +857,7 @@ together with the numeric-equal operator "ge".
         declare function local:f($x) { if ($x) then xs:duration("P1D") else xs:dayTimeDuration("P1D") };
         declare function local:g($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") };
         local:f(true()) + local:g(true())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>

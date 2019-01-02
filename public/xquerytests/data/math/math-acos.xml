@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set covers="math-acos" name="math-acos" xmlns="http://www.w3.org/2010/09/qt-fots-catalog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <description>Tests for the math:acos function introduced in XPath 3.0</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-acos" type="spec"/>
   <dependency type="spec" value="XP30+ XQ30+"/>
-  <test-case name="math-acos-001">
+  <test-case name="math-acos-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Evaluate the function math:acos() with the argument ()</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:acos(())</test>
     <result-string>()</result-string>
@@ -13,51 +12,51 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="math-acos-002">
+  <test-case name="math-acos-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.5707963267948966")</response-string>
     <description>Evaluate the function math:acos() with the argument 0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
-    <modified by="O'Neil Delpratt" change="Bug #19782 - change expected result" on="2012-11-08"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug #19782 - change expected result" on="2012-11-08"/>
     <environment ref="math"/>
     <test>math:acos(0)</test>
-    <result-string>xs:double("1.5707963267948966e0")</result-string>
+    <result-string>xs:double("1.5707963267948966")</result-string>
     <result>
       <assert>abs($result - 1.5707963267948966e0) lt 1e-14</assert>
     </result>
   </test-case>
-  <test-case name="math-acos-003">
+  <test-case name="math-acos-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.5707963267948966")</response-string>
     <description>Evaluate the function math:acos() with the argument -0.0e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
-    <modified by="O'Neil Delpratt" change="Bug #19782 - change expected result" on="2012-11-08"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug #19782 - change expected result" on="2012-11-08"/>
     <environment ref="math"/>
     <test>math:acos(-0.0e0)</test>
-    <result-string>xs:double("1.5707963267948966e0")</result-string>
+    <result-string>xs:double("1.5707963267948966")</result-string>
     <result>
       <assert>abs($result - 1.5707963267948966e0) lt 1e-14</assert>
     </result>
   </test-case>
-  <test-case name="math-acos-004">
+  <test-case name="math-acos-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>Evaluate the function math:acos() with the argument 1.0e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:acos(1.0e0)</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-acos-005">
+  <test-case name="math-acos-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("3.141592653589793")</response-string>
     <description>Evaluate the function math:acos() with the argument -1.0e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:acos(-1.0e0)</test>
-    <result-string>xs:double("3.141592653589793e0")</result-string>
+    <result-string>xs:double("3.141592653589793")</result-string>
     <result>
       <assert-eq>3.141592653589793e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-acos-006">
+  <test-case name="math-acos-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description>Evaluate the function math:acos() with the argument 2.0e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:acos(2.0e0)</test>
     <result-string>xs:double("NaN")</result-string>
@@ -65,31 +64,31 @@
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="math-acos-007">
-    <description>Evaluate the function math:acos() with the argument xs:double('NaN')</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+  <test-case name="math-acos-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
+    <description>Evaluate the function math:acos() with the argument xs:double(&apos;NaN&apos;)</description>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
-    <test>math:acos(xs:double('NaN'))</test>
+    <test>math:acos(xs:double(&apos;NaN&apos;))</test>
     <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="math-acos-008">
-    <description>Evaluate the function math:acos() with the argument xs:double('INF')</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+  <test-case name="math-acos-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
+    <description>Evaluate the function math:acos() with the argument xs:double(&apos;INF&apos;)</description>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
-    <test>math:acos(xs:double('INF'))</test>
+    <test>math:acos(xs:double(&apos;INF&apos;))</test>
     <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="math-acos-009">
-    <description>Evaluate the function math:acos() with the argument xs:double('-INF')</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+  <test-case name="math-acos-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
+    <description>Evaluate the function math:acos() with the argument xs:double(&apos;-INF&apos;)</description>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
-    <test>math:acos(xs:double('-INF'))</test>
+    <test>math:acos(xs:double(&apos;-INF&apos;))</test>
     <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>

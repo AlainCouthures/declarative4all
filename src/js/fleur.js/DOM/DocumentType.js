@@ -59,7 +59,7 @@ Fleur.DocumentType.resolveEntities = function(doctype, s) {
 				entityvalue = "&";
 				break;
 			case "lt":
-				entityvalue = "\x01";
+				entityvalue = "<";
 				break;
 			case "gt":
 				entityvalue = ">";

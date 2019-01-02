@@ -16,7 +16,18 @@ Fleur.XQueryEngine[Fleur.XQueryX.unaryMinusOp] = function(ctx, children, callbac
 			Fleur.callback(function() {callback(a);});
 			return;
 		}
-		a.data = "" + (- op[1]);
+		if (a.schemaTypeInfo !== Fleur.Type_integer && a.schemaTypeInfo !== Fleur.Type_decimal && a.schemaTypeInfo !== Fleur.Type_float && a.schemaTypeInfo !== Fleur.Type_double) {
+			if (a.schemaTypeInfo && a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+				a.schemaTypeInfo = Fleur.Type_integer;
+			} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+				a.schemaTypeInfo = Fleur.Type_decimal;
+			} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+				a.schemaTypeInfo = Fleur.Type_float;
+			} else if (a.schemaTypeInfo.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)) {
+				a.schemaTypeInfo = Fleur.Type_double;
+			}
+		}
+		a.data = a.schemaTypeInfo.canonicalize(String(-op[1]));
 		Fleur.callback(function() {callback(a);});
 	});
 };

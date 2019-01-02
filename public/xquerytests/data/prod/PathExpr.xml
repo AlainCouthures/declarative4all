@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="prod-PathExpr" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the PathExpr production</description>
   <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-PathExpr" type="spec"/>
@@ -9,7 +8,7 @@
       <created by="Nicolae Brinza" on="2009-04-01"/>
     </source>
   </environment>
-  <test-case name="PathExprErr-2">
+  <test-case name="PathExprErr-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004")))</response-string>
     <description> Evaluate error condition XPTY0018 </description>
     <created by="Carmelo Montanez" on="2006-07-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -21,7 +20,7 @@
       <error code="XPTY0018"/>
     </result>
   </test-case>
-  <test-case name="PathExpr-1">
+  <test-case name="PathExpr-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Leading lone slash syntax contraints </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="OneTopElement"/>
@@ -31,7 +30,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="PathExpr-2">
+  <test-case name="PathExpr-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Leading lone slash syntax contraints </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="OneTopElement"/>
@@ -41,17 +40,17 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="PathExpr-3">
+  <test-case name="PathExpr-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Leading lone slash syntax contraints </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="OneTopElement"/>
     <test>fn:count(.[/ * 5])</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="PathExpr-4">
+  <test-case name="PathExpr-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Leading lone slash syntax contraints </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="OneTopElement"/>
@@ -63,7 +62,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="PathExpr-5">
+  <test-case name="PathExpr-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Leading lone slash syntax contraints </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="OneTopElement"/>
@@ -71,13 +70,13 @@
     <test>
       <![CDATA[fn:count(.[/ < 5])]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="PathExpr-5p">
-    <description> In XPath, / doesn't trigger leading-lone-slash syntax contraint </description>
+  <test-case name="PathExpr-5p"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> In XPath, / doesn&apos;t trigger leading-lone-slash syntax contraint </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="OneTopElement"/>
     <dependency type="spec" value="XP20+"/>
@@ -89,7 +88,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="PathExpr-6">
+  <test-case name="PathExpr-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Leading lone slash syntax contraints </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="OneTopElement"/>
@@ -101,7 +100,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="PathExpr-7">
+  <test-case name="PathExpr-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Leading lone slash syntax contraints </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="OneTopElement"/>
@@ -109,13 +108,13 @@
     <test>
       <![CDATA[fn:count(.[/ < a])]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="PathExpr-7p">
-    <description> In XPath, / doesn't trigger leading-lone-slash syntax contraint </description>
+  <test-case name="PathExpr-7p"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> In XPath, / doesn&apos;t trigger leading-lone-slash syntax contraint </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="OneTopElement"/>
     <dependency type="spec" value="XP20+"/>
@@ -127,7 +126,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="PathExpr-8">
+  <test-case name="PathExpr-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Leading lone slash syntax contraints </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="OneTopElement"/>
@@ -135,13 +134,13 @@
     <test>
       <![CDATA[fn:count(.[/ < /b])]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="PathExpr-8p">
-    <description> In XPath, / doesn't trigger leading-lone-slash syntax contraint </description>
+  <test-case name="PathExpr-8p"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> In XPath, / doesn&apos;t trigger leading-lone-slash syntax contraint </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="OneTopElement"/>
     <dependency type="spec" value="XP20+"/>
@@ -153,7 +152,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="PathExpr-9">
+  <test-case name="PathExpr-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Leading lone slash syntax contraints </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="OneTopElement"/>
@@ -166,8 +165,8 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="PathExpr-9p">
-    <description> In XPath, / doesn't trigger leading-lone-slash syntax contraint </description>
+  <test-case name="PathExpr-9p"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+    <description> In XPath, / doesn&apos;t trigger leading-lone-slash syntax contraint </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="OneTopElement"/>
     <dependency type="spec" value="XP20+"/>
@@ -179,14 +178,14 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="PathExpr-10">
+  <test-case name="PathExpr-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Leading lone slash syntax contraints </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
-    <modified by="O'Neil Delpratt" change="Added error code XPST0008 according to bug issue #10697" on="2013-06-11"/>
+    <modified by="O&apos;Neil Delpratt" change="Added error code XPST0008 according to bug issue #10697" on="2013-06-11"/>
     <environment ref="OneTopElement"/>
     <test>fn:count(.[if (doclevel) then / else /*])</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0008"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <any-of>
         <error code="XPST0003"/>
@@ -194,38 +193,38 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="PathExpr-11">
+  <test-case name="PathExpr-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Leading lone slash syntax contraints </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="OneTopElement"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
     <test>let $a := . return fn:count(.[/ is $a])</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="PathExpr-12">
+  <test-case name="PathExpr-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Leading lone slash syntax contraints </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="OneTopElement"/>
     <test>fn:count(.[/ instance of document-node(schema-element(x))])</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="PathExpr-13">
+  <test-case name="PathExpr-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Leading lone slash syntax contraints </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="OneTopElement"/>
     <test>fn:count(.[let $doc := / return $doc/*])</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="PathExpr-14">
+  <test-case name="PathExpr-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Leading lone slash syntax contraints </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="OneTopElement"/>
@@ -238,7 +237,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="PathExpr-15">
+  <test-case name="PathExpr-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Leading lone slash syntax contraints </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="OneTopElement"/>
@@ -248,7 +247,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="PathExpr-16">
+  <test-case name="PathExpr-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Leading lone slash syntax contraints </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="OneTopElement"/>

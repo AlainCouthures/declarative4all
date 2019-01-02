@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="prod-DirectConstructor" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the DirectConstructor production</description>
   <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-DirectConstructor" type="spec"/>
   <link document="XQuery" idref="id-otherConstructors" section-number="3.7.2" type="spec"/>
-  <test-case name="Constr-pi-content-1">
+  <test-case name="Constr-pi-content-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> PI constructor - regular </description>
     <created by="Andreas Behm" on="2005-02-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -17,7 +16,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-pi-content-2">
+  <test-case name="Constr-pi-content-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> PI constructor - regular content </description>
     <created by="Andreas Behm" on="2005-02-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -29,7 +28,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="Constr-pi-content-3">
+  <test-case name="Constr-pi-content-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> PI constructor - empty </description>
     <created by="Andreas Behm" on="2005-02-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -43,7 +42,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-pi-content-4">
+  <test-case name="Constr-pi-content-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> PI constructor - empty content </description>
     <created by="Andreas Behm" on="2005-02-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -55,7 +54,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="Constr-pi-content-5">
+  <test-case name="Constr-pi-content-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> PI constructor - special characters </description>
     <created by="Andreas Behm" on="2005-02-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -65,7 +64,7 @@
       <assert-xml>?pi ?--lt;#x20;![CDATA[x]] ?</assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-pi-content-6">
+  <test-case name="Constr-pi-content-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> PI constructor - leading whitespace </description>
     <created by="Andreas Behm" on="2005-02-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -79,7 +78,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-pi-content-7">
+  <test-case name="Constr-pi-content-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> PI constructor - trailing whitespace </description>
     <created by="Andreas Behm" on="2005-02-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -93,67 +92,67 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-pi-content-8">
+  <test-case name="Constr-pi-content-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> PI constructor - syntax error </description>
     <created by="Andreas Behm" on="2005-02-22"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<?pi ?>?>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Constr-pi-target-1">
+  <test-case name="Constr-pi-target-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> PI constructor - target name xml </description>
     <created by="Andreas Behm" on="2005-02-22"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<?XmL?>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Constr-pi-target-2">
+  <test-case name="Constr-pi-target-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> PI constructor - target name xml </description>
     <created by="Andreas Behm" on="2005-02-22"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<?XML?>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Constr-pi-target-3">
+  <test-case name="Constr-pi-target-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> PI constructor - target name xml </description>
     <created by="Andreas Behm" on="2005-02-22"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<?xml?>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Constr-pi-target-4">
+  <test-case name="Constr-pi-target-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> PI constructor - target name xml </description>
     <created by="Andreas Behm" on="2005-02-22"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<?xMl?>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Constr-comment-1">
+  <test-case name="Constr-comment-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> comment constructor - regular </description>
     <created by="Andreas Behm" on="2005-02-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -167,7 +166,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-comment-2">
+  <test-case name="Constr-comment-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> comment constructor - regular content </description>
     <created by="Andreas Behm" on="2005-02-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -179,7 +178,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="Constr-comment-3">
+  <test-case name="Constr-comment-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> comment constructor - empty </description>
     <created by="Andreas Behm" on="2005-02-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -193,7 +192,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-comment-4">
+  <test-case name="Constr-comment-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> comment constructor - empty content </description>
     <created by="Andreas Behm" on="2005-02-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -205,7 +204,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="Constr-comment-5">
+  <test-case name="Constr-comment-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> comment constructor - special characters </description>
     <created by="Andreas Behm" on="2005-02-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -215,43 +214,43 @@
       <assert-xml>!--?-lt;#x20;![CDATA[x]]--</assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-comment-6">
+  <test-case name="Constr-comment-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> comment constructor - single dash </description>
     <created by="Andreas Behm" on="2005-02-22"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<!----->]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Constr-comment-7">
+  <test-case name="Constr-comment-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> comment constructor - trailing dash </description>
     <created by="Andreas Behm" on="2005-02-22"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<!--comment--->]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Constr-comment-8">
+  <test-case name="Constr-comment-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> comment constructor - double dash </description>
     <created by="Andreas Behm" on="2005-02-22"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<!--com--ment-->]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-1">
+  <test-case name="K2-DirectConOther-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test that processing-instruction data does not receive any special treatment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -263,79 +262,79 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-2">
+  <test-case name="K2-DirectConOther-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<!- oo -->]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-3">
+  <test-case name="K2-DirectConOther-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<! oo -->]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-4">
+  <test-case name="K2-DirectConOther-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<!-- oo ->]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-5">
+  <test-case name="K2-DirectConOther-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<!--- oo ->]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-6">
+  <test-case name="K2-DirectConOther-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<!-->]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-7">
+  <test-case name="K2-DirectConOther-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<!-- -- -->]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-8">
+  <test-case name="K2-DirectConOther-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;!-- --&gt;</response-string>
     <description> Syntax error in comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -347,67 +346,67 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-9">
+  <test-case name="K2-DirectConOther-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<!-]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-10">
+  <test-case name="K2-DirectConOther-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<!]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-11">
+  <test-case name="K2-DirectConOther-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<foo><!--]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-12">
+  <test-case name="K2-DirectConOther-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<foo><!-]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-13">
+  <test-case name="K2-DirectConOther-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<foo><!]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-14">
+  <test-case name="K2-DirectConOther-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;!-- --&gt;</response-string>
     <description> Syntax error in comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -419,175 +418,175 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-15">
+  <test-case name="K2-DirectConOther-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<!-- content]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-16">
+  <test-case name="K2-DirectConOther-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<!-- content -]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-17">
+  <test-case name="K2-DirectConOther-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<!---]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-18">
+  <test-case name="K2-DirectConOther-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<!----]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-19">
+  <test-case name="K2-DirectConOther-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<!----]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-20">
-    <description> Space is not allowed between '?' and the target name. </description>
+  <test-case name="K2-DirectConOther-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Space is not allowed between &apos;?&apos; and the target name. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<? spaceIsNotAllowedBefore ?>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-21">
-    <description> '|' is not allowed in PI target names. </description>
+  <test-case name="K2-DirectConOther-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> &apos;|&apos; is not allowed in PI target names. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<?invalid|char ?>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-22">
-    <description> ':' is not allowed in PI target names. </description>
+  <test-case name="K2-DirectConOther-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> &apos;:&apos; is not allowed in PI target names. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<?invalid:char ?>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-23">
+  <test-case name="K2-DirectConOther-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in processing instruction. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<?xml:char ?>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-24">
+  <test-case name="K2-DirectConOther-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in processing instruction. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<?]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-25">
+  <test-case name="K2-DirectConOther-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in processing instruction. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<?]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-26">
+  <test-case name="K2-DirectConOther-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in processing instruction. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<?xml ?>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-27">
+  <test-case name="K2-DirectConOther-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in processing instruction. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<?XML ?>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-28">
+  <test-case name="K2-DirectConOther-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in processing instruction. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<?XmL ?>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-29">
+  <test-case name="K2-DirectConOther-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Extract the name from a PI. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -599,7 +598,7 @@
       <assert-string-value>xmlSUFFIX</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-30">
+  <test-case name="K2-DirectConOther-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Extract the name from a PI. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -611,7 +610,7 @@
       <assert-string-value>PREFIXxml</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-31">
+  <test-case name="K2-DirectConOther-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Extract the name from a PI. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -623,7 +622,7 @@
       <assert-string-value>PREFIXxmlSUFFIX</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-32">
+  <test-case name="K2-DirectConOther-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Extract the data from a directly constructed PI. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -635,7 +634,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-33">
+  <test-case name="K2-DirectConOther-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Extract the data from a directly constructed PI. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -647,7 +646,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-34">
+  <test-case name="K2-DirectConOther-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Extract the data from a directly constructed PI. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -659,7 +658,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-35">
+  <test-case name="K2-DirectConOther-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Extract the content from a comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -671,7 +670,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-36">
+  <test-case name="K2-DirectConOther-36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Extract the content from a comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -683,8 +682,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-37">
-    <description> Enclosed expressions aren't recognized inside processing instructions. </description>
+  <test-case name="K2-DirectConOther-37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Enclosed expressions aren&apos;t recognized inside processing instructions. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -697,8 +696,8 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-38">
-    <description> Space after PI data isn't stripped. </description>
+  <test-case name="K2-DirectConOther-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Space after PI data isn&apos;t stripped. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -709,7 +708,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-39">
+  <test-case name="K2-DirectConOther-39"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;e&gt;a&lt;!--data tar--&gt;b&lt;/e&gt;</response-string>
     <description> Mixed content involving two text nodes and one comment node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -723,7 +722,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-40">
+  <test-case name="K2-DirectConOther-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("ab")</response-string>
     <description> Mixed content involving two text nodes and one comment node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -735,8 +734,8 @@
       <assert-string-value>ab</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-41">
-    <description> Ensure comment content doesn't receive special interpretation. </description>
+  <test-case name="K2-DirectConOther-41"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Ensure comment content doesn&apos;t receive special interpretation. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -747,31 +746,31 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-42">
+  <test-case name="K2-DirectConOther-42"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A PI target must be specified. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<??>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-43">
+  <test-case name="K2-DirectConOther-43"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Two subsequent processing instructions as a primary expression is a syntax error. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<?a?><?b ?>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-44">
+  <test-case name="K2-DirectConOther-44"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test the atomized type of a PI. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -783,7 +782,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-45">
+  <test-case name="K2-DirectConOther-45"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test the atomized type of a comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -795,7 +794,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-46">
+  <test-case name="K2-DirectConOther-46"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test serialization of tricky comment content. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -805,8 +804,8 @@
       <assert-xml>!-- %(/?=(=)entity;-]] --</assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-47">
-    <description> Use an ending ']]' string inside a processing instruction. </description>
+  <test-case name="K2-DirectConOther-47"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Use an ending &apos;]]&apos; string inside a processing instruction. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>?target ]]?</test>
@@ -815,7 +814,7 @@
       <assert-xml>?target ]]?</assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-48">
+  <test-case name="K2-DirectConOther-48"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Ensure xml:id is properly normalized, when using a direct constructor. The value is also an invalid xs:ID value, hence the allowed error code. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -831,9 +830,9 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-49">
-    <description> Check that an attribute value's value is properly read and serialized. Since the whitespace 
-        is expressed with character references they are preserved and hence aren't subject to for 
+  <test-case name="K2-DirectConOther-49"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Check that an attribute value&apos;s value is properly read and serialized. Since the whitespace 
+        is expressed with character references they are preserved and hence aren&apos;t subject to for 
         instance end-of-line handling. Subsequently, the serialization process must escape such characters 
         in order to not have the parser normalize the values when being read back in. </description>
     <created by="Frans Englich" on="2007-11-26"/>
@@ -844,7 +843,7 @@
       <assert-xml file="DirectConstructor/K2-DirectConOther-49.out"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-50">
+  <test-case name="K2-DirectConOther-50"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Ensure that EOL-normalization also takes place in CDATA sections. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -854,7 +853,7 @@
       <assert-xml file="DirectConstructor/K2-DirectConOther-50.out"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-51">
+  <test-case name="K2-DirectConOther-51"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Ensure that EOL-normalization also takes place in CDATA sections(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -864,7 +863,7 @@
       <assert-xml file="DirectConstructor/K2-DirectConOther-51.out"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-52">
+  <test-case name="K2-DirectConOther-52"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Ensure that EOLs are normalized in text nodes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -874,7 +873,7 @@
       <assert-xml file="DirectConstructor/K2-DirectConOther-52.out"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-53">
+  <test-case name="K2-DirectConOther-53"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Ensure that EOLs are normalized in comment nodes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -884,7 +883,7 @@
       <assert-xml file="DirectConstructor/K2-DirectConOther-53.out"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-54">
+  <test-case name="K2-DirectConOther-54"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Ensure that EOLs are normalized in processing instructions. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -894,29 +893,29 @@
       <assert-xml file="DirectConstructor/K2-DirectConOther-54.out"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-55">
-    <description> A single ''. </description>
+  <test-case name="K2-DirectConOther-55"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> A single &apos;&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test/>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-56">
-    <description> A single ''. </description>
+  <test-case name="K2-DirectConOther-56"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> A single &apos;&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-57">
-    <description> '/' is a syntax error. </description>
+  <test-case name="K2-DirectConOther-57"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">document {&lt;dummy/&gt;}</response-string>
+    <description> &apos;/&apos; is a syntax error. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>/</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
@@ -924,8 +923,8 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-58">
-    <description> Ensure whitespace at the beginning of attributes, isn't stripped. </description>
+  <test-case name="K2-DirectConOther-58"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;e attr="   a"/&gt;</response-string>
+    <description> Ensure whitespace at the beginning of attributes, isn&apos;t stripped. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -938,7 +937,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-59">
+  <test-case name="K2-DirectConOther-59"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="  "/&gt;</response-string>
     <description> Check attribute normalization, with apostrophes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -958,7 +957,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-60">
+  <test-case name="K2-DirectConOther-60"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;e attr="    "/&gt;</response-string>
     <description> Check normalization of attributes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -972,32 +971,32 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-61">
+  <test-case name="K2-DirectConOther-61"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> An unmatched curly in an attribute value template(quotes). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<element attributeName="}"/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-62">
+  <test-case name="K2-DirectConOther-62"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> An unmatched curly in an attribute value template(apostrophes). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<element attributeName='}'/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-63">
-    <description> '1' is an invalid value for xml:id. </description>
+  <test-case name="K2-DirectConOther-63"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> &apos;1&apos; is an invalid value for xml:id. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -1014,8 +1013,8 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-64">
-    <description> 'PRESERVE' is an invalid value for xml:space. </description>
+  <test-case name="K2-DirectConOther-64"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> &apos;PRESERVE&apos; is an invalid value for xml:space. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -1032,8 +1031,8 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-65">
-    <description> ' preserve' is an invalid value for xml:space. </description>
+  <test-case name="K2-DirectConOther-65"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> &apos; preserve&apos; is an invalid value for xml:space. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -1050,7 +1049,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-66">
+  <test-case name="K2-DirectConOther-66"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Ensure direct element constructors makes namespaces in scope for other node constructors. </description>
     <created by="Frans Englich" on="2008-01-10"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1064,7 +1063,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-67">
+  <test-case name="K2-DirectConOther-67"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Ensure the default namespace is picked up by independent child constructors. </description>
     <created by="Frans Englich" on="2008-01-10"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1078,7 +1077,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-68">
+  <test-case name="K2-DirectConOther-68"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Ensure that EOLs are normalized in attributes surrounded with quotes. </description>
     <created by="Frans Englich" on="2008-01-23"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1097,7 +1096,7 @@ string literal
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-69">
+  <test-case name="K2-DirectConOther-69"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Ensure that EOLs are normalized in attributes surrounded with apostrophes. </description>
     <created by="Frans Englich" on="2008-01-23"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1116,7 +1115,7 @@ string literal
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-70">
+  <test-case name="K2-DirectConOther-70"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Ensure that EOLs are normalized in text nodes, but not when specified with character references. </description>
     <created by="Frans Englich" on="2008-01-23"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1132,7 +1131,7 @@ string literal
       <assert-string-value>10 10 10 32 10 124 13 32 13 10</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-DirectConOther-71">
+  <test-case name="K2-DirectConOther-71"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;a xmlns:p="urn:abbrev:NS"&gt;&lt;b p:c="" p:d=""/&gt;&lt;/a&gt;</response-string>
     <description> A small fragment using namespaces. </description>
     <created by="Frans Englich" on="2008-02-27"/>
     <dependency type="spec" value="XQ10+"/>

@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="prod-GeneralComp.lt" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the GeneralComp.lt production</description>
   <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-GeneralComp.lt" type="spec"/>
   <link document="XQuery" idref="id-general-comparisons" section-number="3.5.2" type="spec"/>
-  <test-case name="generalexpression199">
+  <test-case name="generalexpression199"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Empty sequence operator =  operand2 = Empty sequence </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>
@@ -14,7 +13,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression200">
+  <test-case name="generalexpression200"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Empty sequence operator =  operand2 = Atomic Value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>
@@ -25,7 +24,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression201">
+  <test-case name="generalexpression201"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Empty sequence operator =  operand2 = Sequence of single atomic value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>
@@ -36,7 +35,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression202">
+  <test-case name="generalexpression202"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Empty sequence operator =  operand2 = Sequence of single atomic values </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>
@@ -47,7 +46,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression203">
+  <test-case name="generalexpression203"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Empty sequence operator =  operand2 = Element Constructor </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -59,7 +58,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression204">
+  <test-case name="generalexpression204"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Empty sequence operator =  operand2 = Sequence of single element constructor </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -71,7 +70,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression205">
+  <test-case name="generalexpression205"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Empty sequence operator =  operand2 = Sequence of multiple element constructors </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -83,7 +82,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression206">
+  <test-case name="generalexpression206"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Empty sequence operator =  operand2 = Sequence of single element nodes </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -95,7 +94,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression207">
+  <test-case name="generalexpression207"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Empty sequence operator =  operand2 = Sequence of multiple element nodes (single source) </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -107,7 +106,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression208">
+  <test-case name="generalexpression208"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Empty sequence operator =  operand2 = Sequence of multiple element nodes (multiple sources) </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
@@ -120,7 +119,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression209">
+  <test-case name="generalexpression209"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Atomic Value operator =  operand2 = Empty sequence </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>
@@ -131,7 +130,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression210">
+  <test-case name="generalexpression210"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Atomic Value operator =  operand2 = Sequence of single atomic value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>
@@ -142,7 +141,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression211">
+  <test-case name="generalexpression211"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Atomic Value operator =  operand2 = Sequence of single atomic values </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>
@@ -153,7 +152,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression212">
+  <test-case name="generalexpression212"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Atomic Value operator =  operand2 = Element Constructor </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -165,7 +164,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression213">
+  <test-case name="generalexpression213"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Atomic Value operator =  operand2 = Sequence of single element constructor </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -177,7 +176,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression214">
+  <test-case name="generalexpression214"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Atomic Value operator =  operand2 = Sequence of multiple element constructors </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -189,7 +188,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression215">
+  <test-case name="generalexpression215"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Atomic Value operator =  operand2 = Sequence of single element nodes </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -201,7 +200,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression216">
+  <test-case name="generalexpression216"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Atomic Value operator =  operand2 = Sequence of multiple element nodes (single source) </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -213,7 +212,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression217">
+  <test-case name="generalexpression217"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Atomic Value operator =  operand2 = Sequence of multiple element nodes (multiple sources) </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
@@ -226,7 +225,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression218">
+  <test-case name="generalexpression218"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic value operator =  operand2 = Empty sequence </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>
@@ -237,7 +236,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression219">
+  <test-case name="generalexpression219"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic value operator =  operand2 = Atomic Value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>
@@ -248,7 +247,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression220">
+  <test-case name="generalexpression220"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic value operator =  operand2 = Sequence of single atomic value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>
@@ -259,7 +258,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression221">
+  <test-case name="generalexpression221"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic value operator =  operand2 = Sequence of single atomic values </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>
@@ -270,7 +269,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression222">
+  <test-case name="generalexpression222"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic value operator =  operand2 = Element Constructor </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -282,7 +281,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression223">
+  <test-case name="generalexpression223"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic value operator =  operand2 = Sequence of single element constructor </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -294,7 +293,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression224">
+  <test-case name="generalexpression224"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic value operator =  operand2 = Sequence of multiple element constructors </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -306,7 +305,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression225">
+  <test-case name="generalexpression225"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic value operator =  operand2 = Sequence of single element nodes </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -318,7 +317,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression226">
+  <test-case name="generalexpression226"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic value operator =  operand2 = Sequence of multiple element nodes (single source) </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -330,7 +329,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression227">
+  <test-case name="generalexpression227"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic value operator =  operand2 = Sequence of multiple element nodes (multiple sources) </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
@@ -343,7 +342,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression228">
+  <test-case name="generalexpression228"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic values operator =  operand2 = Empty sequence </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>
@@ -354,7 +353,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression229">
+  <test-case name="generalexpression229"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic values operator =  operand2 = Atomic Value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>
@@ -365,7 +364,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression230">
+  <test-case name="generalexpression230"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic values operator =  operand2 = Sequence of single atomic value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>
@@ -376,7 +375,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression231">
+  <test-case name="generalexpression231"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic values operator =  operand2 = Sequence of single atomic values </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <test>
@@ -387,7 +386,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression232">
+  <test-case name="generalexpression232"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic values operator =  operand2 = Element Constructor </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -399,7 +398,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression233">
+  <test-case name="generalexpression233"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic values operator =  operand2 = Sequence of single element constructor </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -411,7 +410,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression234">
+  <test-case name="generalexpression234"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic values operator =  operand2 = Sequence of multiple element constructors </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -423,7 +422,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression235">
+  <test-case name="generalexpression235"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic values operator =  operand2 = Sequence of single element nodes </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -435,7 +434,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression236">
+  <test-case name="generalexpression236"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic values operator =  operand2 = Sequence of multiple element nodes (single source) </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -447,7 +446,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression237">
+  <test-case name="generalexpression237"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single atomic values operator =  operand2 = Sequence of multiple element nodes (multiple sources) </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
@@ -460,7 +459,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression238">
+  <test-case name="generalexpression238"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Element Constructor operator =  operand2 = Empty sequence </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -472,7 +471,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression239">
+  <test-case name="generalexpression239"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Element Constructor operator =  operand2 = Atomic Value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -484,7 +483,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression240">
+  <test-case name="generalexpression240"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Element Constructor operator =  operand2 = Sequence of single atomic value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -496,7 +495,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression241">
+  <test-case name="generalexpression241"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Element Constructor operator =  operand2 = Sequence of single atomic values </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -508,7 +507,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression242">
+  <test-case name="generalexpression242"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Element Constructor operator =  operand2 = Element Constructor </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -520,7 +519,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression243">
+  <test-case name="generalexpression243"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Element Constructor operator =  operand2 = Sequence of single element constructor </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -532,7 +531,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression244">
+  <test-case name="generalexpression244"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Element Constructor operator =  operand2 = Sequence of multiple element constructors </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -544,7 +543,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression245">
+  <test-case name="generalexpression245"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Element Constructor operator =  operand2 = Sequence of single element nodes </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -557,7 +556,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression246">
+  <test-case name="generalexpression246"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Element Constructor operator =  operand2 = Sequence of multiple element nodes (single source) </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -570,7 +569,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression247">
+  <test-case name="generalexpression247"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Element Constructor operator =  operand2 = Sequence of multiple element nodes (multiple sources) </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
@@ -584,7 +583,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression248">
+  <test-case name="generalexpression248"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single element constructor operator =  operand2 = Empty sequence </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -596,7 +595,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression249">
+  <test-case name="generalexpression249"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single element constructor operator =  operand2 = Atomic Value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -608,7 +607,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression250">
+  <test-case name="generalexpression250"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single element constructor operator =  operand2 = Sequence of single atomic value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -620,7 +619,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression251">
+  <test-case name="generalexpression251"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single element constructor operator =  operand2 = Sequence of single atomic values </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -632,7 +631,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression252">
+  <test-case name="generalexpression252"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single element constructor operator =  operand2 = Element Constructor </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -644,7 +643,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression253">
+  <test-case name="generalexpression253"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single element constructor operator =  operand2 = Sequence of single element constructor </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -656,7 +655,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression254">
+  <test-case name="generalexpression254"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single element constructor operator =  operand2 = Sequence of multiple element constructors </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -668,7 +667,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression255">
+  <test-case name="generalexpression255"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single element constructor operator =  operand2 = Sequence of single element nodes </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -681,7 +680,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression256">
+  <test-case name="generalexpression256"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single element constructor operator =  operand2 = Sequence of multiple element nodes (single source) </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -694,7 +693,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression257">
+  <test-case name="generalexpression257"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single element constructor operator =  operand2 = Sequence of multiple element nodes (multiple sources) </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
@@ -708,7 +707,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression258">
+  <test-case name="generalexpression258"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element constructors operator =  operand2 = Empty sequence </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -720,7 +719,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression259">
+  <test-case name="generalexpression259"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element constructors operator =  operand2 = Atomic Value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -732,7 +731,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression260">
+  <test-case name="generalexpression260"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element constructors operator =  operand2 = Sequence of single atomic value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -744,7 +743,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression261">
+  <test-case name="generalexpression261"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element constructors operator =  operand2 = Sequence of single atomic values </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -756,7 +755,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression262">
+  <test-case name="generalexpression262"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element constructors operator =  operand2 = Element Constructor </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -768,7 +767,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression263">
+  <test-case name="generalexpression263"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element constructors operator =  operand2 = Sequence of single element constructor </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -780,7 +779,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression264">
+  <test-case name="generalexpression264"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element constructors operator =  operand2 = Sequence of multiple element constructors </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -792,7 +791,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression265">
+  <test-case name="generalexpression265"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element constructors operator =  operand2 = Sequence of single element nodes </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -805,7 +804,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression266">
+  <test-case name="generalexpression266"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element constructors operator =  operand2 = Sequence of multiple element nodes (single source) </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -818,7 +817,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression267">
+  <test-case name="generalexpression267"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element constructors operator =  operand2 = Sequence of multiple element nodes (multiple sources) </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
@@ -832,7 +831,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression268">
+  <test-case name="generalexpression268"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single element nodes operator =  operand2 = Empty sequence </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -844,7 +843,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression269">
+  <test-case name="generalexpression269"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single element nodes operator =  operand2 = Atomic Value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -856,7 +855,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression270">
+  <test-case name="generalexpression270"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single element nodes operator =  operand2 = Sequence of single atomic value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -868,7 +867,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression271">
+  <test-case name="generalexpression271"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single element nodes operator =  operand2 = Sequence of single atomic values </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -880,7 +879,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression272">
+  <test-case name="generalexpression272"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single element nodes operator =  operand2 = Element Constructor </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -893,7 +892,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression273">
+  <test-case name="generalexpression273"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single element nodes operator =  operand2 = Sequence of single element constructor </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -906,7 +905,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression274">
+  <test-case name="generalexpression274"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single element nodes operator =  operand2 = Sequence of multiple element constructors </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -919,7 +918,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression275">
+  <test-case name="generalexpression275"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single element nodes operator =  operand2 = Sequence of single element nodes </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -931,7 +930,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression276">
+  <test-case name="generalexpression276"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single element nodes operator =  operand2 = Sequence of multiple element nodes (single source) </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -943,7 +942,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression277">
+  <test-case name="generalexpression277"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of single element nodes operator =  operand2 = Sequence of multiple element nodes (multiple sources) </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
@@ -956,7 +955,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression278">
+  <test-case name="generalexpression278"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element nodes (single source) operator =  operand2 = Empty sequence </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -968,7 +967,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression279">
+  <test-case name="generalexpression279"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element nodes (single source) operator =  operand2 = Atomic Value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -980,7 +979,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression280">
+  <test-case name="generalexpression280"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element nodes (single source) operator =  operand2 = Sequence of single atomic value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -992,7 +991,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression281">
+  <test-case name="generalexpression281"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element nodes (single source) operator =  operand2 = Sequence of single atomic values </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -1004,7 +1003,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression282">
+  <test-case name="generalexpression282"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element nodes (single source) operator =  operand2 = Element Constructor </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -1017,7 +1016,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression283">
+  <test-case name="generalexpression283"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element nodes (single source) operator =  operand2 = Sequence of single element constructor </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -1030,7 +1029,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression284">
+  <test-case name="generalexpression284"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element nodes (single source) operator =  operand2 = Sequence of multiple element constructors </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -1043,7 +1042,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression285">
+  <test-case name="generalexpression285"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element nodes (single source) operator =  operand2 = Sequence of single element nodes </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -1055,7 +1054,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression286">
+  <test-case name="generalexpression286"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element nodes (single source) operator =  operand2 = Sequence of multiple element nodes (single source) </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works"/>
@@ -1067,7 +1066,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression287">
+  <test-case name="generalexpression287"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element nodes (single source) operator =  operand2 = Sequence of multiple element nodes (multiple sources) </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
@@ -1080,7 +1079,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression288">
+  <test-case name="generalexpression288"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element nodes (multiple sources) operator =  operand2 = Empty sequence </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
@@ -1093,7 +1092,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression289">
+  <test-case name="generalexpression289"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element nodes (multiple sources) operator =  operand2 = Atomic Value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
@@ -1105,7 +1104,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression290">
+  <test-case name="generalexpression290"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element nodes (multiple sources) operator =  operand2 = Sequence of single atomic value </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
@@ -1117,7 +1116,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression291">
+  <test-case name="generalexpression291"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element nodes (multiple sources) operator =  operand2 = Sequence of single atomic values </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
@@ -1129,7 +1128,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression292">
+  <test-case name="generalexpression292"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element nodes (multiple sources) operator =  operand2 = Element Constructor </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
@@ -1142,7 +1141,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression293">
+  <test-case name="generalexpression293"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element nodes (multiple sources) operator =  operand2 = Sequence of single element constructor </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
@@ -1155,7 +1154,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression294">
+  <test-case name="generalexpression294"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element nodes (multiple sources) operator =  operand2 = Sequence of multiple element constructors </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
@@ -1168,7 +1167,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="generalexpression295">
+  <test-case name="generalexpression295"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element nodes (multiple sources) operator =  operand2 = Sequence of single element nodes </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
@@ -1180,7 +1179,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression296">
+  <test-case name="generalexpression296"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element nodes (multiple sources) operator =  operand2 = Sequence of multiple element nodes (single source) </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
@@ -1192,7 +1191,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="generalexpression297">
+  <test-case name="generalexpression297"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test of a General Expression with the operands set as follows operand1 = Sequence of multiple element nodes (multiple sources) operator =  operand2 = Sequence of multiple element nodes (multiple sources) </description>
     <created by="Carmelo Montanez (Automatic Generation)" on="2005-06-01"/>
     <environment ref="works-and-staff"/>
@@ -1204,7 +1203,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="lessthanonanyuri-1">
+  <test-case name="lessthanonanyuri-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Test - lessthanonanyuri-1  Evaluation of "lt" operator on xs:anyURI datatype. </description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>
@@ -1215,7 +1214,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K-GenCompLT-1">
+  <test-case name="K-GenCompLT-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> General comparison where one or more operands is the empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1226,7 +1225,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-GenCompLT-2">
+  <test-case name="K-GenCompLT-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> General comparison where one or more operands is the empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1237,7 +1236,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-GenCompLT-3">
+  <test-case name="K-GenCompLT-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> General comparison where one or more operands is the empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1248,18 +1247,18 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-GenCompLT-4">
+  <test-case name="K-GenCompLT-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A syntactically invalid expression that reminds of a general comparison operator. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[1 =< 1]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-GenCompLT-5">
+  <test-case name="K-GenCompLT-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> General comparison where the operands are various various sequence of xs:integers. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1270,7 +1269,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-GenCompLT-6">
+  <test-case name="K-GenCompLT-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> General comparison where the operands are various various sequence of xs:integers. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1281,7 +1280,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-GenCompLT-7">
+  <test-case name="K-GenCompLT-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> General comparison where the operands are various various sequence of xs:integers. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1292,7 +1291,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-GenCompLT-8">
+  <test-case name="K-GenCompLT-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> General comparison where the operands are various various sequence of xs:integers. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1303,7 +1302,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-GenCompLT-9">
+  <test-case name="K-GenCompLT-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> General comparison where the operands are various various sequence of xs:integers. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1314,7 +1313,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-GenCompLT-10">
+  <test-case name="K-GenCompLT-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> General comparison where the operands are various various sequence of xs:integers. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1325,7 +1324,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-GenCompLT-11">
+  <test-case name="K-GenCompLT-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> General comparison where the operands are various various sequence of xs:integers. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1336,7 +1335,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-GenCompLT-12">
+  <test-case name="K-GenCompLT-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> General comparison causing a xs:untypedAtomic value to be cast to xs:boolean, and then compared. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1347,7 +1346,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-GenCompLT-13">
+  <test-case name="K-GenCompLT-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> General comparison causing a xs:untypedAtomic value to be cast to xs:boolean, and then compared. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1358,7 +1357,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-GenCompLT-14">
+  <test-case name="K-GenCompLT-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> General comparison causing a xs:untypedAtomic value to be cast to xs:boolean, and then compared. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1369,7 +1368,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-GenCompLT-15">
+  <test-case name="K-GenCompLT-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> General comparison causing a xs:untypedAtomic value to be cast to xs:boolean, and then compared. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1380,7 +1379,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-GenCompLT-16">
+  <test-case name="K-GenCompLT-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> General comparison which fails due to invalid operator combination or casting. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1391,7 +1390,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-GenCompLT-17">
+  <test-case name="K-GenCompLT-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> General comparison which fails due to invalid operator combination or casting. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1402,7 +1401,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-GenCompLT-18">
+  <test-case name="K-GenCompLT-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> = combined with count(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1413,7 +1412,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-GenCompLT-19">
+  <test-case name="K-GenCompLT-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>  combined with count(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1424,7 +1423,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-GenCompLT-1">
+  <test-case name="K2-GenCompLT-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Do a comparison that requires conversion via element()-xs:untypedAtomic-xs:double(LHS), triggered by xs:integer. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1436,7 +1435,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-GenCompLT-2">
+  <test-case name="K2-GenCompLT-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Do a comparison that requires conversion via element()-xs:untypedAtomic-xs:double(RHS), triggered by xs:integer. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1448,7 +1447,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-GenCompLT-3">
+  <test-case name="K2-GenCompLT-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Do a comparison that requires conversion via element()-xs:untypedAtomic-xs:double(LHS), triggered by xs:integer. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1460,7 +1459,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-GenCompLT-4">
+  <test-case name="K2-GenCompLT-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Do a comparison that requires conversion via element()-xs:untypedAtomic-xs:double(RHS), triggered by xs:integer. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1472,7 +1471,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-GenCompLT-5">
+  <test-case name="K2-GenCompLT-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Do a comparison that requires conversion via element()-xs:untypedAtomic-xs:double(LHS), triggered by xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1484,7 +1483,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-GenCompLT-6">
+  <test-case name="K2-GenCompLT-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Do a comparison that requires conversion via element()-xs:untypedAtomic-xs:double(RHS), triggered by xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1496,7 +1495,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-GenCompLT-7">
+  <test-case name="K2-GenCompLT-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Do a comparison that requires conversion via element()-xs:untypedAtomic-xs:double(LHS), triggered by xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1508,7 +1507,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-GenCompLT-8">
+  <test-case name="K2-GenCompLT-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Do a comparison that requires conversion via element()-xs:untypedAtomic-xs:double(RHS), triggered by xs:double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>

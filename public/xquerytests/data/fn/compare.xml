@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-compare" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the compare() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-compare" type="spec"/>
-  <test-case name="fn-compare2args-1">
+  <test-case name="fn-compare2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $comparand1 = xs:string(lower bound) $comparand2 = xs:string(lower bound)</description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:compare(xs:string("This is a characte"),xs:string("This is a characte"))</test>
@@ -11,7 +10,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare2args-2">
+  <test-case name="fn-compare2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $comparand1 = xs:string(mid range) $comparand2 = xs:string(lower bound)</description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:compare(xs:string("This is a characte"),xs:string("This is a characte"))</test>
@@ -20,7 +19,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare2args-3">
+  <test-case name="fn-compare2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $comparand1 = xs:string(upper bound) $comparand2 = xs:string(lower bound)</description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:compare(xs:string("This is a characte"),xs:string("This is a characte"))</test>
@@ -29,7 +28,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare2args-4">
+  <test-case name="fn-compare2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $comparand1 = xs:string(lower bound) $comparand2 = xs:string(mid range)</description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:compare(xs:string("This is a characte"),xs:string("This is a characte"))</test>
@@ -38,7 +37,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare2args-5">
+  <test-case name="fn-compare2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $comparand1 = xs:string(lower bound) $comparand2 = xs:string(upper bound)</description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:compare(xs:string("This is a characte"),xs:string("This is a characte"))</test>
@@ -47,7 +46,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare-1">
+  <test-case name="fn-compare-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $arg1 = "" $arg2 = ""</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare("","")</test>
@@ -56,7 +55,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare-2">
+  <test-case name="fn-compare-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $arg1 = "" $arg2 = "A Character String"</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare("","A Character String")</test>
@@ -65,7 +64,7 @@
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare-3">
+  <test-case name="fn-compare-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $arg1 = "A Character String" $arg2 = ""</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare("A Character String","")</test>
@@ -74,7 +73,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare-4">
+  <test-case name="fn-compare-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $arg1 = () $arg2 = ""</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:count(fn:compare((),""))</test>
@@ -83,7 +82,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare-5">
+  <test-case name="fn-compare-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $arg1 = "" $arg2 = ()</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:count(fn:compare("",()))</test>
@@ -92,7 +91,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare-6">
+  <test-case name="fn-compare-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $arg1 = "A Character String" $arg2 = ()</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:count(fn:compare("A Character String",()))</test>
@@ -101,7 +100,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare-7">
+  <test-case name="fn-compare-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $arg1 = () $arg2 = "A Character String"</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:count(fn:compare((),"A Character String"))</test>
@@ -110,7 +109,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare-8">
+  <test-case name="fn-compare-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $arg1 = "AAAAABBBBBCCCCC" $arg2 = "BBBBB"</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare("AAAAABBBBBCCCCC","BBBBB")</test>
@@ -119,7 +118,7 @@
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare-9">
+  <test-case name="fn-compare-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $arg1 = "AAAAABBBBB" $arg2 = " "</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare("AAAAABBBBB"," ")</test>
@@ -128,7 +127,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare-10">
+  <test-case name="fn-compare-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $arg1 = " " $arg2 = " AAAAABBBBB"</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare(" ","AAAAABBBBB")</test>
@@ -137,7 +136,7 @@
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare-11">
+  <test-case name="fn-compare-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates The "compare" function using it as a argument of a fn:not - returns true</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:not(fn:compare("A","A"))</test>
@@ -146,7 +145,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-compare-12">
+  <test-case name="fn-compare-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Evaluates The "compare" function using it as a argument of a fn:not - returns false</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:not(fn:compare("A","B"))</test>
@@ -155,7 +154,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-compare-13">
+  <test-case name="fn-compare-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $arg1 = xs:string("A") $arg2 = "A"</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare(xs:string("A"),"A")</test>
@@ -164,7 +163,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare-14">
+  <test-case name="fn-compare-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $arg1 = "A" $arg2 = xs:string("A")</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare("A",xs:string("A"))</test>
@@ -173,7 +172,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare-15">
+  <test-case name="fn-compare-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $arg1 = "A" $arg2 = "a"</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare("A","a")</test>
@@ -182,7 +181,7 @@
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare-16">
+  <test-case name="fn-compare-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $arg1 = "a" $arg2 = "A"</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare("a","A")</test>
@@ -191,7 +190,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare-17">
+  <test-case name="fn-compare-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $arg1 = "compare" $arg2 = "compare"</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare("compare","compare")</test>
@@ -200,7 +199,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare-18">
+  <test-case name="fn-compare-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $arg1 = "comparecompare" $arg2 = "compare"</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare("comparecompare","compare")</test>
@@ -209,7 +208,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare-19">
+  <test-case name="fn-compare-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $arg1 = "****" $arg2 = "***"</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare("****","***")</test>
@@ -218,7 +217,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare-20">
+  <test-case name="fn-compare-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $arg1 = "12345" $arg2 = "1234"</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare("12345","1234")</test>
@@ -227,7 +226,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare-21">
+  <test-case name="fn-compare-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1")</response-string>
     <description>Evaluates The "compare" function with the arguments set as follows: $arg1 = "compare" $arg2 = "erapmoc" ("compare" backwards)</description>
     <created by="Carmelo Montanez" on="2005-06-01"/>
     <test>fn:compare("compare","erapmoc")</test>
@@ -236,7 +235,7 @@
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-compare-22">
+  <test-case name="fn-compare-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002"))</response-string>
     <description>Description Evaluates The "compare" function with a nonexistent collation.</description>
     <created by="Carmelo Montanez" on="2005-11-25"/>
     <test>fn:compare("a","a","CollationA")</test>
@@ -245,7 +244,7 @@
       <error code="FOCH0002"/>
     </result>
   </test-case>
-  <test-case name="K-compareFunc-1">
+  <test-case name="K-compareFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>A test whose essence is: `codepoint-equal()`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoint-equal()</test>
@@ -254,7 +253,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-compareFunc-2">
+  <test-case name="K-compareFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>A test whose essence is: `codepoint-equal(())`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoint-equal(())</test>
@@ -263,7 +262,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-compareFunc-3">
+  <test-case name="K-compareFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>A test whose essence is: `codepoint-equal((), (), ())`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoint-equal((), (), ())</test>
@@ -272,7 +271,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-compareFunc-4">
+  <test-case name="K-compareFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>A test whose essence is: `empty(codepoint-equal((), "a string"))`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(codepoint-equal((), "a string"))</test>
@@ -281,7 +280,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-compareFunc-5">
+  <test-case name="K-compareFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>A test whose essence is: `empty(codepoint-equal("a string", ()))`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(codepoint-equal("a string", ()))</test>
@@ -290,7 +289,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-compareFunc-6">
+  <test-case name="K-compareFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>A test whose essence is: `codepoint-equal("a string", "a string")`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoint-equal("a string", "a string")</test>
@@ -299,7 +298,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-compareFunc-7">
+  <test-case name="K-compareFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>A test whose essence is: `not(codepoint-equal("cow", "a string"))`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(codepoint-equal("cow", "a string"))</test>
@@ -308,7 +307,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-compareFunc-8">
+  <test-case name="K-compareFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>A test whose essence is: `compare()`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>compare()</test>
@@ -317,7 +316,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-compareFunc-9">
+  <test-case name="K-compareFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>A test whose essence is: `compare(())`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>compare(())</test>
@@ -326,7 +325,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-compareFunc-10">
+  <test-case name="K-compareFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>A test whose essence is: `compare((), (), "http://www.w3.org/2005/xpath-functions/collation/codepoint", "wrong param")`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>compare((), (), "http://www.w3.org/2005/xpath-functions/collation/codepoint", "wrong param")</test>
@@ -335,7 +334,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-compareFunc-11">
+  <test-case name="K-compareFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>A test whose essence is: `empty(compare((), "a string"))`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(compare((), "a string"))</test>
@@ -344,7 +343,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-compareFunc-12">
+  <test-case name="K-compareFunc-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>A test whose essence is: `empty(compare("a string", ()))`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(compare("a string", ()))</test>
@@ -353,7 +352,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-compareFunc-13">
+  <test-case name="K-compareFunc-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>A test whose essence is: `empty(compare("a string", (), "http://www.w3.org/2005/xpath-functions/collation/codepoint"))`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(compare("a string", (), "http://www.w3.org/2005/xpath-functions/collation/codepoint"))</test>
@@ -362,7 +361,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-compareFunc-14">
+  <test-case name="K-compareFunc-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>A test whose essence is: `compare("str", "str") instance of xs:integer`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>compare("str", "str") instance of xs:integer</test>
@@ -371,7 +370,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-compareFunc-15">
+  <test-case name="K-compareFunc-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002"))</response-string>
     <description>A test whose essence is: `empty(compare("a string", "a string", "http://www.example.com/COLLATION/NOT/SUPPORTED"))`.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(compare("a string", "a string", "http://www.example.com/COLLATION/NOT/SUPPORTED"))</test>
@@ -384,7 +383,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="compare-001">
+  <test-case name="compare-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1")</response-string>
     <description>Simple use of compare to compare strings</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>compare("a", "b")</test>
@@ -396,7 +395,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="compare-002">
+  <test-case name="compare-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description>Simple use of compare to compare strings</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>compare("b", "a")</test>
@@ -405,7 +404,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="compare-003">
+  <test-case name="compare-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description>Simple use of compare to compare strings</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>compare("b", "b")</test>
@@ -414,7 +413,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="compare-004">
+  <test-case name="compare-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>compare() with empty sequence as argument</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>compare("b", ())</test>
@@ -423,7 +422,7 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="compare-005">
+  <test-case name="compare-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>compare() with empty sequence as argument</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>compare((), "b")</test>
@@ -432,7 +431,7 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="compare-006">
+  <test-case name="compare-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>compare() with empty sequence as argument</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>compare((), ())</test>
@@ -441,34 +440,34 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="compare-007">
+  <test-case name="compare-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description>compare() with non-BMP characters</description>
     <created by="Michael Kay" on="2011-06-29"/>
-    <test>compare("", "", "http://www.w3.org/2005/xpath-functions/collation/codepoint")</test>
+    <test>compare("&#65537;", "&#65538;", "http://www.w3.org/2005/xpath-functions/collation/codepoint")</test>
     <result-string>xs:integer("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="compare-008">
+  <test-case name="compare-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description>check that Unicode codepoint collation is used, not comparison of UTF16 surrogates</description>
     <created by="Michael Kay" on="2011-06-29"/>
-    <test>compare("", "", "http://www.w3.org/2005/xpath-functions/collation/codepoint")</test>
+    <test>compare("&#65537;", "&#65520;", "http://www.w3.org/2005/xpath-functions/collation/codepoint")</test>
     <result-string>xs:integer("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="compare-009">
+  <test-case name="compare-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description>check that Unicode codepoint collation is used, not comparison of UTF16 surrogates</description>
     <created by="Michael Kay" on="2011-06-29"/>
-    <test>compare("", "", "http://www.w3.org/2005/xpath-functions/collation/codepoint")</test>
+    <test>compare("&#65537;", "&#65520;", "http://www.w3.org/2005/xpath-functions/collation/codepoint")</test>
     <result-string>xs:integer("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="compare-010">
+  <test-case name="compare-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description>Use case-blind collation, if supported</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <environment>
@@ -480,7 +479,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="compare-011">
+  <test-case name="compare-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>compare() only works on strings</description>
     <created by="Michael Kay" on="2012-05-30"/>
     <test>compare(123, 456)</test>
@@ -489,25 +488,25 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="compare-012">
+  <test-case name="compare-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description>compare() only works on strings, but xs:anyURI gets promoted</description>
     <created by="Michael Kay" on="2012-05-30"/>
-    <test>compare(xs:anyURI('http://www.example.com/'), 'http://www.example.com/')</test>
+    <test>compare(xs:anyURI(&apos;http://www.example.com/&apos;), &apos;http://www.example.com/&apos;)</test>
     <result-string>xs:integer("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="compare-013">
+  <test-case name="compare-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description>compare() only works on strings, but xs:untypedAtomic gets promoted</description>
     <created by="Michael Kay" on="2012-05-30"/>
-    <test>compare(xs:untypedAtomic('http://www.example.com/'), 'http://www.example.com/')</test>
+    <test>compare(xs:untypedAtomic(&apos;http://www.example.com/&apos;), &apos;http://www.example.com/&apos;)</test>
     <result-string>xs:integer("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-CompareFunc-1">
+  <test-case name="K2-CompareFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description>Use a complex collation argument.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>compare("a", "a", ("http://www.w3.org/2005/xpath-functions/collation/codepoint", ()))</test>
@@ -516,7 +515,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-CompareFunc-2">
+  <test-case name="K2-CompareFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description>Use a complex collation argument.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>compare("a", "a", ((), "http://www.w3.org/2005/xpath-functions/collation/codepoint"))</test>
@@ -525,7 +524,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-CompareFunc-3">
+  <test-case name="K2-CompareFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Use a complex collation argument. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>compare("a", "a", ((), "http://www.w3.org/2005/xpath-functions/collation/codepoint", ()))</test>
@@ -534,7 +533,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-CompareFunc-4">
+  <test-case name="K2-CompareFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Compare two values returned from fn:lower-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -546,7 +545,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-CompareFunc-5">
+  <test-case name="K2-CompareFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Compare two values returned from fn:upper-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -558,7 +557,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-CompareFunc-6">
+  <test-case name="K2-CompareFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1")</response-string>
     <description> Compare two non-matching values returned from fn:lower-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -570,7 +569,7 @@
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-CompareFunc-7">
+  <test-case name="K2-CompareFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1")</response-string>
     <description> Compare two non-matching values returned from fn:upper-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -582,7 +581,7 @@
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-CompareFunc-8">
+  <test-case name="K2-CompareFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1")</response-string>
     <description> Compare two non-matching values returned from fn:lower-case() and fn:upper-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -594,7 +593,7 @@
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-CompareFunc-9">
+  <test-case name="K2-CompareFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Compare two non-matching values returned from fn:lower-case() and fn:upper-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XP30+ XQ10+"/>

@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set covers="math-sqrt" name="math-sqrt" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the math:sqrt function introduced in XPath 3.0</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-sqrt" type="spec"/>
   <dependency type="spec" value="XP30+ XQ30+"/>
-  <test-case name="math-sqrt-001">
+  <test-case name="math-sqrt-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Evaluate the function math:sqrt() with the argument ()</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:sqrt(())</test>
     <result-string>()</result-string>
@@ -13,81 +12,81 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="math-sqrt-002">
+  <test-case name="math-sqrt-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>Evaluate the function math:sqrt() with the argument 0.0e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:sqrt(0.0e0)</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-sqrt-003">
+  <test-case name="math-sqrt-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>Evaluate the function math:sqrt() with the argument -0.0e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:sqrt(-0.0e0)</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-sqrt-004">
+  <test-case name="math-sqrt-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>Evaluate the function math:sqrt() with the argument -0.0e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:sqrt(-0.0e0)</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>-0.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-sqrt-005">
+  <test-case name="math-sqrt-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1000")</response-string>
     <description>Evaluate the function math:sqrt() with the argument 1.0e6</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:sqrt(1.0e6)</test>
-    <result-string>xs:double("1.0e3")</result-string>
+    <result-string>xs:double("1000")</result-string>
     <result>
       <assert-eq>1.0e3</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-sqrt-006">
+  <test-case name="math-sqrt-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.4142135623730951")</response-string>
     <description>Evaluate the function math:sqrt() with the argument 2.0e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:sqrt(2.0e0)</test>
-    <result-string>xs:double("1.4142135623730951e0")</result-string>
+    <result-string>xs:double("1.4142135623730951")</result-string>
     <result>
       <assert-eq>1.4142135623730951e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-sqrt-007">
-    <description>Evaluate the function math:sqrt() with the argument xs:double('NaN')</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+  <test-case name="math-sqrt-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
+    <description>Evaluate the function math:sqrt() with the argument xs:double(&apos;NaN&apos;)</description>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
-    <test>math:sqrt(xs:double('NaN'))</test>
+    <test>math:sqrt(xs:double(&apos;NaN&apos;))</test>
     <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="math-sqrt-008">
+  <test-case name="math-sqrt-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("INF")</response-string>
     <description>Evaluate the function math:sqrt() with the argument INF</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
-    <test>math:sqrt(xs:double('INF'))</test>
+    <test>math:sqrt(xs:double(&apos;INF&apos;))</test>
     <result-string>xs:double("INF")</result-string>
     <result>
-      <assert-eq>xs:double('INF')</assert-eq>
+      <assert-eq>xs:double(&apos;INF&apos;)</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-sqrt-010">
+  <test-case name="math-sqrt-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description>Evaluate the function math:sqrt() with the argument -INF</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
-    <test>math:sqrt(xs:double('-INF'))</test>
+    <test>math:sqrt(xs:double(&apos;-INF&apos;))</test>
     <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>

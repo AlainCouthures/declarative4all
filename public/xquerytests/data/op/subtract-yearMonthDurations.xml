@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="op-subtract-yearMonthDurations" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the subtract-yearMonthDurations() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-subtract-yearMonthDurations" type="spec"/>
-  <test-case name="op-subtract-yearMonthDurations2args-1">
+  <test-case name="op-subtract-yearMonthDurations2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P0M")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-yearMonthDurations2args-1             
@@ -16,12 +15,12 @@ $arg2 = xs:yearMonthDuration(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P0Y0M") - xs:yearMonthDuration("P0Y0M")</test>
-    <result-string>xs:string("P0M")</result-string>
+    <result-string>xs:yearMonthDuration("P0M")</result-string>
     <result>
       <assert-string-value>P0M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-subtract-yearMonthDurations2args-2">
+  <test-case name="op-subtract-yearMonthDurations2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P1000Y6M")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-yearMonthDurations2args-2             
@@ -35,12 +34,12 @@ $arg2 = xs:yearMonthDuration(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P1000Y6M") - xs:yearMonthDuration("P0Y0M")</test>
-    <result-string>xs:string("P1000Y6M")</result-string>
+    <result-string>xs:yearMonthDuration("P1000Y6M")</result-string>
     <result>
       <assert-string-value>P1000Y6M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-subtract-yearMonthDurations2args-3">
+  <test-case name="op-subtract-yearMonthDurations2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P2031Y")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-yearMonthDurations2args-3             
@@ -54,12 +53,12 @@ $arg2 = xs:yearMonthDuration(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P2030Y12M") - xs:yearMonthDuration("P0Y0M")</test>
-    <result-string>xs:string("P2031Y")</result-string>
+    <result-string>xs:yearMonthDuration("P2031Y")</result-string>
     <result>
       <assert-string-value>P2031Y</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-subtract-yearMonthDurations2args-4">
+  <test-case name="op-subtract-yearMonthDurations2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("-P1000Y6M")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-yearMonthDurations2args-4             
@@ -73,12 +72,12 @@ $arg2 = xs:yearMonthDuration(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P0Y0M") - xs:yearMonthDuration("P1000Y6M")</test>
-    <result-string>xs:string("-P1000Y6M")</result-string>
+    <result-string>xs:yearMonthDuration("-P1000Y6M")</result-string>
     <result>
       <assert-string-value>-P1000Y6M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-subtract-yearMonthDurations2args-5">
+  <test-case name="op-subtract-yearMonthDurations2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("-P2031Y")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-yearMonthDurations2args-5             
@@ -92,12 +91,12 @@ $arg2 = xs:yearMonthDuration(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P0Y0M") - xs:yearMonthDuration("P2030Y12M")</test>
-    <result-string>xs:string("-P2031Y")</result-string>
+    <result-string>xs:yearMonthDuration("-P2031Y")</result-string>
     <result>
       <assert-string-value>-P2031Y</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-subtract-yearMonthDurations-1">
+  <test-case name="op-subtract-yearMonthDurations-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("-P4M")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-yearMonthDurations-1                 
@@ -109,12 +108,12 @@ As per example 1 (for this function)of the FO specs.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>(xs:yearMonthDuration("P2Y11M") - xs:yearMonthDuration("P3Y3M"))</test>
-    <result-string>xs:string("-P4M")</result-string>
+    <result-string>xs:yearMonthDuration("-P4M")</result-string>
     <result>
       <assert-string-value>-P4M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-subtract-yearMonthDurations-2">
+  <test-case name="op-subtract-yearMonthDurations-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-yearMonthDurations-2                 
@@ -132,7 +131,7 @@ used as part of a boolean expression (and operator) and the "fn:false" function.
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-subtract-yearMonthDurations-3">
+  <test-case name="op-subtract-yearMonthDurations-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-yearMonthDurations-3                 
@@ -150,7 +149,7 @@ part of a boolean expression (or operator) and the "fn:boolean" function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-subtract-yearMonthDurations-4">
+  <test-case name="op-subtract-yearMonthDurations-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-yearMonthDurations-4                 
@@ -168,7 +167,7 @@ return true and used together with fn:not.
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-subtract-yearMonthDurations-5">
+  <test-case name="op-subtract-yearMonthDurations-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-yearMonthDurations-5                 
@@ -186,7 +185,7 @@ is used as an argument to the fn:boolean function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-subtract-yearMonthDurations-6">
+  <test-case name="op-subtract-yearMonthDurations-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-yearMonthDurations-6                 
@@ -198,12 +197,12 @@ is used as an argument to the fn:number function.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:number(xs:yearMonthDuration("P02Y09M") - xs:yearMonthDuration("P10Y01M"))</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-subtract-yearMonthDurations-7">
+  <test-case name="op-subtract-yearMonthDurations-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("P2Y6M")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-yearMonthDurations-7                 
@@ -220,7 +219,7 @@ as an argument to the "fn:string" function).
       <assert-string-value>P2Y6M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-subtract-yearMonthDurations-8">
+  <test-case name="op-subtract-yearMonthDurations-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("-P1Y1M")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-yearMonthDurations-8                 
@@ -232,12 +231,12 @@ returns a negative value.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>(xs:yearMonthDuration("P10Y01M") - xs:yearMonthDuration("P11Y02M"))</test>
-    <result-string>xs:string("-P1Y1M")</result-string>
+    <result-string>xs:yearMonthDuration("-P1Y1M")</result-string>
     <result>
       <assert-string-value>-P1Y1M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-subtract-yearMonthDurations-9">
+  <test-case name="op-subtract-yearMonthDurations-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-yearMonthDurations-9                 
@@ -255,7 +254,7 @@ together with and "and" expression.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-subtract-yearMonthDurations-10">
+  <test-case name="op-subtract-yearMonthDurations-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-yearMonthDurations-10                
@@ -273,7 +272,7 @@ together with an "or" expression.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-subtract-yearMonthDurations-11">
+  <test-case name="op-subtract-yearMonthDurations-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("11")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-yearMonthDurations-11                
@@ -290,7 +289,7 @@ together with a "div" expression.
       <assert-string-value>11</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-subtract-yearMonthDurations-12">
+  <test-case name="op-subtract-yearMonthDurations-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-yearMonthDurations-12                
@@ -308,7 +307,7 @@ with a boolean expression and the "fn:true" function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-subtract-yearMonthDurations-13">
+  <test-case name="op-subtract-yearMonthDurations-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-yearMonthDurations-13                
@@ -325,7 +324,7 @@ together with the numeric-equal- operator "eq".
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-subtract-yearMonthDurations-14">
+  <test-case name="op-subtract-yearMonthDurations-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-yearMonthDurations-14                
@@ -342,7 +341,7 @@ together with the numeric-equal operator "ne".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-subtract-yearMonthDurations-15">
+  <test-case name="op-subtract-yearMonthDurations-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-yearMonthDurations-15                
@@ -359,7 +358,7 @@ together with the numeric-equal operator "le".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-subtract-yearMonthDurations-16">
+  <test-case name="op-subtract-yearMonthDurations-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-yearMonthDurations-16                
@@ -376,7 +375,7 @@ together with the numeric-equal operator "ge".
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationSubtract-1">
+  <test-case name="K-YearMonthDurationSubtract-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationSubtract-1                   
@@ -392,7 +391,7 @@ together with the numeric-equal operator "ge".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationSubtract-2">
+  <test-case name="K-YearMonthDurationSubtract-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationSubtract-2                   
@@ -408,7 +407,7 @@ together with the numeric-equal operator "ge".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationSubtract-3">
+  <test-case name="K-YearMonthDurationSubtract-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationSubtract-3                   
@@ -424,7 +423,7 @@ together with the numeric-equal operator "ge".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationSubtract-4">
+  <test-case name="K-YearMonthDurationSubtract-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationSubtract-4                   
@@ -435,12 +434,12 @@ together with the numeric-equal operator "ge".
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dayTimeDuration("P3D") + xs:yearMonthDuration("P3Y3M")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationSubtract-5">
+  <test-case name="K-YearMonthDurationSubtract-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationSubtract-5                   
@@ -451,12 +450,12 @@ together with the numeric-equal operator "ge".
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:yearMonthDuration("P3Y3M") + xs:dayTimeDuration("P3D")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationSubtract-6">
+  <test-case name="K-YearMonthDurationSubtract-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationSubtract-6                   
@@ -467,12 +466,12 @@ together with the numeric-equal operator "ge".
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:duration("P3D") + xs:yearMonthDuration("P3Y3M")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationSubtract-7">
+  <test-case name="K-YearMonthDurationSubtract-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationSubtract-7                   
@@ -483,12 +482,12 @@ together with the numeric-equal operator "ge".
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:yearMonthDuration("P3Y3M") + xs:duration("P3D")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationSubtract-8">
+  <test-case name="K-YearMonthDurationSubtract-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationSubtract-8                   
@@ -499,12 +498,12 @@ together with the numeric-equal operator "ge".
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dayTimeDuration("P3D") + xs:duration("P3Y3M")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationSubtract-9">
+  <test-case name="K-YearMonthDurationSubtract-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationSubtract-9                   
@@ -515,41 +514,41 @@ together with the numeric-equal operator "ge".
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:duration("P3Y3M") + xs:dayTimeDuration("P3D")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-subtract-yearMonthDurations-001">
+  <test-case name="cbcl-subtract-yearMonthDurations-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P1Y1M")</response-string>
     <description> test subtraction of zero duration from yearMonthDurations </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
-        declare function local:yearMonthDuration($years as xs:integer, $months as xs:integer ) { xs:yearMonthDuration(concat('P', $years, 'Y', $months, 'M')) };
+        declare function local:yearMonthDuration($years as xs:integer, $months as xs:integer ) { xs:yearMonthDuration(concat(&apos;P&apos;, $years, &apos;Y&apos;, $months, &apos;M&apos;)) };
         local:yearMonthDuration(1, 1) - xs:yearMonthDuration("P0Y")</test>
-    <result-string>xs:string("P1Y1M")</result-string>
+    <result-string>xs:yearMonthDuration("P1Y1M")</result-string>
     <result>
       <assert-string-value>P1Y1M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-subtract-yearMonthDurations-002">
+  <test-case name="cbcl-subtract-yearMonthDurations-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P0M")</response-string>
     <description> test subtraction of yearMonthDurations </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
-        declare function local:yearMonthDuration($years as xs:integer, $months as xs:integer ) { xs:yearMonthDuration(concat('P', $years, 'Y', $months, 'M')) };
+        declare function local:yearMonthDuration($years as xs:integer, $months as xs:integer ) { xs:yearMonthDuration(concat(&apos;P&apos;, $years, &apos;Y&apos;, $months, &apos;M&apos;)) };
         local:yearMonthDuration(1, 1) - local:yearMonthDuration(1, 1)</test>
-    <result-string>xs:string("P0M")</result-string>
+    <result-string>xs:yearMonthDuration("P0M")</result-string>
     <result>
       <assert-string-value>P0M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-subtract-yearMonthDurations-003">
+  <test-case name="cbcl-subtract-yearMonthDurations-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("-P1537228672809129200Y4M")</response-string>
     <description> test subtraction of large yearMonthDuration </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
-        declare function local:yearMonthDuration($years as xs:integer, $months as xs:integer ) { xs:yearMonthDuration(concat('P', $years, 'Y', $months, 'M')) };
+        declare function local:yearMonthDuration($years as xs:integer, $months as xs:integer ) { xs:yearMonthDuration(concat(&apos;P&apos;, $years, &apos;Y&apos;, $months, &apos;M&apos;)) };
         xs:yearMonthDuration("-P768614336404564650Y") - local:yearMonthDuration(768614336404564650, 1)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FODT0002"))</result-string>
     <result>

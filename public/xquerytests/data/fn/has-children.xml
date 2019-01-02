@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set covers="fn-has-children" name="fn-has-children" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the has-children() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-has-children" type="spec"/>
@@ -8,11 +7,11 @@
       <created by="Tim Mills" on="2011-11-28"/>
     </source>
   </environment>
-  <test-case name="fn-has-children-001">
+  <test-case name="fn-has-children-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Attempts to reference the "has-children" function with arity zero.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <modified by="Tim Mills" change="Context-dependent functions can now be referenced without error." on="2012-05-01"/>
-    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:exists( fn:has-children#0 )</test>
@@ -21,10 +20,10 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-002">
+  <test-case name="fn-has-children-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Attempts to reference the "has-children" function with arity one.</description>
     <created by="Tim Mills" on="2011-11-28"/>
-    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:exists( fn:has-children#1 )</test>
@@ -33,31 +32,31 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-003">
+  <test-case name="fn-has-children-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Attempts to evaluate the "has-children" function with two arguments.</description>
     <created by="Tim Mills" on="2011-11-28"/>
-    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:has-children( fn:contains#2, fn:contains#2 )</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-004">
+  <test-case name="fn-has-children-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Attempts to reference the "has-children" function with arity two.</description>
     <created by="Tim Mills" on="2011-11-28"/>
-    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:has-children#2</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-005">
+  <test-case name="fn-has-children-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates the zero-arity "has-children" function with absent context item.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -72,7 +71,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-has-children-006">
+  <test-case name="fn-has-children-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates the (arity one) "has-children" function with absent context item.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -87,7 +86,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-has-children-007">
+  <test-case name="fn-has-children-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Evaluates the zero-arity "has-children" function with context item which is not a node.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
@@ -99,10 +98,10 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-has-children-008">
+  <test-case name="fn-has-children-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Evaluates the zero-arity "has-children" function with context item which is not a node.</description>
     <created by="Tim Mills" on="2011-11-28"/>
-    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>(fn:concat#2)[fn:has-children()]</test>
@@ -113,20 +112,20 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-has-children-009">
+  <test-case name="fn-has-children-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>Tests the type checking of the argument.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:has-children(1)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-010">
+  <test-case name="fn-has-children-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Tests the type checking of the argument.</description>
     <created by="Tim Mills" on="2011-11-28"/>
-    <modified by="O'Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug #19881 - Added HOF dependency" on="2012-11-08"/>
     <dependency type="feature" value="higherOrderFunctions"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>fn:has-children(fn:concat#2)</test>
@@ -135,7 +134,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-011">
+  <test-case name="fn-has-children-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Tests the type checking of the argument.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -146,7 +145,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-012">
+  <test-case name="fn-has-children-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Tests the type checking of the argument.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -161,7 +160,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-013">
+  <test-case name="fn-has-children-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Tests the type checking of the argument.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -177,7 +176,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-014">
+  <test-case name="fn-has-children-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004")))</response-string>
     <description>Tests the type checking of the argument.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -188,7 +187,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-015">
+  <test-case name="fn-has-children-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004")))</response-string>
     <description>Tests the type checking of the argument.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -199,7 +198,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-016">
+  <test-case name="fn-has-children-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Tests the return type of the "has-children" function.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -210,7 +209,7 @@
       <assert-type>xs:boolean</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-has-children-017">
+  <test-case name="fn-has-children-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Tests the return type of the "has-children" function.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -221,7 +220,7 @@
       <assert-type>xs:boolean</assert-type>
     </result>
   </test-case>
-  <test-case name="fn-has-children-018">
+  <test-case name="fn-has-children-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Evaluates the "has-children" function with the argument set as follows: context item of type attribute() </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -232,7 +231,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-019">
+  <test-case name="fn-has-children-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Evaluates the "has-children" function with the argument set as follows: $node of type attribute() </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -243,7 +242,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-020">
+  <test-case name="fn-has-children-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluates the "has-children" function with the argument set as follows: context item of type namespace() </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -255,7 +254,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-021">
+  <test-case name="fn-has-children-021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluates the "has-children" function with the argument set as follows: $node of type attribute() </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -267,7 +266,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-022">
+  <test-case name="fn-has-children-022"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Evaluates the "has-children" function with the argument set as follows: context item of type comment() </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -278,7 +277,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-023">
+  <test-case name="fn-has-children-023"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Evaluates the "has-children" function with the argument set as follows: $node of type comment() </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -289,7 +288,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-024">
+  <test-case name="fn-has-children-024"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Evaluates the "has-children" function with the argument set as follows: context item of type processing-instruction() </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -300,7 +299,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-025">
+  <test-case name="fn-has-children-025"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Evaluates the "has-children" function with the argument set as follows: $node of type processing-instruction() </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -311,7 +310,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-026">
+  <test-case name="fn-has-children-026"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Evaluates the "has-children" function with the argument set as follows: context item of type text() </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -322,7 +321,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-027">
+  <test-case name="fn-has-children-027"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Evaluates the "has-children" function with the argument set as follows: $node of type text() </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -333,7 +332,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-028">
+  <test-case name="fn-has-children-028"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Evaluates the "has-children" function with the argument set as follows: context item of type element() </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -344,7 +343,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-029">
+  <test-case name="fn-has-children-029"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Evaluates the "has-children" function with the argument set as follows: context item of type element() </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -355,7 +354,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-030">
+  <test-case name="fn-has-children-030"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates the "has-children" function with the argument set as follows: context item of type element() </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -366,7 +365,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-031">
+  <test-case name="fn-has-children-031"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates the "has-children" function with the argument set as follows: $node of type element() </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -377,7 +376,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-032">
+  <test-case name="fn-has-children-032"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates the "has-children" function with the argument set as follows: context item of type element() </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -388,7 +387,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-033">
+  <test-case name="fn-has-children-033"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates the "has-children" function with the argument set as follows: $node of type element() </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -399,7 +398,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-034">
+  <test-case name="fn-has-children-034"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates the "has-children" function with the argument set as follows: context item of type document-node() </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -410,7 +409,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-035">
+  <test-case name="fn-has-children-035"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates the "has-children" function with the argument set as follows: $node of type document-node() </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
@@ -421,24 +420,24 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-has-children-036">
+  <test-case name="fn-has-children-036"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("false"),xs:boolean("false"),xs:boolean("false"),xs:boolean("false"),xs:boolean("true"))</response-string>
     <description>Evaluates the "has-children" function with the argument set as follows: context item of type node() </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>/root/node()/fn:has-children()</test>
-    <result-string>xs:string("false false false false true")</result-string>
+    <result-string>(xs:boolean("false"),xs:boolean("false"),xs:boolean("false"),xs:boolean("false"),xs:boolean("true"))</result-string>
     <result>
       <assert-string-value>false false false false true</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-has-children-037">
+  <test-case name="fn-has-children-037"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("false"),xs:boolean("false"),xs:boolean("false"),xs:boolean("false"),xs:boolean("true"))</response-string>
     <description>Evaluates the "has-children" function with the argument set as follows: $node of type node() </description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="has-children"/>
     <dependency type="spec" value="XP30+ XQ30+"/>
     <test>/root/node()/fn:has-children(.)</test>
-    <result-string>xs:string("false false false false true")</result-string>
+    <result-string>(xs:boolean("false"),xs:boolean("false"),xs:boolean("false"),xs:boolean("false"),xs:boolean("true"))</result-string>
     <result>
       <assert-string-value>false false false false true</assert-string-value>
     </result>

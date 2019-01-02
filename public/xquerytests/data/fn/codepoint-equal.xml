@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-codepoint-equal" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description/>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-codepoint-equal" type="spec"/>
-  <test-case name="fn-codepoint-equal-1">
+  <test-case name="fn-codepoint-equal-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Evaluation of an "fn:codepoint-equal" with wrong arity. </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal("a")</test>
@@ -11,7 +10,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-2">
+  <test-case name="fn-codepoint-equal-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of an "fn:codepoint-equal" with arguments set to empty sequence </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal((),())</test>
@@ -20,7 +19,7 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-2a">
+  <test-case name="fn-codepoint-equal-2a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of an "fn:codepoint-equal" with one argument set to empty sequence Use fn:count to avoid empty file. </description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>fn:codepoint-equal("abc",())</test>
@@ -29,7 +28,7 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-2b">
+  <test-case name="fn-codepoint-equal-2b"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of an "fn:codepoint-equal" with one argument set to empty sequence Use fn:count to avoid empty file. </description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>fn:codepoint-equal((), "")</test>
@@ -38,7 +37,7 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-3">
+  <test-case name="fn-codepoint-equal-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of an "fn:codepoint-equal" with arguments set to zero length string. </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal("","")</test>
@@ -47,7 +46,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-4">
+  <test-case name="fn-codepoint-equal-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of an "fn:codepoint-equal" with arguments set to same value "a". </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal("a","a")</test>
@@ -56,7 +55,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-5">
+  <test-case name="fn-codepoint-equal-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluation of an "fn:codepoint-equal" with arguments set to different values "a", "b" respectively. </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal("a","b")</test>
@@ -65,7 +64,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-6">
+  <test-case name="fn-codepoint-equal-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of an "fn:codepoint-equal" as argument to fn:not. Returns true </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:not(fn:codepoint-equal("a","b"))</test>
@@ -74,7 +73,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-7">
+  <test-case name="fn-codepoint-equal-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluation of an "fn:codepoint-equal" as argument to fn:not. Returns false </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:not(fn:codepoint-equal("a","a"))</test>
@@ -83,7 +82,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-8">
+  <test-case name="fn-codepoint-equal-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of an "fn:codepoint-equal" whose arguments use fn:string() for a number </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal(fn:string(1),fn:string(1))</test>
@@ -92,7 +91,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-9">
+  <test-case name="fn-codepoint-equal-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of an "fn:codepoint-equal" whose arguments use fn:string() for a string. </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal(fn:string("aa"),fn:string("aa"))</test>
@@ -101,7 +100,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-10">
+  <test-case name="fn-codepoint-equal-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of an "fn:codepoint-equal" with wrong argument type. </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal(xs:integer(1),xs:integer(1))</test>
@@ -110,7 +109,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-11">
+  <test-case name="fn-codepoint-equal-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of an "fn:codepoint-equal" with wrong argument type (only second argument). </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal("aa",xs:integer(1))</test>
@@ -119,7 +118,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-12">
+  <test-case name="fn-codepoint-equal-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluation of an "fn:codepoint-equal" with arguments set to "aa" and "AA" respectively. </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal("aa","AA")</test>
@@ -128,7 +127,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-13">
+  <test-case name="fn-codepoint-equal-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of an "fn:codepoint-equal" with arguments set to "aa" and lower-case("AA") respectively. </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal("aa",fn:lower-case("AA"))</test>
@@ -137,7 +136,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-14">
+  <test-case name="fn-codepoint-equal-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluation of an "fn:codepoint-equal" with arguments set to "aa" and upper-case("aa") respectively. </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal("aa",fn:upper-case("aa"))</test>
@@ -146,7 +145,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-15">
+  <test-case name="fn-codepoint-equal-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of an "fn:codepoint-equal" as an argument to xs:boolean. </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>xs:boolean(fn:codepoint-equal("aa","aa"))</test>
@@ -155,7 +154,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-16">
+  <test-case name="fn-codepoint-equal-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of an "fn:codepoint-equal" as part of boolean expression ("and" and fn:true()). </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal("aa","aa") and fn:true()</test>
@@ -164,7 +163,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-17">
+  <test-case name="fn-codepoint-equal-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluation of an "fn:codepoint-equal" as part of boolean expression ("and" and fn:false()). </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal("aa","aa") and fn:false()</test>
@@ -173,7 +172,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-18">
+  <test-case name="fn-codepoint-equal-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of an "fn:codepoint-equal" as part of boolean expression ("or" and fn:true()). </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal("aa","aa") or fn:true()</test>
@@ -182,7 +181,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-19">
+  <test-case name="fn-codepoint-equal-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of an "fn:codepoint-equal" as part of boolean expression ("or" and fn:false()). </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal("aa","aa") or fn:false()</test>
@@ -191,7 +190,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-20">
+  <test-case name="fn-codepoint-equal-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of an "fn:codepoint-equal" as part of boolean expression involving two fn:codepoint-equal ("and" operator). </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal("aa","aa") and fn:codepoint-equal("aa","aa")</test>
@@ -200,7 +199,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-21">
+  <test-case name="fn-codepoint-equal-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of an "fn:codepoint-equal" as part of boolean expression involving two fn:codepoint-equal ("or" operator). </description>
     <created by="Carmelo Montanez" on="2006-02-17"/>
     <test>fn:codepoint-equal("aa","aa") or fn:codepoint-equal("aa","aa")</test>
@@ -209,7 +208,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-codepoint-equal-22">
+  <test-case name="fn-codepoint-equal-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Different normalization forms of the same string are not codepoint-equal </description>
     <created by="Michael Kay" on="2011-06-24"/>
     <test>fn:codepoint-equal(normalize-unicode("garon", "NFC"), normalize-unicode("garon", "NFD"))</test>
@@ -218,7 +217,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-CodepointEqual-1">
+  <test-case name="K2-CodepointEqual-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Compare two values returned from fn:lower-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoint-equal(lower-case(concat("B STRING", current-time())), 
@@ -229,7 +228,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-CodepointEqual-2">
+  <test-case name="K2-CodepointEqual-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Compare two values returned from fn:upper-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoint-equal(upper-case(concat("B STRING", current-time())), 
@@ -240,7 +239,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-CodepointEqual-3">
+  <test-case name="K2-CodepointEqual-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Compare two non-matching values returned from fn:lower-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoint-equal(lower-case(concat("B STRING", current-time())), 
@@ -250,7 +249,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-CodepointEqual-4">
+  <test-case name="K2-CodepointEqual-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Compare two non-matching values returned from fn:upper-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoint-equal(upper-case(concat("B STRING", current-time())), 
@@ -261,7 +260,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-CodepointEqual-5">
+  <test-case name="K2-CodepointEqual-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Compare two non-matching values returned from fn:lower-case() and fn:upper-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoint-equal(upper-case(concat("B STRING", current-time())), 
@@ -272,7 +271,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-CodepointEqual-6">
+  <test-case name="K2-CodepointEqual-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Compare two non-matching values returned from fn:lower-case() and fn:upper-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoint-equal(lower-case(concat("B STRING", current-time())), 
@@ -283,66 +282,66 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-codepoint-equal-001">
+  <test-case name="cbcl-codepoint-equal-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test fn:codepoint-equal with empty $arg1 </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:yes-empty($arg as xs:boolean) as xs:string? { if ($arg) then 'yes' else () }; 
+    <test>declare function local:yes-empty($arg as xs:boolean) as xs:string? { if ($arg) then &apos;yes&apos; else () }; 
       empty(fn:codepoint-equal( local:yes-empty(fn:false()), local:yes-empty(fn:true()) ) )</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-codepoint-equal-002">
+  <test-case name="cbcl-codepoint-equal-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test fn:codepoint-equal with empty $arg2 </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:yes-empty($arg as xs:boolean) as xs:string? { if ($arg) then 'yes' else () }; 
+    <test>declare function local:yes-empty($arg as xs:boolean) as xs:string? { if ($arg) then &apos;yes&apos; else () }; 
       empty(fn:codepoint-equal( local:yes-empty(fn:true()), local:yes-empty(fn:false()) ) )</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-codepoint-equal-003">
+  <test-case name="cbcl-codepoint-equal-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test fn:codepoint-equal with non-empty arguments </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:yes-no($arg as xs:boolean) as xs:string { if ($arg) then 'yes' else 'no' }; 
+    <test>declare function local:yes-no($arg as xs:boolean) as xs:string { if ($arg) then &apos;yes&apos; else &apos;no&apos; }; 
       fn:codepoint-equal( local:yes-no(fn:true()), local:yes-no(fn:false()) ) = false()</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-codepoint-equal-004">
+  <test-case name="cbcl-codepoint-equal-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test fn:boolean on fn:codepoint-equal with empty $arg2 </description>
     <created by="Oliver Hallam" on="2008-04-14"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:yes-empty($arg as xs:boolean) as xs:string? { if ($arg) then 'yes' else () }; 
+    <test>declare function local:yes-empty($arg as xs:boolean) as xs:string? { if ($arg) then &apos;yes&apos; else () }; 
       boolean(fn:codepoint-equal( local:yes-empty(fn:true()), local:yes-empty(fn:false()) ) )</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-codepoint-equal-005">
+  <test-case name="cbcl-codepoint-equal-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test fn:boolean on fn:codepoint-equal with empty $arg1 </description>
     <created by="Oliver Hallam" on="2008-04-14"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:yes-empty($arg as xs:boolean) as xs:string? { if ($arg) then 'yes' else () }; 
+    <test>declare function local:yes-empty($arg as xs:boolean) as xs:string? { if ($arg) then &apos;yes&apos; else () }; 
       boolean(fn:codepoint-equal( local:yes-empty(fn:false()), local:yes-empty(fn:true()) ) )</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-codepoint-equal-006">
+  <test-case name="cbcl-codepoint-equal-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> test fn:codepoint-equal evaluate to item </description>
     <created by="Tim Mills" on="2008-04-14"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:yes-no($arg as xs:boolean) as xs:string { if ($arg) then 'yes' else 'no' }; 
+    <test>declare function local:yes-no($arg as xs:boolean) as xs:string { if ($arg) then &apos;yes&apos; else &apos;no&apos; }; 
       fn:index-of( (fn:true(), fn:false()), fn:codepoint-equal( local:yes-no(fn:false()), local:yes-no(fn:true()) ) )</test>
     <result-string>xs:string("2")</result-string>
     <result>

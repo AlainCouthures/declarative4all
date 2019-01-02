@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set covers="fn-format-dateTime" name="fn-format-dateTime" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the format-dateTime() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-11/" idref="func-format-dateTime" type="spec"/>
   <dependency type="spec" value="XP30+ XQ30+"/>
-  <test-case name="format-dateTime-001a">
+  <test-case name="format-dateTime-001a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="d" select="xs:dateTime('2003-09-07T12:00:00')"/>
+      <param as="xs:dateTime" name="d" select="xs:dateTime(&apos;2003-09-07T12:00:00&apos;)"/>
     </environment>
     <test>format-dateTime($d,"[Y]-[M01]-[D]")</test>
     <result-string>xs:string("2003-09-7")</result-string>
@@ -15,11 +14,11 @@
       <assert-string-value>2003-09-7</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-001b">
+  <test-case name="format-dateTime-001b"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="d" select="xs:dateTime('2003-09-07T12:00:00')"/>
+      <param as="xs:dateTime" name="d" select="xs:dateTime(&apos;2003-09-07T12:00:00&apos;)"/>
     </environment>
     <test>format-dateTime($d,"[M]-[D]-[Y]")</test>
     <result-string>xs:string("9-7-2003")</result-string>
@@ -27,11 +26,11 @@
       <assert-string-value>9-7-2003</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-001c">
+  <test-case name="format-dateTime-001c"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="d" select="xs:dateTime('2003-09-07T12:00:00')"/>
+      <param as="xs:dateTime" name="d" select="xs:dateTime(&apos;2003-09-07T12:00:00&apos;)"/>
     </environment>
     <test>format-dateTime($d,"[D]-[M]-[Y]")</test>
     <result-string>xs:string("7-9-2003")</result-string>
@@ -39,11 +38,11 @@
       <assert-string-value>7-9-2003</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-001d">
+  <test-case name="format-dateTime-001d"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="d" select="xs:dateTime('2003-09-07T12:00:00')"/>
+      <param as="xs:dateTime" name="d" select="xs:dateTime(&apos;2003-09-07T12:00:00&apos;)"/>
     </environment>
     <test>format-dateTime($d,"[D1] [MI] [Y]")</test>
     <result-string>xs:string("7 IX 2003")</result-string>
@@ -51,11 +50,11 @@
       <assert-string-value>7 IX 2003</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-001e">
+  <test-case name="format-dateTime-001e"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="d" select="xs:dateTime('2003-09-07T12:00:00')"/>
+      <param as="xs:dateTime" name="d" select="xs:dateTime(&apos;2003-09-07T12:00:00&apos;)"/>
     </environment>
     <test>format-dateTime($d,"[[[Y]-[M01]-[D01]]]")</test>
     <result-string>xs:string("[2003-09-07]")</result-string>
@@ -63,11 +62,11 @@
       <assert-string-value>[2003-09-07]</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-001f">
+  <test-case name="format-dateTime-001f"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="d" select="xs:dateTime('2003-09-07T12:00:00')"/>
+      <param as="xs:dateTime" name="d" select="xs:dateTime(&apos;2003-09-07T12:00:00&apos;)"/>
     </environment>
     <test>format-dateTime($d,"[[[Y0001]-[M01]-[D01]]]")</test>
     <result-string>xs:string("[2003-09-07]")</result-string>
@@ -75,11 +74,11 @@
       <assert-string-value>[2003-09-07]</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-001g">
+  <test-case name="format-dateTime-001g"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="d" select="xs:dateTime('2003-09-07T12:00:00')"/>
+      <param as="xs:dateTime" name="d" select="xs:dateTime(&apos;2003-09-07T12:00:00&apos;)"/>
     </environment>
     <test>format-dateTime($d,"([Y01]-[M01]-[D01])")</test>
     <result-string>xs:string("(03-09-07)")</result-string>
@@ -87,11 +86,11 @@
       <assert-string-value>(03-09-07)</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-002a">
+  <test-case name="format-dateTime-002a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2011-07-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2011-07-01T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[H01]:[m01]")</test>
     <result-string>xs:string("09:15")</result-string>
@@ -99,11 +98,11 @@
       <assert-string-value>09:15</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-002b">
+  <test-case name="format-dateTime-002b"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2011-07-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2011-07-01T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[H]:[m]")</test>
     <result-string>xs:string("9:15")</result-string>
@@ -111,11 +110,11 @@
       <assert-string-value>9:15</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-002c">
+  <test-case name="format-dateTime-002c"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2011-07-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2011-07-01T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[H01]:[m01]:[s01]")</test>
     <result-string>xs:string("09:15:06")</result-string>
@@ -123,11 +122,11 @@
       <assert-string-value>09:15:06</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-002d">
+  <test-case name="format-dateTime-002d"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2011-07-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2011-07-01T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[H]:[m]:[s]")</test>
     <result-string>xs:string("9:15:06")</result-string>
@@ -135,11 +134,11 @@
       <assert-string-value>9:15:06</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-002e">
+  <test-case name="format-dateTime-002e"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2011-07-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2011-07-01T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[H]:[m]:[s1]")</test>
     <result-string>xs:string("9:15:6")</result-string>
@@ -147,11 +146,11 @@
       <assert-string-value>9:15:6</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-002f">
+  <test-case name="format-dateTime-002f"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2011-07-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2011-07-01T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[H]:[m]:[s01]:[f001]")</test>
     <result-string>xs:string("9:15:06:456")</result-string>
@@ -159,11 +158,11 @@
       <assert-string-value>9:15:06:456</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-002g">
+  <test-case name="format-dateTime-002g"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2011-07-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2011-07-01T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[H]:[m]:[s].[f,1-1]")</test>
     <result-string>xs:string("9:15:06.5")</result-string>
@@ -171,11 +170,11 @@
       <assert-string-value>9:15:06.5</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-002h">
+  <test-case name="format-dateTime-002h"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2011-07-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2011-07-01T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[H]:[m]:[s].[f1,1-1]")</test>
     <result-string>xs:string("9:15:06.5")</result-string>
@@ -183,11 +182,11 @@
       <assert-string-value>9:15:06.5</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-002i">
+  <test-case name="format-dateTime-002i"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2011-07-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2011-07-01T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[H]:[m]:[s].[f01]")</test>
     <result-string>xs:string("9:15:06.46")</result-string>
@@ -195,11 +194,11 @@
       <assert-string-value>9:15:06.46</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-002j">
+  <test-case name="format-dateTime-002j"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2011-07-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2011-07-01T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[H]:[m]:[s].[f001]")</test>
     <result-string>xs:string("9:15:06.456")</result-string>
@@ -207,11 +206,11 @@
       <assert-string-value>9:15:06.456</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-003a">
+  <test-case name="format-dateTime-003a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2003-09-07T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2003-09-07T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[Y]-[M01]-[D]")</test>
     <result-string>xs:string("2003-09-7")</result-string>
@@ -219,11 +218,11 @@
       <assert-string-value>2003-09-7</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-003b">
+  <test-case name="format-dateTime-003b"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2003-09-07T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2003-09-07T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[M]-[D]-[Y]")</test>
     <result-string>xs:string("9-7-2003")</result-string>
@@ -231,11 +230,11 @@
       <assert-string-value>9-7-2003</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-003c">
+  <test-case name="format-dateTime-003c"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2003-09-07T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2003-09-07T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[D]-[M]-[Y]")</test>
     <result-string>xs:string("7-9-2003")</result-string>
@@ -243,11 +242,11 @@
       <assert-string-value>7-9-2003</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-003d">
+  <test-case name="format-dateTime-003d"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2003-09-07T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2003-09-07T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[D1] [MI] [Y]")</test>
     <result-string>xs:string("7 IX 2003")</result-string>
@@ -255,11 +254,11 @@
       <assert-string-value>7 IX 2003</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-003e">
+  <test-case name="format-dateTime-003e"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2003-09-07T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2003-09-07T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[[[Y]-[M01]-[D01]]]")</test>
     <result-string>xs:string("[2003-09-07]")</result-string>
@@ -267,11 +266,11 @@
       <assert-string-value>[2003-09-07]</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-003f">
+  <test-case name="format-dateTime-003f"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2003-09-07T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2003-09-07T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[[[Y0001]-[M01]-[D01]]]")</test>
     <result-string>xs:string("[2003-09-07]")</result-string>
@@ -279,11 +278,11 @@
       <assert-string-value>[2003-09-07]</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-003g">
+  <test-case name="format-dateTime-003g"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2003-09-07T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2003-09-07T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"([Y01]-[M01]-[D01])")</test>
     <result-string>xs:string("(03-09-07)")</result-string>
@@ -291,11 +290,11 @@
       <assert-string-value>(03-09-07)</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-003h">
+  <test-case name="format-dateTime-003h"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2003-09-07T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2003-09-07T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[H01]:[m01]")</test>
     <result-string>xs:string("09:15")</result-string>
@@ -303,11 +302,11 @@
       <assert-string-value>09:15</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-003i">
+  <test-case name="format-dateTime-003i"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2003-09-07T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2003-09-07T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[H]:[m]")</test>
     <result-string>xs:string("9:15")</result-string>
@@ -315,11 +314,11 @@
       <assert-string-value>9:15</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-003j">
+  <test-case name="format-dateTime-003j"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2003-09-07T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2003-09-07T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[H01]:[m01]:[s01]")</test>
     <result-string>xs:string("09:15:06")</result-string>
@@ -327,11 +326,11 @@
       <assert-string-value>09:15:06</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-003k">
+  <test-case name="format-dateTime-003k"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2003-09-07T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2003-09-07T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[H]:[m]:[s]")</test>
     <result-string>xs:string("9:15:06")</result-string>
@@ -339,11 +338,11 @@
       <assert-string-value>9:15:06</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-003L">
+  <test-case name="format-dateTime-003L"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2003-09-07T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2003-09-07T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[H]:[m]:[s1]")</test>
     <result-string>xs:string("9:15:6")</result-string>
@@ -351,11 +350,11 @@
       <assert-string-value>9:15:6</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-003m">
+  <test-case name="format-dateTime-003m"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2003-09-07T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2003-09-07T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[H]:[m]:[s].[f,1-1]")</test>
     <result-string>xs:string("9:15:06.5")</result-string>
@@ -363,11 +362,11 @@
       <assert-string-value>9:15:06.5</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-003n">
+  <test-case name="format-dateTime-003n"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2003-09-07T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2003-09-07T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[H]:[m]:[s].[f1,1-1]")</test>
     <result-string>xs:string("9:15:06.5")</result-string>
@@ -375,11 +374,11 @@
       <assert-string-value>9:15:06.5</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-003p">
+  <test-case name="format-dateTime-003p"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2003-09-07T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2003-09-07T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[H]:[m]:[s].[f01]")</test>
     <result-string>xs:string("9:15:06.46")</result-string>
@@ -387,11 +386,11 @@
       <assert-string-value>9:15:06.46</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-003q">
+  <test-case name="format-dateTime-003q"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2003-09-07T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2003-09-07T09:15:06.456&apos;)"/>
     </environment>
     <test>format-dateTime($t,"[H]:[m]:[s].[f001]")</test>
     <result-string>xs:string("9:15:06.456")</result-string>
@@ -399,27 +398,27 @@
       <assert-string-value>9:15:06.456</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-003r">
+  <test-case name="format-dateTime-003r"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2003-09-07T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2003-09-07T09:15:06.456&apos;)"/>
     </environment>
-    <test>format-dateTime($t,'[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01].[f001]')</test>
+    <test>format-dateTime($t,&apos;[Y0001]-[M01]-[D01]T[H01]:[m01]:[s01].[f001]&apos;)</test>
     <result-string>xs:string("2003-09-07T09:15:06.456")</result-string>
     <result>
       <assert-string-value>2003-09-07T09:15:06.456</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-004">
+  <test-case name="format-dateTime-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")))</response-string>
     <description>Test format-dateTime: 12-hour clock</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2003-09-07T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2003-09-07T09:15:06.456&apos;)"/>
     </environment>
     <test>
         for $i in 1 to 24 return
-        format-dateTime($t + xs:dayTimeDuration('PT1H')*$i, '[h].[m]')</test>
+        format-dateTime($t + xs:dayTimeDuration(&apos;PT1H&apos;)*$i, &apos;[h].[m]&apos;)</test>
     <result-string>xs:string("10.15 11.15 12.15 1.15 2.15 3.15 4.15 5.15 6.15 7.15 8.15 9.15 10.15 11.15 12.15 
          1.15 2.15 3.15 4.15 5.15 6.15 7.15 8.15 9.15")</result-string>
     <result>
@@ -427,16 +426,16 @@
          1.15 2.15 3.15 4.15 5.15 6.15 7.15 8.15 9.15</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-005">
+  <test-case name="format-dateTime-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>Test format-dateTime: upper-case roman numerals for year</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('1950-01-01T12:00:00')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;1950-01-01T12:00:00&apos;)"/>
     </environment>
     <test>
         string-join(
           for $i in 1 to 100 return
-          format-dateTime($t + xs:yearMonthDuration('P1Y')*$i, '[YI]'), '; ')</test>
+          format-dateTime($t + xs:yearMonthDuration(&apos;P1Y&apos;)*$i, &apos;[YI]&apos;), &apos;; &apos;)</test>
     <result-string>xs:string("
             MCMLI; MCMLII; MCMLIII; MCMLIV; MCMLV; MCMLVI; MCMLVII; MCMLVIII; MCMLIX; MCMLX;             MCMLXI; MCMLXII; MCMLXIII; MCMLXIV; MCMLXV; MCMLXVI; MCMLXVII; MCMLXVIII;             MCMLXIX; MCMLXX; MCMLXXI; MCMLXXII; MCMLXXIII; MCMLXXIV; MCMLXXV; MCMLXXVI;             MCMLXXVII; MCMLXXVIII; MCMLXXIX; MCMLXXX; MCMLXXXI; MCMLXXXII; MCMLXXXIII;             MCMLXXXIV; MCMLXXXV; MCMLXXXVI; MCMLXXXVII; MCMLXXXVIII; MCMLXXXIX; MCMXC;             MCMXCI; MCMXCII; MCMXCIII; MCMXCIV; MCMXCV; MCMXCVI; MCMXCVII; MCMXCVIII;             MCMXCIX; MM; MMI; MMII; MMIII; MMIV; MMV; MMVI; MMVII; MMVIII; MMIX; MMX; MMXI; MMXII;             MMXIII; MMXIV; MMXV; MMXVI; MMXVII; MMXVIII; MMXIX; MMXX; MMXXI; MMXXII; MMXXIII; MMXXIV; MMXXV;             MMXXVI; MMXXVII; MMXXVIII; MMXXIX; MMXXX; MMXXXI; MMXXXII; MMXXXIII; MMXXXIV; MMXXXV;             MMXXXVI; MMXXXVII; MMXXXVIII; MMXXXIX; MMXL; MMXLI; MMXLII; MMXLIII; MMXLIV; MMXLV; MMXLVI;             MMXLVII; MMXLVIII; MMXLIX; MML
         ")</result-string>
@@ -446,17 +445,17 @@
         </assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-006">
+  <test-case name="format-dateTime-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>Test format-dateTime: lower-case roman numerals for year (with the width specifier padded)</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
-    <modified by="O'Neil Delpratt" change="Bug fix relating to issue #22282" on="2013-06-12"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug fix relating to issue #22282" on="2013-06-12"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0800-01-01T12:00:00')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0800-01-01T12:00:00&apos;)"/>
     </environment>
     <test>
         string-join(
           for $i in 1 to 100 return
-          format-dateTime($t + xs:yearMonthDuration('P17Y')*$i, '[Yi,3-3]'), '; ')</test>
+          format-dateTime($t + xs:yearMonthDuration(&apos;P17Y&apos;)*$i, &apos;[Yi,3-3]&apos;), &apos;; &apos;)</test>
     <result-string>xs:string("
             dcccxvii; dcccxxxiv; dcccli; dccclxviii; dccclxxxv; cmii; cmxix; cmxxxvi; cmliii;             cmlxx; cmlxxxvii; miv; mxxi; mxxxviii; mlv; mlxxii; mlxxxix; mcvi; mcxxiii; mcxl; mclvii;             mclxxiv; mcxci; mccviii; mccxxv; mccxlii; mcclix; mcclxxvi; mccxciii; mcccx; mcccxxvii; mcccxliv;             mccclxi; mccclxxviii; mcccxcv; mcdxii; mcdxxix; mcdxlvi; mcdlxiii; mcdlxxx; mcdxcvii; mdxiv;             mdxxxi; mdxlviii; mdlxv; mdlxxxii; mdxcix; mdcxvi; mdcxxxiii; mdcl; mdclxvii; mdclxxxiv; mdcci;             mdccxviii; mdccxxxv; mdcclii; mdcclxix; mdcclxxxvi; mdccciii; mdcccxx; mdcccxxxvii; mdcccliv;             mdccclxxi; mdccclxxxviii; mcmv; mcmxxii; mcmxxxix; mcmlvi; mcmlxxiii; mcmxc; mmvii; mmxxiv;             mmxli; mmlviii; mmlxxv; mmxcii; mmcix; mmcxxvi; mmcxliii; mmclx; mmclxxvii; mmcxciv; mmccxi;             mmccxxviii; mmccxlv; mmcclxii; mmcclxxix; mmccxcvi; mmcccxiii; mmcccxxx; mmcccxlvii; mmccclxiv;             mmccclxxxi; mmcccxcviii; mmcdxv; mmcdxxxii; mmcdxlix; mmcdlxvi; mmcdlxxxiii; mmd
         ")</result-string>
@@ -466,28 +465,28 @@
         </assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-006a">
+  <test-case name="format-dateTime-006a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-dateTime: lower-case roman numerals for year (with the width specifier padded). Variant of test-case format-dateTime-006</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2013-06-12"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2013-06-12"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('1004-01-01T12:00:00')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;1004-01-01T12:00:00&apos;)"/>
     </environment>
     <test>
-        format-dateTime($t, '[Yi,4-4]')</test>
+        format-dateTime($t, &apos;[Yi,4-4]&apos;)</test>
     <result-string>xs:string("miv ")</result-string>
     <result>
       <assert-string-value>miv </assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-009">
+  <test-case name="format-dateTime-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")))</response-string>
     <description>Test format-dateTime: test format-dateTime: ISO week numbers Specifically, in the ISO calendar the days of the week are numbered from 1 (Monday) to 7 (Sunday), and week 1 in any calendar year is the week (from Monday to Sunday) that includes the first Thursday of that year. </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2003-12-01T12:00:00')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2003-12-01T12:00:00&apos;)"/>
     </environment>
     <test>for $i in 1 to 48,
-                $d in $t + xs:yearMonthDuration('P1M')*$i
-            return concat("[", $d, ": ", format-dateTime($d, '[W]', (), 'ISO', ()), "]")</test>
+                $d in $t + xs:yearMonthDuration(&apos;P1M&apos;)*$i
+            return concat("[", $d, ": ", format-dateTime($d, &apos;[W]&apos;, (), &apos;ISO&apos;, ()), "]")</test>
     <result-string>xs:string("
             [2004-01-01T12:00:00: 1] [2004-02-01T12:00:00: 5] [2004-03-01T12:00:00: 10] [2004-04-01T12:00:00: 14] 
             [2004-05-01T12:00:00: 18] [2004-06-01T12:00:00: 23] [2004-07-01T12:00:00: 27] [2004-08-01T12:00:00: 31] 
@@ -519,15 +518,15 @@
         </assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-010">
+  <test-case name="format-dateTime-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")))</response-string>
     <description>test format-dateTime: ISO day within week Specifically, in the ISO calendar the days of the week are numbered from 1 (Monday) to 7 (Sunday), and week 1 in any calendar year is the week (from Monday to Sunday) that includes the first Thursday of that year. </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2003-12-01T12:00:00')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2003-12-01T12:00:00&apos;)"/>
     </environment>
     <test>for $i in 1 to 48,
-                $d in $t + xs:yearMonthDuration('P1M')*$i
-            return concat("[", $d, ": ", format-dateTime($d, '[F01]', (), 'ISO', ()))</test>
+                $d in $t + xs:yearMonthDuration(&apos;P1M&apos;)*$i
+            return concat("[", $d, ": ", format-dateTime($d, &apos;[F01]&apos;, (), &apos;ISO&apos;, ()))</test>
     <result-string>xs:string("
             [2004-01-01T12:00:00: 04 [2004-02-01T12:00:00: 07 [2004-03-01T12:00:00: 01 [2004-04-01T12:00:00: 04 
             [2004-05-01T12:00:00: 06 [2004-06-01T12:00:00: 02 [2004-07-01T12:00:00: 04 [2004-08-01T12:00:00: 07 
@@ -559,7 +558,7 @@
          </assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-011">
+  <test-case name="format-dateTime-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")))</response-string>
     <description>
       	Test format-dateTime: ISO week number within month. 
       	Specifically, in the ISO calendar the days of the week are numbered from 1 (Monday) to 7 (Sunday), 
@@ -568,11 +567,11 @@
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <modified by="Michael Kay, Saxonica" change="See spec bug 21370 and test bug 21794" on="2013-05-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2005-12-01T12:00:00')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2005-12-01T12:00:00&apos;)"/>
     </environment>
     <test>for $i in 1 to 48,
-                $d in $t + xs:yearMonthDuration('P1M')*$i
-            return concat("[", $d, ": ", format-dateTime($d, '[w]', (), 'ISO', ()))</test>
+                $d in $t + xs:yearMonthDuration(&apos;P1M&apos;)*$i
+            return concat("[", $d, ": ", format-dateTime($d, &apos;[w]&apos;, (), &apos;ISO&apos;, ()))</test>
     <result-string>xs:string("
             [2006-01-01T12:00:00: 5 [2006-02-01T12:00:00: 1 [2006-03-01T12:00:00: 1 [2006-04-01T12:00:00: 5 
             [2006-05-01T12:00:00: 1 [2006-06-01T12:00:00: 1 [2006-07-01T12:00:00: 5 [2006-08-01T12:00:00: 1 
@@ -604,14 +603,14 @@
          </assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-012">
+  <test-case name="format-dateTime-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")))</response-string>
     <description>test format-dateTime(): a,b,c... numbering sequence (not actually useful but allowed by the spec... </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('2011-07-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;2011-07-01T09:15:06.456&apos;)"/>
     </environment>
     <test>for $i in 1 to 60 return
-            format-dateTime($t + xs:dayTimeDuration('PT61S')*$i, '[mA].[sa]')</test>
+            format-dateTime($t + xs:dayTimeDuration(&apos;PT61S&apos;)*$i, &apos;[mA].[sa]&apos;)</test>
     <result-string>xs:string("
             P.g Q.h R.i S.j T.k U.l V.m W.n X.o Y.p Z.q AA.r AB.s AC.t AD.u AE.v AF.w AG.x AH.y AI.z AJ.aa 
             AK.ab AL.ac AM.ad AN.ae AO.af AP.ag AQ.ah AR.ai AS.aj AT.ak AU.al AV.am AW.an AX.ao AY.ap AZ.aq 
@@ -627,269 +626,269 @@
          </assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-013a">
+  <test-case name="format-dateTime-013a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456&apos;)"/>
     </environment>
-    <test>format-dateTime($t, '[Y,4-4]')</test>
+    <test>format-dateTime($t, &apos;[Y,4-4]&apos;)</test>
     <result-string>xs:string("0985")</result-string>
     <result>
       <assert-string-value>0985</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-013b">
+  <test-case name="format-dateTime-013b"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456&apos;)"/>
     </environment>
-    <test>format-dateTime($t, '[Y,3-4]')</test>
+    <test>format-dateTime($t, &apos;[Y,3-4]&apos;)</test>
     <result-string>xs:string("985")</result-string>
     <result>
       <assert-string-value>985</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-013c">
+  <test-case name="format-dateTime-013c"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456&apos;)"/>
     </environment>
-    <test>format-dateTime($t, '[Y,2-5]')</test>
+    <test>format-dateTime($t, &apos;[Y,2-5]&apos;)</test>
     <result-string>xs:string("985")</result-string>
     <result>
       <assert-string-value>985</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-013d">
+  <test-case name="format-dateTime-013d"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456&apos;)"/>
     </environment>
-    <test>format-dateTime($t, '[Y,2-2]')</test>
+    <test>format-dateTime($t, &apos;[Y,2-2]&apos;)</test>
     <result-string>xs:string("85")</result-string>
     <result>
       <assert-string-value>85</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-013e">
+  <test-case name="format-dateTime-013e"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456&apos;)"/>
     </environment>
-    <test>format-dateTime($t, '[Y,2-*]')</test>
+    <test>format-dateTime($t, &apos;[Y,2-*]&apos;)</test>
     <result-string>xs:string("985")</result-string>
     <result>
       <assert-string-value>985</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-013f">
+  <test-case name="format-dateTime-013f"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456&apos;)"/>
     </environment>
-    <test>format-dateTime($t, '[Y,*-4]')</test>
+    <test>format-dateTime($t, &apos;[Y,*-4]&apos;)</test>
     <result-string>xs:string("985")</result-string>
     <result>
       <assert-string-value>985</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-013g">
+  <test-case name="format-dateTime-013g"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456&apos;)"/>
     </environment>
-    <test>format-dateTime($t, '[Y,3]')</test>
+    <test>format-dateTime($t, &apos;[Y,3]&apos;)</test>
     <result-string>xs:string("985")</result-string>
     <result>
       <assert-string-value>985</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-013h">
+  <test-case name="format-dateTime-013h"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456&apos;)"/>
     </environment>
-    <test>format-dateTime($t, '[M,4-4]')</test>
+    <test>format-dateTime($t, &apos;[M,4-4]&apos;)</test>
     <result-string>xs:string("0003")</result-string>
     <result>
       <assert-string-value>0003</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-013i">
+  <test-case name="format-dateTime-013i"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456&apos;)"/>
     </environment>
-    <test>format-dateTime($t, '[M,1-4]')</test>
+    <test>format-dateTime($t, &apos;[M,1-4]&apos;)</test>
     <result-string>xs:string("3")</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-013j">
+  <test-case name="format-dateTime-013j"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456&apos;)"/>
     </environment>
-    <test>format-dateTime($t, '[M,2-5]')</test>
+    <test>format-dateTime($t, &apos;[M,2-5]&apos;)</test>
     <result-string>xs:string("03")</result-string>
     <result>
       <assert-string-value>03</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-013k">
+  <test-case name="format-dateTime-013k"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456&apos;)"/>
     </environment>
-    <test>format-dateTime($t, '[M,2-2]')</test>
+    <test>format-dateTime($t, &apos;[M,2-2]&apos;)</test>
     <result-string>xs:string("03")</result-string>
     <result>
       <assert-string-value>03</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-013L">
+  <test-case name="format-dateTime-013L"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456&apos;)"/>
     </environment>
-    <test>format-dateTime($t, '[M,1-*]')</test>
+    <test>format-dateTime($t, &apos;[M,1-*]&apos;)</test>
     <result-string>xs:string("3")</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-013m">
+  <test-case name="format-dateTime-013m"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456&apos;)"/>
     </environment>
-    <test>format-dateTime($t, '[M,*-2]')</test>
+    <test>format-dateTime($t, &apos;[M,*-2]&apos;)</test>
     <result-string>xs:string("3")</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-013n">
+  <test-case name="format-dateTime-013n"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456&apos;)"/>
     </environment>
-    <test>format-dateTime($t, '[M,3]')</test>
+    <test>format-dateTime($t, &apos;[M,3]&apos;)</test>
     <result-string>xs:string("003")</result-string>
     <result>
       <assert-string-value>003</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-013p">
+  <test-case name="format-dateTime-013p"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456&apos;)"/>
     </environment>
-    <test>format-dateTime($t, '[f,4-4]')</test>
+    <test>format-dateTime($t, &apos;[f,4-4]&apos;)</test>
     <result-string>xs:string("4560")</result-string>
     <result>
       <assert-string-value>4560</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-013q">
+  <test-case name="format-dateTime-013q"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456&apos;)"/>
     </environment>
-    <test>format-dateTime($t, '[f,1-4]')</test>
+    <test>format-dateTime($t, &apos;[f,1-4]&apos;)</test>
     <result-string>xs:string("456")</result-string>
     <result>
       <assert-string-value>456</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-013r">
+  <test-case name="format-dateTime-013r"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456&apos;)"/>
     </environment>
-    <test>format-dateTime($t, '[f,2-5]')</test>
+    <test>format-dateTime($t, &apos;[f,2-5]&apos;)</test>
     <result-string>xs:string("456")</result-string>
     <result>
       <assert-string-value>456</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-013s">
+  <test-case name="format-dateTime-013s"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456&apos;)"/>
     </environment>
-    <test>format-dateTime($t, '[f,2-2]')</test>
+    <test>format-dateTime($t, &apos;[f,2-2]&apos;)</test>
     <result-string>xs:string("46")</result-string>
     <result>
       <assert-string-value>46</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-013t">
+  <test-case name="format-dateTime-013t"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456&apos;)"/>
     </environment>
-    <test>format-dateTime($t, '[f,1-*]')</test>
+    <test>format-dateTime($t, &apos;[f,1-*]&apos;)</test>
     <result-string>xs:string("456")</result-string>
     <result>
       <assert-string-value>456</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-013u">
+  <test-case name="format-dateTime-013u"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456&apos;)"/>
     </environment>
-    <test>format-dateTime($t, '[f,*-2]')</test>
+    <test>format-dateTime($t, &apos;[f,*-2]&apos;)</test>
     <result-string>xs:string("46")</result-string>
     <result>
       <assert-string-value>46</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-013v">
+  <test-case name="format-dateTime-013v"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456&apos;)"/>
     </environment>
-    <test>format-dateTime($t, '[f,3]')</test>
+    <test>format-dateTime($t, &apos;[f,3]&apos;)</test>
     <result-string>xs:string("456")</result-string>
     <result>
       <assert-string-value>456</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-014">
+  <test-case name="format-dateTime-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>test format-dateTime(): timezones in +nn:nn notation</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <modified by="Michael Kay, Saxonica" change="modify GMT+0 representation" on="2012-07-06"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456Z')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456Z&apos;)"/>
     </environment>
     <test>string-join(
                for $z in -28 to +28
                return format-dateTime(adjust-dateTime-to-timezone(
-                   $t, $z*xs:dayTimeDuration('PT30M')), '[h01][m01][Z]'), '; ')
+                   $t, $z*xs:dayTimeDuration(&apos;PT30M&apos;)), &apos;[h01][m01][Z]&apos;), &apos;; &apos;)
       </test>
     <result-string>xs:string("
             0715-14:00; 0745-13:30; 0815-13:00; 0845-12:30; 0915-12:00; 0945-11:30; 1015-11:00; 1045-10:30; 1115-10:00; 
@@ -912,17 +911,17 @@
          </assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-015">
+  <test-case name="format-dateTime-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>test format-dateTime(): timezones in GMT+x notation</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <modified by="Michael Kay, Saxonica" change="use [z0] rather than [z]; modify GMT+0 representation" on="2012-07-06"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456Z')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456Z&apos;)"/>
     </environment>
     <test>string-join(
                for $z in -28 to +28
                return format-dateTime(adjust-dateTime-to-timezone(
-                          $t, $z*xs:dayTimeDuration('PT30M')), '[h01][m01][z0]'), '; ')</test>
+                          $t, $z*xs:dayTimeDuration(&apos;PT30M&apos;)), &apos;[h01][m01][z0]&apos;), &apos;; &apos;)</test>
     <result-string>xs:string("
             0715GMT-14; 0745GMT-13:30; 0815GMT-13; 0845GMT-12:30; 0915GMT-12; 0945GMT-11:30; 1015GMT-11; 1045GMT-10:30;
             1115GMT-10; 1145GMT-9:30; 1215GMT-9; 1245GMT-8:30; 0115GMT-8; 0145GMT-7:30; 0215GMT-7; 0245GMT-6:30; 0315GMT-6;
@@ -944,17 +943,17 @@
          </assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-016">
+  <test-case name="format-dateTime-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>test format-dateTime(): timezones in GMT+x notation</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <modified by="Michael Kay, Saxonica" change="modify GMT+0 representation" on="2012-07-06"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456Z')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456Z&apos;)"/>
     </environment>
     <test>string-join(
                for $z in -28 to +28
                return format-dateTime(adjust-dateTime-to-timezone(
-               $t, $z*xs:dayTimeDuration('PT30M')), '[h01][m01][z00:00]'), '; ')
+               $t, $z*xs:dayTimeDuration(&apos;PT30M&apos;)), &apos;[h01][m01][z00:00]&apos;), &apos;; &apos;)
       </test>
     <result-string>xs:string("
             0715GMT-14:00; 0745GMT-13:30; 0815GMT-13:00; 0845GMT-12:30; 0915GMT-12:00; 0945GMT-11:30; 1015GMT-11:00;            
@@ -979,17 +978,17 @@
         </assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-017">
+  <test-case name="format-dateTime-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>test format-dateTime(): timezones in GMT+x notation</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <modified by="Michael Kay, Saxonica" change="change to use [z00]; modify GMT+0 representation" on="2012-07-06"/>
-    <modified by="O'Neil Delpratt, Saxonica" change="Bug fix related to 17285" on="2012-10-09"/>
+    <modified by="O&apos;Neil Delpratt, Saxonica" change="Bug fix related to 17285" on="2012-10-09"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456Z')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456Z&apos;)"/>
     </environment>
     <test>string-join(
                for $z in -28 to +28
-               return format-dateTime(adjust-dateTime-to-timezone($t, $z*xs:dayTimeDuration('PT30M')), '[h01][m01][z00]'), '; ')</test>
+               return format-dateTime(adjust-dateTime-to-timezone($t, $z*xs:dayTimeDuration(&apos;PT30M&apos;)), &apos;[h01][m01][z00]&apos;), &apos;; &apos;)</test>
     <result-string>xs:string("
              0715GMT-14; 0745GMT-13:30; 0815GMT-13; 0845GMT-12:30; 0915GMT-12; 0945GMT-11:30; 1015GMT-11; 1045GMT-10:30; 
              1115GMT-10; 1145GMT-09:30; 1215GMT-09; 1245GMT-08:30; 0115GMT-08; 0145GMT-07:30; 0215GMT-07; 0245GMT-06:30;
@@ -1011,17 +1010,17 @@
          </assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-018">
+  <test-case name="format-dateTime-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>test format-dateTime(): timezones in GMT+x notation</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <modified by="Michael Kay, Saxonica" change="modify GMT+0 representation" on="2012-07-06"/>
-    <modified by="O'Neil Delpratt, Saxonica" change="Bug fix related to 17285" on="2012-10-09"/>
+    <modified by="O&apos;Neil Delpratt, Saxonica" change="Bug fix related to 17285" on="2012-10-09"/>
     <environment>
-      <param as="xs:dateTime" name="t" select="xs:dateTime('0985-03-01T09:15:06.456Z')"/>
+      <param as="xs:dateTime" name="t" select="xs:dateTime(&apos;0985-03-01T09:15:06.456Z&apos;)"/>
     </environment>
     <test>string-join(
                for $z in -28 to +28
-               return format-dateTime(adjust-dateTime-to-timezone($t, $z*xs:dayTimeDuration('PT30M')), '[h01][m01][z00]'), '; ')</test>
+               return format-dateTime(adjust-dateTime-to-timezone($t, $z*xs:dayTimeDuration(&apos;PT30M&apos;)), &apos;[h01][m01][z00]&apos;), &apos;; &apos;)</test>
     <result-string>xs:string("
             0715GMT-14; 0745GMT-13:30; 0815GMT-13; 0845GMT-12:30; 0915GMT-12; 0945GMT-11:30; 1015GMT-11; 1045GMT-10:30;
             1115GMT-10; 1145GMT-09:30; 1215GMT-09; 1245GMT-08:30; 0115GMT-08; 0145GMT-07:30; 0215GMT-07; 0245GMT-06:30; 0315GMT-06;
@@ -1043,10 +1042,10 @@
          </assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-801err">
+  <test-case name="format-dateTime-801err"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>Error XTDE1340 incorrect picture string</description>
     <created by="Anders Berglund" on="2011-07-01"/>
-    <test>format-dateTime(current-dateTime(), '[bla]', 'en', (), ())</test>
+    <test>format-dateTime(current-dateTime(), &apos;[bla]&apos;, &apos;en&apos;, (), ())</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XTDE1340"))</result-string>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOFD1340"))</result-string>
     <result>
@@ -1056,18 +1055,18 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="format-dateTime-en141">
+  <test-case name="format-dateTime-en141"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")))</response-string>
     <description>English BC/AD</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="d1" select="xs:dateTime('1990-12-01T12:00:00')"/>
-      <param as="xs:dateTime" name="d2" select="xs:dateTime('-0055-12-01T12:00:00')"/>
+      <param as="xs:dateTime" name="d1" select="xs:dateTime(&apos;1990-12-01T12:00:00&apos;)"/>
+      <param as="xs:dateTime" name="d2" select="xs:dateTime(&apos;-0055-12-01T12:00:00&apos;)"/>
     </environment>
     <dependency type="language" value="en"/>
     <dependency type="limits" value="year_lt_0"/>
     <test>
-        format-dateTime($d1, '[Y][EN]', 'en', (), ()),
-        format-dateTime($d2, '[Y][EN]', 'en', (), ())
+        format-dateTime($d1, &apos;[Y][EN]&apos;, &apos;en&apos;, (), ()),
+        format-dateTime($d2, &apos;[Y][EN]&apos;, &apos;en&apos;, (), ())
       </test>
     <result-string/>
     <result-string/>
@@ -1082,17 +1081,17 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="format-dateTime-en142">
+  <test-case name="format-dateTime-en142"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")))</response-string>
     <description>English AM/PM</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="b" select="xs:dateTime('2011-07-01T00:10:00')"/>
+      <param as="xs:dateTime" name="b" select="xs:dateTime(&apos;2011-07-01T00:10:00&apos;)"/>
     </environment>
     <dependency type="language" value="en"/>
     <test>
         for $i in 0 to 23 return
-        let $t := $b + xs:dayTimeDuration('PT1H')*$i return
-        translate(format-dateTime($t, '[h]~[m][P]', 'en', (), ()), '.- ', '')
+        let $t := $b + xs:dayTimeDuration(&apos;PT1H&apos;)*$i return
+        translate(format-dateTime($t, &apos;[h]~[m][P]&apos;, &apos;en&apos;, (), ()), &apos;.- &apos;, &apos;&apos;)
       </test>
     <result-string>xs:string("
          12~10am 1~10am 2~10am 3~10am 4~10am 5~10am 6~10am 7~10am 8~10am 9~10am 10~10am 11~10am 12~10pm 
@@ -1105,83 +1104,83 @@
          </assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-en143">
+  <test-case name="format-dateTime-en143"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")))</response-string>
     <description>English noon/midnight. The US convention seems to be noon=AM, midnight=PM, 
-      and as no-one except the US uses the 12-hour clock these days, we'll go with that.</description>
+      and as no-one except the US uses the 12-hour clock these days, we&apos;ll go with that.</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="b" select="xs:dateTime('2011-07-01T00:00:00')"/>
+      <param as="xs:dateTime" name="b" select="xs:dateTime(&apos;2011-07-01T00:00:00&apos;)"/>
     </environment>
     <dependency type="language" value="en"/>
     <test>
         for $i in 0 to 1 return
-        let $t := $b + xs:dayTimeDuration('PT12H')*$i return
-        translate(format-dateTime($t, '[h]~[m][P]', 'en', (), ()), '.- ', '')
+        let $t := $b + xs:dayTimeDuration(&apos;PT12H&apos;)*$i return
+        translate(format-dateTime($t, &apos;[h]~[m][P]&apos;, &apos;en&apos;, (), ()), &apos;.- &apos;, &apos;&apos;)
       </test>
     <result-string>xs:string("12~00am 12~00pm")</result-string>
     <result>
       <assert-string-value>12~00am 12~00pm</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-en151">
+  <test-case name="format-dateTime-en151"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-dateTime: fallback to English for unsupported language. 
       Test assumes (a) that Iberian (xib) is not supported, and (b) that the fallback language is English. 
       Changed from lang="fo" to lang="xib": See bug 862.</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="b" select="xs:dateTime('2006-03-01T12:00:00')"/>
+      <param as="xs:dateTime" name="b" select="xs:dateTime(&apos;2006-03-01T12:00:00&apos;)"/>
     </environment>
     <dependency satisfied="false" type="language" value="xib"/>
-    <test>format-dateTime($b, '[MNn]', 'xib', (), ())</test>
+    <test>format-dateTime($b, &apos;[MNn]&apos;, &apos;xib&apos;, (), ())</test>
     <result-string>xs:string("[Language: en]March")</result-string>
     <result>
       <assert-string-value>[Language: en]March</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-en152">
+  <test-case name="format-dateTime-en152"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description/>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:dateTime" name="b" select="xs:dateTime('2006-03-01T12:00:00')"/>
+      <param as="xs:dateTime" name="b" select="xs:dateTime(&apos;2006-03-01T12:00:00&apos;)"/>
     </environment>
     <dependency satisfied="false" type="calendar" value="CB"/>
-    <test>format-dateTime($b, '[M01]', 'en', 'CB', ())</test>
+    <test>format-dateTime($b, &apos;[M01]&apos;, &apos;en&apos;, &apos;CB&apos;, ())</test>
     <result-string>xs:string("[Calendar: AD]03")</result-string>
     <result>
       <assert-string-value>[Calendar: AD]03</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-dateTime-inpt-er1">
+  <test-case name="format-dateTime-inpt-er1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>wrong arg input to format-date()</description>
     <created by="Zhen Hua Liu" on="2012-01-18"/>
-    <test>format-dateTime('abc', '[bla]', 'en', (), ())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <test>format-dateTime(&apos;abc&apos;, &apos;[bla]&apos;, &apos;en&apos;, (), ())</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="format-dateTime-inpt-er2">
+  <test-case name="format-dateTime-inpt-er2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>wrong number of args to format-date()</description>
     <created by="Zhen Hua Liu" on="2012-01-18"/>
-    <test>format-dateTime(current-dateTime(), '[bla]', 'en', (), (), 6)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <test>format-dateTime(current-dateTime(), &apos;[bla]&apos;, &apos;en&apos;, (), (), 6)</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="format-dateTime-inpt-er3">
+  <test-case name="format-dateTime-inpt-er3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>wrong type of args to format-date()</description>
     <created by="Zhen Hua Liu" on="2012-01-18"/>
-    <test>format-dateTime(current-dateTime(), '[bla]', 'en', (), 5)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <test>format-dateTime(current-dateTime(), &apos;[bla]&apos;, &apos;en&apos;, (), 5)</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="format-dateTime-1340err">
+  <test-case name="format-dateTime-1340err"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>Error FOFD1340 syntax of picture is incorrect</description>
     <created by="Zhen Hua Liu" on="2012-01-18"/>
-    <test>format-dateTime(current-dateTime(), '[yY]', 'en', (), ())</test>
+    <test>format-dateTime(current-dateTime(), &apos;[yY]&apos;, &apos;en&apos;, (), ())</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOFD1340"))</result-string>
     <result>
       <error code="FOFD1340"/>

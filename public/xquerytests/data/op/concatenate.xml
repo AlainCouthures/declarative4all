@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="op-concatenate" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the concatenate() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-concatenate" type="spec"/>
@@ -8,7 +7,7 @@
       <created by="XQuery WG" on="2005-02-11"/>
     </source>
   </environment>
-  <test-case name="sequenceexpressionhc1">
+  <test-case name="sequenceexpressionhc1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string>
     <description> Constructing Sequences. Simple sequence involving integers. </description>
     <created by="Carmelo Montanez" on="2005-02-14"/>
     <test>(1,2,3,4,5)</test>
@@ -17,7 +16,7 @@
       <assert-deep-eq>1, 2, 3, 4, 5</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="sequenceexpressionhc2">
+  <test-case name="sequenceexpressionhc2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string>
     <description> Constructing Sequences. Simple sequence involving nested sequences. </description>
     <created by="Carmelo Montanez" on="2005-02-14"/>
     <test>(1,(2,3),4,5)</test>
@@ -26,7 +25,7 @@
       <assert-deep-eq>1, 2, 3, 4, 5</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="sequenceexpressionhc3">
+  <test-case name="sequenceexpressionhc3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"))</response-string>
     <description> Constructing Sequences. Simple sequence involving the empty sequence. </description>
     <created by="Carmelo Montanez" on="2005-02-14"/>
     <test>(1, 2, (), 3, 4)</test>
@@ -35,7 +34,7 @@
       <assert-deep-eq>1, 2, 3, 4</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="sequenceexpressionhc4">
+  <test-case name="sequenceexpressionhc4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string>
     <description> Constructing Sequences. Simple sequence involving the "to" operand. </description>
     <created by="Carmelo Montanez" on="2005-02-14"/>
     <test>(1, 2 to 5)</test>
@@ -44,7 +43,7 @@
       <assert-deep-eq>1, 2, 3, 4, 5</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="sequenceexpressionhc5">
+  <test-case name="sequenceexpressionhc5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("2"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("2"))</response-string>
     <description> Constructing Sequences. Simple sequence involving repetition </description>
     <created by="Carmelo Montanez" on="2005-02-14"/>
     <test>(1, 2, 2)</test>
@@ -53,7 +52,7 @@
       <assert-deep-eq>1, 2, 2</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="sequenceexpressionhc6">
+  <test-case name="sequenceexpressionhc6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Constructing Sequences. Simple sequence expression resulting in an empty sequence. Uses count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-02-14"/>
     <test>count((15 to 10))</test>
@@ -62,7 +61,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="sequenceexpressionhc7">
+  <test-case name="sequenceexpressionhc7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("15"),xs:integer("14"),xs:integer("13"),xs:integer("12"),xs:integer("11"),xs:integer("10"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("15"),xs:integer("14"),xs:integer("13"),xs:integer("12"),xs:integer("11"),xs:integer("10"))</response-string>
     <description> Constructing Sequences. Simple sequence expression that results on a sequence in reverse order </description>
     <created by="Carmelo Montanez" on="2005-02-14"/>
     <test>fn:reverse(10 to 15)</test>
@@ -71,19 +70,19 @@
       <assert-deep-eq>15, 14, 13, 12, 11, 10</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="sequenceexpressionhc8">
+  <test-case name="sequenceexpressionhc8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;empnum&gt;E1&lt;/empnum&gt;,&lt;empnum&gt;E1&lt;/empnum&gt;,&lt;empnum&gt;E1&lt;/empnum&gt;,&lt;empnum&gt;E1&lt;/empnum&gt;,&lt;empnum&gt;E1&lt;/empnum&gt;,&lt;empnum&gt;E1&lt;/empnum&gt;,&lt;empnum&gt;E2&lt;/empnum&gt;,&lt;empnum&gt;E2&lt;/empnum&gt;,&lt;empnum&gt;E3&lt;/empnum&gt;,&lt;empnum&gt;E3&lt;/empnum&gt;,&lt;empnum&gt;E4&lt;/empnum&gt;,&lt;empnum&gt;E4&lt;/empnum&gt;,&lt;empnum&gt;E4&lt;/empnum&gt;)</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;empnum&gt;E1&lt;/empnum&gt;,&lt;empnum&gt;E1&lt;/empnum&gt;,&lt;empnum&gt;E1&lt;/empnum&gt;,&lt;empnum&gt;E1&lt;/empnum&gt;,&lt;empnum&gt;E1&lt;/empnum&gt;,&lt;empnum&gt;E1&lt;/empnum&gt;,&lt;empnum&gt;E2&lt;/empnum&gt;,&lt;empnum&gt;E2&lt;/empnum&gt;,&lt;empnum&gt;E3&lt;/empnum&gt;,&lt;empnum&gt;E3&lt;/empnum&gt;,&lt;empnum&gt;E4&lt;/empnum&gt;,&lt;empnum&gt;E4&lt;/empnum&gt;,&lt;empnum&gt;E4&lt;/empnum&gt;)</response-string>
     <description> Constructing Sequences. Sequence expression resulting by quering xml file string data </description>
     <created by="Carmelo Montanez" on="2005-02-14"/>
     <environment ref="works"/>
     <test>//empnum</test>
-    <result-string/>
+    <result-string>(&lt;empnum&gt;E1&lt;/empnum&gt;,&lt;empnum&gt;E1&lt;/empnum&gt;,&lt;empnum&gt;E1&lt;/empnum&gt;,&lt;empnum&gt;E1&lt;/empnum&gt;,&lt;empnum&gt;E1&lt;/empnum&gt;,&lt;empnum&gt;E1&lt;/empnum&gt;,&lt;empnum&gt;E2&lt;/empnum&gt;,&lt;empnum&gt;E2&lt;/empnum&gt;,&lt;empnum&gt;E3&lt;/empnum&gt;,&lt;empnum&gt;E3&lt;/empnum&gt;,&lt;empnum&gt;E4&lt;/empnum&gt;,&lt;empnum&gt;E4&lt;/empnum&gt;,&lt;empnum&gt;E4&lt;/empnum&gt;)</result-string>
     <result>
       <assert-xml>
         <![CDATA[<empnum>E1</empnum><empnum>E1</empnum><empnum>E1</empnum><empnum>E1</empnum><empnum>E1</empnum><empnum>E1</empnum><empnum>E2</empnum><empnum>E2</empnum><empnum>E3</empnum><empnum>E3</empnum><empnum>E4</empnum><empnum>E4</empnum><empnum>E4</empnum>]]>
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="sequenceexpressionhc9">
+  <test-case name="sequenceexpressionhc9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Constructing Sequences. Sequence expression resulting by quering xml file string data (multiple xml sources) </description>
     <created by="Carmelo Montanez" on="2005-02-14"/>
     <environment ref="works-and-staff"/>
@@ -95,7 +94,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="constSeq-1">
+  <test-case name="constSeq-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string>
     <description> Constructing sequences. Constructing a sequence, where one of the members is an addition operation </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test>(1, 1 + 1, 3, 4, 5)</test>
@@ -104,7 +103,7 @@
       <assert-deep-eq>1, 2, 3, 4, 5</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="constSeq-2">
+  <test-case name="constSeq-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string>
     <description> Constructing sequences. Constructing a sequence, where one of the members is subtraction operation. </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test>(1, 3 - 1, 3, 4, 5)</test>
@@ -113,7 +112,7 @@
       <assert-deep-eq>1, 2 ,3, 4, 5</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="constSeq-3">
+  <test-case name="constSeq-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string>
     <description> Constructing sequences. Constructing a sequence, where one of the members is a multiplication operation. </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (1, 2 * 1, 3, 4, 5)</test>
@@ -122,16 +121,16 @@
       <assert-deep-eq>1, 2, 3, 4, 5</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="constSeq-4">
+  <test-case name="constSeq-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string>
     <description> Constructing sequences. Constructing a sequence, where one of the members is a division (div) operation. </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (1, 4 div 2, 3, 4, 5)</test>
-    <result-string>(xs:integer("1"),xs:decimal("2.0"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</result-string>
+    <result-string>(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</result-string>
     <result>
       <assert-deep-eq>1, 2, 3, 4, 5</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="constSeq-5">
+  <test-case name="constSeq-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string>
     <description> Constructing sequences. Constructing a sequence, where one of the members is a division (idiv) operation. </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (1, 4 idiv 2, 3, 4, 5)</test>
@@ -140,7 +139,7 @@
       <assert-deep-eq>1, 2, 3, 4, 5</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="constSeq-6">
+  <test-case name="constSeq-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string>
     <description> Constructing sequences. Constructing a sequence, where one of the members contains invocation to "fn:count" function. </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (1, fn:count((1, 2)), 3, 4, 5)</test>
@@ -149,7 +148,7 @@
       <assert-deep-eq>1, 2, 3, 4, 5</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="constSeq-7">
+  <test-case name="constSeq-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string>
     <description> Constructing sequences. Constructing a sequence, where one of the members contains invocation to "fn:string-length" function. </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (1, fn:string-length("AB"), 3, 4, 5)</test>
@@ -158,7 +157,7 @@
       <assert-deep-eq>1, 2, 3, 4, 5</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="constSeq-8">
+  <test-case name="constSeq-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:boolean("true"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:boolean("true"))</response-string>
     <description> Constructing sequences. Constructing a sequence, where both members contains invocation to "fn:true" function. </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (fn:true(),fn:true())</test>
@@ -167,7 +166,7 @@
       <assert-deep-eq>true(), true()</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="constSeq-9">
+  <test-case name="constSeq-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("false"),xs:boolean("false"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("false"),xs:boolean("false"))</response-string>
     <description> Constructing sequences. Constructing a sequence, where both members contains invocation to "fn:false" function. </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (fn:false(),fn:false())</test>
@@ -176,7 +175,7 @@
       <assert-deep-eq>false(), false()</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="constSeq-10">
+  <test-case name="constSeq-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("false"),xs:boolean("false"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("false"),xs:boolean("false"))</response-string>
     <description> Constructing sequences. Constructing a sequence, where both members contains invocation to "fn:not()" function. </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (fn:not("true"),fn:not("false"))</test>
@@ -185,7 +184,7 @@
       <assert-deep-eq>false(), false()</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="constSeq-11">
+  <test-case name="constSeq-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:boolean("true"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:boolean("true"))</response-string>
     <description> Constructing sequences. Constructing a sequence, where one of its members contains a boolean (and) operation. </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (fn:true() and fn:true(), fn:true())</test>
@@ -194,7 +193,7 @@
       <assert-deep-eq>true(), true()</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="constSeq-12">
+  <test-case name="constSeq-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:boolean("true"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:boolean("true"))</response-string>
     <description> Constructing sequences. Constructing a sequence, where one of its members contains a boolean (or) operation. </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (fn:true() or fn:true(), fn:true())</test>
@@ -203,7 +202,7 @@
       <assert-deep-eq>true(), true()</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="constSeq-13">
+  <test-case name="constSeq-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("ABC"),xs:string("D"),xs:string("E"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("ABC"),xs:string("D"),xs:string("E"))</response-string>
     <description> Constructing sequences. Constructing a sequence, where one of its members contains invocation to "xs:string()". </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (xs:string("ABC"), "D", "E")</test>
@@ -212,7 +211,7 @@
       <assert-deep-eq>"ABC", "D", "E"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="constSeq-14">
+  <test-case name="constSeq-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"))</response-string>
     <description> Constructing sequences. Constructing a sequence, where one of its members contains invocation to "xs:integer". </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (xs:integer(1), 2, 3)</test>
@@ -221,16 +220,16 @@
       <assert-deep-eq>1, 2, 3</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="constSeq-15">
+  <test-case name="constSeq-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:decimal("1"),xs:integer("2"),xs:integer("3"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:decimal("1"),xs:integer("2"),xs:integer("3"))</response-string>
     <description> Constructing sequences. Constructing a sequence, where one of its members contains invocation to "xs:decimal()". </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (xs:decimal(1), 2, 3)</test>
-    <result-string>(xs:decimal("1.0"),xs:integer("2"),xs:integer("3"))</result-string>
+    <result-string>(xs:decimal("1"),xs:integer("2"),xs:integer("3"))</result-string>
     <result>
       <assert-deep-eq>1, 2, 3</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="constSeq-16">
+  <test-case name="constSeq-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:anyURI("http://www.example.com"),xs:anyURI("http://www.example1.com"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:anyURI("http://www.example.com"),xs:anyURI("http://www.example1.com"))</response-string>
     <description> Constructing sequences. Constructing a sequence, where both of its members contains invocation to "xs:anyURI". </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (xs:anyURI("http://www.example.com"),xs:anyURI("http://www.example1.com"))</test>
@@ -239,16 +238,16 @@
       <assert-deep-eq>"http://www.example.com", "http://www.example1.com"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="constSeq-17">
+  <test-case name="constSeq-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("1.1"),xs:decimal("2.2"),xs:decimal("3.3"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("1.1"),xs:decimal("2.2"),xs:decimal("3.3"))</response-string>
     <description> Constructing sequences. Constructing a sequence, where one of its members contains invocation to "xs:float". </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (xs:float(1.1), 2.2, 3.3)</test>
-    <result-string>(xs:float("1.1e0"),xs:decimal("2.2"),xs:decimal("3.3"))</result-string>
+    <result-string>(xs:float("1.1"),xs:decimal("2.2"),xs:decimal("3.3"))</result-string>
     <result>
-      <assert-deep-eq>xs:float('1.1e0'), 2.2, 3.3</assert-deep-eq>
+      <assert-deep-eq>xs:float(&apos;1.1e0&apos;), 2.2, 3.3</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="constSeq-18">
+  <test-case name="constSeq-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:double("120"),xs:double("220"),xs:double("330"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:double("120"),xs:double("220"),xs:double("330"))</response-string>
     <description> Constructing sequences. Constructing a sequence, where one of its members contains invocation to "xs:double()". </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (xs:double(1.2E2), 2.2E2, 3.3E2)</test>
@@ -257,7 +256,7 @@
       <assert-deep-eq>120, 220, 330</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="constSeq-19">
+  <test-case name="constSeq-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:boolean("false"),xs:boolean("true"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:boolean("false"),xs:boolean("true"))</response-string>
     <description> Constructing sequences. Constructing a sequence, where one of its members contains invocation to "xs:boolean()". </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (xs:boolean(fn:true()), fn:false(), fn:true())</test>
@@ -266,7 +265,7 @@
       <assert-deep-eq>true(), false(), true()</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="constSeq-20">
+  <test-case name="constSeq-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:date("2004-12-25Z"),xs:date("2004-12-26Z"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:date("2004-12-25Z"),xs:date("2004-12-26Z"))</response-string>
     <description> Constructing sequences. Constructing a sequence, where both of its members contains invocation to "xs:date()". </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (xs:date("2004-12-25Z"),xs:date("2004-12-26Z"))</test>
@@ -275,7 +274,7 @@
       <assert-string-value>2004-12-25Z 2004-12-26Z</assert-string-value>
     </result>
   </test-case>
-  <test-case name="constSeq-21">
+  <test-case name="constSeq-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:dateTime("1999-11-28T09:00:00Z"),xs:dateTime("1998-11-28T09:00:00Z"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:dateTime("1999-11-28T09:00:00Z"),xs:dateTime("1998-11-28T09:00:00Z"))</response-string>
     <description> Constructing sequences. Constructing a sequence, where both of its members contains invocation to "xs:dateTime()". </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (xs:dateTime("1999-11-28T09:00:00Z"),xs:dateTime("1998-11-28T09:00:00Z"))</test>
@@ -284,7 +283,7 @@
       <assert-string-value>1999-11-28T09:00:00Z 1998-11-28T09:00:00Z</assert-string-value>
     </result>
   </test-case>
-  <test-case name="constSeq-22">
+  <test-case name="constSeq-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:time("08:00:00+09:00"),xs:time("08:00:00+10:00"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:time("08:00:00+09:00"),xs:time("08:00:00+10:00"))</response-string>
     <description> Constructing sequences. Constructing a sequence, where both of its members contains invocation to "xs:time()". </description>
     <created by="Carmelo Montanez" on="2005-08-31"/>
     <test> (xs:time("08:00:00+09:00"),xs:time("08:00:00+10:00"))</test>
@@ -293,7 +292,7 @@
       <assert-string-value>08:00:00+09:00 08:00:00+10:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-concatenate-mix-args-001">
+  <test-case name="op-concatenate-mix-args-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"))</response-string>
     <description> arg1  arg2 : sequence of number </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>(1) , (2)</test>
@@ -302,7 +301,7 @@
       <assert-deep-eq>1, 2</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="op-concatenate-mix-args-002">
+  <test-case name="op-concatenate-mix-args-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:string("b"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:string("b"))</response-string>
     <description> arg1  arg2 : string </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>xs:string("a") , xs:string("b")</test>
@@ -311,7 +310,7 @@
       <assert-deep-eq>"a", "b"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="op-concatenate-mix-args-003">
+  <test-case name="op-concatenate-mix-args-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:string("xyz"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:string("xyz"))</response-string>
     <description> args : string </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>xs:string("a") , (), "xyz"</test>
@@ -320,7 +319,7 @@
       <assert-deep-eq>"a", "xyz"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="op-concatenate-mix-args-004">
+  <test-case name="op-concatenate-mix-args-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("xyz"),xs:string(" "),xs:string("b"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("xyz"),xs:string(" "),xs:string("b"))</response-string>
     <description> args : string </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>"xyz" , xs:string(" "), "b"</test>
@@ -329,7 +328,7 @@
       <assert-deep-eq>"xyz", " ", "b"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="op-concatenate-mix-args-005">
+  <test-case name="op-concatenate-mix-args-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:anyURI("www.example.com"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:anyURI("www.example.com"))</response-string>
     <description> arg1 : string, arg2:anyURI </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>xs:string("a") , xs:anyURI("www.example.com")</test>
@@ -338,7 +337,7 @@
       <assert-deep-eq>"a", "www.example.com"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="op-concatenate-mix-args-006">
+  <test-case name="op-concatenate-mix-args-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("hello"),xs:integer("100"),xs:anyURI("www.example.com"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("hello"),xs:integer("100"),xs:anyURI("www.example.com"))</response-string>
     <description> arg1 : string, arg2:integer, arg3:anyURI </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>xs:string("hello") , xs:integer("100"), xs:anyURI("www.example.com")</test>
@@ -347,7 +346,7 @@
       <assert-deep-eq>"hello", 100, "www.example.com"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="op-concatenate-mix-args-007">
+  <test-case name="op-concatenate-mix-args-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:anyURI("www.example.com"),xs:decimal("1.01"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:anyURI("www.example.com"),xs:decimal("1.01"))</response-string>
     <description> arg1 : anyURI, arg2: decimal </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>xs:anyURI("www.example.com") , xs:decimal("1.01")</test>
@@ -356,16 +355,16 @@
       <assert-deep-eq>"www.example.com", 1.01</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="op-concatenate-mix-args-008">
+  <test-case name="op-concatenate-mix-args-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("1.01"),xs:float("NaN"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("1.01"),xs:float("NaN"))</response-string>
     <description> arg1  arg2 : float </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>xs:float("1.01"), xs:float("NaN")</test>
-    <result-string>(xs:float("1.01e0"),xs:float("NaN"))</result-string>
+    <result-string>(xs:float("1.01"),xs:float("NaN"))</result-string>
     <result>
       <assert-string-value>1.01 NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-concatenate-mix-args-009">
+  <test-case name="op-concatenate-mix-args-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("INF"),xs:double("NaN"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("INF"),xs:double("NaN"))</response-string>
     <description> arg1:float, arg2: double </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>xs:float("INF") , xs:double("NaN")</test>
@@ -374,7 +373,7 @@
       <assert-string-value>INF NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-concatenate-mix-args-010">
+  <test-case name="op-concatenate-mix-args-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:double("INF"),xs:double("-INF"),xs:float("-INF"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:double("INF"),xs:double("-INF"),xs:float("-INF"))</response-string>
     <description> arg1: double, arg2: double, arg3:float </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>xs:double("INF"), xs:double("-INF"), xs:float("-INF")</test>
@@ -383,7 +382,7 @@
       <assert-string-value>INF -INF -INF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-concatenate-mix-args-011">
+  <test-case name="op-concatenate-mix-args-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:boolean("false"),xs:integer("0"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:boolean("false"),xs:integer("0"))</response-string>
     <description> arg1:boolean, arg2: boolean, arg3: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>xs:boolean("true") , xs:boolean("0"), xs:integer("0")</test>
@@ -392,7 +391,7 @@
       <assert-deep-eq>true(), false(), 0</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="op-concatenate-mix-args-012">
+  <test-case name="op-concatenate-mix-args-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("false"),xs:boolean("true"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("false"),xs:boolean("true"))</response-string>
     <description> arg1:boolean, arg2: boolean </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>xs:boolean("false"), xs:boolean("1")</test>
@@ -401,7 +400,7 @@
       <assert-deep-eq>false(), true()</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="op-concatenate-mix-args-013">
+  <test-case name="op-concatenate-mix-args-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:date("1993-03-31"),xs:boolean("true"),xs:string("abc"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:date("1993-03-31"),xs:boolean("true"),xs:string("abc"))</response-string>
     <description> arg1:date, arg2: boolean, arg3: string </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>xs:date("1993-03-31") , xs:boolean("true"), xs:string("abc")</test>
@@ -410,7 +409,7 @@
       <assert-string-value>1993-03-31 true abc</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-concatenate-mix-args-014">
+  <test-case name="op-concatenate-mix-args-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("1972-12-31T00:00:00Z")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("1972-12-31T00:00:00Z")</response-string>
     <description> arg1:dateTime, arg2: empty sequence </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>xs:dateTime("1972-12-31T00:00:00Z") , (())</test>
@@ -419,7 +418,7 @@
       <assert-string-value>1972-12-31T00:00:00Z</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-concatenate-mix-args-015">
+  <test-case name="op-concatenate-mix-args-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:time("12:30:00Z"),xs:string(" "),xs:decimal("2.000000000000002"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:time("12:30:00Z"),xs:string(" "),xs:decimal("2.000000000000002"))</response-string>
     <description> arg1:time, arg2: string , arg3: decimal </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>xs:time("12:30:00Z") , xs:string(" ") , xs:decimal("2.000000000000002")</test>
@@ -428,7 +427,7 @@
       <assert-string-value>12:30:00Z   2.000000000000002</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-concatenate-mix-args-016">
+  <test-case name="op-concatenate-mix-args-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string(" "),xs:decimal("2.000000000000002"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string(" "),xs:decimal("2.000000000000002"))</response-string>
     <description> arg1:empty seq, arg2: string , arg3: decimal </description>
     <created by="Ravindranath Chennoju" on="2005-05-25"/>
     <test>() , xs:string(" ") , xs:decimal("2.000000000000002")</test>
@@ -437,7 +436,7 @@
       <assert-string-value>  2.000000000000002</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-concatenate-mix-args-017">
+  <test-case name="op-concatenate-mix-args-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("0"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("0"))</response-string>
     <description> Use simple arithmetic expression with concat </description>
     <created by="Ravindranath Chennoju" on="2005-05-25"/>
     <test>(1+1), (2-2)</test>
@@ -446,7 +445,7 @@
       <assert-deep-eq>2, 0</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="op-concatenate-mix-args-018">
+  <test-case name="op-concatenate-mix-args-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("2"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("123"),xs:string(""),xs:string(""))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("2"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("123"),xs:string(""),xs:string(""))</response-string>
     <description> Concat more than two sequences </description>
     <created by="Ravindranath Chennoju" on="2005-05-25"/>
     <test>(1,2,2),(1,2,3),(123,""),(),("")</test>
@@ -455,7 +454,7 @@
       <assert-deep-eq>1, 2, 2, 1, 2, 3, 123, "", ""</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="op-concatenate-mix-args-019">
+  <test-case name="op-concatenate-mix-args-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;price&gt;65.95&lt;/price&gt;,&lt;price&gt;65.95&lt;/price&gt;,&lt;price&gt;39.95&lt;/price&gt;,&lt;price&gt;129.95&lt;/price&gt;,xs:integer("1"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;price&gt;65.95&lt;/price&gt;,&lt;price&gt;65.95&lt;/price&gt;,&lt;price&gt;39.95&lt;/price&gt;,&lt;price&gt;129.95&lt;/price&gt;,xs:integer("1"))</response-string>
     <description>Written By: Ravindranath Chennnoju  Use an external variable with op:concatenate </description>
     <created by="Ravindranath Chennoju" on="2005-05-25"/>
     <environment ref="bib"/>
@@ -467,7 +466,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="op-concatenate-mix-args-020">
+  <test-case name="op-concatenate-mix-args-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;price&gt;65.95&lt;/price&gt;,&lt;price&gt;65.95&lt;/price&gt;,&lt;price&gt;39.95&lt;/price&gt;,&lt;price&gt;129.95&lt;/price&gt;,&lt;title&gt;TCP/IP Illustrated&lt;/title&gt;,&lt;title&gt;Advanced Programming in the Unix environment&lt;/title&gt;,&lt;title&gt;Data on the Web&lt;/title&gt;,&lt;title&gt;The Economics of Technology and Content for Digital TV&lt;/title&gt;)</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;price&gt;65.95&lt;/price&gt;,&lt;price&gt;65.95&lt;/price&gt;,&lt;price&gt;39.95&lt;/price&gt;,&lt;price&gt;129.95&lt;/price&gt;,&lt;title&gt;TCP/IP Illustrated&lt;/title&gt;,&lt;title&gt;Advanced Programming in the Unix environment&lt;/title&gt;,&lt;title&gt;Data on the Web&lt;/title&gt;,&lt;title&gt;The Economics of Technology and Content for Digital TV&lt;/title&gt;)</response-string>
     <description> Use two external variables with op:contenate </description>
     <created by="Ravindranath Chennoju" on="2005-05-25"/>
     <environment ref="bib"/>
@@ -479,7 +478,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K-commaOp-1">
+  <test-case name="K-commaOp-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A heavily nested sequence of expressions with the comma operator. On some implementations this triggers certain optimization paths. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(((1, (2, (3, 4, (5, 6)), 7), 8, (9, 10), 11)), (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11))</test>
@@ -488,7 +487,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-commaOp-2">
+  <test-case name="K-commaOp-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> An expression sequence containing only empty sequences. On some implementations this triggers certain optimization paths. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(((), (), ((), (), ((), (), (())), ()), (), (())))</test>
@@ -497,7 +496,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-commaOp-3">
+  <test-case name="K-commaOp-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> An expression sequence containing many empty sequences and one xs:string. On some implementations this triggers certain optimization paths. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>((), (), ((), (), ((), (), ("str")), ()), (), (())) eq "str"</test>

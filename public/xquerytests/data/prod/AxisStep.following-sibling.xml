@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="prod-AxisStep.following-sibling" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the following-sibling axis</description>
   <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-AxisStep.following-sibling" type="spec"/>
   <link document="XQuery" idref="axes" section-number="3.2.1.1" type="spec"/>
-  <test-case name="followingsibling-1">
+  <test-case name="followingsibling-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of the following-sibling axis for which the context node is not a node. </description>
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <test>(200)/following-sibling::*</test>
@@ -12,7 +11,7 @@
       <error code="XPTY0019"/>
     </result>
   </test-case>
-  <test-case name="followingsibling-2">
+  <test-case name="followingsibling-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluation of the following-sibling axis for which the given node does not exists. Uses fn:count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
@@ -22,7 +21,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="followingsibling-3">
+  <test-case name="followingsibling-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of the following-sibling axis that is part of an "is" expression (return true). </description>
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
@@ -32,7 +31,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="followingsibling-4">
+  <test-case name="followingsibling-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of the following-sibling axis that is part of an "is" expression (return false). </description>
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
@@ -42,7 +41,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="followingsibling-5">
+  <test-case name="followingsibling-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of the following-sibling axis that is part of an "node before" expression (return true). </description>
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
@@ -54,7 +53,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="followingsibling-6">
+  <test-case name="followingsibling-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of the following-sibling axis that is part of an "node before" expression and both operands are the same (return false). </description>
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
@@ -66,7 +65,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="followingsibling-7">
+  <test-case name="followingsibling-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of the following-sibling axis that is part of an "node before" expression both operands are differents (return false). </description>
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
@@ -78,7 +77,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="followingsibling-8">
+  <test-case name="followingsibling-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of the following-sibling axis that is part of an "node after" expression (returns true). </description>
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
@@ -88,7 +87,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="followingsibling-9">
+  <test-case name="followingsibling-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of the following-sibling axis that is part of an "node after" expression with both operands the same (returns false). </description>
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
@@ -98,7 +97,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="followingsibling-10">
+  <test-case name="followingsibling-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of the following-sibling axis that is part of an "node after" expression with different operands (returns false). </description>
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
@@ -108,7 +107,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="followingsibling-11">
+  <test-case name="followingsibling-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of the following-sibling axis that is part of an "union " operation. Both operands are the same. </description>
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
@@ -120,7 +119,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="followingsibling-12">
+  <test-case name="followingsibling-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of the following-sibling axis that is part of an "union" operation. Both operands are different </description>
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
@@ -132,7 +131,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="followingsibling-13">
+  <test-case name="followingsibling-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Evaluation of the following-sibling axis that is part of an "intersect" operation. Both operands are the same. </description>
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
@@ -144,7 +143,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="followingsibling-14">
+  <test-case name="followingsibling-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Evaluation of the following-sibling axis that is part of an "except" operation. Both operands are the same. Uses fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
@@ -154,7 +153,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="followingsibling-15">
+  <test-case name="followingsibling-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Evaluation of the following-sibling axis that is part of an "except" operation. Both operands are different. </description>
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
@@ -166,7 +165,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="followingsibling-16">
+  <test-case name="followingsibling-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of the following-sibling axis that is part of a boolean expression ("and" and fn:true(). </description>
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
@@ -176,7 +175,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="followingsibling-17">
+  <test-case name="followingsibling-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluation of the following-sibling axis that is part of a boolean expression ("and" and fn:false()). </description>
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
@@ -186,7 +185,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="followingsibling-18">
+  <test-case name="followingsibling-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of the following-sibling axis that is part of a boolean expression ("or" and fn:true()). </description>
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
@@ -196,7 +195,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="followingsibling-19">
+  <test-case name="followingsibling-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluation of the following-sibling axis that is part of a boolean expression ("or" and fn:false()). </description>
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
@@ -206,7 +205,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="followingsibling-20">
+  <test-case name="followingsibling-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of the following-sibling axis that used as part of the deep-equal-function. </description>
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <environment ref="works-mod"/>
@@ -216,7 +215,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="followingsibling-21">
+  <test-case name="followingsibling-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluation of the following axis used together with a newly constructed element. Uses fn:count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-12-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -228,7 +227,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="unabbreviatedSyntax-24">
+  <test-case name="unabbreviatedSyntax-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;employee name="Jane Doe 3" gender="female"&gt;&amp;#10;   &lt;empnum&gt;E1&lt;/empnum&gt;&amp;#10;   &lt;pnum&gt;P3&lt;/pnum&gt;&amp;#10;   &lt;hours&gt;80&lt;/hours&gt;&amp;#10;  &lt;/employee&gt;</response-string>
     <description> Evaluate "following-sibling::employee[fn:position() = 1]". Selects the next employee sibling of the context node. </description>
     <created by="Carmelo Montanez" on="2005-07-11"/>
     <environment ref="works-mod"/>
@@ -244,7 +243,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-following-siblingAxis-1">
+  <test-case name="K2-following-siblingAxis-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;child/&gt;,&lt;child/&gt;)</response-string>
     <description> Apply following-sibling to a child whose siblings are the last in a document. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -258,7 +257,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-following-siblingAxis-2">
+  <test-case name="K2-following-siblingAxis-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;child/&gt;,&lt;child attr="foo" attr2="foo"/&gt;)</response-string>
     <description> Apply following-sibling to a child whose last nodes in document order are attributes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -272,7 +271,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-following-siblingAxis-3">
+  <test-case name="K2-following-siblingAxis-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> Apply fn:count() to the result of axis following-sibling. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -284,7 +283,7 @@
       <assert-eq>2</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-following-siblingAxis-4">
+  <test-case name="K2-following-siblingAxis-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Evaluate fn:count() on a range of nodes, navigated with axis following. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -299,7 +298,7 @@
       <assert-string-value>0 2 1 0 0 0 0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-following-siblingAxis-5">
+  <test-case name="K2-following-siblingAxis-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Evaluate on a small tree. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -316,7 +315,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-following-siblingAxis-6">
+  <test-case name="K2-following-siblingAxis-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A type error with the following-sibling axis. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -331,7 +330,7 @@
       <error code="XPTY0018"/>
     </result>
   </test-case>
-  <test-case name="K2-following-siblingAxis-7">
+  <test-case name="K2-following-siblingAxis-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Apply count to axis following-sibling. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -343,31 +342,31 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-following-siblingAxis-8">
+  <test-case name="K2-following-siblingAxis-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("1"))</response-string>
     <description> Apply count to axis following-sibling, combined with the comma operator. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[1, <root> <child/> </root>/following-sibling::node(), 1]]>
     </test>
-    <result-string>xs:string("1 1")</result-string>
+    <result-string>(xs:integer("1"),xs:integer("1"))</result-string>
     <result>
       <assert-string-value>1 1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-following-siblingAxis-9">
+  <test-case name="K2-following-siblingAxis-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("1"))</response-string>
     <description> Apply count to axis following-sibling to a single node, combined with the comma operator. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[1, <root/>/following-sibling::node(), 1]]>
     </test>
-    <result-string>xs:string("1 1")</result-string>
+    <result-string>(xs:integer("1"),xs:integer("1"))</result-string>
     <result>
       <assert-string-value>1 1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-following-siblingAxis-10">
+  <test-case name="K2-following-siblingAxis-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result&gt; &lt;/result&gt;</response-string>
     <description> Use a positional predicate beyond the output. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -381,7 +380,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="following-sibling-attr">
+  <test-case name="following-sibling-attr"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Apply the following-sibling axis to an attribute node. </description>
     <created by="Michael Dyck" on="2009-03-11"/>
     <dependency type="spec" value="XQ10+"/>

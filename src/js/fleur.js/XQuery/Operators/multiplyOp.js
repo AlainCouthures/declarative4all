@@ -42,7 +42,19 @@ Fleur.XQueryEngine[Fleur.XQueryX.multiplyOp] = function(ctx, children, callback)
 			restype = Fleur.multiplyOpTypes[op1[0]][op2[0]];
 			if (restype !== -1) {
 				if (op1[0] < 4 && op2[0] < 4) {
-					a1.data = restype > 1 ? Fleur.Type_double.canonicalize(String(op1[1] * op2[1])) : Fleur.NumberToDecimalString(op1[1] * op2[1]);
+					if (isNaN(op1[1] * op2[1])) {
+						a1.data = "NaN";
+					} else if (op1[1] * op2[1] === -Infinity) {
+						a1.data = "-INF";
+					} else if (op1[1] * op2[1] === Infinity) {
+						a1.data = "INF";
+					} else if (1 / (op2[1] * op1[1]) === -Infinity) {
+						a1.data = "-0";
+					} else if (1 / (op2[1] * op1[1]) === Infinity) {
+						a1.data = "0";
+					} else {
+						a1.data = restype > 1 ? Fleur.Type_double.canonicalize(String(op1[1] * op2[1])) : Fleur.NumberToDecimalString(op1[1] * op2[1]);
+					}
 				} else if (op1[0] < 4 && op2[0] === 4) {
 					a1.data = op2[1].repeat(op1[1]);
 				} else if (op1[0] === 4 && op2[0] < 4) {

@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="op-add-yearMonthDuration-to-dateTime" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the add-yearMonthDuration-to-dateTime operator</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-add-yearMonthDuration-to-dateTime" type="spec"/>
   <link document="FuncOps" idref="func-add-yearMonthDuration-to-dateTime" section-number="10.8.4" type="spec"/>
-  <test-case name="op-add-yearMonthDuration-to-dateTime2args-1">
+  <test-case name="op-add-yearMonthDuration-to-dateTime2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("1970-01-01T00:00:00.000Z")</response-string>
     <description> Evaluates The "op:add-yearMonthDuration-to-dateTime" operator with the arguments set as follows: $arg1 = xs:dateTime(lower bound) $arg2 = xs:yearMonthDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime("1970-01-01T00:00:00Z") + xs:yearMonthDuration("P0Y0M")</test>
@@ -12,7 +11,7 @@
       <assert-string-value>1970-01-01T00:00:00Z</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-yearMonthDuration-to-dateTime2args-2">
+  <test-case name="op-add-yearMonthDuration-to-dateTime2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("1996-04-07T01:40:52.000Z")</response-string>
     <description> Evaluates The "op:add-yearMonthDuration-to-dateTime" operator with the arguments set as follows: $arg1 = xs:dateTime(mid range) $arg2 = xs:yearMonthDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime("1996-04-07T01:40:52Z") + xs:yearMonthDuration("P0Y0M")</test>
@@ -21,7 +20,7 @@
       <assert-string-value>1996-04-07T01:40:52Z</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-yearMonthDuration-to-dateTime2args-3">
+  <test-case name="op-add-yearMonthDuration-to-dateTime2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("2030-12-31T23:59:59.000Z")</response-string>
     <description> Evaluates The "op:add-yearMonthDuration-to-dateTime" operator with the arguments set as follows: $arg1 = xs:dateTime(upper bound) $arg2 = xs:yearMonthDuration(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime("2030-12-31T23:59:59Z") + xs:yearMonthDuration("P0Y0M")</test>
@@ -30,7 +29,7 @@
       <assert-string-value>2030-12-31T23:59:59Z</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-yearMonthDuration-to-dateTime2args-4">
+  <test-case name="op-add-yearMonthDuration-to-dateTime2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("2970-07-01T00:00:00.000Z")</response-string>
     <description> Evaluates The "op:add-yearMonthDuration-to-dateTime" operator with the arguments set as follows: $arg1 = xs:dateTime(lower bound) $arg2 = xs:yearMonthDuration(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime("1970-01-01T00:00:00Z") + xs:yearMonthDuration("P1000Y6M")</test>
@@ -39,7 +38,7 @@
       <assert-string-value>2970-07-01T00:00:00Z</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-yearMonthDuration-to-dateTime2args-5">
+  <test-case name="op-add-yearMonthDuration-to-dateTime2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("4001-01-01T00:00:00.000Z")</response-string>
     <description> Evaluates The "op:add-yearMonthDuration-to-dateTime" operator with the arguments set as follows: $arg1 = xs:dateTime(lower bound) $arg2 = xs:yearMonthDuration(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:dateTime("1970-01-01T00:00:00Z") + xs:yearMonthDuration("P2030Y12M")</test>
@@ -48,7 +47,7 @@
       <assert-string-value>4001-01-01T00:00:00Z</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-yearMonthDuration-to-dateTime-1">
+  <test-case name="op-add-yearMonthDuration-to-dateTime-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("2001-12-30T11:12:00.000Z")</response-string>
     <description>date: July 5, 2005  Evaluates The "add-yearMonthDuration-to-dateTime" operator As per example 1 (for this function)of the FO specs. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>xs:dateTime("2000-10-30T11:12:00") + xs:yearMonthDuration("P1Y2M")</test>
@@ -57,7 +56,7 @@
       <assert-string-value>2001-12-30T11:12:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-yearMonthDuration-to-dateTime-2">
+  <test-case name="op-add-yearMonthDuration-to-dateTime-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>date: July 5, 2005  Evaluates The string value of "add-dayTimeDuration-to-dateTime" operator used as part of a boolean expression (and operator) and the "fn:false" function. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>fn:string(xs:dateTime("2000-12-12T12:12:12Z") + xs:dayTimeDuration("P12DT10H07M")) and fn:false()</test>
@@ -66,7 +65,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-add-yearMonthDuration-to-dateTime-3">
+  <test-case name="op-add-yearMonthDuration-to-dateTime-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>date: July 5, 2005  Evaluates The string value of "add-yearMonthDuration-to-dateTime" operator as part of a boolean expression (or operator) and the "fn:boolean" function. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>fn:string((xs:dateTime("1999-10-23T13:45:45Z") + xs:yearMonthDuration("P19Y12M"))) or fn:false()</test>
@@ -75,7 +74,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-add-yearMonthDuration-to-dateTime-4">
+  <test-case name="op-add-yearMonthDuration-to-dateTime-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>date: July 5, 2005  Evaluates The string value of the "add-yearMonthDuration-to-dateTime" operator that return true and used together with fn:not. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>fn:not(fn:string(xs:dateTime("1998-09-12T13:56:12Z") + xs:yearMonthDuration("P20Y03M")))</test>
@@ -84,7 +83,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-add-yearMonthDuration-to-dateTimealt-5">
+  <test-case name="op-add-yearMonthDuration-to-dateTimealt-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>date: July 5, 2005  Evaluates The string value of the "add-yearMonthDuration-to-dateTime" operator that is used as an argument to the fn:boolean function. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>fn:boolean(fn:string(xs:dateTime("1962-03-12T10:12:34Z") + xs:yearMonthDuration("P10Y01M")))</test>
@@ -93,16 +92,16 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-add-yearMonthDuration-to-dateTime-6">
+  <test-case name="op-add-yearMonthDuration-to-dateTime-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description>date: July 5, 2005  Evaluates The "add-yearMonthDuration-to-dateTime" operator that is used as an argument to the fn:number function. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>fn:number(xs:dateTime("1988-01-28T13:45:23Z") + xs:yearMonthDuration("P09Y02M"))</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-yearMonthDuration-to-dateTime-7">
+  <test-case name="op-add-yearMonthDuration-to-dateTime-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1997-11-05T14:34:36.000Z")</response-string>
     <description>date: July 5, 2005  Evaluates The "add-yearMonthDuration-to-dateTime" operator used as an argument to the "fn:string" function). </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>fn:string(xs:dateTime("1989-07-05T14:34:36Z") + xs:yearMonthDuration("P08Y04M"))</test>
@@ -111,7 +110,7 @@
       <assert-string-value>1997-11-05T14:34:36Z</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-add-yearMonthDuration-to-dateTime-8">
+  <test-case name="op-add-yearMonthDuration-to-dateTime-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:dateTime("1880-06-01T01:01:01.000Z")</response-string>
     <description>date: July 8, 2005  Evaluates The "add-yearMonthDuration-to-dateTime" operator that returns a negative value. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>(xs:dateTime("0001-01-01T01:01:01Z") + xs:yearMonthDuration("-P20Y07M"))</test>
@@ -124,7 +123,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="op-add-yearMonthDuration-to-dateTime-9">
+  <test-case name="op-add-yearMonthDuration-to-dateTime-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>date: July 5, 2005  Evaluates The string value of the "add-yearMonthDuration-to-dateTime" operator used together with an "and" expression. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>fn:string((xs:dateTime("1993-12-09T10:10:10Z") + xs:yearMonthDuration("P03Y03M"))) and fn:string((xs:dateTime("1993-12-09T10:10:10Z") + xs:yearMonthDuration("P03Y03M")))</test>
@@ -133,7 +132,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-add-yearMonthDuration-to-dateTime-10">
+  <test-case name="op-add-yearMonthDuration-to-dateTime-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>date: July 5, 2005  Evaluates The string value of the "add-yearMonthDuration-to-dateTime" operator used together with an "or" expression. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>fn:string((xs:dateTime("1985-07-05T09:09:09Z") + xs:yearMonthDuration("P02Y02M"))) or fn:string((xs:dateTime("1985-07-05T09:09:09Z") + xs:yearMonthDuration("P02Y02M")))</test>
@@ -142,7 +141,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-add-yearMonthDuration-to-dateTime-12">
+  <test-case name="op-add-yearMonthDuration-to-dateTime-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>date: July 5, 2005  Evaluates The string value of the "add-yearMonthDuration-to-dateTime" operator used with a boolean expression and the "fn:true" function. </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>fn:string((xs:dateTime("1980-03-02T02:02:02Z") + xs:yearMonthDuration("P05Y05M"))) and (fn:true())</test>
@@ -151,7 +150,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-add-yearMonthDuration-to-dateTime-13">
+  <test-case name="op-add-yearMonthDuration-to-dateTime-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>date: July 5, 2005  Evaluates The "add-yearMonthDuration-to-dateTime" operator used together with the numeric-equal-operator "eq". </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>(xs:dateTime("1980-05-05T05:05:05Z") + xs:yearMonthDuration("P23Y11M")) eq xs:dateTime("1980-05-05T05:05:05Z")</test>
@@ -160,7 +159,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-add-yearMonthDuration-to-dateTime-14">
+  <test-case name="op-add-yearMonthDuration-to-dateTime-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>date: July 5, 2005  Evaluates The "add-yearMonthDuration-to-dateTime" operator used together with the numeric-equal operator "ne". </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>(xs:dateTime("1979-12-12T09:09:09Z") + xs:yearMonthDuration("P08Y08M")) ne xs:dateTime("1979-12-12T09:09:09Z")</test>
@@ -169,7 +168,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-add-yearMonthDuration-to-dateTime-15">
+  <test-case name="op-add-yearMonthDuration-to-dateTime-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>date: July 5, 2005  Evaluates The "add-yearMonthDuration-to-dateTime" operator used together with the numeric-equal operator "le". </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>(xs:dateTime("1978-12-12T07:07:07Z") + xs:yearMonthDuration("P17Y12M")) le xs:dateTime("1978-12-12T07:07:07Z")</test>
@@ -178,7 +177,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-add-yearMonthDuration-to-dateTime-16">
+  <test-case name="op-add-yearMonthDuration-to-dateTime-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>date: July 5, 2005  Evaluates The "add-yearMonthDuration-to-dateTime" operator used together with the numeric-equal operator "ge". </description>
     <created by="Carmelo Montanez" on="2005-07-01"/>
     <test>(xs:dateTime("1977-12-12T03:03:03Z") + xs:yearMonthDuration("P18Y02M")) ge xs:dateTime("1977-12-12T03:03:03Z")</test>
@@ -187,8 +186,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationAddDT-1">
-    <description> Simple testing involving operator '+' between xs:dateTime and xs:yearMonthDuration. </description>
+  <test-case name="K-YearMonthDurationAddDT-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> Simple testing involving operator &apos;+&apos; between xs:dateTime and xs:yearMonthDuration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:dateTime("1999-07-19T08:23:01.765") + xs:yearMonthDuration("P3Y35M") eq xs:dateTime("2005-06-19T08:23:01.765")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -196,8 +195,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationAddDT-2">
-    <description> Simple testing involving operator '+' between xs:yearMonthDuration and xs:dateTime. </description>
+  <test-case name="K-YearMonthDurationAddDT-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> Simple testing involving operator &apos;+&apos; between xs:yearMonthDuration and xs:dateTime. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:yearMonthDuration("P3Y35M") + xs:dateTime("1999-07-19T08:23:01.765") eq xs:dateTime("2005-06-19T08:23:01.765")</test>
     <result-string>xs:boolean("true")</result-string>
@@ -205,54 +204,54 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationAddDT-3">
-    <description> The '+' operator is not available between xs:date and xs:time. </description>
+  <test-case name="K-YearMonthDurationAddDT-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;+&apos; operator is not available between xs:date and xs:time. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:date("1999-10-12") + xs:time("08:12:12")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationAddDT-4">
-    <description> The '+' operator is not available between xs:time and xs:date. </description>
+  <test-case name="K-YearMonthDurationAddDT-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;+&apos; operator is not available between xs:time and xs:date. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:time("08:12:12") + xs:date("1999-10-12")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationAddDT-5">
-    <description> The '+' operator is not available between xs:date and xs:time. </description>
+  <test-case name="K-YearMonthDurationAddDT-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;+&apos; operator is not available between xs:date and xs:time. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:date("1999-10-12") + xs:time("08:12:12")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationAddDT-6">
-    <description> The '+' operator is not available between xs:time and xs:date. </description>
+  <test-case name="K-YearMonthDurationAddDT-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The &apos;+&apos; operator is not available between xs:time and xs:date. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:time("08:12:12") + xs:date("1999-10-12")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-add-yearMonthDuration-to-dateTime-001">
+  <test-case name="cbcl-add-yearMonthDuration-to-dateTime-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test addition of zero duration to dateTime </description>
     <created by="Tim Mills" on="2008-05-12"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
          declare function local:two-digit($number as xs:integer) { 
             let $string := string($number) 
-            return if (string-length($string) lt 2) then concat('0', $string) else $string 
+            return if (string-length($string) lt 2) then concat(&apos;0&apos;, $string) else $string 
          }; 
          declare function local:dateTime($year as xs:integer, $month as xs:integer, $day as xs:integer, $hour as xs:integer, $mins as xs:integer) { 
             let $m := local:two-digit($month), $d := local:two-digit($day), $h := local:two-digit($hour), $n := local:two-digit($mins) 
-            return xs:dateTime(concat($year, '-', $m, '-', $d, 'T', $h, ':', $n, ':00')) 
+            return xs:dateTime(concat($year, &apos;-&apos;, $m, &apos;-&apos;, $d, &apos;T&apos;, $h, &apos;:&apos;, $n, &apos;:00&apos;)) 
          }; 
          xs:yearMonthDuration("P0Y") + local:dateTime(2008, 05, 12, 12, 59)</test>
     <result-string>xs:string("2008-05-12T12:59:00")</result-string>
@@ -260,17 +259,17 @@
       <assert-string-value>2008-05-12T12:59:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-add-yearMonthDuration-to-dateTime-002">
+  <test-case name="cbcl-add-yearMonthDuration-to-dateTime-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test addition of zero duration to dateTime </description>
     <created by="Tim Mills" on="2008-05-12"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
          declare function local:two-digit($number as xs:integer) { 
-            let $string := string($number) return if (string-length($string) lt 2) then concat('0', $string) else $string 
+            let $string := string($number) return if (string-length($string) lt 2) then concat(&apos;0&apos;, $string) else $string 
          }; 
          declare function local:dateTime($year as xs:integer, $month as xs:integer, $day as xs:integer, $hour as xs:integer, $mins as xs:integer) { 
             let $m := local:two-digit($month), $d := local:two-digit($day), $h := local:two-digit($hour), $n := local:two-digit($mins) 
-            return xs:dateTime(concat($year, '-', $m, '-', $d, 'T', $h, ':', $n, ':00')) 
+            return xs:dateTime(concat($year, &apos;-&apos;, $m, &apos;-&apos;, $d, &apos;T&apos;, $h, &apos;:&apos;, $n, &apos;:00&apos;)) 
          }; 
          local:dateTime(2008, 05, 12, 12, 59) + xs:yearMonthDuration("P0Y")</test>
     <result-string>xs:string("2008-05-12T12:59:00")</result-string>
@@ -278,18 +277,18 @@
       <assert-string-value>2008-05-12T12:59:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-add-yearMonthDuration-to-dateTime-003">
+  <test-case name="cbcl-add-yearMonthDuration-to-dateTime-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test addition of large duration to dateTime </description>
     <created by="Tim Mills" on="2008-05-12"/>
     <modified by="Michael Kay" change="allow implementation to blow its limits" on="2012-12-21"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
          declare function local:two-digit($number as xs:integer) { 
-            let $string := string($number) return if (string-length($string) lt 2) then concat('0', $string) else $string 
+            let $string := string($number) return if (string-length($string) lt 2) then concat(&apos;0&apos;, $string) else $string 
          }; 
          declare function local:dateTime($year as xs:integer, $month as xs:integer, $day as xs:integer, $hour as xs:integer, $mins as xs:integer) { 
             let $m := local:two-digit($month), $d := local:two-digit($day), $h := local:two-digit($hour), $n := local:two-digit($mins) 
-            return xs:dateTime(concat($year, '-', $m, '-', $d, 'T', $h, ':', $n, ':00')) 
+            return xs:dateTime(concat($year, &apos;-&apos;, $m, &apos;-&apos;, $d, &apos;T&apos;, $h, &apos;:&apos;, $n, &apos;:00&apos;)) 
          }; 
          local:dateTime(2008, 05, 12, 12, 59) + xs:yearMonthDuration("P4026720960Y")</test>
     <result-string>xs:string("4026722968-05-12T12:59:00")</result-string>

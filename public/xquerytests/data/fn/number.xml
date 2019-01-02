@@ -1,44 +1,43 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-number" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests the fn:number() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-number" type="spec"/>
-  <test-case name="fn-numberint1args-1">
+  <test-case name="fn-numberint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-2.147483648E9")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:int("-2147483648"))</test>
-    <result-string>xs:double("-2.147483648e9")</result-string>
+    <result-string>xs:double("-2.147483648E9")</result-string>
     <result>
       <assert-string-value>-2.147483648E9</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numberint1args-2">
+  <test-case name="fn-numberint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.87391441E9")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:int("-1873914410"))</test>
-    <result-string>xs:double("-1.87391441e9")</result-string>
+    <result-string>xs:double("-1.87391441E9")</result-string>
     <result>
       <assert-string-value>-1.87391441E9</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numberint1args-3">
+  <test-case name="fn-numberint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("2.147483647E9")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:int("2147483647"))</test>
-    <result-string>xs:double("2.147483647e9")</result-string>
+    <result-string>xs:double("2.147483647E9")</result-string>
     <result>
       <assert-string-value>2.147483647E9</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numberintg1args-1">
+  <test-case name="fn-numberintg1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.0E18")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:integer("-999999999999999999"))</test>
-    <result-string>xs:double("-1.0e18")</result-string>
+    <result-string>xs:double("-1.0E18")</result-string>
     <result>
       <assert-string-value>-1.0E18</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numberintg1args-2">
+  <test-case name="fn-numberintg1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:integer("830993497117024304")) eq 830993497117024304</test>
@@ -47,25 +46,25 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-numberintg1args-3">
+  <test-case name="fn-numberintg1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.0E18")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:integer("999999999999999999"))</test>
-    <result-string>xs:double("1.0e18")</result-string>
+    <result-string>xs:double("1.0E18")</result-string>
     <result>
       <assert-string-value>1.0E18</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numberdec1args-1">
+  <test-case name="fn-numberdec1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.0E18")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:decimal("-999999999999999999"))</test>
-    <result-string>xs:double("-1.0e18")</result-string>
+    <result-string>xs:double("-1.0E18")</result-string>
     <result>
       <assert-string-value>-1.0E18</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numberdec1args-2">
+  <test-case name="fn-numberdec1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:decimal("617375191608514839")) eq 617375191608514839</test>
@@ -74,43 +73,43 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-numberdec1args-3">
+  <test-case name="fn-numberdec1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.0E18")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:decimal("999999999999999999"))</test>
-    <result-string>xs:double("1.0e18")</result-string>
+    <result-string>xs:double("1.0E18")</result-string>
     <result>
       <assert-string-value>1.0E18</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numberdbl1args-1">
+  <test-case name="fn-numberdbl1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157E308")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:double("-1.7976931348623157E308"))</test>
-    <result-string>xs:double("-1.7976931348623157e308")</result-string>
+    <result-string>xs:double("-1.7976931348623157E308")</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E308</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numberdbl1args-2">
+  <test-case name="fn-numberdbl1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:double("0"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numberdbl1args-3">
+  <test-case name="fn-numberdbl1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.7976931348623157E308")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:double("1.7976931348623157E308"))</test>
-    <result-string>xs:double("1.7976931348623157e308")</result-string>
+    <result-string>xs:double("1.7976931348623157E308")</result-string>
     <result>
       <assert-string-value>1.7976931348623157E308</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numberflt1args-1">
+  <test-case name="fn-numberflt1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:float("-3.4028235E38")) eq -3.4028234663852885E38</test>
@@ -119,22 +118,22 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-numberflt1args-2">
+  <test-case name="fn-numberflt1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:float("0"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numberflt1args-3">
+  <test-case name="fn-numberflt1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("3.4028235E38")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:float("3.4028235E38"))</test>
-    <result-string>xs:double("3.4028235e38")</result-string>
-    <result-string>xs:string("3.402823466385289E38")</result-string>
-    <result-string>xs:string("3.4028234663852886E38")</result-string>
+    <result-string>xs:double("3.4028235E38")</result-string>
+    <result-string>xs:double("3.4028235E38")</result-string>
+    <result-string>xs:double("3.4028235E38")</result-string>
     <result>
       <any-of>
         <assert-string-value>3.4028234663852885E38</assert-string-value>
@@ -143,16 +142,16 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-numberlng1args-1">
+  <test-case name="fn-numberlng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-9.223372036854776E16")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:long("-92233720368547758"))</test>
-    <result-string>xs:double("-9.223372036854776e16")</result-string>
+    <result-string>xs:double("-9.223372036854776E16")</result-string>
     <result>
       <assert-string-value>-9.223372036854776E16</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numberlng1args-2">
+  <test-case name="fn-numberlng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:long("-47175562203048468")) eq -47175562203048468</test>
@@ -161,52 +160,52 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-numberlng1args-3">
+  <test-case name="fn-numberlng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("9.223372036854776E16")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:long("92233720368547758"))</test>
-    <result-string>xs:string("9.2233720368547758e16")</result-string>
+    <result-string>xs:double("9.223372036854776E16")</result-string>
     <result>
       <assert-string-value>9.223372036854776E16</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numberusht1args-1">
+  <test-case name="fn-numberusht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:unsignedShort("0"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numberusht1args-2">
+  <test-case name="fn-numberusht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("44633")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:unsignedShort("44633"))</test>
-    <result-string>xs:double("4.4633e4")</result-string>
+    <result-string>xs:double("44633")</result-string>
     <result>
       <assert-string-value>44633</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numberusht1args-3">
+  <test-case name="fn-numberusht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("65535")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:unsignedShort("65535"))</test>
-    <result-string>xs:double("6.5535e4")</result-string>
+    <result-string>xs:double("65535")</result-string>
     <result>
       <assert-string-value>65535</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numbernint1args-1">
+  <test-case name="fn-numbernint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.0E18")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:negativeInteger("-999999999999999999"))</test>
-    <result-string>xs:double("-1.0e18")</result-string>
+    <result-string>xs:double("-1.0E18")</result-string>
     <result>
       <assert-string-value>-1.0E18</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numbernint1args-2">
+  <test-case name="fn-numbernint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:negativeInteger("-297014075999096793")) eq -297014075999096793</test>
@@ -215,25 +214,25 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-numbernint1args-3">
+  <test-case name="fn-numbernint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:negativeInteger("-1"))</test>
-    <result-string>xs:double("-1.0e0")</result-string>
+    <result-string>xs:double("-1")</result-string>
     <result>
       <assert-string-value>-1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numberpint1args-1">
+  <test-case name="fn-numberpint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:positiveInteger("1"))</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numberpint1args-2">
+  <test-case name="fn-numberpint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:positiveInteger("52704602390610033")) eq 52704602390610033</test>
@@ -242,45 +241,45 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-numberpint1args-3">
+  <test-case name="fn-numberpint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.0E18")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:positiveInteger("999999999999999999"))</test>
-    <result-string>xs:double("1.0e18")</result-string>
+    <result-string>xs:double("1.0E18")</result-string>
     <result>
       <assert-string-value>1.0E18</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numberulng1args-1">
+  <test-case name="fn-numberulng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:unsignedLong("0"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numberulng1args-2">
+  <test-case name="fn-numberulng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.3074710860767466E17")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:unsignedLong("130747108607674654"))</test>
-    <result-string>xs:double("1.3074710860767466e17")</result-string>
-    <result-string>xs:string("1.30747108607674648E17")</result-string>
-    <result-string>xs:string("1.30747108607674649E17")</result-string>
-    <result-string>xs:string("1.3074710860767465E17")</result-string>
-    <result-string>xs:string("1.30747108607674651E17")</result-string>
-    <result-string>xs:string("1.30747108607674652E17")</result-string>
-    <result-string>xs:string("1.30747108607674653E17")</result-string>
-    <result-string>xs:string("1.30747108607674654E17")</result-string>
-    <result-string>xs:string("1.30747108607674655E17")</result-string>
-    <result-string>xs:string("1.30747108607674656E17")</result-string>
-    <result-string>xs:string("1.30747108607674657E17")</result-string>
-    <result-string>xs:string("1.30747108607674658E17")</result-string>
-    <result-string>xs:string("1.30747108607674659E17")</result-string>
-    <result-string>xs:string("1.30747108607674661E17")</result-string>
-    <result-string>xs:string("1.30747108607674662E17")</result-string>
-    <result-string>xs:string("1.30747108607674663E17")</result-string>
-    <result-string>xs:string("1.30747108607674664E17")</result-string>
+    <result-string>xs:double("1.3074710860767466E17")</result-string>
+    <result-string>xs:double("1.3074710860767466E17")</result-string>
+    <result-string>xs:double("1.3074710860767466E17")</result-string>
+    <result-string>xs:double("1.3074710860767466E17")</result-string>
+    <result-string>xs:double("1.3074710860767466E17")</result-string>
+    <result-string>xs:double("1.3074710860767466E17")</result-string>
+    <result-string>xs:double("1.3074710860767466E17")</result-string>
+    <result-string>xs:double("1.3074710860767466E17")</result-string>
+    <result-string>xs:double("1.3074710860767466E17")</result-string>
+    <result-string>xs:double("1.3074710860767466E17")</result-string>
+    <result-string>xs:double("1.3074710860767466E17")</result-string>
+    <result-string>xs:double("1.3074710860767466E17")</result-string>
+    <result-string>xs:double("1.3074710860767466E17")</result-string>
+    <result-string>xs:double("1.3074710860767466E17")</result-string>
+    <result-string>xs:double("1.3074710860767466E17")</result-string>
+    <result-string>xs:double("1.3074710860767466E17")</result-string>
+    <result-string>xs:double("1.3074710860767466E17")</result-string>
     <result>
       <any-of>
         <assert-string-value>1.3074710860767466E17</assert-string-value>
@@ -303,7 +302,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-numberulng1args-3">
+  <test-case name="fn-numberulng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:unsignedLong("184467440737095516")) eq 1.8446744073709551E17</test>
@@ -312,16 +311,16 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-numbernpi1args-1">
+  <test-case name="fn-numbernpi1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.0E18")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:nonPositiveInteger("-999999999999999999"))</test>
-    <result-string>xs:double("-1.0e18")</result-string>
+    <result-string>xs:double("-1.0E18")</result-string>
     <result>
       <assert-string-value>-1.0E18</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numbernpi1args-2">
+  <test-case name="fn-numbernpi1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-4.756884372718705E17")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:nonPositiveInteger("-475688437271870490"))</test>
@@ -336,25 +335,25 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-numbernpi1args-3">
+  <test-case name="fn-numbernpi1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:nonPositiveInteger("0"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numbernni1args-1">
+  <test-case name="fn-numbernni1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:nonNegativeInteger("0"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numbernni1args-2">
+  <test-case name="fn-numbernni1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:nonNegativeInteger("303884545991464527")) eq 303884545991464527</test>
@@ -363,43 +362,43 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-numbernni1args-3">
+  <test-case name="fn-numbernni1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.0E18")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:nonNegativeInteger("999999999999999999"))</test>
-    <result-string>xs:double("1.0e18")</result-string>
+    <result-string>xs:double("1.0E18")</result-string>
     <result>
       <assert-string-value>1.0E18</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numbersht1args-1">
+  <test-case name="fn-numbersht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-32768")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:short("-32768"))</test>
-    <result-string>xs:double("-3.2768e4")</result-string>
+    <result-string>xs:double("-32768")</result-string>
     <result>
       <assert-string-value>-32768</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numbersht1args-2">
+  <test-case name="fn-numbersht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-5324")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:short("-5324"))</test>
-    <result-string>xs:double("-5.324e3")</result-string>
+    <result-string>xs:double("-5324")</result-string>
     <result>
       <assert-string-value>-5324</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-numbersht1args-3">
+  <test-case name="fn-numbersht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("32767")</response-string>
     <description> Evaluates The "number" function with the arguments set as follows: $arg = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:number(xs:short("32767"))</test>
-    <result-string>xs:double("3.2767e4")</result-string>
+    <result-string>xs:double("32767")</result-string>
     <result>
       <assert-string-value>32767</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-number-1">
+  <test-case name="fn-number-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of the fn:number function with empty sequence as an argument. </description>
     <created by="Carmelo Montanez" on="2005-09-20"/>
     <test>fn:number(())</test>
@@ -408,7 +407,7 @@
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-number-2">
+  <test-case name="fn-number-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Evaluation of the fn:number function with a string set as an argument. </description>
     <created by="Carmelo Montanez" on="2005-09-20"/>
     <test>fn:number("A String")</test>
@@ -417,7 +416,7 @@
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-number-3">
+  <test-case name="fn-number-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Evaluation of the fn:number function with an undefined context node. </description>
     <created by="Carmelo Montanez" on="2005-09-20"/>
     <environment ref="empty"/>
@@ -427,7 +426,7 @@
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="fn-number-4">
+  <test-case name="fn-number-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Evaluation of the fn:number function with an undefined context node and argument set to ".". </description>
     <created by="Carmelo Montanez" on="2006-02-08"/>
     <environment ref="empty"/>
@@ -437,11 +436,11 @@
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="fn-number-5">
+  <test-case name="fn-number-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description>number() applied to a boolean</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>number(true())</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <all-of>
         <assert-type>xs:double</assert-type>
@@ -449,11 +448,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-number-6">
+  <test-case name="fn-number-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>number() applied to a boolean</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>number(false())</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <all-of>
         <assert-type>xs:double</assert-type>
@@ -461,7 +460,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-number-7">
+  <test-case name="fn-number-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>number() applied to a duration</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>number(implicit-timezone())</test>
@@ -473,11 +472,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-number-8">
+  <test-case name="fn-number-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-22")</response-string>
     <description>number() applied to a string with whitespace</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>number("  -22e0  ")</test>
-    <result-string>xs:double("-2.2e1")</result-string>
+    <result-string>xs:double("-22")</result-string>
     <result>
       <all-of>
         <assert-type>xs:double</assert-type>
@@ -485,11 +484,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-number-9">
+  <test-case name="fn-number-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("22")</response-string>
     <description>number() applied to a string with leading plus sign</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>number("+22e0")</test>
-    <result-string>xs:double("2.2e1")</result-string>
+    <result-string>xs:double("22")</result-string>
     <result>
       <all-of>
         <assert-type>xs:double</assert-type>
@@ -497,11 +496,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-number-10">
+  <test-case name="fn-number-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1000")</response-string>
     <description>number() applied to an untypedAtomic</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>number(xs:untypedAtomic("1000"))</test>
-    <result-string>xs:double("1.0e3")</result-string>
+    <result-string>xs:double("1000")</result-string>
     <result>
       <all-of>
         <assert-type>xs:double</assert-type>
@@ -509,7 +508,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="K-NodeNumberFunc-1">
+  <test-case name="K-NodeNumberFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `number(1, 2)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>number(1, 2)</test>
@@ -518,7 +517,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-NodeNumberFunc-2">
+  <test-case name="K-NodeNumberFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `fn:number(1) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:number(1) eq 1</test>
@@ -527,7 +526,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NodeNumberFunc-3">
+  <test-case name="K-NodeNumberFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(fn:number("results in NaN"))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(fn:number("results in NaN"))</test>
@@ -536,7 +535,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NodeNumberFunc-4">
+  <test-case name="K-NodeNumberFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `fn:number("results in NaN") instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:number("results in NaN") instance of xs:double</test>
@@ -545,7 +544,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NodeNumberFunc-5">
+  <test-case name="K-NodeNumberFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `fn:number(1) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:number(1) instance of xs:double</test>
@@ -554,7 +553,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NodeNumberFunc-6">
+  <test-case name="K-NodeNumberFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `fn:number(1.1) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:number(1.1) instance of xs:double</test>
@@ -563,7 +562,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NodeNumberFunc-7">
+  <test-case name="K-NodeNumberFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `fn:number(xs:float(3)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:number(xs:float(3)) instance of xs:double</test>
@@ -572,7 +571,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NodeNumberFunc-8">
+  <test-case name="K-NodeNumberFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `fn:number(xs:double(3)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:number(xs:double(3)) instance of xs:double</test>
@@ -581,7 +580,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NodeNumberFunc-9">
+  <test-case name="K-NodeNumberFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `fn:number("NaN") instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:number("NaN") instance of xs:double</test>
@@ -590,7 +589,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NodeNumberFunc-10">
+  <test-case name="K-NodeNumberFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `fn:number(()) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:number(()) instance of xs:double</test>
@@ -599,7 +598,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NodeNumberFunc-11">
+  <test-case name="K-NodeNumberFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> A test whose essence is: `not(fn:number(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(fn:number(()))</test>
@@ -608,7 +607,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NodeNumberFunc-12">
+  <test-case name="K-NodeNumberFunc-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> fn:number() applied to a type which a cast regardless of source value never would succeed for. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(number(xs:anyURI("example.com/"))) eq "NaN"</test>
@@ -617,7 +616,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NodeNumberFunc-13">
+  <test-case name="K-NodeNumberFunc-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(number(xs:anyURI("1"))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(number(xs:anyURI("1"))) eq "NaN"</test>
@@ -626,7 +625,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NodeNumberFunc-14">
+  <test-case name="K-NodeNumberFunc-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(number("1")) eq "1"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(number("1")) eq "1"</test>
@@ -635,7 +634,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NodeNumberFunc-15">
+  <test-case name="K-NodeNumberFunc-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `string(number(xs:gYear("2005"))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(number(xs:gYear("2005"))) eq "NaN"</test>
@@ -644,7 +643,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NodeNumberFunc-16">
+  <test-case name="K-NodeNumberFunc-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> fn:number() inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 3)[number()], (1, 2, 3))</test>
@@ -653,7 +652,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NodeNumberFunc-17">
+  <test-case name="K-NodeNumberFunc-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> fn:number() inside a predicate(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1)[number()] eq 1</test>

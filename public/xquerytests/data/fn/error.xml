@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-error" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the error() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-error" type="spec"/>
-  <test-case name="fn-error-1">
+  <test-case name="fn-error-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
     <description> Evaluation of "fn:error" function with no arguments </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>fn:error()</test>
@@ -11,439 +10,439 @@
       <error code="FOER0000"/>
     </result>
   </test-case>
-  <test-case name="fn-error-2">
+  <test-case name="fn-error-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.example.com/HR", "myerr:toohighsal"))</response-string>
     <description> Evaluation of "fn:error" function as per example 2 from the Funcs. and Ops. Specifications. </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.example.com/HR', 'myerr:toohighsal'), 'Does not apply because salary is too high')</test>
+    <test>fn:error(fn:QName(&apos;http://www.example.com/HR&apos;, &apos;myerr:toohighsal&apos;), &apos;Does not apply because salary is too high&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.example.com/HR", "myerr:toohighsal"))</result-string>
     <result>
       <error code="*"/>
     </result>
   </test-case>
-  <test-case name="fn-error-3">
+  <test-case name="fn-error-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of "fn:error" function with wrong argument type. </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error('Wrong Argument Type')</test>
+    <test>fn:error(&apos;Wrong Argument Type&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-error-4">
+  <test-case name="fn-error-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0004"))</response-string>
     <description> Evaluation of "fn:error" for error code "FOCH0004". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FOCH0004'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:FOCH0004&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0004"))</result-string>
     <result>
       <error code="FOCH0004"/>
     </result>
   </test-case>
-  <test-case name="fn-error-5">
+  <test-case name="fn-error-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
     <description> Evaluation of "fn:error" with first argument set to empty string for 3rd signature. </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error((), 'err:FOER0000')</test>
+    <test>fn:error((), &apos;err:FOER0000&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <error code="FOER0000"/>
     </result>
   </test-case>
-  <test-case name="fn-error-6">
+  <test-case name="fn-error-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
     <description> Evaluation of "fn:error" with first argument set to empty string for 4rd signature. </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error((), 'err:FOER0000','error raised by this test by setting first argument to empty sequence')</test>
+    <test>fn:error((), &apos;err:FOER0000&apos;,&apos;error raised by this test by setting first argument to empty sequence&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <error code="FOER0000"/>
     </result>
   </test-case>
-  <test-case name="fn-error-7">
+  <test-case name="fn-error-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODT0001"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "FODT0001". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FODT0001'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:FODT0001&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODT0001"))</result-string>
     <result>
       <error code="FODT0001"/>
     </result>
   </test-case>
-  <test-case name="fn-error-8">
+  <test-case name="fn-error-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0009"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "FORG0009". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FORG0009'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:FORG0009&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0009"))</result-string>
     <result>
       <error code="FORG0009"/>
     </result>
   </test-case>
-  <test-case name="fn-error-9">
+  <test-case name="fn-error-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOTY0012"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "FOTY0012". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:FOTY0012'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:FOTY0012&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOTY0012"))</result-string>
     <result>
       <error code="FOTY0012"/>
     </result>
   </test-case>
-  <test-case name="fn-error-10">
+  <test-case name="fn-error-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SENR0001"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "SENR0001". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SENR0001'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:SENR0001&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SENR0001"))</result-string>
     <result>
       <error code="SENR0001"/>
     </result>
   </test-case>
-  <test-case name="fn-error-11">
+  <test-case name="fn-error-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SEPM0004"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "SEPM0004". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SEPM0004'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:SEPM0004&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SEPM0004"))</result-string>
     <result>
       <error code="SEPM0004"/>
     </result>
   </test-case>
-  <test-case name="fn-error-12">
+  <test-case name="fn-error-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SEPM0009"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "SEPM0009". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SEPM0009'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:SEPM0009&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SEPM0009"))</result-string>
     <result>
       <error code="SEPM0009"/>
     </result>
   </test-case>
-  <test-case name="fn-error-13">
+  <test-case name="fn-error-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SEPM0010"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "SEPM0010". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SEPM0010'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:SEPM0010&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SEPM0010"))</result-string>
     <result>
       <error code="SEPM0010"/>
     </result>
   </test-case>
-  <test-case name="fn-error-14">
+  <test-case name="fn-error-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SEPM0016"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "SEPM0016". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SEPM0016'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:SEPM0016&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SEPM0016"))</result-string>
     <result>
       <error code="SEPM0016"/>
     </result>
   </test-case>
-  <test-case name="fn-error-15">
+  <test-case name="fn-error-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SERE0003"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "SERE0003". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SERE0003'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:SERE0003&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SERE0003"))</result-string>
     <result>
       <error code="SERE0003"/>
     </result>
   </test-case>
-  <test-case name="fn-error-16">
+  <test-case name="fn-error-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SERE0005"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "SERE0005". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SERE0005'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:SERE0005&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SERE0005"))</result-string>
     <result>
       <error code="SERE0005"/>
     </result>
   </test-case>
-  <test-case name="fn-error-17">
+  <test-case name="fn-error-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SERE0006"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "SERE0006". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SERE0006'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:SERE0006&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SERE0006"))</result-string>
     <result>
       <error code="SERE0006"/>
     </result>
   </test-case>
-  <test-case name="fn-error-18">
+  <test-case name="fn-error-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SERE0008"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "SERE0008". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SERE0008'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:SERE0008&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SERE0008"))</result-string>
     <result>
       <error code="SERE0008"/>
     </result>
   </test-case>
-  <test-case name="fn-error-19">
+  <test-case name="fn-error-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SERE0012"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "SERE0012". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SERE0012'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:SERE0012&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SERE0012"))</result-string>
     <result>
       <error code="SERE0012"/>
     </result>
   </test-case>
-  <test-case name="fn-error-20">
+  <test-case name="fn-error-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SERE0014"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "SERE0014". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SERE0014'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:SERE0014&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SERE0014"))</result-string>
     <result>
       <error code="SERE0014"/>
     </result>
   </test-case>
-  <test-case name="fn-error-22">
+  <test-case name="fn-error-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SESU0007"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "SESU0007". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SESU0007'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:SESU0007&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SESU0007"))</result-string>
     <result>
       <error code="SESU0007"/>
     </result>
   </test-case>
-  <test-case name="fn-error-23">
+  <test-case name="fn-error-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SESU0011"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "SESU0011". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:SESU0011'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:SESU0011&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:SESU0011"))</result-string>
     <result>
       <error code="SESU0011"/>
     </result>
   </test-case>
-  <test-case name="fn-error-25">
+  <test-case name="fn-error-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0002"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XPDY0002". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XPDY0002'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XPDY0002&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPDY0002"))</result-string>
     <result>
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="fn-error-26">
+  <test-case name="fn-error-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0010"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XPST0010". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XPST0010'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XPST0010&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0010"))</result-string>
     <result>
       <error code="XPST0010"/>
     </result>
   </test-case>
-  <test-case name="fn-error-27">
+  <test-case name="fn-error-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0080"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XPST0080". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XPST0080'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XPST0080&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0080"))</result-string>
     <result>
       <error code="XPST0080"/>
     </result>
   </test-case>
-  <test-case name="fn-error-28">
+  <test-case name="fn-error-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0018"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XPTY0018". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XPTY0018'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XPTY0018&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0018"))</result-string>
     <result>
       <error code="XPTY0018"/>
     </result>
   </test-case>
-  <test-case name="fn-error-29">
+  <test-case name="fn-error-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQDY0027"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQDY0027". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQDY0027'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQDY0027&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQDY0027"))</result-string>
     <result>
       <error code="XQDY0027"/>
     </result>
   </test-case>
-  <test-case name="fn-error-30">
+  <test-case name="fn-error-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQDY0061"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQDY0061". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQDY0061'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQDY0061&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQDY0061"))</result-string>
     <result>
       <error code="XQDY0061"/>
     </result>
   </test-case>
-  <test-case name="fn-error-31">
+  <test-case name="fn-error-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQDY0084"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQDY0084". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQDY0084'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQDY0084&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQDY0084"))</result-string>
     <result>
       <error code="XQDY0084"/>
     </result>
   </test-case>
-  <test-case name="fn-error-32">
+  <test-case name="fn-error-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0009"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQST0009". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0009'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQST0009&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0009"))</result-string>
     <result>
       <error code="XQST0009"/>
     </result>
   </test-case>
-  <test-case name="fn-error-33">
+  <test-case name="fn-error-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0012"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQST0012". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0012'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQST0012&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0012"))</result-string>
     <result>
       <error code="XQST0012"/>
     </result>
   </test-case>
-  <test-case name="fn-error-34">
+  <test-case name="fn-error-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0013"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQST0013". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0013'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQST0013&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0013"))</result-string>
     <result>
       <error code="XQST0013"/>
     </result>
   </test-case>
-  <test-case name="fn-error-35">
+  <test-case name="fn-error-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0016"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQST0016". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0016'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQST0016&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0016"))</result-string>
     <result>
       <error code="XQST0016"/>
     </result>
   </test-case>
-  <test-case name="fn-error-36">
+  <test-case name="fn-error-36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0035"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQST0035". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0035'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQST0035&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0035"))</result-string>
     <result>
       <error code="XQST0035"/>
     </result>
   </test-case>
-  <test-case name="fn-error-37">
+  <test-case name="fn-error-37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0036"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQST0036". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0036'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQST0036&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0036"))</result-string>
     <result>
       <error code="XQST0036"/>
     </result>
   </test-case>
-  <test-case name="fn-error-38">
+  <test-case name="fn-error-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0046"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQST0046". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0046'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQST0046&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0046"))</result-string>
     <result>
       <error code="XQST0046"/>
     </result>
   </test-case>
-  <test-case name="fn-error-39">
+  <test-case name="fn-error-39"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0047"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQST0047". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0047'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQST0047&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0047"))</result-string>
     <result>
       <error code="XQST0047"/>
     </result>
   </test-case>
-  <test-case name="fn-error-40">
+  <test-case name="fn-error-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0048"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQST0048". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0048'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQST0048&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0048"))</result-string>
     <result>
       <error code="XQST0048"/>
     </result>
   </test-case>
-  <test-case name="fn-error-41">
+  <test-case name="fn-error-41"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0054"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQST0054". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0054'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQST0054&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0054"))</result-string>
     <result>
       <error code="XQST0054"/>
     </result>
   </test-case>
-  <test-case name="fn-error-42">
+  <test-case name="fn-error-42"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0055"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQST0055". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0055'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQST0055&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0055"))</result-string>
     <result>
       <error code="XQST0055"/>
     </result>
   </test-case>
-  <test-case name="fn-error-43">
+  <test-case name="fn-error-43"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0057"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQST0057". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0057'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQST0057&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0057"))</result-string>
     <result>
       <error code="XQST0057"/>
     </result>
   </test-case>
-  <test-case name="fn-error-44">
+  <test-case name="fn-error-44"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0058"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQST0058". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0058'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQST0058&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0058"))</result-string>
     <result>
       <error code="XQST0058"/>
     </result>
   </test-case>
-  <test-case name="fn-error-45">
+  <test-case name="fn-error-45"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0060"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQST0060". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0060'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQST0060&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0060"))</result-string>
     <result>
       <error code="XQST0060"/>
     </result>
   </test-case>
-  <test-case name="fn-error-46">
+  <test-case name="fn-error-46"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0073"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQST0073. </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0073'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQST0073&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0073"))</result-string>
     <result>
       <error code="XQST0073"/>
     </result>
   </test-case>
-  <test-case name="fn-error-47">
+  <test-case name="fn-error-47"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0075"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQST0075". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0075'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQST0075&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0075"))</result-string>
     <result>
       <error code="XQST0075"/>
     </result>
   </test-case>
-  <test-case name="fn-error-48">
+  <test-case name="fn-error-48"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0076"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQST0076". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0076'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQST0076&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0076"))</result-string>
     <result>
       <error code="XQST0076"/>
     </result>
   </test-case>
-  <test-case name="fn-error-49">
+  <test-case name="fn-error-49"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0079"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQST0079". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0079'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQST0079&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0079"))</result-string>
     <result>
       <error code="XQST0079"/>
     </result>
   </test-case>
-  <test-case name="fn-error-50">
+  <test-case name="fn-error-50"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0087"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQST0087". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQST0087'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQST0087&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQST0087"))</result-string>
     <result>
       <error code="XQST0087"/>
     </result>
   </test-case>
-  <test-case name="fn-error-51">
+  <test-case name="fn-error-51"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQTY0030"))</response-string>
     <description> Evaluation of "fn:error" set to raise error "XQTY0030". </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
-    <test>fn:error(fn:QName('http://www.w3.org/2005/xqt-errors', 'err:XQTY0030'))</test>
+    <test>fn:error(fn:QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:XQTY0030&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XQTY0030"))</result-string>
     <result>
       <error code="XQTY0030"/>
     </result>
   </test-case>
-  <test-case name="K-ErrorFunc-1">
+  <test-case name="K-ErrorFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `if(true()) then true() else error()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>if(true()) then true() else error()</test>
@@ -452,7 +451,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ErrorFunc-2">
+  <test-case name="K-ErrorFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `if(true()) then true() else error(QName("", "local"), "description")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>if(true()) then true() else error(QName("", "local"), "description")</test>
@@ -461,7 +460,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ErrorFunc-3">
+  <test-case name="K-ErrorFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `error(QName("", "local"), "description", "object", "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>error(QName("", "local"), "description", "object", "wrong param")</test>
@@ -470,7 +469,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-ErrorFunc-4">
+  <test-case name="K-ErrorFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
     <description> A test whose essence is: `error( () )`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>error( () )</test>
@@ -479,16 +478,16 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ErrorFunc-5">
-    <description> A test whose essence is: `error(QName('http://www.w3.org/2005/xqt-errors', 'err:FOER0000'))`. </description>
+  <test-case name="K-ErrorFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
+    <description> A test whose essence is: `error(QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:FOER0000&apos;))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <test>error(QName('http://www.w3.org/2005/xqt-errors', 'err:FOER0000'))</test>
+    <test>error(QName(&apos;http://www.w3.org/2005/xqt-errors&apos;, &apos;err:FOER0000&apos;))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <error code="FOER0000"/>
     </result>
   </test-case>
-  <test-case name="K-ErrorFunc-6">
+  <test-case name="K-ErrorFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
     <description> When fn:error() is passed a description, the first argument may be an empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>error((), "description")</test>
@@ -497,7 +496,7 @@
       <error code="FOER0000"/>
     </result>
   </test-case>
-  <test-case name="K-ErrorFunc-7">
+  <test-case name="K-ErrorFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `if(false()) then error((), "description") else true()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>if(false()) then error((), "description") else true()</test>
@@ -506,7 +505,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ErrorFunc-8">
+  <test-case name="K-ErrorFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
     <description> A test whose essence is: `error()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>error()</test>
@@ -515,7 +514,7 @@
       <error code="FOER0000"/>
     </result>
   </test-case>
-  <test-case name="K-ErrorFunc-9">
+  <test-case name="K-ErrorFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("", "XPDY6666"))</response-string>
     <description> A test whose essence is: `error(QName("", "XPDY6666"), "description", "error object")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>error(QName("", "XPDY6666"), "description", "error object")</test>
@@ -524,7 +523,7 @@
       <error code="*"/>
     </result>
   </test-case>
-  <test-case name="K-ErrorFunc-10">
+  <test-case name="K-ErrorFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
     <description> A test whose essence is: `exactly-one((true(), error()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>exactly-one((true(), error()))</test>
@@ -533,12 +532,12 @@
       <error code="FOER0000"/>
     </result>
   </test-case>
-  <test-case name="K2-ErrorFunc-1">
+  <test-case name="K2-ErrorFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> Combine fn:error() with a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, error())[2]</test>
-    <result-string>xs:string("2")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
+    <result-string>xs:integer("2")</result-string>
+    <result-string>xs:integer("2")</result-string>
     <result>
       <any-of>
         <assert-string-value>2</assert-string-value>
@@ -546,8 +545,8 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-ErrorFunc-2">
-    <description> Using a QName with namespace 'none' as identifier. </description>
+  <test-case name="K2-ErrorFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("", "onlyAnNCName"))</response-string>
+    <description> Using a QName with namespace &apos;none&apos; as identifier. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare default element namespace ""; fn:error(xs:QName("onlyAnNCName"))</test>
@@ -556,7 +555,7 @@
       <error code="*"/>
     </result>
   </test-case>
-  <test-case name="K2-ErrorFunc-3">
+  <test-case name="K2-ErrorFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("", "FOO"))</response-string>
     <description> Use a QName with no namespace URI. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>error(QName("", "FOO"), "DESCRIPTION")</test>
@@ -565,7 +564,7 @@
       <error code="*"/>
     </result>
   </test-case>
-  <test-case name="cbcl-error-001">
+  <test-case name="cbcl-error-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <dependency type="spec" value="XQ10+"/>
@@ -579,7 +578,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-002">
+  <test-case name="cbcl-error-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(() + fn:error())</test>
@@ -592,7 +591,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-003">
+  <test-case name="cbcl-error-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(fn:error() + ())</test>
@@ -605,7 +604,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-004">
+  <test-case name="cbcl-error-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(() eq fn:error())</test>
@@ -618,7 +617,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-005">
+  <test-case name="cbcl-error-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(fn:error() eq ())</test>
@@ -631,7 +630,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-006">
+  <test-case name="cbcl-error-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>fn:error() = ()</test>
@@ -644,7 +643,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-007">
+  <test-case name="cbcl-error-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>() = fn:error()</test>
@@ -657,7 +656,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-008">
+  <test-case name="cbcl-error-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(fn:error() is ())</test>
@@ -670,7 +669,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-009">
+  <test-case name="cbcl-error-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(() is fn:error())</test>
@@ -683,7 +682,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-010">
+  <test-case name="cbcl-error-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>fn:error() and false()</test>
@@ -696,7 +695,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-011">
+  <test-case name="cbcl-error-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>false() and fn:error()</test>
@@ -709,7 +708,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-012">
+  <test-case name="cbcl-error-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>fn:error() or true()</test>
@@ -722,7 +721,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-013">
+  <test-case name="cbcl-error-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>true() or fn:error()</test>
@@ -735,7 +734,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-014">
+  <test-case name="cbcl-error-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>for $x in fn:error() return true()</test>
@@ -748,7 +747,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-015">
+  <test-case name="cbcl-error-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <dependency type="spec" value="XQ10+"/>
@@ -762,7 +761,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-016">
+  <test-case name="cbcl-error-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <dependency type="spec" value="XQ10+ XP30+"/>
@@ -776,7 +775,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-017">
+  <test-case name="cbcl-error-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>if (fn:error()) then true() else true()</test>
@@ -789,7 +788,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-018">
+  <test-case name="cbcl-error-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>some $x in fn:error() satisfies false()</test>
@@ -802,7 +801,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-019">
+  <test-case name="cbcl-error-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>every $x in fn:error() satisfies true()</test>
@@ -815,7 +814,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-020">
+  <test-case name="cbcl-error-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>fn:error() instance of xs:integer</test>
@@ -828,7 +827,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-021">
+  <test-case name="cbcl-error-021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <dependency type="spec" value="XQ10+"/>
@@ -842,7 +841,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-022">
+  <test-case name="cbcl-error-022"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <dependency type="spec" value="XQ10+"/>
@@ -856,7 +855,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-023">
+  <test-case name="cbcl-error-023"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(fn:error()[2])</test>
@@ -869,7 +868,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-024">
+  <test-case name="cbcl-error-024"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(fn:error()[false()])</test>
@@ -882,7 +881,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-025">
+  <test-case name="cbcl-error-025"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> fn:error() may never be evaluated here </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty((1 div 0)[false()])</test>
@@ -895,10 +894,10 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-026">
+  <test-case name="cbcl-error-026"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> fn:error() may never be evaluated here the static type of the conditional expression is empty </description>
     <created by="Tim Mills" on="2008-07-29"/>
-    <test>empty( if (current-date() lt xs:date('2009-01-01')) then fn:error() else ())</test>
+    <test>empty( if (current-date() lt xs:date(&apos;2009-01-01&apos;)) then fn:error() else ())</test>
     <result-string>xs:boolean("true")</result-string>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
@@ -908,10 +907,10 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-027">
+  <test-case name="cbcl-error-027"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
     <description> fn:error() may never be evaluated here the static type of the conditional expression is empty </description>
     <created by="Tim Mills" on="2008-07-29"/>
-    <test>empty( if (current-date() lt xs:date('2009-01-01')) then () else fn:error())</test>
+    <test>empty( if (current-date() lt xs:date(&apos;2009-01-01&apos;)) then () else fn:error())</test>
     <result-string>xs:boolean("true")</result-string>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
@@ -921,11 +920,11 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-028">
+  <test-case name="cbcl-error-028"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> fn:error() may never be evaluated here the static type of the typeswitch expression is empty </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:item() { if (current-date() lt xs:date('2012-10-10')) then 1 else "one" }; empty( typeswitch ( local:item() ) case xs:integer return fn:error() default return ())</test>
+    <test>declare function local:item() { if (current-date() lt xs:date(&apos;2012-10-10&apos;)) then 1 else "one" }; empty( typeswitch ( local:item() ) case xs:integer return fn:error() default return ())</test>
     <result-string>xs:boolean("true")</result-string>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
@@ -935,17 +934,17 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-029">
+  <test-case name="cbcl-error-029"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> fn:error() may never be evaluated here the static type of the typeswitch expression is empty </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:item() { if (current-date() gt xs:date('1900-01-01')) then 1 else "one" }; empty( typeswitch ( local:item() ) case xs:integer return () default return fn:error())</test>
+    <test>declare function local:item() { if (current-date() gt xs:date(&apos;1900-01-01&apos;)) then 1 else "one" }; empty( typeswitch ( local:item() ) case xs:integer return () default return fn:error())</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-error-030">
+  <test-case name="cbcl-error-030"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
     <description> fn:error() may never be evaluated here the static type of the fn:remove call is empty </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(fn:remove( fn:error(), 1))</test>
@@ -958,7 +957,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-031">
+  <test-case name="cbcl-error-031"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
     <description> fn:error() may never be evaluated here the static type of the fn:remove call is empty </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(fn:subsequence( fn:error(), 2, 2))</test>
@@ -971,7 +970,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-032">
+  <test-case name="cbcl-error-032"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> fn:error() may never be evaluated here the static type of the except operator is empty </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(fn:error() except fn:error() )</test>
@@ -984,7 +983,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-033">
+  <test-case name="cbcl-error-033"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> fn:error() may never be evaluated here the static type of the intersect operator is empty </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty(fn:error() intersect fn:error() )</test>
@@ -997,7 +996,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-034">
+  <test-case name="cbcl-error-034"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
     <description> fn:error() may never be evaluated here the static type of fn:zero-or-one call is empty </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty( fn:zero-or-one(fn:error()) )</test>
@@ -1010,7 +1009,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-error-035">
+  <test-case name="cbcl-error-035"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> fn:error() may never be evaluated here the static type of the treat as expression is empty </description>
     <created by="Tim Mills" on="2008-07-29"/>
     <test>empty( fn:error() treat as empty-sequence() )</test>

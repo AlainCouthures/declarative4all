@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="prod-DirElemContent" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the DirElemContent production</description>
   <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-DirElemContent" type="spec"/>
@@ -32,55 +31,55 @@
       <created by="Oliver Hallam" on="2007-02-26"/>
     </schema>
   </environment>
-  <test-case name="Constr-cont-invalid-1">
-    <description> invalid character '{' in element content </description>
+  <test-case name="Constr-cont-invalid-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> invalid character &apos;{&apos; in element content </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<elem>{</elem>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Constr-cont-invalid-2">
-    <description> invalid character '}' in element content </description>
+  <test-case name="Constr-cont-invalid-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> invalid character &apos;}&apos; in element content </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<elem>}</elem>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Constr-cont-invalid-3">
-    <description> invalid character 'lt;' in element content </description>
+  <test-case name="Constr-cont-invalid-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> invalid character &apos;lt;&apos; in element content </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<elem><</elem>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Constr-cont-invalid-4">
-    <description> invalid character 'amp;' in element content </description>
+  <test-case name="Constr-cont-invalid-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> invalid character &apos;amp;&apos; in element content </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<elem>&</elem>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Constr-cont-eol-1">
+  <test-case name="Constr-cont-eol-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;codepoints&gt;49 10 50&lt;/codepoints&gt;</response-string>
     <description> end-of-line handling </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -95,7 +94,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-eol-2">
+  <test-case name="Constr-cont-eol-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;codepoints&gt;49 10 50&lt;/codepoints&gt;</response-string>
     <description> end-of-line handling </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -109,7 +108,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-eol-3">
+  <test-case name="Constr-cont-eol-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;codepoints&gt;13 10&lt;/codepoints&gt;</response-string>
     <description> end-of-line handling with character reference </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -123,7 +122,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-eol-4">
+  <test-case name="Constr-cont-eol-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;codepoints&gt;13&lt;/codepoints&gt;</response-string>
     <description> end-of-line handling with character reference </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -137,7 +136,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-entref-1">
+  <test-case name="Constr-cont-entref-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("60")</response-string>
     <description> Pre-defined entity reference in element content </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -149,7 +148,7 @@
       <assert-eq>60</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-cont-entref-2">
+  <test-case name="Constr-cont-entref-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("62")</response-string>
     <description> Pre-defined entity reference in element content </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -161,7 +160,7 @@
       <assert-eq>62</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-cont-entref-3">
+  <test-case name="Constr-cont-entref-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("38")</response-string>
     <description> Pre-defined entity reference in element content </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -173,7 +172,7 @@
       <assert-eq>38</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-cont-entref-4">
+  <test-case name="Constr-cont-entref-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("34")</response-string>
     <description> Pre-defined entity reference in element content </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -185,7 +184,7 @@
       <assert-eq>34</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-cont-entref-5">
+  <test-case name="Constr-cont-entref-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("39")</response-string>
     <description> Pre-defined entity reference in element content </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -197,7 +196,7 @@
       <assert-eq>39</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-cont-charref-1">
+  <test-case name="Constr-cont-charref-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem&gt;0&lt;/elem&gt;</response-string>
     <description> character reference </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -211,7 +210,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-charref-2">
+  <test-case name="Constr-cont-charref-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem&gt;&amp;#0;&lt;/elem&gt;</response-string>
     <description> invalid character reference </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -223,11 +222,11 @@
       <error code="XQST0090"/>
     </result>
   </test-case>
-  <test-case name="Constr-cont-cdata-1">
+  <test-case name="Constr-cont-cdata-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> CDATA section in element constructor </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>elem![CDATA[cdata'"lt;#x20;]]/elem</test>
+    <test>elem![CDATA[cdata&apos;"lt;#x20;]]/elem</test>
     <result-string><![CDATA[<elem>cdata&amp;&lt;&gt;'"&amp;lt;&amp;#x20;</elem>]]></result-string>
     <result>
       <assert-xml>
@@ -235,7 +234,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-text-1">
+  <test-case name="Constr-cont-text-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> count text nodes for direct element content </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -247,7 +246,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-cont-text-2">
+  <test-case name="Constr-cont-text-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> count text nodes for direct element content and CDATA section </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -257,7 +256,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-cont-nested-1">
+  <test-case name="Constr-cont-nested-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem&gt;&lt;a&gt;&lt;b/&gt;&lt;/a&gt;&lt;a/&gt;&lt;c/&gt;&lt;/elem&gt;</response-string>
     <description> nested element nodes </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -271,7 +270,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-nested-2">
+  <test-case name="Constr-cont-nested-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem&gt;processing-instruction undefined {""}processing-instruction undefined {"content"}&lt;/elem&gt;</response-string>
     <description> nested pi nodes </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -285,7 +284,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-nested-3">
+  <test-case name="Constr-cont-nested-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem&gt;&lt;!--content--&gt;&lt;/elem&gt;</response-string>
     <description> nested comment nodes </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -299,7 +298,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-nested-4">
+  <test-case name="Constr-cont-nested-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem&gt;A&lt;a&gt;Bprocessing-instruction undefined {""}C&lt;b/&gt;DE&lt;/a&gt;F&lt;!--content--&gt;G&lt;a/&gt;Hprocessing-instruction undefined {"content"}I&lt;c/&gt;J&lt;/elem&gt;</response-string>
     <description> nested mix of nodes </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -313,7 +312,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-enclexpr-1">
+  <test-case name="Constr-cont-enclexpr-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> 1 text node for enclosed expression with atomic values </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -325,7 +324,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-cont-enclexpr-2">
+  <test-case name="Constr-cont-enclexpr-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> 1 text node for enclosed expression with atomic values </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -337,7 +336,7 @@
       <assert-eq>2</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-cont-enclexpr-3">
+  <test-case name="Constr-cont-enclexpr-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem&gt;1 a 3.5 4e2&lt;/elem&gt;</response-string>
     <description> space between atomic values in enclosed expression </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -351,7 +350,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-enclexpr-4">
+  <test-case name="Constr-cont-enclexpr-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem&gt;1&lt;a&gt;text&lt;/a&gt;&lt;a&gt;text&lt;/a&gt;2 3&lt;!--comment--&gt;&lt;!--comment--&gt;4 5processing-instruction pi {"content"}processing-instruction pi {"content"}6 7 text content text content 8&lt;/elem&gt;</response-string>
     <description> enclosed expression with mix of atomic values and nodes </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="DupNode"/>
@@ -366,7 +365,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-enclexpr-5">
+  <test-case name="Constr-cont-enclexpr-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem&gt;1  2&lt;/elem&gt;</response-string>
     <description> space between atomic values and empty string </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="DupNode"/>
@@ -381,7 +380,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-nested-5">
+  <test-case name="Constr-cont-nested-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem&gt;&lt;root&gt;&lt;child1&gt;&lt;a&gt;text&lt;/a&gt;&lt;!--comment--&gt;processing-instruction pi {"content"}&lt;/child1&gt;&lt;child2&gt;&lt;a&gt;text&lt;/a&gt;&lt;!--comment--&gt;processing-instruction pi {"content"}&lt;/child2&gt;&lt;/root&gt;&lt;/elem&gt;</response-string>
     <description> Copied node structure in element content </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="DupNode"/>
@@ -396,7 +395,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-nodeid-1">
+  <test-case name="Constr-cont-nodeid-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Copied element node has new node identity </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -408,7 +407,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="Constr-cont-nodeid-2">
+  <test-case name="Constr-cont-nodeid-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Copied attribute node has new node identity </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -420,7 +419,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="Constr-cont-nodeid-3">
+  <test-case name="Constr-cont-nodeid-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Copied comment node has new node identity </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -432,7 +431,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="Constr-cont-nodeid-4">
+  <test-case name="Constr-cont-nodeid-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Copied pi node has new node identity </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -444,7 +443,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="Constr-cont-nodeid-5">
+  <test-case name="Constr-cont-nodeid-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Copied text node has new node identity </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -456,7 +455,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="Constr-cont-constrmod-1">
+  <test-case name="Constr-cont-constrmod-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> strip IDREFS type </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="atomic-xq"/>
@@ -469,7 +468,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-cont-constrmod-2">
+  <test-case name="Constr-cont-constrmod-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> preserve IDREFS type </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="atomic-xq"/>
@@ -486,7 +485,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="Constr-cont-constrmod-3">
+  <test-case name="Constr-cont-constrmod-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> strip decimal type </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="atomic-xq"/>
@@ -499,7 +498,7 @@
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="Constr-cont-constrmod-4">
+  <test-case name="Constr-cont-constrmod-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> preserve decimal type </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="atomic-xq"/>
@@ -516,7 +515,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="Constr-cont-constrmod-5">
+  <test-case name="Constr-cont-constrmod-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> strip IDREFS type in attribute </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="atomic-xq"/>
@@ -529,7 +528,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-cont-constrmod-6">
+  <test-case name="Constr-cont-constrmod-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> preserve IDREFS type in attribute </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="atomic-xq"/>
@@ -546,7 +545,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="Constr-cont-constrmod-7">
+  <test-case name="Constr-cont-constrmod-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> strip decimal type in attribute </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="atomic-xq"/>
@@ -559,7 +558,7 @@
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="Constr-cont-constrmod-8">
+  <test-case name="Constr-cont-constrmod-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> preserve decimal type in attribute </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="atomic-xq"/>
@@ -576,7 +575,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="Constr-cont-nsmode-1">
+  <test-case name="Constr-cont-nsmode-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Copy-namespace mode preserve, inherit </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="nsmode"/>
@@ -591,7 +590,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-nsmode-2">
+  <test-case name="Constr-cont-nsmode-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Copy-namespace mode no-preserve, inherit </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="nsmode"/>
@@ -606,7 +605,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-nsmode-3">
+  <test-case name="Constr-cont-nsmode-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Copy-namespace mode preserve, no-inherit </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="nsmode"/>
@@ -621,7 +620,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-nsmode-4">
+  <test-case name="Constr-cont-nsmode-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Copy-namespace mode no-preserve, no-inherit </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="nsmode"/>
@@ -636,7 +635,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-nsmode-5">
+  <test-case name="Constr-cont-nsmode-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Copy namespace sensitive content </description>
     <created by="Andreas Behm" on="2005-11-15"/>
     <environment ref="atomic-xq"/>
@@ -655,7 +654,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="Constr-cont-nsmode-6">
+  <test-case name="Constr-cont-nsmode-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Copy namespace sensitive content </description>
     <created by="Andreas Behm" on="2005-11-15"/>
     <environment ref="atomic-xq"/>
@@ -674,7 +673,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="Constr-cont-nsmode-7">
+  <test-case name="Constr-cont-nsmode-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Copy namespace sensitive content. See bug 4151 </description>
     <created by="Michael Kay" on="2005-11-15"/>
     <environment ref="atomic-xq"/>
@@ -687,7 +686,7 @@
       <error code="XQTY0086"/>
     </result>
   </test-case>
-  <test-case name="Constr-cont-nsmode-8">
+  <test-case name="Constr-cont-nsmode-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Copy namespace sensitive content. See bug 4151 </description>
     <created by="Michael Kay" on="2005-11-15"/>
     <environment ref="atomic-xq"/>
@@ -705,7 +704,7 @@
       <error code="XQTY0086"/>
     </result>
   </test-case>
-  <test-case name="Constr-cont-nsmode-9">
+  <test-case name="Constr-cont-nsmode-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Copy namespace sensitive content. See bug 4151. 
         This test succeeds: a namespace-sensitive element can be copied if copy-namespaces=preserve, 
         and its namespace-sensitive attribute can be copied if its parent element is copied 
@@ -729,7 +728,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-nsmode-10">
+  <test-case name="Constr-cont-nsmode-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Copy namespace sensitive content </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
     <environment ref="atomic-xq"/>
@@ -740,7 +739,7 @@
       <error code="XQTY0086"/>
     </result>
   </test-case>
-  <test-case name="Constr-cont-nsmode-11">
+  <test-case name="Constr-cont-nsmode-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test copying of potentially namespace-sensitive nodes preserves their type correctly. </description>
     <created by="Oliver Hallam" on="2010-02-24"/>
     <environment ref="namespace-sensitive"/>
@@ -764,7 +763,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="Constr-cont-uripres-1">
+  <test-case name="Constr-cont-uripres-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Preserve base uri for copied element nodes </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -780,7 +779,7 @@
       <assert-string-value>http://www.example.com/base2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="Constr-cont-adjtext-1">
+  <test-case name="Constr-cont-adjtext-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> single text node in element content </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -792,7 +791,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-cont-adjtext-2">
+  <test-case name="Constr-cont-adjtext-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> two text nodes in element content </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -804,7 +803,7 @@
       <assert-eq>2</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-cont-adjtext-3">
+  <test-case name="Constr-cont-adjtext-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> strip empty text node </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -816,7 +815,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-cont-adjtext-4">
+  <test-case name="Constr-cont-adjtext-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> no text node for empty sequence constructed </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -828,7 +827,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-cont-doc-1">
+  <test-case name="Constr-cont-doc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> strip document nodes </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="DupNode"/>
@@ -843,7 +842,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-attr-1">
+  <test-case name="Constr-cont-attr-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem mark="w0"&gt;1&lt;/elem&gt;</response-string>
     <description> attribute node following atomic value </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="TopMany"/>
@@ -856,7 +855,7 @@
       <error code="XQTY0024"/>
     </result>
   </test-case>
-  <test-case name="Constr-cont-attr-2">
+  <test-case name="Constr-cont-attr-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem mark="w0"&gt;&lt;a/&gt;&lt;/elem&gt;</response-string>
     <description> attribute node following node </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="TopMany"/>
@@ -869,7 +868,7 @@
       <error code="XQTY0024"/>
     </result>
   </test-case>
-  <test-case name="Constr-cont-attr-3">
+  <test-case name="Constr-cont-attr-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem mark="w0"/&gt;</response-string>
     <description> attribute node following empty sequence </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="TopMany"/>
@@ -884,7 +883,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-attr-4">
+  <test-case name="Constr-cont-attr-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem mark="w0" west-attr-1="w1"&gt;x&lt;/elem&gt;</response-string>
     <description> attribute node following direct content </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="TopMany"/>
@@ -897,7 +896,7 @@
       <error code="XQTY0024"/>
     </result>
   </test-case>
-  <test-case name="Constr-cont-baseuri-1">
+  <test-case name="Constr-cont-baseuri-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> base-uri through xml:base attribute </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -909,7 +908,7 @@
       <assert-string-value>http://www.example.com</assert-string-value>
     </result>
   </test-case>
-  <test-case name="Constr-cont-baseuri-2">
+  <test-case name="Constr-cont-baseuri-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> base-uri through parent </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -921,7 +920,7 @@
       <assert-string-value>http://www.example.com</assert-string-value>
     </result>
   </test-case>
-  <test-case name="Constr-cont-baseuri-3">
+  <test-case name="Constr-cont-baseuri-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> base-uri through declaration </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -933,7 +932,7 @@
       <assert-string-value>http://www.example.com</assert-string-value>
     </result>
   </test-case>
-  <test-case name="Constr-cont-parent-1">
+  <test-case name="Constr-cont-parent-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> empty parent </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -945,7 +944,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-cont-attr-5">
+  <test-case name="Constr-cont-attr-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem mark="w0" west-attr-1="w1"/&gt;</response-string>
     <description> attributes in content </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="TopMany"/>
@@ -960,7 +959,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-attr-6">
+  <test-case name="Constr-cont-attr-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem mark="w0" west-attr-1="w1" west-attr-2="w2"/&gt;</response-string>
     <description> attributes direct and in content </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="TopMany"/>
@@ -975,7 +974,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-attr-7">
+  <test-case name="Constr-cont-attr-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem mark="c0"/&gt;</response-string>
     <description> attribute in content with same name </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="TopMany"/>
@@ -988,7 +987,7 @@
       <error code="XQDY0025"/>
     </result>
   </test-case>
-  <test-case name="Constr-cont-attr-8">
+  <test-case name="Constr-cont-attr-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem west-attr-1="w1" mark="w0"/&gt;</response-string>
     <description> attributes direct and in content with same name </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <environment ref="TopMany"/>
@@ -1001,7 +1000,7 @@
       <error code="XQDY0025"/>
     </result>
   </test-case>
-  <test-case name="Constr-cont-attr-9">
+  <test-case name="Constr-cont-attr-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem west-attr-1="w1" west-attr-2="w2"/&gt;</response-string>
     <description> Attributes in seperate content units </description>
     <created by="Oliver Hallam" on="2010-03-16"/>
     <environment ref="TopMany"/>
@@ -1016,7 +1015,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-cont-string-1">
+  <test-case name="Constr-cont-string-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("ab")</response-string>
     <description> string value of element </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1028,7 +1027,7 @@
       <assert-string-value>ab</assert-string-value>
     </result>
   </test-case>
-  <test-case name="Constr-cont-data-1">
+  <test-case name="Constr-cont-data-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:untypedAtomic("ab")</response-string>
     <description> typed value of element </description>
     <created by="Andreas Behm" on="2005-04-20"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1040,7 +1039,7 @@
       <assert-string-value>ab</assert-string-value>
     </result>
   </test-case>
-  <test-case name="Constr-cont-document-1">
+  <test-case name="Constr-cont-document-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Check the merging of text nodes introduced by the contents of a document node This test case was motivated by the resolution of Bug Report 3637 </description>
     <created by="Andrew Eisenberg" on="2006-09-25"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1052,7 +1051,7 @@
       <assert-eq>3</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-cont-document-2">
+  <test-case name="Constr-cont-document-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Check the merging of text nodes introduced by the contents of a document node This test case was motivated by the resolution of Bug Report 3637 </description>
     <created by="Andrew Eisenberg" on="2006-09-25"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1064,7 +1063,7 @@
       <assert-eq>3</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-cont-document-3">
+  <test-case name="Constr-cont-document-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>#x9 | #xA | #xD | [#x20-#xD7FF] | [#xE000-#xFFFD] | [#x10000-#x10FFFF] </description>
     <created by="Frans Englich" on="2006-09-25"/>
     <modified by="Michael Kay" change="redesigned to avoid the large output file (query is essentially unchanged)" on="2011-07-11"/>
@@ -1087,12 +1086,12 @@
     <result>
       <all-of>
         <assert>sum($result//r/text()/string-length()) = count((9, 10, 13, 32 to 55295, 57344 to 65532, 65536 to 1114111 ))</assert>
-        <assert>starts-with(($result//r/text())[1], '')</assert>
-        <assert>ends-with(($result//r/text())[last()], '')</assert>
+        <assert>starts-with(($result//r/text())[1], &apos;&apos;)</assert>
+        <assert>ends-with(($result//r/text())[last()], &apos;&apos;)</assert>
       </all-of>
     </result>
   </test-case>
-  <test-case name="Constr-cont-document-4">
+  <test-case name="Constr-cont-document-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("4")</response-string>
     <description> Check the merging of text nodes introduced by the contents of a document node. This test case was motivated by the resolution of Bug Report #3637 </description>
     <created by="Nicolae Brinza" on="2006-09-25"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1104,53 +1103,53 @@
       <assert-eq>3</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-cont-document-5">
+  <test-case name="Constr-cont-document-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("4")</response-string>
     <description> Check the merging of text nodes introduced by the contents of a document node. This test case was motivated by the resolution of Bug Report #3637 </description>
     <created by="Nicolae Brinza" on="2006-09-25"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>count( document {'abc', 'def', document {'ghi', 'jkl'}, 'mno' } /node() )</test>
+    <test>count( document {&apos;abc&apos;, &apos;def&apos;, document {&apos;ghi&apos;, &apos;jkl&apos;}, &apos;mno&apos; } /node() )</test>
     <result-string>xs:integer("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-1">
-    <description> An astray '}'. </description>
+  <test-case name="K2-DirectConElemContent-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> An astray &apos;}&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3}</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-2">
-    <description> An astray '}'. </description>
+  <test-case name="K2-DirectConElemContent-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> An astray &apos;}&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>"a string" }</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-3">
-    <description> An astray '}'. </description>
+  <test-case name="K2-DirectConElemContent-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> An astray &apos;}&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>}</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-4">
-    <description> An astray '}'. </description>
+  <test-case name="K2-DirectConElemContent-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> An astray &apos;}&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>}</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-5">
+  <test-case name="K2-DirectConElemContent-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test that the typed value of element nodes is correct. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1162,7 +1161,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-6">
+  <test-case name="K2-DirectConElemContent-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test that the typed value of element nodes is correct. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1174,7 +1173,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-7">
+  <test-case name="K2-DirectConElemContent-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test that the typed value of element nodes is correct. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1186,7 +1185,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-8">
+  <test-case name="K2-DirectConElemContent-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test that the typed of element nodes is correct. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1198,7 +1197,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-9">
+  <test-case name="K2-DirectConElemContent-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test that the typed value of comment nodes is correct. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1210,7 +1209,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-10">
+  <test-case name="K2-DirectConElemContent-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test that the typed value of comment nodes is correct. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1222,7 +1221,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-11">
+  <test-case name="K2-DirectConElemContent-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test that the typed value of comment nodes is correct. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1234,7 +1233,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-12">
+  <test-case name="K2-DirectConElemContent-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test that the typed value of comment nodes is correct. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1246,7 +1245,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-13">
+  <test-case name="K2-DirectConElemContent-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test that the typed value of comment nodes is correct. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1258,7 +1257,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-14">
+  <test-case name="K2-DirectConElemContent-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test that the typed value of PI nodes is correct. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1270,7 +1269,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-15">
+  <test-case name="K2-DirectConElemContent-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test that the typed value of PI nodes is correct. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1282,7 +1281,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-16">
+  <test-case name="K2-DirectConElemContent-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test that the typed value of PI nodes is correct. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1294,7 +1293,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-17">
+  <test-case name="K2-DirectConElemContent-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test that the typed value of PI nodes is correct. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1306,83 +1305,83 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-18">
+  <test-case name="K2-DirectConElemContent-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntactically invalid CDATA section. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>![CDATA[content]]</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-19">
+  <test-case name="K2-DirectConElemContent-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntactically invalid CDATA section. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>elem![THISISWRONG[content]]/elem</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-20">
+  <test-case name="K2-DirectConElemContent-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntactically invalid CDATA section. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<elem><![CDA]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-21">
+  <test-case name="K2-DirectConElemContent-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntactically invalid CDATA section. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>elem![CDATA[CONTENT]]</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-22">
+  <test-case name="K2-DirectConElemContent-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntactically invalid CDATA section. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<elem><![CDATA[CONTENT]]]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-23">
+  <test-case name="K2-DirectConElemContent-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntactically invalid CDATA section. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<elem><![CDATA[CONTENT]]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-24">
+  <test-case name="K2-DirectConElemContent-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntactically invalid CDATA section. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>elem![cdata[CONTENT]]/elem</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-25">
+  <test-case name="K2-DirectConElemContent-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string(" (: an (:example:) ")</response-string>
     <description> XQuery comments inside elements are not recognized.</description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1394,7 +1393,7 @@
       <assert-string-value> (: an (:example:) </assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-26">
+  <test-case name="K2-DirectConElemContent-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem&gt;contentcontent&lt;/elem&gt;</response-string>
     <description> Enclosed expressions in element content must have expressions. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1406,7 +1405,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-27">
+  <test-case name="K2-DirectConElemContent-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Many CDATA sections. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1416,17 +1415,17 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-28">
-    <description> Ensure CDATA doesn't receive special attention. </description>
+  <test-case name="K2-DirectConElemContent-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Ensure CDATA doesn&apos;t receive special attention. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>string(elem![CDATA[con ]] ""'*"*"tent]]#00;#x12;amp;quot;notrecognized;apos]]/elem) eq "conlt;lt;lt; ]] gt;""""'*""*""gt;gt;tent]]amp;#00;amp;#x12;amp;amp;amp;quot;amp;notrecognized;amp;apos"</test>
+    <test>string(elem![CDATA[con ]] ""&apos;*"*"tent]]#00;#x12;amp;quot;notrecognized;apos]]/elem) eq "conlt;lt;lt; ]] gt;""""&apos;*""*""gt;gt;tent]]amp;#00;amp;#x12;amp;amp;amp;quot;amp;notrecognized;amp;apos"</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-29">
+  <test-case name="K2-DirectConElemContent-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test that the type annotation of text nodes is correct. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1436,7 +1435,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-30">
+  <test-case name="K2-DirectConElemContent-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;e&gt;1A1&lt;/e&gt;</response-string>
     <description> Two atomic values with a text node inbetween. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1450,7 +1449,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-31">
+  <test-case name="K2-DirectConElemContent-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1A1")</response-string>
     <description> Two atomic values with a text node inbetween(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1462,7 +1461,7 @@
       <assert-string-value>1A1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-32">
+  <test-case name="K2-DirectConElemContent-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Tests the type of the typed value of a directly constructed element node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1474,19 +1473,19 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-33">
+  <test-case name="K2-DirectConElemContent-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:untypedAtomic("dsa")</response-string>
     <description> Tests the typed value of a directly constructed element node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[data(<e>dsa</e>)]]>
     </test>
-    <result-string>xs:string("dsa")</result-string>
+    <result-string>xs:untypedAtomic("dsa")</result-string>
     <result>
       <assert-string-value>dsa</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-34">
+  <test-case name="K2-DirectConElemContent-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Check that a directly constructed element gets the right type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1498,7 +1497,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-35">
+  <test-case name="K2-DirectConElemContent-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> 
       	Check that a directly constructed element gets the right type(#2).
       	Note: see bug 11585, especially comment 9. 
@@ -1513,7 +1512,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-36">
+  <test-case name="K2-DirectConElemContent-36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Check that a directly constructed element gets the right type(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1525,7 +1524,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-37">
+  <test-case name="K2-DirectConElemContent-37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Check that a directly constructed element gets the right type, and that the name test fails. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1537,7 +1536,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-38">
+  <test-case name="K2-DirectConElemContent-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Check that a directly constructed element gets the right type, and that the name test fails(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1549,7 +1548,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-39">
+  <test-case name="K2-DirectConElemContent-39"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem&gt;12345&lt;/elem&gt;</response-string>
     <description> Use many enclosed expressions. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1563,7 +1562,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-40">
+  <test-case name="K2-DirectConElemContent-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem&gt;1234&lt;/elem&gt;</response-string>
     <description> Use many enclosed expressions(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1577,7 +1576,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-41">
+  <test-case name="K2-DirectConElemContent-41"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem&gt;123&lt;/elem&gt;</response-string>
     <description> Use many enclosed expressions(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1591,7 +1590,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-42">
+  <test-case name="K2-DirectConElemContent-42"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem&gt;12&lt;/elem&gt;</response-string>
     <description> Use many enclosed expressions(#4). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1605,7 +1604,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-43">
+  <test-case name="K2-DirectConElemContent-43"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Tricky whitespace case. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1617,31 +1616,31 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-44">
+  <test-case name="K2-DirectConElemContent-44"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Inproperly balanced attribute quotes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<e attr='content"/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-45">
+  <test-case name="K2-DirectConElemContent-45"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Inproperly balanced attribute quotes(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<e attr="content'/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-46">
+  <test-case name="K2-DirectConElemContent-46"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Have an empty text node constructor between two atomic values. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1655,7 +1654,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-47">
+  <test-case name="K2-DirectConElemContent-47"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Have an text node constructor that constructs an empty string, between two atomic values. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1669,7 +1668,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemContent-48">
+  <test-case name="K2-DirectConElemContent-48"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Serialize an undeclaration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1687,7 +1686,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="cbcl-ns-fixup-1">
+  <test-case name="cbcl-ns-fixup-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Ensure that namespace fixup occurs when namespace prefix names clash </description>
     <created by="Tim Mills" on="2007-02-27"/>
     <dependency type="spec" value="XQ10+"/>

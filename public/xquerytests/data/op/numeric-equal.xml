@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="op-numeric-equal" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the numeric-equal() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-numeric-equal" type="spec"/>
-  <test-case name="op-numeric-equalint2args-1">
+  <test-case name="op-numeric-equalint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int("-2147483648") eq xs:int("-2147483648")</test>
@@ -11,7 +10,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalint2args-2">
+  <test-case name="op-numeric-equalint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:int(mid range) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int("-1873914410") eq xs:int("-2147483648")</test>
@@ -20,7 +19,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalint2args-3">
+  <test-case name="op-numeric-equalint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:int(upper bound) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int("2147483647") eq xs:int("-2147483648")</test>
@@ -29,7 +28,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalint2args-4">
+  <test-case name="op-numeric-equalint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int("-2147483648") eq xs:int("-1873914410")</test>
@@ -38,7 +37,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalint2args-5">
+  <test-case name="op-numeric-equalint2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int("-2147483648") eq xs:int("2147483647")</test>
@@ -47,7 +46,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalint2args-6">
+  <test-case name="op-numeric-equalint2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int("-2147483648") ne xs:int("-2147483648")</test>
@@ -56,7 +55,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalint2args-7">
+  <test-case name="op-numeric-equalint2args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:int(mid range) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int("-1873914410") ne xs:int("-2147483648")</test>
@@ -65,7 +64,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalint2args-8">
+  <test-case name="op-numeric-equalint2args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:int(upper bound) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int("2147483647") ne xs:int("-2147483648")</test>
@@ -74,7 +73,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalint2args-9">
+  <test-case name="op-numeric-equalint2args-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int("-2147483648") ne xs:int("-1873914410")</test>
@@ -83,7 +82,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalint2args-10">
+  <test-case name="op-numeric-equalint2args-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:int("-2147483648") ne xs:int("2147483647")</test>
@@ -92,7 +91,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalintg2args-1">
+  <test-case name="op-numeric-equalintg2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer("-999999999999999999") eq xs:integer("-999999999999999999")</test>
@@ -101,7 +100,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalintg2args-2">
+  <test-case name="op-numeric-equalintg2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:integer(mid range) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer("830993497117024304") eq xs:integer("-999999999999999999")</test>
@@ -110,7 +109,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalintg2args-3">
+  <test-case name="op-numeric-equalintg2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:integer(upper bound) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer("999999999999999999") eq xs:integer("-999999999999999999")</test>
@@ -119,7 +118,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalintg2args-4">
+  <test-case name="op-numeric-equalintg2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer("-999999999999999999") eq xs:integer("830993497117024304")</test>
@@ -128,7 +127,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalintg2args-5">
+  <test-case name="op-numeric-equalintg2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer("-999999999999999999") eq xs:integer("999999999999999999")</test>
@@ -137,7 +136,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalintg2args-6">
+  <test-case name="op-numeric-equalintg2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer("-999999999999999999") ne xs:integer("-999999999999999999")</test>
@@ -146,7 +145,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalintg2args-7">
+  <test-case name="op-numeric-equalintg2args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:integer(mid range) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer("830993497117024304") ne xs:integer("-999999999999999999")</test>
@@ -155,7 +154,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalintg2args-8">
+  <test-case name="op-numeric-equalintg2args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:integer(upper bound) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer("999999999999999999") ne xs:integer("-999999999999999999")</test>
@@ -164,7 +163,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalintg2args-9">
+  <test-case name="op-numeric-equalintg2args-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer("-999999999999999999") ne xs:integer("830993497117024304")</test>
@@ -173,7 +172,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalintg2args-10">
+  <test-case name="op-numeric-equalintg2args-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:integer("-999999999999999999") ne xs:integer("999999999999999999")</test>
@@ -182,7 +181,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equaldec2args-1">
+  <test-case name="op-numeric-equaldec2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("-999999999999999999") eq xs:decimal("-999999999999999999")</test>
@@ -191,7 +190,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equaldec2args-2">
+  <test-case name="op-numeric-equaldec2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:decimal(mid range) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("617375191608514839") eq xs:decimal("-999999999999999999")</test>
@@ -200,7 +199,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equaldec2args-3">
+  <test-case name="op-numeric-equaldec2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:decimal(upper bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("999999999999999999") eq xs:decimal("-999999999999999999")</test>
@@ -209,7 +208,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equaldec2args-4">
+  <test-case name="op-numeric-equaldec2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("-999999999999999999") eq xs:decimal("617375191608514839")</test>
@@ -218,7 +217,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equaldec2args-5">
+  <test-case name="op-numeric-equaldec2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("-999999999999999999") eq xs:decimal("999999999999999999")</test>
@@ -227,7 +226,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equaldec2args-6">
+  <test-case name="op-numeric-equaldec2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("-999999999999999999") ne xs:decimal("-999999999999999999")</test>
@@ -236,7 +235,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equaldec2args-7">
+  <test-case name="op-numeric-equaldec2args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:decimal(mid range) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("617375191608514839") ne xs:decimal("-999999999999999999")</test>
@@ -245,7 +244,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equaldec2args-8">
+  <test-case name="op-numeric-equaldec2args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:decimal(upper bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("999999999999999999") ne xs:decimal("-999999999999999999")</test>
@@ -254,7 +253,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equaldec2args-9">
+  <test-case name="op-numeric-equaldec2args-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("-999999999999999999") ne xs:decimal("617375191608514839")</test>
@@ -263,7 +262,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equaldec2args-10">
+  <test-case name="op-numeric-equaldec2args-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("-999999999999999999") ne xs:decimal("999999999999999999")</test>
@@ -272,7 +271,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equaldbl2args-1">
+  <test-case name="op-numeric-equaldbl2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double("-1.7976931348623157E308") eq xs:double("-1.7976931348623157E308")</test>
@@ -281,7 +280,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equaldbl2args-2">
+  <test-case name="op-numeric-equaldbl2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:double(mid range) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double("0") eq xs:double("-1.7976931348623157E308")</test>
@@ -290,7 +289,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equaldbl2args-3">
+  <test-case name="op-numeric-equaldbl2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:double(upper bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double("1.7976931348623157E308") eq xs:double("-1.7976931348623157E308")</test>
@@ -299,7 +298,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equaldbl2args-4">
+  <test-case name="op-numeric-equaldbl2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double("-1.7976931348623157E308") eq xs:double("0")</test>
@@ -308,7 +307,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equaldbl2args-5">
+  <test-case name="op-numeric-equaldbl2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double("-1.7976931348623157E308") eq xs:double("1.7976931348623157E308")</test>
@@ -317,7 +316,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equaldbl2args-6">
+  <test-case name="op-numeric-equaldbl2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double("-1.7976931348623157E308") ne xs:double("-1.7976931348623157E308")</test>
@@ -326,7 +325,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equaldbl2args-7">
+  <test-case name="op-numeric-equaldbl2args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:double(mid range) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double("0") ne xs:double("-1.7976931348623157E308")</test>
@@ -335,7 +334,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equaldbl2args-8">
+  <test-case name="op-numeric-equaldbl2args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:double(upper bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double("1.7976931348623157E308") ne xs:double("-1.7976931348623157E308")</test>
@@ -344,7 +343,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equaldbl2args-9">
+  <test-case name="op-numeric-equaldbl2args-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double("-1.7976931348623157E308") ne xs:double("0")</test>
@@ -353,7 +352,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equaldbl2args-10">
+  <test-case name="op-numeric-equaldbl2args-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double("-1.7976931348623157E308") ne xs:double("1.7976931348623157E308")</test>
@@ -362,7 +361,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalflt2args-1">
+  <test-case name="op-numeric-equalflt2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float("-3.4028235E38") eq xs:float("-3.4028235E38")</test>
@@ -371,7 +370,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalflt2args-2">
+  <test-case name="op-numeric-equalflt2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:float(mid range) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float("0") eq xs:float("-3.4028235E38")</test>
@@ -380,7 +379,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalflt2args-3">
+  <test-case name="op-numeric-equalflt2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:float(upper bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float("3.4028235E38") eq xs:float("-3.4028235E38")</test>
@@ -389,7 +388,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalflt2args-4">
+  <test-case name="op-numeric-equalflt2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float("-3.4028235E38") eq xs:float("0")</test>
@@ -398,7 +397,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalflt2args-5">
+  <test-case name="op-numeric-equalflt2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float("-3.4028235E38") eq xs:float("3.4028235E38")</test>
@@ -407,7 +406,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalflt2args-6">
+  <test-case name="op-numeric-equalflt2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float("-3.4028235E38") ne xs:float("-3.4028235E38")</test>
@@ -416,7 +415,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalflt2args-7">
+  <test-case name="op-numeric-equalflt2args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:float(mid range) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float("0") ne xs:float("-3.4028235E38")</test>
@@ -425,7 +424,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalflt2args-8">
+  <test-case name="op-numeric-equalflt2args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:float(upper bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float("3.4028235E38") ne xs:float("-3.4028235E38")</test>
@@ -434,7 +433,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalflt2args-9">
+  <test-case name="op-numeric-equalflt2args-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float("-3.4028235E38") ne xs:float("0")</test>
@@ -443,7 +442,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalflt2args-10">
+  <test-case name="op-numeric-equalflt2args-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float("-3.4028235E38") ne xs:float("3.4028235E38")</test>
@@ -452,7 +451,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equallng2args-1">
+  <test-case name="op-numeric-equallng2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long("-92233720368547758") eq xs:long("-92233720368547758")</test>
@@ -461,7 +460,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equallng2args-2">
+  <test-case name="op-numeric-equallng2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:long(mid range) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long("-47175562203048468") eq xs:long("-92233720368547758")</test>
@@ -470,7 +469,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equallng2args-3">
+  <test-case name="op-numeric-equallng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:long(upper bound) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long("92233720368547758") eq xs:long("-92233720368547758")</test>
@@ -479,7 +478,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equallng2args-4">
+  <test-case name="op-numeric-equallng2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long("-92233720368547758") eq xs:long("-47175562203048468")</test>
@@ -488,7 +487,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equallng2args-5">
+  <test-case name="op-numeric-equallng2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long("-92233720368547758") eq xs:long("92233720368547758")</test>
@@ -497,7 +496,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equallng2args-6">
+  <test-case name="op-numeric-equallng2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long("-92233720368547758") ne xs:long("-92233720368547758")</test>
@@ -506,7 +505,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equallng2args-7">
+  <test-case name="op-numeric-equallng2args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:long(mid range) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long("-47175562203048468") ne xs:long("-92233720368547758")</test>
@@ -515,7 +514,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equallng2args-8">
+  <test-case name="op-numeric-equallng2args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:long(upper bound) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long("92233720368547758") ne xs:long("-92233720368547758")</test>
@@ -524,7 +523,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equallng2args-9">
+  <test-case name="op-numeric-equallng2args-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long("-92233720368547758") ne xs:long("-47175562203048468")</test>
@@ -533,7 +532,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equallng2args-10">
+  <test-case name="op-numeric-equallng2args-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:long("-92233720368547758") ne xs:long("92233720368547758")</test>
@@ -542,7 +541,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalusht2args-1">
+  <test-case name="op-numeric-equalusht2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort("0") eq xs:unsignedShort("0")</test>
@@ -551,7 +550,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalusht2args-2">
+  <test-case name="op-numeric-equalusht2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:unsignedShort(mid range) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort("44633") eq xs:unsignedShort("0")</test>
@@ -560,7 +559,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalusht2args-3">
+  <test-case name="op-numeric-equalusht2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:unsignedShort(upper bound) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort("65535") eq xs:unsignedShort("0")</test>
@@ -569,7 +568,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalusht2args-4">
+  <test-case name="op-numeric-equalusht2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort("0") eq xs:unsignedShort("44633")</test>
@@ -578,7 +577,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalusht2args-5">
+  <test-case name="op-numeric-equalusht2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort("0") eq xs:unsignedShort("65535")</test>
@@ -587,7 +586,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalusht2args-6">
+  <test-case name="op-numeric-equalusht2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort("0") ne xs:unsignedShort("0")</test>
@@ -596,7 +595,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalusht2args-7">
+  <test-case name="op-numeric-equalusht2args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:unsignedShort(mid range) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort("44633") ne xs:unsignedShort("0")</test>
@@ -605,7 +604,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalusht2args-8">
+  <test-case name="op-numeric-equalusht2args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:unsignedShort(upper bound) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort("65535") ne xs:unsignedShort("0")</test>
@@ -614,7 +613,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalusht2args-9">
+  <test-case name="op-numeric-equalusht2args-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort("0") ne xs:unsignedShort("44633")</test>
@@ -623,7 +622,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalusht2args-10">
+  <test-case name="op-numeric-equalusht2args-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort("0") ne xs:unsignedShort("65535")</test>
@@ -632,7 +631,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnint2args-1">
+  <test-case name="op-numeric-equalnint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger("-999999999999999999") eq xs:negativeInteger("-999999999999999999")</test>
@@ -641,7 +640,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnint2args-2">
+  <test-case name="op-numeric-equalnint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:negativeInteger(mid range) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger("-297014075999096793") eq xs:negativeInteger("-999999999999999999")</test>
@@ -650,7 +649,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnint2args-3">
+  <test-case name="op-numeric-equalnint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:negativeInteger(upper bound) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger("-1") eq xs:negativeInteger("-999999999999999999")</test>
@@ -659,7 +658,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnint2args-4">
+  <test-case name="op-numeric-equalnint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger("-999999999999999999") eq xs:negativeInteger("-297014075999096793")</test>
@@ -668,7 +667,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnint2args-5">
+  <test-case name="op-numeric-equalnint2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger("-999999999999999999") eq xs:negativeInteger("-1")</test>
@@ -677,7 +676,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnint2args-6">
+  <test-case name="op-numeric-equalnint2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger("-999999999999999999") ne xs:negativeInteger("-999999999999999999")</test>
@@ -686,7 +685,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnint2args-7">
+  <test-case name="op-numeric-equalnint2args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:negativeInteger(mid range) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger("-297014075999096793") ne xs:negativeInteger("-999999999999999999")</test>
@@ -695,7 +694,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnint2args-8">
+  <test-case name="op-numeric-equalnint2args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:negativeInteger(upper bound) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger("-1") ne xs:negativeInteger("-999999999999999999")</test>
@@ -704,7 +703,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnint2args-9">
+  <test-case name="op-numeric-equalnint2args-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger("-999999999999999999") ne xs:negativeInteger("-297014075999096793")</test>
@@ -713,7 +712,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnint2args-10">
+  <test-case name="op-numeric-equalnint2args-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:negativeInteger("-999999999999999999") ne xs:negativeInteger("-1")</test>
@@ -722,7 +721,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalpint2args-1">
+  <test-case name="op-numeric-equalpint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("1") eq xs:positiveInteger("1")</test>
@@ -731,7 +730,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalpint2args-2">
+  <test-case name="op-numeric-equalpint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:positiveInteger(mid range) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("52704602390610033") eq xs:positiveInteger("1")</test>
@@ -740,7 +739,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalpint2args-3">
+  <test-case name="op-numeric-equalpint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:positiveInteger(upper bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("999999999999999999") eq xs:positiveInteger("1")</test>
@@ -749,7 +748,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalpint2args-4">
+  <test-case name="op-numeric-equalpint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("1") eq xs:positiveInteger("52704602390610033")</test>
@@ -758,7 +757,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalpint2args-5">
+  <test-case name="op-numeric-equalpint2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("1") eq xs:positiveInteger("999999999999999999")</test>
@@ -767,7 +766,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalpint2args-6">
+  <test-case name="op-numeric-equalpint2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("1") ne xs:positiveInteger("1")</test>
@@ -776,7 +775,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalpint2args-7">
+  <test-case name="op-numeric-equalpint2args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:positiveInteger(mid range) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("52704602390610033") ne xs:positiveInteger("1")</test>
@@ -785,7 +784,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalpint2args-8">
+  <test-case name="op-numeric-equalpint2args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:positiveInteger(upper bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("999999999999999999") ne xs:positiveInteger("1")</test>
@@ -794,7 +793,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalpint2args-9">
+  <test-case name="op-numeric-equalpint2args-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("1") ne xs:positiveInteger("52704602390610033")</test>
@@ -803,7 +802,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalpint2args-10">
+  <test-case name="op-numeric-equalpint2args-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("1") ne xs:positiveInteger("999999999999999999")</test>
@@ -812,7 +811,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalulng2args-1">
+  <test-case name="op-numeric-equalulng2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("0") eq xs:unsignedLong("0")</test>
@@ -821,7 +820,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalulng2args-2">
+  <test-case name="op-numeric-equalulng2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:unsignedLong(mid range) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("130747108607674654") eq xs:unsignedLong("0")</test>
@@ -830,7 +829,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalulng2args-3">
+  <test-case name="op-numeric-equalulng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:unsignedLong(upper bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("184467440737095516") eq xs:unsignedLong("0")</test>
@@ -839,7 +838,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalulng2args-4">
+  <test-case name="op-numeric-equalulng2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("0") eq xs:unsignedLong("130747108607674654")</test>
@@ -848,7 +847,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalulng2args-5">
+  <test-case name="op-numeric-equalulng2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("0") eq xs:unsignedLong("184467440737095516")</test>
@@ -857,7 +856,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalulng2args-6">
+  <test-case name="op-numeric-equalulng2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("0") ne xs:unsignedLong("0")</test>
@@ -866,7 +865,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalulng2args-7">
+  <test-case name="op-numeric-equalulng2args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:unsignedLong(mid range) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("130747108607674654") ne xs:unsignedLong("0")</test>
@@ -875,7 +874,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalulng2args-8">
+  <test-case name="op-numeric-equalulng2args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:unsignedLong(upper bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("184467440737095516") ne xs:unsignedLong("0")</test>
@@ -884,7 +883,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalulng2args-9">
+  <test-case name="op-numeric-equalulng2args-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("0") ne xs:unsignedLong("130747108607674654")</test>
@@ -893,7 +892,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalulng2args-10">
+  <test-case name="op-numeric-equalulng2args-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("0") ne xs:unsignedLong("184467440737095516")</test>
@@ -902,7 +901,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnpi2args-1">
+  <test-case name="op-numeric-equalnpi2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger("-999999999999999999") eq xs:nonPositiveInteger("-999999999999999999")</test>
@@ -911,7 +910,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnpi2args-2">
+  <test-case name="op-numeric-equalnpi2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(mid range) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger("-475688437271870490") eq xs:nonPositiveInteger("-999999999999999999")</test>
@@ -920,7 +919,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnpi2args-3">
+  <test-case name="op-numeric-equalnpi2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(upper bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger("0") eq xs:nonPositiveInteger("-999999999999999999")</test>
@@ -929,7 +928,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnpi2args-4">
+  <test-case name="op-numeric-equalnpi2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger("-999999999999999999") eq xs:nonPositiveInteger("-475688437271870490")</test>
@@ -938,7 +937,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnpi2args-5">
+  <test-case name="op-numeric-equalnpi2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger("-999999999999999999") eq xs:nonPositiveInteger("0")</test>
@@ -947,7 +946,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnpi2args-6">
+  <test-case name="op-numeric-equalnpi2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger("-999999999999999999") ne xs:nonPositiveInteger("-999999999999999999")</test>
@@ -956,7 +955,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnpi2args-7">
+  <test-case name="op-numeric-equalnpi2args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(mid range) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger("-475688437271870490") ne xs:nonPositiveInteger("-999999999999999999")</test>
@@ -965,7 +964,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnpi2args-8">
+  <test-case name="op-numeric-equalnpi2args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(upper bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger("0") ne xs:nonPositiveInteger("-999999999999999999")</test>
@@ -974,7 +973,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnpi2args-9">
+  <test-case name="op-numeric-equalnpi2args-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger("-999999999999999999") ne xs:nonPositiveInteger("-475688437271870490")</test>
@@ -983,7 +982,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnpi2args-10">
+  <test-case name="op-numeric-equalnpi2args-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger("-999999999999999999") ne xs:nonPositiveInteger("0")</test>
@@ -992,7 +991,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnni2args-1">
+  <test-case name="op-numeric-equalnni2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("0") eq xs:nonNegativeInteger("0")</test>
@@ -1001,7 +1000,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnni2args-2">
+  <test-case name="op-numeric-equalnni2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(mid range) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("303884545991464527") eq xs:nonNegativeInteger("0")</test>
@@ -1010,7 +1009,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnni2args-3">
+  <test-case name="op-numeric-equalnni2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(upper bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("999999999999999999") eq xs:nonNegativeInteger("0")</test>
@@ -1019,7 +1018,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnni2args-4">
+  <test-case name="op-numeric-equalnni2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("0") eq xs:nonNegativeInteger("303884545991464527")</test>
@@ -1028,7 +1027,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnni2args-5">
+  <test-case name="op-numeric-equalnni2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("0") eq xs:nonNegativeInteger("999999999999999999")</test>
@@ -1037,7 +1036,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnni2args-6">
+  <test-case name="op-numeric-equalnni2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("0") ne xs:nonNegativeInteger("0")</test>
@@ -1046,7 +1045,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnni2args-7">
+  <test-case name="op-numeric-equalnni2args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(mid range) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("303884545991464527") ne xs:nonNegativeInteger("0")</test>
@@ -1055,7 +1054,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnni2args-8">
+  <test-case name="op-numeric-equalnni2args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(upper bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("999999999999999999") ne xs:nonNegativeInteger("0")</test>
@@ -1064,7 +1063,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnni2args-9">
+  <test-case name="op-numeric-equalnni2args-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("0") ne xs:nonNegativeInteger("303884545991464527")</test>
@@ -1073,7 +1072,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalnni2args-10">
+  <test-case name="op-numeric-equalnni2args-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("0") ne xs:nonNegativeInteger("999999999999999999")</test>
@@ -1082,7 +1081,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalsht2args-1">
+  <test-case name="op-numeric-equalsht2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short("-32768") eq xs:short("-32768")</test>
@@ -1091,7 +1090,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalsht2args-2">
+  <test-case name="op-numeric-equalsht2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:short(mid range) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short("-5324") eq xs:short("-32768")</test>
@@ -1100,7 +1099,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalsht2args-3">
+  <test-case name="op-numeric-equalsht2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:short(upper bound) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short("32767") eq xs:short("-32768")</test>
@@ -1109,7 +1108,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalsht2args-4">
+  <test-case name="op-numeric-equalsht2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short("-32768") eq xs:short("-5324")</test>
@@ -1118,7 +1117,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalsht2args-5">
+  <test-case name="op-numeric-equalsht2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short("-32768") eq xs:short("32767")</test>
@@ -1127,7 +1126,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalsht2args-6">
+  <test-case name="op-numeric-equalsht2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short("-32768") ne xs:short("-32768")</test>
@@ -1136,7 +1135,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalsht2args-7">
+  <test-case name="op-numeric-equalsht2args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:short(mid range) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short("-5324") ne xs:short("-32768")</test>
@@ -1145,7 +1144,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalsht2args-8">
+  <test-case name="op-numeric-equalsht2args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:short(upper bound) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short("32767") ne xs:short("-32768")</test>
@@ -1154,7 +1153,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalsht2args-9">
+  <test-case name="op-numeric-equalsht2args-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short("-32768") ne xs:short("-5324")</test>
@@ -1163,7 +1162,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equalsht2args-10">
+  <test-case name="op-numeric-equalsht2args-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:short("-32768") ne xs:short("32767")</test>
@@ -1172,7 +1171,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-numeric-equal-emptyseq">
+  <test-case name="op-numeric-equal-emptyseq"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "op:numeric-equal" operator with the arguments set as follows: $arg1 = () $arg2 = () </description>
     <created by="Ravi Chennoju" on="2006-03-09"/>
     <test>() eq ()</test>
@@ -1185,7 +1184,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-1">
+  <test-case name="K-NumericEqual-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:integer(1) eq xs:integer(1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:integer(1) eq xs:integer(1)</test>
@@ -1194,7 +1193,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-2">
+  <test-case name="K-NumericEqual-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:integer(1) ne xs:integer(2)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:integer(1) ne xs:integer(2)</test>
@@ -1203,7 +1202,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-3">
+  <test-case name="K-NumericEqual-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:integer(1) eq xs:integer(1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:integer(1) eq xs:integer(1)</test>
@@ -1212,7 +1211,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-4">
+  <test-case name="K-NumericEqual-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:integer(-1) eq xs:integer(-1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:integer(-1) eq xs:integer(-1)</test>
@@ -1221,7 +1220,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-5">
+  <test-case name="K-NumericEqual-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:integer(1) ne xs:integer(2)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:integer(1) ne xs:integer(2)</test>
@@ -1230,7 +1229,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-6">
+  <test-case name="K-NumericEqual-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:decimal(1.1) eq xs:decimal(1.1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:decimal(1.1) eq xs:decimal(1.1)</test>
@@ -1239,7 +1238,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-7">
+  <test-case name="K-NumericEqual-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:decimal(1.1) ne xs:decimal(2.1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:decimal(1.1) ne xs:decimal(2.1)</test>
@@ -1248,7 +1247,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-8">
+  <test-case name="K-NumericEqual-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:decimal(1.1) eq xs:decimal(1.1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:decimal(1.1) eq xs:decimal(1.1)</test>
@@ -1257,7 +1256,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-9">
+  <test-case name="K-NumericEqual-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:decimal(-1.1) eq xs:decimal(-1.1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:decimal(-1.1) eq xs:decimal(-1.1)</test>
@@ -1266,7 +1265,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-10">
+  <test-case name="K-NumericEqual-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:decimal(1.1) ne xs:decimal(2.1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:decimal(1.1) ne xs:decimal(2.1)</test>
@@ -1275,7 +1274,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-11">
+  <test-case name="K-NumericEqual-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:integer(2) ne xs:decimal(2.6)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:integer(2) ne xs:decimal(2.6)</test>
@@ -1284,7 +1283,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-12">
+  <test-case name="K-NumericEqual-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:double(1.1) eq xs:double(1.1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(1.1) eq xs:double(1.1)</test>
@@ -1293,7 +1292,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-13">
+  <test-case name="K-NumericEqual-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:double(-1.1) eq xs:double(-1.1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(-1.1) eq xs:double(-1.1)</test>
@@ -1302,7 +1301,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-14">
+  <test-case name="K-NumericEqual-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:double(1.1) ne xs:double(2.1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(1.1) ne xs:double(2.1)</test>
@@ -1311,7 +1310,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-15">
+  <test-case name="K-NumericEqual-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:double(-1) ne xs:double(1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(-1) ne xs:double(1)</test>
@@ -1320,7 +1319,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-16">
+  <test-case name="K-NumericEqual-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:double("NaN") ne xs:double("NaN")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("NaN") ne xs:double("NaN")</test>
@@ -1329,7 +1328,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-17">
+  <test-case name="K-NumericEqual-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:double("NaN") ne xs:double(0)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("NaN") ne xs:double(0)</test>
@@ -1338,7 +1337,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-18">
+  <test-case name="K-NumericEqual-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:double(0) ne xs:double("NaN")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(0) ne xs:double("NaN")</test>
@@ -1347,7 +1346,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-19">
+  <test-case name="K-NumericEqual-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:double("-INF") eq xs:double("-INF")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("-INF") eq xs:double("-INF")</test>
@@ -1356,7 +1355,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-20">
+  <test-case name="K-NumericEqual-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:double("INF") eq xs:double("INF")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("INF") eq xs:double("INF")</test>
@@ -1365,7 +1364,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-21">
+  <test-case name="K-NumericEqual-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:double("-INF") ne xs:double("INF")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("-INF") ne xs:double("INF")</test>
@@ -1374,7 +1373,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-22">
+  <test-case name="K-NumericEqual-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:double("INF") ne xs:double("-INF")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("INF") ne xs:double("-INF")</test>
@@ -1383,7 +1382,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-23">
+  <test-case name="K-NumericEqual-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:double("INF") ne xs:double("0")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("INF") ne xs:double("0")</test>
@@ -1392,7 +1391,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-24">
+  <test-case name="K-NumericEqual-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:double("-INF") ne xs:double("0")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("-INF") ne xs:double("0")</test>
@@ -1401,7 +1400,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-25">
+  <test-case name="K-NumericEqual-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:double("0") ne xs:double("INF")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("0") ne xs:double("INF")</test>
@@ -1410,7 +1409,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-26">
+  <test-case name="K-NumericEqual-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:double("0") ne xs:double("-INF")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double("0") ne xs:double("-INF")</test>
@@ -1419,7 +1418,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-27">
+  <test-case name="K-NumericEqual-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:float(1.1) eq xs:float(1.1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(1.1) eq xs:float(1.1)</test>
@@ -1428,7 +1427,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-28">
+  <test-case name="K-NumericEqual-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:float(-1.1) eq xs:float(-1.1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(-1.1) eq xs:float(-1.1)</test>
@@ -1437,7 +1436,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-29">
+  <test-case name="K-NumericEqual-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:float(1.1) ne xs:float(2.1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(1.1) ne xs:float(2.1)</test>
@@ -1446,7 +1445,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-30">
+  <test-case name="K-NumericEqual-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:float("NaN") ne xs:float("NaN")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("NaN") ne xs:float("NaN")</test>
@@ -1455,7 +1454,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-31">
+  <test-case name="K-NumericEqual-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:float("NaN") ne xs:float(0)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("NaN") ne xs:float(0)</test>
@@ -1464,7 +1463,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-32">
+  <test-case name="K-NumericEqual-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:float(0) ne xs:float("NaN")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(0) ne xs:float("NaN")</test>
@@ -1473,7 +1472,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-33">
+  <test-case name="K-NumericEqual-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:float("-INF") eq xs:float("-INF")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("-INF") eq xs:float("-INF")</test>
@@ -1482,7 +1481,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-34">
+  <test-case name="K-NumericEqual-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:float("INF") eq xs:float("INF")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("INF") eq xs:float("INF")</test>
@@ -1491,7 +1490,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-35">
+  <test-case name="K-NumericEqual-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:float("-INF") ne xs:float("INF")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("-INF") ne xs:float("INF")</test>
@@ -1500,7 +1499,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-36">
+  <test-case name="K-NumericEqual-36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:float("INF") ne xs:float("-INF")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("INF") ne xs:float("-INF")</test>
@@ -1509,7 +1508,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-37">
+  <test-case name="K-NumericEqual-37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:float("INF") ne xs:float("0")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("INF") ne xs:float("0")</test>
@@ -1518,7 +1517,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-38">
+  <test-case name="K-NumericEqual-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:float("-INF") ne xs:float("0")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("-INF") ne xs:float("0")</test>
@@ -1527,7 +1526,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-39">
+  <test-case name="K-NumericEqual-39"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:float("0") ne xs:float("INF")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("0") ne xs:float("INF")</test>
@@ -1536,7 +1535,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-40">
+  <test-case name="K-NumericEqual-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:float("0") ne xs:float("-INF")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float("0") ne xs:float("-INF")</test>
@@ -1545,8 +1544,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-41">
-    <description> An expression involving the 'eq' operator that trigger certain optimization paths in some implementations. </description>
+  <test-case name="K-NumericEqual-41"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> An expression involving the &apos;eq&apos; operator that trigger certain optimization paths in some implementations. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(remove(remove((current-time(), 1), 1), 1)) eq 0</test>
     <result-string>xs:boolean("true")</result-string>
@@ -1554,8 +1553,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-42">
-    <description> Test that fn:count combined with expressions that might disable compile time evaluations(optimization) as well as the 'eq' operator, is conformant. </description>
+  <test-case name="K-NumericEqual-42"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description> Test that fn:count combined with expressions that might disable compile time evaluations(optimization) as well as the &apos;eq&apos; operator, is conformant. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(0 eq count((1, 2, timezone-from-time(current-time()))))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -1563,8 +1562,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-43">
-    <description> Test that fn:count combined with expressions that might disable compile time evaluations(optimization) as well as the '=' operator, is conformant. </description>
+  <test-case name="K-NumericEqual-43"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description> Test that fn:count combined with expressions that might disable compile time evaluations(optimization) as well as the &apos;=&apos; operator, is conformant. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>0 ne count((1, 2, timezone-from-time(current-time())))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -1572,16 +1571,16 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-44">
+  <test-case name="K-NumericEqual-44"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test automatic xs:untypedAtomic conversion. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:untypedAtomic("3"), 3) eq 3</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-45">
+  <test-case name="K-NumericEqual-45"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test automatic xs:untypedAtomic conversion. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(xs:untypedAtomic("1") to 3) eq 3</test>
@@ -1590,7 +1589,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-46">
+  <test-case name="K-NumericEqual-46"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Test automatic xs:untypedAtomic conversion. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:untypedAtomic("three") + 3</test>
@@ -1599,16 +1598,16 @@
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="K-NumericEqual-47">
+  <test-case name="K-NumericEqual-47"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A syntactically invalid test. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 := 3</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-NumericEqual-1">
+  <test-case name="K2-NumericEqual-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Compare an xs:integer to a processing instuction node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1620,7 +1619,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-NumericEqual-2">
+  <test-case name="K2-NumericEqual-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Compare an xs:integer to a processing instuction node(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1632,7 +1631,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-NumericEqual-3">
+  <test-case name="K2-NumericEqual-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Compare an xs:integer to a comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1644,7 +1643,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-NumericEqual-4">
+  <test-case name="K2-NumericEqual-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Compare an xs:integer to a comment(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1656,27 +1655,27 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-NumericEqual-5">
+  <test-case name="K2-NumericEqual-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Compare an xs:integer to a text node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>1 eq text {"1"}</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-NumericEqual-6">
+  <test-case name="K2-NumericEqual-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Compare an xs:integer to a text node(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>text {"1"} eq 1</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-equal-001">
+  <test-case name="cbcl-numeric-equal-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test comparison of xs:double </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1688,7 +1687,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-equal-002">
+  <test-case name="cbcl-numeric-equal-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test comparison of xs:float </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1700,7 +1699,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-equal-003">
+  <test-case name="cbcl-numeric-equal-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test comparison of xs:decimal </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1712,7 +1711,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-equal-004">
+  <test-case name="cbcl-numeric-equal-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test comparison of xs:integer </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1724,7 +1723,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-equal-005">
+  <test-case name="cbcl-numeric-equal-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test comparison of xs:double </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1736,7 +1735,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-equal-006">
+  <test-case name="cbcl-numeric-equal-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test comparison of xs:float </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1748,7 +1747,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-equal-007">
+  <test-case name="cbcl-numeric-equal-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test comparison of xs:decimal </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1760,7 +1759,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-equal-008">
+  <test-case name="cbcl-numeric-equal-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test comparison of xs:integer </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1772,7 +1771,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-equal-009">
+  <test-case name="cbcl-numeric-equal-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test comparison </description>
     <created by="Tim Mills" on="2008-07-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1784,7 +1783,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-equal-010">
+  <test-case name="cbcl-numeric-equal-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test comparison </description>
     <created by="Tim Mills" on="2008-07-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1796,7 +1795,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-equal-011">
+  <test-case name="cbcl-numeric-equal-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test comparison </description>
     <created by="Tim Mills" on="2008-07-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1808,7 +1807,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-equal-012">
+  <test-case name="cbcl-numeric-equal-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test comparison </description>
     <created by="Tim Mills" on="2008-07-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1820,7 +1819,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-equal-013">
+  <test-case name="cbcl-numeric-equal-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test comparison </description>
     <created by="Tim Mills" on="2008-07-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1836,7 +1835,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-equal-014">
+  <test-case name="cbcl-numeric-equal-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test comparison </description>
     <created by="Tim Mills" on="2008-07-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1852,7 +1851,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-equal-015">
+  <test-case name="cbcl-numeric-equal-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test comparison </description>
     <created by="Tim Mills" on="2008-07-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1868,7 +1867,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-equal-016">
+  <test-case name="cbcl-numeric-equal-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test comparison </description>
     <created by="Tim Mills" on="2008-07-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1880,7 +1879,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-equal-017">
+  <test-case name="cbcl-numeric-equal-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test comparison </description>
     <created by="Tim Mills" on="2008-07-01"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1896,7 +1895,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-equal-018">
+  <test-case name="cbcl-numeric-equal-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test comparison </description>
     <created by="Tim Mills" on="2008-07-01"/>
     <dependency type="spec" value="XQ10+"/>

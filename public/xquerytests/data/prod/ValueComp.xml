@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="prod-ValueComp" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the ValueComp (value comparison) production.
       See also tests for the individual operators.</description>
@@ -9,115 +8,115 @@
       <created by="Anonymous" on="2006-04-03"/>
     </schema>
   </environment>
-  <test-case name="K-ValCompTypeChecking-1">
+  <test-case name="K-ValCompTypeChecking-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A value comparison where the cardinality of the operand(s) is wrong. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3) eq 3</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-2">
+  <test-case name="K-ValCompTypeChecking-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A value comparison where the cardinality of the operand(s) is wrong. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 eq (1, 2, 3)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-3">
+  <test-case name="K-ValCompTypeChecking-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A value comparison where the cardinality of the operand(s) is wrong. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3) ne 3</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-4">
+  <test-case name="K-ValCompTypeChecking-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A value comparison where the cardinality of the operand(s) is wrong. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 ne (1, 2, 3)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-5">
+  <test-case name="K-ValCompTypeChecking-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A value comparison where the cardinality of the operand(s) is wrong. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3) lt 3</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-6">
+  <test-case name="K-ValCompTypeChecking-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A value comparison where the cardinality of the operand(s) is wrong. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 lt (1, 2, 3)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-7">
+  <test-case name="K-ValCompTypeChecking-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A value comparison where the cardinality of the operand(s) is wrong. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3) le 3</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-8">
+  <test-case name="K-ValCompTypeChecking-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A value comparison where the cardinality of the operand(s) is wrong. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 le (1, 2, 3)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-9">
+  <test-case name="K-ValCompTypeChecking-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A value comparison where the cardinality of the operand(s) is wrong. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3) gt 3</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-10">
+  <test-case name="K-ValCompTypeChecking-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A value comparison where the cardinality of the operand(s) is wrong. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 gt (1, 2, 3)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-11">
+  <test-case name="K-ValCompTypeChecking-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A value comparison where the cardinality of the operand(s) is wrong. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3) ge 3</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-12">
+  <test-case name="K-ValCompTypeChecking-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A value comparison where the cardinality of the operand(s) is wrong. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 ge (1, 2, 3)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-13">
+  <test-case name="K-ValCompTypeChecking-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A value comparison involving empty sequence(s). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(() eq 1)</test>
@@ -130,7 +129,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-14">
+  <test-case name="K-ValCompTypeChecking-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A value comparison involving empty sequence(s). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(1 eq ())</test>
@@ -143,7 +142,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-15">
+  <test-case name="K-ValCompTypeChecking-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A value comparison involving empty sequence(s). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(() eq ())</test>
@@ -156,133 +155,133 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-16">
+  <test-case name="K-ValCompTypeChecking-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Value comparison involving xs:untypedAtomic, which leads to an inexistent operator mapping. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:untypedAtomic("1") eq xs:integer(1)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-17">
+  <test-case name="K-ValCompTypeChecking-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Value comparison involving xs:untypedAtomic, which leads to an inexistent operator mapping. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:integer(1) eq xs:untypedAtomic("1")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-18">
+  <test-case name="K-ValCompTypeChecking-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Value comparison involving xs:untypedAtomic, which leads to an inexistent operator mapping. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:untypedAtomic("0") ne xs:double(1)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-19">
+  <test-case name="K-ValCompTypeChecking-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Value comparison involving xs:untypedAtomic, which leads to an inexistent operator mapping. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(1) ne xs:untypedAtomic("0")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-20">
+  <test-case name="K-ValCompTypeChecking-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Value comparison involving xs:untypedAtomic, which leads to an inexistent operator mapping. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:untypedAtomic("0") lt xs:float(1)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-21">
+  <test-case name="K-ValCompTypeChecking-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Value comparison involving xs:untypedAtomic, which leads to an inexistent operator mapping. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(0) lt xs:untypedAtomic("1")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-22">
+  <test-case name="K-ValCompTypeChecking-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Value comparison involving xs:untypedAtomic, which leads to an inexistent operator mapping. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:untypedAtomic("0") gt xs:decimal(1)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-23">
+  <test-case name="K-ValCompTypeChecking-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Value comparison involving xs:untypedAtomic, which leads to an inexistent operator mapping. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:decimal(0) gt xs:untypedAtomic("1")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-24">
+  <test-case name="K-ValCompTypeChecking-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Value comparison involving xs:untypedAtomic, which leads to an inexistent operator mapping. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:untypedAtomic("4") eq 4</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-25">
+  <test-case name="K-ValCompTypeChecking-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Value comparison involving xs:untypedAtomic, which leads to an inexistent operator mapping. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>4 eq xs:untypedAtomic("4")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-26">
+  <test-case name="K-ValCompTypeChecking-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Value comparison involving xs:untypedAtomic, which leads to an inexistent operator mapping. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:untypedAtomic("3") eq 3</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-27">
+  <test-case name="K-ValCompTypeChecking-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Value comparison involving xs:untypedAtomic, which leads to an inexistent operator mapping. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(2) lt xs:untypedAtomic("3")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-28">
+  <test-case name="K-ValCompTypeChecking-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Value comparison involving xs:untypedAtomic, which leads to an inexistent operator mapping. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(4) gt xs:untypedAtomic("3")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-29">
+  <test-case name="K-ValCompTypeChecking-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Value comparison involving xs:untypedAtomic, which leads to an inexistent operator mapping. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:untypedAtomic("3") ne xs:decimal(3.1)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-30">
+  <test-case name="K-ValCompTypeChecking-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Compare xs:untypedAtomic and xs:string. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:untypedAtomic("a string") eq "a string"</test>
@@ -291,7 +290,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-31">
+  <test-case name="K-ValCompTypeChecking-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Compare xs:untypedAtomic and xs:string. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>"a string" eq xs:untypedAtomic("a string")</test>
@@ -300,7 +299,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-32">
+  <test-case name="K-ValCompTypeChecking-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> An expression involving the ge operator that trigger certain optimization paths in some implementations. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count((0, current-time())) ge 1</test>
@@ -309,7 +308,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-33">
+  <test-case name="K-ValCompTypeChecking-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> An expression involving the ne operator that trigger certain optimization paths in some implementations. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count((0, current-time())) ne 0</test>
@@ -318,8 +317,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-34">
-    <description> Test that fn:count combined with expressions that might disable compile time evaluations(optimization) as well as the '=' operator, is conformant. </description>
+  <test-case name="K-ValCompTypeChecking-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> Test that fn:count combined with expressions that might disable compile time evaluations(optimization) as well as the &apos;=&apos; operator, is conformant. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(count((1, 2, current-time())) eq 0)</test>
     <result-string>xs:boolean("true")</result-string>
@@ -327,70 +326,70 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-35">
-    <description> Combine error() with a value comparison, testing handling of the 'none' type. </description>
+  <test-case name="K-ValCompTypeChecking-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
+    <description> Combine error() with a value comparison, testing handling of the &apos;none&apos; type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>error() eq 3</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <error code="FOER0000"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-36">
-    <description> Combine error() with a value comparison, testing handling of the 'none' type. </description>
+  <test-case name="K-ValCompTypeChecking-36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
+    <description> Combine error() with a value comparison, testing handling of the &apos;none&apos; type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>error() eq error()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <error code="FOER0000"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-37">
-    <description> Combine error() with a value comparison, testing handling of the 'none' type. </description>
+  <test-case name="K-ValCompTypeChecking-37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
+    <description> Combine error() with a value comparison, testing handling of the &apos;none&apos; type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 eq error()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <error code="FOER0000"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-38">
-    <description> Combine error() with a value comparison, testing handling of the 'none' type. </description>
+  <test-case name="K-ValCompTypeChecking-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
+    <description> Combine error() with a value comparison, testing handling of the &apos;none&apos; type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 eq (error(), 3)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <error code="FOER0000"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-39">
-    <description> Combine error() with a value comparison, testing handling of the 'none' type. </description>
+  <test-case name="K-ValCompTypeChecking-39"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
+    <description> Combine error() with a value comparison, testing handling of the &apos;none&apos; type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>3 eq (3, error())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <error code="FOER0000"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-40">
-    <description> Combine error() with a value comparison, testing handling of the 'none' type. </description>
+  <test-case name="K-ValCompTypeChecking-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
+    <description> Combine error() with a value comparison, testing handling of the &apos;none&apos; type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(error(), 3) eq 3</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <error code="FOER0000"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-41">
-    <description> Combine error() with a value comparison, testing handling of the 'none' type. </description>
+  <test-case name="K-ValCompTypeChecking-41"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
+    <description> Combine error() with a value comparison, testing handling of the &apos;none&apos; type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(3, error()) eq 3</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <error code="FOER0000"/>
     </result>
   </test-case>
-  <test-case name="K-ValCompTypeChecking-42">
+  <test-case name="K-ValCompTypeChecking-42"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A simple value comparison that in some Bison grammars triggers a bug. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count((1, 2)) eq 2</test>
@@ -399,7 +398,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="value-comparison-3">
+  <test-case name="value-comparison-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Evaluation of numeric value comparison involving type promotion to least common type. 
         Uses "eq" operator between integer and float types. </description>
     <created by="Carmelo Montanez" on="2006-04-10"/>
@@ -420,7 +419,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="value-comparison-4">
+  <test-case name="value-comparison-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Evaluation of numeric value comparison involving type promotion to least common type. 
         Uses "ne" operator between integer and float types. </description>
     <created by="Carmelo Montanez" on="2006-04-10"/>

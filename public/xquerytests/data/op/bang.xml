@@ -1,84 +1,83 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set covers="bang-operator" name="op-bang" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the "!" simple mapping operator (new in XPath 3.0).</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-concat" type="spec"/>
   <dependency type="spec" value="XP30+ XQ30+"/>
-  <test-case name="bang-1">
+  <test-case name="bang-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("4"),xs:integer("9"),xs:integer("16"),xs:integer("25"),xs:integer("36"),xs:integer("49"),xs:integer("64"),xs:integer("81"),xs:integer("100"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("4"),xs:integer("9"),xs:integer("16"),xs:integer("25"),xs:integer("36"),xs:integer("49"),xs:integer("64"),xs:integer("81"),xs:integer("100"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("4"),xs:integer("9"),xs:integer("16"),xs:integer("25"),xs:integer("36"),xs:integer("49"),xs:integer("64"),xs:integer("81"),xs:integer("100"))</response-string>
     <description>Simple  mapping of atomic sequence</description>
     <created by="Michael Kay" on="2011-06-30"/>
     <test>(1 to 10)!(.*.)</test>
-    <result-string/>
+    <result-string>(xs:integer("1"),xs:integer("4"),xs:integer("9"),xs:integer("16"),xs:integer("25"),xs:integer("36"),xs:integer("49"),xs:integer("64"),xs:integer("81"),xs:integer("100"))</result-string>
     <result>
       <assert-deep-eq>1, 4, 9, 16, 25, 36, 49, 64, 81, 100</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="bang-2">
+  <test-case name="bang-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string>
     <description>Simple  mapping of atomic sequence</description>
     <created by="Michael Kay" on="2011-06-30"/>
     <test>("red", "blue", "green")!string-length()</test>
-    <result-string/>
+    <result-string>(xs:integer("3"),xs:integer("4"),xs:integer("5"))</result-string>
     <result>
       <assert-deep-eq>3, 4, 5</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="bang-3">
+  <test-case name="bang-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"))</response-string>
     <description>Simple  mapping with position() function</description>
     <created by="Michael Kay" on="2011-06-30"/>
     <test>("red", "blue", "green")!position()</test>
-    <result-string/>
+    <result-string>(xs:integer("1"),xs:integer("2"),xs:integer("3"))</result-string>
     <result>
       <assert-deep-eq>1, 2, 3</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="bang-4">
+  <test-case name="bang-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("false"),xs:boolean("false"),xs:boolean("true"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("false"),xs:boolean("false"),xs:boolean("true"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("false"),xs:boolean("false"),xs:boolean("true"))</response-string>
     <description>Simple  mapping with last() function</description>
     <created by="Michael Kay" on="2011-06-30"/>
     <test>("red", "blue", "green")!(position() = last())</test>
-    <result-string/>
+    <result-string>(xs:boolean("false"),xs:boolean("false"),xs:boolean("true"))</result-string>
     <result>
       <assert-deep-eq>false(), false(), true()</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="bang-5">
+  <test-case name="bang-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("4"),xs:integer("5"),xs:integer("6"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("4"),xs:integer("5"),xs:integer("6"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("4"),xs:integer("5"),xs:integer("6"))</response-string>
     <description>Simple mapping path</description>
     <created by="Michael Kay" on="2011-06-30"/>
     <test>("red", "blue", "green") ! string-length() ! (.+1)</test>
-    <result-string/>
+    <result-string>(xs:integer("4"),xs:integer("5"),xs:integer("6"))</result-string>
     <result>
       <assert-deep-eq>4, 5, 6</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="bang-6">
+  <test-case name="bang-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("John Doe 2"),xs:string("Jane Doe 1"),xs:string("John Doe 2"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("John Doe 2"),xs:string("Jane Doe 1"),xs:string("John Doe 2"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("John Doe 2"),xs:string("Jane Doe 1"),xs:string("John Doe 2"))</response-string>
     <description>Simple mapping with nodes: no sorting into document order or deduplication</description>
     <created by="Michael Kay" on="2011-06-30"/>
     <environment ref="works-mod"/>
     <test>(/works/employee[2], /works/employee[1], /works/employee[2]) ! @name ! string()</test>
-    <result-string/>
+    <result-string>(xs:string("John Doe 2"),xs:string("Jane Doe 1"),xs:string("John Doe 2"))</result-string>
     <result>
       <assert-deep-eq>"John Doe 2", "Jane Doe 1", "John Doe 2"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="bang-7">
+  <test-case name="bang-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("20")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("20")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("20")</response-string>
     <description>Precedence of "!" is less than "[]"</description>
     <created by="Michael Kay" on="2011-06-30"/>
     <environment ref="works-mod"/>
     <test>/ works ! employee[2] ! hours[2] ! number()</test>
-    <result-string>xs:integer("20")</result-string>
+    <result-string>xs:double("20")</result-string>
     <result>
       <assert-eq>20</assert-eq>
     </result>
   </test-case>
-  <test-case name="bang-8">
+  <test-case name="bang-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-18")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-18")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-18")</response-string>
     <description>Precedence of "!" is greater than "+"</description>
     <created by="Michael Kay" on="2011-06-30"/>
     <environment ref="works-mod"/>
     <test>2 + (/ works ! employee[2] ! hours[2]) ! number() ! (-.)</test>
-    <result-string>xs:integer("-18")</result-string>
+    <result-string>xs:double("-18")</result-string>
     <result>
       <assert-eq>-18</assert-eq>
     </result>
   </test-case>
-  <test-case name="bang-9">
+  <test-case name="bang-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-3")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-3")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-3")</response-string>
     <description>Precedence of "!" is greater than unary "-"</description>
     <created by="Michael Kay" on="2011-06-30"/>
     <test>-2!(.+1)</test>
@@ -87,47 +86,47 @@
       <assert-eq>-3</assert-eq>
     </result>
   </test-case>
-  <test-case name="bang-10">
+  <test-case name="bang-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("1"),xs:integer("2"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("1"),xs:integer("2"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("1"),xs:integer("2"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string>
     <description>rhs of "!" operator returning a sequence</description>
     <created by="Michael Kay" on="2011-06-30"/>
     <environment ref="works-mod"/>
     <test>(1 to 5) ! (1 to .)</test>
-    <result-string/>
+    <result-string>(xs:integer("1"),xs:integer("1"),xs:integer("2"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</result-string>
     <result>
       <assert-deep-eq>1, 1,2, 1,2,3, 1,2,3,4, 1,2,3,4,5</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="bang-11">
+  <test-case name="bang-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("1"),xs:integer("2"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("1"),xs:integer("2"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("1"),xs:integer("2"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string>
     <description>"!" is not associative when position() is used</description>
     <created by="Michael Kay" on="2011-06-30"/>
     <environment ref="works-mod"/>
     <test>(1 to 5) ! ((1 to .) ! position())</test>
-    <result-string/>
+    <result-string>(xs:integer("1"),xs:integer("1"),xs:integer("2"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"))</result-string>
     <result>
       <assert-deep-eq>1, 1,2, 1,2,3, 1,2,3,4, 1,2,3,4,5</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="bang-12">
+  <test-case name="bang-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("6"),xs:integer("7"),xs:integer("8"),xs:integer("9"),xs:integer("10"),xs:integer("11"),xs:integer("12"),xs:integer("13"),xs:integer("14"),xs:integer("15"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("6"),xs:integer("7"),xs:integer("8"),xs:integer("9"),xs:integer("10"),xs:integer("11"),xs:integer("12"),xs:integer("13"),xs:integer("14"),xs:integer("15"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("6"),xs:integer("7"),xs:integer("8"),xs:integer("9"),xs:integer("10"),xs:integer("11"),xs:integer("12"),xs:integer("13"),xs:integer("14"),xs:integer("15"))</response-string>
     <description>"!" is not associative when position() is used</description>
     <created by="Michael Kay" on="2011-06-30"/>
     <environment ref="works-mod"/>
     <test>(1 to 5) ! (1 to .) ! position()</test>
-    <result-string/>
+    <result-string>(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("6"),xs:integer("7"),xs:integer("8"),xs:integer("9"),xs:integer("10"),xs:integer("11"),xs:integer("12"),xs:integer("13"),xs:integer("14"),xs:integer("15"))</result-string>
     <result>
       <assert-deep-eq>1 to 15</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="bang-13">
+  <test-case name="bang-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("Jane Doe 3")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("Jane Doe 3")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("Jane Doe 3")</response-string>
     <description>backwards-axes semantics of [position()] work with "!" operator</description>
     <created by="Michael Kay" on="2011-06-30"/>
     <environment ref="works-mod"/>
     <test>/ works ! employee[4] ! preceding-sibling::*[1] ! string(@name) </test>
-    <result-string>xs:string(""Jane Doe 3"")</result-string>
+    <result-string>xs:string("Jane Doe 3")</result-string>
     <result>
       <assert-eq>"Jane Doe 3"</assert-eq>
     </result>
   </test-case>
-  <test-case name="bang-14">
+  <test-case name="bang-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description>Interaction of "!" with "/"</description>
     <created by="Michael Kay" on="2011-06-30"/>
     <modified by="John Snelson" change="Revised syntax as per bug 16197" on="2012-06-19"/>

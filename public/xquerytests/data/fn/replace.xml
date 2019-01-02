@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-replace" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the replace() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-replace" type="spec"/>
-  <test-case name="fn-replace3args-1">
+  <test-case name="fn-replace3args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("This is a characte")</response-string>
     <description> Evaluates The "replace" function with the arguments set as follows: $input = xs:string(lower bound) $pattern = xs:string(lower bound) $replacement = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:replace("This is a characte","This is a characte","This is a characte")</test>
@@ -11,7 +10,7 @@
       <assert-string-value>This is a characte</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace3args-2">
+  <test-case name="fn-replace3args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("This is a characte")</response-string>
     <description> Evaluates The "replace" function with the arguments set as follows: $input = xs:string(mid range) $pattern = xs:string(lower bound) $replacement = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:replace("This is a characte","This is a characte","This is a characte")</test>
@@ -20,7 +19,7 @@
       <assert-string-value>This is a characte</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace3args-3">
+  <test-case name="fn-replace3args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("This is a characte")</response-string>
     <description> Evaluates The "replace" function with the arguments set as follows: $input = xs:string(upper bound) $pattern = xs:string(lower bound) $replacement = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:replace("This is a characte","This is a characte","This is a characte")</test>
@@ -29,7 +28,7 @@
       <assert-string-value>This is a characte</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace3args-4">
+  <test-case name="fn-replace3args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("This is a characte")</response-string>
     <description> Evaluates The "replace" function with the arguments set as follows: $input = xs:string(lower bound) $pattern = xs:string(mid range) $replacement = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:replace("This is a characte","This is a characte","This is a characte")</test>
@@ -38,7 +37,7 @@
       <assert-string-value>This is a characte</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace3args-5">
+  <test-case name="fn-replace3args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("This is a characte")</response-string>
     <description> Evaluates The "replace" function with the arguments set as follows: $input = xs:string(lower bound) $pattern = xs:string(upper bound) $replacement = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:replace("This is a characte","This is a characte","This is a characte")</test>
@@ -47,7 +46,7 @@
       <assert-string-value>This is a characte</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace3args-6">
+  <test-case name="fn-replace3args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("This is a characte")</response-string>
     <description> Evaluates The "replace" function with the arguments set as follows: $input = xs:string(lower bound) $pattern = xs:string(lower bound) $replacement = xs:string(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:replace("This is a characte","This is a characte","This is a characte")</test>
@@ -56,7 +55,7 @@
       <assert-string-value>This is a characte</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace3args-7">
+  <test-case name="fn-replace3args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("This is a characte")</response-string>
     <description> Evaluates The "replace" function with the arguments set as follows: $input = xs:string(lower bound) $pattern = xs:string(lower bound) $replacement = xs:string(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:replace(xs:string("This is a characte"),xs:string("This is a characte"),xs:string("This is a characte"))</test>
@@ -65,7 +64,7 @@
       <assert-string-value>This is a characte</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replaceErr-1">
+  <test-case name="fn-replaceErr-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabra")</response-string>
     <description>Invalid flag for fn:matches fourth argument. </description>
     <created by="Carmelo Montanez" on="2005-10-04"/>
     <test>fn:replace("abracadabra", "bra", "*", "p")</test>
@@ -74,7 +73,7 @@
       <error code="FORX0001"/>
     </result>
   </test-case>
-  <test-case name="fn-replaceErr-2">
+  <test-case name="fn-replaceErr-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("a\cadabra")</response-string>
     <description>the value of $replacement contains a "\" character that is not part of a "\\" pair, unless it is immediately followed by a "$" character. </description>
     <created by="Carmelo Montanez" on="2005-10-04"/>
     <test>fn:replace("abracadabra", "bra", "\")</test>
@@ -83,7 +82,7 @@
       <error code="FORX0004"/>
     </result>
   </test-case>
-  <test-case name="fn-replaceErr-3">
+  <test-case name="fn-replaceErr-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("a$ycadabra")</response-string>
     <description>The value of $replacement contains a "$" character that is not immediately followed by a digit 0-9 and not immediately preceded by a "\". </description>
     <created by="Carmelo Montanez" on="2005-10-04"/>
     <test>fn:replace("abracadabra", "bra", "$y")</test>
@@ -92,7 +91,7 @@
       <error code="FORX0004"/>
     </result>
   </test-case>
-  <test-case name="fn-replace-1">
+  <test-case name="fn-replace-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("a*cadabra")</response-string>
     <description>Evaluation of replace function with replacement = "*" as an example 1 for this function. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>replace("abracadabra", "bra", "*")</test>
@@ -101,7 +100,7 @@
       <assert-string-value>a*cada*</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-2">
+  <test-case name="fn-replace-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("*")</response-string>
     <description>Evaluation of replace function with pattern = "a.*a" and replacement = "*" as an example 2 for this function. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>replace("abracadabra", "a.*a", "*")</test>
@@ -110,7 +109,7 @@
       <assert-string-value>*</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-3">
+  <test-case name="fn-replace-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("*cadabra")</response-string>
     <description>Evaluation of replace function with pattern = "a.*?a" and replacement = "*" as an example 3 for this function. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>replace("abracadabra", "a.*?a", "*")</test>
@@ -119,7 +118,7 @@
       <assert-string-value>*c*bra</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-4">
+  <test-case name="fn-replace-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("bracadabra")</response-string>
     <description>Evaluation of replace function with pattern = "a" and replacement = "" as an example 4 for this function. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>replace("abracadabra", "a", "")</test>
@@ -128,7 +127,7 @@
       <assert-string-value>brcdbr</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-5">
+  <test-case name="fn-replace-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abbracadabra")</response-string>
     <description>Evaluation of replace function with pattern = "a(.)" and replacement = "a$1$1" as an example 5 for this function. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>replace("abracadabra", "a(.)", "a$1$1")</test>
@@ -137,7 +136,7 @@
       <assert-string-value>abbraccaddabbra</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-6">
+  <test-case name="fn-replace-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("$1abracadabra")</response-string>
     <description>Evaluation of replace function with pattern = ".*?" and replacement = "$1" as an example 6 for this function. Should raise an error </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>replace("abracadabra", ".*?", "$1")</test>
@@ -146,7 +145,7 @@
       <error code="FORX0003"/>
     </result>
   </test-case>
-  <test-case name="fn-replace-7">
+  <test-case name="fn-replace-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("b")</response-string>
     <description>Evaluation of replace function with pattern = "A+" and replacement = "b" as an example 7 for this function. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>replace("AAAA", "A+", "b")</test>
@@ -155,7 +154,7 @@
       <assert-string-value>b</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-8">
+  <test-case name="fn-replace-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("bAAA")</response-string>
     <description>Evaluation of replace function with pattern = "A+?" and replacement = "b" as an example 8 for this function. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>replace("AAAA", "A+?", "b")</test>
@@ -164,7 +163,7 @@
       <assert-string-value>bbbb</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-9">
+  <test-case name="fn-replace-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("carted")</response-string>
     <description>Evaluation of replace function with pattern = "^(.*?)d(.*)" and replacement = "$1c$2" as an example 9 for this function. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>replace("darted", "^(.*?)d(.*)$", "$1c$2")</test>
@@ -173,7 +172,7 @@
       <assert-string-value>carted</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-10">
+  <test-case name="fn-replace-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("[1=ab][2=]cd")</response-string>
     <description>Two alternatives within the pattern both match at the same position in the $input. The first one is chosen. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:replace("abcd", "(ab)|(a)", "[1=$1][2=$2]")</test>
@@ -182,16 +181,16 @@
       <assert-string-value>[1=ab][2=]cd</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-11">
+  <test-case name="fn-replace-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description>Evaluation of fn:replace function with input set to empty sequence. Uses the fn:count function to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:count(fn:replace((), "bra", "*"))</test>
-    <result-string>xs:string("1")</result-string>
+    <result-string>xs:integer("1")</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-12">
+  <test-case name="fn-replace-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("a*cadabra")</response-string>
     <description>Evaluate that calling function with flags omitted is same as flags being the zero length string. </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>replace("abracadabra", "bra", "*", "")</test>
@@ -200,7 +199,7 @@
       <assert-string-value>a*cada*</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-13">
+  <test-case name="fn-replace-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabrawithabracadabra")</response-string>
     <description>Evaluation of replace function with pattern set to "\?" for an input string that contains "?". </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:replace("abracadabra?abracadabra", "\?", "with")</test>
@@ -209,7 +208,7 @@
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-14">
+  <test-case name="fn-replace-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabrawithabracadabra")</response-string>
     <description>Evaluation of replace function with pattern set to "\*" for an input string that contains "*". </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:replace("abracadabra*abracadabra", "\*", "with")</test>
@@ -218,7 +217,7 @@
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-15">
+  <test-case name="fn-replace-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabrawithabracadabra")</response-string>
     <description>Evaluation of replace function with pattern set to "\+" for an input string that contains "+". </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:replace("abracadabra+abracadabra", "\+", "with")</test>
@@ -227,7 +226,7 @@
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-16">
+  <test-case name="fn-replace-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabrawithabracadabra")</response-string>
     <description>Evaluation of replace function with pattern set to "\{" for an input string that contains "}". </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:replace("abracadabra{abracadabra", "\{", "with")</test>
@@ -236,7 +235,7 @@
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-17">
+  <test-case name="fn-replace-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabrawithabracadabra")</response-string>
     <description>Evaluation of replace function with pattern set to "\}" for an input string that contains "}". </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:replace("abracadabra}abracadabra", "\}", "with")</test>
@@ -245,7 +244,7 @@
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-18">
+  <test-case name="fn-replace-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabrawithabracadabra")</response-string>
     <description>Evaluation of replace function with pattern set to "\(" for an input string that contains "(". </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:replace("abracadabra(abracadabra", "\(", "with")</test>
@@ -254,7 +253,7 @@
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-19">
+  <test-case name="fn-replace-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabrawithabracadabra")</response-string>
     <description>Evaluation of replace function with pattern set to "\)" for an input string that contains ")". </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:replace("abracadabra)abracadabra", "\)", "with")</test>
@@ -263,7 +262,7 @@
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-20">
+  <test-case name="fn-replace-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabrawithabracadabra")</response-string>
     <description>Evaluation of replace function with pattern set to "\[" for an input string that contains "[". </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:replace("abracadabra[abracadabra", "\[", "with")</test>
@@ -272,7 +271,7 @@
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-21">
+  <test-case name="fn-replace-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabrawithabracadabra")</response-string>
     <description>Evaluation of replace function with pattern set to "\]" for an input string that contains "]". </description>
     <created by="Carmelo Montanez" on="2005-10-13"/>
     <test>fn:replace("abracadabra]abracadabra", "\]", "with")</test>
@@ -281,7 +280,7 @@
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-22">
+  <test-case name="fn-replace-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabrawithabracadabra")</response-string>
     <description>Evaluation of replace function with pattern set to "\-" for an input string that contains "-". </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace("abracadabra-abracadabra", "\-","with")</test>
@@ -290,7 +289,7 @@
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-23">
+  <test-case name="fn-replace-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabrawithabracadabra")</response-string>
     <description>Evaluation of replace function with pattern set to "\." for an input string that contains ".". </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace("abracadabra.abracadabra", "\.","with")</test>
@@ -299,7 +298,7 @@
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-24">
+  <test-case name="fn-replace-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabrawithabracadabra")</response-string>
     <description>Evaluation of replace function with pattern set to "\|" for an input string that contains "|". </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace("abracadabra|abracadabra", "\|","with")</test>
@@ -308,7 +307,7 @@
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-25">
+  <test-case name="fn-replace-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabrawithabracadabra")</response-string>
     <description>Evaluation of replace function with pattern set to "\\" for an input string that contains "\". </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace("abracadabra\abracadabra", "\\","with")</test>
@@ -317,7 +316,7 @@
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-26">
+  <test-case name="fn-replace-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabrawithabracadabra")</response-string>
     <description>Evaluation of replace function with pattern set to "\t" for an input string that contains the tab character. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace("abracadabra	abracadabra", "\t","with")</test>
@@ -326,7 +325,7 @@
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-27">
+  <test-case name="fn-replace-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabrawithabracadabra")</response-string>
     <description>Evaluation of replace function with pattern set to "\n" for an input string that contains the newline character. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace("abracadabra
@@ -336,7 +335,7 @@ abracadabra", "\n","with")</test>
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-28">
+  <test-case name="fn-replace-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabrwithbracadabra")</response-string>
     <description>Evaluation of replace function with pattern set to "aa{1}" (exact quantity) for an input string that contains the "aa" string. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace("abracadabraabracadabra", "aa{1}","with")</test>
@@ -345,7 +344,7 @@ abracadabra", "\n","with")</test>
       <assert-string-value>abracadabrwithbracadabra</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-29">
+  <test-case name="fn-replace-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabrwithbracadabraabracadabra")</response-string>
     <description>Evaluation of replace function with pattern set to "aa{1,}" (min quantity) for an input string that contains the "aa" string twice. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace("abracadabraabracadabraabracadabra", "aa{1,}","with")</test>
@@ -354,7 +353,7 @@ abracadabra", "\n","with")</test>
       <assert-string-value>abracadabrwithbracadabrwithbracadabra</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-30">
+  <test-case name="fn-replace-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabrwithbracadabraabracadabra")</response-string>
     <description>Evaluation of replace function with pattern set to "aa{1,2}" (range quantity) for an input string that contains the "aa" string twice. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace("abracadabraabracadabraabracadabra", "aa{1,2}","with")</test>
@@ -363,7 +362,7 @@ abracadabra", "\n","with")</test>
       <assert-string-value>abracadabrwithbracadabrwithbracadabra</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-31">
+  <test-case name="fn-replace-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabrawithabracadabra")</response-string>
     <description>Evaluation of replace function with pattern set to "\^". </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace("abracadabra^abracadabra", "\^","with")</test>
@@ -372,7 +371,7 @@ abracadabra", "\n","with")</test>
       <assert-string-value>abracadabrawithabracadabra</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-32">
+  <test-case name="fn-replace-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("withbracadabra")</response-string>
     <description>Evaluation of replace function with pattern set to "^a". </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace("abracadabra", "^a","with")</test>
@@ -381,7 +380,7 @@ abracadabra", "\n","with")</test>
       <assert-string-value>withbracadabra</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-33">
+  <test-case name="fn-replace-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabra")</response-string>
     <description>Evaluation of replace function with pattern that does not match the input string. </description>
     <created by="Carmelo Montanez" on="2005-10-14"/>
     <test>fn:replace("abracadabra", "ww","with")</test>
@@ -390,7 +389,7 @@ abracadabra", "\n","with")</test>
       <assert-string-value>abracadabra</assert-string-value>
     </result>
   </test-case>
-  <test-case covers="regex-q-flag" name="fn-replace-34">
+  <test-case covers="regex-q-flag" name="fn-replace-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabra")</response-string>
     <description>Evaluation of replace function with q flag.</description>
     <created by="Michael Kay" on="2012-01-08"/>
     <dependency type="spec" value="XP30+"/>
@@ -400,7 +399,7 @@ abracadabra", "\n","with")</test>
       <assert-string-value>$1br$1c$1d$1br$1</assert-string-value>
     </result>
   </test-case>
-  <test-case covers="regex-q-flag" name="fn-replace-35">
+  <test-case covers="regex-q-flag" name="fn-replace-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("a?bracadabra?")</response-string>
     <description>Evaluation of replace function with q flag.</description>
     <created by="Michael Kay" on="2012-01-08"/>
     <dependency type="spec" value="XP30+"/>
@@ -410,7 +409,7 @@ abracadabra", "\n","with")</test>
       <assert-string-value>\$1bracadabr\$1</assert-string-value>
     </result>
   </test-case>
-  <test-case covers="regex-non-capturing" name="fn-replace-36">
+  <test-case covers="regex-non-capturing" name="fn-replace-36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("a**acadabra")</response-string>
     <description>Evaluation of replace function with non-capturing groups.</description>
     <created by="Michael Kay" on="2012-01-08"/>
     <dependency type="spec" value="XP30+"/>
@@ -420,7 +419,7 @@ abracadabra", "\n","with")</test>
       <assert-string-value>a**acada**a</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-37">
+  <test-case name="fn-replace-37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("\$bracadabra")</response-string>
     <description>Evaluation of replace function with escaped $ sign in replacement string.</description>
     <created by="Michael Kay" on="2012-01-08"/>
     <test>fn:replace("abracadabra", "a", "\$")</test>
@@ -429,7 +428,7 @@ abracadabra", "\n","with")</test>
       <assert-string-value>$br$c$d$br$</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-38">
+  <test-case name="fn-replace-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("\$1bracadabra")</response-string>
     <description>Evaluation of replace function with escaped $ sign in replacement string.</description>
     <created by="Michael Kay" on="2012-01-08"/>
     <test>fn:replace("abracadabra", "(a)", "\$$1")</test>
@@ -438,7 +437,7 @@ abracadabra", "\n","with")</test>
       <assert-string-value>$abr$ac$ad$abr$a</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-39">
+  <test-case name="fn-replace-39"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("\\bracadabra")</response-string>
     <description>Evaluation of replace function with escaped \ sign in replacement string.</description>
     <created by="Michael Kay" on="2012-01-08"/>
     <test>fn:replace("abracadabra", "a", "\\")</test>
@@ -447,7 +446,7 @@ abracadabra", "\n","with")</test>
       <assert-string-value>\br\c\d\br\</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-40">
+  <test-case name="fn-replace-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabra")</response-string>
     <description>Evaluation of replace with double-digit capture</description>
     <created by="Michael Kay" on="2012-01-08"/>
     <test>fn:replace("abracadabra", "((((( ((((( (((((a))))) ))))) )))))", "|$1$15|", "x")</test>
@@ -456,7 +455,7 @@ abracadabra", "\n","with")</test>
       <assert-string-value>|aa|br|aa|c|aa|d|aa|br|aa|</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-41">
+  <test-case name="fn-replace-41"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabra")</response-string>
     <description>Evaluation of replace with double-digit capture</description>
     <created by="Michael Kay" on="2012-01-08"/>
     <test>fn:replace("abracadabra", "((((( ((((( (((((a))))) ))))) )))))", "$1520", "x")</test>
@@ -465,7 +464,7 @@ abracadabra", "\n","with")</test>
       <assert-string-value>a20bra20ca20da20bra20</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-replace-42">
+  <test-case name="fn-replace-42"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abracadabra")</response-string>
     <description>Evaluation of replace with double-digit capture beyond max capture value</description>
     <created by="Michael Kay" on="2012-01-08"/>
     <test>fn:replace("abracadabra", "((((( ((((( (((((a)(b))))) ))))) )))))", "($14.$15.$16.$17)", "x")</test>
@@ -474,34 +473,34 @@ abracadabra", "\n","with")</test>
       <assert-string-value>(ab.a.b.ab7)racad(ab.a.b.ab7)ra</assert-string-value>
     </result>
   </test-case>
-  <test-case covers="regex-dot-matching-cr" name="fn-replace-43">
+  <test-case covers="regex-dot-matching-cr" name="fn-replace-43"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("Mary&amp;#13;Jones")</response-string>
     <description> "." does NOT match CR in default mode</description>
     <created by="Tim Mills" on="2012-09-25"/>
-    <test>fn:replace(concat('Mary', codepoints-to-string(13), 'Jones'), 'Mary.Jones', 'Jacob Jones')</test>
-    <result-string>xs:string("concat('Mary', codepoints-to-string(13), 'Jones')")</result-string>
+    <test>fn:replace(concat(&apos;Mary&apos;, codepoints-to-string(13), &apos;Jones&apos;), &apos;Mary.Jones&apos;, &apos;Jacob Jones&apos;)</test>
+    <result-string>xs:string("Mary&amp;#13;Jones")</result-string>
     <result>
-      <assert-eq>concat('Mary', codepoints-to-string(13), 'Jones')</assert-eq>
+      <assert-eq>concat(&apos;Mary&apos;, codepoints-to-string(13), &apos;Jones&apos;)</assert-eq>
     </result>
   </test-case>
-  <test-case covers="regex-dot-matching-cr" name="fn-replace-44">
+  <test-case covers="regex-dot-matching-cr" name="fn-replace-44"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("Jacob Jones")</response-string>
     <description> "." does match CR in dot-all mode</description>
     <created by="Tim Mills" on="2012-09-25"/>
-    <test>fn:replace(concat('Mary', codepoints-to-string(13), 'Jones'), 'Mary.Jones', 'Jacob Jones', 's')</test>
-    <result-string>xs:string("'Jacob Jones'")</result-string>
+    <test>fn:replace(concat(&apos;Mary&apos;, codepoints-to-string(13), &apos;Jones&apos;), &apos;Mary.Jones&apos;, &apos;Jacob Jones&apos;, &apos;s&apos;)</test>
+    <result-string>xs:string("Jacob Jones")</result-string>
     <result>
-      <assert-eq>'Jacob Jones'</assert-eq>
+      <assert-eq>&apos;Jacob Jones&apos;</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-replace-45">
+  <test-case name="fn-replace-45"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("Now, let&amp;apos;s $0$0 OUT for QUICHE!!")</response-string>
     <description>fn:replace, using $0</description>
     <created by="Andrew Eisenberg" on="2013-05-24"/>
-    <test>replace("Now, let's SEND OUT for QUICHE!!", "[A-Z][A-Z]+", "$0$0")</test>
-    <result-string>xs:string(""Now, let's SENDSEND OUTOUT for QUICHEQUICHE!!"")</result-string>
+    <test>replace("Now, let&apos;s SEND OUT for QUICHE!!", "[A-Z][A-Z]+", "$0$0")</test>
+    <result-string>xs:string(""Now, let&apos;s SENDSEND OUTOUT for QUICHEQUICHE!!"")</result-string>
     <result>
-      <assert-eq>"Now, let's SENDSEND OUTOUT for QUICHEQUICHE!!"</assert-eq>
+      <assert-eq>"Now, let&apos;s SENDSEND OUTOUT for QUICHEQUICHE!!"</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-ReplaceFunc-1">
+  <test-case name="K-ReplaceFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("input")</response-string>
     <description> The flags argument cannot contain whitespace. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>replace("input", "pattern", "replacement", " ")</test>
@@ -510,26 +509,26 @@ abracadabra", "\n","with")</test>
       <error code="FORX0001"/>
     </result>
   </test-case>
-  <test-case name="K-ReplaceFunc-2">
-    <description> The pattern can't be the empty sequence. </description>
+  <test-case name="K-ReplaceFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The pattern can&apos;t be the empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>replace("input", (), "replacement")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ReplaceFunc-3">
-    <description> The replacement can't be the empty sequence. </description>
+  <test-case name="K-ReplaceFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> The replacement can&apos;t be the empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>replace("input", "pattern", ())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ReplaceFunc-4">
-    <description> The flags argument cannot contain 'X'. </description>
+  <test-case name="K-ReplaceFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("input")</response-string>
+    <description> The flags argument cannot contain &apos;X&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>replace("input", "pattern", "replacement", "X")</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0001"))</result-string>
@@ -537,17 +536,17 @@ abracadabra", "\n","with")</test>
       <error code="FORX0001"/>
     </result>
   </test-case>
-  <test-case name="K-ReplaceFunc-5">
+  <test-case name="K-ReplaceFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Only four arguments are accepted. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>replace("input", "pattern", "replacement", "", ())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-ReplaceFunc-6">
-    <description> A '\' cannot occur at the end of the line. </description>
+  <test-case name="K-ReplaceFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("thisIsInvalid\put")</response-string>
+    <description> A &apos;\&apos; cannot occur at the end of the line. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>replace("input", "in", "thisIsInvalid\")</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0004"))</result-string>
@@ -555,8 +554,8 @@ abracadabra", "\n","with")</test>
       <error code="FORX0004"/>
     </result>
   </test-case>
-  <test-case name="K-ReplaceFunc-7">
-    <description> A '$' cannot occur at the end of the line. </description>
+  <test-case name="K-ReplaceFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("thisIsInvalid$")</response-string>
+    <description> A &apos;$&apos; cannot occur at the end of the line. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>replace("input", "(input)", "thisIsInvalid$")</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0004"))</result-string>
@@ -564,8 +563,8 @@ abracadabra", "\n","with")</test>
       <error code="FORX0004"/>
     </result>
   </test-case>
-  <test-case name="K-ReplaceFunc-8">
-    <description> A '\' cannot be used to escape whitespace. </description>
+  <test-case name="K-ReplaceFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("thisIsInvalid\ put")</response-string>
+    <description> A &apos;\&apos; cannot be used to escape whitespace. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>replace("input", "in", "thisIsInvalid\ ")</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0004"))</result-string>
@@ -573,8 +572,8 @@ abracadabra", "\n","with")</test>
       <error code="FORX0004"/>
     </result>
   </test-case>
-  <test-case name="K-ReplaceFunc-9">
-    <description> A '$' cannot be followed by whitespace. </description>
+  <test-case name="K-ReplaceFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("thisIsInvalid$ put")</response-string>
+    <description> A &apos;$&apos; cannot be followed by whitespace. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>replace("input", "in", "thisIsInvalid$ ")</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0004"))</result-string>
@@ -582,7 +581,7 @@ abracadabra", "\n","with")</test>
       <error code="FORX0004"/>
     </result>
   </test-case>
-  <test-case name="K2-ReplaceFunc-1">
+  <test-case name="K2-ReplaceFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("replacment: \1a a ")</response-string>
     <description> Unexpectedly ending escape. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>replace("a a a ", "(a )", "replacment: \1")</test>
@@ -591,7 +590,7 @@ abracadabra", "\n","with")</test>
       <error code="FORX0004"/>
     </result>
   </test-case>
-  <test-case name="K2-ReplaceFunc-2">
+  <test-case name="K2-ReplaceFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("replacment: \1a a ")</response-string>
     <description> Unexpectedly ending escape. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>replace("a a a ", "(a )", "replacment: \1")</test>
@@ -600,8 +599,8 @@ abracadabra", "\n","with")</test>
       <error code="FORX0004"/>
     </result>
   </test-case>
-  <test-case name="K2-ReplaceFunc-3">
-    <description> Use a back reference that isn't preceeded by sufficiently many captures, and therefore match the empty sequence. </description>
+  <test-case name="K2-ReplaceFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("cd")</response-string>
+    <description> Use a back reference that isn&apos;t preceeded by sufficiently many captures, and therefore match the empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>replace("abcd", "(a)\2(b)", "")</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORX0002"))</result-string>
@@ -609,7 +608,7 @@ abracadabra", "\n","with")</test>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="K2-ReplaceFunc-4">
+  <test-case name="K2-ReplaceFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abcd")</response-string>
     <description> Use a back reference inside a character class. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>replace("abcd", "(asd)[\1]", "")</test>
@@ -618,7 +617,7 @@ abracadabra", "\n","with")</test>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="K2-ReplaceFunc-5">
+  <test-case name="K2-ReplaceFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abcd")</response-string>
     <description> Use a back reference inside a character class(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>replace("abcd", "(asd)[asd\1]", "")</test>
@@ -627,7 +626,7 @@ abracadabra", "\n","with")</test>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="K2-ReplaceFunc-6">
+  <test-case name="K2-ReplaceFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abcd")</response-string>
     <description> Use a back reference inside a character class(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>replace("abcd", "(asd)[asd\0]", "")</test>
@@ -636,7 +635,7 @@ abracadabra", "\n","with")</test>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="K2-ReplaceFunc-7">
+  <test-case name="K2-ReplaceFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abcd")</response-string>
     <description> Use a back reference inside a character class(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>replace("abcd", "1[asd\0]", "")</test>
@@ -645,7 +644,7 @@ abracadabra", "\n","with")</test>
       <error code="FORX0002"/>
     </result>
   </test-case>
-  <test-case name="K2-ReplaceFunc-8">
+  <test-case name="K2-ReplaceFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;result&gt;&lt;para&gt;ThiQ Ybcd.&lt;/para&gt;&lt;para&gt;ThiQ iY a abYY.&lt;/para&gt;&lt;/result&gt;,xs:string("ThiQ abcdY."),xs:string("ThiQ iY a abYY."))</response-string>
     <description> Use fn:replace inside user function. </description>
     <created by="Frans Englich" on="2008-06-06"/>
     <dependency type="spec" value="XQ10+"/>
@@ -659,7 +658,7 @@ abracadabra", "\n","with")</test>
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-replace-001">
+  <test-case name="cbcl-fn-replace-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Tests a replace with prepared value evaluated to a boolean </description>
     <created by="Nick Jones" on="2008-06-10"/>
     <test>
@@ -670,7 +669,7 @@ abracadabra", "\n","with")</test>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-replace-002">
+  <test-case name="cbcl-fn-replace-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("ba")</response-string>
     <description> Tests a prepared expression which matches the empty sequence </description>
     <created by="Nick Jones" on="2008-06-16"/>
     <test>replace("a","","b")</test>
@@ -679,7 +678,7 @@ abracadabra", "\n","with")</test>
       <error code="FORX0003"/>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-replace-003">
+  <test-case name="cbcl-fn-replace-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("c2,4,6,8,10")</response-string>
     <description> Tests empty regex on prepared fn:replace </description>
     <created by="Nick Jones" on="2008-06-17"/>
     <test>
@@ -690,7 +689,7 @@ abracadabra", "\n","with")</test>
       <error code="FORX0003"/>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-replace-004">
+  <test-case name="cbcl-fn-replace-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("c2,4,6,8,10")</response-string>
     <description> Tests empty regex on prepared fn:replace </description>
     <created by="Nick Jones" on="2008-06-17"/>
     <test>
@@ -701,7 +700,7 @@ abracadabra", "\n","with")</test>
       <error code="FORX0003"/>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-replace-005">
+  <test-case name="cbcl-fn-replace-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("c2,4,6,8,10")</response-string>
     <description> Tests empty regex on prepared fn:replace </description>
     <created by="Nick Jones" on="2008-06-17"/>
     <test>

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="prod-NodeTest" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the NodeTest production</description>
   <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-NodeTest" type="spec"/>
@@ -69,7 +68,7 @@
       <created by="spec-authors" on="2000-01-01"/>
     </source>
   </environment>
-  <test-case name="NodeTest001">
+  <test-case name="NodeTest001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;!-- this file is a copy of bib.xml; just adds a few comments and PI nodes for testing --&gt;&lt;!-- Comment 1 --&gt;&lt;!-- Comment 2 --&gt;)</response-string>
     <description> Simple test for comment() node type </description>
     <created by="Asad Jawahar" on="2003-03-07"/>
     <environment ref="bib2"/>
@@ -81,7 +80,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTest002">
+  <test-case name="NodeTest002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(processing-instruction PI1 {"Processing Instruction 1"},processing-instruction PI2 {"Processing Instruction 2"})</response-string>
     <description> Simple test for processing-instruction() node test </description>
     <created by="Asad Jawahar" on="2003-03-07"/>
     <environment ref="bib2"/>
@@ -93,7 +92,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTest006">
+  <test-case name="NodeTest006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result&gt; CITI&lt;/result&gt;</response-string>
     <description> Simple test for node type text() </description>
     <created by="Asad Jawahar" on="2003-03-07"/>
     <environment ref="bib"/>
@@ -108,8 +107,8 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTest007-1">
-    <description>FileName: NodeTest007  processing-instruction('name') NodeTest can apply under root </description>
+  <test-case name="NodeTest007-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;0&lt;/out&gt;</response-string>
+    <description>FileName: NodeTest007  processing-instruction(&apos;name&apos;) NodeTest can apply under root </description>
     <created by="David Marston" on="2003-02-28"/>
     <environment ref="TreeEmpty"/>
     <dependency type="spec" value="XQ10+"/>
@@ -123,8 +122,8 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTest007-2">
-    <description>FileName: NodeTest007  processing-instruction('name') NodeTest can apply under root </description>
+  <test-case name="NodeTest007-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;4&lt;/out&gt;</response-string>
+    <description>FileName: NodeTest007  processing-instruction(&apos;name&apos;) NodeTest can apply under root </description>
     <created by="David Marston" on="2003-02-28"/>
     <environment ref="TopMany"/>
     <dependency type="spec" value="XQ10+"/>
@@ -138,7 +137,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTest008-1">
+  <test-case name="NodeTest008-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;0&lt;/out&gt;</response-string>
     <description>FileName: NodeTest008  text() as a NodeTest </description>
     <created by="David Marston" on="2003-02-28"/>
     <environment ref="Tree1Child"/>
@@ -153,7 +152,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTest008-2">
+  <test-case name="NodeTest008-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;6&lt;/out&gt;</response-string>
     <description>FileName: NodeTest008  text() as a NodeTest </description>
     <created by="David Marston" on="2003-02-28"/>
     <environment ref="TreeCompass"/>
@@ -168,7 +167,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTest009-1">
+  <test-case name="NodeTest009-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;0&lt;/out&gt;</response-string>
     <description>FileName: NodeTest009  comment() as a NodeTest </description>
     <created by="David Marston" on="2003-02-28"/>
     <environment ref="Tree1Child"/>
@@ -183,7 +182,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTest009-2">
+  <test-case name="NodeTest009-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;1&lt;/out&gt;</response-string>
     <description>FileName: NodeTest009  comment() as a NodeTest </description>
     <created by="David Marston" on="2003-02-28"/>
     <environment ref="TreeCompass"/>
@@ -198,7 +197,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTest010-1">
+  <test-case name="NodeTest010-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;0&lt;/out&gt;</response-string>
     <description>FileName: NodeTest010  comment() NodeTest can apply under root </description>
     <created by="David Marston" on="2003-02-28"/>
     <environment ref="TreeEmpty"/>
@@ -213,7 +212,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTest010-2">
+  <test-case name="NodeTest010-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;7&lt;/out&gt;</response-string>
     <description>FileName: NodeTest010  comment() NodeTest can apply under root </description>
     <created by="David Marston" on="2003-02-28"/>
     <environment ref="TopMany"/>
@@ -228,7 +227,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTest011-1">
+  <test-case name="NodeTest011-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;0&lt;/out&gt;</response-string>
     <description>FileName: NodeTest011  processing-instruction() as a NodeTest </description>
     <created by="David Marston" on="2003-02-28"/>
     <environment ref="Tree1Child"/>
@@ -243,7 +242,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTest011-2">
+  <test-case name="NodeTest011-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;1&lt;/out&gt;</response-string>
     <description>FileName: NodeTest011  processing-instruction() as a NodeTest </description>
     <created by="David Marston" on="2003-02-28"/>
     <environment ref="TreeCompass"/>
@@ -258,7 +257,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTest012-1">
+  <test-case name="NodeTest012-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;0&lt;/out&gt;</response-string>
     <description>FileName: NodeTest012  processing-instruction() NodeTest can apply under root </description>
     <created by="David Marston" on="2003-02-28"/>
     <environment ref="TreeEmpty"/>
@@ -273,7 +272,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTest012-2">
+  <test-case name="NodeTest012-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;6&lt;/out&gt;</response-string>
     <description>FileName: NodeTest012  processing-instruction() NodeTest can apply under root </description>
     <created by="David Marston" on="2003-02-28"/>
     <environment ref="TopMany"/>
@@ -288,8 +287,8 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTest013-1">
-    <description>FileName: NodeTest013  processing-instruction('name') matches only the given name </description>
+  <test-case name="NodeTest013-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;1&lt;/out&gt;</response-string>
+    <description>FileName: NodeTest013  processing-instruction(&apos;name&apos;) matches only the given name </description>
     <created by="David Marston" on="2003-02-28"/>
     <environment ref="TreeCompass"/>
     <dependency type="spec" value="XQ10+"/>
@@ -303,7 +302,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTesthc-1">
+  <test-case name="NodeTesthc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result&gt;    &amp;#10;   &amp;#10;   &amp;#10;   &amp;#10;   &amp;#10;   &amp;#10;   &amp;#10;   &amp;#10;   &amp;#10;   &amp;#10;   &amp;#10;   &amp;#10;   &amp;#10;   &amp;#10;  &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;   E1 P1 40 &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;    Text data from Employee[2]&amp;#10;   E1 P2 70 20 &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;   E1 P3 80 &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;   E1 P4 20 40 &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;       &amp;#10;   E1 P5 20 30 &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;   E1 P6 12 &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;   E2 P1 40 &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;   E2 P2 80 &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;   E3 P2 20 &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;   E3 P2 20 &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;   E4 P2 20 &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;   E4 P4 40 &amp;#10;      &amp;#10;      &amp;#10;    Monday Tuesday &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;   E4 P5 80 active&lt;/result&gt;</response-string>
     <description> Simple test for text type involving a boolean expression (and fn:true) </description>
     <created by="Carmelo Montanez" on="2005-10-04"/>
     <environment ref="works-mod"/>
@@ -318,7 +317,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTesthc-2">
+  <test-case name="NodeTesthc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Simple test for text type involving a boolean expression (or fn:true) </description>
     <created by="Carmelo Montanez" on="2005-10-04"/>
     <environment ref="works-mod"/>
@@ -333,7 +332,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTesthc-3">
+  <test-case name="NodeTesthc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result&gt;    &amp;#10;   &amp;#10;   &amp;#10;   &amp;#10;   &amp;#10;   &amp;#10;   &amp;#10;   &amp;#10;   &amp;#10;   &amp;#10;   &amp;#10;   &amp;#10;   &amp;#10;   &amp;#10;  &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;   E1 P1 40 &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;    Text data from Employee[2]&amp;#10;   E1 P2 70 20 &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;   E1 P3 80 &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;   E1 P4 20 40 &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;       &amp;#10;   E1 P5 20 30 &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;   E1 P6 12 &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;   E2 P1 40 &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;   E2 P2 80 &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;   E3 P2 20 &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;   E3 P2 20 &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;   E4 P2 20 &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;   E4 P4 40 &amp;#10;      &amp;#10;      &amp;#10;    Monday Tuesday &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;    &amp;#10;   E4 P5 80 active&lt;/result&gt;</response-string>
     <description> Simple test for text type involving a boolean expression (and fn:false) </description>
     <created by="Carmelo Montanez" on="2005-10-04"/>
     <environment ref="works-mod"/>
@@ -348,7 +347,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTesthc-4">
+  <test-case name="NodeTesthc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Simple test for text type involving a boolean expression (or fn:false) </description>
     <created by="Carmelo Montanez" on="2005-10-04"/>
     <environment ref="works-mod"/>
@@ -363,7 +362,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTesthc-5">
+  <test-case name="NodeTesthc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Simple test for Element node types involving a boolean expression (or fn:false) </description>
     <created by="Carmelo Montanez" on="2005-10-04"/>
     <environment ref="works-mod"/>
@@ -378,7 +377,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTesthc-6">
+  <test-case name="NodeTesthc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Simple test for Element node types involving a boolean expression (or fn:true) </description>
     <created by="Carmelo Montanez" on="2005-10-04"/>
     <environment ref="works-mod"/>
@@ -393,7 +392,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTesthc-7">
+  <test-case name="NodeTesthc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result&gt;  &amp;#10;     &lt;day&gt;Monday&lt;/day&gt;&amp;#10;     &lt;day&gt;Tuesday&lt;/day&gt;&amp;#10;   &lt;/result&gt;</response-string>
     <description> Simple test for Element node types involving a boolean expression (and fn:false) </description>
     <created by="Carmelo Montanez" on="2005-10-04"/>
     <environment ref="works-mod"/>
@@ -408,7 +407,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="NodeTesthc-8">
+  <test-case name="NodeTesthc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;result&gt;  &amp;#10;     &lt;day&gt;Monday&lt;/day&gt;&amp;#10;     &lt;day&gt;Tuesday&lt;/day&gt;&amp;#10;   &lt;/result&gt;</response-string>
     <description> Simple test for Element node types involving a boolean expression (and fn:true) </description>
     <created by="Carmelo Montanez" on="2005-10-04"/>
     <environment ref="works-mod"/>
@@ -423,7 +422,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-1">
+  <test-case name="K2-NodeTest-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Check the child count of an empty direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -439,7 +438,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-2">
+  <test-case name="K2-NodeTest-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Check the child count of an empty direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -451,17 +450,17 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-3">
-    <description> '*' is not allowed inside processing-instruction(). </description>
+  <test-case name="K2-NodeTest-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> &apos;*&apos; is not allowed inside processing-instruction(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>processing-instruction(*)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-4">
-    <description> '*' is not allowed inside text(). </description>
+  <test-case name="K2-NodeTest-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+    <description> &apos;*&apos; is not allowed inside text(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>text(*)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
@@ -469,8 +468,8 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-5">
-    <description> '*' is not allowed inside comment(). </description>
+  <test-case name="K2-NodeTest-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+    <description> &apos;*&apos; is not allowed inside comment(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>comment(*)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
@@ -478,8 +477,8 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-6">
-    <description> '*' is not allowed inside node(). </description>
+  <test-case name="K2-NodeTest-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;dummy/&gt;</response-string>
+    <description> &apos;*&apos; is not allowed inside node(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>node(*)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
@@ -487,8 +486,8 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-7">
-    <description> '*' is not allowed inside document-node(). </description>
+  <test-case name="K2-NodeTest-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+    <description> &apos;*&apos; is not allowed inside document-node(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>document-node(*)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
@@ -496,62 +495,62 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-8">
-    <description> '*' is not allowed inside schema-attribute(). </description>
+  <test-case name="K2-NodeTest-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> &apos;*&apos; is not allowed inside schema-attribute(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>schema-attribute(*)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-9">
-    <description> '*' is not allowed inside schema-element(). </description>
+  <test-case name="K2-NodeTest-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> &apos;*&apos; is not allowed inside schema-element(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>schema-element(*)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-10">
+  <test-case name="K2-NodeTest-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> There is no type by name document(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>document(*)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-11">
+  <test-case name="K2-NodeTest-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> There is no type by name document(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>document()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-12">
+  <test-case name="K2-NodeTest-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> There is no type by name document(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 instance of document(*)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-13">
+  <test-case name="K2-NodeTest-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> There is no type by name document(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 instance of document()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-14">
-    <description> 'name' is not allowed inside document-node(). </description>
+  <test-case name="K2-NodeTest-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+    <description> &apos;name&apos; is not allowed inside document-node(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>document-node(name)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
@@ -559,8 +558,8 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-15">
-    <description> 'name' is not allowed inside document-node(). </description>
+  <test-case name="K2-NodeTest-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+    <description> &apos;name&apos; is not allowed inside document-node(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>document-node(local:name)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
@@ -568,8 +567,8 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-16">
-    <description> processing-instruction() isn't allowed inside document-node(). </description>
+  <test-case name="K2-NodeTest-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+    <description> processing-instruction() isn&apos;t allowed inside document-node(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>document-node(processing-instruction())</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
@@ -577,8 +576,8 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-17">
-    <description> unknown() isn't allowed inside document-node(). </description>
+  <test-case name="K2-NodeTest-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+    <description> unknown() isn&apos;t allowed inside document-node(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>document-node(unknown())</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
@@ -586,8 +585,8 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-18">
-    <description> schema-attribute() isn't allowed inside document-node(). </description>
+  <test-case name="K2-NodeTest-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+    <description> schema-attribute() isn&apos;t allowed inside document-node(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>document-node(schema-attribute(ncname))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
@@ -595,7 +594,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-19">
+  <test-case name="K2-NodeTest-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Use document-node() with an unkown schema-element() type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>document-node(schema-element(thisTypeIsNotRecognizedExample.Com))</test>
@@ -604,7 +603,7 @@
       <error code="XPST0008"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-20">
+  <test-case name="K2-NodeTest-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Use document-node() with an unkown schema-element() type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -616,8 +615,8 @@
       <error code="XPST0008"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-21">
-    <description> Ensure 'element(local:ncname)' is parsed correctly when inside document-node(). </description>
+  <test-case name="K2-NodeTest-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
+    <description> Ensure &apos;element(local:ncname)&apos; is parsed correctly when inside document-node(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -632,7 +631,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-22">
+  <test-case name="K2-NodeTest-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Use an unbound prefix inside document-node()/element(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>document-node(element(notBound:ncname))</test>
@@ -641,7 +640,7 @@
       <error code="XPST0081"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-23">
+  <test-case name="K2-NodeTest-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;dummy/&gt;</response-string>
     <description> Use an unbound prefix inside element(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>element(notBound:ncname)</test>
@@ -650,7 +649,7 @@
       <error code="XPST0081"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-24">
+  <test-case name="K2-NodeTest-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Use an unbound prefix inside element(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>attribute(notBound:ncname)</test>
@@ -659,7 +658,7 @@
       <error code="XPST0081"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-25">
+  <test-case name="K2-NodeTest-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Use an unbound prefix inside document-node()/schema-element(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>document-node(schema-element(notBound:ncname))</test>
@@ -668,7 +667,7 @@
       <error code="XPST0081"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-26">
+  <test-case name="K2-NodeTest-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Use an unbound prefix inside schema-element(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>schema-element(notBound:ncname)</test>
@@ -677,7 +676,7 @@
       <error code="XPST0081"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-27">
+  <test-case name="K2-NodeTest-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Use an unbound prefix inside schema-attribute(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>schema-attribute(notBound:ncname)</test>
@@ -686,8 +685,8 @@
       <error code="XPST0081"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-28">
-    <description> Invoke '/' on a tree whose root is not a document node. </description>
+  <test-case name="K2-NodeTest-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+    <description> Invoke &apos;/&apos; on a tree whose root is not a document node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -698,17 +697,17 @@
       <error code="XPDY0050"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-29">
+  <test-case name="K2-NodeTest-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Apostrophes are valid separators in processing-instruction(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <test>processing-instruction('ncname')</test>
+    <test>processing-instruction(&apos;ncname&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0002"))</result-string>
     <result>
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-30">
-    <description> Ensure element() isn't parsed as a function. </description>
+  <test-case name="K2-NodeTest-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;dummy/&gt;</response-string>
+    <description> Ensure element() isn&apos;t parsed as a function. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>element()</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPDY0002"))</result-string>
@@ -716,7 +715,7 @@
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-31">
+  <test-case name="K2-NodeTest-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("1"),&lt;e/&gt;)</response-string>
     <description> Trigger XPTY0018 inside a function body. </description>
     <created by="Frans Englich" on="2008-01-02"/>
     <dependency type="spec" value="XQ10+"/>
@@ -728,7 +727,7 @@
       <error code="XPTY0018"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-32">
+  <test-case name="K2-NodeTest-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("4")</response-string>
     <description> We evaluate to only atomic values, although the static type does not reflect that. </description>
     <created by="Frans Englich" on="2008-01-02"/>
     <dependency type="spec" value="XQ10+"/>
@@ -740,7 +739,7 @@
       <assert-eq>4</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-33">
+  <test-case name="K2-NodeTest-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Trigger XPTY0018 inside a body for a global variable. </description>
     <created by="Frans Englich" on="2008-01-02"/>
     <dependency type="spec" value="XQ10+"/>
@@ -752,7 +751,7 @@
       <error code="XPTY0018"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-34">
+  <test-case name="K2-NodeTest-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Trigger XPTY0018 inside a body for a global variable(#2). </description>
     <created by="Frans Englich" on="2008-01-02"/>
     <dependency type="spec" value="XQ10+"/>
@@ -764,7 +763,7 @@
       <error code="XPTY0018"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-35">
+  <test-case name="K2-NodeTest-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),&lt;e/&gt;,xs:integer("2"))</response-string>
     <description> Trigger XPTY0018 inside a function body(#2). </description>
     <created by="Frans Englich" on="2008-01-02"/>
     <dependency type="spec" value="XQ10+"/>
@@ -776,7 +775,7 @@
       <error code="XPTY0018"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-36">
+  <test-case name="K2-NodeTest-36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),&lt;e/&gt;,xs:integer("2"))</response-string>
     <description> Trigger XPTY0018 inside a function body(#3). </description>
     <created by="Frans Englich" on="2008-01-02"/>
     <dependency type="spec" value="XQ10+"/>
@@ -788,7 +787,7 @@
       <error code="XPTY0018"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-37">
+  <test-case name="K2-NodeTest-37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),&lt;e/&gt;,&lt;e/&gt;,xs:integer("2"),xs:integer("1"),xs:integer("2"))</response-string>
     <description> Trigger XPTY0018 inside a function body(#4). </description>
     <created by="Frans Englich" on="2008-01-02"/>
     <dependency type="spec" value="XQ10+"/>
@@ -800,7 +799,7 @@
       <error code="XPTY0018"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-38">
+  <test-case name="K2-NodeTest-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),&lt;e/&gt;,xs:integer("4"),xs:integer("5"),&lt;e/&gt;,xs:integer("2"))</response-string>
     <description> Trigger XPTY0018 inside a function body(#5). </description>
     <created by="Frans Englich" on="2008-01-02"/>
     <dependency type="spec" value="XQ10+"/>
@@ -812,7 +811,7 @@
       <error code="XPTY0018"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-39">
+  <test-case name="K2-NodeTest-39"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;e/&gt;,xs:integer("4"),xs:integer("5"),&lt;e/&gt;,xs:integer("2"),&lt;e/&gt;,xs:integer("4"),xs:integer("5"),&lt;e/&gt;,xs:integer("2"))</response-string>
     <description> Trigger XPTY0018 inside a let clause. </description>
     <created by="Frans Englich" on="2008-01-02"/>
     <dependency type="spec" value="XQ10+"/>
@@ -824,7 +823,7 @@
       <error code="XPTY0018"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-40">
+  <test-case name="K2-NodeTest-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;e/&gt;,&lt;e/&gt;,xs:integer("4"),xs:integer("4"),xs:integer("5"),xs:integer("5"),&lt;e/&gt;,&lt;e/&gt;,xs:integer("2"),xs:integer("2"))</response-string>
     <description> Trigger XPTY0018 inside a for clause. </description>
     <created by="Frans Englich" on="2008-01-02"/>
     <dependency type="spec" value="XQ10+"/>
@@ -836,7 +835,7 @@
       <error code="XPTY0018"/>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-41">
+  <test-case name="K2-NodeTest-41"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;b name="D"/&gt;</response-string>
     <description> Use fn:last() with nested predicates. </description>
     <created by="Frans Englich" on="2008-01-03"/>
     <dependency type="spec" value="XQ10+"/>
@@ -850,7 +849,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-42">
+  <test-case name="K2-NodeTest-42"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("5")</response-string>
     <description> Use fn:last() with nested predicates(#2). </description>
     <created by="Frans Englich" on="2008-01-03"/>
     <test>(4, 5)[position() = 2][last() = 1]</test>
@@ -859,7 +858,7 @@
       <assert-eq>5</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NodeTest-43">
+  <test-case name="K2-NodeTest-43"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("5")</response-string>
     <description> Use fn:last() with nested predicates(#3). </description>
     <created by="Frans Englich" on="2008-01-03"/>
     <test>(4, 5)[position() = 2][last() = 1][last() = 1][last()]</test>

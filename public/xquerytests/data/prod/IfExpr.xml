@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="prod-IfExpr" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the IfExpr production</description>
   <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-IfExpr" type="spec"/>
@@ -27,7 +26,7 @@
       <created by="David Marston" on="2003-03-25"/>
     </source>
   </environment>
-  <test-case name="CondExpr002">
+  <test-case name="CondExpr002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem1/&gt;</response-string>
     <description> Simple if expression where boolean is a constant true </description>
     <created by="Asad Jawahar" on="2003-02-10"/>
     <dependency type="spec" value="XQ10+"/>
@@ -41,7 +40,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="CondExpr003">
+  <test-case name="CondExpr003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem2/&gt;</response-string>
     <description> Simple if expression where boolean is a constant false </description>
     <created by="Asad Jawahar" on="2003-02-10"/>
     <dependency type="spec" value="XQ10+"/>
@@ -55,7 +54,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="CondExpr004">
+  <test-case name="CondExpr004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem1/&gt;</response-string>
     <description> Node set from a path expression as test condition </description>
     <created by="Asad Jawahar" on="2003-02-10"/>
     <environment ref="nw_Customers"/>
@@ -70,7 +69,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="CondExpr005">
+  <test-case name="CondExpr005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem2/&gt;</response-string>
     <description> Empty node set from a path expression as test condition </description>
     <created by="Asad Jawahar" on="2003-02-10"/>
     <environment ref="nw_Customers"/>
@@ -85,7 +84,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="CondExpr006">
+  <test-case name="CondExpr006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;out&gt;1&lt;/out&gt;</response-string>
     <description>FileName: CondExpr006  then-expression has another if expression </description>
     <created by="David Marston" on="2003-02-10"/>
     <dependency type="spec" value="XQ10+"/>
@@ -99,7 +98,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="CondExpr007">
+  <test-case name="CondExpr007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem1/&gt;</response-string>
     <description> else-expr has another if expression </description>
     <created by="Asad Jawahar" on="2003-02-10"/>
     <environment ref="nw_Customers"/>
@@ -114,27 +113,27 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="CondExpr008">
+  <test-case name="CondExpr008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("pass")</response-string>
     <description> and-expression in test expression </description>
     <created by="Asad Jawahar" on="2003-02-10"/>
     <environment ref="nw_Customers"/>
-    <test>if ( /Root/Customers[1]/@CustomerID = 'ALFKI' and /Root/Customers[1]/FullAddress/City = 'Berlin') then "pass" else "fail"</test>
+    <test>if ( /Root/Customers[1]/@CustomerID = &apos;ALFKI&apos; and /Root/Customers[1]/FullAddress/City = &apos;Berlin&apos;) then "pass" else "fail"</test>
     <result-string>xs:string("pass")</result-string>
     <result>
       <assert-string-value>pass</assert-string-value>
     </result>
   </test-case>
-  <test-case name="CondExpr009">
+  <test-case name="CondExpr009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("pass")</response-string>
     <description> or-expression in test expression </description>
     <created by="Asad Jawahar" on="2003-02-10"/>
     <environment ref="nw_Customers"/>
-    <test>if (/Root/Customers[1]/@CustomerID = 'ALFKI' or /Root/Customers[1]/FullAddress/City = 'Non-Existent') then "pass" else "fail"</test>
+    <test>if (/Root/Customers[1]/@CustomerID = &apos;ALFKI&apos; or /Root/Customers[1]/FullAddress/City = &apos;Non-Existent&apos;) then "pass" else "fail"</test>
     <result-string>xs:string("pass")</result-string>
     <result>
       <assert-string-value>pass</assert-string-value>
     </result>
   </test-case>
-  <test-case name="CondExpr010">
+  <test-case name="CondExpr010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description>FileName: CondExpr010  a true expression in if expression </description>
     <created by="David Marston" on="2003-02-10"/>
     <test> if (2 != 4) then 1 else 0 </test>
@@ -143,28 +142,28 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="CondExpr011">
+  <test-case name="CondExpr011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("3")</response-string>
     <description>FileName: CondExpr011  If expression as argument to a function </description>
     <created by="David Marston" on="2003-02-10"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>fn:string-length(if (2 != 3) then 'foo' else 'expanded-foo')</test>
+    <test>fn:string-length(if (2 != 3) then &apos;foo&apos; else &apos;expanded-foo&apos;)</test>
     <result-string>xs:integer("3")</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
   </test-case>
-  <test-case name="CondExpr012">
+  <test-case name="CondExpr012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">attribute name {"axolotl"}</response-string>
     <description>FileName: CondExpr012  Adapted from example in spec; test expression is a relational expression </description>
     <created by="David Marston" on="2003-02-10"/>
     <environment ref="xq311A"/>
     <dependency type="spec" value="XQ10+"/>
     <test>if (/doc/widget1/@unit-cost = /doc/widget2/@unit-cost) then /doc/widget1/@name else /doc/widget2/@name</test>
-    <result-string>xs:string("axolotl")</result-string>
+    <result-string>attribute name {"axolotl"}</result-string>
     <result>
       <assert-string-value>axolotl</assert-string-value>
     </result>
   </test-case>
-  <test-case name="CondExpr013">
+  <test-case name="CondExpr013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("search")</response-string>
     <description>FileName: CondExpr013  test expression has another if expression </description>
     <created by="David Marston" on="2003-02-10"/>
     <environment ref="xq311A"/>
@@ -175,7 +174,7 @@
       <assert-string-value>search</assert-string-value>
     </result>
   </test-case>
-  <test-case name="CondExpr014">
+  <test-case name="CondExpr014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("17")</response-string>
     <description>FileName: CondExpr014  Two if expressions at same depth in larger expression </description>
     <created by="David Marston" on="2003-02-10"/>
     <environment ref="xq311A"/>
@@ -185,7 +184,7 @@
       <assert-eq>17</assert-eq>
     </result>
   </test-case>
-  <test-case name="CondExpr015">
+  <test-case name="CondExpr015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("17")</response-string>
     <description>FileName: CondExpr015  Two if expressions at same depth in larger expression, each parenthesized </description>
     <created by="David Marston" on="2003-02-10"/>
     <test> (if (3 != 2) then 16 else 0) + (if (8 = 7) then 4 else 1) </test>
@@ -194,11 +193,11 @@
       <assert-eq>17</assert-eq>
     </result>
   </test-case>
-  <test-case name="CondExpr016">
+  <test-case name="CondExpr016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;FileName&gt;File00000000001&lt;/FileName&gt;,&lt;FileName&gt;File00000000002&lt;/FileName&gt;,&lt;FileName&gt;File00000000003&lt;/FileName&gt;,&lt;FileName&gt;File00000000004&lt;/FileName&gt;,&lt;FileName&gt;File00000000005&lt;/FileName&gt;,&lt;FileName&gt;File00000000006&lt;/FileName&gt;,&lt;FileName&gt;File00000000007&lt;/FileName&gt;,&lt;FileName&gt;File00000000008&lt;/FileName&gt;,&lt;FileName&gt;File00000000009&lt;/FileName&gt;,&lt;FileName&gt;File00000000010&lt;/FileName&gt;,&lt;FileName&gt;File00000000011&lt;/FileName&gt;,&lt;FileName&gt;File00000000012&lt;/FileName&gt;,&lt;FileName&gt;File00000000013&lt;/FileName&gt;,&lt;FileName&gt;File00000000014&lt;/FileName&gt;,&lt;FileName&gt;File00000000015&lt;/FileName&gt;,&lt;FileName&gt;File00000000016&lt;/FileName&gt;,&lt;FileName&gt;File00000000017&lt;/FileName&gt;,&lt;FileName&gt;File00000000018&lt;/FileName&gt;,&lt;FileName&gt;File00000000019&lt;/FileName&gt;,&lt;FileName&gt;File00000000020&lt;/FileName&gt;,&lt;FileName&gt;File00000000021&lt;/FileName&gt;,&lt;FileName&gt;File00000000022&lt;/FileName&gt;,&lt;FileName&gt;File00000000023&lt;/FileName&gt;,&lt;FileName&gt;File00000000024&lt;/FileName&gt;,&lt;FileName&gt;File00000000025&lt;/FileName&gt;,&lt;FileName&gt;File00000000026&lt;/FileName&gt;,&lt;FileName&gt;File00000000027&lt;/FileName&gt;,&lt;FileName&gt;File00000000028&lt;/FileName&gt;,&lt;FileName&gt;File00000000029&lt;/FileName&gt;,&lt;FileName&gt;File00000000030&lt;/FileName&gt;,&lt;FileName&gt;File00000000031&lt;/FileName&gt;,&lt;FileName&gt;File00000000032&lt;/FileName&gt;,&lt;FileName&gt;File00000000033&lt;/FileName&gt;,&lt;FileName&gt;File00000000034&lt;/FileName&gt;,&lt;FileName&gt;File00000000035&lt;/FileName&gt;,&lt;FileName&gt;File00000000036&lt;/FileName&gt;,&lt;FileName&gt;File00000000037&lt;/FileName&gt;,&lt;FileName&gt;File00000000038&lt;/FileName&gt;,&lt;FileName&gt;File00000000039&lt;/FileName&gt;,&lt;FileName&gt;File00000000040&lt;/FileName&gt;,&lt;FileName&gt;File00000000041&lt;/FileName&gt;,&lt;FileName&gt;File00000000042&lt;/FileName&gt;,&lt;FileName&gt;File00000000043&lt;/FileName&gt;,&lt;FileName&gt;File00000000044&lt;/FileName&gt;,&lt;FileName&gt;File00000000045&lt;/FileName&gt;,&lt;FileName&gt;File00000000046&lt;/FileName&gt;,&lt;FileName&gt;File00000000047&lt;/FileName&gt;,&lt;FileName&gt;File00000000048&lt;/FileName&gt;,&lt;FileName&gt;File00000000049&lt;/FileName&gt;,&lt;FileName&gt;File00000000050&lt;/FileName&gt;,&lt;FileName&gt;File00000000053&lt;/FileName&gt;,&lt;FileName&gt;File00000000056&lt;/FileName&gt;,&lt;FileName&gt;File00000000057&lt;/FileName&gt;,&lt;FileName&gt;File00000000060&lt;/FileName&gt;,&lt;FileName&gt;File00000000063&lt;/FileName&gt;,&lt;FileName&gt;File00000000064&lt;/FileName&gt;,&lt;FileName&gt;File00000000065&lt;/FileName&gt;,&lt;FileName&gt;File00000000068&lt;/FileName&gt;,&lt;FileName&gt;File00000000071&lt;/FileName&gt;,&lt;FileName&gt;File00000000072&lt;/FileName&gt;,&lt;FileName&gt;File00000000075&lt;/FileName&gt;,&lt;FileName&gt;File00000000077&lt;/FileName&gt;,&lt;FileName&gt;File00000000078&lt;/FileName&gt;,&lt;FileName&gt;File00000000079&lt;/FileName&gt;,&lt;FileName&gt;File00000000080&lt;/FileName&gt;,&lt;FileName&gt;File00000000081&lt;/FileName&gt;)</response-string>
     <description>FileName: CondExpr016  if where branches return different valid types </description>
     <created by="Mike Rorke" on="2005-03-17"/>
     <environment ref="fsx"/>
-    <test>(//Folder)[1]/File[ if ( ./@name='File00000000000' ) then 2 else true() ]/FileName</test>
+    <test>(//Folder)[1]/File[ if ( ./@name=&apos;File00000000000&apos; ) then 2 else true() ]/FileName</test>
     <result-string/>
     <result>
       <assert-xml>
@@ -206,11 +205,11 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="CondExpr017">
+  <test-case name="CondExpr017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;FileName&gt;File00000000000&lt;/FileName&gt;,xs:untypedAtomic("File00000000001"),xs:untypedAtomic("File00000000002"),xs:untypedAtomic("File00000000003"),xs:untypedAtomic("File00000000004"),xs:untypedAtomic("File00000000005"),xs:untypedAtomic("File00000000006"),xs:untypedAtomic("File00000000007"),xs:untypedAtomic("File00000000008"),xs:untypedAtomic("File00000000009"),xs:untypedAtomic("File00000000010"),xs:untypedAtomic("File00000000011"),xs:untypedAtomic("File00000000012"),xs:untypedAtomic("File00000000013"),xs:untypedAtomic("File00000000014"),xs:untypedAtomic("File00000000015"),xs:untypedAtomic("File00000000016"),xs:untypedAtomic("File00000000017"),xs:untypedAtomic("File00000000018"),xs:untypedAtomic("File00000000019"),xs:untypedAtomic("File00000000020"),xs:untypedAtomic("File00000000021"),xs:untypedAtomic("File00000000022"),xs:untypedAtomic("File00000000023"),xs:untypedAtomic("File00000000024"),xs:untypedAtomic("File00000000025"),xs:untypedAtomic("File00000000026"),xs:untypedAtomic("File00000000027"),xs:untypedAtomic("File00000000028"),xs:untypedAtomic("File00000000029"),xs:untypedAtomic("File00000000030"),xs:untypedAtomic("File00000000031"),xs:untypedAtomic("File00000000032"),xs:untypedAtomic("File00000000033"),xs:untypedAtomic("File00000000034"),xs:untypedAtomic("File00000000035"),xs:untypedAtomic("File00000000036"),xs:untypedAtomic("File00000000037"),xs:untypedAtomic("File00000000038"),xs:untypedAtomic("File00000000039"),xs:untypedAtomic("File00000000040"),xs:untypedAtomic("File00000000041"),xs:untypedAtomic("File00000000042"),xs:untypedAtomic("File00000000043"),xs:untypedAtomic("File00000000044"),xs:untypedAtomic("File00000000045"),xs:untypedAtomic("File00000000046"),xs:untypedAtomic("File00000000047"),xs:untypedAtomic("File00000000048"),xs:untypedAtomic("File00000000049"),xs:untypedAtomic("File00000000050"),xs:untypedAtomic("File00000000053"),xs:untypedAtomic("File00000000056"),xs:untypedAtomic("File00000000057"),xs:untypedAtomic("File00000000060"),xs:untypedAtomic("File00000000063"),xs:untypedAtomic("File00000000064"),xs:untypedAtomic("File00000000065"),xs:untypedAtomic("File00000000068"),xs:untypedAtomic("File00000000071"),xs:untypedAtomic("File00000000072"),xs:untypedAtomic("File00000000075"),xs:untypedAtomic("File00000000077"),xs:untypedAtomic("File00000000078"),xs:untypedAtomic("File00000000079"),xs:untypedAtomic("File00000000080"),xs:untypedAtomic("File00000000081"))</response-string>
     <description>FileName: CondExpr017  if where branches return different valid types </description>
     <created by="Mike Rorke" on="2005-03-17"/>
     <environment ref="fsx"/>
-    <test>for $file in (//Folder)[1]/File return if( $file/FileName='File00000000000' ) then $file/FileName else data( $file/FileName )</test>
+    <test>for $file in (//Folder)[1]/File return if( $file/FileName=&apos;File00000000000&apos; ) then $file/FileName else data( $file/FileName )</test>
     <result-string/>
     <result>
       <assert-xml>
@@ -218,27 +217,27 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="CondExpr018">
+  <test-case name="CondExpr018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:untypedAtomic("File00000000000"),xs:untypedAtomic("File00000000001"),xs:untypedAtomic("File00000000002"),xs:untypedAtomic("File00000000003"),xs:integer("1"),xs:untypedAtomic("File00000000005"),xs:untypedAtomic("File00000000006"),xs:untypedAtomic("File00000000007"),xs:untypedAtomic("File00000000008"),xs:untypedAtomic("File00000000009"),xs:untypedAtomic("File00000000010"),xs:untypedAtomic("File00000000011"),xs:untypedAtomic("File00000000012"),xs:untypedAtomic("File00000000013"),xs:untypedAtomic("File00000000014"),xs:untypedAtomic("File00000000015"),xs:untypedAtomic("File00000000016"),xs:untypedAtomic("File00000000017"),xs:untypedAtomic("File00000000018"),xs:untypedAtomic("File00000000019"),xs:untypedAtomic("File00000000020"),xs:untypedAtomic("File00000000021"),xs:untypedAtomic("File00000000022"),xs:untypedAtomic("File00000000023"),xs:untypedAtomic("File00000000024"),xs:untypedAtomic("File00000000025"),xs:untypedAtomic("File00000000026"),xs:untypedAtomic("File00000000027"),xs:untypedAtomic("File00000000028"),xs:untypedAtomic("File00000000029"),xs:untypedAtomic("File00000000030"),xs:untypedAtomic("File00000000031"),xs:untypedAtomic("File00000000032"),xs:untypedAtomic("File00000000033"),xs:untypedAtomic("File00000000034"),xs:untypedAtomic("File00000000035"),xs:untypedAtomic("File00000000036"),xs:untypedAtomic("File00000000037"),xs:untypedAtomic("File00000000038"),xs:untypedAtomic("File00000000039"),xs:untypedAtomic("File00000000040"),xs:untypedAtomic("File00000000041"),xs:untypedAtomic("File00000000042"),xs:untypedAtomic("File00000000043"),xs:untypedAtomic("File00000000044"),xs:untypedAtomic("File00000000045"),xs:untypedAtomic("File00000000046"),xs:untypedAtomic("File00000000047"),xs:untypedAtomic("File00000000048"),xs:untypedAtomic("File00000000049"),xs:untypedAtomic("File00000000050"),xs:untypedAtomic("File00000000053"),xs:untypedAtomic("File00000000056"),xs:untypedAtomic("File00000000057"),xs:untypedAtomic("File00000000060"),xs:untypedAtomic("File00000000063"),xs:untypedAtomic("File00000000064"),xs:untypedAtomic("File00000000065"),xs:untypedAtomic("File00000000068"),xs:untypedAtomic("File00000000071"),xs:untypedAtomic("File00000000072"),xs:untypedAtomic("File00000000075"),xs:untypedAtomic("File00000000077"),xs:untypedAtomic("File00000000078"),xs:untypedAtomic("File00000000079"),xs:untypedAtomic("File00000000080"),xs:untypedAtomic("File00000000081"))</response-string>
     <description>FileName: CondExpr018  if where branches return different valid types </description>
     <created by="Mike Rorke" on="2005-03-17"/>
     <environment ref="fsx"/>
-    <test>for $file in (//Folder)[1]/File return if( $file/FileName='File00000000004' ) then 1 else data( $file/FileName )</test>
+    <test>for $file in (//Folder)[1]/File return if( $file/FileName=&apos;File00000000004&apos; ) then 1 else data( $file/FileName )</test>
     <result-string>xs:string("File00000000000 File00000000001 File00000000002 File00000000003 1 File00000000005 File00000000006 File00000000007 File00000000008 File00000000009 File00000000010 File00000000011 File00000000012 File00000000013 File00000000014 File00000000015 File00000000016 File00000000017 File00000000018 File00000000019 File00000000020 File00000000021 File00000000022 File00000000023 File00000000024 File00000000025 File00000000026 File00000000027 File00000000028 File00000000029 File00000000030")</result-string>
     <result>
       <assert-string-value>File00000000000 File00000000001 File00000000002 File00000000003 1 File00000000005 File00000000006 File00000000007 File00000000008 File00000000009 File00000000010 File00000000011 File00000000012 File00000000013 File00000000014 File00000000015 File00000000016 File00000000017 File00000000018 File00000000019 File00000000020 File00000000021 File00000000022 File00000000023 File00000000024 File00000000025 File00000000026 File00000000027 File00000000028 File00000000029 File00000000030</assert-string-value>
     </result>
   </test-case>
-  <test-case name="CondExpr019">
+  <test-case name="CondExpr019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>FileName: CondExpr019  Test with test expression not contained in ( ... ) </description>
     <created by="Mike Rorke" on="2005-03-17"/>
     <environment ref="fsx"/>
     <test>if //File[1] then "true" else "false"</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="CondExpr20">
+  <test-case name="CondExpr20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>FileName: CondExpr020  Test case where then-expression raises a dynamic error, but test-expression selects else-expression so no error is raised </description>
     <created by="Mike Rorke" on="2005-03-17"/>
     <environment ref="fsx"/>
@@ -248,7 +247,7 @@
       <assert-eq>10</assert-eq>
     </result>
   </test-case>
-  <test-case name="CondExpr21">
+  <test-case name="CondExpr21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>FileName: CondExpr021  Test case where else-expression raises a dynamic error, but test-expression selects then-expression so no error is raised </description>
     <created by="Mike Rorke" on="2005-03-17"/>
     <environment ref="fsx"/>
@@ -258,16 +257,16 @@
       <assert-eq>10</assert-eq>
     </result>
   </test-case>
-  <test-case name="CondExpr022">
+  <test-case name="CondExpr022"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Test case where then-expression raises a dynamic error, but test-expression selects else-expression so no error is raised </description>
     <created by="Nicolae Brinza" on="2009-04-01"/>
-    <test>if (doc-available('nodocument.xml')) then doc('nodocument.xml') else 10 cast as xs:double</test>
+    <test>if (doc-available(&apos;nodocument.xml&apos;)) then doc(&apos;nodocument.xml&apos;) else 10 cast as xs:double</test>
     <result-string>xs:integer("10")</result-string>
     <result>
       <assert-eq>10</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-CondExpr-1">
+  <test-case name="K-CondExpr-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(if(2) then 1 else 0) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(if(2) then 1 else 0) eq 1</test>
@@ -276,7 +275,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-CondExpr-2">
+  <test-case name="K-CondExpr-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `if(()) then false() else true()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>if(()) then false() else true()</test>
@@ -285,7 +284,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-CondExpr-3">
+  <test-case name="K-CondExpr-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> An expression involving the if expression that trigger certain optimization paths in some implementations. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(if((1, current-time())[1] treat as xs:integer) then true() else false()) eq true()</test>
@@ -294,7 +293,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-CondExpr-4">
+  <test-case name="K-CondExpr-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> An expression involving the if expression that trigger certain optimization paths in some implementations(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(if(boolean((1, current-time())[1] treat as xs:integer)) then true() else false()) eq true()</test>
@@ -303,7 +302,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-CondExpr-5">
+  <test-case name="K-CondExpr-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> An expression involving the if expression that trigger certain optimization paths in some implementations(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>if((1, 2, 3, hours-from-time(current-time()))[1]) then true() else false()</test>
@@ -312,7 +311,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-CondExpr-6">
+  <test-case name="K-CondExpr-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> An expression involving the if expression that trigger certain optimization paths in some implementations(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(if(boolean((1, current-time())[1] treat as xs:integer)) then true() else false()) eq "true"</test>
@@ -321,16 +320,16 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-CondExpr-7">
+  <test-case name="K-CondExpr-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</response-string>
     <description> An if-test which EBV cannot be extracted from. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(if(current-time()) then 1 else 0) eq 1</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FORG0006"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</result-string>
     <result>
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-CondExpr-8">
+  <test-case name="K-CondExpr-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> An if-test which EBV cannot be extracted from. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 eq (if(xs:anyURI("example.com/")) then 1 else 0)</test>
@@ -339,7 +338,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-CondExpr-9">
+  <test-case name="K-CondExpr-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> An if-test which EBV cannot be extracted from. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>0 eq (if(xs:anyURI("")) then 1 else 0)</test>
@@ -348,7 +347,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-CondExpr-10">
+  <test-case name="K-CondExpr-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> An if-test applied on fn:count(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>if(count((1, 2, 3, current-time(), 4))) then true() else 4</test>
@@ -357,7 +356,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-CondExpr-11">
+  <test-case name="K-CondExpr-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> An if-test applied on fn:count() combined with fn:not(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>if(not(count(remove((1, 2, 3, current-time()), 1)))) then 3 else true()</test>
@@ -366,7 +365,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-CondExpr-12">
+  <test-case name="K-CondExpr-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> if-then clause combined with fn:boolean(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>if(boolean((1, 2, 3, current-time())[1] treat as xs:integer)) then true() else 4</test>
@@ -375,7 +374,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-CondExpr-1">
+  <test-case name="K2-CondExpr-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> An expression that can be rewritten to the empty sequence, no matter the test branch. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -391,7 +390,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-CondExpr-2">
+  <test-case name="K2-CondExpr-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> An expression that can be simplified to any of the result branches, no matter the test branch. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -403,8 +402,8 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-CondExpr-3">
-    <description> It is ok to name a function 'unordered'. </description>
+  <test-case name="K2-CondExpr-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
+    <description> It is ok to name a function &apos;unordered&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>declare default function namespace "http://www.example.com/"; declare function unordered() { 1 }; unordered()</test>
@@ -413,8 +412,8 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-CondExpr-4">
-    <description> Extract the EBV from a node sequence. Sorting and deduplication isn't necessary in that case. </description>
+  <test-case name="K2-CondExpr-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
+    <description> Extract the EBV from a node sequence. Sorting and deduplication isn&apos;t necessary in that case. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <environment ref="acme_corp"/>
     <test>if(//(employee[location = "Denver"]/ancestor::*)) then 1 else 3</test>
@@ -423,28 +422,28 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-CondExpr-5">
+  <test-case name="K2-CondExpr-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> There is no exclamation mark operator in XQuery. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>if(!true()) then 2 else 3</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-CondExpr-6">
+  <test-case name="K2-CondExpr-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> An if expression cannot directly be an axis step. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<e/>/if(true()) then 1 else 3]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-CondExpr-7">
+  <test-case name="K2-CondExpr-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Use a set of expressions that trigger a bug in some parsers. </description>
     <created by="Frans Englich" on="2008-05-08"/>
     <test>if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else if (1) then 1 else ()</test>
@@ -453,7 +452,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="cbcl-condexpr-001">
+  <test-case name="cbcl-condexpr-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("4")</response-string>
     <description> Tests if(exists($x)) then f($x) else () optimization </description>
     <created by="Nick Jones" on="2008-06-23"/>
     <dependency type="spec" value="XQ10+ XP30+"/>
@@ -466,7 +465,7 @@
       <assert-string-value>4</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-condexpr-002">
+  <test-case name="cbcl-condexpr-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("4")</response-string>
     <description> tests if(empty($x)) then () else f($x) optimization </description>
     <created by="Nick Jones" on="2008-06-23"/>
     <dependency type="spec" value="XQ10+ XP30+"/>

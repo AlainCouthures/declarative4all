@@ -1,110 +1,109 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set covers="math-atan2" name="math-atan2" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the math:atan2 function introduced in XPath 3.0</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-atan2" type="spec"/>
   <dependency type="spec" value="XP30+ XQ30+"/>
-  <test-case name="math-atan2-001">
+  <test-case name="math-atan2-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>Evaluate the function math:atan2() with the arguments +0.0e0 and -0.0e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:atan2(+0.0e0, 0.0e0)</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-atan2-002">
+  <test-case name="math-atan2-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>Evaluate the function math:atan2() with the arguments -0.0e0 and -0.0e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:atan2(-0.0e0, 0.0e0)</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>-0.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-atan2-003">
+  <test-case name="math-atan2-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("3.141592653589793")</response-string>
     <description>Evaluate the function math:atan2() with the arguments +0.0e0 and -0.0e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
-    <modified by="O'Neil Delpratt" change="Bug #19783 - change expected result" on="2012-11-08"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug #19783 - change expected result" on="2012-11-08"/>
     <environment ref="math"/>
     <test>math:atan2(+0.0e0, -0.0e0)</test>
-    <result-string>xs:double("3.141592653589793e0")</result-string>
+    <result-string>xs:double("3.141592653589793")</result-string>
     <result>
       <assert>abs($result - 3.141592653589793e0) lt 1e-14</assert>
     </result>
   </test-case>
-  <test-case name="math-atan2-004">
+  <test-case name="math-atan2-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-3.141592653589793")</response-string>
     <description>Evaluate the function math:atan2() with the arguments -0.0e0 and -0.0e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
-    <modified by="O'Neil Delpratt" change="Bug #19783 - change expected result" on="2012-11-08"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug #19783 - change expected result" on="2012-11-08"/>
     <environment ref="math"/>
     <test>math:atan2(-0.0e0, -0.0e0)</test>
-    <result-string>xs:double("-3.141592653589793e0")</result-string>
+    <result-string>xs:double("-3.141592653589793")</result-string>
     <result>
       <assert>abs($result + 3.141592653589793e0) lt 1e-14</assert>
     </result>
   </test-case>
-  <test-case name="math-atan2-005">
+  <test-case name="math-atan2-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.5707963267948966")</response-string>
     <description>Evaluate the function math:atan2() with the arguments -1 and -0.0e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
-    <modified by="O'Neil Delpratt" change="Bug #19783 - change expected result" on="2012-11-08"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug #19783 - change expected result" on="2012-11-08"/>
     <environment ref="math"/>
     <test>math:atan2(-1, -0.0e0)</test>
-    <result-string>xs:double("-1.5707963267948966e0")</result-string>
+    <result-string>xs:double("-1.5707963267948966")</result-string>
     <result>
       <assert>abs($result + 1.5707963267948966e0) lt 1e-14</assert>
     </result>
   </test-case>
-  <test-case name="math-atan2-006">
+  <test-case name="math-atan2-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.5707963267948966")</response-string>
     <description>Evaluate the function math:atan2() with the arguments +1 and 0.0e0</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
-    <modified by="O'Neil Delpratt" change="Bug #19783 - change expected result" on="2012-11-08"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug #19783 - change expected result" on="2012-11-08"/>
     <environment ref="math"/>
     <test>math:atan2(+1, 0.0e0)</test>
-    <result-string>xs:double("1.5707963267948966e0")</result-string>
+    <result-string>xs:double("1.5707963267948966")</result-string>
     <result>
       <assert>abs($result - 1.5707963267948966e0) lt 1e-14</assert>
     </result>
   </test-case>
-  <test-case name="math-atan2-007">
+  <test-case name="math-atan2-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-3.141592653589793")</response-string>
     <description>Evaluate the function math:atan2() with the arguments -0.0e0 and -1</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
-    <modified by="O'Neil Delpratt" change="Bug #19783 - change expected result" on="2012-11-08"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug #19783 - change expected result" on="2012-11-08"/>
     <environment ref="math"/>
     <test>math:atan2(-0.0e0, -1)</test>
-    <result-string>xs:double("-3.141592653589793e0")</result-string>
+    <result-string>xs:double("-3.141592653589793")</result-string>
     <result>
       <assert>abs($result + 3.141592653589793e0) lt 1e-14</assert>
     </result>
   </test-case>
-  <test-case name="math-atan2-008">
+  <test-case name="math-atan2-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("3.141592653589793")</response-string>
     <description>Evaluate the function math:atan2() with the arguments +0.0e0 and -1</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
-    <modified by="O'Neil Delpratt" change="Bug #19783 - change expected result" on="2012-11-08"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug #19783 - change expected result" on="2012-11-08"/>
     <environment ref="math"/>
     <test>math:atan2(+0.0e0, -1)</test>
-    <result-string>xs:double("3.141592653589793e0")</result-string>
+    <result-string>xs:double("3.141592653589793")</result-string>
     <result>
       <assert>abs($result - 3.141592653589793e0) lt 1e-14</assert>
     </result>
   </test-case>
-  <test-case name="math-atan2-009">
+  <test-case name="math-atan2-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>Evaluate the function math:atan2() with the arguments -0.0e0 and +1</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:atan2(-0.0e0, +1)</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>-0.0e0</assert-eq>
     </result>
   </test-case>
-  <test-case name="math-atan2-010">
+  <test-case name="math-atan2-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description>Evaluate the function math:atan2() with the arguments +0.0e0 and +1</description>
-    <created by="O'Neil Delpratt, Saxonica" on="2010-12-10"/>
+    <created by="O&apos;Neil Delpratt, Saxonica" on="2010-12-10"/>
     <environment ref="math"/>
     <test>math:atan2(+0.0e0, +1)</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>+0.0e0</assert-eq>
     </result>

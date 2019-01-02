@@ -1,17 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-doc-available" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the doc-available() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-doc-available" type="spec"/>
-  <test-case name="fn-doc-available-1">
+  <test-case name="fn-doc-available-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Evaluation of ana fn:doc-available function with wrong arity. </description>
     <created by="Carmelo Montanez" on="2006-07-11"/>
     <test>fn:doc-available("http://example.com","string 2")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="fn-doc-available-2">
+  <test-case name="fn-doc-available-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Evaluation of ana fn:doc-available function with wrong argument type. </description>
     <created by="Carmelo Montanez" on="2006-07-11"/>
     <test>fn:doc-available(xs:integer(2))</test>
@@ -20,12 +19,12 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-doc-available-3">
+  <test-case name="fn-doc-available-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Check that a document with duplicated xml:id attributes is flagged. </description>
     <created by="Frans Englich" on="2008-01-15"/>
     <environment>
       <source file="id/XMLIdDuplicated.xml" uri="id/XMLIdDuplicated.xml"/>
-      <param as="xs:string" name="uri" select="'id/XMLIdDuplicated.xml'"/>
+      <param as="xs:string" name="uri" select="&apos;id/XMLIdDuplicated.xml&apos;"/>
     </environment>
     <test>fn:doc-available($uri)</test>
     <result-string>xs:boolean("false")</result-string>
@@ -37,12 +36,12 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-doc-available-4">
+  <test-case name="fn-doc-available-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Check that a document with an invalid xml:id attribute is flagged. </description>
     <created by="Frans Englich" on="2008-01-15"/>
     <environment>
       <source file="id/InvalidXMLId.xml" uri="id/InvalidXMLId.xml"/>
-      <param as="xs:string" name="uri" select="'id/InvalidXMLId.xml'"/>
+      <param as="xs:string" name="uri" select="&apos;id/InvalidXMLId.xml&apos;"/>
     </environment>
     <test>fn:doc-available($uri)</test>
     <result-string>xs:boolean("true")</result-string>
@@ -54,7 +53,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-doc-available-5">
+  <test-case name="fn-doc-available-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Evaluation of fn:doc-available function using document URI of a known document. </description>
     <created by="Michael Kay" on="2010-01-04"/>
     <environment ref="works-mod"/>
@@ -64,7 +63,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-doc-available-6">
+  <test-case name="fn-doc-available-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Evaluation of fn:doc-available function using a URI that does not exist. </description>
     <created by="Michael Kay" on="2010-01-04"/>
     <test>fn:doc-available("file:///a/b/c/wefdobqciyvdsoihnfcpinads.xml")</test>
@@ -73,7 +72,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-doc-available-7">
+  <test-case name="fn-doc-available-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Evaluation of fn:doc-available function using an empty sequence. </description>
     <created by="Andrew Eisenberg" on="2010-01-04"/>
     <test>fn:doc-available(())</test>
@@ -82,7 +81,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-doc-available-8">
+  <test-case name="fn-doc-available-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Evaluation of fn:doc-available function using a URI that exists but is not XML. </description>
     <created by="Michael Kay" on="2011-07-12"/>
     <test>fn:doc-available("../prod/ModuleImport/module1-lib.xq")</test>
@@ -91,10 +90,10 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDocAvailableFunc-1">
-    <description> ':/' is an invalid URI, no scheme. Under erratum FO.E26, this may either throw FODC0005, or return false </description>
+  <test-case name="K2-SeqDocAvailableFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
+    <description> &apos;:/&apos; is an invalid URI, no scheme. Under erratum FO.E26, this may either throw FODC0005, or return false </description>
     <created by="Frans Englich" on="2008-01-15"/>
-    <test>doc-available(':/')</test>
+    <test>doc-available(&apos;:/&apos;)</test>
     <result-string>xs:boolean("false")</result-string>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FODC0005"))</result-string>
     <result>
@@ -104,7 +103,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-doc-available-001">
+  <test-case name="cbcl-doc-available-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> test fn:doc-available on () </description>
     <created by="Tim Mills" on="2008-04-10"/>
     <test>fn:doc-available( () )</test>
@@ -113,11 +112,11 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-doc-available-002">
+  <test-case name="cbcl-doc-available-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> test fn:doc-available on invalid input </description>
     <created by="Tim Mills" on="2008-04-10"/>
     <modified by="Michael Kay" change="implementations are not required to report invalid URI" on="2012-12-31"/>
-    <test>fn:doc-available( '%gg' )</test>
+    <test>fn:doc-available( &apos;%gg&apos; )</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FODC0005"))</result-string>
     <result-string>xs:boolean("false")</result-string>
     <result>
@@ -127,16 +126,16 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-doc-available-003">
+  <test-case name="cbcl-doc-available-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> test fn:doc-available on a URI which is not that of a document </description>
     <created by="Tim Mills" on="2008-04-10"/>
-    <test>fn:doc-available( 'collection1' )</test>
+    <test>fn:doc-available( &apos;collection1&apos; )</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-doc-available-004">
+  <test-case name="cbcl-doc-available-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Test doc-available with a URL </description>
     <created by="Nick Jones" on="2008-06-12"/>
     <modified by="Michael Kay" change="implementations are not required to report invalid URI" on="2012-12-31"/>

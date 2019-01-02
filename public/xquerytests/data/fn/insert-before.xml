@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-insert-before" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the insert-before() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-insert-before" type="spec"/>
-  <test-case name="fn-insert-before-mix-args-001">
+  <test-case name="fn-insert-before-mix-args-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("z"),xs:string("a"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg1: Sequence of string, arg2:integer, arg3: string </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:insert-before( ("a", "b", "c"),1, "z")</test>
@@ -11,7 +10,7 @@
       <assert-deep-eq>"z", "a", "b", "c"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-insert-before-mix-args-002">
+  <test-case name="fn-insert-before-mix-args-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg1: Sequence of string, arg2:integer, arg3: empty sequence </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:insert-before( ("a", "b", "c"),0, ())</test>
@@ -20,7 +19,7 @@
       <assert-deep-eq>"a", "b", "c"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-insert-before-mix-args-003">
+  <test-case name="fn-insert-before-mix-args-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg1: Sequence of string, arg2:integer, arg3: empty sequence </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:insert-before( ("a", "b", "c"),2, ())</test>
@@ -29,7 +28,7 @@
       <assert-deep-eq>"a", "b", "c"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-insert-before-mix-args-004">
+  <test-case name="fn-insert-before-mix-args-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:string(" "),xs:string("b"),xs:string("c"))</response-string>
     <description> arg1: Sequence of string, arg2:integer, arg3: string </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:insert-before( ("a", "b", "c"),2, xs:string(" "))</test>
@@ -38,7 +37,7 @@
       <assert-deep-eq>"a", " ", "b", "c"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-insert-before-mix-args-005">
+  <test-case name="fn-insert-before-mix-args-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:anyURI("www.example.com"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg1: Sequence of string, arg2:integer, arg3: anyURI </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:insert-before( ("a", "b", "c"),2, xs:anyURI("www.example.com"))</test>
@@ -47,7 +46,7 @@
       <assert-deep-eq>"a", "www.example.com", "b", "c"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-insert-before-mix-args-006">
+  <test-case name="fn-insert-before-mix-args-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:integer("100"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg1: Sequence of string, arg2:integer, arg3: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:insert-before( ("a", "b", "c"),2, xs:integer("100"))</test>
@@ -56,7 +55,7 @@
       <assert-deep-eq>"a", 100, "b", "c"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-insert-before-mix-args-007">
+  <test-case name="fn-insert-before-mix-args-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:decimal("1.1"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg1: Sequence of string, arg2:integer, arg3: decimal </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:insert-before( ("a", "b", "c"),2, xs:decimal("1.1"))</test>
@@ -65,61 +64,61 @@
       <assert-deep-eq>"a", 1.1, "b", "c"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-insert-before-mix-args-008">
+  <test-case name="fn-insert-before-mix-args-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:float("1.1"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg1: Sequence of string, arg2:integer, arg3: float </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:insert-before( ("a", "b", "c"),2, xs:float("1.1"))</test>
-    <result-string>(xs:string("a"),xs:float("1.1e0"),xs:string("b"),xs:string("c"))</result-string>
+    <result-string>(xs:string("a"),xs:float("1.1"),xs:string("b"),xs:string("c"))</result-string>
     <result>
       <assert-deep-eq>"a", 1.1, "b", "c"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-insert-before-mix-args-009">
+  <test-case name="fn-insert-before-mix-args-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:float("NaN"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg1: Sequence of string, arg2:integer, arg3: float </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:insert-before( ("a", "b", "c"),2, xs:float("NaN"))</test>
     <result-string>(xs:string("a"),xs:float("NaN"),xs:string("b"),xs:string("c"))</result-string>
     <result>
-      <assert-deep-eq>"a", xs:float('NaN'), "b", "c"</assert-deep-eq>
+      <assert-deep-eq>"a", xs:float(&apos;NaN&apos;), "b", "c"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-insert-before-mix-args-010">
+  <test-case name="fn-insert-before-mix-args-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:float("0"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg1: Sequence of string, arg2:integer, arg3: float </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:insert-before( ("a", "b", "c"),2, xs:float("-0"))</test>
-    <result-string>(xs:string("a"),xs:float("0.0e0"),xs:string("b"),xs:string("c"))</result-string>
+    <result-string>(xs:string("a"),xs:float("0"),xs:string("b"),xs:string("c"))</result-string>
     <result>
       <assert-deep-eq>"a", 0, "b", "c"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-insert-before-mix-args-011">
+  <test-case name="fn-insert-before-mix-args-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:float("-INF"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg1: Sequence of string, arg2:integer, arg3: float </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:insert-before( ("a", "b", "c"),2, xs:float("-INF"))</test>
     <result-string>(xs:string("a"),xs:float("-INF"),xs:string("b"),xs:string("c"))</result-string>
     <result>
-      <assert-deep-eq>"a", xs:float('-INF'), "b", "c"</assert-deep-eq>
+      <assert-deep-eq>"a", xs:float(&apos;-INF&apos;), "b", "c"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-insert-before-mix-args-012">
+  <test-case name="fn-insert-before-mix-args-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:double("NaN"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg1: Sequence of string, arg2:integer, arg3: double </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:insert-before( ("a", "b", "c"),2, xs:double("NaN"))</test>
     <result-string>(xs:string("a"),xs:double("NaN"),xs:string("b"),xs:string("c"))</result-string>
     <result>
-      <assert-deep-eq>"a", xs:double('NaN'),  "b", "c"</assert-deep-eq>
+      <assert-deep-eq>"a", xs:double(&apos;NaN&apos;),  "b", "c"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-insert-before-mix-args-013">
+  <test-case name="fn-insert-before-mix-args-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:double("INF"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg1: Sequence of string, arg2:integer, arg3: double </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:insert-before( ("a", "b", "c"),2, xs:double("INF"))</test>
     <result-string>(xs:string("a"),xs:double("INF"),xs:string("b"),xs:string("c"))</result-string>
     <result>
-      <assert-deep-eq>"a", xs:double('INF'), "b", "c"</assert-deep-eq>
+      <assert-deep-eq>"a", xs:double(&apos;INF&apos;), "b", "c"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-insert-before-mix-args-014">
+  <test-case name="fn-insert-before-mix-args-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:boolean("true"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg1: Sequence of string, arg2:integer, arg3: boolean </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:insert-before( ("a", "b", "c"),2, xs:boolean("1"))</test>
@@ -128,7 +127,7 @@
       <assert-deep-eq>"a", true(), "b", "c"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-insert-before-mix-args-015">
+  <test-case name="fn-insert-before-mix-args-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:boolean("false"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg1: Sequence of string, arg2:integer, arg3: boolean </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:insert-before( ("a", "b", "c"),2, xs:boolean("0"))</test>
@@ -137,7 +136,7 @@
       <assert-deep-eq>"a", false(), "b", "c"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-insert-before-mix-args-016">
+  <test-case name="fn-insert-before-mix-args-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:boolean("true"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg1: Sequence of string, arg2:integer, arg3: boolean </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:insert-before( ("a", "b", "c"),2, xs:boolean("true"))</test>
@@ -146,7 +145,7 @@
       <assert-deep-eq>"a", true(), "b", "c"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-insert-before-mix-args-017">
+  <test-case name="fn-insert-before-mix-args-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:boolean("false"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg1: Sequence of string, arg2:integer, arg3: boolean </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:insert-before( ("a", "b", "c"),2, xs:boolean("false"))</test>
@@ -155,34 +154,34 @@
       <assert-deep-eq>"a", false(),  "b",  "c"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-insert-before-mix-args-018">
+  <test-case name="fn-insert-before-mix-args-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:string("b"),xs:string("c"),xs:date("1993-03-31"))</response-string>
     <description> arg1: Sequence of string, arg2:integer, arg3: date </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:insert-before( ("a", "b", "c"),4, xs:date("1993-03-31"))</test>
     <result-string>(xs:string("a"),xs:string("b"),xs:string("c"),xs:date("1993-03-31"))</result-string>
     <result>
-      <assert-deep-eq>"a", "b", "c", xs:date('1993-03-31')</assert-deep-eq>
+      <assert-deep-eq>"a", "b", "c", xs:date(&apos;1993-03-31&apos;)</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-insert-before-mix-args-019">
+  <test-case name="fn-insert-before-mix-args-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:string("b"),xs:string("c"),xs:dateTime("1972-12-31T00:00:00"))</response-string>
     <description> arg1: Sequence of string, arg2:integer, arg3: dateTime </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:insert-before( ("a", "b", "c"),4, xs:dateTime("1972-12-31T00:00:00"))</test>
     <result-string>(xs:string("a"),xs:string("b"),xs:string("c"),xs:dateTime("1972-12-31T00:00:00"))</result-string>
     <result>
-      <assert-deep-eq>"a", "b", "c", xs:dateTime('1972-12-31T00:00:00')</assert-deep-eq>
+      <assert-deep-eq>"a", "b", "c", xs:dateTime(&apos;1972-12-31T00:00:00&apos;)</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-insert-before-mix-args-020">
+  <test-case name="fn-insert-before-mix-args-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:string("b"),xs:string("c"),xs:time("12:30:00"))</response-string>
     <description> arg1: Sequence of string, arg2:integer, arg3: time </description>
     <created by="Pulkita Tyagi" on="2005-05-25"/>
     <test>fn:insert-before( ("a", "b", "c"),4, xs:time("12:30:00"))</test>
     <result-string>(xs:string("a"),xs:string("b"),xs:string("c"),xs:time("12:30:00"))</result-string>
     <result>
-      <assert-deep-eq>"a", "b", "c", xs:time('12:30:00')</assert-deep-eq>
+      <assert-deep-eq>"a", "b", "c", xs:time(&apos;12:30:00&apos;)</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="K-SeqInsertBeforeFunc-1">
+  <test-case name="K-SeqInsertBeforeFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `insert-before()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>insert-before()</test>
@@ -191,7 +190,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqInsertBeforeFunc-2">
+  <test-case name="K-SeqInsertBeforeFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `insert-before("wrong params", 2)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>insert-before("wrong params", 2)</test>
@@ -200,7 +199,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqInsertBeforeFunc-3">
+  <test-case name="K-SeqInsertBeforeFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `insert-before("wrong params", 2, 3, 4)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>insert-before("wrong params", 2, 3, 4)</test>
@@ -209,7 +208,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqInsertBeforeFunc-4">
+  <test-case name="K-SeqInsertBeforeFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> The second argument to fn:insert-before cannot be the empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>insert-before((), (), "a string")</test>
@@ -218,7 +217,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-SeqInsertBeforeFunc-5">
+  <test-case name="K-SeqInsertBeforeFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `insert-before((), -31, "a string") eq "a string"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>insert-before((), -31, "a string") eq "a string"</test>
@@ -227,7 +226,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqInsertBeforeFunc-6">
+  <test-case name="K-SeqInsertBeforeFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `count(insert-before((1, 2, 3), 1, (4, 5, 6))) eq 6`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(insert-before((1, 2, 3), 1, (4, 5, 6))) eq 6</test>
@@ -236,7 +235,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqInsertBeforeFunc-7">
+  <test-case name="K-SeqInsertBeforeFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `insert-before((), 1, 3) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>insert-before((), 1, 3) eq 3</test>
@@ -245,7 +244,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqInsertBeforeFunc-8">
+  <test-case name="K-SeqInsertBeforeFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `insert-before((), 1, "a string") eq "a string"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>insert-before((), 1, "a string") eq "a string"</test>
@@ -254,7 +253,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqInsertBeforeFunc-9">
+  <test-case name="K-SeqInsertBeforeFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `count(insert-before((), 1, (1, 2, 3))) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(insert-before((), 1, (1, 2, 3))) eq 3</test>
@@ -263,7 +262,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqInsertBeforeFunc-10">
+  <test-case name="K-SeqInsertBeforeFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `insert-before((), 30, 7) eq 7`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>insert-before((), 30, 7) eq 7</test>
@@ -272,7 +271,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqInsertBeforeFunc-11">
+  <test-case name="K-SeqInsertBeforeFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(insert-before((1, 2, 3, 4), 30, ())) eq 4`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(insert-before((1, 2, 3, 4), 30, ())) eq 4</test>
@@ -281,7 +280,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqInsertBeforeFunc-12">
+  <test-case name="K-SeqInsertBeforeFunc-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `insert-before(9, 30, ()) eq 9`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>insert-before(9, 30, ()) eq 9</test>
@@ -290,7 +289,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqInsertBeforeFunc-13">
+  <test-case name="K-SeqInsertBeforeFunc-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(insert-before((1, 2, 3, 4), 1, ())) eq 4`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(insert-before((1, 2, 3, 4), 1, ())) eq 4</test>
@@ -299,7 +298,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqInsertBeforeFunc-14">
+  <test-case name="K-SeqInsertBeforeFunc-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `count(insert-before((1, 2, 3), 30, (4, 5, 6))) eq 6`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(insert-before((1, 2, 3), 30, (4, 5, 6))) eq 6</test>
@@ -308,7 +307,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqInsertBeforeFunc-15">
+  <test-case name="K-SeqInsertBeforeFunc-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `count(insert-before((), 30, (1, 2, 3))) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(insert-before((), 30, (1, 2, 3))) eq 3</test>
@@ -317,7 +316,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqInsertBeforeFunc-16">
+  <test-case name="K-SeqInsertBeforeFunc-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A test whose essence is: `count(insert-before((error(), 1), 1, (1, "two", 3)))  1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(insert-before((error(), 1), 1, (1, "two", 3)))  1</test>
@@ -330,7 +329,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-SeqInsertBeforeFunc-17">
+  <test-case name="K-SeqInsertBeforeFunc-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Apply a predicate to the result of fn:insert-before(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(insert-before((1, current-time(), 3), 1, (4, 5, 6))[last()] treat as xs:integer) eq 3</test>
@@ -339,7 +338,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqInsertBeforeFunc-18">
+  <test-case name="K-SeqInsertBeforeFunc-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Apply a predicate to the result of fn:insert-before(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(insert-before((1, current-time(), 3), 10, (4, 5, 6))[last()] treat as xs:integer) eq 6</test>
@@ -348,7 +347,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqInsertBeforeFunc-19">
+  <test-case name="K-SeqInsertBeforeFunc-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Apply a predicate to the result of fn:insert-before(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(insert-before((1, current-time(), 3), 10, (4, 5, 6))[last() - 3] treat as xs:integer) eq 3</test>
@@ -357,7 +356,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqInsertBeforeFunc-20">
+  <test-case name="K-SeqInsertBeforeFunc-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Apply a predicate to the result of fn:insert-before(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(insert-before((1, current-time(), 3), 10, ())[last()] treat as xs:integer) eq 3</test>
@@ -366,7 +365,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqInsertBeforeFunc-21">
+  <test-case name="K-SeqInsertBeforeFunc-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Apply a predicate to the result of fn:insert-before(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(insert-before((1, current-time(), 3), 0, (4, 5, 6))[last() - 10])</test>
@@ -375,7 +374,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-insert-before-001">
+  <test-case name="cbcl-fn-insert-before-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> tests insert-before at known positions </description>
     <created by="Nick Jones" on="2008-06-13"/>
     <test>insert-before(1 to 10,5,20 to 30)</test>
@@ -384,7 +383,7 @@
       <assert-string-value>1 2 3 4 20 21 22 23 24 25 26 27 28 29 30 5 6 7 8 9 10</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-insert-before-002">
+  <test-case name="cbcl-fn-insert-before-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("6"),xs:integer("7"),xs:integer("8"),xs:integer("9"),xs:integer("10"),xs:integer("20"),xs:string("blah"),xs:integer("22"),xs:integer("24"),xs:integer("26"),xs:integer("28"),xs:integer("30"),xs:integer("30"),xs:integer("31"),xs:integer("32"),xs:integer("33"),xs:integer("34"),xs:integer("35"),xs:integer("36"),xs:integer("37"),xs:integer("38"),xs:integer("39"),xs:integer("40"))</response-string>
     <description> Tests insert-before for known positions </description>
     <created by="Nick Jones" on="2008-06-13"/>
     <test>

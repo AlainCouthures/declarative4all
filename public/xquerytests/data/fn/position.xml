@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-position" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the position() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-position" type="spec"/>
-  <test-case name="position-1">
+  <test-case name="position-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn"position", where context function is an element node and position is first. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -12,7 +11,7 @@
       <assert-string-value>Jane Doe 1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="position-2">
+  <test-case name="position-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position", where the context node is not defined. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="empty"/>
@@ -22,7 +21,7 @@
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="position-3">
+  <test-case name="position-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn"position", where the last item is selected. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -32,7 +31,7 @@
       <assert-string-value>Jane Doe 13</assert-string-value>
     </result>
   </test-case>
-  <test-case name="position-4">
+  <test-case name="position-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn"position" together with "fn:last". </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -42,7 +41,7 @@
       <assert-string-value>Jane Doe 13</assert-string-value>
     </result>
   </test-case>
-  <test-case name="position-5">
+  <test-case name="position-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" together with "fn:last" (format last() = position()). </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -52,7 +51,7 @@
       <assert-string-value>Jane Doe 13</assert-string-value>
     </result>
   </test-case>
-  <test-case name="position-6">
+  <test-case name="position-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn"position" together with a variable of type integer </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -62,7 +61,7 @@
       <assert-string-value>Jane Doe 1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="position-7">
+  <test-case name="position-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn"position" together with a variable of type string casted to integer inside the predicate. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -72,7 +71,7 @@
       <assert-string-value>Jane Doe 1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="position-8">
+  <test-case name="position-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn"position" where two position functions are used inside the predicate. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -82,7 +81,7 @@
       <assert-deep-eq>"Monday", "Tuesday"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="position-9">
+  <test-case name="position-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" where the position function is used inside a second predicate. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -92,7 +91,7 @@
       <assert-string-value>Jane Doe 1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="position-10">
+  <test-case name="position-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" where the position function is used inside the first predicate. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -102,7 +101,7 @@
       <assert-string-value>Jane Doe 1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="position-11">
+  <test-case name="position-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" used in conjucntion with the fn:not function </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -112,7 +111,7 @@
       <assert-string-value>Tuesday</assert-string-value>
     </result>
   </test-case>
-  <test-case name="position-12">
+  <test-case name="position-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" as a predicate to a wildcard (*). </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -122,7 +121,7 @@
       <assert-deep-eq>"Monday", "Tuesday"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="position-13">
+  <test-case name="position-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" used together with an addition operation. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -132,7 +131,7 @@
       <assert-string-value>John Doe 4</assert-string-value>
     </result>
   </test-case>
-  <test-case name="position-14">
+  <test-case name="position-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" used together with a subtraction operation. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -142,7 +141,7 @@
       <assert-string-value>Jane Doe 3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="position-15">
+  <test-case name="position-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" used together with a multiplication operation. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -152,7 +151,7 @@
       <assert-string-value>John Doe 6</assert-string-value>
     </result>
   </test-case>
-  <test-case name="position-16">
+  <test-case name="position-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" used together with a division (div) operation. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -162,7 +161,7 @@
       <assert-string-value>Jane Doe 3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="position-17">
+  <test-case name="position-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" used together with a division (idiv) operation. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -172,7 +171,7 @@
       <assert-string-value>Jane Doe 3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="position-18">
+  <test-case name="position-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" used together with a logical expression ("and" operator and "true" function). </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -182,7 +181,7 @@
       <assert-deep-eq>"Monday", "Tuesday"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="position-19">
+  <test-case name="position-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" used together with a logical expression ("and" operator and "false" function). </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -196,7 +195,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="position-20">
+  <test-case name="position-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" used together with a logical expression ("or" operator and "true" function). </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -206,7 +205,7 @@
       <assert-deep-eq>"Monday", "Tuesday"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="position-21">
+  <test-case name="position-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" used together with a logical expression ("or" operator and "false" function). </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -216,7 +215,7 @@
       <assert-deep-eq>"Monday", "Tuesday"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="position-22">
+  <test-case name="position-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" used in the middle of a path expression. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -226,7 +225,7 @@
       <assert-deep-eq>"Monday", "Tuesday"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="position-23">
+  <test-case name="position-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Top-level call on position()</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <environment ref="works-mod"/>
@@ -236,16 +235,16 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-1">
+  <test-case name="K-ContextPositionFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `position(1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>position(1)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-2">
+  <test-case name="K-ContextPositionFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> A test whose essence is: `(1, 2, 3)[if(1) then 1 else position()]`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3)[if(1) then 1 else position()]</test>
@@ -254,8 +253,8 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-3">
-    <description> fn:position() can never return 0('='). </description>
+  <test-case name="K-ContextPositionFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+    <description> fn:position() can never return 0(&apos;=&apos;). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty((1, 2, 3, current-time(), current-date(), 6, 7, 8) [position() = 0])</test>
     <result-string>xs:boolean("true")</result-string>
@@ -263,8 +262,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-4">
-    <description> fn:position() can never return 0('='), #2. </description>
+  <test-case name="K-ContextPositionFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+    <description> fn:position() can never return 0(&apos;=&apos;), #2. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty((1, 2, 3, current-time(), current-date(), 6, 7, 8) [0 = position()])</test>
     <result-string>xs:boolean("true")</result-string>
@@ -272,8 +271,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-5">
-    <description> fn:position() can never return 0('eq'). </description>
+  <test-case name="K-ContextPositionFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+    <description> fn:position() can never return 0(&apos;eq&apos;). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty((1, 2, 3, current-time(), current-date(), 6, 7, 8) [position() eq 0])</test>
     <result-string>xs:boolean("true")</result-string>
@@ -281,8 +280,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-6">
-    <description> fn:position() can never return 0('eq'), #2. </description>
+  <test-case name="K-ContextPositionFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+    <description> fn:position() can never return 0(&apos;eq&apos;), #2. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty((1, 2, 3, current-time(), current-date(), 6, 7, 8) [0 eq position()])</test>
     <result-string>xs:boolean("true")</result-string>
@@ -290,8 +289,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-7">
-    <description> fn:position() can never return 0('!='). </description>
+  <test-case name="K-ContextPositionFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description> fn:position() can never return 0(&apos;!=&apos;). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [position() != 0], (1, 2, 3, 4))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -299,8 +298,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-8">
-    <description> fn:position() can never return 0('ne'). </description>
+  <test-case name="K-ContextPositionFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description> fn:position() can never return 0(&apos;ne&apos;). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [position() ne 0], (1, 2, 3, 4))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -308,8 +307,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-9">
-    <description> fn:position() can never return 0('!='), #2. </description>
+  <test-case name="K-ContextPositionFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description> fn:position() can never return 0(&apos;!=&apos;), #2. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [0 != position()], (1, 2, 3, 4))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -317,8 +316,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-10">
-    <description> fn:position() can never return 0('ne'), #2. </description>
+  <test-case name="K-ContextPositionFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description> fn:position() can never return 0(&apos;ne&apos;), #2. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [0 ne position()], (1, 2, 3, 4))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -326,7 +325,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-11">
+  <test-case name="K-ContextPositionFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> fn:position() can never return anything less than 1(lt). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty((1, 2, 3, current-time(), current-date(), 6, 7, 8) [position() lt 1])</test>
@@ -335,7 +334,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-12">
+  <test-case name="K-ContextPositionFunc-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> fn:position() can never return anything less than 1(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -346,7 +345,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-13">
+  <test-case name="K-ContextPositionFunc-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> fn:position() can never return anything less or equal to 0(le). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty((1, 2, 3, current-time(), current-date(), 6, 7, 8) [position() le 0])</test>
@@ -355,7 +354,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-14">
+  <test-case name="K-ContextPositionFunc-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> fn:position() can never return anything less or equal to 0(=). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -366,8 +365,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-15">
-    <description> The return value of fn:position() is always greater than 0('ne'). </description>
+  <test-case name="K-ContextPositionFunc-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> The return value of fn:position() is always greater than 0(&apos;ne&apos;). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [position()  0], (1, 2, 3, 4))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -375,8 +374,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-16">
-    <description> The return value of fn:position() is always greater than 0(''). </description>
+  <test-case name="K-ContextPositionFunc-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> The return value of fn:position() is always greater than 0(&apos;&apos;). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [position()  0], (1, 2, 3, 4))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -384,8 +383,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-17">
-    <description> The return value of fn:position() is always greater than 0('gt'). </description>
+  <test-case name="K-ContextPositionFunc-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description> The return value of fn:position() is always greater than 0(&apos;gt&apos;). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [position() gt 0], (1, 2, 3, 4))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -393,8 +392,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-18">
-    <description> The return value of fn:position() is always greater or equal to 0('='). </description>
+  <test-case name="K-ContextPositionFunc-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description> The return value of fn:position() is always greater or equal to 0(&apos;=&apos;). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [position() = 1], (1, 2, 3, 4))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -402,8 +401,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-19">
-    <description> The return value of fn:position() is always greater or equal to 0('ge'). </description>
+  <test-case name="K-ContextPositionFunc-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description> The return value of fn:position() is always greater or equal to 0(&apos;ge&apos;). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [position() ge 1], (1, 2, 3, 4))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -411,7 +410,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-20">
+  <test-case name="K-ContextPositionFunc-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 eq (0, 1, current-time(), 4)[position() = 2] treat as xs:integer</test>
@@ -420,7 +419,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-21">
+  <test-case name="K-ContextPositionFunc-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 eq (0, 1, current-time(), 4)[position() eq 2] treat as xs:integer</test>
@@ -429,7 +428,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-22">
+  <test-case name="K-ContextPositionFunc-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 eq (0, 1, current-time(), 4)[2 eq position()] treat as xs:integer</test>
@@ -438,7 +437,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-23">
+  <test-case name="K-ContextPositionFunc-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 eq (0, 1, current-time(), 4)[2 = position()] treat as xs:integer</test>
@@ -447,7 +446,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-24">
+  <test-case name="K-ContextPositionFunc-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 4), (1, 2, current-time(), 4)[position() != 3])</test>
@@ -456,7 +455,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-25">
+  <test-case name="K-ContextPositionFunc-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 4), (1, 2, current-time(), 4)[position() ne 3])</test>
@@ -465,7 +464,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-26">
+  <test-case name="K-ContextPositionFunc-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 4), (1, 2, current-time(), 4)[3 ne position()])</test>
@@ -474,7 +473,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-27">
+  <test-case name="K-ContextPositionFunc-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 4), (1, 2, current-time(), 4)[3 != position()])</test>
@@ -483,7 +482,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-28">
+  <test-case name="K-ContextPositionFunc-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 3), (1, 2, 3, current-time())[position() lt 4])</test>
@@ -492,7 +491,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-29">
+  <test-case name="K-ContextPositionFunc-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -503,7 +502,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-30">
+  <test-case name="K-ContextPositionFunc-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 3), (1, 2, 3, current-time())[4 gt position()])</test>
@@ -512,7 +511,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-31">
+  <test-case name="K-ContextPositionFunc-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 3), (1, 2, 3, current-time())[4  position()])</test>
@@ -521,7 +520,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-32">
+  <test-case name="K-ContextPositionFunc-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 3), (1, 2, 3, current-time())[position() le 3])</test>
@@ -530,7 +529,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-33">
+  <test-case name="K-ContextPositionFunc-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -541,7 +540,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-34">
+  <test-case name="K-ContextPositionFunc-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 3), (1, 2, 3, current-time())[3 ge position()])</test>
@@ -550,7 +549,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-35">
+  <test-case name="K-ContextPositionFunc-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 3), (1, 2, 3, current-time())[3 = position()])</test>
@@ -559,7 +558,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-36">
+  <test-case name="K-ContextPositionFunc-36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((4, 5), (1, 2, current-time(), 4, 5)[3 lt position()])</test>
@@ -568,7 +567,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-37">
+  <test-case name="K-ContextPositionFunc-37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -579,7 +578,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-38">
+  <test-case name="K-ContextPositionFunc-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((4, 5), (1, 2, current-time(), 4, 5)[position() gt 3])</test>
@@ -588,7 +587,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-39">
+  <test-case name="K-ContextPositionFunc-39"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((4, 5), (1, 2, current-time(), 4, 5)[position()  3])</test>
@@ -597,7 +596,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-40">
+  <test-case name="K-ContextPositionFunc-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((4, 5), (1, 2, current-time(), 4, 5)[4 le position()])</test>
@@ -606,7 +605,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-41">
+  <test-case name="K-ContextPositionFunc-41"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -617,7 +616,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-42">
+  <test-case name="K-ContextPositionFunc-42"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((4, 5), (1, 2, current-time(), 4, 5)[position() ge 4])</test>
@@ -626,7 +625,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextPositionFunc-43">
+  <test-case name="K-ContextPositionFunc-43"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> position() combined with a comparison operator inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((4, 5), (1, 2, current-time(), 4, 5)[position() = 4])</test>

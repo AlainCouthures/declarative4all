@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="prod-DirElemConstructor" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the DirElemConstructor (Direct Element Constructor) production</description>
   <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-DirElemConstructor" type="spec"/>
   <link document="XQuery" idref="id-element-constructor" section-number="3.7.1" type="spec"/>
   <dependency type="spec" value="XQ10+"/>
-  <test-case name="Constr-elem-empty-1">
+  <test-case name="Constr-elem-empty-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem/&gt;</response-string>
     <description> Empty element constructor </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <dependency type="spec" value="XQ10+"/>
@@ -18,7 +17,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-elem-empty-2">
+  <test-case name="Constr-elem-empty-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem/&gt;</response-string>
     <description> Empty element constructor with closing tag </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <dependency type="spec" value="XQ10+"/>
@@ -32,7 +31,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-elem-empty-3">
+  <test-case name="Constr-elem-empty-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Number of child nodes for empty element </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <dependency type="spec" value="XQ10+"/>
@@ -44,7 +43,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-elem-empty-4">
+  <test-case name="Constr-elem-empty-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Number of child nodes for empty element </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <dependency type="spec" value="XQ10+"/>
@@ -60,7 +59,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="Constr-elem-empty-5">
+  <test-case name="Constr-elem-empty-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem/&gt;</response-string>
     <description> Whitespace in element constructor </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <dependency type="spec" value="XQ10+"/>
@@ -74,7 +73,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case covers="error-XQST0118" name="Constr-elem-matchtag-1">
+  <test-case covers="error-XQST0118" name="Constr-elem-matchtag-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Begin tag matches end tag </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <dependency type="spec" value="XQ10+"/>
@@ -86,7 +85,7 @@
       <error code="XQST0118"/>
     </result>
   </test-case>
-  <test-case covers="error-XQST0118" name="Constr-elem-matchtag-2">
+  <test-case covers="error-XQST0118" name="Constr-elem-matchtag-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Begin tag matches end tag with namespace prefix </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <dependency type="spec" value="XQ10+"/>
@@ -98,7 +97,7 @@
       <error code="XQST0118"/>
     </result>
   </test-case>
-  <test-case name="Constr-elem-curlybr-1">
+  <test-case name="Constr-elem-curlybr-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem&gt;{&lt;/elem&gt;</response-string>
     <description> Element constructor with open curly brace </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <dependency type="spec" value="XQ10+"/>
@@ -112,7 +111,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-elem-curlybr-2">
+  <test-case name="Constr-elem-curlybr-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem&gt;}&lt;/elem&gt;</response-string>
     <description> Element constructor with closing curly brace </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <dependency type="spec" value="XQ10+"/>
@@ -126,7 +125,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-elem-curlybr-3">
+  <test-case name="Constr-elem-curlybr-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem&gt;{&lt;/elem&gt;</response-string>
     <description> Character reference for open curly brace </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <dependency type="spec" value="XQ10+"/>
@@ -140,7 +139,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-elem-curlybr-4">
+  <test-case name="Constr-elem-curlybr-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem&gt;}&lt;/elem&gt;</response-string>
     <description> Character reference for closing curly brace </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <dependency type="spec" value="XQ10+"/>
@@ -154,32 +153,32 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-elem-curlybr-5">
+  <test-case name="Constr-elem-curlybr-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Single open curly brace </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<elem>{</elem>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Constr-elem-curlybr-6">
+  <test-case name="Constr-elem-curlybr-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Single closing curly brace </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<elem>}</elem>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-1">
-    <description> Ensure processing-instructions aren't included when extracting the string-value from elements. </description>
+  <test-case name="K2-DirectConElem-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Ensure processing-instructions aren&apos;t included when extracting the string-value from elements. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -190,8 +189,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-2">
-    <description> Ensure comments aren't included when extracting the string-value from elements. </description>
+  <test-case name="K2-DirectConElem-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> Ensure comments aren&apos;t included when extracting the string-value from elements. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -202,67 +201,67 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-3">
+  <test-case name="K2-DirectConElem-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-4">
+  <test-case name="K2-DirectConElem-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[< foo/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-5">
+  <test-case name="K2-DirectConElem-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<foo/ >]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-6">
+  <test-case name="K2-DirectConElem-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[< foo></foo>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-7">
+  <test-case name="K2-DirectConElem-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<foo>< /foo>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-8">
+  <test-case name="K2-DirectConElem-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;foo/&gt;</response-string>
     <description> Syntax error in direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -274,27 +273,27 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-9">
+  <test-case name="K2-DirectConElem-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<foo]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-10">
+  <test-case name="K2-DirectConElem-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<prefix:foo]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0081"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <any-of>
         <error code="XPST0003"/>
@@ -302,7 +301,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-11">
+  <test-case name="K2-DirectConElem-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;prefix: foo="foo"/&gt;</response-string>
     <description> Syntax error in direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -314,7 +313,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-12">
+  <test-case name="K2-DirectConElem-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;foo attr="a string&amp;gt;&amp;lt;&amp;lt;&amp;lt;"/&gt;</response-string>
     <description> Syntax error in direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -326,34 +325,34 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-13">
+  <test-case name="K2-DirectConElem-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[</>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-14">
+  <test-case name="K2-DirectConElem-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntactically invalid direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<e> content}</e>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case covers="error-XQST0118" name="K2-DirectConElem-15">
+  <test-case covers="error-XQST0118" name="K2-DirectConElem-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntactically invalid direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <modified by="O'Neil Delpratt" change="Bug fix related to bug #14340. The error code changed from XPST0003 to XQST0118" on="2012-05-22"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug fix related to bug #14340. The error code changed from XPST0003 to XQST0118" on="2012-05-22"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<f><c></f></c>]]>
@@ -363,116 +362,116 @@
       <error code="XQST0118"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-16">
+  <test-case name="K2-DirectConElem-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntactically invalid direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<a><b><c/><d/><a/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-17">
+  <test-case name="K2-DirectConElem-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntactically invalid direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<a><b><c/><b/><d/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-18">
+  <test-case name="K2-DirectConElem-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntactically invalid direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<elem>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-19">
+  <test-case name="K2-DirectConElem-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntactically invalid direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<elem>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-20">
+  <test-case name="K2-DirectConElem-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntactically invalid direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<elem><]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-21">
+  <test-case name="K2-DirectConElem-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntactically invalid direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<elem><[]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-22">
+  <test-case name="K2-DirectConElem-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntactically invalid direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<elem><![]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-23">
+  <test-case name="K2-DirectConElem-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntactically invalid direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<elem><!-]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-24">
+  <test-case name="K2-DirectConElem-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntactically invalid direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<elem>&</elem>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-25">
-    <description> Enclosed expressions aren't allowed inside element constructors. </description>
+  <test-case name="K2-DirectConElem-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem {"attribute-name"}="attribute value"/&gt;</response-string>
+    <description> Enclosed expressions aren&apos;t allowed inside element constructors. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -483,8 +482,8 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-26">
-    <description> Enclosed expressions aren't allowed inside element constructors.(#2). </description>
+  <test-case name="K2-DirectConElem-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attributename="{&amp;quot;attribute" value"}="value&amp;quot;}"/&gt;</response-string>
+    <description> Enclosed expressions aren&apos;t allowed inside element constructors.(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -495,8 +494,8 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-27">
-    <description> Enclosed expressions aren't allowed inside element constructors.(#3). </description>
+  <test-case name="K2-DirectConElem-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attributename="{&amp;quot;attribute" value"}="value&amp;quot;}"/&gt;</response-string>
+    <description> Enclosed expressions aren&apos;t allowed inside element constructors.(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -507,7 +506,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-28">
+  <test-case name="K2-DirectConElem-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;a/&gt;</response-string>
     <description> A simple direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -521,7 +520,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-29">
+  <test-case name="K2-DirectConElem-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;e&gt;a&lt;/e&gt;,&lt;e&gt;b&lt;/e&gt;,&lt;e&gt;c&lt;/e&gt;)</response-string>
     <description> Serialize a sequence of direct element constructors. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -535,7 +534,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-30">
+  <test-case name="K2-DirectConElem-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem&gt;some text&lt;node/&gt;some text&lt;/elem&gt;</response-string>
     <description> Serialize a couple of element constructors. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -549,7 +548,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-31">
+  <test-case name="K2-DirectConElem-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;foo&gt;&lt;doo/&gt;&lt;/foo&gt;</response-string>
     <description> A couple of simple elements. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -563,7 +562,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-32">
+  <test-case name="K2-DirectConElem-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;foo&gt;&lt;doo/&gt;&lt;/foo&gt;</response-string>
     <description> A couple of simple elements(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -577,7 +576,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-33">
+  <test-case name="K2-DirectConElem-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;foo&gt;&lt;doo/&gt;&lt;/foo&gt;</response-string>
     <description> A couple of simple elements(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -591,7 +590,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-34">
+  <test-case name="K2-DirectConElem-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> An element with a computed attribute and element. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -605,8 +604,8 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case covers="reserved-namespaces" name="K2-DirectConElem-35">
-    <description> Bind the 'xml' namespace URI to an invalid prefix. </description>
+  <test-case covers="reserved-namespaces" name="K2-DirectConElem-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;e xmlns:aPrefixOtherThanXml="http://www.w3.org/XML/1998/namespace"/&gt;</response-string>
+    <description> Bind the &apos;xml&apos; namespace URI to an invalid prefix. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -617,8 +616,8 @@
       <error code="XQST0070"/>
     </result>
   </test-case>
-  <test-case covers="reserved-namespaces" name="K2-DirectConElem-36">
-    <description> Bind the 'xml' namespace URI to an invalid prefix(#2). </description>
+  <test-case covers="reserved-namespaces" name="K2-DirectConElem-36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;e xmlns="http://www.w3.org/XML/1998/namespace"/&gt;</response-string>
+    <description> Bind the &apos;xml&apos; namespace URI to an invalid prefix(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -629,8 +628,8 @@
       <error code="XQST0070"/>
     </result>
   </test-case>
-  <test-case covers="reserved-namespaces" name="K2-DirectConElem-37">
-    <description> Bind the 'xml' namespace URI to an invalid prefix(#3). </description>
+  <test-case covers="reserved-namespaces" name="K2-DirectConElem-37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;e xmlns:XML="http://www.w3.org/XML/1998/namespace"/&gt;</response-string>
+    <description> Bind the &apos;xml&apos; namespace URI to an invalid prefix(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -641,8 +640,8 @@
       <error code="XQST0070"/>
     </result>
   </test-case>
-  <test-case covers="reserved-namespaces" name="K2-DirectConElem-38">
-    <description> Bind the 'xml' namespace URI to a valid prefix. The output doesn't expect the declaration because the c14n specification ignores declarations of the xml prefix if it binds to the XML namespace(see section 2.3). In either case, serializing this declaration is redundant. See the public report #4217 in W3C's Bugzilla database. </description>
+  <test-case covers="reserved-namespaces" name="K2-DirectConElem-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;e xmlns:xml="http://www.w3.org/XML/1998/namespace"/&gt;</response-string>
+    <description> Bind the &apos;xml&apos; namespace URI to a valid prefix. The output doesn&apos;t expect the declaration because the c14n specification ignores declarations of the xml prefix if it binds to the XML namespace(see section 2.3). In either case, serializing this declaration is redundant. See the public report #4217 in W3C&apos;s Bugzilla database. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -655,8 +654,8 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case covers="reserved-namespaces" name="K2-DirectConElem-39">
-    <description> Bind the 'xmlns' namespace URI to an invalid prefix(#3). </description>
+  <test-case covers="reserved-namespaces" name="K2-DirectConElem-39"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;e xmlns:xmlns="http://www.w3.org/XML/1998/namespace"/&gt;</response-string>
+    <description> Bind the &apos;xmlns&apos; namespace URI to an invalid prefix(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -667,8 +666,8 @@
       <error code="XQST0070"/>
     </result>
   </test-case>
-  <test-case covers="reserved-namespaces" name="K2-DirectConElem-40">
-    <description> Bind the 'xmlns' namespace URI to an invalid prefix(#3). </description>
+  <test-case covers="reserved-namespaces" name="K2-DirectConElem-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;e xmlns:xmlns="http://www.w3.org/2000/xmlns/"/&gt;</response-string>
+    <description> Bind the &apos;xmlns&apos; namespace URI to an invalid prefix(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -679,8 +678,8 @@
       <error code="XQST0070"/>
     </result>
   </test-case>
-  <test-case covers="reserved-namespaces" name="K2-DirectConElem-41">
-    <description> Bind the 'xmlns' namespace URI to an invalid prefix(#3). </description>
+  <test-case covers="reserved-namespaces" name="K2-DirectConElem-41"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;e xmlns:xmlns="http://www.example.com/"/&gt;</response-string>
+    <description> Bind the &apos;xmlns&apos; namespace URI to an invalid prefix(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -691,7 +690,7 @@
       <error code="XQST0070"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-42">
+  <test-case name="K2-DirectConElem-42"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Use a content sequence that is a strange combination of a computed document constructor and a path. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -705,7 +704,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-43">
+  <test-case name="K2-DirectConElem-43"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Use a content sequence that is a computed document constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -719,7 +718,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-44">
+  <test-case name="K2-DirectConElem-44"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("text")</response-string>
     <description> Extract the string value of a single element node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -731,19 +730,19 @@
       <assert-string-value>text</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-45">
+  <test-case name="K2-DirectConElem-45"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:untypedAtomic("text")</response-string>
     <description> Extract the typed value of a single element node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[data(<e>text</e>)]]>
     </test>
-    <result-string>xs:string("text")</result-string>
+    <result-string>xs:untypedAtomic("text")</result-string>
     <result>
       <assert-string-value>text</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-46">
+  <test-case name="K2-DirectConElem-46"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;p:e/&gt;</response-string>
     <description> Use an element constructor that use a namespace declare in a prolog declaration. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -757,7 +756,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-47">
+  <test-case name="K2-DirectConElem-47"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Use content that needs to be escaped, inside namespace declaration attributes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <modified by="Michael Kay" change="remove error XQST0022, as per bug 22335 (and bbug 13966)" on="2013-06-21"/>
@@ -776,7 +775,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-48">
+  <test-case name="K2-DirectConElem-48"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> In XQuery, as opposed to XML, the sequence ]] is allowed in element content. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -786,7 +785,7 @@
       <assert-string-value>]]</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-49">
+  <test-case name="K2-DirectConElem-49"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> In XQuery, as opposed to XML, the sequence ]] is allowed in attribute content. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -796,7 +795,7 @@
       <assert-xml>e attr="]]"/</assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-50">
+  <test-case name="K2-DirectConElem-50"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;e attr="&amp;lt;"/&gt;</response-string>
     <description> Character  cannot appear in attributes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -808,7 +807,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-51">
+  <test-case name="K2-DirectConElem-51"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Ensure that whitespace normalization of xml:id is performed. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -822,7 +821,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-52">
+  <test-case name="K2-DirectConElem-52"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;a&gt;&amp;#223;&lt;/a&gt;</response-string>
     <description> Output sharp S. </description>
     <created by="Frans Englich" on="2008-05-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -836,18 +835,18 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-53">
-    <description> There is no 'namespace' constructor in XQuery 1.0. </description>
+  <test-case name="K2-DirectConElem-53"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> There is no &apos;namespace&apos; constructor in XQuery 1.0. </description>
     <created by="Frans Englich" on="2008-05-23"/>
     <dependency type="spec" value="XQ10"/>
     <test>namespace {"p"} {"abc"}</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-53a">
-    <description> There is a 'namespace' constructor in XQuery 3.0. </description>
+  <test-case name="K2-DirectConElem-53a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> There is a &apos;namespace&apos; constructor in XQuery 3.0. </description>
     <created by="Michael Kay" on="2011-07-22"/>
     <dependency type="spec" value="XQ30"/>
     <test>namespace {"p"} {"abc"}</test>
@@ -859,11 +858,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElem-54">
-    <description> There is no 'namespace-node' constructor in XQuery. </description>
+  <test-case name="K2-DirectConElem-54"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> There is no &apos;namespace-node&apos; constructor in XQuery. </description>
     <created by="Frans Englich" on="2008-05-23"/>
     <test>namespace-node {"p"} {"abc"}</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>

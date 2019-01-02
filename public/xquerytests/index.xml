@@ -3,6 +3,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:xf="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog">
 	<head>
 		<title>XQuery Test Suite</title>
+		<style>
+		table {
+			word-wrap:break-word;
+			width:100%;
+			margin:auto;
+			border-collapse: collapse;
+			table-layout:fixed;
+		}
+		td, th {
+		    border: 1px solid black;
+		}		</style>
 		<xf:model>
 			<xf:instance id="selected">
 				<qt:test-set/>
@@ -14,7 +25,7 @@
 			<xf:instance id="response-string" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
 				<response-string>In progress...</response-string>
 			</xf:instance>
-			<xf:submission method="get" replace="instance" instance="test-set" serialization="none">
+			<xf:submission id="get-test-set" method="get" replace="instance" instance="test-set" serialization="none">
 				<xf:resource value="concat('data/',.)"/>
 				<xf:action ev:event="xforms-submit-done">
 					<xf:load resource="javascript:document.getElementById('divtests').scrollTop=0"/>
@@ -25,6 +36,9 @@
 						</xf:load>
 					</xf:action>
 				</xf:action>
+			</xf:submission>
+			<xf:submission id="put-test-set" method="put" ref="instance('test-set')" replace="none">
+				<xf:resource value="concat('data/',.)"/>
 			</xf:submission>
 			<xf:setvalue ev:event="evaluate-response" ref="instance('test-set')/qt:test-case[@name = event('testname')]/qt:response-string" value="event('result')"/>
 		</xf:model>
@@ -110,15 +124,20 @@
 				<xf:label ref="@name"/>
 				<xf:value ref="@file"/>
 			</xf:itemset>
-			<xf:send ev:event="xforms-value-changed"/>
+			<xf:send submission="get-test-set" ev:event="xforms-value-changed"/>
 		</xf:select1>
-		<div id="divtests" style="height:640px; overflow-y: scroll;">
-		<table border="1">
+		<xf:trigger>
+			<xf:label>Save</xf:label>
+			<xf:send submission="put-test-set" ev:event="DOMActivate"/>
+		</xf:trigger>
+		<xf:output value="choose(. = '', '', concat('&#160;&#160;&#160;',count(instance('test-set')/qt:test-case[qt:response-string = qt:result-string]), '/', count(instance('test-set')/qt:test-case)))"/>
+		<div id="divtests" style="height:630px; overflow-y: scroll;">
+		<table>
 			<tbody>
 				<xf:repeat id="tests" ref="instance('test-set')/qt:test-case">
 					<tr>
-						<td style="width:100px"><xf:output value="qt:test"/></td>
-						<td>
+						<td><xf:output value="qt:test"/></td>
+						<td width="3.3%">
 							<xf:trigger>
 								<xf:label>Run</xf:label>
 								<xf:load ev:event="DOMActivate" show="new">
@@ -126,8 +145,18 @@
 								</xf:load>
 							</xf:trigger>
 						</td>
-						<td style="width:100px"><span style="color:{choose(qt:response-string = qt:result-string, 'green', 'red')}"><xf:output value="qt:response-string"/></span></td>
-						<td style="width:100px"><xf:output value="qt:result-string"/></td>
+						<td>
+							<div style="color:{choose(qt:response-string = qt:result-string, 'green', 'red')}"><xf:output value="qt:response-string"/></div>
+							<div><xf:output ref="qt:result-string[. != ../qt:response-string]"/></div>
+						</td>
+						<td width="3.1%">
+							<xf:trigger>
+								<xf:label>OK</xf:label>
+								<xf:action ev:event="DOMActivate">
+									<xf:setvalue ref="qt:result-string" value="../qt:response-string"/>
+								</xf:action>
+							</xf:trigger>
+						</td>
 					</tr>
 				</xf:repeat>
 			</tbody>

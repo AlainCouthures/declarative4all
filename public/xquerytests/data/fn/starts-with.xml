@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-starts-with" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the starts-with() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-starts-with" type="spec"/>
-  <test-case name="fn-starts-with2args-1">
+  <test-case name="fn-starts-with2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "starts-with" function with the arguments set as follows: $arg1 = xs:string(lower bound) $arg2 = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:starts-with(xs:string("This is a characte"),xs:string("This is a characte"))</test>
@@ -11,7 +10,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-starts-with2args-2">
+  <test-case name="fn-starts-with2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "starts-with" function with the arguments set as follows: $arg1 = xs:string(mid range) $arg2 = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:starts-with(xs:string("This is a characte"),xs:string("This is a characte"))</test>
@@ -20,7 +19,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-starts-with2args-3">
+  <test-case name="fn-starts-with2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "starts-with" function with the arguments set as follows: $arg1 = xs:string(upper bound) $arg2 = xs:string(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:starts-with(xs:string("This is a characte"),xs:string("This is a characte"))</test>
@@ -29,7 +28,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-starts-with2args-4">
+  <test-case name="fn-starts-with2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "starts-with" function with the arguments set as follows: $arg1 = xs:string(lower bound) $arg2 = xs:string(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:starts-with(xs:string("This is a characte"),xs:string("This is a characte"))</test>
@@ -38,7 +37,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-starts-with2args-5">
+  <test-case name="fn-starts-with2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "starts-with" function with the arguments set as follows: $arg1 = xs:string(lower bound) $arg2 = xs:string(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:starts-with(xs:string("This is a characte"),xs:string("This is a characte"))</test>
@@ -47,7 +46,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-starts-with-1">
+  <test-case name="fn-starts-with-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "starts-with" function with the arguments set as follows: $arg1 = "" $arg2 = "" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:starts-with("","")</test>
@@ -56,7 +55,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-starts-with-2">
+  <test-case name="fn-starts-with-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "starts-with" function with the arguments set as follows: $arg1 = "" $arg2 = "A Character String" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:starts-with("","A Character String")</test>
@@ -65,7 +64,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-starts-with-3">
+  <test-case name="fn-starts-with-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "starts-with" function with the arguments set as follows: $arg1 = "" $arg2 = "A Character String" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:starts-with("A Character String","")</test>
@@ -74,7 +73,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-starts-with-4">
+  <test-case name="fn-starts-with-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "starts-with" function with the arguments set as follows: $arg1 = () $arg2 = "" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:starts-with((),"")</test>
@@ -83,7 +82,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-starts-with-5">
+  <test-case name="fn-starts-with-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "starts-with" function with the arguments set as follows: $arg1 = "" $arg2 = () </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:starts-with("",())</test>
@@ -92,7 +91,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-starts-with-6">
+  <test-case name="fn-starts-with-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "starts-with" function with the arguments set as follows: $arg1 = "A Character String" $arg2 = () </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:starts-with("A Character String",())</test>
@@ -101,7 +100,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-starts-with-7">
+  <test-case name="fn-starts-with-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "starts-with" function with the arguments set as follows: $arg1 = () $arg2 = "A Character String" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:starts-with((),"A Character String")</test>
@@ -110,7 +109,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-starts-with-8">
+  <test-case name="fn-starts-with-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "starts-with" function with the arguments set as follows: $arg1 = "AAAAABBBBBCCCCC" $arg2 = "BBBBB" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:starts-with("AAAAABBBBBCCCCC","BBBBB")</test>
@@ -119,7 +118,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-starts-with-9">
+  <test-case name="fn-starts-with-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "starts-with" function with the arguments set as follows: $arg1 = "AAAAABBBBB" $arg2 = " " </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:starts-with("AAAAABBBBB"," ")</test>
@@ -128,7 +127,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-starts-with-10">
+  <test-case name="fn-starts-with-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "starts-with" function with the arguments set as follows: $arg1 = " " $arg2 = " AAAAABBBBB" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:starts-with(" ","AAAAABBBBB")</test>
@@ -137,7 +136,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-starts-with-11">
+  <test-case name="fn-starts-with-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "starts-with" function using it as a argument of a fn:not - returns false </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:not(fn:starts-with("A","A"))</test>
@@ -146,7 +145,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-starts-with-12">
+  <test-case name="fn-starts-with-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "starts-with" function using it as a argument of a fn:not - returns true </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:not(fn:starts-with("A","B"))</test>
@@ -155,7 +154,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-starts-with-13">
+  <test-case name="fn-starts-with-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "starts-with" function with the arguments set as follows: $arg1 = xs:string("A") $arg2 = "A" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:starts-with(xs:string("A"),"A")</test>
@@ -164,7 +163,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-starts-with-14">
+  <test-case name="fn-starts-with-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "starts-with" function with the arguments set as follows: $arg1 = "A" $arg2 = xs:string("A") </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:starts-with("A",xs:string("A"))</test>
@@ -173,7 +172,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-starts-with-15">
+  <test-case name="fn-starts-with-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "starts-with" function with the arguments set as follows: $arg1 = "A" $arg2 = "a" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:starts-with("A","a")</test>
@@ -182,7 +181,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-starts-with-16">
+  <test-case name="fn-starts-with-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "starts-with" function with the arguments set as follows: $arg1 = "a" $arg2 = "A" </description>
     <created by="Carmelo Montanez" on="2005-05-27"/>
     <test>fn:starts-with("a","A")</test>
@@ -191,7 +190,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K-StartsWithFunc-1">
+  <test-case name="K-StartsWithFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `starts-with()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>starts-with()</test>
@@ -200,7 +199,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-StartsWithFunc-2">
+  <test-case name="K-StartsWithFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `starts-with(())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>starts-with(())</test>
@@ -209,7 +208,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-StartsWithFunc-3">
+  <test-case name="K-StartsWithFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `starts-with((), (), "http://www.w3.org/2005/xpath-functions/collation/codepoint", "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>starts-with((), (), "http://www.w3.org/2005/xpath-functions/collation/codepoint", "wrong param")</test>
@@ -218,7 +217,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-StartsWithFunc-4">
+  <test-case name="K-StartsWithFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002"))</response-string>
     <description> A test whose essence is: `starts-with("a string", "a string", "http://www.example.com/COLLATION/NOT/SUPPORTED")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>starts-with("a string", "a string", "http://www.example.com/COLLATION/NOT/SUPPORTED")</test>
@@ -227,7 +226,7 @@
       <error code="FOCH0002"/>
     </result>
   </test-case>
-  <test-case name="K-StartsWithFunc-5">
+  <test-case name="K-StartsWithFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `starts-with("foo", "foo", "http://www.w3.org/2005/xpath-functions/collation/codepoint")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>starts-with("foo", "foo", "http://www.w3.org/2005/xpath-functions/collation/codepoint")</test>
@@ -236,7 +235,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-StartsWithFunc-6">
+  <test-case name="K-StartsWithFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `starts-with("foo", "foo")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>starts-with("foo", "foo")</test>
@@ -245,7 +244,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-StartsWithFunc-7">
+  <test-case name="K-StartsWithFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `starts-with("tattoo", "tat")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>starts-with("tattoo", "tat")</test>
@@ -254,7 +253,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-StartsWithFunc-8">
+  <test-case name="K-StartsWithFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(starts-with("tattoo", "att"))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(starts-with("tattoo", "att"))</test>
@@ -263,7 +262,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-StartsWithFunc-9">
+  <test-case name="K-StartsWithFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `starts-with((), ())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>starts-with((), ())</test>
@@ -272,7 +271,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-StartsWithFunc-10">
+  <test-case name="K-StartsWithFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `starts-with("a string", ())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>starts-with("a string", ())</test>
@@ -281,7 +280,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-StartsWithFunc-11">
+  <test-case name="K-StartsWithFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(starts-with("", "a string"))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(starts-with("", "a string"))</test>
@@ -290,7 +289,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-StartsWithFunc-1">
+  <test-case name="K2-StartsWithFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Compare two values returned from fn:lower-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -302,7 +301,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-StartsWithFunc-2">
+  <test-case name="K2-StartsWithFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Compare two values returned from fn:upper-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -314,7 +313,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-StartsWithFunc-3">
+  <test-case name="K2-StartsWithFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Compare two non-matching values returned from fn:lower-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -326,7 +325,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-StartsWithFunc-4">
+  <test-case name="K2-StartsWithFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Compare two non-matching values returned from fn:upper-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -338,7 +337,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-StartsWithFunc-5">
+  <test-case name="K2-StartsWithFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Compare two non-matching values returned from fn:lower-case() and fn:upper-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -350,7 +349,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-StartsWithFunc-6">
+  <test-case name="K2-StartsWithFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Compare two non-matching values returned from fn:lower-case() and fn:upper-case(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -362,11 +361,11 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-starts-with-001">
+  <test-case name="cbcl-starts-with-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test fn:starts-with with collation and empty string </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <test>
-        fn:boolean(fn:starts-with('input', '', 'http://www.w3.org/2005/xpath-functions/collation/codepoint'))
+        fn:boolean(fn:starts-with(&apos;input&apos;, &apos;&apos;, &apos;http://www.w3.org/2005/xpath-functions/collation/codepoint&apos;))
       </test>
     <result-string>xs:boolean("true")</result-string>
     <result>

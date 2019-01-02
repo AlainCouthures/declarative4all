@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-remove" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the remove() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-remove" type="spec"/>
-  <test-case name="fn-remove-mix-args-001">
+  <test-case name="fn-remove-mix-args-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("b"),xs:string("c"))</response-string>
     <description> arg1: sequence of string, arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove ( ("a", "b", "c"), 1)</test>
@@ -11,7 +10,7 @@
       <assert-deep-eq>"b", "c"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-remove-mix-args-002">
+  <test-case name="fn-remove-mix-args-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg1: sequence of string, arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove ( ("a", "b", "c"), 0)</test>
@@ -20,7 +19,7 @@
       <assert-deep-eq>"a", "b", "c"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-remove-mix-args-003">
+  <test-case name="fn-remove-mix-args-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:string("b"),xs:boolean("true"))</response-string>
     <description> arg1: sequence of string, arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove ( ("a", "b", "c", true()), 3)</test>
@@ -29,7 +28,7 @@
       <assert-deep-eq>"a", "b", true()</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-remove-mix-args-004">
+  <test-case name="fn-remove-mix-args-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("xyz"),xs:string("b"))</response-string>
     <description> arg1: sequence of string, arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove ( (xs:string("xyz"), (), (), "a" , "b"), 2)</test>
@@ -38,7 +37,7 @@
       <assert-deep-eq>"xyz", "b"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-remove-mix-args-005">
+  <test-case name="fn-remove-mix-args-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:anyURI("www.example.com"),xs:string(""),xs:string("b"))</response-string>
     <description> arg1: sequence of string,anyURI,arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove( (xs:anyURI("www.example.com"), "a", (""), "b"), 2)</test>
@@ -47,7 +46,7 @@
       <assert-deep-eq>"www.example.com", "", "b"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-remove-mix-args-006">
+  <test-case name="fn-remove-mix-args-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:anyURI("www.example.com"),xs:string("a"),xs:string(""),xs:string("b"))</response-string>
     <description> arg1: sequence of string,anyURI,arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove( (xs:anyURI("www.example.com"), "a", (""), "b"), 10)</test>
@@ -56,7 +55,7 @@
       <assert-deep-eq>"www.example.com", "a", "",  "b"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-remove-mix-args-007">
+  <test-case name="fn-remove-mix-args-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:anyURI("www.example.com"),xs:string("a"),xs:string(""),xs:string("b"))</response-string>
     <description> arg1: sequence of string,anyURI,arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove( (xs:anyURI("www.example.com"), "a", (""), "b"), -20)</test>
@@ -65,7 +64,7 @@
       <assert-deep-eq>"www.example.com", "a", "",  "b"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-remove-mix-args-008">
+  <test-case name="fn-remove-mix-args-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("abc")</response-string>
     <description> arg1:sequence of string,integer,arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove( (xs:integer("100"), xs:string("abc")), 1)</test>
@@ -74,7 +73,7 @@
       <assert-eq>"abc"</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-remove-mix-args-009">
+  <test-case name="fn-remove-mix-args-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:decimal("1.01"),xs:integer("12"))</response-string>
     <description> arg1: sequence of decimal, integer, anyURI arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove( (xs:decimal("1.01"), xs:integer("12"), xs:anyURI("www.example.com")),3)</test>
@@ -83,25 +82,25 @@
       <assert-deep-eq>1.01, 12</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-remove-mix-args-010">
+  <test-case name="fn-remove-mix-args-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1.01")</response-string>
     <description> arg1: sequence of string,float ,arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove( (xs:float("1.01"), xs:string("a")), 2)</test>
-    <result-string>xs:float("1.01e0")</result-string>
+    <result-string>xs:float("1.01")</result-string>
     <result>
       <assert-eq>1.01</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-remove-mix-args-011">
+  <test-case name="fn-remove-mix-args-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("NaN"),xs:integer("2"))</response-string>
     <description> arg1: sequence of float,integer,arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove( (xs:float("NaN"), 100, (), 2), 2)</test>
     <result-string>(xs:float("NaN"),xs:integer("2"))</result-string>
     <result>
-      <assert-deep-eq>xs:float('NaN'), 2</assert-deep-eq>
+      <assert-deep-eq>xs:float(&apos;NaN&apos;), 2</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-remove-mix-args-012">
+  <test-case name="fn-remove-mix-args-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("-INF"),xs:string("abc"))</response-string>
     <description> arg1: sequence of string,float, decimal arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove( (xs:float("-INF"), xs:decimal("2.34"), "abc"), 2)</test>
@@ -110,7 +109,7 @@
       <assert-deep-eq>xs:float("-INF"), "abc"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-remove-mix-args-013">
+  <test-case name="fn-remove-mix-args-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("INF"),xs:boolean("true"))</response-string>
     <description> arg1: sequence of double,float,boolean ,arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove( (xs:double("1.34"), xs:float("INF"), true()), 1)</test>
@@ -119,7 +118,7 @@
       <assert-deep-eq>xs:float("INF"), true()</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-remove-mix-args-014">
+  <test-case name="fn-remove-mix-args-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:double("INF"),xs:integer("3"))</response-string>
     <description> arg1: sequence of double, integer ,arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove( (xs:double("INF"), 2, 3), 2)</test>
@@ -128,7 +127,7 @@
       <assert-deep-eq>xs:double("INF"), 3</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-remove-mix-args-015">
+  <test-case name="fn-remove-mix-args-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:double("NaN"),xs:string("a"))</response-string>
     <description> arg1: sequence of string,double ,arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove( (xs:double("NaN"), "a", "b"), 3)</test>
@@ -137,7 +136,7 @@
       <assert-deep-eq>xs:double("NaN"), "a"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-remove-mix-args-016">
+  <test-case name="fn-remove-mix-args-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:double("-INF"))</response-string>
     <description> arg1: sequence of string,boolean, double ,arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove( (xs:boolean("1"), xs:double("-INF"), "s"), 3)</test>
@@ -146,7 +145,7 @@
       <assert-deep-eq>true(), xs:double("-INF")</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-remove-mix-args-017">
+  <test-case name="fn-remove-mix-args-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> arg1: sequence of boolean ,arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove( (xs:boolean("0")), 2 )</test>
@@ -155,16 +154,16 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-remove-mix-args-018">
+  <test-case name="fn-remove-mix-args-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:date("1993-03-31"),xs:string("a"))</response-string>
     <description> arg1: sequence of string,boolean, date ,arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove( (xs:boolean("true"), xs:date("1993-03-31"), 4, "a"),3)</test>
     <result-string>(xs:boolean("true"),xs:date("1993-03-31"),xs:string("a"))</result-string>
     <result>
-      <assert-deep-eq>true(), xs:date('1993-03-31'), "a"</assert-deep-eq>
+      <assert-deep-eq>true(), xs:date(&apos;1993-03-31&apos;), "a"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-remove-mix-args-019">
+  <test-case name="fn-remove-mix-args-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:dateTime("1972-12-31T00:00:00"),xs:boolean("false"))</response-string>
     <description> arg1: sequence of string,dateTime,boolean ,arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove( (xs:dateTime("1972-12-31T00:00:00"), xs:boolean("false"), (), (" ")) ,3)</test>
@@ -173,7 +172,7 @@
       <assert-deep-eq>xs:dateTime("1972-12-31T00:00:00"), false()</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-remove-mix-args-020">
+  <test-case name="fn-remove-mix-args-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:time("12:30:00"),xs:integer("2"))</response-string>
     <description> arg1: sequence of time,decimal, integer ,arg2: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:remove( (xs:time("12:30:00"), xs:decimal("2.000003"), 2), 2)</test>
@@ -182,7 +181,7 @@
       <assert-deep-eq>xs:time("12:30:00"), 2</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-1">
+  <test-case name="K-SeqRemoveFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `remove()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>remove()</test>
@@ -191,7 +190,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-2">
+  <test-case name="K-SeqRemoveFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `remove(1, 2, "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>remove(1, 2, "wrong param")</test>
@@ -200,7 +199,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-3">
+  <test-case name="K-SeqRemoveFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(remove((1, 2, 3), 0)) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(remove((1, 2, 3), 0)) eq 3</test>
@@ -209,7 +208,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-4">
+  <test-case name="K-SeqRemoveFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(remove((1, 2, 3), -4)) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(remove((1, 2, 3), -4)) eq 3</test>
@@ -218,7 +217,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-5">
+  <test-case name="K-SeqRemoveFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(remove((), 4))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(remove((), 4))</test>
@@ -231,7 +230,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-6">
+  <test-case name="K-SeqRemoveFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `remove(("one", 2, 3), 1) instance of xs:integer+`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>remove(("one", 2, 3), 1) instance of xs:integer+</test>
@@ -240,7 +239,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-7">
+  <test-case name="K-SeqRemoveFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `remove((1, "two", 3), 2) instance of xs:integer+`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>remove((1, "two", 3), 2) instance of xs:integer+</test>
@@ -249,7 +248,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-8">
+  <test-case name="K-SeqRemoveFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `remove((1, 2, "three"), 3) instance of xs:integer+`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>remove((1, 2, "three"), 3) instance of xs:integer+</test>
@@ -258,7 +257,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-9">
+  <test-case name="K-SeqRemoveFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(remove(("one", 2, 3), 1)) eq 2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(remove(("one", 2, 3), 1)) eq 2</test>
@@ -267,7 +266,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-10">
+  <test-case name="K-SeqRemoveFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(remove((1, "two", 3), 2)) eq 2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(remove((1, "two", 3), 2)) eq 2</test>
@@ -276,7 +275,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-11">
+  <test-case name="K-SeqRemoveFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(remove((1, 2, "three"), 3)) eq 2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(remove((1, 2, "three"), 3)) eq 2</test>
@@ -285,7 +284,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-12">
+  <test-case name="K-SeqRemoveFunc-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("four")</response-string>
     <description> A test whose essence is: `remove((3.1, "four"), 1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>remove((3.1, "four"), 1)</test>
@@ -294,7 +293,7 @@
       <assert-eq>"four"</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-13">
+  <test-case name="K-SeqRemoveFunc-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
     <description> A test whose essence is: `remove(error(), 1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>remove(error(), 1)</test>
@@ -307,8 +306,8 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-14">
-    <description> Combine fn:remove() with operator 'eq'. </description>
+  <test-case name="K-SeqRemoveFunc-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> Combine fn:remove() with operator &apos;eq&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>remove((5, 1e0), 2) eq 5</test>
     <result-string>xs:boolean("true")</result-string>
@@ -320,8 +319,8 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-15">
-    <description> Combine fn:remove() with operator 'eq'. </description>
+  <test-case name="K-SeqRemoveFunc-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> Combine fn:remove() with operator &apos;eq&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>5 eq remove((5, 1e0), 2)</test>
     <result-string>xs:boolean("true")</result-string>
@@ -333,8 +332,8 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-16">
-    <description> Combine remove(), with a predicate and the 'eq' operator. </description>
+  <test-case name="K-SeqRemoveFunc-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description> Combine remove(), with a predicate and the &apos;eq&apos; operator. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2), (1, 2)[remove((true(), "a string"), 2)]) eq 0</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
@@ -342,8 +341,8 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-17">
-    <description> Combine fn:remove() with operator 'eq'. </description>
+  <test-case name="K-SeqRemoveFunc-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Combine fn:remove() with operator &apos;eq&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>remove((4, xs:untypedAtomic("4")), 1) eq 4</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
@@ -351,8 +350,8 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-18">
-    <description> Combine fn:remove() with operator 'eq'. </description>
+  <test-case name="K-SeqRemoveFunc-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Combine fn:remove() with operator &apos;eq&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>4 eq remove((4, xs:untypedAtomic("1")), 1)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
@@ -360,7 +359,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-19">
+  <test-case name="K-SeqRemoveFunc-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> An expression involving the eq operator that trigger certain optimization paths in some implementations. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(remove(current-time(), 1)) eq 0</test>
@@ -369,7 +368,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-20">
+  <test-case name="K-SeqRemoveFunc-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> An expression involving the eq operator that trigger certain optimization paths in some implementations. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(remove(current-time(), 1))</test>
@@ -378,7 +377,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-21">
+  <test-case name="K-SeqRemoveFunc-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("3")</response-string>
     <description> Apply a predicate to the result of fn:remove(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>remove((1, 2, 3, current-time()), 4)[last()]</test>
@@ -387,7 +386,7 @@
       <assert-eq>3</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-22">
+  <test-case name="K-SeqRemoveFunc-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> Apply a predicate to the result of fn:remove(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>remove((1, 2, 3, current-time()), 4)[last() - 1]</test>
@@ -396,7 +395,7 @@
       <assert-eq>2</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-23">
+  <test-case name="K-SeqRemoveFunc-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("3")</response-string>
     <description> Apply a predicate to the result of fn:remove(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>remove((1, 2, 3, current-time()), 9)[last() - 1]</test>
@@ -405,7 +404,7 @@
       <assert-eq>3</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-SeqRemoveFunc-24">
+  <test-case name="K-SeqRemoveFunc-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Apply a predicate to the result of fn:remove(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(remove((1, 2, 3, current-time()), 9)[last() - 10])</test>
@@ -414,7 +413,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-remove-001">
+  <test-case name="cbcl-fn-remove-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("5"),xs:integer("6"),xs:integer("7"),xs:integer("8"),xs:integer("9"),xs:integer("10"))</response-string>
     <description> Tests with non-value position </description>
     <created by="Nick Jones" on="2008-06-16"/>
     <test>remove(1 to 10,exactly-one((1 to 10)[. div 2 = 2]))</test>
@@ -423,7 +422,7 @@
       <assert-string-value>1 2 3 5 6 7 8 9 10</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-remove-002">
+  <test-case name="cbcl-fn-remove-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("5"),xs:integer("6"),xs:integer("7"),xs:integer("8"),xs:integer("9"),xs:integer("10"))</response-string>
     <description> Tests removal from range value </description>
     <created by="Nick Jones" on="2008-06-16"/>
     <test>remove(1 to 10,4)</test>
@@ -432,7 +431,7 @@
       <assert-string-value>1 2 3 5 6 7 8 9 10</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-remove-003">
+  <test-case name="cbcl-fn-remove-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("4"),xs:integer("6"),xs:integer("10"))</response-string>
     <description> Tests removal from non-range value </description>
     <created by="Nick Jones" on="2008-06-16"/>
     <test>remove((1 to 10)[. mod 2 = 0],4)</test>
@@ -441,7 +440,7 @@
       <assert-string-value>2 4 6 10</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-remove-004">
+  <test-case name="cbcl-fn-remove-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("4"),xs:integer("6"),xs:integer("10"),xs:string("blah"),xs:integer("2"),xs:integer("4"),xs:integer("6"),xs:integer("8"),xs:integer("10"))</response-string>
     <description> Tests removal from a sequence of values </description>
     <created by="Nick Jones" on="2008-06-16"/>
     <test>

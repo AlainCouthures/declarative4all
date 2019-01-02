@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-one-or-more" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the one-or-more() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-one-or-more" type="spec"/>
-  <test-case name="fn-one-or-moreint1args-1">
+  <test-case name="fn-one-or-moreint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-2147483648")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:int("-2147483648"))</test>
@@ -11,7 +10,7 @@
       <assert-string-value>-2147483648</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moreint1args-2">
+  <test-case name="fn-one-or-moreint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-1873914410")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:int("-1873914410"))</test>
@@ -20,7 +19,7 @@
       <assert-string-value>-1873914410</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moreint1args-3">
+  <test-case name="fn-one-or-moreint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("2147483647")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:int("2147483647"))</test>
@@ -29,7 +28,7 @@
       <assert-string-value>2147483647</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moreintg1args-1">
+  <test-case name="fn-one-or-moreintg1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-999999999999999999")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:integer("-999999999999999999"))</test>
@@ -38,7 +37,7 @@
       <assert-string-value>-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moreintg1args-2">
+  <test-case name="fn-one-or-moreintg1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("830993497117024304")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:integer("830993497117024304"))</test>
@@ -47,7 +46,7 @@
       <assert-string-value>830993497117024304</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moreintg1args-3">
+  <test-case name="fn-one-or-moreintg1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("999999999999999999")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:integer("999999999999999999"))</test>
@@ -56,88 +55,88 @@
       <assert-string-value>999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moredec1args-1">
+  <test-case name="fn-one-or-moredec1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-999999999999999999")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:decimal("-999999999999999999"))</test>
-    <result-string>xs:decimal("-999999999999999999.0")</result-string>
+    <result-string>xs:decimal("-999999999999999999")</result-string>
     <result>
       <assert-string-value>-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moredec1args-2">
+  <test-case name="fn-one-or-moredec1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("617375191608514839")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:decimal("617375191608514839"))</test>
-    <result-string>xs:decimal("617375191608514839.0")</result-string>
+    <result-string>xs:decimal("617375191608514839")</result-string>
     <result>
       <assert-string-value>617375191608514839</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moredec1args-3">
+  <test-case name="fn-one-or-moredec1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("999999999999999999")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:decimal("999999999999999999"))</test>
-    <result-string>xs:decimal("999999999999999999.0")</result-string>
+    <result-string>xs:decimal("999999999999999999")</result-string>
     <result>
       <assert-string-value>999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moredbl1args-1">
+  <test-case name="fn-one-or-moredbl1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157E308")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:double("-1.7976931348623157E308"))</test>
-    <result-string>xs:double("-1.7976931348623157e308")</result-string>
+    <result-string>xs:double("-1.7976931348623157E308")</result-string>
     <result>
       <assert-string-value>-1.7976931348623157E308</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moredbl1args-2">
+  <test-case name="fn-one-or-moredbl1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:double("0"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moredbl1args-3">
+  <test-case name="fn-one-or-moredbl1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.7976931348623157E308")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:double("1.7976931348623157E308"))</test>
-    <result-string>xs:double("1.7976931348623157e308")</result-string>
+    <result-string>xs:double("1.7976931348623157E308")</result-string>
     <result>
       <assert-string-value>1.7976931348623157E308</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moreflt1args-1">
+  <test-case name="fn-one-or-moreflt1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235E38")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:float("-3.4028235E38"))</test>
-    <result-string>xs:float("-3.4028235e38")</result-string>
+    <result-string>xs:float("-3.4028235E38")</result-string>
     <result>
       <assert-string-value>-3.4028235E38</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moreflt1args-2">
+  <test-case name="fn-one-or-moreflt1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:float("0"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moreflt1args-3">
+  <test-case name="fn-one-or-moreflt1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("3.4028235E38")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:float("3.4028235E38"))</test>
-    <result-string>xs:float("3.4028235e38")</result-string>
+    <result-string>xs:float("3.4028235E38")</result-string>
     <result>
       <assert-string-value>3.4028235E38</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-morelng1args-1">
+  <test-case name="fn-one-or-morelng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-92233720368547760")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:long("-92233720368547758"))</test>
@@ -146,7 +145,7 @@
       <assert-string-value>-92233720368547758</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-morelng1args-2">
+  <test-case name="fn-one-or-morelng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-47175562203048460")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:long("-47175562203048468"))</test>
@@ -155,7 +154,7 @@
       <assert-string-value>-47175562203048468</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-morelng1args-3">
+  <test-case name="fn-one-or-morelng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("92233720368547760")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:long("92233720368547758"))</test>
@@ -164,7 +163,7 @@
       <assert-string-value>92233720368547758</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moreusht1args-1">
+  <test-case name="fn-one-or-moreusht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("0")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:unsignedShort("0"))</test>
@@ -173,7 +172,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moreusht1args-2">
+  <test-case name="fn-one-or-moreusht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("44633")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:unsignedShort("44633"))</test>
@@ -182,7 +181,7 @@
       <assert-string-value>44633</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moreusht1args-3">
+  <test-case name="fn-one-or-moreusht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("65535")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:unsignedShort("65535"))</test>
@@ -191,7 +190,7 @@
       <assert-string-value>65535</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-morenint1args-1">
+  <test-case name="fn-one-or-morenint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-999999999999999999")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:negativeInteger("-999999999999999999"))</test>
@@ -200,7 +199,7 @@
       <assert-string-value>-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-morenint1args-2">
+  <test-case name="fn-one-or-morenint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-297014075999096793")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:negativeInteger("-297014075999096793"))</test>
@@ -209,7 +208,7 @@
       <assert-string-value>-297014075999096793</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-morenint1args-3">
+  <test-case name="fn-one-or-morenint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:negativeInteger("-1"))</test>
@@ -218,7 +217,7 @@
       <assert-string-value>-1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-morepint1args-1">
+  <test-case name="fn-one-or-morepint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:positiveInteger("1"))</test>
@@ -227,7 +226,7 @@
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-morepint1args-2">
+  <test-case name="fn-one-or-morepint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("52704602390610033")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:positiveInteger("52704602390610033"))</test>
@@ -236,7 +235,7 @@
       <assert-string-value>52704602390610033</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-morepint1args-3">
+  <test-case name="fn-one-or-morepint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("999999999999999999")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:positiveInteger("999999999999999999"))</test>
@@ -245,7 +244,7 @@
       <assert-string-value>999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moreulng1args-1">
+  <test-case name="fn-one-or-moreulng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("0")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:unsignedLong("0"))</test>
@@ -254,7 +253,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moreulng1args-2">
+  <test-case name="fn-one-or-moreulng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("130747108607674660")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:unsignedLong("130747108607674654"))</test>
@@ -263,7 +262,7 @@
       <assert-string-value>130747108607674654</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moreulng1args-3">
+  <test-case name="fn-one-or-moreulng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("184467440737095520")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:unsignedLong("184467440737095516"))</test>
@@ -272,7 +271,7 @@
       <assert-string-value>184467440737095516</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-morenpi1args-1">
+  <test-case name="fn-one-or-morenpi1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-999999999999999999")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:nonPositiveInteger("-999999999999999999"))</test>
@@ -281,7 +280,7 @@
       <assert-string-value>-999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-morenpi1args-2">
+  <test-case name="fn-one-or-morenpi1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-475688437271870490")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:nonPositiveInteger("-475688437271870490"))</test>
@@ -290,7 +289,7 @@
       <assert-string-value>-475688437271870490</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-morenpi1args-3">
+  <test-case name="fn-one-or-morenpi1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("0")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:nonPositiveInteger("0"))</test>
@@ -299,7 +298,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-morenni1args-1">
+  <test-case name="fn-one-or-morenni1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("0")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:nonNegativeInteger("0"))</test>
@@ -308,7 +307,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-morenni1args-2">
+  <test-case name="fn-one-or-morenni1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("303884545991464527")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:nonNegativeInteger("303884545991464527"))</test>
@@ -317,7 +316,7 @@
       <assert-string-value>303884545991464527</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-morenni1args-3">
+  <test-case name="fn-one-or-morenni1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("999999999999999999")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:nonNegativeInteger("999999999999999999"))</test>
@@ -326,7 +325,7 @@
       <assert-string-value>999999999999999999</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moresht1args-1">
+  <test-case name="fn-one-or-moresht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-32768")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:short("-32768"))</test>
@@ -335,7 +334,7 @@
       <assert-string-value>-32768</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moresht1args-2">
+  <test-case name="fn-one-or-moresht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-5324")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:short("-5324"))</test>
@@ -344,7 +343,7 @@
       <assert-string-value>-5324</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-moresht1args-3">
+  <test-case name="fn-one-or-moresht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("32767")</response-string>
     <description> Evaluates The "one-or-more" function with the arguments set as follows: $arg = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:one-or-more(xs:short("32767"))</test>
@@ -353,7 +352,7 @@
       <assert-string-value>32767</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-one-or-more-1">
+  <test-case name="fn-one-or-more-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Evaluation of the fn:one-or-more function with argument set to empty sequence.</description>
     <created by="Carmelo Montanez" on="2005-09-20"/>
     <test>fn:one-or-more(())</test>
@@ -362,7 +361,7 @@
       <error code="FORG0004"/>
     </result>
   </test-case>
-  <test-case name="K-SeqOneOrMoreFunc-1">
+  <test-case name="K-SeqOneOrMoreFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `one-or-more(1, 2)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>one-or-more(1, 2)</test>
@@ -371,7 +370,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqOneOrMoreFunc-2">
+  <test-case name="K-SeqOneOrMoreFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `one-or-more()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>one-or-more()</test>
@@ -380,7 +379,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqOneOrMoreFunc-3">
+  <test-case name="K-SeqOneOrMoreFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("one")</response-string>
     <description> A test whose essence is: `one-or-more("one")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>one-or-more("one")</test>
@@ -389,7 +388,7 @@
       <assert-string-value>one</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K-SeqOneOrMoreFunc-4">
+  <test-case name="K-SeqOneOrMoreFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `exists(one-or-more(("one", 2)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>exists(one-or-more(("one", 2)))</test>
@@ -398,7 +397,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqOneOrMoreFunc-5">
+  <test-case name="K-SeqOneOrMoreFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(one-or-more( "one" )) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(one-or-more( "one" )) eq 1</test>
@@ -407,7 +406,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqOneOrMoreFunc-6">
+  <test-case name="K-SeqOneOrMoreFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(one-or-more( (1, 2, 3, "four") )) eq 4`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(one-or-more( (1, 2, 3, "four") )) eq 4</test>
@@ -416,7 +415,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqOneOrMoreFunc-7">
+  <test-case name="K-SeqOneOrMoreFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
     <description> A test whose essence is: `one-or-more(error())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>one-or-more(error())</test>
@@ -425,7 +424,7 @@
       <error code="FOER0000"/>
     </result>
   </test-case>
-  <test-case name="K-SeqOneOrMoreFunc-8">
+  <test-case name="K-SeqOneOrMoreFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> A test whose essence is: `one-or-more( () )`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>one-or-more( () )</test>
@@ -434,7 +433,7 @@
       <error code="FORG0004"/>
     </result>
   </test-case>
-  <test-case name="K2-SeqOneOrMoreFunc-1">
+  <test-case name="K2-SeqOneOrMoreFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("foo")</response-string>
     <description> Have fn:one-or-more() as an operand to an expression that requires zero or more, that itself has cardinality zero or more. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>codepoints-to-string(one-or-more(string-to-codepoints("foo")))</test>
@@ -443,7 +442,7 @@
       <assert-string-value>foo</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-one-or-more-001">
+  <test-case name="cbcl-one-or-more-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("3"),xs:integer("2"),xs:integer("1"))</response-string>
     <description> test fn:one-or-more-one on a count-preserving function </description>
     <created by="Tim Mills" on="2008-04-10"/>
     <dependency type="spec" value="XQ10+"/>
@@ -455,7 +454,7 @@
       <assert-string-value>3 2 1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-one-or-more-002">
+  <test-case name="cbcl-one-or-more-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test fn:one-or-more on a sequence of zero-or-one items </description>
     <created by="Tim Mills" on="2008-04-10"/>
     <dependency type="spec" value="XQ10+"/>
@@ -467,7 +466,7 @@
       <error code="FORG0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-one-or-more-003">
+  <test-case name="cbcl-one-or-more-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test fn:boolean on fn:one-or-more-one on a sequence of nodes </description>
     <created by="Oliver Hallam" on="2008-04-10"/>
     <dependency type="spec" value="XQ10+"/>
@@ -481,7 +480,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-one-or-more-004">
+  <test-case name="cbcl-one-or-more-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test fn:boolean on fn:one-or-more-one on an empty sequence </description>
     <created by="Oliver Hallam" on="2008-04-10"/>
     <test>boolean(one-or-more(month-from-date(current-date()) to 0))</test>
@@ -490,7 +489,7 @@
       <error code="FORG0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-one-or-more-005">
+  <test-case name="cbcl-one-or-more-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</response-string>
     <description> Tests boolean call on one-or-more </description>
     <created by="Nick Jones" on="2008-06-13"/>
     <test>boolean(one-or-more((1 to 10)[. mod 2 = 0]))</test>
@@ -499,7 +498,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="cbcl-one-or-more-006">
+  <test-case name="cbcl-one-or-more-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Tests one-or-more on zero items </description>
     <created by="Nick Jones" on="2008-06-17"/>
     <test>one-or-more((1 to 10)[. div 2 = 0])</test>
@@ -508,7 +507,7 @@
       <error code="FORG0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-one-or-more-007">
+  <test-case name="cbcl-one-or-more-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Tests one or more on a single boolean value </description>
     <created by="Nick Jones" on="2008-06-17"/>
     <test>

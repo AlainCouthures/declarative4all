@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="op-time-equal" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the time-equal() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-time-equal" type="spec"/>
-  <test-case name="op-time-equal2args-1">
+  <test-case name="op-time-equal2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-time-equal2args-1                              
@@ -21,7 +20,7 @@ $arg2 = xs:time(lower bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-time-equal2args-2">
+  <test-case name="op-time-equal2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-time-equal2args-2                              
@@ -40,7 +39,7 @@ $arg2 = xs:time(lower bound)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-time-equal2args-3">
+  <test-case name="op-time-equal2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-time-equal2args-3                              
@@ -59,7 +58,7 @@ $arg2 = xs:time(lower bound)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-time-equal2args-4">
+  <test-case name="op-time-equal2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-time-equal2args-4                              
@@ -78,7 +77,7 @@ $arg2 = xs:time(mid range)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-time-equal2args-5">
+  <test-case name="op-time-equal2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-time-equal2args-5                              
@@ -97,7 +96,7 @@ $arg2 = xs:time(upper bound)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-time-equal2args-6">
+  <test-case name="op-time-equal2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-time-equal2args-6                              
@@ -116,7 +115,7 @@ $arg2 = xs:time(lower bound)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-time-equal2args-7">
+  <test-case name="op-time-equal2args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-time-equal2args-7                              
@@ -135,7 +134,7 @@ $arg2 = xs:time(lower bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-time-equal2args-8">
+  <test-case name="op-time-equal2args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-time-equal2args-8                              
@@ -154,7 +153,7 @@ $arg2 = xs:time(lower bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-time-equal2args-9">
+  <test-case name="op-time-equal2args-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-time-equal2args-9                              
@@ -173,7 +172,7 @@ $arg2 = xs:time(mid range)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-time-equal2args-10">
+  <test-case name="op-time-equal2args-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-time-equal2args-10                             
@@ -192,7 +191,7 @@ $arg2 = xs:time(upper bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-time-equal2args-11">
+  <test-case name="op-time-equal2args-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-time-equal2args-11                            
@@ -211,7 +210,7 @@ $arg2 = xs:time(lower bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-time-equal2args-12">
+  <test-case name="op-time-equal2args-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-time-equal2args-12                            
@@ -230,7 +229,7 @@ $arg2 = xs:time(lower bound)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-time-equal2args-13">
+  <test-case name="op-time-equal2args-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-time-equal2args-13                            
@@ -249,7 +248,7 @@ $arg2 = xs:time(lower bound)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-time-equal2args-14">
+  <test-case name="op-time-equal2args-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-time-equal2args-14                            
@@ -268,7 +267,7 @@ $arg2 = xs:time(mid range)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-time-equal2args-15">
+  <test-case name="op-time-equal2args-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-time-equal2args-15                            
@@ -287,7 +286,7 @@ $arg2 = xs:time(upper bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-time-equal2args-16">
+  <test-case name="op-time-equal2args-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-time-equal2args-16                            
@@ -306,7 +305,7 @@ $arg2 = xs:time(lower bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-time-equal2args-17">
+  <test-case name="op-time-equal2args-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-time-equal2args-17                            
@@ -325,7 +324,7 @@ $arg2 = xs:time(lower bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-time-equal2args-18">
+  <test-case name="op-time-equal2args-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-time-equal2args-q8                            
@@ -344,7 +343,7 @@ $arg2 = xs:time(lower bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-time-equal2args-19">
+  <test-case name="op-time-equal2args-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-time-equal2args-19                            
@@ -363,7 +362,7 @@ $arg2 = xs:time(mid range)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-time-equal2args-20">
+  <test-case name="op-time-equal2args-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-time-equal2args-20                            
@@ -382,13 +381,13 @@ $arg2 = xs:time(upper bound)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K-TimeEQ-1">
+  <test-case name="K-TimeEQ-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-TimeEQ-1                                      
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: Simple test of 'eq' for xs:time, returning positive. 
+ Purpose: Simple test of &apos;eq&apos; for xs:time, returning positive. 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -398,13 +397,13 @@ $arg2 = xs:time(upper bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-TimeEQ-2">
+  <test-case name="K-TimeEQ-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-TimeEQ-2                                      
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: Simple test of 'eq' for xs:time.             
+ Purpose: Simple test of &apos;eq&apos; for xs:time.             
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -414,13 +413,13 @@ $arg2 = xs:time(upper bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-TimeEQ-3">
+  <test-case name="K-TimeEQ-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-TimeEQ-3                                      
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: Simple test of 'ne' for xs:time.             
+ Purpose: Simple test of &apos;ne&apos; for xs:time.             
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -430,13 +429,13 @@ $arg2 = xs:time(upper bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-TimeEQ-4">
+  <test-case name="K-TimeEQ-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-TimeEQ-4                                      
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: Simple test of 'ne' for xs:time.             
+ Purpose: Simple test of &apos;ne&apos; for xs:time.             
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -446,7 +445,7 @@ $arg2 = xs:time(upper bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-TimeEQ-5">
+  <test-case name="K-TimeEQ-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-TimeEQ-5                                      
@@ -462,7 +461,7 @@ $arg2 = xs:time(upper bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-TimeEQ-6">
+  <test-case name="K-TimeEQ-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-TimeEQ-6                                      
@@ -478,7 +477,7 @@ $arg2 = xs:time(upper bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-TimeEQ-7">
+  <test-case name="K-TimeEQ-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-TimeEQ-7                                      
@@ -494,7 +493,7 @@ $arg2 = xs:time(upper bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-TimeEQ-8">
+  <test-case name="K-TimeEQ-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-TimeEQ-8                                      
@@ -510,199 +509,199 @@ $arg2 = xs:time(upper bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-TimeEQ-9">
+  <test-case name="K-TimeEQ-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-TimeEQ-9                                      
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: The operator 'eq' is not available between xs:dateTime and xs:date . 
+ Purpose: The operator &apos;eq&apos; is not available between xs:dateTime and xs:date . 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:time("12:12:23") eq xs:date("1999-12-04")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-TimeEQ-10">
+  <test-case name="K-TimeEQ-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-TimeEQ-10                                     
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: The operator 'ne' is not available between xs:dateTime and xs:date . 
+ Purpose: The operator &apos;ne&apos; is not available between xs:dateTime and xs:date . 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:time("12:12:23") ne xs:date("1999-12-04")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-TimeEQ-11">
+  <test-case name="K-TimeEQ-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-TimeEQ-11                                     
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: The operator 'le' is not available between xs:dateTime and xs:date . 
+ Purpose: The operator &apos;le&apos; is not available between xs:dateTime and xs:date . 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:time("12:12:23") le xs:date("1999-12-04")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-TimeEQ-12">
+  <test-case name="K-TimeEQ-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-TimeEQ-12                                     
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: The operator 'lt' is not available between xs:dateTime and xs:date . 
+ Purpose: The operator &apos;lt&apos; is not available between xs:dateTime and xs:date . 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:time("12:12:23") lt xs:date("1999-12-04")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-TimeEQ-13">
+  <test-case name="K-TimeEQ-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-TimeEQ-13                                     
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: The operator 'ge' is not available between xs:dateTime and xs:date . 
+ Purpose: The operator &apos;ge&apos; is not available between xs:dateTime and xs:date . 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:time("12:12:23") ge xs:date("1999-12-04")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-TimeEQ-14">
+  <test-case name="K-TimeEQ-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-TimeEQ-14                                     
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: The operator 'gt' is not available between xs:dateTime and xs:date . 
+ Purpose: The operator &apos;gt&apos; is not available between xs:dateTime and xs:date . 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:time("12:12:23") gt xs:date("1999-12-04")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-TimeEQ-15">
+  <test-case name="K-TimeEQ-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-TimeEQ-15                                     
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: The operator 'eq' is not available between xs:dateTime and xs:date . 
+ Purpose: The operator &apos;eq&apos; is not available between xs:dateTime and xs:date . 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:date("1999-12-04") eq xs:time("12:12:23")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-TimeEQ-16">
+  <test-case name="K-TimeEQ-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-TimeEQ-16                                     
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: The operator 'ne' is not available between xs:dateTime and xs:date . 
+ Purpose: The operator &apos;ne&apos; is not available between xs:dateTime and xs:date . 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:date("1999-12-04") ne xs:time("12:12:23")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-TimeEQ-17">
+  <test-case name="K-TimeEQ-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-TimeEQ-17                                     
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: The operator 'le' is not available between xs:dateTime and xs:date . 
+ Purpose: The operator &apos;le&apos; is not available between xs:dateTime and xs:date . 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:date("1999-12-04") le xs:time("12:12:23")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-TimeEQ-18">
+  <test-case name="K-TimeEQ-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-TimeEQ-18                                     
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: The operator 'lt' is not available between xs:dateTime and xs:date . 
+ Purpose: The operator &apos;lt&apos; is not available between xs:dateTime and xs:date . 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:date("1999-12-04") lt xs:time("12:12:23")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-TimeEQ-19">
+  <test-case name="K-TimeEQ-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-TimeEQ-19                                     
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: The operator 'ge' is not available between xs:dateTime and xs:date . 
+ Purpose: The operator &apos;ge&apos; is not available between xs:dateTime and xs:date . 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:date("1999-12-04") ge xs:time("12:12:23")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-TimeEQ-20">
+  <test-case name="K-TimeEQ-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-TimeEQ-20                                     
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: The operator 'gt' is not available between xs:dateTime and xs:date . 
+ Purpose: The operator &apos;gt&apos; is not available between xs:dateTime and xs:date . 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:date("1999-12-04") gt xs:time("12:12:23")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-TimeEQ-1">
+  <test-case name="K2-TimeEQ-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
  Test: K2-TimeEQ-1                                     
@@ -718,20 +717,20 @@ $arg2 = xs:time(upper bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-time-equal-001">
+  <test-case name="cbcl-time-equal-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
-        declare function local:two-digit($number as xs:integer) { let $string := string($number) return if (string-length($string) lt 2) then concat('0', $string) else $string };
-        declare function local:time($hours as xs:integer, $mins as xs:integer, $seconds as xs:decimal) { let $h := local:two-digit($hours), $m := local:two-digit($mins) return xs:time(concat($h, ':', $m, ':', $seconds)) };
+        declare function local:two-digit($number as xs:integer) { let $string := string($number) return if (string-length($string) lt 2) then concat(&apos;0&apos;, $string) else $string };
+        declare function local:time($hours as xs:integer, $mins as xs:integer, $seconds as xs:decimal) { let $h := local:two-digit($hours), $m := local:two-digit($mins) return xs:time(concat($h, &apos;:&apos;, $m, &apos;:&apos;, $seconds)) };
         not(local:time(12, 59, 30) eq xs:time("12:32:05"))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-time-equal-002">
+  <test-case name="cbcl-time-equal-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:time("14:00:00-12:00") eq xs:time("02:00:00")</test>
@@ -740,7 +739,7 @@ $arg2 = xs:time(upper bound)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-time-equal-003">
+  <test-case name="cbcl-time-equal-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:time("02:00:00") eq xs:time("14:00:00-12:00")</test>
@@ -749,7 +748,7 @@ $arg2 = xs:time(upper bound)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-time-equal-004">
+  <test-case name="cbcl-time-equal-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:time("00:00:01+01:00") eq xs:time("00:00:00")</test>
@@ -758,7 +757,7 @@ $arg2 = xs:time(upper bound)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-time-equal-005">
+  <test-case name="cbcl-time-equal-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:time("00:00:00") eq xs:time("00:00:01+01:00")</test>
@@ -767,20 +766,20 @@ $arg2 = xs:time(upper bound)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-time-equal-006">
+  <test-case name="cbcl-time-equal-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
-        declare function local:two-digit($number as xs:integer) { let $string := string($number) return if (string-length($string) lt 2) then concat('0', $string) else $string };
-        declare function local:time($hours as xs:integer, $mins as xs:integer, $seconds as xs:decimal) { let $h := local:two-digit($hours), $m := local:two-digit($mins) return xs:time(concat($h, ':', $m, ':', $seconds)) };
+        declare function local:two-digit($number as xs:integer) { let $string := string($number) return if (string-length($string) lt 2) then concat(&apos;0&apos;, $string) else $string };
+        declare function local:time($hours as xs:integer, $mins as xs:integer, $seconds as xs:decimal) { let $h := local:two-digit($hours), $m := local:two-digit($mins) return xs:time(concat($h, &apos;:&apos;, $m, &apos;:&apos;, $seconds)) };
         not(local:time(12, 59, 30) ne xs:time("12:32:05"))</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-time-equal-007">
+  <test-case name="cbcl-time-equal-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:time("14:00:00-12:00") ne xs:time("02:00:00")</test>
@@ -789,7 +788,7 @@ $arg2 = xs:time(upper bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-time-equal-008">
+  <test-case name="cbcl-time-equal-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:time("02:00:00") ne xs:time("14:00:00-12:00")</test>
@@ -798,7 +797,7 @@ $arg2 = xs:time(upper bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-time-equal-009">
+  <test-case name="cbcl-time-equal-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:time("00:00:01+01:00") ne xs:time("00:00:00")</test>
@@ -807,7 +806,7 @@ $arg2 = xs:time(upper bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-time-equal-010">
+  <test-case name="cbcl-time-equal-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <test>xs:time("00:00:00") ne xs:time("00:00:01+01:00")</test>
@@ -816,7 +815,7 @@ $arg2 = xs:time(upper bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-time-equal-011">
+  <test-case name="cbcl-time-equal-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -828,7 +827,7 @@ $arg2 = xs:time(upper bound)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-time-equal-012">
+  <test-case name="cbcl-time-equal-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -840,7 +839,7 @@ $arg2 = xs:time(upper bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-time-equal-013">
+  <test-case name="cbcl-time-equal-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -852,7 +851,7 @@ $arg2 = xs:time(upper bound)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-time-equal-014">
+  <test-case name="cbcl-time-equal-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -864,7 +863,7 @@ $arg2 = xs:time(upper bound)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-time-equal-017">
+  <test-case name="cbcl-time-equal-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-23"/>
     <test>xs:time("00:00:00+12:00") eq xs:time("00:00:01")</test>
@@ -873,7 +872,7 @@ $arg2 = xs:time(upper bound)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-time-equal-018">
+  <test-case name="cbcl-time-equal-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-23"/>
     <test>xs:time("00:00:00+12:00") ne xs:time("00:00:01")</test>
@@ -882,11 +881,11 @@ $arg2 = xs:time(upper bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-time-equal-019">
+  <test-case name="cbcl-time-equal-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> test comparison of time </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <modified by="Tim Mills" change="Bug 21222" on="2013-03-15"/>
-    <test>if (implicit-timezone() eq xs:dayTimeDuration('PT1H'))
+    <test>if (implicit-timezone() eq xs:dayTimeDuration(&apos;PT1H&apos;))
             then xs:time("12:00:00+02:00") eq xs:time("12:00:00")
             else xs:time("12:00:00+01:00") eq xs:time("12:00:00")</test>
     <result-string>xs:boolean("false")</result-string>

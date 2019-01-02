@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-last" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the last() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-last" type="spec"/>
-  <test-case name="last-1">
+  <test-case name="last-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:last", where context function is an element node and the position is last. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -12,7 +11,7 @@
       <assert-string-value>Jane Doe 13</assert-string-value>
     </result>
   </test-case>
-  <test-case name="last-2">
+  <test-case name="last-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:last", where the context node is not defined. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="empty"/>
@@ -22,7 +21,7 @@
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="last-3">
+  <test-case name="last-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:last", where the first item is selected. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -32,7 +31,7 @@
       <assert-deep-eq>"Monday", "Tuesday"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="last-4">
+  <test-case name="last-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:last" together with "fn:position". </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -42,7 +41,7 @@
       <assert-string-value>Jane Doe 13</assert-string-value>
     </result>
   </test-case>
-  <test-case name="last-5">
+  <test-case name="last-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:last" together with "fn:position" (format last() = position()). </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -52,7 +51,7 @@
       <assert-string-value>Jane Doe 13</assert-string-value>
     </result>
   </test-case>
-  <test-case name="last-6">
+  <test-case name="last-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:last" together with the "" node operator </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -64,7 +63,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="last-7">
+  <test-case name="last-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:last" together with the "is" node operator casted to integer inside the predicate. </description>
     <created by="Carmelo Montanez" on="2005-11-29"/>
     <environment ref="works-mod"/>
@@ -74,7 +73,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="last-8">
+  <test-case name="last-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:last" where two last functions are used inside the predicate. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -84,7 +83,7 @@
       <assert-deep-eq>"Monday", "Tuesday"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="last-9">
+  <test-case name="last-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:last" where the last function is used inside a second predicate. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -94,7 +93,7 @@
       <assert-string-value>Jane Doe 13</assert-string-value>
     </result>
   </test-case>
-  <test-case name="last-10">
+  <test-case name="last-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:last" where the last function is used inside the first predicate. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -104,7 +103,7 @@
       <assert-string-value>Jane Doe 13</assert-string-value>
     </result>
   </test-case>
-  <test-case name="last-11">
+  <test-case name="last-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" used in conjunction with the fn:not function </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -114,7 +113,7 @@
       <assert-string-value>Tuesday</assert-string-value>
     </result>
   </test-case>
-  <test-case name="last-12">
+  <test-case name="last-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" as a predicate to a wildcard (*). </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -124,7 +123,7 @@
       <assert-deep-eq>"Monday", "Tuesday"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="last-13">
+  <test-case name="last-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" used together with an addition operation. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -134,7 +133,7 @@
       <assert-string-value>John Doe 4</assert-string-value>
     </result>
   </test-case>
-  <test-case name="last-14">
+  <test-case name="last-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" used together with a subtraction operation. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -144,7 +143,7 @@
       <assert-string-value>Jane Doe 3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="last-15">
+  <test-case name="last-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" used together with a multiplication operation. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -154,7 +153,7 @@
       <assert-string-value>John Doe 6</assert-string-value>
     </result>
   </test-case>
-  <test-case name="last-16">
+  <test-case name="last-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" used together with a division (div) operation. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -164,7 +163,7 @@
       <assert-string-value>Jane Doe 3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="last-17">
+  <test-case name="last-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" used together with a division (idiv) operation. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -174,7 +173,7 @@
       <assert-string-value>Jane Doe 3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="last-18">
+  <test-case name="last-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" used together with a logical expression ("and" operator and "true" function). </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -184,7 +183,7 @@
       <assert-deep-eq>"Monday", "Tuesday"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="last-19">
+  <test-case name="last-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" used together with a logical expression ("and" operator and "false" function). </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -198,7 +197,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="last-20">
+  <test-case name="last-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" used together with a logical expression ("or" operator and "true" function). </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -208,7 +207,7 @@
       <assert-deep-eq>"Monday", "Tuesday"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="last-21">
+  <test-case name="last-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" used together with a logical expression ("or" operator and "false" function). </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -218,7 +217,7 @@
       <assert-deep-eq>"Monday", "Tuesday"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="last-22">
+  <test-case name="last-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "fn:position" used in the middle of a path expression. </description>
     <created by="Carmelo Montanez" on="2005-09-14"/>
     <environment ref="works-mod"/>
@@ -228,7 +227,7 @@
       <assert-deep-eq>"Monday", "Tuesday"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="last-23">
+  <test-case name="last-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of "last()" within a positional predicate </description>
     <created by="Michael Kay" on="2009-11-04"/>
     <environment ref="works-mod"/>
@@ -239,7 +238,7 @@
             "Jane Doe 9", "John Doe 10", "Jane Doe 11", "John Doe 12", "Jane Doe 13"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="last-24">
+  <test-case name="last-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Top-level call on last()</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <environment ref="works-mod"/>
@@ -249,16 +248,16 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-1">
+  <test-case name="K-ContextLastFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `last(1)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>last(1)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-2">
+  <test-case name="K-ContextLastFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> A test whose essence is: `(1, 2, 3)[if(1) then 1 else last()]`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3)[if(1) then 1 else last()]</test>
@@ -267,7 +266,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-3">
+  <test-case name="K-ContextLastFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `deep-equal((1, 2, 3)[count((last(), last())) eq 2], (1, 2, 3))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 3)[count((last(), last())) eq 2], (1, 2, 3))</test>
@@ -276,7 +275,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-4">
+  <test-case name="K-ContextLastFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `deep-equal((1, 2, 3)[last() eq last()], (1, 2, 3))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 3)[last() eq last()], (1, 2, 3))</test>
@@ -285,7 +284,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-5">
+  <test-case name="K-ContextLastFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A test whose essence is: `(1, 2, 3, current-time())[last() - 1] treat as xs:integer eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3, current-time())[last() - 1] treat as xs:integer eq 3</test>
@@ -294,7 +293,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-6">
+  <test-case name="K-ContextLastFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> A test whose essence is: `empty((1, 2, 3, current-time())[last() + 1])`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty((1, 2, 3, current-time())[last() + 1])</test>
@@ -303,8 +302,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-7">
-    <description> fn:last() can never return 0('='). </description>
+  <test-case name="K-ContextLastFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+    <description> fn:last() can never return 0(&apos;=&apos;). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty((1, 2, 3, current-time(), current-date(), 6, 7, 8) [last() = 0])</test>
     <result-string>xs:boolean("true")</result-string>
@@ -316,8 +315,8 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-8">
-    <description> fn:last() can never return 0('='), #2. </description>
+  <test-case name="K-ContextLastFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+    <description> fn:last() can never return 0(&apos;=&apos;), #2. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty((1, 2, 3, current-time(), current-date(), 6, 7, 8) [0 = last()])</test>
     <result-string>xs:boolean("true")</result-string>
@@ -329,8 +328,8 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-9">
-    <description> fn:last() can never return 0('eq'). </description>
+  <test-case name="K-ContextLastFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+    <description> fn:last() can never return 0(&apos;eq&apos;). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty((1, 2, 3, current-time(), current-date(), 6, 7, 8) [last() eq 0])</test>
     <result-string>xs:boolean("true")</result-string>
@@ -342,8 +341,8 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-10">
-    <description> fn:last() can never return 0('eq'), #2. </description>
+  <test-case name="K-ContextLastFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
+    <description> fn:last() can never return 0(&apos;eq&apos;), #2. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty((1, 2, 3, current-time(), current-date(), 6, 7, 8) [0 eq last()])</test>
     <result-string>xs:boolean("true")</result-string>
@@ -355,8 +354,8 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-11">
-    <description> fn:last() can never return 0('!='). </description>
+  <test-case name="K-ContextLastFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description> fn:last() can never return 0(&apos;!=&apos;). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [last() != 0], (1, 2, 3, 4))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -364,8 +363,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-12">
-    <description> fn:last() can never return 0('ne'). </description>
+  <test-case name="K-ContextLastFunc-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description> fn:last() can never return 0(&apos;ne&apos;). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [last() ne 0], (1, 2, 3, 4))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -373,8 +372,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-13">
-    <description> fn:last() can never return 0('!='). </description>
+  <test-case name="K-ContextLastFunc-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description> fn:last() can never return 0(&apos;!=&apos;). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [0 != last()], (1, 2, 3, 4))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -382,8 +381,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-14">
-    <description> fn:last() can never return 0('ne'), #2. </description>
+  <test-case name="K-ContextLastFunc-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description> fn:last() can never return 0(&apos;ne&apos;), #2. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [0 ne last()], (1, 2, 3, 4))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -391,7 +390,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-15">
+  <test-case name="K-ContextLastFunc-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> fn:last() can never return anything less than 1(lt). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty((1, 2, 3, current-time(), current-date(), 6, 7, 8) [last() lt 1])</test>
@@ -404,7 +403,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-16">
+  <test-case name="K-ContextLastFunc-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> fn:last() can never return anything less than 1(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -419,7 +418,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-17">
+  <test-case name="K-ContextLastFunc-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> fn:last() can never return anything less or equal to 0(le). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty((1, 2, 3, current-time(), current-date(), 6, 7, 8) [last() le 0])</test>
@@ -432,7 +431,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-18">
+  <test-case name="K-ContextLastFunc-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> fn:last() can never return anything less or equal to 0(=). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -447,8 +446,8 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-19">
-    <description> The return value of fn:last() is always greater than 0('ne'). </description>
+  <test-case name="K-ContextLastFunc-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> The return value of fn:last() is always greater than 0(&apos;ne&apos;). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [last()  0], (1, 2, 3, 4))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -456,8 +455,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-20">
-    <description> The return value of fn:last() is always greater than 0(''). </description>
+  <test-case name="K-ContextLastFunc-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> The return value of fn:last() is always greater than 0(&apos;&apos;). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [last()  0], (1, 2, 3, 4))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -465,8 +464,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-21">
-    <description> The return value of fn:last() is always greater than 0('gt'). </description>
+  <test-case name="K-ContextLastFunc-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description> The return value of fn:last() is always greater than 0(&apos;gt&apos;). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [last() gt 0], (1, 2, 3, 4))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -474,8 +473,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-22">
-    <description> The return value of fn:last() is always greater or equal to 0('='). </description>
+  <test-case name="K-ContextLastFunc-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description> The return value of fn:last() is always greater or equal to 0(&apos;=&apos;). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [last() = 1], (1, 2, 3, 4))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -483,8 +482,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-23">
-    <description> The return value of fn:last() is always greater or equal to 0('ge'). </description>
+  <test-case name="K-ContextLastFunc-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description> The return value of fn:last() is always greater or equal to 0(&apos;ge&apos;). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal( (1, 2, 3, remove((current-time(), 4), 1)) [last() ge 1], (1, 2, 3, 4))</test>
     <result-string>xs:boolean("true")</result-string>
@@ -492,7 +491,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-24">
+  <test-case name="K-ContextLastFunc-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> fn:last() inside a predicate combined with a offset. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3, 4, current-time(), 4, 5, 6)[last() - 2] treat as xs:integer eq 4</test>
@@ -501,7 +500,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-25">
+  <test-case name="K-ContextLastFunc-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> fn:last() inside a predicate combined with a offset. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3, 4, current-time(), 4, 5, 6)[last() - 1] treat as xs:integer eq 5</test>
@@ -510,7 +509,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-26">
+  <test-case name="K-ContextLastFunc-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> fn:last() inside a predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3, 4, current-time(), 4, 5, 6)[last()] treat as xs:integer eq 6</test>
@@ -519,7 +518,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-27">
+  <test-case name="K-ContextLastFunc-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> fn:last() inside a predicate and an insignificant offset. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1, 2, 3, 4, current-time(), 4, 5, 6)[last() - 0] treat as xs:integer eq 6</test>
@@ -528,7 +527,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-28">
+  <test-case name="K-ContextLastFunc-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> fn:last() inside a predicate combined with a range expression. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(1 to 6)[last()] eq 6</test>
@@ -537,7 +536,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ContextLastFunc-29">
+  <test-case name="K-ContextLastFunc-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-8")</response-string>
     <description> fn:last() inside a predicate combined with a range expression and offset. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(-20 to -5)[last() - 3]</test>
@@ -546,7 +545,7 @@
       <assert-eq>-8</assert-eq>
     </result>
   </test-case>
-  <test-case name="cbcl-last-in-sequence-001">
+  <test-case name="cbcl-last-in-sequence-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("3")</response-string>
     <description> test fn:first-in-sequence on sub-expression where quant = 1 </description>
     <created by="Tim Mills" on="2008-04-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -554,12 +553,12 @@
       	declare function local:generate($arg as xs:integer?) { if ($arg = 0) then (1, 2, 3) else () }; 
       	( local:generate(0), 1, local:generate(0) )[last()]
       </test>
-    <result-string>xs:string("3")</result-string>
+    <result-string>xs:integer("3")</result-string>
     <result>
       <assert-string-value>3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-last-in-sequence-002">
+  <test-case name="cbcl-last-in-sequence-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test fn:first-in-sequence on a for expression </description>
     <created by="Tim Mills" on="2008-04-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -572,7 +571,7 @@
       <assert-string-value>5</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-last-in-sequence-003">
+  <test-case name="cbcl-last-in-sequence-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test fn:first-in-sequence on a for expression </description>
     <created by="Tim Mills" on="2008-04-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -585,7 +584,7 @@
       <assert-string-value>2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-last-in-sequence-004">
+  <test-case name="cbcl-last-in-sequence-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:first-in-sequence on a for-at expression </description>
     <created by="Tim Mills" on="2008-04-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -598,7 +597,7 @@
       <assert-string-value>6</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-last-in-sequence-005">
+  <test-case name="cbcl-last-in-sequence-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:first-in-sequence on a for-at expression </description>
     <created by="Tim Mills" on="2008-04-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -611,20 +610,20 @@
       <assert-string-value>2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-last-in-sequence-006">
+  <test-case name="cbcl-last-in-sequence-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test fn:first-in-sequence on a map expression </description>
     <created by="Tim Mills" on="2008-04-15"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
-      	declare function local:generate($arg as xs:integer?) as xs:string* { if ($arg = 0) then ('a', 'b', 'c') else ('d' ) }; 
-      	( if (local:generate(1) = 'd') then () else 1, for $x in local:generate(0) return fn:lower-case($x))[last()]
+      	declare function local:generate($arg as xs:integer?) as xs:string* { if ($arg = 0) then (&apos;a&apos;, &apos;b&apos;, &apos;c&apos;) else (&apos;d&apos; ) }; 
+      	( if (local:generate(1) = &apos;d&apos;) then () else 1, for $x in local:generate(0) return fn:lower-case($x))[last()]
       </test>
     <result-string>xs:string("c")</result-string>
     <result>
       <assert-string-value>c</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-last-in-sequence-007">
+  <test-case name="cbcl-last-in-sequence-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test fn:first-in-sequence on a map expression </description>
     <created by="Tim Mills" on="2008-04-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -637,7 +636,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-last-in-sequence-008">
+  <test-case name="cbcl-last-in-sequence-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;b&gt;cheese&lt;/b&gt;</response-string>
     <description> test fn:first-in-sequence on a distinct-doc-order </description>
     <created by="Tim Mills" on="2008-04-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -649,12 +648,12 @@
       <assert-xml>bcheese/b</assert-xml>
     </result>
   </test-case>
-  <test-case name="cbcl-last-in-sequence-009">
+  <test-case name="cbcl-last-in-sequence-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test fn:first-in-sequence on a for-each expression Author: Tim Mills </description>
     <created by="Oliver Hallam" on="2008-04-15"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
-      	declare function local:generate($arg as xs:integer?) as xs:string* { if ($arg = 0) then ('a', 'b', 'c') else () }; 
+      	declare function local:generate($arg as xs:integer?) as xs:string* { if ($arg = 0) then (&apos;a&apos;, &apos;b&apos;, &apos;c&apos;) else () }; 
       	( local:generate(()), for $x in local:generate(0) return 3)[last()]
       </test>
     <result-string>xs:string("3")</result-string>
@@ -662,12 +661,12 @@
       <assert-string-value>3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-last-in-sequence-010">
+  <test-case name="cbcl-last-in-sequence-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test fn:boolean on fn:first-in-sequence </description>
     <created by="Oliver Hallam" on="2008-04-22"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
-      	declare function local:generate($arg as xs:integer?) as xs:string* { if ($arg = 0) then ('a', 'b', 'c') else () }; 
+      	declare function local:generate($arg as xs:integer?) as xs:string* { if ($arg = 0) then (&apos;a&apos;, &apos;b&apos;, &apos;c&apos;) else () }; 
       	boolean(local:generate(0)[last()])
       </test>
     <result-string>xs:boolean("true")</result-string>
@@ -675,21 +674,21 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-last-in-sequence-011">
+  <test-case name="cbcl-last-in-sequence-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test fn:boolean on fn:first-in-sequence </description>
     <created by="Oliver Hallam" on="2008-04-22"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:generate($arg as xs:integer?) as xs:string* { if ($arg = 0) then ('a', 'b', 'c') else () }; boolean(local:generate(1)[last()])</test>
+    <test>declare function local:generate($arg as xs:integer?) as xs:string* { if ($arg = 0) then (&apos;a&apos;, &apos;b&apos;, &apos;c&apos;) else () }; boolean(local:generate(1)[last()])</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-last-in-sequence-012">
+  <test-case name="cbcl-last-in-sequence-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test fn:first-in-sequence on a for-each expression </description>
     <created by="Oliver Hallam" on="2008-04-22"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:generate($arg as xs:boolean) as xs:string+ { if ($arg) then ('a', 'b', 'c') else ('A', 'B', 'C') }; ( for $x in local:generate(true()) return 3)[last()]</test>
+    <test>declare function local:generate($arg as xs:boolean) as xs:string+ { if ($arg) then (&apos;a&apos;, &apos;b&apos;, &apos;c&apos;) else (&apos;A&apos;, &apos;B&apos;, &apos;C&apos;) }; ( for $x in local:generate(true()) return 3)[last()]</test>
     <result-string>xs:string("3")</result-string>
     <result>
       <assert-string-value>3</assert-string-value>

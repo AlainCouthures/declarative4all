@@ -9,7 +9,11 @@
  */
 Fleur.XPathFunctions_fn["string-length#0"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:string-length",
 	function(ctx) {
-		return !ctx._curr ? 0 : ctx._curr.length;
+		if (!ctx._curr) {
+			return 0;
+		}
+		var a = Fleur.Atomize(ctx._curr);
+		return a.data.length;
 	},
 	null, [], true, false, {type: Fleur.Type_integer});
 

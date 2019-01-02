@@ -9,6 +9,9 @@
  */
 Fleur.XPathFunctions_fn["reverse#1"] = new Fleur.Function("http://www.w3.org/2005/xpath-functions", "fn:reverse",
 	function(arg) {
+		if (arg === Fleur.EmptySequence) {
+			return Fleur.EmptySequence;
+		}
 		if (arg.nodeType === Fleur.Node.SEQUENCE_NODE) {
 			var result = new Fleur.Sequence();
 			result.nodeType = Fleur.Node.SEQUENCE_NODE;

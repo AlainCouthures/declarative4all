@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-QName" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the QName() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-QName" type="spec"/>
@@ -8,7 +7,7 @@
       <created by="Mike Rorke" on="2003-03-25"/>
     </source>
   </environment>
-  <test-case name="ExpandedQNameConstructFunc001">
+  <test-case name="ExpandedQNameConstructFunc001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;person&gt;test&lt;/person&gt;</response-string>
     <description> Test function fn:QName. Simple use case from functions and operators spec </description>
     <created by="Mike Rorke" on="2005-09-29"/>
     <dependency type="spec" value="XQ10+"/>
@@ -20,7 +19,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="ExpandedQNameConstructFunc002">
+  <test-case name="ExpandedQNameConstructFunc002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;ht:person&gt;test&lt;/ht:person&gt;</response-string>
     <description> Test function fn:QName. Simple use case from functions and operators spec </description>
     <created by="Mike Rorke" on="2005-09-29"/>
     <dependency type="spec" value="XQ10+"/>
@@ -32,8 +31,8 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="ExpandedQNameConstructFunc003">
-    <description> Test function fn:QName. Simple use case for 'no namespace' QName </description>
+  <test-case name="ExpandedQNameConstructFunc003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;person&gt;test&lt;/person&gt;</response-string>
+    <description> Test function fn:QName. Simple use case for &apos;no namespace&apos; QName </description>
     <created by="Mike Rorke" on="2005-09-29"/>
     <dependency type="spec" value="XQ10+"/>
     <test>element {fn:QName("", "person")}{ "test" }</test>
@@ -44,8 +43,8 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="ExpandedQNameConstructFunc004">
-    <description> Test function fn:QName. Simple use case for 'no namespace' QName </description>
+  <test-case name="ExpandedQNameConstructFunc004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;undefined&gt;test&lt;/undefined&gt;</response-string>
+    <description> Test function fn:QName. Simple use case for &apos;no namespace&apos; QName </description>
     <created by="Mike Rorke" on="2005-09-29"/>
     <dependency type="spec" value="XQ10+"/>
     <test>element {fn:QName((), "person")}{ "test" }</test>
@@ -56,7 +55,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="ExpandedQNameConstructFunc005">
+  <test-case name="ExpandedQNameConstructFunc005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test function fn:QName. Error case - local name contains a prefix, but no namespace URI is specified </description>
     <created by="Mike Rorke" on="2005-09-29"/>
     <test>fn:QName("", "ht:person")</test>
@@ -65,7 +64,7 @@
       <error code="FOCA0002"/>
     </result>
   </test-case>
-  <test-case name="ExpandedQNameConstructFunc006">
+  <test-case name="ExpandedQNameConstructFunc006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test function fn:QName. Error case - local name contains a prefix, but no namespace URI is specified </description>
     <created by="Mike Rorke" on="2005-09-29"/>
     <test>fn:QName((), "ht:person")</test>
@@ -74,7 +73,7 @@
       <error code="FOCA0002"/>
     </result>
   </test-case>
-  <test-case name="ExpandedQNameConstructFunc007">
+  <test-case name="ExpandedQNameConstructFunc007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:QName("http://www.example.com/example", "1person")</response-string>
     <description> Test function fn:QName. Error case - invalid lexical representation for the local-name part </description>
     <created by="Mike Rorke" on="2005-09-29"/>
     <test>fn:QName("http://www.example.com/example", "1person")</test>
@@ -83,7 +82,7 @@
       <error code="FOCA0002"/>
     </result>
   </test-case>
-  <test-case name="ExpandedQNameConstructFunc008">
+  <test-case name="ExpandedQNameConstructFunc008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:QName("http://www.example.com/example", "@person")</response-string>
     <description> Test function fn:QName. Error case - invalid lexical representation for the local-name part </description>
     <created by="Mike Rorke" on="2005-09-29"/>
     <test>fn:QName("http://www.example.com/example", "@person")</test>
@@ -92,7 +91,7 @@
       <error code="FOCA0002"/>
     </result>
   </test-case>
-  <test-case name="ExpandedQNameConstructFunc009">
+  <test-case name="ExpandedQNameConstructFunc009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:QName("http://www.example.com/example", "-person")</response-string>
     <description> Test function fn:QName. Error case - invalid lexical representation for the local-name part </description>
     <created by="Mike Rorke" on="2005-09-29"/>
     <test>fn:QName("http://www.example.com/example", "-person")</test>
@@ -101,7 +100,7 @@
       <error code="FOCA0002"/>
     </result>
   </test-case>
-  <test-case name="ExpandedQNameConstructFunc010">
+  <test-case name="ExpandedQNameConstructFunc010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:QName("http://www.example.com/example", "&lt;person&gt;")</response-string>
     <description> Test function fn:QName. Error case - invalid lexical representation for the local-name part </description>
     <created by="Mike Rorke" on="2005-09-29"/>
     <test>
@@ -112,7 +111,7 @@
       <error code="FOCA0002"/>
     </result>
   </test-case>
-  <test-case name="ExpandedQNameConstructFunc011">
+  <test-case name="ExpandedQNameConstructFunc011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test function fn:QName. Error case - invalid lexical representation for the local-name part </description>
     <created by="Mike Rorke" on="2005-09-29"/>
     <test>fn:QName("http://www.example.com/example", ":person")</test>
@@ -121,7 +120,7 @@
       <error code="FOCA0002"/>
     </result>
   </test-case>
-  <test-case name="ExpandedQNameConstructFunc012">
+  <test-case name="ExpandedQNameConstructFunc012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test function fn:QName. Error case - invalid lexical representation for the local-name part </description>
     <created by="Mike Rorke" on="2005-09-29"/>
     <test>fn:QName("http://www.example.com/example", "person:")</test>
@@ -130,43 +129,43 @@
       <error code="FOCA0002"/>
     </result>
   </test-case>
-  <test-case name="ExpandedQNameConstructFunc013">
+  <test-case name="ExpandedQNameConstructFunc013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Test function fn:QName. Error case - wrong number of input parameters </description>
     <created by="Mike Rorke" on="2005-09-29"/>
     <test>fn:QName("person")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="ExpandedQNameConstructFunc014">
+  <test-case name="ExpandedQNameConstructFunc014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Test function fn:QName. Error case - wrong number of input parameters </description>
     <created by="Mike Rorke" on="2005-09-29"/>
     <test>fn:QName("http://www.example.com/example")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="ExpandedQNameConstructFunc015">
+  <test-case name="ExpandedQNameConstructFunc015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test function fn:QName. Error case - invalid input type for parameters (integer) </description>
     <created by="Mike Rorke" on="2005-09-29"/>
     <test>fn:QName("http://www.example.com/example", xs:integer("100"))</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="ExpandedQNameConstructFunc016">
+  <test-case name="ExpandedQNameConstructFunc016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test function fn:QName. Error case - invalid input type for parameters (integer) </description>
     <created by="Mike Rorke" on="2005-09-29"/>
     <test>fn:QName( xs:integer("100"), "person" )</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="ExpandedQNameConstructFunc017">
+  <test-case name="ExpandedQNameConstructFunc017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:QName. Select local-name part from source document </description>
     <created by="Mike Rorke" on="2005-09-29"/>
     <environment ref="fsx"/>
@@ -179,12 +178,12 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="ExpandedQNameConstructFunc018">
+  <test-case name="ExpandedQNameConstructFunc018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:QName. Select namespace-URI part from source document </description>
     <created by="Mike Rorke" on="2005-09-29"/>
     <environment ref="fsx"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>element {fn:QName( concat('http://www.example.com/', string((//FolderName)[2])), "people" )}{ "test" }</test>
+    <test>element {fn:QName( concat(&apos;http://www.example.com/&apos;, string((//FolderName)[2])), "people" )}{ "test" }</test>
     <result-string/>
     <result>
       <assert-xml>
@@ -192,7 +191,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="ExpandedQNameConstructFunc019">
+  <test-case name="ExpandedQNameConstructFunc019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test function fn:QName. Error case - zero length string for local-name </description>
     <created by="Mike Rorke" on="2005-09-29"/>
     <dependency type="spec" value="XQ10+"/>
@@ -202,7 +201,7 @@
       <error code="FOCA0002"/>
     </result>
   </test-case>
-  <test-case name="ExpandedQNameConstructFunc020">
+  <test-case name="ExpandedQNameConstructFunc020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;ht:person&gt;test&lt;/ht:person&gt;</response-string>
     <description> Test function fn:QName. Local-name references an already defined namespace prefix which is assigned to a different URI </description>
     <created by="Mike Rorke" on="2005-09-29"/>
     <dependency type="spec" value="XQ10+"/>
@@ -214,7 +213,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="ExpandedQNameConstructFunc021">
+  <test-case name="ExpandedQNameConstructFunc021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;ht2:person&gt;test&lt;/ht2:person&gt;</response-string>
     <description> Test function fn:QName. URI exists and is linked to a different namespace prefix </description>
     <created by="Mike Rorke" on="2005-09-29"/>
     <dependency type="spec" value="XQ10+"/>
@@ -226,7 +225,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="qName-1">
+  <test-case name="qName-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:QName("", "20")</response-string>
     <description> Evaluation of constructor function xs:QName for which the argument is not a literal. </description>
     <created by="Carmelo Montanez" on="2005-11-30"/>
     <test>xs:QName(20)</test>
@@ -235,34 +234,34 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-ExpandedQNameConstructFunc-1">
+  <test-case name="K-ExpandedQNameConstructFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `QName()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>QName()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-ExpandedQNameConstructFunc-2">
+  <test-case name="K-ExpandedQNameConstructFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `QName("http://www.example.com/")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>QName("http://www.example.com/")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-ExpandedQNameConstructFunc-3">
+  <test-case name="K-ExpandedQNameConstructFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `QName("http://www.example.com/", "ncname", "error")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>QName("http://www.example.com/", "ncname", "error")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-ExpandedQNameConstructFunc-4">
+  <test-case name="K-ExpandedQNameConstructFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `QName("http://www.w3.org/2005/xpath-functions", "prefix:local") eq xs:QName("fn:local")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>QName("http://www.w3.org/2005/xpath-functions", "prefix:local") eq xs:QName("fn:local")</test>
@@ -271,7 +270,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ExpandedQNameConstructFunc-5">
+  <test-case name="K-ExpandedQNameConstructFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:QName("http://www.example.com/", "1asd:error")</response-string>
     <description> A QName cannot start with a digit. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>QName("http://www.example.com/", "1asd:error")</test>
@@ -280,7 +279,7 @@
       <error code="FOCA0002"/>
     </result>
   </test-case>
-  <test-case name="K-ExpandedQNameConstructFunc-6">
+  <test-case name="K-ExpandedQNameConstructFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A test whose essence is: `QName("", "error:ncname")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>QName("", "error:ncname")</test>
@@ -289,7 +288,7 @@
       <error code="FOCA0002"/>
     </result>
   </test-case>
-  <test-case name="K-ExpandedQNameConstructFunc-7">
+  <test-case name="K-ExpandedQNameConstructFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> A test whose essence is: `QName((), "error:ncname")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>QName((), "error:ncname")</test>
@@ -298,7 +297,7 @@
       <error code="FOCA0002"/>
     </result>
   </test-case>
-  <test-case name="K-ExpandedQNameConstructFunc-8">
+  <test-case name="K-ExpandedQNameConstructFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:QName("my:qName", "http://example.com/MyErrorNS")</response-string>
     <description> URI/QName arguments appearing in wrong order, leading to an invalid QName. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>QName("my:qName", "http://example.com/MyErrorNS")</test>
@@ -307,7 +306,7 @@
       <error code="FOCA0002"/>
     </result>
   </test-case>
-  <test-case name="K-ExpandedQNameConstructFunc-9">
+  <test-case name="K-ExpandedQNameConstructFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `QName("", "local") eq xs:QName("local")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>QName("", "local") eq xs:QName("local")</test>
@@ -316,7 +315,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-ExpandedQNameConstructFunc-10">
+  <test-case name="K-ExpandedQNameConstructFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `QName((), "local") eq xs:QName("local")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>QName((), "local") eq xs:QName("local")</test>
@@ -325,7 +324,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-ExpandedQNameConstructFunc-1">
+  <test-case name="K2-ExpandedQNameConstructFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> The last argument must be a string. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:QName((), ())</test>
@@ -334,10 +333,10 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-qname-001">
+  <test-case name="cbcl-qname-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:QName("", " ")</response-string>
     <description> Test fn:QName for FOCA0002 on invalid input. </description>
     <created by="Tim Mills" on="2008-04-10"/>
-    <test>fn:QName('', ' ')</test>
+    <test>fn:QName(&apos;&apos;, &apos; &apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOCA0002"))</result-string>
     <result>
       <error code="FOCA0002"/>

@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-avg" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the avg() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-avg" type="spec"/>
-  <test-case name="fn-avgint1args-1">
+  <test-case name="fn-avgint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-2147483648")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:int("-2147483648")))</test>
@@ -11,7 +10,7 @@
       <assert-eq>-2147483648</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgint1args-2">
+  <test-case name="fn-avgint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-1873914410")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:int("-1873914410")))</test>
@@ -20,7 +19,7 @@
       <assert-eq>-1873914410</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgint1args-3">
+  <test-case name="fn-avgint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("2147483647")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:int("2147483647")))</test>
@@ -29,7 +28,7 @@
       <assert-eq>2147483647</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgintg1args-1">
+  <test-case name="fn-avgintg1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:integer("-999999999999999999")))</test>
@@ -38,7 +37,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgintg1args-2">
+  <test-case name="fn-avgintg1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("830993497117024300")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:integer("830993497117024304")))</test>
@@ -47,7 +46,7 @@
       <assert-eq>830993497117024304</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgintg1args-3">
+  <test-case name="fn-avgintg1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1000000000000000000")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:integer("999999999999999999")))</test>
@@ -56,7 +55,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgdec1args-1">
+  <test-case name="fn-avgdec1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:decimal("-999999999999999999")))</test>
@@ -65,7 +64,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgdec1args-2">
+  <test-case name="fn-avgdec1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("617375191608514800")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:decimal("617375191608514839")))</test>
@@ -74,7 +73,7 @@
       <assert-eq>617375191608514839</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgdec1args-3">
+  <test-case name="fn-avgdec1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1000000000000000000")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:decimal("999999999999999999")))</test>
@@ -83,7 +82,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgdbl1args-1">
+  <test-case name="fn-avgdbl1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157E308")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:double("-1.7976931348623157E308")))</test>
@@ -92,7 +91,7 @@
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgdbl1args-2">
+  <test-case name="fn-avgdbl1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:double("0")))</test>
@@ -101,7 +100,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgdbl1args-3">
+  <test-case name="fn-avgdbl1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.7976931348623157E308")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:double("1.7976931348623157E308")))</test>
@@ -110,16 +109,16 @@
       <assert-eq>1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgflt1args-1">
+  <test-case name="fn-avgflt1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235E38")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:float("-3.4028235E38")))</test>
     <result-string>xs:float("-3.4028235E38")</result-string>
     <result>
-      <assert-eq>xs:float('-3.4028235E38')</assert-eq>
+      <assert-eq>xs:float(&apos;-3.4028235E38&apos;)</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgflt1args-2">
+  <test-case name="fn-avgflt1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:float("0")))</test>
@@ -128,7 +127,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgflt1args-3">
+  <test-case name="fn-avgflt1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("3.4028235E38")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:float("3.4028235E38")))</test>
@@ -137,7 +136,7 @@
       <assert-eq>xs:float("3.4028235E38")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avglng1args-1">
+  <test-case name="fn-avglng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-92233720368547760")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:long("-92233720368547758")))</test>
@@ -146,7 +145,7 @@
       <assert-eq>-92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avglng1args-2">
+  <test-case name="fn-avglng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-47175562203048460")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:long("-47175562203048468")))</test>
@@ -155,7 +154,7 @@
       <assert-eq>-47175562203048468</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avglng1args-3">
+  <test-case name="fn-avglng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("92233720368547760")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:long("92233720368547758")))</test>
@@ -164,7 +163,7 @@
       <assert-eq>92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgusht1args-1">
+  <test-case name="fn-avgusht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("0")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:unsignedShort("0")))</test>
@@ -173,7 +172,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgusht1args-2">
+  <test-case name="fn-avgusht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("44633")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:unsignedShort("44633")))</test>
@@ -182,7 +181,7 @@
       <assert-eq>44633</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgusht1args-3">
+  <test-case name="fn-avgusht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("65535")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:unsignedShort("65535")))</test>
@@ -191,7 +190,7 @@
       <assert-eq>65535</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnint1args-1">
+  <test-case name="fn-avgnint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1000000000000000000")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:negativeInteger("-999999999999999999")))</test>
@@ -200,7 +199,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnint1args-2">
+  <test-case name="fn-avgnint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-297014075999096770")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:negativeInteger("-297014075999096793")))</test>
@@ -209,7 +208,7 @@
       <assert-eq>-297014075999096793</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnint1args-3">
+  <test-case name="fn-avgnint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:negativeInteger("-1")))</test>
@@ -218,7 +217,7 @@
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgpint1args-1">
+  <test-case name="fn-avgpint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:positiveInteger("1")))</test>
@@ -227,7 +226,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgpint1args-2">
+  <test-case name="fn-avgpint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("52704602390610030")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:positiveInteger("52704602390610033")))</test>
@@ -236,7 +235,7 @@
       <assert-eq>52704602390610033</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgpint1args-3">
+  <test-case name="fn-avgpint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1000000000000000000")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:positiveInteger("999999999999999999")))</test>
@@ -245,7 +244,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgulng1args-1">
+  <test-case name="fn-avgulng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("0")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:unsignedLong("0")))</test>
@@ -254,7 +253,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgulng1args-2">
+  <test-case name="fn-avgulng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("130747108607674660")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:unsignedLong("130747108607674654")))</test>
@@ -263,7 +262,7 @@
       <assert-eq>130747108607674654</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgulng1args-3">
+  <test-case name="fn-avgulng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("184467440737095520")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:unsignedLong("184467440737095516")))</test>
@@ -272,7 +271,7 @@
       <assert-eq>184467440737095516</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnpi1args-1">
+  <test-case name="fn-avgnpi1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-1000000000000000000")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:nonPositiveInteger("-999999999999999999")))</test>
@@ -281,7 +280,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnpi1args-2">
+  <test-case name="fn-avgnpi1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-475688437271870460")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:nonPositiveInteger("-475688437271870490")))</test>
@@ -290,7 +289,7 @@
       <assert-eq>-475688437271870490</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnpi1args-3">
+  <test-case name="fn-avgnpi1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("0")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:nonPositiveInteger("0")))</test>
@@ -299,7 +298,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnni1args-1">
+  <test-case name="fn-avgnni1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("0")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:nonNegativeInteger("0")))</test>
@@ -308,7 +307,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnni1args-2">
+  <test-case name="fn-avgnni1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("303884545991464500")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:nonNegativeInteger("303884545991464527")))</test>
@@ -317,7 +316,7 @@
       <assert-eq>303884545991464527</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnni1args-3">
+  <test-case name="fn-avgnni1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("1000000000000000000")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:nonNegativeInteger("999999999999999999")))</test>
@@ -326,7 +325,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgsht1args-1">
+  <test-case name="fn-avgsht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-32768")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:short("-32768")))</test>
@@ -335,7 +334,7 @@
       <assert-eq>-32768</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgsht1args-2">
+  <test-case name="fn-avgsht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-5324")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:short("-5324")))</test>
@@ -344,7 +343,7 @@
       <assert-eq>-5324</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgsht1args-3">
+  <test-case name="fn-avgsht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("32767")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:short("32767")))</test>
@@ -353,7 +352,7 @@
       <assert-eq>32767</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgint2args-1">
+  <test-case name="fn-avgint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-2147483648")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:int("-2147483648"),xs:int("-2147483648")))</test>
@@ -362,7 +361,7 @@
       <assert-eq>-2147483648</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgint2args-2">
+  <test-case name="fn-avgint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-2010699029")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:int(mid range) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:int("-1873914410"),xs:int("-2147483648")))</test>
@@ -371,7 +370,7 @@
       <assert-eq>-2010699029</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgint2args-3">
+  <test-case name="fn-avgint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-0.5")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:int(upper bound) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:int("2147483647"),xs:int("-2147483648")))</test>
@@ -380,7 +379,7 @@
       <assert-eq>-0.5</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgint2args-4">
+  <test-case name="fn-avgint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-2010699029")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:int("-2147483648"),xs:int("-1873914410")))</test>
@@ -389,7 +388,7 @@
       <assert-eq>-2010699029</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgint2args-5">
+  <test-case name="fn-avgint2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-0.5")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:int("-2147483648"),xs:int("2147483647")))</test>
@@ -398,7 +397,7 @@
       <assert-eq>-0.5</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgintg2args-1">
+  <test-case name="fn-avgintg2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:integer("-999999999999999999"),xs:integer("-999999999999999999")))</test>
@@ -407,7 +406,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgintg2args-2">
+  <test-case name="fn-avgintg2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-84503251441487870")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:integer(mid range) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:integer("830993497117024304"),xs:integer("-999999999999999999")))</test>
@@ -416,7 +415,7 @@
       <assert-eq>-84503251441487847.5</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgintg2args-3">
+  <test-case name="fn-avgintg2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:integer(upper bound) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:integer("999999999999999999"),xs:integer("-999999999999999999")))</test>
@@ -425,7 +424,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgintg2args-4">
+  <test-case name="fn-avgintg2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-84503251441487870")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:integer("-999999999999999999"),xs:integer("830993497117024304")))</test>
@@ -434,7 +433,7 @@
       <assert-eq>-84503251441487847.5</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgintg2args-5">
+  <test-case name="fn-avgintg2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:integer("-999999999999999999"),xs:integer("999999999999999999")))</test>
@@ -443,7 +442,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgdec2args-1">
+  <test-case name="fn-avgdec2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:decimal("-999999999999999999"),xs:decimal("-999999999999999999")))</test>
@@ -452,7 +451,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgdec2args-2">
+  <test-case name="fn-avgdec2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-191312404195742600")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:decimal(mid range) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:decimal("617375191608514839"),xs:decimal("-999999999999999999")))</test>
@@ -461,7 +460,7 @@
       <assert-eq>-191312404195742580</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgdec2args-3">
+  <test-case name="fn-avgdec2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("0")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:decimal(upper bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:decimal("999999999999999999"),xs:decimal("-999999999999999999")))</test>
@@ -470,7 +469,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgdec2args-4">
+  <test-case name="fn-avgdec2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-191312404195742600")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:decimal("-999999999999999999"),xs:decimal("617375191608514839")))</test>
@@ -479,7 +478,7 @@
       <assert-eq>-191312404195742580</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgdec2args-5">
+  <test-case name="fn-avgdec2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("0")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:decimal("-999999999999999999"),xs:decimal("999999999999999999")))</test>
@@ -488,7 +487,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgdbl2args-1">
+  <test-case name="fn-avgdbl2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:double("-1.7976931348623157E150"),xs:double("-1.7976931348623157E150"))) eq -1.7976931348623157E150</test>
@@ -497,7 +496,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-avgdbl2args-2">
+  <test-case name="fn-avgdbl2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:double(mid range) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:double("0"),xs:double("-1.7976931348623157E308"))) eq -8.9884656743115785E307</test>
@@ -506,7 +505,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-avgdbl2args-3">
+  <test-case name="fn-avgdbl2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:double(upper bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:double("1.7976931348623157E308"),xs:double("-1.7976931348623157E308")))</test>
@@ -515,7 +514,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgdbl2args-4">
+  <test-case name="fn-avgdbl2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:double("-1.7976931348623157E308"),xs:double("0"))) eq -8.9884656743115785E307</test>
@@ -524,7 +523,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-avgdbl2args-5">
+  <test-case name="fn-avgdbl2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:double("-1.7976931348623157E308"),xs:double("1.7976931348623157E308")))</test>
@@ -533,7 +532,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgflt2args-1">
+  <test-case name="fn-avgflt2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235E38")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:float("-3.4028235E38"),xs:float("-3.4028235E38")))</test>
@@ -546,16 +545,16 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-avgflt2args-2">
+  <test-case name="fn-avgflt2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1.70141175E38")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:float(mid range) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:float("0"),xs:float("-3.4028235E38")))</test>
     <result-string>xs:float("-1.70141175E38")</result-string>
     <result>
-      <assert-eq>xs:float('-1.7014117E38')</assert-eq>
+      <assert-eq>xs:float(&apos;-1.7014117E38&apos;)</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgflt2args-3">
+  <test-case name="fn-avgflt2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:float(upper bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:float("3.4028235E38"),xs:float("-3.4028235E38")))</test>
@@ -564,16 +563,16 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgflt2args-4">
+  <test-case name="fn-avgflt2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1.70141175E38")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:float("-3.4028235E38"),xs:float("0")))</test>
     <result-string>xs:float("-1.70141175E38")</result-string>
     <result>
-      <assert-eq>xs:float('-1.7014117E38')</assert-eq>
+      <assert-eq>xs:float(&apos;-1.7014117E38&apos;)</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgflt2args-5">
+  <test-case name="fn-avgflt2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:float("-3.4028235E38"),xs:float("3.4028235E38")))</test>
@@ -582,7 +581,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avglng2args-1">
+  <test-case name="fn-avglng2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-92233720368547760")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:long("-92233720368547758"),xs:long("-92233720368547758")))</test>
@@ -591,7 +590,7 @@
       <assert-eq>-92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avglng2args-2">
+  <test-case name="fn-avglng2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-69704641285798110")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:long(mid range) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:long("-47175562203048468"),xs:long("-92233720368547758")))</test>
@@ -600,7 +599,7 @@
       <assert-eq>-69704641285798113</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avglng2args-3">
+  <test-case name="fn-avglng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("0")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:long(upper bound) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:long("92233720368547758"),xs:long("-92233720368547758")))</test>
@@ -609,7 +608,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avglng2args-4">
+  <test-case name="fn-avglng2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-69704641285798110")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:long("-92233720368547758"),xs:long("-47175562203048468")))</test>
@@ -618,7 +617,7 @@
       <assert-eq>-69704641285798113</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avglng2args-5">
+  <test-case name="fn-avglng2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("0")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:long("-92233720368547758"),xs:long("92233720368547758")))</test>
@@ -627,7 +626,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgusht2args-1">
+  <test-case name="fn-avgusht2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("0")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:unsignedShort("0"),xs:unsignedShort("0")))</test>
@@ -636,7 +635,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgusht2args-2">
+  <test-case name="fn-avgusht2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("22316.5")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:unsignedShort(mid range) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:unsignedShort("44633"),xs:unsignedShort("0")))</test>
@@ -645,7 +644,7 @@
       <assert-eq>22316.5</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgusht2args-3">
+  <test-case name="fn-avgusht2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("32767.5")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:unsignedShort(upper bound) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:unsignedShort("65535"),xs:unsignedShort("0")))</test>
@@ -654,7 +653,7 @@
       <assert-eq>32767.5</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgusht2args-4">
+  <test-case name="fn-avgusht2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("22316.5")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:unsignedShort("0"),xs:unsignedShort("44633")))</test>
@@ -663,7 +662,7 @@
       <assert-eq>22316.5</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgusht2args-5">
+  <test-case name="fn-avgusht2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("32767.5")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:unsignedShort("0"),xs:unsignedShort("65535")))</test>
@@ -672,7 +671,7 @@
       <assert-eq>32767.5</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnint2args-1">
+  <test-case name="fn-avgnint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1000000000000000000")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:negativeInteger("-999999999999999999"),xs:negativeInteger("-999999999999999999")))</test>
@@ -681,7 +680,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnint2args-2">
+  <test-case name="fn-avgnint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-648507037999548400")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:negativeInteger(mid range) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:negativeInteger("-297014075999096793"),xs:negativeInteger("-999999999999999999")))</test>
@@ -690,7 +689,7 @@
       <assert-eq>-648507037999548396</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnint2args-3">
+  <test-case name="fn-avgnint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-500000000000000000")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:negativeInteger(upper bound) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:negativeInteger("-1"),xs:negativeInteger("-999999999999999999")))</test>
@@ -699,7 +698,7 @@
       <assert-eq>-500000000000000000</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnint2args-4">
+  <test-case name="fn-avgnint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-648507037999548400")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:negativeInteger("-999999999999999999"),xs:negativeInteger("-297014075999096793")))</test>
@@ -708,7 +707,7 @@
       <assert-eq>-648507037999548396</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnint2args-5">
+  <test-case name="fn-avgnint2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-500000000000000000")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:negativeInteger("-999999999999999999"),xs:negativeInteger("-1")))</test>
@@ -717,7 +716,7 @@
       <assert-eq>-500000000000000000</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgpint2args-1">
+  <test-case name="fn-avgpint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:positiveInteger("1"),xs:positiveInteger("1")))</test>
@@ -726,7 +725,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgpint2args-2">
+  <test-case name="fn-avgpint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("26352301195305016")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:positiveInteger(mid range) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:positiveInteger("52704602390610033"),xs:positiveInteger("1")))</test>
@@ -735,7 +734,7 @@
       <assert-eq>26352301195305017</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgpint2args-3">
+  <test-case name="fn-avgpint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("500000000000000000")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:positiveInteger(upper bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:positiveInteger("999999999999999999"),xs:positiveInteger("1")))</test>
@@ -744,7 +743,7 @@
       <assert-eq>500000000000000000</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgpint2args-4">
+  <test-case name="fn-avgpint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("26352301195305016")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:positiveInteger("1"),xs:positiveInteger("52704602390610033")))</test>
@@ -753,7 +752,7 @@
       <assert-eq>26352301195305017</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgpint2args-5">
+  <test-case name="fn-avgpint2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("500000000000000000")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:positiveInteger("1"),xs:positiveInteger("999999999999999999")))</test>
@@ -762,7 +761,7 @@
       <assert-eq>500000000000000000</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgulng2args-1">
+  <test-case name="fn-avgulng2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("0")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:unsignedLong("0"),xs:unsignedLong("0")))</test>
@@ -771,7 +770,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgulng2args-2">
+  <test-case name="fn-avgulng2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("65373554303837330")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:unsignedLong(mid range) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:unsignedLong("130747108607674654"),xs:unsignedLong("0")))</test>
@@ -780,7 +779,7 @@
       <assert-eq>65373554303837327</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgulng2args-3">
+  <test-case name="fn-avgulng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("92233720368547760")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:unsignedLong(upper bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:unsignedLong("184467440737095516"),xs:unsignedLong("0")))</test>
@@ -789,7 +788,7 @@
       <assert-eq>92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgulng2args-4">
+  <test-case name="fn-avgulng2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("65373554303837330")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:unsignedLong("0"),xs:unsignedLong("130747108607674654")))</test>
@@ -798,7 +797,7 @@
       <assert-eq>65373554303837327</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgulng2args-5">
+  <test-case name="fn-avgulng2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("92233720368547760")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:unsignedLong("0"),xs:unsignedLong("184467440737095516")))</test>
@@ -807,7 +806,7 @@
       <assert-eq>92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnpi2args-1">
+  <test-case name="fn-avgnpi2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-1000000000000000000")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:nonPositiveInteger("-999999999999999999"),xs:nonPositiveInteger("-999999999999999999")))</test>
@@ -816,7 +815,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnpi2args-2">
+  <test-case name="fn-avgnpi2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-737844218635935200")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(mid range) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:nonPositiveInteger("-475688437271870490"),xs:nonPositiveInteger("-999999999999999999")))</test>
@@ -825,7 +824,7 @@
       <assert-eq>-737844218635935244.5</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnpi2args-3">
+  <test-case name="fn-avgnpi2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-500000000000000000")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(upper bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:nonPositiveInteger("0"),xs:nonPositiveInteger("-999999999999999999")))</test>
@@ -834,7 +833,7 @@
       <assert-eq>-499999999999999999.5</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnpi2args-4">
+  <test-case name="fn-avgnpi2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-737844218635935200")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:nonPositiveInteger("-999999999999999999"),xs:nonPositiveInteger("-475688437271870490")))</test>
@@ -843,7 +842,7 @@
       <assert-eq>-737844218635935244.5</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnpi2args-5">
+  <test-case name="fn-avgnpi2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-500000000000000000")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:nonPositiveInteger("-999999999999999999"),xs:nonPositiveInteger("0")))</test>
@@ -852,7 +851,7 @@
       <assert-eq>-499999999999999999.5</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnni2args-1">
+  <test-case name="fn-avgnni2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("0")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:nonNegativeInteger("0"),xs:nonNegativeInteger("0")))</test>
@@ -861,7 +860,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnni2args-2">
+  <test-case name="fn-avgnni2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("151942272995732260")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(mid range) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:nonNegativeInteger("303884545991464527"),xs:nonNegativeInteger("0")))</test>
@@ -870,7 +869,7 @@
       <assert-eq>151942272995732263.5</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnni2args-3">
+  <test-case name="fn-avgnni2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("500000000000000000")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(upper bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:nonNegativeInteger("999999999999999999"),xs:nonNegativeInteger("0")))</test>
@@ -879,7 +878,7 @@
       <assert-eq>499999999999999999.5</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnni2args-4">
+  <test-case name="fn-avgnni2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("151942272995732260")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:nonNegativeInteger("0"),xs:nonNegativeInteger("303884545991464527")))</test>
@@ -888,7 +887,7 @@
       <assert-eq>151942272995732263.5</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgnni2args-5">
+  <test-case name="fn-avgnni2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("500000000000000000")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:nonNegativeInteger("0"),xs:nonNegativeInteger("999999999999999999")))</test>
@@ -897,7 +896,7 @@
       <assert-eq>499999999999999999.5</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgsht2args-1">
+  <test-case name="fn-avgsht2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-32768")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:short("-32768"),xs:short("-32768")))</test>
@@ -906,7 +905,7 @@
       <assert-eq>-32768</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgsht2args-2">
+  <test-case name="fn-avgsht2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-19046")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:short(mid range) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:short("-5324"),xs:short("-32768")))</test>
@@ -915,7 +914,7 @@
       <assert-eq>-19046</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgsht2args-3">
+  <test-case name="fn-avgsht2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-0.5")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:short(upper bound) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:short("32767"),xs:short("-32768")))</test>
@@ -924,7 +923,7 @@
       <assert-eq>-0.5</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgsht2args-4">
+  <test-case name="fn-avgsht2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-19046")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:short("-32768"),xs:short("-5324")))</test>
@@ -933,7 +932,7 @@
       <assert-eq>-19046</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avgsht2args-5">
+  <test-case name="fn-avgsht2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-0.5")</response-string>
     <description> Evaluates The "avg" function with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:avg((xs:short("-32768"),xs:short("32767")))</test>
@@ -942,7 +941,7 @@
       <assert-eq>-0.5</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-001">
+  <test-case name="fn-avg-mix-args-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("4")</response-string>
     <description> arg: seq of integer </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg( (3, 4, 5) )</test>
@@ -951,7 +950,7 @@
       <assert-eq>4</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-002">
+  <test-case name="fn-avg-mix-args-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> arg: yearMonthDuration </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( xs:yearMonthDuration("P20Y") , xs:yearMonthDuration("P10M") ))</test>
@@ -960,7 +959,7 @@
       <assert-string-value>P10Y5M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-003">
+  <test-case name="fn-avg-mix-args-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> arg: empty seq </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(())</test>
@@ -969,25 +968,25 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-004">
+  <test-case name="fn-avg-mix-args-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> arg: float </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
-    <test>fn:avg(( xs:float('INF'), xs:float('-INF')))</test>
+    <test>fn:avg(( xs:float(&apos;INF&apos;), xs:float(&apos;-INF&apos;)))</test>
     <result-string>xs:float("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-005">
+  <test-case name="fn-avg-mix-args-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> arg: seq of integer, float </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
-    <test>fn:avg(( (3, 4, 5), xs:float('NaN') ))</test>
+    <test>fn:avg(( (3, 4, 5), xs:float(&apos;NaN&apos;) ))</test>
     <result-string>xs:float("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-006">
+  <test-case name="fn-avg-mix-args-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("5")</response-string>
     <description> arg: seq of integer </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( fn:string-length("Hello") ))</test>
@@ -996,7 +995,7 @@
       <assert-eq>5</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-007">
+  <test-case name="fn-avg-mix-args-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> arg: seq of integer </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( fn:count("Hello") ))</test>
@@ -1005,7 +1004,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-008">
+  <test-case name="fn-avg-mix-args-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> arg: seq of integer </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg( ( ( xs:integer("100"), xs:integer("-100"))))</test>
@@ -1014,7 +1013,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-009">
+  <test-case name="fn-avg-mix-args-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-50.5000000000005")</response-string>
     <description> arg: seq of integer,decimal </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg( ( ( xs:decimal("-1.000000000001"), xs:integer("-100"))))</test>
@@ -1027,7 +1026,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-010">
+  <test-case name="fn-avg-mix-args-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("6.505")</response-string>
     <description> arg: seq of integer,decimal </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:decimal("1.01"), xs:integer("12") )))</test>
@@ -1036,7 +1035,7 @@
       <assert-eq>6.505</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-011">
+  <test-case name="fn-avg-mix-args-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> arg: seq of integer,float,empty seq </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:float("NaN"), 100, (), 2)))</test>
@@ -1045,7 +1044,7 @@
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-012">
+  <test-case name="fn-avg-mix-args-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-1.70141175E38")</response-string>
     <description> arg: seq of float,decimal </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:float("-3.4028235E38"), xs:decimal("-999999999999999999") )))</test>
@@ -1054,7 +1053,7 @@
       <assert-eq>xs:float("-1.7014117E38")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-013">
+  <test-case name="fn-avg-mix-args-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> arg: seq of float,decimal </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:float("0"), xs:decimal("-999999999999999999") ))) eq xs:float("-4.9999999999999999E17")</test>
@@ -1063,7 +1062,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-014">
+  <test-case name="fn-avg-mix-args-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1.70141175E38")</response-string>
     <description> arg: seq of float,decimal </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:float("3.4028235E38"), xs:decimal("-999999999999999999") )))</test>
@@ -1072,7 +1071,7 @@
       <assert-eq>xs:float("1.7014117E38")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-015">
+  <test-case name="fn-avg-mix-args-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> arg: seq of float,decimal </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:float("-0"), xs:decimal("-999999999999999999") ))) eq xs:float("-4.9999999999999999E17")</test>
@@ -1081,7 +1080,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-016">
+  <test-case name="fn-avg-mix-args-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> arg: seq of float,decimal </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:float("NaN"), xs:decimal("-999999999999999999") )))</test>
@@ -1090,34 +1089,34 @@
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-017">
+  <test-case name="fn-avg-mix-args-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("INF")</response-string>
     <description> arg: seq of float,decimal </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:float("INF"), xs:decimal("-999999999999999999") )))</test>
-    <result-string>xs:string("INF")</result-string>
+    <result-string>xs:float("INF")</result-string>
     <result>
       <assert-string-value>INF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-018">
+  <test-case name="fn-avg-mix-args-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1.01")</response-string>
     <description> arg: seq of float </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:float("1.01"))))</test>
-    <result-string>xs:decimal("1.01")</result-string>
+    <result-string>xs:float("1.01")</result-string>
     <result>
       <assert-eq>1.01</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-019">
+  <test-case name="fn-avg-mix-args-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-INF")</response-string>
     <description> arg: seq of float,decimal </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:float("-INF"), xs:decimal("2.34"))))</test>
-    <result-string>xs:string("-INF")</result-string>
+    <result-string>xs:float("-INF")</result-string>
     <result>
       <assert-string-value>-INF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-020">
+  <test-case name="fn-avg-mix-args-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> arg: seq of double,integer </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:double("-1.7976931348623157E308"), xs:integer("-999999999999999999") ) )) eq xs:double("-8.988465674311579E307")</test>
@@ -1126,7 +1125,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-021">
+  <test-case name="fn-avg-mix-args-021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-5.0E17")</response-string>
     <description> arg: seq of double,integer </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:double("0"), xs:integer("-999999999999999999") ) ))</test>
@@ -1135,7 +1134,7 @@
       <assert-eq>-5.0E17</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-022">
+  <test-case name="fn-avg-mix-args-022"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> arg: seq of double,integer </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:double("1.7976931348623157E308"), xs:integer("-999999999999999999") ) )) eq xs:double("8.988465674311579E307")</test>
@@ -1144,7 +1143,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-023">
+  <test-case name="fn-avg-mix-args-023"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-5.0E17")</response-string>
     <description> arg: seq of double,integer </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:double("-0"), xs:integer("-999999999999999999") ) ))</test>
@@ -1153,7 +1152,7 @@
       <assert-eq>-5.0E17</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-024">
+  <test-case name="fn-avg-mix-args-024"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-INF")</response-string>
     <description> arg: seq of double,integer </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:double("-INF"), xs:integer("-999999999999999999") ) ))</test>
@@ -1162,7 +1161,7 @@
       <assert-string-value>-INF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-025">
+  <test-case name="fn-avg-mix-args-025"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> arg: seq of double,integer </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:double("NaN"), xs:integer("-999999999999999999") ) ))</test>
@@ -1171,7 +1170,7 @@
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-026">
+  <test-case name="fn-avg-mix-args-026"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("INF")</response-string>
     <description> arg: seq of double,float </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:double("1.34"), xs:float("INF"))))</test>
@@ -1180,7 +1179,7 @@
       <assert-string-value>INF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-027">
+  <test-case name="fn-avg-mix-args-027"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("INF")</response-string>
     <description> arg: seq of double,integer </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:double("INF"), 2, 3)))</test>
@@ -1189,7 +1188,7 @@
       <assert-string-value>INF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-028">
+  <test-case name="fn-avg-mix-args-028"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg((xs:yearMonthDuration("P20Y") , (3, 4, 5)))</test>
@@ -1198,7 +1197,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-029">
+  <test-case name="fn-avg-mix-args-029"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( fn:empty("Hello")) or fn:boolean(fn:count("Hello")))</test>
@@ -1207,16 +1206,16 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-030">
+  <test-case name="fn-avg-mix-args-030"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
-    <test>fn:avg(( concat('hi',' all') ))</test>
+    <test>fn:avg(( concat(&apos;hi&apos;,&apos; all&apos;) ))</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</result-string>
     <result>
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-031">
+  <test-case name="fn-avg-mix-args-031"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( fn:empty("Hello") ))</test>
@@ -1225,7 +1224,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-032">
+  <test-case name="fn-avg-mix-args-032"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( ("a", "b", "c", true()) ))</test>
@@ -1234,7 +1233,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-033">
+  <test-case name="fn-avg-mix-args-033"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:string("xyz"), (), (), "a" , "b") ))</test>
@@ -1243,7 +1242,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-034">
+  <test-case name="fn-avg-mix-args-034"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:anyURI("www.example.com"), "a", (""), "b")))</test>
@@ -1252,7 +1251,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-035">
+  <test-case name="fn-avg-mix-args-035"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:integer("100"), xs:string("abc"))))</test>
@@ -1261,7 +1260,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-036">
+  <test-case name="fn-avg-mix-args-036"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:integer("-999999999999999999") , "a", (), "3") ))</test>
@@ -1270,7 +1269,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-037">
+  <test-case name="fn-avg-mix-args-037"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:integer("830993497117024304"), "a", (), "3") ))</test>
@@ -1279,7 +1278,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-038">
+  <test-case name="fn-avg-mix-args-038"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:integer("999999999999999999"), "a", (), "3") ))</test>
@@ -1288,7 +1287,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-039">
+  <test-case name="fn-avg-mix-args-039"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:decimal("-999999999999999999") , "a", (), "3") ))</test>
@@ -1297,7 +1296,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-040">
+  <test-case name="fn-avg-mix-args-040"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:decimal("617375191608514839"), "a", (), "3") ))</test>
@@ -1306,7 +1305,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-041">
+  <test-case name="fn-avg-mix-args-041"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:decimal("999999999999999999"), "a", (), "3") ))</test>
@@ -1315,7 +1314,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-042">
+  <test-case name="fn-avg-mix-args-042"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:decimal("1.01"), xs:integer("12"), xs:anyURI("www.example.com"))))</test>
@@ -1324,7 +1323,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-043">
+  <test-case name="fn-avg-mix-args-043"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:float("-3.4028235E38"), xs:decimal("-999999999999999999") , "a", (), "3") ))</test>
@@ -1333,7 +1332,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-044">
+  <test-case name="fn-avg-mix-args-044"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:float("0"), xs:decimal("-999999999999999999") , "a", (), "3") ))</test>
@@ -1342,7 +1341,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-045">
+  <test-case name="fn-avg-mix-args-045"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:float("3.4028235E38"), xs:decimal("-999999999999999999") , "a", (), "3") ))</test>
@@ -1351,7 +1350,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-046">
+  <test-case name="fn-avg-mix-args-046"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:float("-0"), xs:decimal("-999999999999999999") , "a", (), "3") ))</test>
@@ -1360,7 +1359,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-047">
+  <test-case name="fn-avg-mix-args-047"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:float("NaN"), xs:decimal("-999999999999999999") , "a", (), "3") ))</test>
@@ -1373,7 +1372,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-048">
+  <test-case name="fn-avg-mix-args-048"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:float("INF"), xs:decimal("-999999999999999999") , "a", (), "3") ))</test>
@@ -1382,7 +1381,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-049">
+  <test-case name="fn-avg-mix-args-049"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:float("1.01"), xs:string("a"))))</test>
@@ -1391,7 +1390,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-050">
+  <test-case name="fn-avg-mix-args-050"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:float("-INF"), xs:decimal("2.34"), "abc")))</test>
@@ -1400,7 +1399,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-051">
+  <test-case name="fn-avg-mix-args-051"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:double("-1.7976931348623157E308"), xs:integer("-999999999999999999") , "a", (), "3") ))</test>
@@ -1409,7 +1408,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-052">
+  <test-case name="fn-avg-mix-args-052"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:double("0"), xs:integer("-999999999999999999") , "a", (), "3") ))</test>
@@ -1418,7 +1417,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-053">
+  <test-case name="fn-avg-mix-args-053"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:double("1.7976931348623157E308"), xs:integer("-999999999999999999") , "a", (), "3") ))</test>
@@ -1427,7 +1426,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-054">
+  <test-case name="fn-avg-mix-args-054"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:double("-0"), xs:integer("-999999999999999999") , "a", (), "3") ))</test>
@@ -1436,7 +1435,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-055">
+  <test-case name="fn-avg-mix-args-055"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:double("-INF"), xs:integer("-999999999999999999") , "a", (), "3") ))</test>
@@ -1445,7 +1444,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-056">
+  <test-case name="fn-avg-mix-args-056"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:double("NaN"), xs:integer("-999999999999999999") , "a", (), "3") ))</test>
@@ -1458,7 +1457,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-057">
+  <test-case name="fn-avg-mix-args-057"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:double("1.34"), xs:float("INF"), true())))</test>
@@ -1467,7 +1466,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-058">
+  <test-case name="fn-avg-mix-args-058"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:boolean("false"), xs:string("xyz"), (), (), "a" , "b")))</test>
@@ -1476,7 +1475,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-059">
+  <test-case name="fn-avg-mix-args-059"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (true(), xs:string("xyz"), (), (), "a" , "b")))</test>
@@ -1485,7 +1484,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-060">
+  <test-case name="fn-avg-mix-args-060"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (false(), xs:string("xyz"), (), (), "a" , "b")))</test>
@@ -1494,7 +1493,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-061">
+  <test-case name="fn-avg-mix-args-061"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:boolean("1"), xs:double("-INF"), "s")))</test>
@@ -1503,7 +1502,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-062">
+  <test-case name="fn-avg-mix-args-062"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:boolean("true"), xs:date("1993-03-31"), 4, "a")))</test>
@@ -1512,7 +1511,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-063">
+  <test-case name="fn-avg-mix-args-063"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:date("1993-03-31"), xs:string("xyz"), (), (), "a" , "b")))</test>
@@ -1521,7 +1520,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-064">
+  <test-case name="fn-avg-mix-args-064"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:dateTime("1972-12-31T00:00:00"), xs:boolean("false"), (), (" ")) ))</test>
@@ -1530,7 +1529,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-065">
+  <test-case name="fn-avg-mix-args-065"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Negative test gives FORG0006 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <test>fn:avg(( (xs:time("12:30:00"), xs:decimal("2.000003"), 2)))</test>
@@ -1539,7 +1538,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-mix-args-066">
+  <test-case name="fn-avg-mix-args-066"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Negative test gives FORG0001 </description>
     <created by="Pulkita Tyagi" on="2006-01-13"/>
     <environment ref="works-mod"/>
@@ -1549,7 +1548,7 @@
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-1">
+  <test-case name="K-SeqAVGFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `avg()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg()</test>
@@ -1558,7 +1557,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-2">
+  <test-case name="K-SeqAVGFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `avg(1, "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg(1, "wrong param")</test>
@@ -1567,7 +1566,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-3">
+  <test-case name="K-SeqAVGFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(avg(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(avg(()))</test>
@@ -1576,7 +1575,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-4">
+  <test-case name="K-SeqAVGFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `avg((3, 3, 3)) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((3, 3, 3)) eq 3</test>
@@ -1585,7 +1584,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-5">
+  <test-case name="K-SeqAVGFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `avg((-3, -3, -3)) eq -3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((-3, -3, -3)) eq -3</test>
@@ -1594,7 +1593,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-6">
+  <test-case name="K-SeqAVGFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `avg((xs:float(1), xs:integer(3), xs:float(3))) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((xs:float(1), xs:integer(3), xs:float(3))) instance of xs:float</test>
@@ -1603,7 +1602,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-7">
+  <test-case name="K-SeqAVGFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `avg((xs:float(1), xs:integer(3), xs:decimal(3))) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((xs:float(1), xs:integer(3), xs:decimal(3))) instance of xs:float</test>
@@ -1612,7 +1611,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-8">
+  <test-case name="K-SeqAVGFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `avg((xs:float(1), xs:integer(3), xs:double(3))) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((xs:float(1), xs:integer(3), xs:double(3))) instance of xs:double</test>
@@ -1621,7 +1620,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-9">
+  <test-case name="K-SeqAVGFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `avg((xs:integer(1), xs:integer(3), xs:decimal(3))) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((xs:integer(1), xs:integer(3), xs:decimal(3))) instance of xs:decimal</test>
@@ -1630,7 +1629,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-10">
+  <test-case name="K-SeqAVGFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `avg((xs:float(1), xs:integer(0), xs:float(5))) eq 2.0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((xs:float(1), xs:integer(0), xs:float(5))) eq 2.0</test>
@@ -1639,7 +1638,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-11">
+  <test-case name="K-SeqAVGFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `avg((xs:float(1), xs:integer(0), xs:untypedAtomic(-4))) eq -1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((xs:float(1), xs:integer(0), xs:untypedAtomic(-4))) eq -1</test>
@@ -1648,7 +1647,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-12">
+  <test-case name="K-SeqAVGFunc-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `avg((xs:float(1), xs:integer(0), xs:untypedAtomic(3))) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((xs:float(1), xs:integer(0), xs:untypedAtomic(3))) instance of xs:double</test>
@@ -1657,7 +1656,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-13">
+  <test-case name="K-SeqAVGFunc-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `avg((xs:untypedAtomic(3), xs:integer(0), xs:decimal(1))) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((xs:untypedAtomic(3), xs:integer(0), xs:decimal(1))) instance of xs:double</test>
@@ -1666,7 +1665,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-14">
+  <test-case name="K-SeqAVGFunc-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(avg((3, 3, xs:double("NaN")))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(avg((3, 3, xs:double("NaN")))) eq "NaN"</test>
@@ -1675,7 +1674,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-15">
+  <test-case name="K-SeqAVGFunc-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(avg((3, xs:double("NaN"), 3))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(avg((3, xs:double("NaN"), 3))) eq "NaN"</test>
@@ -1684,7 +1683,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-16">
+  <test-case name="K-SeqAVGFunc-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(avg((xs:double("NaN"), 3, 3))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(avg((xs:double("NaN"), 3, 3))) eq "NaN"</test>
@@ -1693,7 +1692,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-17">
+  <test-case name="K-SeqAVGFunc-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(avg(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(avg(()))</test>
@@ -1702,7 +1701,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-18">
+  <test-case name="K-SeqAVGFunc-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(avg(((), ())))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(avg(((), ())))</test>
@@ -1711,7 +1710,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-19">
+  <test-case name="K-SeqAVGFunc-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `avg((-5, -0, -3, -6)) eq -3.5`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((-5, -0, -3, -6)) eq -3.5</test>
@@ -1720,7 +1719,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-20">
+  <test-case name="K-SeqAVGFunc-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(avg((1, 2, 3, xs:float("NaN")))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(avg((1, 2, 3, xs:float("NaN")))) eq "NaN"</test>
@@ -1729,7 +1728,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-21">
+  <test-case name="K-SeqAVGFunc-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(avg((1, 2, 3, xs:double("NaN")))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(avg((1, 2, 3, xs:double("NaN")))) eq "NaN"</test>
@@ -1738,7 +1737,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-22">
+  <test-case name="K-SeqAVGFunc-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(avg((xs:double("NaN"), 1, 2, 3))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(avg((xs:double("NaN"), 1, 2, 3))) eq "NaN"</test>
@@ -1747,7 +1746,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-23">
+  <test-case name="K-SeqAVGFunc-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(avg((xs:float("NaN"), 1, 2, 3))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(avg((xs:float("NaN"), 1, 2, 3))) eq "NaN"</test>
@@ -1756,7 +1755,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-24">
+  <test-case name="K-SeqAVGFunc-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(avg((1, 2, xs:double("NaN"), 1, 2, 3))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(avg((1, 2, xs:double("NaN"), 1, 2, 3))) eq "NaN"</test>
@@ -1765,7 +1764,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-25">
+  <test-case name="K-SeqAVGFunc-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(avg((1, 2, xs:float("NaN"), 1, 2, 3))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(avg((1, 2, xs:float("NaN"), 1, 2, 3))) eq "NaN"</test>
@@ -1774,7 +1773,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-26">
+  <test-case name="K-SeqAVGFunc-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `avg(xs:untypedAtomic("3")) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg(xs:untypedAtomic("3")) instance of xs:double</test>
@@ -1783,7 +1782,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-27">
+  <test-case name="K-SeqAVGFunc-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `avg((1, 2, xs:untypedAtomic("3"))) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((1, 2, xs:untypedAtomic("3"))) instance of xs:double</test>
@@ -1792,7 +1791,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-28">
+  <test-case name="K-SeqAVGFunc-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `avg((1, 2, xs:untypedAtomic("3"))) eq 2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((1, 2, xs:untypedAtomic("3"))) eq 2</test>
@@ -1801,7 +1800,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-29">
+  <test-case name="K-SeqAVGFunc-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `avg((xs:float(1), 2, xs:untypedAtomic("3"))) eq 2`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((xs:float(1), 2, xs:untypedAtomic("3"))) eq 2</test>
@@ -1810,7 +1809,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-30">
+  <test-case name="K-SeqAVGFunc-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `avg((xs:float(1), 2, xs:untypedAtomic("3"))) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((xs:float(1), 2, xs:untypedAtomic("3"))) instance of xs:double</test>
@@ -1819,7 +1818,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-31">
+  <test-case name="K-SeqAVGFunc-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `avg("a string")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg("a string")</test>
@@ -1828,7 +1827,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-32">
+  <test-case name="K-SeqAVGFunc-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> A test whose essence is: `avg(xs:anyURI("a string"))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg(xs:anyURI("a string"))</test>
@@ -1837,7 +1836,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-33">
+  <test-case name="K-SeqAVGFunc-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> A test whose essence is: `avg((1, 2, 3, xs:anyURI("a string"), xs:double("NaN")))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((1, 2, 3, xs:anyURI("a string"), xs:double("NaN")))</test>
@@ -1846,7 +1845,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-34">
+  <test-case name="K-SeqAVGFunc-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `avg("a string")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg("a string")</test>
@@ -1855,7 +1854,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-35">
+  <test-case name="K-SeqAVGFunc-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `avg((xs:untypedAtomic(3), xs:integer(3), xs:string(1)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((xs:untypedAtomic(3), xs:integer(3), xs:string(1)))</test>
@@ -1864,7 +1863,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-36">
+  <test-case name="K-SeqAVGFunc-36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `avg((xs:string(1), xs:integer(3), xs:untypedAtomic(3)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((xs:string(1), xs:integer(3), xs:untypedAtomic(3)))</test>
@@ -1873,7 +1872,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-37">
+  <test-case name="K-SeqAVGFunc-37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `avg((xs:float(2), xs:integer(3), "a string", xs:double(2)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((xs:float(2), xs:integer(3), "a string", xs:double(2)))</test>
@@ -1882,7 +1881,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-38">
+  <test-case name="K-SeqAVGFunc-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `avg((xs:yearMonthDuration("P20Y"), (3, 4, 5)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((xs:yearMonthDuration("P20Y"), (3, 4, 5)))</test>
@@ -1891,7 +1890,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-39">
+  <test-case name="K-SeqAVGFunc-39"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `avg((xs:yearMonthDuration("P20Y"), xs:yearMonthDuration("P10M"))) eq xs:yearMonthDuration("P125M")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((xs:yearMonthDuration("P20Y"), xs:yearMonthDuration("P10M"))) eq xs:yearMonthDuration("P125M")</test>
@@ -1900,7 +1899,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-40">
+  <test-case name="K-SeqAVGFunc-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(avg( () ))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(avg( () ))</test>
@@ -1909,25 +1908,25 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-41">
-    <description> A test whose essence is: `string(avg((xs:float('INF'), xs:float('-INF')))) eq "NaN"`. </description>
+  <test-case name="K-SeqAVGFunc-41"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> A test whose essence is: `string(avg((xs:float(&apos;INF&apos;), xs:float(&apos;-INF&apos;)))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <test>string(avg((xs:float('INF'), xs:float('-INF')))) eq "NaN"</test>
+    <test>string(avg((xs:float(&apos;INF&apos;), xs:float(&apos;-INF&apos;)))) eq "NaN"</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-42">
-    <description> A test whose essence is: `string(avg(((3, 4, 5), xs:float('NaN')))) eq "NaN"`. </description>
+  <test-case name="K-SeqAVGFunc-42"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description> A test whose essence is: `string(avg(((3, 4, 5), xs:float(&apos;NaN&apos;)))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <test>string(avg(((3, 4, 5), xs:float('NaN')))) eq "NaN"</test>
+    <test>string(avg(((3, 4, 5), xs:float(&apos;NaN&apos;)))) eq "NaN"</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqAVGFunc-43">
+  <test-case name="K-SeqAVGFunc-43"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `avg((3, 4, 5)) eq 4.0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((3, 4, 5)) eq 4.0</test>
@@ -1936,25 +1935,25 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqAVGFunc-1">
+  <test-case name="K2-SeqAVGFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is correct when type promotion is required. </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <test>avg((xs:float('NaN'), 2, 3, 4, xs:double('NaN'))) instance of xs:double</test>
+    <test>avg((xs:float(&apos;NaN&apos;), 2, 3, 4, xs:double(&apos;NaN&apos;))) instance of xs:double</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqAVGFunc-2">
+  <test-case name="K2-SeqAVGFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is correct when type promotion is required(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <test>avg((xs:float('NaN'), 2, 3.3, 4, xs:double('NaN'))) instance of xs:double</test>
+    <test>avg((xs:float(&apos;NaN&apos;), 2, 3.3, 4, xs:double(&apos;NaN&apos;))) instance of xs:double</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqAVGFunc-3">
+  <test-case name="K2-SeqAVGFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Check the average of two integers. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>avg((1, 1))</test>
@@ -1963,7 +1962,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-avg-1">
+  <test-case name="fn-avg-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of the fn:avg function with argument to sequence of strings. </description>
     <created by="Carmelo Montanez" on="2005-09-20"/>
     <test>fn:avg(("a","b","c"))</test>
@@ -1972,7 +1971,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-avg-2">
+  <test-case name="fn-avg-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of the fn:avg function with argument to empty sequence. </description>
     <created by="Carmelo Montanez" on="2005-09-20"/>
     <test>fn:avg(())</test>
@@ -1981,7 +1980,7 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="fn-avg-3">
+  <test-case name="fn-avg-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test fn:sum on a sequence of xs:dayTimeDuration arguments </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>avg((xs:dayTimeDuration("P1D"), xs:dayTimeDuration("PT2H"))) instance of xs:dayTimeDuration</test>
@@ -1990,7 +1989,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-avg-4">
+  <test-case name="fn-avg-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test fn:avg on a sequence of xs:dayTimeDuration arguments </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>avg(for $x in 1 to 10 return xs:dayTimeDuration(concat("PT",$x,"H")))</test>
@@ -1999,7 +1998,7 @@
       <assert-string-value>PT5H30M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-avg-5">
+  <test-case name="fn-avg-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test fn:avg on a sequence of xs:yearMonthDuration arguments </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>avg((xs:yearMonthDuration("P1Y"), xs:yearMonthDuration("P1M"))) instance of xs:yearMonthDuration</test>
@@ -2008,7 +2007,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-avg-6">
+  <test-case name="fn-avg-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test fn:sum on a sequence of xs:yearMonthDuration arguments </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>avg(for $x in 1 to 9 return xs:yearMonthDuration(concat("P",$x,"M")))</test>
@@ -2017,7 +2016,7 @@
       <assert-string-value>P5M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-avg-7">
+  <test-case name="fn-avg-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test fn:sum on a sequence of xs:yearMonthDuration and xs:dayTimeDuration arguments </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>avg((xs:yearMonthDuration("P1Y"), xs:dayTimeDuration("P1D")))</test>
@@ -2030,7 +2029,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-avg-8">
+  <test-case name="fn-avg-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test fn:sum on a sequence of xs:duration arguments </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>avg(xs:duration("P1Y1M1D"))</test>
@@ -2043,7 +2042,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-avg-001">
+  <test-case name="cbcl-avg-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Testing fn:avg overflows correctly with xs:decimals </description>
     <created by="Oliver Hallam" on="2008-04-11"/>
     <test>fn:avg((xs:decimal("79000000000000000000000000000"),
@@ -2059,7 +2058,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-avg-002">
+  <test-case name="cbcl-avg-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test fn:avg overflows correctly with xs:dayTimeDurations</description>
     <created by="Oliver Hallam" on="2008-04-11"/>
     <test>fn:avg((xs:dayTimeDuration("P9223372036854775807D"), xs:dayTimeDuration("P1D")))</test>
@@ -2068,7 +2067,7 @@
       <error code="FODT0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-avg-003">
+  <test-case name="cbcl-avg-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>Test fn:avg overflows correctly with xs:yearMonthDurations </description>
     <created by="Oliver Hallam" on="2008-04-11"/>
     <test>fn:avg((xs:yearMonthDuration("P768614336404564650Y"), xs:yearMonthDuration("P1Y")))</test>
@@ -2077,7 +2076,7 @@
       <error code="FODT0002"/>
     </result>
   </test-case>
-  <test-case name="cbcl-avg-004">
+  <test-case name="cbcl-avg-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>Test fn:avg on xs:dayTimeDurations </description>
     <created by="Oliver Hallam" on="2008-04-11"/>
     <test>fn:avg((xs:dayTimeDuration("P1DT2H"), xs:dayTimeDuration("PT22H"), xs:dayTimeDuration("P1D")))</test>
@@ -2086,7 +2085,7 @@
       <assert-string-value>P1D</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-avg-005">
+  <test-case name="cbcl-avg-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>Test fn:avg raises error with xs:dayTimeDurations followed by xs:yearMonthDuration </description>
     <created by="Oliver Hallam" on="2008-04-11"/>
     <test>fn:avg((xs:dayTimeDuration("P1DT2H"), xs:dayTimeDuration("PT22H"), xs:yearMonthDuration("P1M")))</test>
@@ -2095,7 +2094,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="cbcl-avg-006">
+  <test-case name="cbcl-avg-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test fn:avg on xs:yearMonthDurations </description>
     <created by="Oliver Hallam" on="2008-04-11"/>
     <test>fn:avg((xs:yearMonthDuration("P1Y1M"), xs:yearMonthDuration("P11M"), xs:yearMonthDuration("P1Y")))</test>
@@ -2104,7 +2103,7 @@
       <assert-string-value>P1Y</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-avg-007">
+  <test-case name="cbcl-avg-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>Test fn:avg raises error with xs:yearMonthDurations followed by xs:dayTimeDuration</description>
     <created by="Oliver Hallam" on="2008-04-11"/>
     <test>fn:avg((xs:yearMonthDuration("P1Y1M"), xs:yearMonthDuration("P11M"), xs:dayTimeDuration("P1D")))</test>
@@ -2113,7 +2112,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="cbcl-avg-008">
+  <test-case name="cbcl-avg-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test fn:avg on mixed numeric types. </description>
     <created by="Oliver Hallam" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -2123,7 +2122,7 @@
       <assert-string-value>2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-avg-009">
+  <test-case name="cbcl-avg-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Test boolean(avg) and avg(()).</description>
     <created by="Oliver Hallam" on="2008-04-11"/>
     <test>boolean(avg(()))</test>
@@ -2136,7 +2135,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-avg-010">
+  <test-case name="cbcl-avg-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>Test tpe checking is performed when optimizin fn:avg to NaN. </description>
     <created by="Oliver Hallam" on="2008-04-11"/>
     <test>avg((xs:double("NaN"), current-date() - xs:date("1997-01-01") ))</test>
@@ -2145,7 +2144,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="cbcl-avg-011">
+  <test-case name="cbcl-avg-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description>Test fn:avg returning double NaN.</description>
     <created by="Oliver Hallam" on="2008-04-11"/>
     <test>avg((xs:double("NaN"), day-from-date(current-date())))</test>
@@ -2154,7 +2153,7 @@
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-avg-012">
+  <test-case name="cbcl-avg-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description>Test fn:avg returning float NaN. </description>
     <created by="Oliver Hallam" on="2008-04-11"/>
     <test>avg((xs:float("NaN"), day-from-date(current-date())))</test>
@@ -2163,7 +2162,7 @@
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-avg-013">
+  <test-case name="cbcl-avg-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test fn:avg on (). </description>
     <created by="Oliver Hallam" on="2008-04-14"/>
     <test>empty(avg(()))</test>

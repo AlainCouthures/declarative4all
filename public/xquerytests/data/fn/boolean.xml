@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-boolean" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the boolean() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-boolean" type="spec"/>
-  <test-case name="fn-booleanint1args-1">
+  <test-case name="fn-booleanint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates The "boolean" function with the arguments set as follows: $arg =
          xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
@@ -12,7 +11,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleanint1args-2">
+  <test-case name="fn-booleanint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates The "boolean" function with the arguments set as follows: $arg =
          xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
@@ -22,7 +21,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleanint1args-3">
+  <test-case name="fn-booleanint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates The "boolean" function with the arguments set as follows: $arg =
          xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
@@ -32,7 +31,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleanintg1args-1">
+  <test-case name="fn-booleanintg1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates The "boolean" function with the arguments set as follows: $arg =
          xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
@@ -42,7 +41,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleanintg1args-2">
+  <test-case name="fn-booleanintg1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates The "boolean" function with the arguments set as follows: $arg =
          xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
@@ -52,7 +51,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleanintg1args-3">
+  <test-case name="fn-booleanintg1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates The "boolean" function with the arguments set as follows: $arg =
          xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
@@ -62,7 +61,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleandec1args-1">
+  <test-case name="fn-booleandec1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates The "boolean" function with the arguments set as follows: $arg =
          xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
@@ -72,7 +71,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleandec1args-2">
+  <test-case name="fn-booleandec1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates The "boolean" function with the arguments set as follows: $arg =
          xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
@@ -82,7 +81,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleandec1args-3">
+  <test-case name="fn-booleandec1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates The "boolean" function with the arguments set as follows: $arg =
          xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
@@ -92,7 +91,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleandbl1args-1">
+  <test-case name="fn-booleandbl1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates The "boolean" function with the arguments set as follows: $arg =
          xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
@@ -102,7 +101,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleandbl1args-2">
+  <test-case name="fn-booleandbl1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Evaluates The "boolean" function with the arguments set as follows: $arg =
          xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
@@ -112,7 +111,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-booleandbl1args-3">
+  <test-case name="fn-booleandbl1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates The "boolean" function with the arguments set as follows: $arg =
          xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
@@ -122,7 +121,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleanflt1args-1">
+  <test-case name="fn-booleanflt1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates The "boolean" function with the arguments set as follows: $arg =
          xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
@@ -132,7 +131,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleanflt1args-2">
+  <test-case name="fn-booleanflt1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Evaluates The "boolean" function with the arguments set as follows: $arg =
          xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
@@ -142,7 +141,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-booleanflt1args-3">
+  <test-case name="fn-booleanflt1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates The "boolean" function with the arguments set as follows: $arg =
          xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
@@ -152,7 +151,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleanlng1args-1">
+  <test-case name="fn-booleanlng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>Evaluates The "boolean" function with the arguments set as follows: $arg =
          xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
@@ -162,7 +161,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleanlng1args-2">
+  <test-case name="fn-booleanlng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: booleanlng1args-2 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:long(mid range) </description>
@@ -173,7 +172,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleanlng1args-3">
+  <test-case name="fn-booleanlng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: booleanlng1args-3 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:long(upper bound) </description>
@@ -184,7 +183,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleanusht1args-1">
+  <test-case name="fn-booleanusht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test: booleanusht1args-1 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:unsignedShort(lower bound) </description>
@@ -195,7 +194,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-booleanusht1args-2">
+  <test-case name="fn-booleanusht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: booleanusht1args-2 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:unsignedShort(mid range) </description>
@@ -206,7 +205,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleanusht1args-3">
+  <test-case name="fn-booleanusht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: booleanusht1args-3 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:unsignedShort(upper bound) </description>
@@ -217,7 +216,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleannint1args-1">
+  <test-case name="fn-booleannint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: booleannint1args-1 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:negativeInteger(lower bound) </description>
@@ -228,7 +227,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleannint1args-2">
+  <test-case name="fn-booleannint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: booleannint1args-2 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:negativeInteger(mid range) </description>
@@ -239,7 +238,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleannint1args-3">
+  <test-case name="fn-booleannint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: booleannint1args-3 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:negativeInteger(upper bound) </description>
@@ -250,7 +249,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleanpint1args-1">
+  <test-case name="fn-booleanpint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: booleanpint1args-1 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:positiveInteger(lower bound) </description>
@@ -261,7 +260,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleanpint1args-2">
+  <test-case name="fn-booleanpint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: booleanpint1args-2 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:positiveInteger(mid range) </description>
@@ -272,7 +271,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleanpint1args-3">
+  <test-case name="fn-booleanpint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: booleanpint1args-3 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:positiveInteger(upper bound) </description>
@@ -283,7 +282,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleanulng1args-1">
+  <test-case name="fn-booleanulng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test: booleanulng1args-1 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:unsignedLong(lower bound) </description>
@@ -294,7 +293,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-booleanulng1args-2">
+  <test-case name="fn-booleanulng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: booleanulng1args-2 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:unsignedLong(mid range) </description>
@@ -305,7 +304,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleanulng1args-3">
+  <test-case name="fn-booleanulng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: booleanulng1args-3 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:unsignedLong(upper bound) </description>
@@ -316,7 +315,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleannpi1args-1">
+  <test-case name="fn-booleannpi1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: booleannpi1args-1 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:nonPositiveInteger(lower bound) </description>
@@ -327,7 +326,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleannpi1args-2">
+  <test-case name="fn-booleannpi1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: booleannpi1args-2 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:nonPositiveInteger(mid range) </description>
@@ -338,7 +337,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleannpi1args-3">
+  <test-case name="fn-booleannpi1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test: booleannpi1args-3 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:nonPositiveInteger(upper bound) </description>
@@ -349,7 +348,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-booleannni1args-1">
+  <test-case name="fn-booleannni1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test: booleannni1args-1 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:nonNegativeInteger(lower bound) </description>
@@ -360,7 +359,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-booleannni1args-2">
+  <test-case name="fn-booleannni1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: booleannni1args-2 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:nonNegativeInteger(mid range) </description>
@@ -371,7 +370,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleannni1args-3">
+  <test-case name="fn-booleannni1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: booleannni1args-3 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:nonNegativeInteger(upper bound) </description>
@@ -382,7 +381,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleansht1args-1">
+  <test-case name="fn-booleansht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: booleansht1args-1 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:short(lower bound) </description>
@@ -393,7 +392,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleansht1args-2">
+  <test-case name="fn-booleansht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: booleansht1args-2 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:short(mid range) </description>
@@ -404,7 +403,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-booleansht1args-3">
+  <test-case name="fn-booleansht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: booleansht1args-3 Written By: Carmelo Montanez Date: Fri Dec 10 10:15:47
          GMT-05:00 2004 Purpose: Evaluates The "boolean" function with the arguments set as follows:
          $arg = xs:short(upper bound) </description>
@@ -415,7 +414,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-001">
+  <test-case name="fn-boolean-mixed-args-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test: fn-boolean-mixed-args-001.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: empty sequence </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
@@ -425,7 +424,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-002">
+  <test-case name="fn-boolean-mixed-args-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test: fn-boolean-mixed-args-002.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
@@ -435,7 +434,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-003">
+  <test-case name="fn-boolean-mixed-args-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test: fn-boolean-mixed-args-003.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: boolean function </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
@@ -445,7 +444,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-004">
+  <test-case name="fn-boolean-mixed-args-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-004.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: boolean function </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
@@ -455,7 +454,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-005">
+  <test-case name="fn-boolean-mixed-args-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test: fn-boolean-mixed-args-005.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
@@ -465,27 +464,27 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-006">
+  <test-case name="fn-boolean-mixed-args-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-006.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(('a'))</test>
+    <test>fn:boolean((&apos;a&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-007">
+  <test-case name="fn-boolean-mixed-args-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-007.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:string('abc'))</test>
+    <test>fn:boolean(xs:string(&apos;abc&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-008">
+  <test-case name="fn-boolean-mixed-args-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test: fn-boolean-mixed-args-008.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
@@ -495,7 +494,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-009">
+  <test-case name="fn-boolean-mixed-args-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-009.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
@@ -505,7 +504,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-010">
+  <test-case name="fn-boolean-mixed-args-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-010.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
@@ -515,37 +514,37 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-011">
+  <test-case name="fn-boolean-mixed-args-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test: fn-boolean-mixed-args-011.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: float </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:float('NaN'))</test>
+    <test>fn:boolean(xs:float(&apos;NaN&apos;))</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-012">
+  <test-case name="fn-boolean-mixed-args-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-012.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: float </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:float('-INF'))</test>
+    <test>fn:boolean(xs:float(&apos;-INF&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-013">
+  <test-case name="fn-boolean-mixed-args-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-013.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: float </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:float('INF'))</test>
+    <test>fn:boolean(xs:float(&apos;INF&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-014">
+  <test-case name="fn-boolean-mixed-args-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test: fn-boolean-mixed-args-014.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: float </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
@@ -555,7 +554,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-015">
+  <test-case name="fn-boolean-mixed-args-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-015.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: float </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
@@ -565,7 +564,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-016">
+  <test-case name="fn-boolean-mixed-args-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-016.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: float </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
@@ -575,37 +574,37 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-017">
+  <test-case name="fn-boolean-mixed-args-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test: fn-boolean-mixed-args-017.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:double('NaN'))</test>
+    <test>fn:boolean(xs:double(&apos;NaN&apos;))</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-018">
+  <test-case name="fn-boolean-mixed-args-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-018.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:double('-INF'))</test>
+    <test>fn:boolean(xs:double(&apos;-INF&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-019">
+  <test-case name="fn-boolean-mixed-args-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-019.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:double('INF'))</test>
+    <test>fn:boolean(xs:double(&apos;INF&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-020">
+  <test-case name="fn-boolean-mixed-args-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test: fn-boolean-mixed-args-020.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
@@ -615,7 +614,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-021">
+  <test-case name="fn-boolean-mixed-args-021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-021.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
@@ -625,277 +624,277 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-022">
+  <test-case name="fn-boolean-mixed-args-022"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-022.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:double('1'))</test>
+    <test>fn:boolean(xs:double(&apos;1&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-023">
+  <test-case name="fn-boolean-mixed-args-023"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test: fn-boolean-mixed-args-023.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:double('NaN'))</test>
+    <test>fn:boolean(xs:double(&apos;NaN&apos;))</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-024">
+  <test-case name="fn-boolean-mixed-args-024"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-024.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: decimal </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:decimal('9.99999999999999999999999999'))</test>
+    <test>fn:boolean(xs:decimal(&apos;9.99999999999999999999999999&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-025">
+  <test-case name="fn-boolean-mixed-args-025"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-025.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: decimal </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:decimal('-123456789.123456789123456789'))</test>
+    <test>fn:boolean(xs:decimal(&apos;-123456789.123456789123456789&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-026">
+  <test-case name="fn-boolean-mixed-args-026"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test: fn-boolean-mixed-args-026.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: decimal </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:decimal('0'))</test>
+    <test>fn:boolean(xs:decimal(&apos;0&apos;))</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-027">
+  <test-case name="fn-boolean-mixed-args-027"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-027.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: decimal </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:decimal('1'))</test>
+    <test>fn:boolean(xs:decimal(&apos;1&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-028">
+  <test-case name="fn-boolean-mixed-args-028"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-028.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: decimal </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:decimal('-1'))</test>
+    <test>fn:boolean(xs:decimal(&apos;-1&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-029">
+  <test-case name="fn-boolean-mixed-args-029"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test: fn-boolean-mixed-args-029.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:integer('0'))</test>
+    <test>fn:boolean(xs:integer(&apos;0&apos;))</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-030">
+  <test-case name="fn-boolean-mixed-args-030"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-030.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:integer('1'))</test>
+    <test>fn:boolean(xs:integer(&apos;1&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-031">
+  <test-case name="fn-boolean-mixed-args-031"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-031.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:integer('-1'))</test>
+    <test>fn:boolean(xs:integer(&apos;-1&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-032">
+  <test-case name="fn-boolean-mixed-args-032"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-032.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: nonPositiveInteger </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:nonPositiveInteger('-99999999999999999'))</test>
+    <test>fn:boolean(xs:nonPositiveInteger(&apos;-99999999999999999&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-033">
+  <test-case name="fn-boolean-mixed-args-033"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test: fn-boolean-mixed-args-033.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: nonPositiveInteger </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:nonPositiveInteger('0'))</test>
+    <test>fn:boolean(xs:nonPositiveInteger(&apos;0&apos;))</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-034">
+  <test-case name="fn-boolean-mixed-args-034"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-034.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: nonPositiveInteger </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:nonPositiveInteger('-1'))</test>
+    <test>fn:boolean(xs:nonPositiveInteger(&apos;-1&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-035">
+  <test-case name="fn-boolean-mixed-args-035"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-035.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: negativeInteger </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:negativeInteger('-99999999999999999'))</test>
+    <test>fn:boolean(xs:negativeInteger(&apos;-99999999999999999&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-036">
+  <test-case name="fn-boolean-mixed-args-036"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-036.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: negativeInteger </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:negativeInteger('-1'))</test>
+    <test>fn:boolean(xs:negativeInteger(&apos;-1&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-037">
+  <test-case name="fn-boolean-mixed-args-037"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-037.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: positiveInteger </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:positiveInteger('99999999999999999'))</test>
+    <test>fn:boolean(xs:positiveInteger(&apos;99999999999999999&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-038">
+  <test-case name="fn-boolean-mixed-args-038"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-038.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: positiveInteger </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:positiveInteger('1'))</test>
+    <test>fn:boolean(xs:positiveInteger(&apos;1&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-039">
+  <test-case name="fn-boolean-mixed-args-039"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-039.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: long </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:long('9223372036854775807'))</test>
+    <test>fn:boolean(xs:long(&apos;9223372036854775807&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-040">
+  <test-case name="fn-boolean-mixed-args-040"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-040.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: long </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:long('-9223372036854775808'))</test>
+    <test>fn:boolean(xs:long(&apos;-9223372036854775808&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-041">
+  <test-case name="fn-boolean-mixed-args-041"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test: fn-boolean-mixed-args-041.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: long </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:long('0'))</test>
+    <test>fn:boolean(xs:long(&apos;0&apos;))</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-042">
+  <test-case name="fn-boolean-mixed-args-042"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-042.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: long </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:long('1'))</test>
+    <test>fn:boolean(xs:long(&apos;1&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-043">
+  <test-case name="fn-boolean-mixed-args-043"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-043.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: long </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:long('-1'))</test>
+    <test>fn:boolean(xs:long(&apos;-1&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-044">
+  <test-case name="fn-boolean-mixed-args-044"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-044.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: int </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:int('2147483647'))</test>
+    <test>fn:boolean(xs:int(&apos;2147483647&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-045">
+  <test-case name="fn-boolean-mixed-args-045"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-045.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: int </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:int('-2147483648'))</test>
+    <test>fn:boolean(xs:int(&apos;-2147483648&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-046">
+  <test-case name="fn-boolean-mixed-args-046"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test: fn-boolean-mixed-args-046.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: int </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:int('0'))</test>
+    <test>fn:boolean(xs:int(&apos;0&apos;))</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-047">
+  <test-case name="fn-boolean-mixed-args-047"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-047.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: int </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:int('1'))</test>
+    <test>fn:boolean(xs:int(&apos;1&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-048">
+  <test-case name="fn-boolean-mixed-args-048"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-048.xq Written By: Pulkita Tyagi Date: Mon May 23
          04:50:42 2005 Purpose: arg: int </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:boolean(xs:int('-1'))</test>
+    <test>fn:boolean(xs:int(&apos;-1&apos;))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-mixed-args-049">
+  <test-case name="fn-boolean-mixed-args-049"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: fn-boolean-mixed-args-049.xq Written By: Carmelo Montanez Date: January,
          19, 2006 Purpose: arg: anyURI </description>
     <created by="Carmelo Montanez" on="2006-01-19"/>
@@ -905,7 +904,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-boolean-050">
+  <test-case name="fn-boolean-050"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</response-string>
     <description> Test: fn-boolean-050.xq Written By: Carmelo Montanez Date: February 6, 2006
          Purpose: Raise error condition FORG0006 for fn:boolean. </description>
     <created by="Carmelo Montanez" on="2006-12-06"/>
@@ -915,7 +914,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="context-item-1">
+  <test-case name="context-item-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Name: context-item-1 Description: Evaluation of contect item expression for
          which the context item is not defined. </description>
     <created by="Carmelo Montanez" on="2006-12-06"/>
@@ -926,7 +925,7 @@
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-1">
+  <test-case name="K-SeqBooleanFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Test: K-SeqBooleanFunc-1 Purpose: A test whose essence is: `boolean()`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>boolean()</test>
@@ -935,7 +934,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-2">
+  <test-case name="K-SeqBooleanFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Test: K-SeqBooleanFunc-2 Purpose: A test whose essence is: `boolean(1, "wrong
          param")`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -945,7 +944,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-3">
+  <test-case name="K-SeqBooleanFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</response-string>
     <description> Test: K-SeqBooleanFunc-3 Purpose: A test whose essence is: `boolean((1, 2))`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>boolean((1, 2))</test>
@@ -954,7 +953,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-4">
+  <test-case name="K-SeqBooleanFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</response-string>
     <description> Test: K-SeqBooleanFunc-4 Purpose: A test whose essence is:
          `boolean(xs:QName("valid-local-name"))`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -964,7 +963,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-5">
+  <test-case name="K-SeqBooleanFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</response-string>
     <description> Test: K-SeqBooleanFunc-5 Purpose: A test whose essence is:
          `boolean(xs:hexBinary("03"))`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -974,7 +973,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-6">
+  <test-case name="K-SeqBooleanFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</response-string>
     <description> Test: K-SeqBooleanFunc-6 Purpose: A test whose essence is:
          `boolean(xs:base64Binary("aaaa"))`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -984,7 +983,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-7">
+  <test-case name="K-SeqBooleanFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: K-SeqBooleanFunc-7 Purpose: Extracting EBV from xs:anyURI is allowed. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>boolean(xs:anyURI("example.com/"))</test>
@@ -993,7 +992,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-8">
+  <test-case name="K-SeqBooleanFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: K-SeqBooleanFunc-8 Purpose: Extracting EBV from xs:anyURI is allowed. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(boolean(xs:anyURI("")))</test>
@@ -1002,7 +1001,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-9">
+  <test-case name="K-SeqBooleanFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: K-SeqBooleanFunc-9 Purpose: fn:boolean() invoked on an non-empty xs:string
          should return true. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -1012,7 +1011,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-10">
+  <test-case name="K-SeqBooleanFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: K-SeqBooleanFunc-10 Purpose: fn:boolean() invoked on an non-empty
          xs:untypedAtomic should return true. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -1022,7 +1021,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-11">
+  <test-case name="K-SeqBooleanFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: K-SeqBooleanFunc-11 Purpose: fn:boolean() invoked on an non-empty
          xs:untypedAtomic should return false. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -1032,7 +1031,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-12">
+  <test-case name="K-SeqBooleanFunc-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: K-SeqBooleanFunc-12 Purpose: A test whose essence is: `boolean(1)`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>boolean(1)</test>
@@ -1041,7 +1040,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-13">
+  <test-case name="K-SeqBooleanFunc-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: K-SeqBooleanFunc-13 Purpose: A test whose essence is: `not(boolean(""))`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(boolean(""))</test>
@@ -1050,7 +1049,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-14">
+  <test-case name="K-SeqBooleanFunc-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: K-SeqBooleanFunc-14 Purpose: A test whose essence is:
          `not(boolean(false()))`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -1060,7 +1059,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-15">
+  <test-case name="K-SeqBooleanFunc-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: K-SeqBooleanFunc-15 Purpose: A test whose essence is: `boolean(true())`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>boolean(true())</test>
@@ -1069,7 +1068,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-16">
+  <test-case name="K-SeqBooleanFunc-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: K-SeqBooleanFunc-16 Purpose: A test whose essence is: `true() eq
          boolean(remove((xs:hexBinary("FF"), 1), 1) treat as xs:integer)`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -1079,7 +1078,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-17">
+  <test-case name="K-SeqBooleanFunc-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test: K-SeqBooleanFunc-17 Purpose: A test whose essence is: `not(0)`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(0)</test>
@@ -1088,7 +1087,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-18">
+  <test-case name="K-SeqBooleanFunc-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>zzzA test whose essence is: `boolean(1)`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>boolean(1)</test>
@@ -1097,7 +1096,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-19">
+  <test-case name="K-SeqBooleanFunc-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>zzzA test whose essence is: `boolean(1.1)`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>boolean(1.1)</test>
@@ -1106,7 +1105,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-20">
+  <test-case name="K-SeqBooleanFunc-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>sA test whose essence is: `boolean(1.1e1)`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>boolean(1.1e1)</test>
@@ -1115,7 +1114,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-21">
+  <test-case name="K-SeqBooleanFunc-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>sA test whose essence is: `not(0.0e0)`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(0.0e0)</test>
@@ -1124,7 +1123,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-22">
+  <test-case name="K-SeqBooleanFunc-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>sA test whose essence is: `not(0.0)`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(0.0)</test>
@@ -1133,7 +1132,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-23">
+  <test-case name="K-SeqBooleanFunc-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>sA test whose essence is: `boolean(-1)`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>boolean(-1)</test>
@@ -1142,7 +1141,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-24">
+  <test-case name="K-SeqBooleanFunc-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>A test whose essence is: `not(())`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(())</test>
@@ -1151,7 +1150,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-25">
+  <test-case name="K-SeqBooleanFunc-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>A test whose essence is: `not(boolean(()))`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(boolean(()))</test>
@@ -1160,7 +1159,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-26">
+  <test-case name="K-SeqBooleanFunc-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>A test whose essence is: `not(())`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(())</test>
@@ -1169,7 +1168,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-27">
+  <test-case name="K-SeqBooleanFunc-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(empty((1, 2)))`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(empty((1, 2)))</test>
@@ -1178,7 +1177,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-28">
+  <test-case name="K-SeqBooleanFunc-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>A test whose essence is: `not(empty(((), 1, 2)))`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>not(empty(((), 1, 2)))</test>
@@ -1187,34 +1186,34 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-29">
-    <description>A test whose essence is: `boolean('nada')`. </description>
+  <test-case name="K-SeqBooleanFunc-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description>A test whose essence is: `boolean(&apos;nada&apos;)`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
-    <test>boolean('nada')</test>
+    <test>boolean(&apos;nada&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-30">
-    <description>A test whose essence is: `boolean('""')`. </description>
+  <test-case name="K-SeqBooleanFunc-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description>A test whose essence is: `boolean(&apos;""&apos;)`. </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
-    <test>boolean('""')</test>
+    <test>boolean(&apos;""&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-31">
-    <description>A test whose essence is: `not('')`.</description>
+  <test-case name="K-SeqBooleanFunc-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
+    <description>A test whose essence is: `not(&apos;&apos;)`.</description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
-    <test>not('')</test>
+    <test>not(&apos;&apos;)</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqBooleanFunc-32">
+  <test-case name="K-SeqBooleanFunc-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Apply fn:boolean() on fn:count(). </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>fn:boolean(count((1, 2, 3, timezone-from-time(current-time()), 4)))</test>
@@ -1223,7 +1222,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="boolean-001">
+  <test-case name="boolean-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>boolean() applied to a node sequence</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <environment ref="auction"/>
@@ -1233,7 +1232,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="boolean-002">
+  <test-case name="boolean-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>boolean() applied to an empty node sequence</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <environment ref="auction"/>
@@ -1243,7 +1242,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="boolean-003">
+  <test-case name="boolean-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>boolean() applied to a sequence whose first item is a node</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <environment ref="auction"/>
@@ -1253,7 +1252,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="boolean-004">
+  <test-case name="boolean-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</response-string>
     <description>boolean() applied to a sequence whose second item is a node</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <environment ref="auction"/>
@@ -1263,7 +1262,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="boolean-005">
+  <test-case name="boolean-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</response-string>
     <description>boolean() applied to a sequence of two booleans</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>boolean((true(), false()))</test>
@@ -1272,7 +1271,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="boolean-006">
+  <test-case name="boolean-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</response-string>
     <description>boolean() applied to a sequence of two integers</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>boolean((1, 0))</test>
@@ -1281,7 +1280,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="boolean-007">
+  <test-case name="boolean-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</response-string>
     <description>boolean() applied to a sequence of two strings</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>boolean(("", "a"))</test>
@@ -1290,7 +1289,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="boolean-008">
+  <test-case name="boolean-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>boolean() applied to a sequence of of a boolean and then an empty
          node-set</description>
     <created by="Michael Kay" on="2011-06-29"/>
@@ -1301,7 +1300,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="boolean-009">
+  <test-case name="boolean-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>boolean() applied to the string "false"</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <environment ref="auction"/>
@@ -1311,7 +1310,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-boolean-001">
+  <test-case name="cbcl-boolean-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>test fn:boolean on a count-preserving function </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1333,7 +1332,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-boolean-002">
+  <test-case name="cbcl-boolean-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test fn:boolean on fn:count function</description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1354,7 +1353,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-boolean-003">
+  <test-case name="cbcl-boolean-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test fn:boolean on sequence of node and string</description>
     <created by="Oliver Hallam" on="2008-04-14"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1368,7 +1367,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-boolean-004">
+  <test-case name="cbcl-boolean-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0006"))</response-string>
     <description>Tests negation of fn:boolean </description>
     <created by="Nick Jones" on="2008-06-02"/>
     <test>not(boolean(for $x in 1 to 10 return $x * $x))</test>
@@ -1377,7 +1376,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="cbcl-boolean-005">
+  <test-case name="cbcl-boolean-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>test fn:boolean on a text node</description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1390,13 +1389,13 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-boolean-006">
+  <test-case name="cbcl-boolean-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>test fn:boolean on a text node </description>
     <created by="Tim Mills" on="2008-04-11"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       declare function local:repeat($count as xs:integer, $arg as xs:string) as item()* { 
-      	if ($count lt 0) then '$count must not be negative' 
+      	if ($count lt 0) then &apos;$count must not be negative&apos; 
       	else text { for $x in 1 to $count return $arg }
       }; 
       fn:boolean( local:repeat(0, "string") )</test>

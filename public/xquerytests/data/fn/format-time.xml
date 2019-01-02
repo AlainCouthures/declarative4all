@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set covers="fn-format-time" name="fn-format-time" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the format-time() function transferred from XSLT 2.0 to XPath 3.0</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-format-time" type="spec"/>
   <dependency type="spec" value="XP30+ XQ30+"/>
-  <test-case name="format-time-002a">
+  <test-case name="format-time-002a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-time: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456&apos;)"/>
     </environment>
     <test>format-time($t,"[H01]:[m01]")</test>
     <result-string>xs:string("09:15")</result-string>
@@ -15,11 +14,11 @@
       <assert-string-value>09:15</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-002b">
+  <test-case name="format-time-002b"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-time: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456&apos;)"/>
     </environment>
     <test>format-time($t,"[H]:[m]")</test>
     <result-string>xs:string("9:15")</result-string>
@@ -27,11 +26,11 @@
       <assert-string-value>9:15</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-002c">
+  <test-case name="format-time-002c"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-time: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456&apos;)"/>
     </environment>
     <test>format-time($t,"[H01]:[m01]:[s01]")</test>
     <result-string>xs:string("09:15:06")</result-string>
@@ -39,11 +38,11 @@
       <assert-string-value>09:15:06</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-002d">
+  <test-case name="format-time-002d"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-time: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456&apos;)"/>
     </environment>
     <test>format-time($t,"[H]:[m]:[s]")</test>
     <result-string>xs:string("9:15:06")</result-string>
@@ -51,11 +50,11 @@
       <assert-string-value>9:15:06</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-002e">
+  <test-case name="format-time-002e"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-time: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456&apos;)"/>
     </environment>
     <test>format-time($t,"[H]:[m]:[s1]")</test>
     <result-string>xs:string("9:15:6")</result-string>
@@ -63,11 +62,11 @@
       <assert-string-value>9:15:6</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-002f">
+  <test-case name="format-time-002f"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-time: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456&apos;)"/>
     </environment>
     <test>format-time($t,"[H]:[m]:[s01]:[f001]")</test>
     <result-string>xs:string("9:15:06:456")</result-string>
@@ -75,11 +74,11 @@
       <assert-string-value>9:15:06:456</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-002g">
+  <test-case name="format-time-002g"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-time: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456&apos;)"/>
     </environment>
     <test>format-time($t,"[H]:[m]:[s].[f,1-1]")</test>
     <result-string>xs:string("9:15:06.5")</result-string>
@@ -87,11 +86,11 @@
       <assert-string-value>9:15:06.5</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-002h">
+  <test-case name="format-time-002h"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-time: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456&apos;)"/>
     </environment>
     <test>format-time($t,"[H]:[m]:[s].[f1,1-1]")</test>
     <result-string>xs:string("9:15:06.5")</result-string>
@@ -99,11 +98,11 @@
       <assert-string-value>9:15:06.5</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-002i">
+  <test-case name="format-time-002i"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-time: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456&apos;)"/>
     </environment>
     <test>format-time($t,"[H]:[m]:[s].[f01]")</test>
     <result-string>xs:string("9:15:06.46")</result-string>
@@ -111,11 +110,11 @@
       <assert-string-value>9:15:06.46</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-002j">
+  <test-case name="format-time-002j"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>Test format-time: basic numeric formats</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456&apos;)"/>
     </environment>
     <test>format-time($t,"[H]:[m]:[s].[f001]")</test>
     <result-string>xs:string("9:15:06.456")</result-string>
@@ -123,15 +122,15 @@
       <assert-string-value>9:15:06.456</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-004">
+  <test-case name="format-time-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")))</response-string>
     <description>Test format-time: 12-hour clock</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456&apos;)"/>
     </environment>
     <test>
         for $i in 1 to 24 return
-        format-time($t + xs:dayTimeDuration('PT1H')*$i, '[h].[m]')</test>
+        format-time($t + xs:dayTimeDuration(&apos;PT1H&apos;)*$i, &apos;[h].[m]&apos;)</test>
     <result-string>xs:string("
          10.15 11.15 12.15 1.15 2.15 3.15 4.15 5.15 6.15 7.15 8.15 9.15 10.15 11.15 
          12.15 1.15 2.15 3.15 4.15 5.15 6.15 7.15 8.15 9.15
@@ -143,113 +142,113 @@
          </assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-013n">
+  <test-case name="format-time-013n"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-time(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456&apos;)"/>
     </environment>
-    <test>format-time($t, '[m,3]')</test>
+    <test>format-time($t, &apos;[m,3]&apos;)</test>
     <result-string>xs:string("015")</result-string>
     <result>
       <assert-string-value>015</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-013p">
+  <test-case name="format-time-013p"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-time(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456&apos;)"/>
     </environment>
-    <test>format-time($t, '[f,4-4]')</test>
+    <test>format-time($t, &apos;[f,4-4]&apos;)</test>
     <result-string>xs:string("4560")</result-string>
     <result>
       <assert-string-value>4560</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-013q">
+  <test-case name="format-time-013q"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-time(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456&apos;)"/>
     </environment>
-    <test>format-time($t, '[f,1-4]')</test>
+    <test>format-time($t, &apos;[f,1-4]&apos;)</test>
     <result-string>xs:string("456")</result-string>
     <result>
       <assert-string-value>456</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-013r">
+  <test-case name="format-time-013r"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-time(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456&apos;)"/>
     </environment>
-    <test>format-time($t, '[f,2-5]')</test>
+    <test>format-time($t, &apos;[f,2-5]&apos;)</test>
     <result-string>xs:string("456")</result-string>
     <result>
       <assert-string-value>456</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-013s">
+  <test-case name="format-time-013s"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-time(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456&apos;)"/>
     </environment>
-    <test>format-time($t, '[f,2-2]')</test>
+    <test>format-time($t, &apos;[f,2-2]&apos;)</test>
     <result-string>xs:string("46")</result-string>
     <result>
       <assert-string-value>46</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-013t">
+  <test-case name="format-time-013t"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-time(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456&apos;)"/>
     </environment>
-    <test>format-time($t, '[f,1-*]')</test>
+    <test>format-time($t, &apos;[f,1-*]&apos;)</test>
     <result-string>xs:string("456")</result-string>
     <result>
       <assert-string-value>456</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-013u">
+  <test-case name="format-time-013u"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-time(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456&apos;)"/>
     </environment>
-    <test>format-time($t, '[f,*-2]')</test>
+    <test>format-time($t, &apos;[f,*-2]&apos;)</test>
     <result-string>xs:string("46")</result-string>
     <result>
       <assert-string-value>46</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-013v">
+  <test-case name="format-time-013v"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008"))</response-string>
     <description>test format-time(): effect of width specifiers </description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456&apos;)"/>
     </environment>
-    <test>format-time($t, '[f,3]')</test>
+    <test>format-time($t, &apos;[f,3]&apos;)</test>
     <result-string>xs:string("456")</result-string>
     <result>
       <assert-string-value>456</assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-014">
+  <test-case name="format-time-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>test format-time(): timezones in +nn:nn notation</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
-    <modified by="O'Neil Delpratt, Saxonica" change="Bug fix 17285" on="2012-08-08"/>
+    <modified by="O&apos;Neil Delpratt, Saxonica" change="Bug fix 17285" on="2012-08-08"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456Z')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456Z&apos;)"/>
     </environment>
     <test>string-join(
                for $z in -28 to +28
                return format-time(adjust-time-to-timezone(
-               $t, $z*xs:dayTimeDuration('PT30M')), '[h01][m01][Z]'), '; ')</test>
+               $t, $z*xs:dayTimeDuration(&apos;PT30M&apos;)), &apos;[h01][m01][Z]&apos;), &apos;; &apos;)</test>
     <result-string>xs:string("
              0715-14:00; 0745-13:30; 0815-13:00; 0845-12:30; 0915-12:00; 0945-11:30; 1015-11:00; 1045-10:30; 1115-10:00; 
              1145-09:30; 1215-09:00; 1245-08:30; 0115-08:00; 0145-07:30; 0215-07:00; 0245-06:30; 0315-06:00; 0345-05:30; 
@@ -271,17 +270,17 @@
          </assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-015">
+  <test-case name="format-time-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>test format-time(): timezones in GMT+x notation</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
-    <modified by="O'Neil Delpratt, Saxonica" change="Bug fix 17285" on="2012-08-08"/>
+    <modified by="O&apos;Neil Delpratt, Saxonica" change="Bug fix 17285" on="2012-08-08"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456Z')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456Z&apos;)"/>
     </environment>
     <test>string-join(
                for $z in -28 to +28
                return format-time(adjust-time-to-timezone(
-                        $t, $z*xs:dayTimeDuration('PT30M')), '[h01][m01][z]'), '; ')</test>
+                        $t, $z*xs:dayTimeDuration(&apos;PT30M&apos;)), &apos;[h01][m01][z]&apos;), &apos;; &apos;)</test>
     <result-string>xs:string("
             0715GMT-14:00; 0745GMT-13:30; 0815GMT-13:00; 0845GMT-12:30; 0915GMT-12:00; 0945GMT-11:30; 1015GMT-11:00; 1045GMT-10:30;
             1115GMT-10:00; 1145GMT-09:30; 1215GMT-09:00; 1245GMT-08:30; 0115GMT-08:00; 0145GMT-07:30; 0215GMT-07:00; 0245GMT-06:30;
@@ -305,17 +304,17 @@
          </assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-016">
+  <test-case name="format-time-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>test format-time(): timezones in GMT+x notation</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
-    <modified by="O'Neil Delpratt, Saxonica" change="Bug fix 17285" on="2012-08-08"/>
+    <modified by="O&apos;Neil Delpratt, Saxonica" change="Bug fix 17285" on="2012-08-08"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456Z')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456Z&apos;)"/>
     </environment>
     <test>string-join(
                for $z in -28 to +28
                return format-time(adjust-time-to-timezone(
-                        $t, $z*xs:dayTimeDuration('PT30M')), '[h01][m01][z,6-6]'), '; ')</test>
+                        $t, $z*xs:dayTimeDuration(&apos;PT30M&apos;)), &apos;[h01][m01][z,6-6]&apos;), &apos;; &apos;)</test>
     <result-string>xs:string("
              0715GMT-14:00; 0745GMT-13:30; 0815GMT-13:00; 0845GMT-12:30; 0915GMT-12:00; 0945GMT-11:30; 1015GMT-11:00; 1045GMT-10:30;
             1115GMT-10:00; 1145GMT-09:30; 1215GMT-09:00; 1245GMT-08:30; 0115GMT-08:00; 0145GMT-07:30; 0215GMT-07:00; 0245GMT-06:30;
@@ -339,16 +338,16 @@
         </assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-017">
+  <test-case name="format-time-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>test format-time(): timezones in GMT+x notation</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
-    <modified by="O'Neil Delpratt, Saxonica" change="Bug fix 17285" on="2012-08-08"/>
+    <modified by="O&apos;Neil Delpratt, Saxonica" change="Bug fix 17285" on="2012-08-08"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456Z')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456Z&apos;)"/>
     </environment>
     <test>string-join(
                for $z in -28 to +28
-               return format-time(adjust-time-to-timezone($t, $z*xs:dayTimeDuration('PT30M')), '[h01][m01][z,5-6]'), '; ')</test>
+               return format-time(adjust-time-to-timezone($t, $z*xs:dayTimeDuration(&apos;PT30M&apos;)), &apos;[h01][m01][z,5-6]&apos;), &apos;; &apos;)</test>
     <result-string>xs:string("
              0715GMT-14:00; 0745GMT-13:30; 0815GMT-13:00; 0845GMT-12:30; 0915GMT-12:00; 0945GMT-11:30; 1015GMT-11:00; 1045GMT-10:30;
             1115GMT-10:00; 1145GMT-09:30; 1215GMT-09:00; 1245GMT-08:30; 0115GMT-08:00; 0145GMT-07:30; 0215GMT-07:00; 0245GMT-06:30;
@@ -372,16 +371,16 @@
          </assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-018">
+  <test-case name="format-time-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>test format-time(): timezones in GMT+x notation</description>
     <created by="Michael Kay, Saxonica" on="2011-07-01"/>
-    <modified by="O'Neil Delpratt, Saxonica" change="Bug fix 17285" on="2012-08-08"/>
+    <modified by="O&apos;Neil Delpratt, Saxonica" change="Bug fix 17285" on="2012-08-08"/>
     <environment>
-      <param as="xs:time" name="t" select="xs:time('09:15:06.456Z')"/>
+      <param as="xs:time" name="t" select="xs:time(&apos;09:15:06.456Z&apos;)"/>
     </environment>
     <test>string-join(
                for $z in -28 to +28
-               return format-time(adjust-time-to-timezone($t, $z*xs:dayTimeDuration('PT30M')), '[h01][m01][z,2-6]'), '; ')</test>
+               return format-time(adjust-time-to-timezone($t, $z*xs:dayTimeDuration(&apos;PT30M&apos;)), &apos;[h01][m01][z,2-6]&apos;), &apos;; &apos;)</test>
     <result-string>xs:string("
               0715GMT-14:00; 0745GMT-13:30; 0815GMT-13:00; 0845GMT-12:30; 0915GMT-12:00; 0945GMT-11:30; 1015GMT-11:00; 1045GMT-10:30;
             1115GMT-10:00; 1145GMT-09:30; 1215GMT-09:00; 1245GMT-08:30; 0115GMT-08:00; 0145GMT-07:30; 0215GMT-07:00; 0245GMT-06:30;
@@ -405,11 +404,11 @@
          </assert-string-value>
     </result>
   </test-case>
-  <test-case name="format-time-809err">
+  <test-case name="format-time-809err"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOFD1350"))</response-string>
     <description>Error XTDE1350 component in picture string not available in value</description>
     <created by="Anders Berglund" on="2011-07-01"/>
-    <modified by="O'Neil Delpratt" change="Bug fix related to bug #14875: Corrected error code" on="2012-05-22"/>
-    <test>format-time(current-time(), '[Y]', 'en', (), ())</test>
+    <modified by="O&apos;Neil Delpratt" change="Bug fix related to bug #14875: Corrected error code" on="2012-05-22"/>
+    <test>format-time(current-time(), &apos;[Y]&apos;, &apos;en&apos;, (), ())</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XTDE1350"))</result-string>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOFD1350"))</result-string>
     <result>
@@ -419,10 +418,10 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="format-time-810err">
+  <test-case name="format-time-810err"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOFD1350"))</response-string>
     <description>Error XTDE1350 component in picture string not available in value</description>
     <created by="Anders Berglund" on="2011-07-01"/>
-    <test>format-time(current-time(), '[M]', 'en', (), ())</test>
+    <test>format-time(current-time(), &apos;[M]&apos;, &apos;en&apos;, (), ())</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XTDE1350"))</result-string>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOFD1350"))</result-string>
     <result>
@@ -432,10 +431,10 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="format-time-811err">
+  <test-case name="format-time-811err"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>Error XTDE1350 component in picture string not available in value</description>
     <created by="Anders Berglund" on="2011-07-01"/>
-    <test>format-time(current-time(), '[d]', 'en', (), ())</test>
+    <test>format-time(current-time(), &apos;[d]&apos;, &apos;en&apos;, (), ())</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XTDE1350"))</result-string>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOFD1350"))</result-string>
     <result>
@@ -445,10 +444,10 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="format-time-812err">
+  <test-case name="format-time-812err"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>Error XTDE1350 component in picture string not available in value</description>
     <created by="Anders Berglund" on="2011-07-01"/>
-    <test>format-time(current-time(), '[d]', 'en', (), ())</test>
+    <test>format-time(current-time(), &apos;[d]&apos;, &apos;en&apos;, (), ())</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XTDE1350"))</result-string>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOFD1350"))</result-string>
     <result>
@@ -458,10 +457,10 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="format-time-813err">
+  <test-case name="format-time-813err"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOFD1350"))</response-string>
     <description>Error XTDE1350 component in picture string not available in value</description>
     <created by="Anders Berglund" on="2011-07-01"/>
-    <test>format-time(current-time(), '[F]', 'en', (), ())</test>
+    <test>format-time(current-time(), &apos;[F]&apos;, &apos;en&apos;, (), ())</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XTDE1350"))</result-string>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOFD1350"))</result-string>
     <result>
@@ -471,10 +470,10 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="format-time-814err">
+  <test-case name="format-time-814err"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>Error XTDE1350 component in picture string not available in value</description>
     <created by="Anders Berglund" on="2011-07-01"/>
-    <test>format-time(current-time(), '[W]', 'en', (), ())</test>
+    <test>format-time(current-time(), &apos;[W]&apos;, &apos;en&apos;, (), ())</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XTDE1350"))</result-string>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOFD1350"))</result-string>
     <result>
@@ -484,10 +483,10 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="format-time-815err">
+  <test-case name="format-time-815err"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>Error XTDE1350 component in picture string not available in value</description>
     <created by="Anders Berglund" on="2011-07-01"/>
-    <test>format-time(current-time(), '[w]', 'en', (), ())</test>
+    <test>format-time(current-time(), &apos;[w]&apos;, &apos;en&apos;, (), ())</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XTDE1350"))</result-string>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOFD1350"))</result-string>
     <result>
@@ -497,10 +496,10 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="format-time-816err">
+  <test-case name="format-time-816err"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>Error XTDE1350 component in picture string not available in value</description>
     <created by="Anders Berglund" on="2011-07-01"/>
-    <test>format-time(current-time(), '[E]', 'en', (), ())</test>
+    <test>format-time(current-time(), &apos;[E]&apos;, &apos;en&apos;, (), ())</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XTDE1350"))</result-string>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOFD1350"))</result-string>
     <result>
@@ -510,11 +509,11 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="format-time-817err">
+  <test-case name="format-time-817err"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>Error XTDE1340 component in picture string not available in value</description>
     <created by="Anders Berglund" on="2011-07-01"/>
-    <modified by="O'Neil Delpratt" change="Bug fix related to bug #14875: Change description and corrected error code" on="2012-05-22"/>
-    <test>format-time(current-time(), '[bla]', 'en', (), ())</test>
+    <modified by="O&apos;Neil Delpratt" change="Bug fix related to bug #14875: Change description and corrected error code" on="2012-05-22"/>
+    <test>format-time(current-time(), &apos;[bla]&apos;, &apos;en&apos;, (), ())</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XTDE1340"))</result-string>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOFD1340"))</result-string>
     <result>
@@ -524,37 +523,37 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="format-time-inpt-er1">
+  <test-case name="format-time-inpt-er1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>wrong arg input to format-time()</description>
     <created by="Zhen Hua Liu" on="2012-01-18"/>
-    <test>format-time('abc', '[bla]', 'en', (), ())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <test>format-time(&apos;abc&apos;, &apos;[bla]&apos;, &apos;en&apos;, (), ())</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="format-time-inpt-er2">
+  <test-case name="format-time-inpt-er2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>wrong number of args to format-time()</description>
     <created by="Zhen Hua Liu" on="2012-01-18"/>
-    <test>format-time(current-time(), '[bla]', 'en', (), (), 6)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <test>format-time(current-time(), &apos;[bla]&apos;, &apos;en&apos;, (), (), 6)</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="format-time-inpt-er3">
+  <test-case name="format-time-inpt-er3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>wrong number of args to format-time()</description>
     <created by="Zhen Hua Liu" on="2012-01-18"/>
-    <test>format-time(current-time(), '[bla]', 'en', (), (), 6)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <test>format-time(current-time(), &apos;[bla]&apos;, &apos;en&apos;, (), (), 6)</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="format-time-1340err">
+  <test-case name="format-time-1340err"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description>Error FOFD1340 syntax of picture is incorrect</description>
     <created by="Zhen Hua Liu" on="2012-01-18"/>
-    <test>format-time(current-time(), '[y]', 'en', (), ())</test>
+    <test>format-time(current-time(), &apos;[y]&apos;, &apos;en&apos;, (), ())</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XTDE1340"))</result-string>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOFD1340"))</result-string>
     <result>

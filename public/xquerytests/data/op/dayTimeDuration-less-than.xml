@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="op-dayTimeDuration-less-than" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the dayTimeDuration-less-than() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-dayTimeDuration-less-than" type="spec"/>
-  <test-case name="op-dayTimeDuration-less-than2args-1">
+  <test-case name="op-dayTimeDuration-less-than2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than2args-1               
@@ -21,7 +20,7 @@ $arg2 = xs:dayTimeDuration(lower bound)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-less-than2args-2">
+  <test-case name="op-dayTimeDuration-less-than2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than2args-2               
@@ -40,7 +39,7 @@ $arg2 = xs:dayTimeDuration(lower bound)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-less-than2args-3">
+  <test-case name="op-dayTimeDuration-less-than2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than2args-3               
@@ -59,7 +58,7 @@ $arg2 = xs:dayTimeDuration(lower bound)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-less-than2args-4">
+  <test-case name="op-dayTimeDuration-less-than2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than2args-4               
@@ -78,7 +77,7 @@ $arg2 = xs:dayTimeDuration(mid range)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-less-than2args-5">
+  <test-case name="op-dayTimeDuration-less-than2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than2args-5               
@@ -97,7 +96,7 @@ $arg2 = xs:dayTimeDuration(upper bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-less-than2args-6">
+  <test-case name="op-dayTimeDuration-less-than2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than2args-6               
@@ -116,7 +115,7 @@ $arg2 = xs:dayTimeDuration(lower bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-less-than2args-7">
+  <test-case name="op-dayTimeDuration-less-than2args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than2args-7               
@@ -135,7 +134,7 @@ $arg2 = xs:dayTimeDuration(lower bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-less-than2args-8">
+  <test-case name="op-dayTimeDuration-less-than2args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than2args-8               
@@ -154,7 +153,7 @@ $arg2 = xs:dayTimeDuration(lower bound)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-less-than2args-9">
+  <test-case name="op-dayTimeDuration-less-than2args-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than2args-9               
@@ -173,7 +172,7 @@ $arg2 = xs:dayTimeDuration(mid range)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-less-than2args-10">
+  <test-case name="op-dayTimeDuration-less-than2args-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than2args-10              
@@ -192,7 +191,7 @@ $arg2 = xs:dayTimeDuration(upper bound)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-less-than-3">
+  <test-case name="op-dayTimeDuration-less-than-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-3                   
@@ -209,7 +208,7 @@ return true and used together with fn:not (lt operator)
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-less-than-4">
+  <test-case name="op-dayTimeDuration-less-than-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-4                   
@@ -226,7 +225,7 @@ return true and used together with fn:not (le operator)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-less-than-5">
+  <test-case name="op-dayTimeDuration-less-than-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-5                   
@@ -243,7 +242,7 @@ return false and used together with fn:not (lt operator)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-less-than-6">
+  <test-case name="op-dayTimeDuration-less-than-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-6                   
@@ -260,7 +259,7 @@ return false and used together with fn:not(le operator)
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-less-than-7">
+  <test-case name="op-dayTimeDuration-less-than-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-7                   
@@ -277,7 +276,7 @@ together with "and" expression (lt operator).
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-less-than-8">
+  <test-case name="op-dayTimeDuration-less-than-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-8                   
@@ -294,7 +293,7 @@ together with "and" expression (le operator).
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-less-than-9">
+  <test-case name="op-dayTimeDuration-less-than-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-9                   
@@ -311,7 +310,7 @@ together with "or" expression (lt operator).
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-less-than-10">
+  <test-case name="op-dayTimeDuration-less-than-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-10                  
@@ -328,7 +327,7 @@ together with "or" expression (le operator).
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-less-than-11">
+  <test-case name="op-dayTimeDuration-less-than-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-11                  
@@ -345,7 +344,7 @@ together with "fn:true"/or expression (lt operator).
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-less-than-12">
+  <test-case name="op-dayTimeDuration-less-than-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-12                  
@@ -362,7 +361,7 @@ together with "fn:true"/or expression (le operator).
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-less-than-13">
+  <test-case name="op-dayTimeDuration-less-than-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-13                  
@@ -379,7 +378,7 @@ together with "fn:false"/or expression (lt operator).
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-dayTimeDuration-less-than-14">
+  <test-case name="op-dayTimeDuration-less-than-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-dayTimeDuration-less-than-14                  
@@ -396,13 +395,13 @@ together with "fn:false"/or expression (le operator).
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationLT-1">
+  <test-case name="K-DayTimeDurationLT-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationLT-1                           
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: Simple test of 'lt' for xs:dayTimeDuration.  
+ Purpose: Simple test of &apos;lt&apos; for xs:dayTimeDuration.  
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -412,13 +411,13 @@ together with "fn:false"/or expression (le operator).
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationLT-2">
+  <test-case name="K-DayTimeDurationLT-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationLT-2                           
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: Simple test of 'lt' for xs:dayTimeDuration, evaluating to false. 
+ Purpose: Simple test of &apos;lt&apos; for xs:dayTimeDuration, evaluating to false. 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -428,13 +427,13 @@ together with "fn:false"/or expression (le operator).
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationLT-3">
+  <test-case name="K-DayTimeDurationLT-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationLT-3                           
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: Simple test of 'lt' for xs:dayTimeDuration, evaluating to false. 
+ Purpose: Simple test of &apos;lt&apos; for xs:dayTimeDuration, evaluating to false. 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -444,13 +443,13 @@ together with "fn:false"/or expression (le operator).
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationLT-4">
+  <test-case name="K-DayTimeDurationLT-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationLT-4                           
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: Simple test of 'le' for xs:dayTimeDuration.  
+ Purpose: Simple test of &apos;le&apos; for xs:dayTimeDuration.  
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -460,13 +459,13 @@ together with "fn:false"/or expression (le operator).
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationLT-5">
+  <test-case name="K-DayTimeDurationLT-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationLT-5                           
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: Simple test of 'le' for xs:dayTimeDuration.  
+ Purpose: Simple test of &apos;le&apos; for xs:dayTimeDuration.  
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -476,13 +475,13 @@ together with "fn:false"/or expression (le operator).
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayTimeDurationLT-6">
+  <test-case name="K-DayTimeDurationLT-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-DayTimeDurationLT-6                           
  Written by: Frans Englich                             
  Date: 2007-11-22T11:31:21+01:00                       
- Purpose: Simple test of 'le' for xs:dayTimeDuration, evaluating to false. 
+ Purpose: Simple test of &apos;le&apos; for xs:dayTimeDuration, evaluating to false. 
 *******************************************************
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
@@ -492,27 +491,27 @@ together with "fn:false"/or expression (le operator).
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-dayTimeDuration-less-than-001">
+  <test-case name="cbcl-dayTimeDuration-less-than-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test comparison of dayTimeDurations </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat('P', $days, 'DT', $hours, 'H')) }; not(local:dayTimeDuration(1, 1) lt xs:dayTimeDuration("P0D"))</test>
+    <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat(&apos;P&apos;, $days, &apos;DT&apos;, $hours, &apos;H&apos;)) }; not(local:dayTimeDuration(1, 1) lt xs:dayTimeDuration("P0D"))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-dayTimeDuration-less-than-002">
+  <test-case name="cbcl-dayTimeDuration-less-than-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test comparison of dayTimeDurations </description>
     <created by="Tim Mills" on="2008-05-16"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat('P', $days, 'DT', $hours, 'H')) }; not(local:dayTimeDuration(1, 1) le xs:dayTimeDuration("P0D"))</test>
+    <test>declare function local:dayTimeDuration($days as xs:integer, $hours as xs:integer ) { xs:dayTimeDuration(concat(&apos;P&apos;, $days, &apos;DT&apos;, $hours, &apos;H&apos;)) }; not(local:dayTimeDuration(1, 1) le xs:dayTimeDuration("P0D"))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-dayTimeDuration-less-than-003">
+  <test-case name="cbcl-dayTimeDuration-less-than-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> test comparison of xs:dayTimeDuration </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -522,7 +521,7 @@ together with "fn:false"/or expression (le operator).
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-dayTimeDuration-less-than-004">
+  <test-case name="cbcl-dayTimeDuration-less-than-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> test comparison of xs:dayTimeDuration </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -532,7 +531,7 @@ together with "fn:false"/or expression (le operator).
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-dayTimeDuration-less-than-005">
+  <test-case name="cbcl-dayTimeDuration-less-than-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> test comparison of xs:dayTimeDuration </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -542,7 +541,7 @@ together with "fn:false"/or expression (le operator).
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-dayTimeDuration-less-than-006">
+  <test-case name="cbcl-dayTimeDuration-less-than-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test comparison of xs:dayTimeDuration </description>
     <created by="Tim Mills" on="2008-05-21"/>
     <dependency type="spec" value="XQ10+"/>
@@ -552,7 +551,7 @@ together with "fn:false"/or expression (le operator).
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-value-less-equal-001">
+  <test-case name="cbcl-value-less-equal-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -564,19 +563,19 @@ together with "fn:false"/or expression (le operator).
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-value-less-equal-002">
+  <test-case name="cbcl-value-less-equal-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") };
         local:f(true()) le xs:yearMonthDuration("P1Y")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-value-less-equal-003">
+  <test-case name="cbcl-value-less-equal-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -588,19 +587,19 @@ together with "fn:false"/or expression (le operator).
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-value-less-equal-004">
+  <test-case name="cbcl-value-less-equal-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:dayTimeDuration("PT1H") };
         local:f(true()) le xs:dayTimeDuration("P1D")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-value-less-equal-005">
+  <test-case name="cbcl-value-less-equal-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -612,19 +611,19 @@ together with "fn:false"/or expression (le operator).
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-value-less-equal-006">
+  <test-case name="cbcl-value-less-equal-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") };
         xs:yearMonthDuration("P1Y") le local:f(true())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-value-less-equal-007">
+  <test-case name="cbcl-value-less-equal-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -636,19 +635,19 @@ together with "fn:false"/or expression (le operator).
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-value-less-equal-008">
+  <test-case name="cbcl-value-less-equal-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:dayTimeDuration("PT1H") };
         xs:dayTimeDuration("P1D") le local:f(true())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-value-less-equal-009">
+  <test-case name="cbcl-value-less-equal-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -660,19 +659,19 @@ together with "fn:false"/or expression (le operator).
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-value-less-equal-010">
+  <test-case name="cbcl-value-less-equal-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:yearMonthDuration("P1M") };
         local:f(true()) le local:f(false())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-value-less-equal-011">
+  <test-case name="cbcl-value-less-equal-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -684,14 +683,14 @@ together with "fn:false"/or expression (le operator).
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-value-less-equal-012">
+  <test-case name="cbcl-value-less-equal-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test behaviour of the overloaded less equal value comparison operator when presented with an expression with static type xs:duration. </description>
     <created by="Oliver Hallam" on="2010-02-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:f($x) { if ($x) then xs:duration("P1M") else xs:dayTimeDuration("PT1H") };
         local:f(false()) le local:f(true())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>

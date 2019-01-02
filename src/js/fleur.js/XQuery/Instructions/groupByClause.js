@@ -21,7 +21,8 @@ Fleur.XQueryEngine[Fleur.XQueryX.groupByClause] = function(ctx, children, callba
 			var kgroups = [];
 			var ogroups = resarr.reduce(function(o, vmgr) {
 				var okey = groupkeynames.reduce(function(k, gkname) {
-					var jsv = Fleur.toJSValue(vmgr.get(ctx, "", gkname), true, true, true, true);
+					var v = vmgr.get(ctx, "", gkname);
+					var jsv = Fleur.toJSValue(v, v.schemaTypeInfo !== Fleur.Type_untypedAtomic, true, true, true);
 					if (jsv[0] < 3) {
 						jsv[0] = 3;
 					}

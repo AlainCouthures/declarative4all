@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-namespace-uri-from-QName" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the namespace-uri-from-qname() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-namespace-uri-from-qname" type="spec"/>
@@ -8,7 +7,7 @@
       <created by="Mike Rorke" on="2003-03-25"/>
     </source>
   </environment>
-  <test-case name="NamespaceURIFromQNameFunc001">
+  <test-case name="NamespaceURIFromQNameFunc001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:namespace-uri-from-QName. Using QName element as input </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
@@ -18,7 +17,7 @@
       <assert-string-value>http://www.example.com/urn</assert-string-value>
     </result>
   </test-case>
-  <test-case name="NamespaceURIFromQNameFunc002">
+  <test-case name="NamespaceURIFromQNameFunc002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:namespace-uri-from-QName. Using QName attribute as input </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
@@ -28,7 +27,7 @@
       <assert-string-value>http://www.example.com/urn</assert-string-value>
     </result>
   </test-case>
-  <test-case name="NamespaceURIFromQNameFunc003">
+  <test-case name="NamespaceURIFromQNameFunc003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:namespace-uri-from-QName. Using element derived from QName as input </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
@@ -38,7 +37,7 @@
       <assert-string-value>http://www.example.com/urn</assert-string-value>
     </result>
   </test-case>
-  <test-case name="NamespaceURIFromQNameFunc004">
+  <test-case name="NamespaceURIFromQNameFunc004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:namespace-uri-from-QName. Using attribute derived from QName as input </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
@@ -48,7 +47,7 @@
       <assert-string-value>http://www.example.com/urn</assert-string-value>
     </result>
   </test-case>
-  <test-case name="NamespaceURIFromQNameFunc005">
+  <test-case name="NamespaceURIFromQNameFunc005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:namespace-uri-from-QName. Check return type of function is xs:NCName </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
@@ -58,7 +57,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="NamespaceURIFromQNameFunc006">
+  <test-case name="NamespaceURIFromQNameFunc006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:namespace-uri-from-QName. Empty sequence literal as input </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <test>fn:namespace-uri-from-QName(())</test>
@@ -67,7 +66,7 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="NamespaceURIFromQNameFunc007">
+  <test-case name="NamespaceURIFromQNameFunc007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:namespace-uri-from-QName. Empty sequence literal as input </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <test>fn:namespace-uri-from-QName(((),()))</test>
@@ -76,7 +75,7 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="NamespaceURIFromQNameFunc009">
+  <test-case name="NamespaceURIFromQNameFunc009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:namespace-uri-from-QName. Error case - invalid parameter type (string) </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <test>fn:namespace-uri-from-QName("")</test>
@@ -85,7 +84,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="NamespaceURIFromQNameFunc010">
+  <test-case name="NamespaceURIFromQNameFunc010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:namespace-uri-from-QName. Error case - multiple input values </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
@@ -95,7 +94,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="NamespaceURIFromQNameFunc011">
+  <test-case name="NamespaceURIFromQNameFunc011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:namespace-uri-from-QName. Error case - no input parameter </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <test>fn:namespace-uri-from-QName()</test>
@@ -104,37 +103,37 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="NamespaceURIFromQNameFunc012">
+  <test-case name="NamespaceURIFromQNameFunc012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Test function fn:namespace-uri-from-QName. Error case - typo in function name </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
     <test>fn:namespace-uri-from-qname((/root/elemQN)[1])</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="NamespaceURIFromQNameFunc013">
+  <test-case name="NamespaceURIFromQNameFunc013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Test function fn:namespace-uri-from-QName. Error case - typo in function name </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
     <test>fn:namespace-uri-from-Qname((/root/elemQN)[1])</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="NamespaceURIFromQNameFunc014">
+  <test-case name="NamespaceURIFromQNameFunc014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Test function fn:namespace-uri-from-QName. Error case - typo in function name </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
     <test>fn:namespaceURIfromQName((/root/elemQN)[1])</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="NamespaceURIFromQNameFunc015">
+  <test-case name="NamespaceURIFromQNameFunc015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:namespace-uri-from-QName. 
       				Error case - invalid parameter type (simple type) </description>
     <created by="Mike Rorke" on="2005-09-28"/>
@@ -146,7 +145,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="NamespaceURIFromQNameFunc015a">
+  <test-case name="NamespaceURIFromQNameFunc015a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:namespace-uri-from-QName. 
       				Error case - invalid parameter type (simple type) </description>
     <created by="Mike Rorke" on="2005-09-28"/>
@@ -159,7 +158,7 @@
       <error code="XPTY0117"/>
     </result>
   </test-case>
-  <test-case name="NamespaceURIFromQNameFunc016">
+  <test-case name="NamespaceURIFromQNameFunc016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:namespace-uri-from-QName. Error case - invalid parameter type (integer) </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <test>fn:namespace-uri-from-QName(xs:integer("100"))</test>
@@ -168,7 +167,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="NamespaceURIFromQNameFunc017">
+  <test-case name="NamespaceURIFromQNameFunc017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:namespace-uri-from-QName. Error case - invalid parameter type (time) </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <test>fn:namespace-uri-from-QName(xs:time("12:00:00Z"))</test>
@@ -177,7 +176,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="NamespaceURIFromQNameFunc018">
+  <test-case name="NamespaceURIFromQNameFunc018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:namespace-uri-from-QName. Explicit call to data to extract simple typed QName value </description>
     <created by="Mike Rorke" on="2005-09-28"/>
     <environment ref="qname"/>
@@ -187,7 +186,7 @@
       <assert-string-value>http://www.example.com/urn</assert-string-value>
     </result>
   </test-case>
-  <test-case name="NamespaceURIFromQNameFunc019">
+  <test-case name="NamespaceURIFromQNameFunc019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:namespace-uri-from-QName. Conditional expression as parameter 
         where both branches result in QName value </description>
     <created by="Mike Rorke" on="2005-09-28"/>
@@ -198,7 +197,7 @@
       <assert-string-value>http://www.example.com/urn</assert-string-value>
     </result>
   </test-case>
-  <test-case name="NamespaceURIFromQNameFunc020">
+  <test-case name="NamespaceURIFromQNameFunc020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:namespace-uri-from-QName. Conditional expression as parameter 
         where both branches result in QName value </description>
     <created by="Mike Rorke" on="2005-09-28"/>
@@ -209,11 +208,11 @@
       <assert-string-value>http://www.example.com/urn</assert-string-value>
     </result>
   </test-case>
-  <test-case name="NamespaceURIFromQNameFunc021">
+  <test-case name="NamespaceURIFromQNameFunc021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test function fn:namespace-uri-from-QName. Conditional expression as parameter where one 
         branch does NOT result in a QName value </description>
     <created by="Mike Rorke" on="2005-09-28"/>
-    <modified by="O'Neil Delpratt" change="Added schemeImport dependency. See bug issue #21238" on="2013-06-05"/>
+    <modified by="O&apos;Neil Delpratt" change="Added schemeImport dependency. See bug issue #21238" on="2013-06-05"/>
     <modified by="Michael Kay" change="Recombined the 1.0 and 3.0 tests as the error code is the same
         in both cases; see bug 22416. They were previously split as a result of bug 21723." on="2013-06-21"/>
     <environment ref="qname"/>
@@ -225,7 +224,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-NamespaceURIFromQNameFunc-1">
+  <test-case name="K-NamespaceURIFromQNameFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `namespace-uri-from-QName()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>namespace-uri-from-QName()</test>
@@ -234,7 +233,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-NamespaceURIFromQNameFunc-2">
+  <test-case name="K-NamespaceURIFromQNameFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `namespace-uri-from-QName(1, 2)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>namespace-uri-from-QName(1, 2)</test>
@@ -243,7 +242,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-NamespaceURIFromQNameFunc-3">
+  <test-case name="K-NamespaceURIFromQNameFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `empty(namespace-uri-from-QName( () ))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(namespace-uri-from-QName( () ))</test>
@@ -252,7 +251,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NamespaceURIFromQNameFunc-4">
+  <test-case name="K-NamespaceURIFromQNameFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `namespace-uri-from-QName( QName("example.com/", "pre:lname")) eq xs:anyURI("example.com/")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>namespace-uri-from-QName( QName("example.com/", "pre:lname")) eq xs:anyURI("example.com/")</test>
@@ -261,7 +260,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NamespaceURIFromQNameFunc-5">
+  <test-case name="K-NamespaceURIFromQNameFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `namespace-uri-from-QName( QName("example.com/", "pre:lname")) instance of xs:anyURI`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>namespace-uri-from-QName( QName("example.com/", "pre:lname")) instance of xs:anyURI</test>
@@ -270,7 +269,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-NamespaceURIFromQNameFunc-1">
+  <test-case name="K2-NamespaceURIFromQNameFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test that xmlns declarations in direct element constructors are honored in embedded expressions. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -285,7 +284,7 @@
       <assert-string-value>http://example.com/BNamespace</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-NamespaceURIFromQNameFunc-2">
+  <test-case name="K2-NamespaceURIFromQNameFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Check that the default element namespace is picked up with computed element constructors. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -299,7 +298,7 @@
       <assert-string-value>http://example.com/</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-NamespaceURIFromQNameFunc-3">
+  <test-case name="K2-NamespaceURIFromQNameFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Check that xmlns declarations overrides. </description>
     <created by="Frans Englich" on="2008-01-08"/>
     <dependency type="spec" value="XQ10+"/>
@@ -314,7 +313,7 @@
       <assert-eq>""</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-NamespaceURIFromQNameFunc-4">
+  <test-case name="K2-NamespaceURIFromQNameFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Check that xmlns declarations overrides(#2). </description>
     <created by="Frans Englich" on="2008-01-08"/>
     <dependency type="spec" value="XQ10+"/>

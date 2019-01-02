@@ -16,7 +16,8 @@ Fleur.XQueryEngine[Fleur.XQueryX.rangeSequenceExpr] = function(ctx, children, ca
 			return;
 		}
 		op1 = Fleur.toJSNumber(a1);
-		if (op1[0] !== 0) {
+		if (op1[0] !== 0 && (a1.schemaTypeInfo !== Fleur.Type_untypedAtomic || Math.floor(op1[1]) !== op1[1])) {
+			Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
 			return;
 		}
 		Fleur.XQueryEngine[children[1][1][0][0]](ctx, children[1][1][0][1], function(n) {
@@ -27,7 +28,8 @@ Fleur.XQueryEngine[Fleur.XQueryX.rangeSequenceExpr] = function(ctx, children, ca
 				return;
 			}
 			op2 = Fleur.toJSNumber(a2);
-			if (op2[0] !== 0) {
+			if (op2[0] !== 0 && (a2.schemaTypeInfo !== Fleur.Type_untypedAtomic || Math.floor(op2[1]) !== op2[1])) {
+				Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
 				return;
 			}
 			if (op1[1] > op2[1]) {
@@ -35,6 +37,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.rangeSequenceExpr] = function(ctx, children, ca
 				return;
 			}
 			if (op1[1] === op2[1]) {
+				a2.schemaTypeInfo = Fleur.Type_integer;
 				Fleur.callback(function() {callback(a2);});
 				return;
 			}
@@ -43,7 +46,7 @@ Fleur.XQueryEngine[Fleur.XQueryX.rangeSequenceExpr] = function(ctx, children, ca
 			while (op1[1] <= op2[1]) {
 				var i = new Fleur.Text();
 				i.schemaTypeInfo = Fleur.Type_integer;
-				i.data = "" + op1[1];
+				i.data = String(op1[1]);
 				result.appendChild(i);
 				op1[1]++;
 			}

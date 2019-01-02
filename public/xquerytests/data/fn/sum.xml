@@ -1,35 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-sum" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the sum() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-sum" type="spec"/>
-  <test-case name="fn-sumint1args-1">
+  <test-case name="fn-sumint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-2147483648")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:int("-2147483648")))</test>
-    <result-string>xs:integer("-2147483648")</result-string>
+    <result-string>xs:int("-2147483648")</result-string>
     <result>
       <assert-eq>-2147483648</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumint1args-2">
+  <test-case name="fn-sumint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-1873914410")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:int("-1873914410")))</test>
-    <result-string>xs:integer("-1873914410")</result-string>
+    <result-string>xs:int("-1873914410")</result-string>
     <result>
       <assert-eq>-1873914410</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumint1args-3">
+  <test-case name="fn-sumint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("2147483647")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:int("2147483647")))</test>
-    <result-string>xs:integer("2147483647")</result-string>
+    <result-string>xs:int("2147483647")</result-string>
     <result>
       <assert-eq>2147483647</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumintg1args-1">
+  <test-case name="fn-sumintg1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:integer("-999999999999999999")))</test>
@@ -38,7 +37,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumintg1args-2">
+  <test-case name="fn-sumintg1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("830993497117024300")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:integer("830993497117024304")))</test>
@@ -47,7 +46,7 @@
       <assert-eq>830993497117024304</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumintg1args-3">
+  <test-case name="fn-sumintg1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:integer("999999999999999999")))</test>
@@ -56,7 +55,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdec1args-1">
+  <test-case name="fn-sumdec1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:decimal("-999999999999999999")))</test>
@@ -65,7 +64,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdec1args-2">
+  <test-case name="fn-sumdec1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("617375191608514800")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:decimal("617375191608514839")))</test>
@@ -74,7 +73,7 @@
       <assert-eq>617375191608514839</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdec1args-3">
+  <test-case name="fn-sumdec1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:decimal("999999999999999999")))</test>
@@ -83,34 +82,34 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdbl1args-1">
+  <test-case name="fn-sumdbl1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157E308")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double("-1.7976931348623157E308")))</test>
-    <result-string>xs:double("-1.7976931348623157e308")</result-string>
+    <result-string>xs:double("-1.7976931348623157E308")</result-string>
     <result>
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdbl1args-2">
+  <test-case name="fn-sumdbl1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdbl1args-3">
+  <test-case name="fn-sumdbl1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.7976931348623157E308")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double("1.7976931348623157E308")))</test>
-    <result-string>xs:double("1.7976931348623157e308")</result-string>
+    <result-string>xs:double("1.7976931348623157E308")</result-string>
     <result>
       <assert-eq>1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumflt1args-1">
+  <test-case name="fn-sumflt1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235E38")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float("-3.4028235E38")))</test>
@@ -119,16 +118,16 @@
       <assert-eq>xs:float("-3.4028235E38")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumflt1args-2">
+  <test-case name="fn-sumflt1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumflt1args-3">
+  <test-case name="fn-sumflt1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("3.4028235E38")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float("3.4028235E38")))</test>
@@ -137,7 +136,7 @@
       <assert-eq>xs:float("3.4028235E38")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumlng1args-1">
+  <test-case name="fn-sumlng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-92233720368547760")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long("-92233720368547758")))</test>
@@ -146,7 +145,7 @@
       <assert-eq>-92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumlng1args-2">
+  <test-case name="fn-sumlng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-47175562203048460")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long("-47175562203048468")))</test>
@@ -155,7 +154,7 @@
       <assert-eq>-47175562203048468</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumlng1args-3">
+  <test-case name="fn-sumlng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("92233720368547760")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long("92233720368547758")))</test>
@@ -164,34 +163,34 @@
       <assert-eq>92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumusht1args-1">
+  <test-case name="fn-sumusht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:unsignedShort("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumusht1args-2">
+  <test-case name="fn-sumusht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("44633")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort("44633")))</test>
-    <result-string>xs:integer("44633")</result-string>
+    <result-string>xs:unsignedShort("44633")</result-string>
     <result>
       <assert-eq>44633</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumusht1args-3">
+  <test-case name="fn-sumusht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("65535")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort("65535")))</test>
-    <result-string>xs:integer("65535")</result-string>
+    <result-string>xs:unsignedShort("65535")</result-string>
     <result>
       <assert-eq>65535</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnint1args-1">
+  <test-case name="fn-sumnint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:negativeInteger("-999999999999999999")))</test>
@@ -200,7 +199,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnint1args-2">
+  <test-case name="fn-sumnint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-297014075999096770")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:negativeInteger("-297014075999096793")))</test>
@@ -209,25 +208,25 @@
       <assert-eq>-297014075999096793</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnint1args-3">
+  <test-case name="fn-sumnint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:negativeInteger("-1")))</test>
-    <result-string>xs:integer("-1")</result-string>
+    <result-string>xs:negativeInteger("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumpint1args-1">
+  <test-case name="fn-sumpint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger("1")))</test>
-    <result-string>xs:integer("1")</result-string>
+    <result-string>xs:positiveInteger("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumpint1args-2">
+  <test-case name="fn-sumpint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("52704602390610030")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger("52704602390610033")))</test>
@@ -236,7 +235,7 @@
       <assert-eq>52704602390610033</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumpint1args-3">
+  <test-case name="fn-sumpint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger("999999999999999999")))</test>
@@ -245,16 +244,16 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumulng1args-1">
+  <test-case name="fn-sumulng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:unsignedLong("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumulng1args-2">
+  <test-case name="fn-sumulng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("130747108607674660")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong("130747108607674654")))</test>
@@ -263,7 +262,7 @@
       <assert-eq>130747108607674654</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumulng1args-3">
+  <test-case name="fn-sumulng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("184467440737095520")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong("184467440737095516")))</test>
@@ -272,7 +271,7 @@
       <assert-eq>184467440737095516</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnpi1args-1">
+  <test-case name="fn-sumnpi1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger("-999999999999999999")))</test>
@@ -281,7 +280,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnpi1args-2">
+  <test-case name="fn-sumnpi1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-475688437271870460")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger("-475688437271870490")))</test>
@@ -290,25 +289,25 @@
       <assert-eq>-475688437271870490</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnpi1args-3">
+  <test-case name="fn-sumnpi1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:nonPositiveInteger("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnni1args-1">
+  <test-case name="fn-sumnni1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:nonNegativeInteger("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnni1args-2">
+  <test-case name="fn-sumnni1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("303884545991464500")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger("303884545991464527")))</test>
@@ -317,7 +316,7 @@
       <assert-eq>303884545991464527</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnni1args-3">
+  <test-case name="fn-sumnni1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger("999999999999999999")))</test>
@@ -326,70 +325,70 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumsht1args-1">
+  <test-case name="fn-sumsht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-32768")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:short("-32768")))</test>
-    <result-string>xs:integer("-32768")</result-string>
+    <result-string>xs:short("-32768")</result-string>
     <result>
       <assert-eq>-32768</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumsht1args-2">
+  <test-case name="fn-sumsht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-5324")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:short("-5324")))</test>
-    <result-string>xs:integer("-5324")</result-string>
+    <result-string>xs:short("-5324")</result-string>
     <result>
       <assert-eq>-5324</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumsht1args-3">
+  <test-case name="fn-sumsht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("32767")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:short("32767")))</test>
-    <result-string>xs:integer("32767")</result-string>
+    <result-string>xs:short("32767")</result-string>
     <result>
       <assert-eq>32767</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumint2args-1">
+  <test-case name="fn-sumint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-2147483648")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:int(mid range) $zero = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:int("-1873914410"),xs:int("-273569238")))</test>
-    <result-string>xs:integer("-2147483648")</result-string>
+    <result-string>xs:int("-2147483648")</result-string>
     <result>
       <assert-eq>-2147483648</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumint2args-2">
+  <test-case name="fn-sumint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-1")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:int(upper bound) $zero = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:int("2147483647"),xs:int("-2147483648")))</test>
-    <result-string>xs:integer("-1")</result-string>
+    <result-string>xs:int("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumint2args-3">
+  <test-case name="fn-sumint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-2147483648")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:int(lower bound) $zero = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:int("-273569238"),xs:int("-1873914410")))</test>
-    <result-string>xs:integer("-2147483648")</result-string>
+    <result-string>xs:int("-2147483648")</result-string>
     <result>
       <assert-eq>-2147483648</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumint2args-4">
+  <test-case name="fn-sumint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-1")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:int(lower bound) $zero = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:int("-2147483648"),xs:int("2147483647")))</test>
-    <result-string>xs:integer("-1")</result-string>
+    <result-string>xs:int("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumintg2args-1">
+  <test-case name="fn-sumintg2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-169006502882975740")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:integer(mid range) $zero = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:integer("830993497117024304"),xs:integer("-999999999999999999")))</test>
@@ -398,7 +397,7 @@
       <assert-eq>-169006502882975695</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumintg2args-2">
+  <test-case name="fn-sumintg2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:integer(upper bound) $zero = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:integer("999999999999999999"),xs:integer("-999999999999999999")))</test>
@@ -407,7 +406,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumintg2args-3">
+  <test-case name="fn-sumintg2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-169006502882975740")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:integer(lower bound) $zero = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:integer("-999999999999999999"),xs:integer("830993497117024304")))</test>
@@ -416,7 +415,7 @@
       <assert-eq>-169006502882975695</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumintg2args-4">
+  <test-case name="fn-sumintg2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:integer(lower bound) $zero = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:integer("-999999999999999999"),xs:integer("999999999999999999")))</test>
@@ -425,7 +424,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdec2args-1">
+  <test-case name="fn-sumdec2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-382624808391485200")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:decimal(mid range) $zero = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:decimal("617375191608514839"),xs:decimal("-999999999999999999")))</test>
@@ -434,16 +433,16 @@
       <assert-eq>-382624808391485160</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdec2args-2">
+  <test-case name="fn-sumdec2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:decimal(upper bound) $zero = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:decimal("999999999999999999"),xs:decimal("-999999999999999999")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:decimal("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdec2args-3">
+  <test-case name="fn-sumdec2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-382624808391485200")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:decimal(lower bound) $zero = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:decimal("-999999999999999999"),xs:decimal("617375191608514839")))</test>
@@ -452,52 +451,52 @@
       <assert-eq>-382624808391485160</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdec2args-4">
+  <test-case name="fn-sumdec2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:decimal(lower bound) $zero = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:decimal("-999999999999999999"),xs:decimal("999999999999999999")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:decimal("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdbl2args-1">
+  <test-case name="fn-sumdbl2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157E308")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:double(mid range) $zero = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double("0"),xs:double("-1.7976931348623157E308")))</test>
-    <result-string>xs:double("-1.7976931348623157e308")</result-string>
+    <result-string>xs:double("-1.7976931348623157E308")</result-string>
     <result>
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdbl2args-2">
+  <test-case name="fn-sumdbl2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:double(upper bound) $zero = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double("1.7976931348623157E308"),xs:double("-1.7976931348623157E308")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdbl2args-3">
+  <test-case name="fn-sumdbl2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157E308")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:double(lower bound) $zero = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double("-1.7976931348623157E308"),xs:double("0")))</test>
-    <result-string>xs:double("-1.7976931348623157e308")</result-string>
+    <result-string>xs:double("-1.7976931348623157E308")</result-string>
     <result>
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdbl2args-4">
+  <test-case name="fn-sumdbl2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:double(lower bound) $zero = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double("-1.7976931348623157E308"),xs:double("1.7976931348623157E308")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumflt2args-1">
+  <test-case name="fn-sumflt2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235E38")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:float(mid range) $zero = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float("0"),xs:float("-3.4028235E38")))</test>
@@ -506,16 +505,16 @@
       <assert-eq>xs:float("-3.4028235E38")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumflt2args-2">
+  <test-case name="fn-sumflt2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:float(upper bound) $zero = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float("3.4028235E38"),xs:float("-3.4028235E38")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumflt2args-3">
+  <test-case name="fn-sumflt2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235E38")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:float(lower bound) $zero = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float("-3.4028235E38"),xs:float("0")))</test>
@@ -524,16 +523,16 @@
       <assert-eq>xs:float("-3.4028235E38")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumflt2args-4">
+  <test-case name="fn-sumflt2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:float(lower bound) $zero = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float("-3.4028235E38"),xs:float("3.4028235E38")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumlng2args-1">
+  <test-case name="fn-sumlng2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-92233720368547740")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:long(mid range) $zero = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long("-47175562203048468"),xs:long("-45058158165499290")))</test>
@@ -542,16 +541,16 @@
       <assert-eq>-92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumlng2args-2">
+  <test-case name="fn-sumlng2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:long(upper bound) $zero = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long("92233720368547758"),xs:long("-92233720368547758")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:long("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumlng2args-3">
+  <test-case name="fn-sumlng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-92233720368547740")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:long(lower bound) $zero = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long("-45058158165499290"),xs:long("-47175562203048468")))</test>
@@ -560,61 +559,61 @@
       <assert-eq>-92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumlng2args-4">
+  <test-case name="fn-sumlng2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:long(lower bound) $zero = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long("-92233720368547758"),xs:long("92233720368547758")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:long("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumusht2args-1">
+  <test-case name="fn-sumusht2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) $zero = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort("0"),xs:unsignedShort("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:unsignedShort("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumusht2args-2">
+  <test-case name="fn-sumusht2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("44633")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:unsignedShort(mid range) $zero = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort("44633"),xs:unsignedShort("0")))</test>
-    <result-string>xs:integer("44633")</result-string>
+    <result-string>xs:unsignedShort("44633")</result-string>
     <result>
       <assert-eq>44633</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumusht2args-3">
+  <test-case name="fn-sumusht2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("65535")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) $zero = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort("65535"),xs:unsignedShort("0")))</test>
-    <result-string>xs:integer("65535")</result-string>
+    <result-string>xs:unsignedShort("65535")</result-string>
     <result>
       <assert-eq>65535</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumusht2args-4">
+  <test-case name="fn-sumusht2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("44633")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) $zero = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort("0"),xs:unsignedShort("44633")))</test>
-    <result-string>xs:integer("44633")</result-string>
+    <result-string>xs:unsignedShort("44633")</result-string>
     <result>
       <assert-eq>44633</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumusht2args-5">
+  <test-case name="fn-sumusht2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("65535")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) $zero = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort("0"),xs:unsignedShort("65535")))</test>
-    <result-string>xs:integer("65535")</result-string>
+    <result-string>xs:unsignedShort("65535")</result-string>
     <result>
       <assert-eq>65535</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnint2args-1">
+  <test-case name="fn-sumnint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:negativeInteger(mid range) $zero = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:negativeInteger("-297014075999096793"),xs:negativeInteger("-702985924000903206")))</test>
@@ -623,7 +622,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnint2args-2">
+  <test-case name="fn-sumnint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) $zero = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:negativeInteger("-1"),xs:negativeInteger("-999999999999999999")))</test>
@@ -632,7 +631,7 @@
       <assert-eq>-1000000000000000000</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnint2args-3">
+  <test-case name="fn-sumnint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) $zero = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:negativeInteger("-702985924000903206"),xs:negativeInteger("-297014075999096793")))</test>
@@ -641,7 +640,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnint2args-4">
+  <test-case name="fn-sumnint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) $zero = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:negativeInteger("-999999999999999999"),xs:negativeInteger("-1")))</test>
@@ -650,16 +649,16 @@
       <assert-eq>-1000000000000000000</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumpint2args-1">
+  <test-case name="fn-sumpint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("2")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) $zero = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger("1"),xs:positiveInteger("1")))</test>
-    <result-string>xs:integer("2")</result-string>
+    <result-string>xs:positiveInteger("2")</result-string>
     <result>
       <assert-eq>2</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumpint2args-2">
+  <test-case name="fn-sumpint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("52704602390610030")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:positiveInteger(mid range) $zero = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger("52704602390610033"),xs:positiveInteger("1")))</test>
@@ -668,7 +667,7 @@
       <assert-eq>52704602390610034</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumpint2args-3">
+  <test-case name="fn-sumpint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) $zero = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger("999999999999999998"),xs:positiveInteger("1")))</test>
@@ -677,7 +676,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumpint2args-4">
+  <test-case name="fn-sumpint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("52704602390610030")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) $zero = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger("1"),xs:positiveInteger("52704602390610033")))</test>
@@ -686,7 +685,7 @@
       <assert-eq>52704602390610034</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumpint2args-5">
+  <test-case name="fn-sumpint2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) $zero = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger("1"),xs:positiveInteger("999999999999999998")))</test>
@@ -695,16 +694,16 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumulng2args-1">
+  <test-case name="fn-sumulng2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) $zero = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong("0"),xs:unsignedLong("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:unsignedLong("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumulng2args-2">
+  <test-case name="fn-sumulng2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("130747108607674660")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:unsignedLong(mid range) $zero = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong("130747108607674654"),xs:unsignedLong("0")))</test>
@@ -713,7 +712,7 @@
       <assert-eq>130747108607674654</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumulng2args-3">
+  <test-case name="fn-sumulng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("184467440737095520")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) $zero = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong("184467440737095516"),xs:unsignedLong("0")))</test>
@@ -722,7 +721,7 @@
       <assert-eq>184467440737095516</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumulng2args-4">
+  <test-case name="fn-sumulng2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("130747108607674660")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) $zero = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong("0"),xs:unsignedLong("130747108607674654")))</test>
@@ -731,7 +730,7 @@
       <assert-eq>130747108607674654</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumulng2args-5">
+  <test-case name="fn-sumulng2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("184467440737095520")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) $zero = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong("0"),xs:unsignedLong("184467440737095516")))</test>
@@ -740,7 +739,7 @@
       <assert-eq>184467440737095516</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnpi2args-1">
+  <test-case name="fn-sumnpi2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) $zero = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger("-475688437271870490"),xs:nonPositiveInteger("-524311562728129509")))</test>
@@ -749,7 +748,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnpi2args-2">
+  <test-case name="fn-sumnpi2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) $zero = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger("0"),xs:nonPositiveInteger("-999999999999999999")))</test>
@@ -758,7 +757,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnpi2args-3">
+  <test-case name="fn-sumnpi2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) $zero = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger("-524311562728129509"),xs:nonPositiveInteger("-475688437271870490")))</test>
@@ -767,7 +766,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnpi2args-4">
+  <test-case name="fn-sumnpi2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) $zero = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger("-999999999999999999"),xs:nonPositiveInteger("0")))</test>
@@ -776,16 +775,16 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnni2args-1">
+  <test-case name="fn-sumnni2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) $zero = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger("0"),xs:nonNegativeInteger("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:nonNegativeInteger("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnni2args-2">
+  <test-case name="fn-sumnni2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("303884545991464500")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) $zero = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger("303884545991464527"),xs:nonNegativeInteger("0")))</test>
@@ -794,7 +793,7 @@
       <assert-eq>303884545991464527</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnni2args-3">
+  <test-case name="fn-sumnni2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) $zero = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger("999999999999999999"),xs:nonNegativeInteger("0")))</test>
@@ -803,7 +802,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnni2args-4">
+  <test-case name="fn-sumnni2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("303884545991464500")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) $zero = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger("0"),xs:nonNegativeInteger("303884545991464527")))</test>
@@ -812,7 +811,7 @@
       <assert-eq>303884545991464527</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnni2args-5">
+  <test-case name="fn-sumnni2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) $zero = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger("0"),xs:nonNegativeInteger("999999999999999999")))</test>
@@ -821,43 +820,43 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumsht2args-1">
+  <test-case name="fn-sumsht2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-32768")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:short(mid range) $zero = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:short("-5324"),xs:short("-27444")))</test>
-    <result-string>xs:integer("-32768")</result-string>
+    <result-string>xs:short("-32768")</result-string>
     <result>
       <assert-eq>-32768</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumsht2args-2">
+  <test-case name="fn-sumsht2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-1")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:short(upper bound) $zero = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:short("32767"),xs:short("-32768")))</test>
-    <result-string>xs:integer("-1")</result-string>
+    <result-string>xs:short("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumsht2args-3">
+  <test-case name="fn-sumsht2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-32768")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:short(lower bound) $zero = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:short("-27444"),xs:short("-5324")))</test>
-    <result-string>xs:integer("-32768")</result-string>
+    <result-string>xs:short("-32768")</result-string>
     <result>
       <assert-eq>-32768</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumsht2args-4">
+  <test-case name="fn-sumsht2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-1")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg = xs:short(lower bound) $zero = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:short("-32768"),xs:short("32767")))</test>
-    <result-string>xs:integer("-1")</result-string>
+    <result-string>xs:short("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumint3args-1">
+  <test-case name="fn-sumint3args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:int(mid range) $arg2 = xs:int(lower bound) $zero = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:int("-1873914410"),xs:int("-273569238"),xs:int("-273569238")))</test>
@@ -866,34 +865,34 @@
       <assert-eq>-2421052886</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumint3args-2">
+  <test-case name="fn-sumint3args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-2147483648")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(mid range) $zero = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:int("-273569238"),xs:int("-1873914410"),xs:int("0")))</test>
-    <result-string>xs:integer("-2147483648")</result-string>
+    <result-string>xs:int("-2147483648")</result-string>
     <result>
       <assert-eq>-2147483648</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumint3args-3">
+  <test-case name="fn-sumint3args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-1873914410")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(lower bound) $zero = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:int("0"),xs:int("0"),xs:int("-1873914410")))</test>
-    <result-string>xs:integer("-1873914410")</result-string>
+    <result-string>xs:int("-1873914410")</result-string>
     <result>
       <assert-eq>-1873914410</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumint3args-4">
+  <test-case name="fn-sumint3args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("2147483647")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(lower bound) $zero = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:int("0"),xs:int("0"),xs:int("2147483647")))</test>
-    <result-string>xs:integer("2147483647")</result-string>
+    <result-string>xs:int("2147483647")</result-string>
     <result>
       <assert-eq>2147483647</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumintg3args-1">
+  <test-case name="fn-sumintg3args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:integer(upper bound) $arg2 = xs:integer(lower bound) $zero = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:integer("999999999999999999"),xs:integer("-999999999999999999"),xs:integer("-999999999999999999")))</test>
@@ -902,7 +901,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumintg3args-2">
+  <test-case name="fn-sumintg3args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(upper bound) $zero = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:integer("-999999999999999999"),xs:integer("999999999999999999"),xs:integer("-999999999999999999")))</test>
@@ -911,7 +910,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumintg3args-3">
+  <test-case name="fn-sumintg3args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("830993497117024300")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(lower bound) $zero = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:integer("0"),xs:integer("0"),xs:integer("830993497117024304")))</test>
@@ -920,7 +919,7 @@
       <assert-eq>830993497117024304</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumintg3args-4">
+  <test-case name="fn-sumintg3args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(lower bound) $zero = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:integer("-999999999999999999"),xs:integer("-999999999999999999"),xs:integer("999999999999999999")))</test>
@@ -929,7 +928,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdec3args-1">
+  <test-case name="fn-sumdec3args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:decimal(upper bound) $arg2 = xs:decimal(lower bound) $zero = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:decimal("999999999999999999"),xs:decimal("-999999999999999999"),xs:decimal("-999999999999999999")))</test>
@@ -938,7 +937,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdec3args-2">
+  <test-case name="fn-sumdec3args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(upper bound) $zero = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:decimal("-999999999999999999"),xs:decimal("999999999999999999"),xs:decimal("-999999999999999999")))</test>
@@ -947,7 +946,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdec3args-3">
+  <test-case name="fn-sumdec3args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("617375191608514800")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(lower bound) $zero = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:decimal("0"),xs:decimal("0"),xs:decimal("617375191608514839")))</test>
@@ -956,7 +955,7 @@
       <assert-eq>617375191608514839</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdec3args-4">
+  <test-case name="fn-sumdec3args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(lower bound) $zero = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:decimal("-999999999999999999"),xs:decimal("-999999999999999999"),xs:decimal("999999999999999999")))</test>
@@ -965,12 +964,12 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdbl3args-1">
+  <test-case name="fn-sumdbl3args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-INF")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:double(mid range) $arg2 = xs:double(lower bound) $zero = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double("0"),xs:double("-1.7976931348623157E308"),xs:double("-1.7976931348623157E308")))</test>
-    <result-string>xs:string("-INF")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOAR0002"))</result-string>
+    <result-string>xs:double("-INF")</result-string>
+    <result-string>xs:double("-INF")</result-string>
     <result>
       <any-of>
         <assert-string-value>-INF</assert-string-value>
@@ -978,49 +977,49 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-sumdbl3args-2">
+  <test-case name="fn-sumdbl3args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157E308")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:double(upper bound) $arg2 = xs:double(lower bound) $zero = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double("1.7976931348623157E308"),xs:double("-1.7976931348623157E308"),xs:double("-1.7976931348623157E308")))</test>
-    <result-string>xs:double("-1.7976931348623157e308")</result-string>
+    <result-string>xs:double("-1.7976931348623157E308")</result-string>
     <result>
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdbl3args-3">
+  <test-case name="fn-sumdbl3args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157E308")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(mid range) $zero = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double("-1.7976931348623157E308"),xs:double("0"),xs:double("0")))</test>
-    <result-string>xs:double("-1.7976931348623157e308")</result-string>
+    <result-string>xs:double("-1.7976931348623157E308")</result-string>
     <result>
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdbl3args-4">
+  <test-case name="fn-sumdbl3args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157E308")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(upper bound) $zero = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double("-1.7976931348623157E308"),xs:double("1.7976931348623157E308"),xs:double("-1.7976931348623157E308")))</test>
-    <result-string>xs:double("-1.7976931348623157e308")</result-string>
+    <result-string>xs:double("-1.7976931348623157E308")</result-string>
     <result>
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdbl3args-5">
+  <test-case name="fn-sumdbl3args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(lower bound) $zero = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double("0"),xs:double("0"),xs:double("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumdbl3args-6">
+  <test-case name="fn-sumdbl3args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-INF")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(lower bound) $zero = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:double("-1.7976931348623157E308"),xs:double("-1.7976931348623157E308"),xs:double("1.7976931348623157E308")))</test>
-    <result-string>xs:string("-INF")</result-string>
-    <result-string>xs:double("-1.7976931348623157e308")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOAR0002"))</result-string>
+    <result-string>xs:double("-INF")</result-string>
+    <result-string>xs:double("-INF")</result-string>
+    <result-string>xs:double("-INF")</result-string>
     <result>
       <any-of>
         <assert-string-value>-INF</assert-string-value>
@@ -1029,7 +1028,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-sumflt3args-1">
+  <test-case name="fn-sumflt3args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-6.805647E38")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:float(mid range) $arg2 = xs:float(lower bound) $zero = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float("0"),xs:float("-3.4028235E38"),xs:float("-3.4028235E38")))</test>
@@ -1042,7 +1041,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-sumflt3args-2">
+  <test-case name="fn-sumflt3args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235E38")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:float(upper bound) $arg2 = xs:float(lower bound) $zero = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float("3.4028235E38"),xs:float("-3.4028235E38"),xs:float("-3.4028235E38")))</test>
@@ -1051,7 +1050,7 @@
       <assert-eq>xs:float("-3.4028235E38")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumflt3args-3">
+  <test-case name="fn-sumflt3args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235E38")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(mid range) $zero = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float("-3.4028235E38"),xs:float("0"),xs:float("0")))</test>
@@ -1060,7 +1059,7 @@
       <assert-eq>xs:float("-3.4028235E38")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumflt3args-4">
+  <test-case name="fn-sumflt3args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235E38")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(upper bound) $zero = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float("-3.4028235E38"),xs:float("3.4028235E38"),xs:float("-3.4028235E38")))</test>
@@ -1069,16 +1068,16 @@
       <assert-eq>xs:float("-3.4028235E38")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumflt3args-5">
+  <test-case name="fn-sumflt3args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(lower bound) $zero = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float("0"),xs:float("0"),xs:float("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumflt3args-6">
+  <test-case name="fn-sumflt3args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235E38")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(lower bound) $zero = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:float("-3.4028235E38"),xs:float("-3.4028235E38"),xs:float("3.4028235E38")))</test>
@@ -1093,7 +1092,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-sumlng3args-1">
+  <test-case name="fn-sumlng3args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-137291878534047040")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:long(mid range) $arg2 = xs:long(lower bound) $zero = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long("-47175562203048468"),xs:long("-45058158165499290"),xs:long("-45058158165499290")))</test>
@@ -1102,7 +1101,7 @@
       <assert-eq>-137291878534047048</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumlng3args-2">
+  <test-case name="fn-sumlng3args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-92233720368547760")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:long(upper bound) $arg2 = xs:long(lower bound) $zero = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long("92233720368547758"),xs:long("-92233720368547758"),xs:long("-92233720368547758")))</test>
@@ -1111,7 +1110,7 @@
       <assert-eq>-92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumlng3args-3">
+  <test-case name="fn-sumlng3args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-92233720368547740")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(mid range) $zero = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long("-45058158165499290"),xs:long("-47175562203048468"),xs:long("0")))</test>
@@ -1120,7 +1119,7 @@
       <assert-eq>-92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumlng3args-4">
+  <test-case name="fn-sumlng3args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-92233720368547760")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(upper bound) $zero = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long("-92233720368547758"),xs:long("92233720368547758"),xs:long("-92233720368547758")))</test>
@@ -1129,7 +1128,7 @@
       <assert-eq>-92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumlng3args-5">
+  <test-case name="fn-sumlng3args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-47175562203048460")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(lower bound) $zero = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long("0"),xs:long("0"),xs:long("-47175562203048468")))</test>
@@ -1138,7 +1137,7 @@
       <assert-eq>-47175562203048468</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumlng3args-6">
+  <test-case name="fn-sumlng3args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-92233720368547760")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(lower bound) $zero = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:long("-92233720368547758"),xs:long("-92233720368547758"),xs:long("92233720368547758")))</test>
@@ -1147,70 +1146,70 @@
       <assert-eq>-92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumusht3args-1">
+  <test-case name="fn-sumusht3args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(lower bound) $zero = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort("0"),xs:unsignedShort("0"),xs:unsignedShort("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:unsignedShort("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumusht3args-2">
+  <test-case name="fn-sumusht3args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("44633")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:unsignedShort(mid range) $arg2 = xs:unsignedShort(lower bound) $zero = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort("44633"),xs:unsignedShort("0"),xs:unsignedShort("0")))</test>
-    <result-string>xs:integer("44633")</result-string>
+    <result-string>xs:unsignedShort("44633")</result-string>
     <result>
       <assert-eq>44633</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumusht3args-3">
+  <test-case name="fn-sumusht3args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("65535")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:unsignedShort(upper bound) $arg2 = xs:unsignedShort(lower bound) $zero = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort("65535"),xs:unsignedShort("0"),xs:unsignedShort("0")))</test>
-    <result-string>xs:integer("65535")</result-string>
+    <result-string>xs:unsignedShort("65535")</result-string>
     <result>
       <assert-eq>65535</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumusht3args-4">
+  <test-case name="fn-sumusht3args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("44633")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(mid range) $zero = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort("0"),xs:unsignedShort("44633"),xs:unsignedShort("0")))</test>
-    <result-string>xs:integer("44633")</result-string>
+    <result-string>xs:unsignedShort("44633")</result-string>
     <result>
       <assert-eq>44633</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumusht3args-5">
+  <test-case name="fn-sumusht3args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("65535")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(upper bound) $zero = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort("0"),xs:unsignedShort("65535"),xs:unsignedShort("0")))</test>
-    <result-string>xs:integer("65535")</result-string>
+    <result-string>xs:unsignedShort("65535")</result-string>
     <result>
       <assert-eq>65535</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumusht3args-6">
+  <test-case name="fn-sumusht3args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("44633")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(lower bound) $zero = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort("0"),xs:unsignedShort("0"),xs:unsignedShort("44633")))</test>
-    <result-string>xs:integer("44633")</result-string>
+    <result-string>xs:unsignedShort("44633")</result-string>
     <result>
       <assert-eq>44633</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumusht3args-7">
+  <test-case name="fn-sumusht3args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("65535")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(lower bound) $zero = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedShort("0"),xs:unsignedShort("0"),xs:unsignedShort("65535")))</test>
-    <result-string>xs:integer("65535")</result-string>
+    <result-string>xs:unsignedShort("65535")</result-string>
     <result>
       <assert-eq>65535</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnint3args-1">
+  <test-case name="fn-sumnint3args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1702985924000903200")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:negativeInteger(mid range) $arg2 = xs:negativeInteger(lower bound) $zero = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:negativeInteger("-297014075999096793"),xs:negativeInteger("-702985924000903206"),xs:negativeInteger("-702985924000903206")))</test>
@@ -1219,7 +1218,7 @@
       <assert-eq>-1702985924000903205</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnint3args-2">
+  <test-case name="fn-sumnint3args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-2000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:negativeInteger(upper bound) $arg2 = xs:negativeInteger(lower bound) $zero = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:negativeInteger("-1"),xs:negativeInteger("-999999999999999999"),xs:negativeInteger("-999999999999999999")))</test>
@@ -1228,16 +1227,16 @@
       <assert-eq>-1999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumpint3args-1">
+  <test-case name="fn-sumpint3args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("3")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(lower bound) $zero = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger("1"),xs:positiveInteger("1"),xs:positiveInteger("1")))</test>
-    <result-string>xs:integer("3")</result-string>
+    <result-string>xs:positiveInteger("3")</result-string>
     <result>
       <assert-eq>3</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumpint3args-2">
+  <test-case name="fn-sumpint3args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("52704602390610030")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:positiveInteger(mid range) $arg2 = xs:positiveInteger(lower bound) $zero = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger("52704602390610033"),xs:positiveInteger("1"),xs:positiveInteger("1")))</test>
@@ -1246,16 +1245,16 @@
       <assert-eq>52704602390610035</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumpint3args-3">
+  <test-case name="fn-sumpint3args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:positiveInteger(upper bound) $arg2 = xs:positiveInteger(lower bound) $zero = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger("999999999999999998"),xs:positiveInteger("1"),xs:positiveInteger("1")))</test>
-    <result-string>xs:integer("1000000000000000000")</result-string>
+    <result-string>xs:positiveInteger("1000000000000000000")</result-string>
     <result>
       <assert-eq>1000000000000000000</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumpint3args-4">
+  <test-case name="fn-sumpint3args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("52704602390610030")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(mid range) $zero = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger("1"),xs:positiveInteger("52704602390610033"),xs:positiveInteger("1")))</test>
@@ -1264,16 +1263,16 @@
       <assert-eq>52704602390610035</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumpint3args-5">
+  <test-case name="fn-sumpint3args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(upper bound) $zero = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger("1"),xs:positiveInteger("999999999999999998"),xs:positiveInteger("1")))</test>
-    <result-string>xs:integer("1000000000000000000")</result-string>
+    <result-string>xs:positiveInteger("1000000000000000000")</result-string>
     <result>
       <assert-eq>1000000000000000000</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumpint3args-6">
+  <test-case name="fn-sumpint3args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("52704602390610030")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(lower bound) $zero = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger("1"),xs:positiveInteger("1"),xs:positiveInteger("52704602390610033")))</test>
@@ -1282,25 +1281,25 @@
       <assert-eq>52704602390610035</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumpint3args-7">
+  <test-case name="fn-sumpint3args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(lower bound) $zero = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:positiveInteger("1"),xs:positiveInteger("1"),xs:positiveInteger("999999999999999998")))</test>
-    <result-string>xs:integer("1000000000000000000")</result-string>
+    <result-string>xs:positiveInteger("1000000000000000000")</result-string>
     <result>
       <assert-eq>1000000000000000000</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumulng3args-1">
+  <test-case name="fn-sumulng3args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(lower bound) $zero = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong("0"),xs:unsignedLong("0"),xs:unsignedLong("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:unsignedLong("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumulng3args-2">
+  <test-case name="fn-sumulng3args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("130747108607674660")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:unsignedLong(mid range) $arg2 = xs:unsignedLong(lower bound) $zero = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong("130747108607674654"),xs:unsignedLong("0"),xs:unsignedLong("0")))</test>
@@ -1309,7 +1308,7 @@
       <assert-eq>130747108607674654</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumulng3args-3">
+  <test-case name="fn-sumulng3args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("184467440737095520")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:unsignedLong(upper bound) $arg2 = xs:unsignedLong(lower bound) $zero = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong("184467440737095516"),xs:unsignedLong("0"),xs:unsignedLong("0")))</test>
@@ -1318,7 +1317,7 @@
       <assert-eq>184467440737095516</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumulng3args-4">
+  <test-case name="fn-sumulng3args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("130747108607674660")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(mid range) $zero = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong("0"),xs:unsignedLong("130747108607674654"),xs:unsignedLong("0")))</test>
@@ -1327,7 +1326,7 @@
       <assert-eq>130747108607674654</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumulng3args-5">
+  <test-case name="fn-sumulng3args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("184467440737095520")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(upper bound) $zero = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong("0"),xs:unsignedLong("184467440737095516"),xs:unsignedLong("0")))</test>
@@ -1336,7 +1335,7 @@
       <assert-eq>184467440737095516</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumulng3args-6">
+  <test-case name="fn-sumulng3args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("130747108607674660")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(lower bound) $zero = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong("0"),xs:unsignedLong("0"),xs:unsignedLong("130747108607674654")))</test>
@@ -1345,7 +1344,7 @@
       <assert-eq>130747108607674654</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumulng3args-7">
+  <test-case name="fn-sumulng3args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("184467440737095520")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(lower bound) $zero = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:unsignedLong("0"),xs:unsignedLong("0"),xs:unsignedLong("184467440737095516")))</test>
@@ -1354,7 +1353,7 @@
       <assert-eq>184467440737095516</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnpi3args-1">
+  <test-case name="fn-sumnpi3args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-1524311562728129500")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(mid range) $arg2 = xs:nonPositiveInteger(lower bound) $zero = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger("-475688437271870490"),xs:nonPositiveInteger("-524311562728129509"),xs:nonPositiveInteger("-524311562728129509")))</test>
@@ -1363,7 +1362,7 @@
       <assert-eq>-1524311562728129508</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnpi3args-2">
+  <test-case name="fn-sumnpi3args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-2000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(upper bound) $arg2 = xs:nonPositiveInteger(lower bound) $zero = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger("0"),xs:nonPositiveInteger("-999999999999999999"),xs:nonPositiveInteger("-999999999999999999")))</test>
@@ -1372,7 +1371,7 @@
       <assert-eq>-1999999999999999998</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnpi3args-3">
+  <test-case name="fn-sumnpi3args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(mid range) $zero = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger("-524311562728129509"),xs:nonPositiveInteger("-475688437271870490"),xs:nonPositiveInteger("0")))</test>
@@ -1381,7 +1380,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnpi3args-4">
+  <test-case name="fn-sumnpi3args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(upper bound) $zero = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger("-999999999999999999"),xs:nonPositiveInteger("0"),xs:nonPositiveInteger("0")))</test>
@@ -1390,7 +1389,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnpi3args-5">
+  <test-case name="fn-sumnpi3args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-475688437271870460")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(lower bound) $zero = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger("0"),xs:nonPositiveInteger("0"),xs:nonPositiveInteger("-475688437271870490")))</test>
@@ -1399,25 +1398,25 @@
       <assert-eq>-475688437271870490</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnpi3args-6">
+  <test-case name="fn-sumnpi3args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(lower bound) $zero = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonPositiveInteger("0"),xs:nonPositiveInteger("0"),xs:nonPositiveInteger("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:nonPositiveInteger("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnni3args-1">
+  <test-case name="fn-sumnni3args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("0")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(lower bound) $zero = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger("0"),xs:nonNegativeInteger("0"),xs:nonNegativeInteger("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:nonNegativeInteger("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnni3args-2">
+  <test-case name="fn-sumnni3args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("303884545991464500")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(mid range) $arg2 = xs:nonNegativeInteger(lower bound) $zero = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger("303884545991464527"),xs:nonNegativeInteger("0"),xs:nonNegativeInteger("0")))</test>
@@ -1426,7 +1425,7 @@
       <assert-eq>303884545991464527</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnni3args-3">
+  <test-case name="fn-sumnni3args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(upper bound) $arg2 = xs:nonNegativeInteger(lower bound) $zero = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger("999999999999999999"),xs:nonNegativeInteger("0"),xs:nonNegativeInteger("0")))</test>
@@ -1435,7 +1434,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnni3args-4">
+  <test-case name="fn-sumnni3args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("303884545991464500")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(mid range) $zero = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger("0"),xs:nonNegativeInteger("303884545991464527"),xs:nonNegativeInteger("0")))</test>
@@ -1444,7 +1443,7 @@
       <assert-eq>303884545991464527</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnni3args-5">
+  <test-case name="fn-sumnni3args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(upper bound) $zero = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger("0"),xs:nonNegativeInteger("999999999999999999"),xs:nonNegativeInteger("0")))</test>
@@ -1453,7 +1452,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnni3args-6">
+  <test-case name="fn-sumnni3args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("303884545991464500")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(lower bound) $zero = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger("0"),xs:nonNegativeInteger("0"),xs:nonNegativeInteger("303884545991464527")))</test>
@@ -1462,7 +1461,7 @@
       <assert-eq>303884545991464527</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumnni3args-7">
+  <test-case name="fn-sumnni3args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("1000000000000000000")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(lower bound) $zero = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:nonNegativeInteger("0"),xs:nonNegativeInteger("0"),xs:nonNegativeInteger("999999999999999999")))</test>
@@ -1471,7 +1470,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumsht3args-1">
+  <test-case name="fn-sumsht3args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:short(mid range) $arg2 = xs:short(lower bound) $zero = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:short("-5324"),xs:short("-27444"),xs:short("-27444")))</test>
@@ -1480,52 +1479,52 @@
       <assert-eq>-60212</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumsht3args-2">
+  <test-case name="fn-sumsht3args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-32768")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(mid range) $zero = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:short("-27444"),xs:short("-5324"),xs:short("0")))</test>
-    <result-string>xs:integer("-32768")</result-string>
+    <result-string>xs:short("-32768")</result-string>
     <result>
       <assert-eq>-32768</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumsht3args-3">
+  <test-case name="fn-sumsht3args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-5324")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(lower bound) $zero = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:short("0"),xs:short("0"),xs:short("-5324")))</test>
-    <result-string>xs:integer("-5324")</result-string>
+    <result-string>xs:short("-5324")</result-string>
     <result>
       <assert-eq>-5324</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-sumsht3args-4">
+  <test-case name="fn-sumsht3args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("32767")</response-string>
     <description> Evaluates The "sum" function with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(lower bound) $zero = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:sum((xs:short("0"),xs:short("0"),xs:short("32767")))</test>
-    <result-string>xs:integer("32767")</result-string>
+    <result-string>xs:short("32767")</result-string>
     <result>
       <assert-eq>32767</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-1">
+  <test-case name="K-SeqSUMFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `sum()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-2">
+  <test-case name="K-SeqSUMFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `sum(1, 1, "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum(1, 1, "wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-3">
+  <test-case name="K-SeqSUMFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `sum((), 3) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((), 3) eq 3</test>
@@ -1534,7 +1533,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-4">
+  <test-case name="K-SeqSUMFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `sum((), 3) instance of xs:integer`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((), 3) instance of xs:integer</test>
@@ -1543,7 +1542,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-5">
+  <test-case name="K-SeqSUMFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `empty(sum((), ()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(sum((), ()))</test>
@@ -1552,7 +1551,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-6">
+  <test-case name="K-SeqSUMFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `sum((), 0.0) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((), 0.0) instance of xs:decimal</test>
@@ -1561,7 +1560,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-7">
+  <test-case name="K-SeqSUMFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `sum((), 0.0) eq 0.0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((), 0.0) eq 0.0</test>
@@ -1570,7 +1569,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-8">
+  <test-case name="K-SeqSUMFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `sum(()) eq 0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum(()) eq 0</test>
@@ -1579,7 +1578,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-9">
+  <test-case name="K-SeqSUMFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `sum(()) instance of xs:integer`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum(()) instance of xs:integer</test>
@@ -1588,7 +1587,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-10">
+  <test-case name="K-SeqSUMFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `sum((-5, -0, -3, -6)) eq -14`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((-5, -0, -3, -6)) eq -14</test>
@@ -1597,7 +1596,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-11">
+  <test-case name="K-SeqSUMFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(sum((1, 2, 3, xs:float("NaN")))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(sum((1, 2, 3, xs:float("NaN")))) eq "NaN"</test>
@@ -1606,7 +1605,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-12">
+  <test-case name="K-SeqSUMFunc-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(sum((1, 2, 3, xs:double("NaN")))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(sum((1, 2, 3, xs:double("NaN")))) eq "NaN"</test>
@@ -1615,7 +1614,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-13">
+  <test-case name="K-SeqSUMFunc-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(sum((xs:double("NaN"), 1, 2, 3))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(sum((xs:double("NaN"), 1, 2, 3))) eq "NaN"</test>
@@ -1624,7 +1623,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-14">
+  <test-case name="K-SeqSUMFunc-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(sum((xs:float("NaN"), 1, 2, 3))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(sum((xs:float("NaN"), 1, 2, 3))) eq "NaN"</test>
@@ -1633,7 +1632,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-15">
+  <test-case name="K-SeqSUMFunc-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(sum((1, 2, xs:double("NaN"), 1, 2, 3))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(sum((1, 2, xs:double("NaN"), 1, 2, 3))) eq "NaN"</test>
@@ -1642,7 +1641,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-16">
+  <test-case name="K-SeqSUMFunc-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(sum((1, 2, xs:float("NaN"), 1, 2, 3))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(sum((1, 2, xs:float("NaN"), 1, 2, 3))) eq "NaN"</test>
@@ -1651,7 +1650,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-17">
+  <test-case name="K-SeqSUMFunc-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `sum(xs:untypedAtomic("3")) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum(xs:untypedAtomic("3")) instance of xs:double</test>
@@ -1660,7 +1659,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-18">
+  <test-case name="K-SeqSUMFunc-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `sum((1, 2, xs:untypedAtomic("3"))) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((1, 2, xs:untypedAtomic("3"))) instance of xs:double</test>
@@ -1669,7 +1668,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-19">
+  <test-case name="K-SeqSUMFunc-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `sum((1, 2, xs:untypedAtomic("3"))) eq 6`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((1, 2, xs:untypedAtomic("3"))) eq 6</test>
@@ -1678,7 +1677,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-20">
+  <test-case name="K-SeqSUMFunc-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `sum((xs:float(1), 2, xs:untypedAtomic("3"))) eq 6`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((xs:float(1), 2, xs:untypedAtomic("3"))) eq 6</test>
@@ -1687,7 +1686,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-21">
+  <test-case name="K-SeqSUMFunc-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `sum((xs:float(1), 2, xs:untypedAtomic("3"))) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((xs:float(1), 2, xs:untypedAtomic("3"))) instance of xs:double</test>
@@ -1696,7 +1695,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-22">
+  <test-case name="K-SeqSUMFunc-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> fn:sum() having an input sequence whose static type is xs:anyAtomicType. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum(remove((1.0, xs:float(1), 2, xs:untypedAtomic("3")), 1)) eq 6</test>
@@ -1705,7 +1704,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-23">
+  <test-case name="K-SeqSUMFunc-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `sum("a string")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum("a string")</test>
@@ -1714,7 +1713,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-24">
+  <test-case name="K-SeqSUMFunc-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> A test whose essence is: `sum(xs:anyURI("a string"))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum(xs:anyURI("a string"))</test>
@@ -1723,7 +1722,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-25">
+  <test-case name="K-SeqSUMFunc-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description> A test whose essence is: `sum((1, 2, 3, xs:anyURI("a string"), xs:double("NaN")))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((1, 2, 3, xs:anyURI("a string"), xs:double("NaN")))</test>
@@ -1732,7 +1731,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-26">
+  <test-case name="K-SeqSUMFunc-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `sum((1, 2, 3, xs:anyURI("a string"), xs:double("NaN")), 3)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((1, 2, 3, xs:anyURI("a string"), xs:double("NaN")), 3)</test>
@@ -1741,7 +1740,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-27">
+  <test-case name="K-SeqSUMFunc-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `sum(((),())) eq 0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum(((),())) eq 0</test>
@@ -1750,7 +1749,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-28">
+  <test-case name="K-SeqSUMFunc-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `sum(()) eq 0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum(()) eq 0</test>
@@ -1759,7 +1758,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-29">
+  <test-case name="K-SeqSUMFunc-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `sum((3, 4, 5)) eq 12`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((3, 4, 5)) eq 12</test>
@@ -1768,7 +1767,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-30">
+  <test-case name="K-SeqSUMFunc-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `sum((xs:yearMonthDuration("P20Y"), xs:yearMonthDuration("P10M"))) eq xs:yearMonthDuration("P250M")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((xs:yearMonthDuration("P20Y"), xs:yearMonthDuration("P10M"))) eq xs:yearMonthDuration("P250M")</test>
@@ -1777,7 +1776,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-31">
+  <test-case name="K-SeqSUMFunc-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `sum((xs:yearMonthDuration("P20Y"), xs:yearMonthDuration("P10M")) [.  xs:yearMonthDuration("P3M")], xs:yearMonthDuration("P0M")) eq xs:yearMonthDuration("P0M")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1788,7 +1787,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-32">
+  <test-case name="K-SeqSUMFunc-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `sum((1 to 100)[.  0], 0) eq 0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1799,7 +1798,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqSUMFunc-33">
+  <test-case name="K-SeqSUMFunc-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `sum((xs:yearMonthDuration("P20Y"), (3, 4, 5)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((xs:yearMonthDuration("P20Y"), (3, 4, 5)))</test>
@@ -1808,7 +1807,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K2-SeqSUMFunc-1">
+  <test-case name="K2-SeqSUMFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Pass in an empty sequence as zero. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum((), ())</test>
@@ -1817,25 +1816,25 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="K2-SeqSUMFunc-2">
+  <test-case name="K2-SeqSUMFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is correct when type promotion is required. </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <test>sum((xs:float('NaN'), 2, 3, 4, xs:double('NaN'))) instance of xs:double</test>
+    <test>sum((xs:float(&apos;NaN&apos;), 2, 3, 4, xs:double(&apos;NaN&apos;))) instance of xs:double</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqSUMFunc-3">
+  <test-case name="K2-SeqSUMFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is correct when type promotion is required(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
-    <test>sum((xs:float('NaN'), 2, 3.3, 4, xs:double('NaN'))) instance of xs:double</test>
+    <test>sum((xs:float(&apos;NaN&apos;), 2, 3.3, 4, xs:double(&apos;NaN&apos;))) instance of xs:double</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqSUMFunc-4">
+  <test-case name="K2-SeqSUMFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>sum(xs:unsignedShort("1")) instance of xs:unsignedShort</test>
@@ -1844,7 +1843,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-sum-1">
+  <test-case name="fn-sum-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test fn:sum on a sequence of xs:dayTimeDuration arguments </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>sum((xs:dayTimeDuration("P1D"), xs:dayTimeDuration("PT1H"))) instance of xs:dayTimeDuration</test>
@@ -1853,7 +1852,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-sum-2">
+  <test-case name="fn-sum-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Test fn:sum on a sequence of xs:dayTimeDuration arguments </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>sum((), xs:dayTimeDuration("PT0S"))</test>
@@ -1862,7 +1861,7 @@
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-sum-3">
+  <test-case name="fn-sum-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test fn:sum on a sequence of xs:dayTimeDuration arguments </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>sum(for $x in 1 to 10 return xs:dayTimeDuration(concat("PT",$x,"H")))</test>
@@ -1871,7 +1870,7 @@
       <assert-string-value>P2DT7H</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-sum-4">
+  <test-case name="fn-sum-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test fn:sum on a sequence of xs:yearMonthDuration arguments </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>sum((xs:yearMonthDuration("P1Y"), xs:yearMonthDuration("P1M"))) instance of xs:yearMonthDuration</test>
@@ -1880,7 +1879,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-sum-5">
+  <test-case name="fn-sum-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Test fn:sum on a sequence of xs:yearMonthDuration arguments </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>sum((), xs:yearMonthDuration("P0M"))</test>
@@ -1889,7 +1888,7 @@
       <assert-string-value>P0M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-sum-6">
+  <test-case name="fn-sum-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test fn:sum on a sequence of xs:yearMonthDuration arguments </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>sum(for $x in 1 to 10 return xs:yearMonthDuration(concat("P",$x,"M")))</test>
@@ -1898,7 +1897,7 @@
       <assert-string-value>P4Y7M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-sum-7">
+  <test-case name="fn-sum-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test fn:sum on a sequence of xs:yearMonthDuration and xs:dayTimeDuration arguments </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>sum((xs:yearMonthDuration("P1Y"), xs:dayTimeDuration("P1D")))</test>
@@ -1911,7 +1910,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-sum-8">
+  <test-case name="fn-sum-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Test fn:sum with $zero as xs:duration </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>sum((), xs:duration("P0M"))</test>
@@ -1920,7 +1919,7 @@
       <assert-string-value>PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-sum-9">
+  <test-case name="fn-sum-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Test fn:sum on a sequence of xs:duration arguments </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>sum(xs:duration("P1Y1M1D"))</test>
@@ -1933,7 +1932,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-sum-10">
+  <test-case name="fn-sum-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Test fn:sum on a sequence of xs:duration arguments </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>sum(xs:duration("P1Y1M1D"), xs:duration("PT0S"))</test>
@@ -1946,7 +1945,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-sum-func-001">
+  <test-case name="cbcl-sum-func-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("55")</response-string>
     <description> Test sum(1 to 10) </description>
     <created by="Nick Jones" on="2008-06-10"/>
     <test>sum(1 to 10)</test>
@@ -1955,7 +1954,7 @@
       <assert-string-value>55</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-sum-func-002">
+  <test-case name="cbcl-sum-func-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("50")</response-string>
     <description> Test sum(foreach) </description>
     <created by="Nick Jones" on="2008-06-10"/>
     <test>sum(for $x in 1 to 10 return 5)</test>
@@ -1964,18 +1963,18 @@
       <assert-string-value>50</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-sum-func-003">
+  <test-case name="cbcl-sum-func-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("sum(1 to 1) = 1"),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),xs:string("sum(2 to 1) = "),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),xs:string("sum(3 to 1) = "),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),xs:string("sum(4 to 1) = "),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),xs:string("sum(5 to 1) = "),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),xs:string("sum(6 to 1) = "),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),xs:string("sum(7 to 1) = "),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),xs:string("sum(8 to 1) = "),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),xs:string("sum(9 to 1) = "),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),xs:string("sum(10 to 1) = "),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0008")))</response-string>
     <description> Test sum($x to $y) </description>
     <created by="Nick Jones" on="2008-06-10"/>
     <test>
-        for $x in 1 to 10, $y in 1 to 10 return concat('sum(',$x,' to ',$y,') = ',sum($x to $y))
+        for $x in 1 to 10, $y in 1 to 10 return concat(&apos;sum(&apos;,$x,&apos; to &apos;,$y,&apos;) = &apos;,sum($x to $y))
       </test>
     <result-string>xs:string("sum(1 to 1) = 1 sum(1 to 2) = 3 sum(1 to 3) = 6 sum(1 to 4) = 10 sum(1 to 5) = 15 sum(1 to 6) = 21 sum(1 to 7) = 28 sum(1 to 8) = 36 sum(1 to 9) = 45 sum(1 to 10) = 55 sum(2 to 1) = 0 sum(2 to 2) = 2 sum(2 to 3) = 5 sum(2 to 4) = 9 sum(2 to 5) = 14 sum(2 to 6) = 20 sum(2 to 7) = 27 sum(2 to 8) = 35 sum(2 to 9) = 44 sum(2 to 10) = 54 sum(3 to 1) = 0 sum(3 to 2) = 0 sum(3 to 3) = 3 sum(3 to 4) = 7 sum(3 to 5) = 12 sum(3 to 6) = 18 sum(3 to 7) = 25 sum(3 to 8) = 33 sum(3 to 9) = 42 sum(3 to 10) = 52 sum(4 to 1) = 0 sum(4 to 2) = 0 sum(4 to 3) = 0 sum(4 to 4) = 4 sum(4 to 5) = 9 sum(4 to 6) = 15 sum(4 to 7) = 22 sum(4 to 8) = 30 sum(4 to 9) = 39 sum(4 to 10) = 49 sum(5 to 1) = 0 sum(5 to 2) = 0 sum(5 to 3) = 0 sum(5 to 4) = 0 sum(5 to 5) = 5 sum(5 to 6) = 11 sum(5 to 7) = 18 sum(5 to 8) = 26 sum(5 to 9) = 35 sum(5 to 10) = 45 sum(6 to 1) = 0 sum(6 to 2) = 0 sum(6 to 3) = 0 sum(6 to 4) = 0 sum(6 to 5) = 0 sum(6 to 6) = 6 sum(6 to 7) = 13 sum(6 to 8) = 21 sum(6 to 9) = 30 sum(6 to 10) = 40 sum(7 to 1) = 0 sum(7 to 2) = 0 sum(7 to 3) = 0 sum(7 to 4) = 0 sum(7 to 5) = 0 sum(7 to 6) = 0 sum(7 to 7) = 7 sum(7 to 8) = 15 sum(7 to 9) = 24 sum(7 to 10) = 34 sum(8 to 1) = 0 sum(8 to 2) = 0 sum(8 to 3) = 0 sum(8 to 4) = 0 sum(8 to 5) = 0 sum(8 to 6) = 0 sum(8 to 7) = 0 sum(8 to 8) = 8 sum(8 to 9) = 17 sum(8 to 10) = 27 sum(9 to 1) = 0 sum(9 to 2) = 0 sum(9 to 3) = 0 sum(9 to 4) = 0 sum(9 to 5) = 0 sum(9 to 6) = 0 sum(9 to 7) = 0 sum(9 to 8) = 0 sum(9 to 9) = 9 sum(9 to 10) = 19 sum(10 to 1) = 0 sum(10 to 2) = 0 sum(10 to 3) = 0 sum(10 to 4) = 0 sum(10 to 5) = 0 sum(10 to 6) = 0 sum(10 to 7) = 0 sum(10 to 8) = 0 sum(10 to 9) = 0 sum(10 to 10) = 10")</result-string>
     <result>
       <assert-string-value>sum(1 to 1) = 1 sum(1 to 2) = 3 sum(1 to 3) = 6 sum(1 to 4) = 10 sum(1 to 5) = 15 sum(1 to 6) = 21 sum(1 to 7) = 28 sum(1 to 8) = 36 sum(1 to 9) = 45 sum(1 to 10) = 55 sum(2 to 1) = 0 sum(2 to 2) = 2 sum(2 to 3) = 5 sum(2 to 4) = 9 sum(2 to 5) = 14 sum(2 to 6) = 20 sum(2 to 7) = 27 sum(2 to 8) = 35 sum(2 to 9) = 44 sum(2 to 10) = 54 sum(3 to 1) = 0 sum(3 to 2) = 0 sum(3 to 3) = 3 sum(3 to 4) = 7 sum(3 to 5) = 12 sum(3 to 6) = 18 sum(3 to 7) = 25 sum(3 to 8) = 33 sum(3 to 9) = 42 sum(3 to 10) = 52 sum(4 to 1) = 0 sum(4 to 2) = 0 sum(4 to 3) = 0 sum(4 to 4) = 4 sum(4 to 5) = 9 sum(4 to 6) = 15 sum(4 to 7) = 22 sum(4 to 8) = 30 sum(4 to 9) = 39 sum(4 to 10) = 49 sum(5 to 1) = 0 sum(5 to 2) = 0 sum(5 to 3) = 0 sum(5 to 4) = 0 sum(5 to 5) = 5 sum(5 to 6) = 11 sum(5 to 7) = 18 sum(5 to 8) = 26 sum(5 to 9) = 35 sum(5 to 10) = 45 sum(6 to 1) = 0 sum(6 to 2) = 0 sum(6 to 3) = 0 sum(6 to 4) = 0 sum(6 to 5) = 0 sum(6 to 6) = 6 sum(6 to 7) = 13 sum(6 to 8) = 21 sum(6 to 9) = 30 sum(6 to 10) = 40 sum(7 to 1) = 0 sum(7 to 2) = 0 sum(7 to 3) = 0 sum(7 to 4) = 0 sum(7 to 5) = 0 sum(7 to 6) = 0 sum(7 to 7) = 7 sum(7 to 8) = 15 sum(7 to 9) = 24 sum(7 to 10) = 34 sum(8 to 1) = 0 sum(8 to 2) = 0 sum(8 to 3) = 0 sum(8 to 4) = 0 sum(8 to 5) = 0 sum(8 to 6) = 0 sum(8 to 7) = 0 sum(8 to 8) = 8 sum(8 to 9) = 17 sum(8 to 10) = 27 sum(9 to 1) = 0 sum(9 to 2) = 0 sum(9 to 3) = 0 sum(9 to 4) = 0 sum(9 to 5) = 0 sum(9 to 6) = 0 sum(9 to 7) = 0 sum(9 to 8) = 0 sum(9 to 9) = 9 sum(9 to 10) = 19 sum(10 to 1) = 0 sum(10 to 2) = 0 sum(10 to 3) = 0 sum(10 to 4) = 0 sum(10 to 5) = 0 sum(10 to 6) = 0 sum(10 to 7) = 0 sum(10 to 8) = 0 sum(10 to 9) = 0 sum(10 to 10) = 10</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-sum-func-004">
+  <test-case name="cbcl-sum-func-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Tests boolean call to sum </description>
     <created by="Nick Jones" on="2008-06-17"/>
     <test>boolean(sum((1 to 10)[. mod 2 = 0]))</test>
@@ -1984,7 +1983,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-sum-func-005">
+  <test-case name="cbcl-sum-func-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Tests sum of a sum </description>
     <created by="Nick Jones" on="2008-06-17"/>
     <test>sum(sum((1 to 10)[. mod 2 = 0],()))</test>
@@ -1993,11 +1992,11 @@
       <assert-string-value>30</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-sum-func-006">
+  <test-case name="cbcl-sum-func-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("5")</response-string>
     <description> Tests sum of two integer converts to plus </description>
     <created by="Nick Jones" on="2008-06-17"/>
     <test>sum((1,exactly-one((1 to 10)[. div 2 = 2])))</test>
-    <result-string>xs:string("5")</result-string>
+    <result-string>xs:integer("5")</result-string>
     <result>
       <assert-string-value>5</assert-string-value>
     </result>

@@ -1,105 +1,104 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set covers="fn-format-number" name="fn-format-number" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the format-number() function transferred from XSLT 1.0/2.0 to XPath 3.0/XQuery 3.0</description>
   <link document="http://www.w3.org/TR/xpath-functions-11/" idref="func-format-number" type="spec"/>
   <dependency type="spec" value="XP30+ XQ30+"/>
-  <test-case name="numberformat01">
+  <test-case name="numberformat01"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("087,504.481200")</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test of format-number with 2 arguments, showing zeroes. </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat01.xml-->
-    <test>format-number(2392.14*36.58,'000,000.000000')</test>
+    <test>format-number(2392.14*36.58,&apos;000,000.000000&apos;)</test>
     <result-string>xs:string("087,504.481200")</result-string>
     <result>
       <assert-string-value>087,504.481200</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat02">
+  <test-case name="numberformat02"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1235,464.881200")</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test of format-number and # and 0 in format string. </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat02.xml-->
-    <test>format-number(12792.14*96.58,'##,###,000.000###')</test>
+    <test>format-number(12792.14*96.58,&apos;##,###,000.000###&apos;)</test>
     <result-string>xs:string("1,235,464.8812")</result-string>
     <result>
       <assert-string-value>1,235,464.8812</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat03">
+  <test-case name="numberformat03"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-102,136.481200")</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test of format-number on a negative number. </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat03.xml-->
-    <test>format-number(2792.14*(-36.58),'000,000.000###')</test>
+    <test>format-number(2792.14*(-36.58),&apos;000,000.000###&apos;)</test>
     <result-string>xs:string("-102,136.4812")</result-string>
     <result>
       <assert-string-value>-102,136.4812</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat04">
+  <test-case name="numberformat04"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("87,504.481200")</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test of format-number on a negative number; should choose second pattern. </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat04.xml-->
-    <test>format-number(2392.14*(-36.58),'000,000.000###;###,###.000###')</test>
+    <test>format-number(2392.14*(-36.58),&apos;000,000.000###;###,###.000###&apos;)</test>
     <result-string>xs:string("87,504.4812")</result-string>
     <result>
       <assert-string-value>87,504.4812</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat05">
+  <test-case name="numberformat05"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("%48.570")</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test of format-number percentage format. </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat05.xml-->
-    <test>format-number(0.4857,'###.###%')</test>
+    <test>format-number(0.4857,&apos;###.###%&apos;)</test>
     <result-string>xs:string("48.57%")</result-string>
     <result>
       <assert-string-value>48.57%</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat06">
+  <test-case name="numberformat06"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0.486")</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test of format-number per-mille format. </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat06.xml-->
-    <test>format-number(0.4857,'###.###')</test>
+    <test>format-number(0.4857,&apos;###.###&apos;)</test>
     <result-string>xs:string("485.7")</result-string>
     <result>
       <assert-string-value>485.7</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat07">
+  <test-case name="numberformat07"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("95.4857")</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test of format-number currency symbol, which is not supposed to be there. </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat07.xml-->
-    <test>format-number(95.4857,'###.####')</test>
+    <test>format-number(95.4857,&apos;###.####&apos;)</test>
     <result-string>xs:string("95.4857")</result-string>
     <result>
       <assert-string-value>95.4857</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat08">
+  <test-case name="numberformat08"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("PREFIX185.281200SUFFIX")</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test of format-number with prefix and suffix in format string. </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat08.xml-->
-    <test>format-number(2.14*86.58,'PREFIX##00.000###SUFFIX')</test>
+    <test>format-number(2.14*86.58,&apos;PREFIX##00.000###SUFFIX&apos;)</test>
     <result-string>xs:string("PREFIX185.2812SUFFIX")</result-string>
     <result>
       <assert-string-value>PREFIX185.2812SUFFIX</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat09">
+  <test-case name="numberformat09"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("931.486|###")</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test default decimal-format on separator characters, changing both. </description>
@@ -108,13 +107,13 @@
     <environment>
       <decimal-format decimal-separator="|" grouping-separator="."/>
     </environment>
-    <test>format-number(931.4857,'000.000|###')</test>
+    <test>format-number(931.4857,&apos;000.000|###&apos;)</test>
     <result-string>xs:string("000.931|486")</result-string>
     <result>
       <assert-string-value>000.931|486</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat11">
+  <test-case name="numberformat11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("+!!!26931!!!.!!!\-!!,!!!.!!!")</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test default decimal-format on pattern-only characters, positive number. </description>
@@ -123,13 +122,13 @@
     <environment>
       <decimal-format digit="!" pattern-separator="\"/>
     </environment>
-    <test>format-number(26931.4,'+!!!,!!!.!!!\-!!,!!!.!!!')</test>
+    <test>format-number(26931.4,&apos;+!!!,!!!.!!!\-!!,!!!.!!!&apos;)</test>
     <result-string>xs:string("+26,931.4")</result-string>
     <result>
       <assert-string-value>+26,931.4</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat12">
+  <test-case name="numberformat12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-+!!26931!!!.!!!\-!!!,!!!.!!!")</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test default decimal-format on pattern-only characters, negative number. </description>
@@ -138,13 +137,13 @@
     <environment>
       <decimal-format digit="!" pattern-separator="\"/>
     </environment>
-    <test>format-number(-26931.4,'+!!,!!!.!!!\-!!!,!!!.!!!')</test>
+    <test>format-number(-26931.4,&apos;+!!,!!!.!!!\-!!!,!!!.!!!&apos;)</test>
     <result-string>xs:string("-26,931.4")</result-string>
     <result>
       <assert-string-value>-26,931.4</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat13">
+  <test-case name="numberformat13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-!!!26931!!!.!!!")</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test default decimal-format on pattern-only characters, negative number and one pattern. </description>
@@ -153,13 +152,13 @@
     <environment>
       <decimal-format digit="!" pattern-separator="\"/>
     </environment>
-    <test>format-number(-26931.4,'!!!,!!!.!!!')</test>
+    <test>format-number(-26931.4,&apos;!!!,!!!.!!!&apos;)</test>
     <result-string>xs:string("-26,931.4")</result-string>
     <result>
       <assert-string-value>-26,931.4</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat14">
+  <test-case name="numberformat14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test specified result pattern for infinity. </description>
@@ -168,13 +167,13 @@
     <environment>
       <decimal-format infinity="off-the-scale"/>
     </environment>
-    <test>format-number(1 div 0e0,'###############################')</test>
+    <test>format-number(1 div 0e0,&apos;###############################&apos;)</test>
     <result-string>xs:string("off-the-scale")</result-string>
     <result>
       <assert-string-value>off-the-scale</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat15">
+  <test-case name="numberformat15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test specified result pattern for not-a-number. </description>
@@ -185,13 +184,13 @@
     </environment>
     <dependency type="feature" value="xpath-1.0-compatibility"/>
     <dependency type="spec" value="XP30+"/>
-    <test>format-number('foo','#############')</test>
+    <test>format-number(&apos;foo&apos;,&apos;#############&apos;)</test>
     <result-string>xs:string("non-numeric")</result-string>
     <result>
       <assert-string-value>non-numeric</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat16">
+  <test-case name="numberformat16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0.486m")</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test of decimal-format per-mille format with character being changed. </description>
@@ -200,13 +199,13 @@
     <environment>
       <decimal-format per-mille="m"/>
     </environment>
-    <test>format-number(0.4857,'###.###m')</test>
+    <test>format-number(0.4857,&apos;###.###m&apos;)</test>
     <result-string>xs:string("485.7m")</result-string>
     <result>
       <assert-string-value>485.7m</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat17">
+  <test-case name="numberformat17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("26,931.400")</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test decimal-format output character for negative, 2 patterns. </description>
@@ -215,13 +214,13 @@
     <environment>
       <decimal-format minus-sign="_"/>
     </environment>
-    <test>format-number(-26931.4,'+###,###.###;-###,###.###')</test>
+    <test>format-number(-26931.4,&apos;+###,###.###;-###,###.###&apos;)</test>
     <result-string>xs:string("-26,931.4")</result-string>
     <result>
       <assert-string-value>-26,931.4</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat18">
+  <test-case name="numberformat18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("-26,931.400")</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test decimal-format output character for negative, one pattern. </description>
@@ -230,13 +229,13 @@
     <environment>
       <decimal-format minus-sign="_"/>
     </environment>
-    <test>format-number(-26931.4,'###,###.###')</test>
+    <test>format-number(-26931.4,&apos;###,###.###&apos;)</test>
     <result-string>xs:string("_26,931.4")</result-string>
     <result>
       <assert-string-value>_26,931.4</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat19">
+  <test-case name="numberformat19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test decimal-format declaration with a name. </description>
@@ -245,14 +244,14 @@
     <environment>
       <decimal-format minus-sign="_" name="myminus"/>
     </environment>
-    <test>concat(format-number(-26931.4,'###,###.###','myminus'), '/',
-            format-number(-42857.1,'###,###.###'))</test>
+    <test>concat(format-number(-26931.4,&apos;###,###.###&apos;,&apos;myminus&apos;), &apos;/&apos;,
+            format-number(-42857.1,&apos;###,###.###&apos;))</test>
     <result-string>xs:string("_26,931.4/-42,857.1")</result-string>
     <result>
       <assert-string-value>_26,931.4/-42,857.1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat20">
+  <test-case name="numberformat20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test of decimal-format with qualified name. Unqualified name provided as a trap. </description>
@@ -263,7 +262,7 @@
       <decimal-format decimal-separator="!" grouping-separator="*" name="foo:decimal1" xmlns:foo="http://foo.ns"/>
       <decimal-format decimal-separator="*" grouping-separator="!" name="decimal1"/>
     </environment>
-    <test>format-number(1234.567,'#*###*###!###','foo:decimal1')</test>
+    <test>format-number(1234.567,&apos;#*###*###!###&apos;,&apos;foo:decimal1&apos;)</test>
     <result-string>xs:string("1*234!567")</result-string>
     <result>
       <assert-string-value>1*234!567</assert-string-value>
@@ -273,7 +272,7 @@
   <!-- numberformat22 - XSLT specific -->
   <!-- numberformat23 - XSLT specific -->
   <!-- numberformat24 - XSLT specific -->
-  <test-case name="numberformat26">
+  <test-case name="numberformat26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("7654321 ### ###,#####")</response-string>
     <description>
         Creator: David Marston 
         Purpose: Designate a space as the grouping separator. </description>
@@ -282,13 +281,13 @@
     <environment>
       <decimal-format decimal-separator="," grouping-separator=" "/>
     </environment>
-    <test>format-number(7654321.4857,'### ### ###,#####')</test>
+    <test>format-number(7654321.4857,&apos;### ### ###,#####&apos;)</test>
     <result-string>xs:string("7 654 321,4857")</result-string>
     <result>
       <assert-string-value>7 654 321,4857</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat27">
+  <test-case name="numberformat27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test of format-number minus-sign behavior on positive numbers. </description>
@@ -297,29 +296,29 @@
     <environment>
       <decimal-format minus-sign="_" name="myminus"/>
     </environment>
-    <test>string-join((format-number(2392.14*36.58,'000,000.000000','myminus'),
-                        format-number(2392.14*36.58,'000,000.000000;###,###.000###'),
-                        format-number(2392.14*36.58,'000,000.000000;###,###.000###','myminus')), ' ')
+    <test>string-join((format-number(2392.14*36.58,&apos;000,000.000000&apos;,&apos;myminus&apos;),
+                        format-number(2392.14*36.58,&apos;000,000.000000;###,###.000###&apos;),
+                        format-number(2392.14*36.58,&apos;000,000.000000;###,###.000###&apos;,&apos;myminus&apos;)), &apos; &apos;)
       </test>
     <result-string>xs:string("087,504.481200 087,504.481200 087,504.481200")</result-string>
     <result>
       <assert-string-value>087,504.481200 087,504.481200 087,504.481200</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat28">
+  <test-case name="numberformat28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("87,504.481200")</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test what happens to minus sign embedded in second pattern. </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat28.xml-->
     <environment/>
-    <test>format-number(2392.14*(-36.58),'000,000.000###;-###,###.000###')</test>
+    <test>format-number(2392.14*(-36.58),&apos;000,000.000###;-###,###.000###&apos;)</test>
     <result-string>xs:string("-87,504.4812")</result-string>
     <result>
       <assert-string-value>-87,504.4812</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat29">
+  <test-case name="numberformat29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("_26,931.400")</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test decimal-format output character does not influence input. </description>
@@ -328,13 +327,13 @@
     <environment>
       <decimal-format minus-sign="_"/>
     </environment>
-    <test>format-number(-26931.4,'+###,###.###;_###,###.###')</test>
+    <test>format-number(-26931.4,&apos;+###,###.###;_###,###.###&apos;)</test>
     <result-string>xs:string("_26,931.4")</result-string>
     <result>
       <assert-string-value>_26,931.4</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat30">
+  <test-case name="numberformat30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test effects of minus-sign in one pattern. </description>
@@ -344,15 +343,15 @@
       <decimal-format minus-sign="_" name="myminus"/>
     </environment>
     <test>string-join((
-                format-number(-26931.4,'-###,###.###'),
-                format-number(-26931.4,'zzz-###,###.###','myminus'),
-                format-number(-26931.4,'_###,###.###','myminus')), ' ')</test>
+                format-number(-26931.4,&apos;-###,###.###&apos;),
+                format-number(-26931.4,&apos;zzz-###,###.###&apos;,&apos;myminus&apos;),
+                format-number(-26931.4,&apos;_###,###.###&apos;,&apos;myminus&apos;)), &apos; &apos;)</test>
     <result-string>xs:string("--26,931.4 _zzz-26,931.4 __26,931.4")</result-string>
     <result>
       <assert-string-value>--26,931.4 _zzz-26,931.4 __26,931.4</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat31">
+  <test-case name="numberformat31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("26,931.400")</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test output of altered minus, 2 patterns but no sign marker in pattern. </description>
@@ -361,13 +360,13 @@
     <environment>
       <decimal-format minus-sign="_"/>
     </environment>
-    <test>format-number(-26931.4,'###,###.###;###,###.###')</test>
+    <test>format-number(-26931.4,&apos;###,###.###;###,###.###&apos;)</test>
     <result-string>xs:string("26,931.4")</result-string>
     <result>
       <assert-string-value>26,931.4</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat32">
+  <test-case name="numberformat32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0.486c")</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test of format-number percent format with character being changed. </description>
@@ -376,13 +375,13 @@
     <environment>
       <decimal-format percent="c"/>
     </environment>
-    <test>format-number(0.4857,'###.###c')</test>
+    <test>format-number(0.4857,&apos;###.###c&apos;)</test>
     <result-string>xs:string("48.57c")</result-string>
     <result>
       <assert-string-value>48.57c</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat34">
+  <test-case name="numberformat34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("4030201!!!,!!!,.0")</response-string>
     <description>
         Creator: David Marston (modified by MHK because there are now rules on choosing a zero-digit) 
         Purpose: Test changing both digit and zero-digit in format string. </description>
@@ -391,52 +390,52 @@
     <environment>
       <decimal-format digit="!" zero-digit="&#1632;"/>
     </environment>
-    <test>format-number(4030201.0506,'#!!!,!!!,.0')</test>
+    <test>format-number(4030201.0506,&apos;#!!!,!!!,.0&apos;)</test>
     <result-string>xs:string("#,,.0")</result-string>
     <result>
       <assert-string-value>#,,.0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat35">
+  <test-case name="numberformat35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("9,87,65,43,21.00")</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test of unequal spacing of grouping-separator. </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat35.xml-->
     <environment/>
-    <test>format-number(987654321,'###,##0,00.00')</test>
+    <test>format-number(987654321,&apos;###,##0,00.00&apos;)</test>
     <result-string>xs:string("9876,543,21.00")</result-string>
     <result>
       <assert-string-value>9876,543,21.00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat36">
+  <test-case name="numberformat36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("239236.59")</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test what happens when we overflow available digits on the left. </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat36.xml-->
     <environment/>
-    <test>format-number(239236.588,'00000.00')</test>
+    <test>format-number(239236.588,&apos;00000.00&apos;)</test>
     <result-string>xs:string("239236.59")</result-string>
     <result>
       <assert-string-value>239236.59</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat37">
+  <test-case name="numberformat37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test result pattern for infinity, unchanged. </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat37.xml-->
     <environment/>
-    <test>format-number(1 div 0e0,'###############################')</test>
+    <test>format-number(1 div 0e0,&apos;###############################&apos;)</test>
     <result-string>xs:string("Infinity")</result-string>
     <result>
       <assert-string-value>Infinity</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat38">
+  <test-case name="numberformat38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test result pattern for not-a-number, unchanged. </description>
@@ -445,26 +444,26 @@
     <environment/>
     <dependency type="feature" value="xpath-1.0-compatibility"/>
     <dependency type="spec" value="XP30+"/>
-    <test>format-number('foo','#############')</test>
+    <test>format-number(&apos;foo&apos;,&apos;#############&apos;)</test>
     <result-string>xs:string("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat39">
+  <test-case name="numberformat39"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test result pattern for negative infinity, unchanged. </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat39.xml-->
     <environment/>
-    <test>format-number(-1 div 0e0,'###############################')</test>
+    <test>format-number(-1 div 0e0,&apos;###############################&apos;)</test>
     <result-string>xs:string("-Infinity")</result-string>
     <result>
       <assert-string-value>-Infinity</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat40">
+  <test-case name="numberformat40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>
         Creator: David Marston 
         Purpose: Test specification of result pattern for infinity</description>
@@ -473,18 +472,18 @@
     <environment>
       <decimal-format infinity="huge"/>
     </environment>
-    <test>format-number(-1 div 0e0,'###############################')</test>
+    <test>format-number(-1 div 0e0,&apos;###############################&apos;)</test>
     <result-string>xs:string("-huge")</result-string>
     <result>
       <assert-string-value>-huge</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat41">
+  <test-case name="numberformat41"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
         Creator: David Bertoni 
         Purpose: Test of multiple decimal-format elements with identical qualified names.</description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
-    <modified by="O'Neil Delpratt, Saxonica" change="Bug fix #19716" on="2012-10-26"/>
+    <modified by="O&apos;Neil Delpratt, Saxonica" change="Bug fix #19716" on="2012-10-26"/>
     <modified by="Michael Kay, Saxonica" change="Bug fix #19716" on="2013-04-24"/>
     <!--SOURCE: numberformat/numberformat41.xml-->
     <environment>
@@ -495,16 +494,16 @@
     <dependency type="feature" value="xpath-1.0-compatibility"/>
     <dependency type="spec" value="XP30+"/>
     <test>string-join((
-                format-number('NaN','###','foo:decimal1'),
-                format-number(-13.2,'###.0','foo:decimal1'),
-                format-number('NaN','###','baz:decimal1'),
-                format-number(-13.2,'###.0','baz:decimal1')), '|')</test>
+                format-number(&apos;NaN&apos;,&apos;###&apos;,&apos;foo:decimal1&apos;),
+                format-number(-13.2,&apos;###.0&apos;,&apos;foo:decimal1&apos;),
+                format-number(&apos;NaN&apos;,&apos;###&apos;,&apos;baz:decimal1&apos;),
+                format-number(-13.2,&apos;###.0&apos;,&apos;baz:decimal1&apos;)), &apos;|&apos;)</test>
     <result-string>xs:string("not a number|-13.2|not a number|-13.2")</result-string>
     <result>
       <assert-string-value>not a number|-13.2|not a number|-13.2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat42">
+  <test-case name="numberformat42"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>
         Creator: David Bertoni 
         Purpose: Test of multiple decimal-format elements with identical names.</description>
@@ -516,8 +515,8 @@
     </environment>
     <dependency type="feature" value="xpath-1.0-compatibility"/>
     <dependency type="spec" value="XP30+"/>
-    <test>concat(format-number('NaN','###','decimal2'), '|',
-                      format-number(3.2,'###.0','decimal2'))</test>
+    <test>concat(format-number(&apos;NaN&apos;,&apos;###&apos;,&apos;decimal2&apos;), &apos;|&apos;,
+                      format-number(3.2,&apos;###.0&apos;,&apos;decimal2&apos;))</test>
     <result-string>xs:string("not a number|3.2")</result-string>
     <result>
       <assert-string-value>not a number|3.2</assert-string-value>
@@ -527,215 +526,215 @@
   <!-- numberformat44 - XSLT-specific -->
   <!-- numberformat45 - XSLT-specific -->
   <!-- numberformat46 - XSLT-specific -->
-  <test-case name="numberformat60a">
+  <test-case name="numberformat60a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1e+25")</response-string>
     <description>
         Test format-number() applied to large numbers (test how good the rounding is)
         Bug report from Pedro Christian against Saxon 7.8
       </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
-    <test>format-number(1E25,'#,######')</test>
+    <test>format-number(1E25,&apos;#,######&apos;)</test>
     <result-string>xs:string("10,000000,000000,000000,000000")</result-string>
     <result>
       <assert-string-value>10,000000,000000,000000,000000</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat60b">
+  <test-case name="numberformat60b"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("10000000000")</response-string>
     <description>
         Test format-number() applied to large numbers (test how good the rounding is)
         Bug report from Pedro Christian against Saxon 7.8
       </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
-    <test>format-number(1E10,'#####################')</test>
+    <test>format-number(1E10,&apos;#####################&apos;)</test>
     <result-string>xs:string("10000000000")</result-string>
     <result>
       <assert-string-value>10000000000</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat60c">
+  <test-case name="numberformat60c"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("100000000000")</response-string>
     <description>
         Test format-number() applied to large numbers (test how good the rounding is)
         Bug report from Pedro Christian against Saxon 7.8
       </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
-    <test>format-number(1E11,'#####################')</test>
+    <test>format-number(1E11,&apos;#####################&apos;)</test>
     <result-string>xs:string("100000000000")</result-string>
     <result>
       <assert-string-value>100000000000</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat60d">
+  <test-case name="numberformat60d"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1000000000000")</response-string>
     <description>
         Test format-number() applied to large numbers (test how good the rounding is)
         Bug report from Pedro Christian against Saxon 7.8
       </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
-    <test>format-number(1E12,'#####################')</test>
+    <test>format-number(1E12,&apos;#####################&apos;)</test>
     <result-string>xs:string("1000000000000")</result-string>
     <result>
       <assert-string-value>1000000000000</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat60e">
+  <test-case name="numberformat60e"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("10000000000000")</response-string>
     <description>
         Test format-number() applied to large numbers (test how good the rounding is)
         Bug report from Pedro Christian against Saxon 7.8
       </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
-    <test>format-number(1E13,'#####################')</test>
+    <test>format-number(1E13,&apos;#####################&apos;)</test>
     <result-string>xs:string("10000000000000")</result-string>
     <result>
       <assert-string-value>10000000000000</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat60f">
+  <test-case name="numberformat60f"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("100000000000000")</response-string>
     <description>
         Test format-number() applied to large numbers (test how good the rounding is)
         Bug report from Pedro Christian against Saxon 7.8
       </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
-    <test>format-number(1E14,'#####################')</test>
+    <test>format-number(1E14,&apos;#####################&apos;)</test>
     <result-string>xs:string("100000000000000")</result-string>
     <result>
       <assert-string-value>100000000000000</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat60g">
+  <test-case name="numberformat60g"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1000000000000000")</response-string>
     <description>
         Test format-number() applied to large numbers (test how good the rounding is)
         Bug report from Pedro Christian against Saxon 7.8
       </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
-    <test>format-number(1E15,'#####################')</test>
+    <test>format-number(1E15,&apos;#####################&apos;)</test>
     <result-string>xs:string("1000000000000000")</result-string>
     <result>
       <assert-string-value>1000000000000000</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat60h">
+  <test-case name="numberformat60h"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("10000000000000000")</response-string>
     <description>
         Test format-number() applied to large numbers (test how good the rounding is)
         Bug report from Pedro Christian against Saxon 7.8
       </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
-    <test>format-number(1E16,'#####################')</test>
+    <test>format-number(1E16,&apos;#####################&apos;)</test>
     <result-string>xs:string("10000000000000000")</result-string>
     <result>
       <assert-string-value>10000000000000000</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat60i">
+  <test-case name="numberformat60i"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("100000000000000000")</response-string>
     <description>
         Test format-number() applied to large numbers (test how good the rounding is)
         Bug report from Pedro Christian against Saxon 7.8
       </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
-    <test>format-number(1E17,'#####################')</test>
+    <test>format-number(1E17,&apos;#####################&apos;)</test>
     <result-string>xs:string("100000000000000000")</result-string>
     <result>
       <assert-string-value>100000000000000000</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat60j">
+  <test-case name="numberformat60j"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1000000000000000000")</response-string>
     <description>
         Test format-number() applied to large numbers (test how good the rounding is)
         Bug report from Pedro Christian against Saxon 7.8
       </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
-    <test>format-number(1E18,'#####################')</test>
+    <test>format-number(1E18,&apos;#####################&apos;)</test>
     <result-string>xs:string("1000000000000000000")</result-string>
     <result>
       <assert-string-value>1000000000000000000</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat60k">
+  <test-case name="numberformat60k"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("10000000000000000000")</response-string>
     <description>
         Test format-number() applied to large numbers (test how good the rounding is)
         Bug report from Pedro Christian against Saxon 7.8
       </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
-    <test>format-number(1E19,'#####################')</test>
+    <test>format-number(1E19,&apos;#####################&apos;)</test>
     <result-string>xs:string("10000000000000000000")</result-string>
     <result>
       <assert-string-value>10000000000000000000</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat60l">
+  <test-case name="numberformat60l"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("100000000000000000000")</response-string>
     <description>
         Test format-number() applied to large numbers (test how good the rounding is)
         Bug report from Pedro Christian against Saxon 7.8
       </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
-    <test>format-number(1E20,'#####################')</test>
+    <test>format-number(1E20,&apos;#####################&apos;)</test>
     <result-string>xs:string("100000000000000000000")</result-string>
     <result>
       <assert-string-value>100000000000000000000</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat60m">
+  <test-case name="numberformat60m"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1e+25")</response-string>
     <description>
         Test format-number() applied to large numbers (test how good the rounding is)
         Bug report from Pedro Christian against Saxon 7.8
       </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
-    <test>format-number(1E25,'#####################')</test>
+    <test>format-number(1E25,&apos;#####################&apos;)</test>
     <result-string>xs:string("10000000000000000000000000")</result-string>
     <result>
       <assert-string-value>10000000000000000000000000</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat60n">
+  <test-case name="numberformat60n"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1e+30")</response-string>
     <description>
         Test format-number() applied to large numbers (test how good the rounding is)
         Bug report from Pedro Christian against Saxon 7.8
       </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
-    <test>format-number(1E30,'#####################')</test>
+    <test>format-number(1E30,&apos;#####################&apos;)</test>
     <result-string>xs:string("1000000000000000000000000000000")</result-string>
     <result>
       <assert-string-value>1000000000000000000000000000000</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat60o">
+  <test-case name="numberformat60o"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1e+35")</response-string>
     <description>
         Test format-number() applied to large numbers (test how good the rounding is)
         Bug report from Pedro Christian against Saxon 7.8
       </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
-    <test>format-number(1E35,'#####################')</test>
+    <test>format-number(1E35,&apos;#####################&apos;)</test>
     <result-string>xs:string("100000000000000000000000000000000000")</result-string>
     <result>
       <assert-string-value>100000000000000000000000000000000000</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat60p">
+  <test-case name="numberformat60p"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1e+100")</response-string>
     <description>
         Test format-number() applied to large numbers (test how good the rounding is)
         Bug report from Pedro Christian against Saxon 7.8
       </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
-    <test>format-number(1E100,'#####################')</test>
+    <test>format-number(1E100,&apos;#####################&apos;)</test>
     <result-string>xs:string("10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000")</result-string>
     <result>
       <assert-string-value>10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat60q">
+  <test-case name="numberformat60q"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("3")</response-string>
     <description>
         Test format-number() applied to large numbers (test how good the rounding is)
         Bug report from Pedro Christian against Saxon 7.8
@@ -743,34 +742,34 @@
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="changed expected result for 1e100 div 3 as per bug 14934" on="2012-05-17"/>
     <modified by="Michael Kay" change="split compound test into separate parts" on="2012-05-18"/>
-    <test>format-number(1E100 div 3,'#####################')</test>
+    <test>format-number(1E100 div 3,&apos;#####################&apos;)</test>
     <result-string>xs:string("3333333333333333000000000000000000000000000000000000000000000000000000000000000000000000000000000000")</result-string>
     <result>
       <assert-string-value>3333333333333333000000000000000000000000000000000000000000000000000000000000000000000000000000000000</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat61">
+  <test-case name="numberformat61"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0.000")</response-string>
     <description>
         format-number() applied to an empty sequence
       </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/stdxmlfile.xml-->
     <environment/>
-    <test>format-number((),'###.###')</test>
+    <test>format-number((),&apos;###.###&apos;)</test>
     <result-string>xs:string("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
   <!-- numberformat62 is XSLT-specific-->
-  <test-case name="numberformat63">
+  <test-case name="numberformat63"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1.2345678901234568e+29")</response-string>
     <description>
         Purpose: Test formatting of a high-precision decimal value. </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <modified by="Michael Kay" change="see bug 14933" on="2012-05-17"/>
     <!--SOURCE: numberformat/stdxmlfile.xml-->
     <environment/>
-    <test>format-number(000123456789012345678901234567890.123456789012345678900000,     '##0.0####################################################')</test>
+    <test>format-number(000123456789012345678901234567890.123456789012345678900000,     &apos;##0.0####################################################&apos;)</test>
     <result-string>xs:string("123456789012345678901234567890.1234567890123456789")</result-string>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOAR0002"))</result-string>
     <result>
@@ -780,7 +779,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="numberformat64">
+  <test-case name="numberformat64"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1 #0.0####################################################")</response-string>
     <description>
         Purpose: Test formatting of a high-precision integer value. </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
@@ -789,7 +788,7 @@
     <environment>
       <decimal-format grouping-separator=" "/>
     </environment>
-    <test>format-number(000123456789012345678901234567890123456789012345678900000,     '# #0.0####################################################')</test>
+    <test>format-number(000123456789012345678901234567890123456789012345678900000,     &apos;# #0.0####################################################&apos;)</test>
     <result-string>xs:string("12 34 56 78 90 12 34 56 78 90 12 34 56 78 90 12 34 56 78 90 12 34 56 78 90 00 00.0")</result-string>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOAR0002"))</result-string>
     <result>
@@ -799,7 +798,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="numberformat65">
+  <test-case name="numberformat65"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1234.0000|1234.0000")</response-string>
     <description>
         Purpose: Test that a trailing decimalpoint is removed. 
       </description>
@@ -808,14 +807,14 @@
     <environment>
       <decimal-format grouping-separator=" "/>
     </environment>
-    <test>concat(format-number(1234e0, '0000.####'), '|',
-                    format-number(1234.00, '0000.####'))</test>
+    <test>concat(format-number(1234e0, &apos;0000.####&apos;), &apos;|&apos;,
+                    format-number(1234.00, &apos;0000.####&apos;))</test>
     <result-string>xs:string("1234|1234")</result-string>
     <result>
       <assert-string-value>1234|1234</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat70">
+  <test-case name="numberformat70"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1234567890")</response-string>
     <description>
         Decimal separator and grouping separator in the astral planes
       </description>
@@ -824,13 +823,13 @@
     <environment>
       <decimal-format decimal-separator="&#44464;" grouping-separator="&#44465;"/>
     </environment>
-    <test>format-number(1234567890.123456,'000000')</test>
+    <test>format-number(1234567890.123456,&apos;000000&apos;)</test>
     <result-string>xs:string("1234567890123")</result-string>
     <result>
       <assert-string-value>1234567890123</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat71">
+  <test-case name="numberformat71"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1234567890.12346")</response-string>
     <description>
         Use Osmanya digits (non-BMP) in formatted output
       </description>
@@ -839,39 +838,39 @@
     <environment>
       <decimal-format zero-digit="&#1184;"/>
     </environment>
-    <test>format-number(1234567890.123456,'##########.#####')</test>
+    <test>format-number(1234567890.123456,&apos;##########.#####&apos;)</test>
     <result-string>xs:string(".")</result-string>
     <result>
       <assert-string-value>.</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat72">
+  <test-case name="numberformat72"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1234567890.123")</response-string>
     <description>
-        Check that overflow isn't an error
+        Check that overflow isn&apos;t an error
       </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/stdxmlfile.xml-->
     <environment/>
-    <test>format-number(1234567890.123456,'000.000')</test>
+    <test>format-number(1234567890.123456,&apos;000.000&apos;)</test>
     <result-string>xs:string("1234567890.123")</result-string>
     <result>
       <assert-string-value>1234567890.123</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat80">
+  <test-case name="numberformat80"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("12.34")</response-string>
     <description>
         PURPOSE: test format-number() with two arguments
       </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat80.xml-->
     <environment/>
-    <test>format-number(12.34, '##.##')</test>
+    <test>format-number(12.34, &apos;##.##&apos;)</test>
     <result-string>xs:string("12.34")</result-string>
     <result>
       <assert-string-value>12.34</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat81">
+  <test-case name="numberformat81"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>
         PURPOSE: test format-number() with three arguments; also tests use of whitespace in name
       </description>
@@ -881,13 +880,13 @@
       <namespace prefix="b" uri="http://a.ns/"/>
       <decimal-format decimal-separator="," grouping-separator="." name="a:test" xmlns:a="http://a.ns/"/>
     </environment>
-    <test>format-number(12.34, '0.000,00', ' b:test ')</test>
+    <test>format-number(12.34, &apos;0.000,00&apos;, &apos; b:test &apos;)</test>
     <result-string>xs:string("0.012,34")</result-string>
     <result>
       <assert-string-value>0.012,34</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat82">
+  <test-case name="numberformat82"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>
         PURPOSE: test format-number() where third argument is not known statically
       </description>
@@ -896,13 +895,13 @@
       <decimal-format decimal-separator="." grouping-separator="," name="one"/>
       <decimal-format decimal-separator="," grouping-separator="." name="two"/>
     </environment>
-    <test>format-number(12.34, '0.000,00', if (current-date() gt xs:date('1900-01-01')) then 'two' else 'one')</test>
+    <test>format-number(12.34, &apos;0.000,00&apos;, if (current-date() gt xs:date(&apos;1900-01-01&apos;)) then &apos;two&apos; else &apos;one&apos;)</test>
     <result-string>xs:string("0.012,34")</result-string>
     <result>
       <assert-string-value>0.012,34</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat83">
+  <test-case name="numberformat83"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>
         PURPOSE: test format-number() where third argument is not known statically and depends on namespace context; 
         also tests use of whitespace in name
@@ -914,26 +913,26 @@
       <decimal-format decimal-separator="." grouping-separator="," name="x:one" xmlns:x="http://a.ns/"/>
       <decimal-format decimal-separator="," grouping-separator="." name="y:one" xmlns:y="http://b.ns/"/>
     </environment>
-    <test>format-number(12.34, '0.000,00', concat(if (current-date() lt xs:date('1900-01-01')) then ' a' else ' b', ':one '))</test>
+    <test>format-number(12.34, &apos;0.000,00&apos;, concat(if (current-date() lt xs:date(&apos;1900-01-01&apos;)) then &apos; a&apos; else &apos; b&apos;, &apos;:one &apos;))</test>
     <result-string>xs:string("0.012,34")</result-string>
     <result>
       <assert-string-value>0.012,34</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat84">
+  <test-case name="numberformat84"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("123,456,789.34")</response-string>
     <description>
         PURPOSE: test format-number() with grouping separator
       </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat84.xml-->
     <environment/>
-    <test>format-number(123456789.34, '#,###.##')</test>
+    <test>format-number(123456789.34, &apos;#,###.##&apos;)</test>
     <result-string>xs:string("123,456,789.34")</result-string>
     <result>
       <assert-string-value>123,456,789.34</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat85">
+  <test-case name="numberformat85"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0|0|0|0")</response-string>
     <description>
         PURPOSE: test special case of format-number() imposing minWholePartSize = 1 with different data types
       </description>
@@ -941,10 +940,10 @@
     <!--SOURCE: numberformat/numberformat84.xml-->
     <environment/>
     <test>string-join((
-                format-number(0, '#'),
-                format-number(0.0, '#'),
-                format-number(0.0e0, '#'),
-                format-number(xs:float(0), '#')), '|')
+                format-number(0, &apos;#&apos;),
+                format-number(0.0, &apos;#&apos;),
+                format-number(0.0e0, &apos;#&apos;),
+                format-number(xs:float(0), &apos;#&apos;)), &apos;|&apos;)
         
       </test>
     <result-string>xs:string("0|0|0|0")</result-string>
@@ -952,17 +951,17 @@
       <assert-string-value>0|0|0|0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat86">
+  <test-case name="numberformat86"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>In 3.0, () allowed as third argument (bug 14931)</description>
     <created by="Michael Kay, Saxonica" on="2011-12-06"/>
     <dependency type="spec" value="XQ30+ XP30+"/>
-    <test>format-number(0.4857,'###.###%', ())</test>
+    <test>format-number(0.4857,&apos;###.###%&apos;, ())</test>
     <result-string>xs:string("48.57%")</result-string>
     <result>
       <assert-string-value>48.57%</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat87">
+  <test-case name="numberformat87"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>
         PURPOSE: test format-number() with EQName for third argument, known statically; also tests use of whitespace in name
       </description>
@@ -970,13 +969,13 @@
     <environment>
       <decimal-format decimal-separator="," grouping-separator="." name="a:test" xmlns:a="http://a.ns/"/>
     </environment>
-    <test>format-number(12.34, '0.000,00', 'Q{http://a.ns/}test ')</test>
+    <test>format-number(12.34, &apos;0.000,00&apos;, &apos;Q{http://a.ns/}test &apos;)</test>
     <result-string>xs:string("0.012,34")</result-string>
     <result>
       <assert-string-value>0.012,34</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat88">
+  <test-case name="numberformat88"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>
         PURPOSE: test format-number() with EQName for third argument, not known statically; also tests use of whitespace in name
       </description>
@@ -984,133 +983,133 @@
     <environment>
       <decimal-format decimal-separator="," grouping-separator="." name="a:test" xmlns:a="http://a.ns/"/>
     </environment>
-    <test>format-number(12.34, '0.000,00', if (current-date() lt xs:date('1900-01-01')) then () else ' Q{http://a.ns/}test')</test>
+    <test>format-number(12.34, &apos;0.000,00&apos;, if (current-date() lt xs:date(&apos;1900-01-01&apos;)) then () else &apos; Q{http://a.ns/}test&apos;)</test>
     <result-string>xs:string("0.012,34")</result-string>
     <result>
       <assert-string-value>0.012,34</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat89">
+  <test-case name="numberformat89"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("0,012.34")</response-string>
     <description>
       PURPOSE: test format-number() with using "9" rather than "0" in picture
     </description>
     <created by="Michael Kay, Saxonica" on="2013-05-15"/>
-    <test>format-number(12.34, '9,999.99')</test>
+    <test>format-number(12.34, &apos;9,999.99&apos;)</test>
     <result-string>xs:string("0,012.34")</result-string>
     <result>
       <assert-string-value>0,012.34</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat90">
+  <test-case name="numberformat90"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("12.34")</response-string>
     <description>
-      PURPOSE: test format-number() with using "9" rather than "0" in picture, along with '#'
+      PURPOSE: test format-number() with using "9" rather than "0" in picture, along with &apos;#&apos;
     </description>
     <created by="Michael Kay, Saxonica" on="2013-05-15"/>
-    <test>format-number(12.34, '#,##9.99')</test>
+    <test>format-number(12.34, &apos;#,##9.99&apos;)</test>
     <result-string>xs:string("12.34")</result-string>
     <result>
       <assert-string-value>12.34</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat91">
+  <test-case name="numberformat91"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("042")</response-string>
     <description>
       PURPOSE: test format-number() with using "001" rather than "000" in picture
     </description>
     <created by="Michael Kay, Saxonica" on="2013-05-15"/>
-    <test>format-number(42, '001')</test>
+    <test>format-number(42, &apos;001&apos;)</test>
     <result-string>xs:string("042")</result-string>
     <result>
       <assert-string-value>042</assert-string-value>
     </result>
   </test-case>
-  <test-case name="numberformat901err">
+  <test-case name="numberformat901err"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>
         Creator: David Marston 
-        Purpose: Create a conflict in the use of the '!' character. 
+        Purpose: Create a conflict in the use of the &apos;!&apos; character. 
       </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
     <!--SOURCE: numberformat/numberformat901err.xml-->
     <dependency type="spec" value="XQ30+"/>
     <test>
         declare default decimal-format decimal-separator="!" grouping-separator="!";
-        format-number(931.4857,'###!###!###')</test>
+        format-number(931.4857,&apos;###!###!###&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQST0098"))</result-string>
     <result>
       <error code="XQST0098"/>
     </result>
   </test-case>
-  <test-case name="numberformat902err">
+  <test-case name="numberformat902err"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("931.486")</response-string>
     <description>
         Creator: Michael Kay (bug report from doerschlein) 
         Purpose: Test use of an illegal picture. </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
-    <modified by="O'Neil Delpratt" change="Bug fix related to bug #15626: Change to error code" on="2012-05-23"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug fix related to bug #15626: Change to error code" on="2012-05-23"/>
     <!--SOURCE: numberformat/numberformat902err.xml-->
     <environment/>
-    <test>format-number(931.4857,'000.##0')</test>
+    <test>format-number(931.4857,&apos;000.##0&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FODF1310"))</result-string>
     <result>
       <error code="FODF1310"/>
     </result>
   </test-case>
-  <test-case name="numberformat905err">
+  <test-case name="numberformat905err"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>
         Purpose: test error condition: no digit or zero-digit in picture. </description>
     <created by="Michael Kay, Saxonica" on="2010-12-13"/>
-    <modified by="O'Neil Delpratt" change="Bug fix related to bug #15626: Change to error code" on="2012-05-31"/>
+    <modified by="O&apos;Neil Delpratt" change="Bug fix related to bug #15626: Change to error code" on="2012-05-31"/>
     <!--SOURCE: numberformat/stdxmlfile.xml-->
     <environment>
       <decimal-format decimal-separator="." grouping-separator="," name="q"/>
     </environment>
-    <test>format-number(931.4857,'fred.ginger', 'q')</test>
+    <test>format-number(931.4857,&apos;fred.ginger&apos;, &apos;q&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FODF1310"))</result-string>
     <result>
       <error code="FODF1310"/>
     </result>
   </test-case>
-  <test-case name="numberformat906InputErr">
+  <test-case name="numberformat906InputErr"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
         Creator: Zhen Hua Liu
         Purpose: Test wrong arg datatype inputs for format-number. </description>
     <created by="Zhen Hua Liu" on="2012-01-18"/>
     <environment/>
-    <test>format-number('abc','000.##0')</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <test>format-number(&apos;abc&apos;,&apos;000.##0&apos;)</test>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="numberformat907InputErr">
+  <test-case name="numberformat907InputErr"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
         Creator: Zhen Hua Liu
         Purpose: Test wrong arg datatype inputs for format-number. </description>
     <created by="Zhen Hua Liu" on="2012-01-18"/>
     <environment/>
     <test>format-number(931.45, 931.45)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="numberformatFODF1280">
+  <test-case name="numberformatFODF1280"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>
         Creator: Zhen Hua Liu
         Purpose: Test raising error FODF1280. </description>
     <created by="Zhen Hua Liu" on="2012-01-18"/>
     <environment/>
-    <test>format-number(931.45, '000.##0', 'foo:bar')</test>
+    <test>format-number(931.45, &apos;000.##0&apos;, &apos;foo:bar&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FODF1280"))</result-string>
     <result>
       <error code="FODF1280"/>
     </result>
   </test-case>
-  <test-case name="numberformatNaN">
+  <test-case name="numberformatNaN"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("NaN")</response-string>
     <description>
         Creator: Zhen Hua Liu
         Purpose: NaN input from number("abc"). </description>
     <created by="Zhen Hua Liu" on="2012-01-18"/>
     <environment/>
-    <test>format-number(number("abc"),'#############')</test>
+    <test>format-number(number("abc"),&apos;#############&apos;)</test>
     <result-string>xs:string("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>

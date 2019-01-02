@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-round-half-to-even" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the round-half-to-even() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-round-half-to-even" type="spec"/>
-  <test-case name="fn-round-half-to-evenint1args-1">
+  <test-case name="fn-round-half-to-evenint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-2147483648")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:int("-2147483648"))</test>
@@ -11,7 +10,7 @@
       <assert-eq>-2147483648</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evenint1args-2">
+  <test-case name="fn-round-half-to-evenint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-1873914410")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:int("-1873914410"))</test>
@@ -20,7 +19,7 @@
       <assert-eq>-1873914410</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evenint1args-3">
+  <test-case name="fn-round-half-to-evenint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("2147483647")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:int("2147483647"))</test>
@@ -29,7 +28,7 @@
       <assert-eq>2147483647</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evenintg1args-1">
+  <test-case name="fn-round-half-to-evenintg1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:integer("-999999999999999999"))</test>
@@ -38,7 +37,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evenintg1args-2">
+  <test-case name="fn-round-half-to-evenintg1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("830993497117024300")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:integer("830993497117024304"))</test>
@@ -47,7 +46,7 @@
       <assert-eq>830993497117024304</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evenintg1args-3">
+  <test-case name="fn-round-half-to-evenintg1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1000000000000000000")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:integer("999999999999999999"))</test>
@@ -56,7 +55,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evendec1args-1">
+  <test-case name="fn-round-half-to-evendec1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:decimal("-999999999999999999"))</test>
@@ -65,7 +64,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evendec1args-2">
+  <test-case name="fn-round-half-to-evendec1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("617375191608514800")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:decimal("617375191608514839"))</test>
@@ -74,7 +73,7 @@
       <assert-eq>617375191608514839</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evendec1args-3">
+  <test-case name="fn-round-half-to-evendec1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1000000000000000000")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:decimal("999999999999999999"))</test>
@@ -83,12 +82,12 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evendbl1args-1">
+  <test-case name="fn-round-half-to-evendbl1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157E308")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:double("-1.7976931348623157E308"))</test>
-    <result-string>xs:double("-1.7976931348623157e308")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOCA0001"))</result-string>
+    <result-string>xs:double("-1.7976931348623157E308")</result-string>
+    <result-string>xs:double("-1.7976931348623157E308")</result-string>
     <result>
       <any-of>
         <assert-eq>-1.7976931348623157E308</assert-eq>
@@ -96,21 +95,21 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evendbl1args-2">
+  <test-case name="fn-round-half-to-evendbl1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:double("0"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evendbl1args-3">
+  <test-case name="fn-round-half-to-evendbl1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.7976931348623157E308")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:double("1.7976931348623157E308"))</test>
-    <result-string>xs:double("1.7976931348623157e308")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCA0001"))</result-string>
+    <result-string>xs:double("1.7976931348623157E308")</result-string>
+    <result-string>xs:double("1.7976931348623157E308")</result-string>
     <result>
       <any-of>
         <assert-eq>1.7976931348623157E308</assert-eq>
@@ -118,12 +117,12 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evenflt1args-1">
+  <test-case name="fn-round-half-to-evenflt1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235E38")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:float("-3.4028235E38"))</test>
-    <result-string>xs:float("-3.4028235e38")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCA0001"))</result-string>
+    <result-string>xs:float("-3.4028235E38")</result-string>
+    <result-string>xs:float("-3.4028235E38")</result-string>
     <result>
       <any-of>
         <assert-eq>xs:float("-3.4028235E38")</assert-eq>
@@ -131,21 +130,21 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evenflt1args-2">
+  <test-case name="fn-round-half-to-evenflt1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:float("0"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evenflt1args-3">
+  <test-case name="fn-round-half-to-evenflt1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("3.4028235E38")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:float("3.4028235E38"))</test>
-    <result-string>xs:float("3.4028235e38")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCA0001"))</result-string>
+    <result-string>xs:float("3.4028235E38")</result-string>
+    <result-string>xs:float("3.4028235E38")</result-string>
     <result>
       <any-of>
         <assert-eq>xs:float("3.4028235E38")</assert-eq>
@@ -153,7 +152,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evenlng1args-1">
+  <test-case name="fn-round-half-to-evenlng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-92233720368547760")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:long("-92233720368547758"))</test>
@@ -162,7 +161,7 @@
       <assert-eq>-92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evenlng1args-2">
+  <test-case name="fn-round-half-to-evenlng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-47175562203048460")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:long("-47175562203048468"))</test>
@@ -171,7 +170,7 @@
       <assert-eq>-47175562203048468</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evenlng1args-3">
+  <test-case name="fn-round-half-to-evenlng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("92233720368547760")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:long("92233720368547758"))</test>
@@ -180,7 +179,7 @@
       <assert-eq>92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evenusht1args-1">
+  <test-case name="fn-round-half-to-evenusht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("0")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:unsignedShort("0"))</test>
@@ -189,7 +188,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evenusht1args-2">
+  <test-case name="fn-round-half-to-evenusht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("44633")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:unsignedShort("44633"))</test>
@@ -198,7 +197,7 @@
       <assert-eq>44633</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evenusht1args-3">
+  <test-case name="fn-round-half-to-evenusht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("65535")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:unsignedShort("65535"))</test>
@@ -207,7 +206,7 @@
       <assert-eq>65535</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evennint1args-1">
+  <test-case name="fn-round-half-to-evennint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1000000000000000000")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:negativeInteger("-999999999999999999"))</test>
@@ -216,7 +215,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evennint1args-2">
+  <test-case name="fn-round-half-to-evennint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-297014075999096770")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:negativeInteger("-297014075999096793"))</test>
@@ -225,7 +224,7 @@
       <assert-eq>-297014075999096793</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evennint1args-3">
+  <test-case name="fn-round-half-to-evennint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:negativeInteger("-1"))</test>
@@ -234,7 +233,7 @@
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evenpint1args-1">
+  <test-case name="fn-round-half-to-evenpint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:positiveInteger("1"))</test>
@@ -243,7 +242,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evenpint1args-2">
+  <test-case name="fn-round-half-to-evenpint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("52704602390610030")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:positiveInteger("52704602390610033"))</test>
@@ -252,7 +251,7 @@
       <assert-eq>52704602390610033</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evenpint1args-3">
+  <test-case name="fn-round-half-to-evenpint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1000000000000000000")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:positiveInteger("999999999999999999"))</test>
@@ -261,7 +260,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evenulng1args-1">
+  <test-case name="fn-round-half-to-evenulng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("0")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:unsignedLong("0"))</test>
@@ -270,7 +269,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evenulng1args-2">
+  <test-case name="fn-round-half-to-evenulng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("130747108607674660")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:unsignedLong("130747108607674654"))</test>
@@ -279,7 +278,7 @@
       <assert-eq>130747108607674654</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evenulng1args-3">
+  <test-case name="fn-round-half-to-evenulng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("184467440737095520")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:unsignedLong("184467440737095516"))</test>
@@ -288,7 +287,7 @@
       <assert-eq>184467440737095516</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evennpi1args-1">
+  <test-case name="fn-round-half-to-evennpi1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-1000000000000000000")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:nonPositiveInteger("-999999999999999999"))</test>
@@ -297,7 +296,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evennpi1args-2">
+  <test-case name="fn-round-half-to-evennpi1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-475688437271870460")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:nonPositiveInteger("-475688437271870490"))</test>
@@ -306,7 +305,7 @@
       <assert-eq>-475688437271870490</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evennpi1args-3">
+  <test-case name="fn-round-half-to-evennpi1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("0")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:nonPositiveInteger("0"))</test>
@@ -315,7 +314,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evennni1args-1">
+  <test-case name="fn-round-half-to-evennni1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("0")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:nonNegativeInteger("0"))</test>
@@ -324,7 +323,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evennni1args-2">
+  <test-case name="fn-round-half-to-evennni1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("303884545991464500")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:nonNegativeInteger("303884545991464527"))</test>
@@ -333,7 +332,7 @@
       <assert-eq>303884545991464527</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evennni1args-3">
+  <test-case name="fn-round-half-to-evennni1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("1000000000000000000")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:nonNegativeInteger("999999999999999999"))</test>
@@ -342,7 +341,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evensht1args-1">
+  <test-case name="fn-round-half-to-evensht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-32768")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:short("-32768"))</test>
@@ -351,7 +350,7 @@
       <assert-eq>-32768</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evensht1args-2">
+  <test-case name="fn-round-half-to-evensht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-5324")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:short("-5324"))</test>
@@ -360,7 +359,7 @@
       <assert-eq>-5324</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-evensht1args-3">
+  <test-case name="fn-round-half-to-evensht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("32767")</response-string>
     <description> Evaluates The "round-half-to-even" function with the arguments set as follows: $arg = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:round-half-to-even(xs:short("32767"))</test>
@@ -369,7 +368,7 @@
       <assert-eq>32767</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-RoundEvenFunc-1">
+  <test-case name="K-RoundEvenFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `round-half-to-even()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even()</test>
@@ -378,7 +377,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-RoundEvenFunc-2">
+  <test-case name="K-RoundEvenFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `round-half-to-even(1.1, 3, "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(1.1, 3, "wrong param")</test>
@@ -387,7 +386,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-RoundEvenFunc-3">
+  <test-case name="K-RoundEvenFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(round-half-to-even(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(round-half-to-even(()))</test>
@@ -396,7 +395,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-RoundEvenFunc-4">
+  <test-case name="K-RoundEvenFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(round-half-to-even((), 3))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(round-half-to-even((), 3))</test>
@@ -405,7 +404,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-RoundEvenFunc-5">
+  <test-case name="K-RoundEvenFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `round-half-to-even("a string")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even("a string")</test>
@@ -414,7 +413,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-1">
+  <test-case name="K2-RoundEvenFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Invoked fn:round-half-to-even() on 1. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(1) eq 1</test>
@@ -423,7 +422,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-2">
+  <test-case name="K2-RoundEvenFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Invoked fn:round-half-to-even() on 1.0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(1.0) eq 1</test>
@@ -432,7 +431,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-3">
+  <test-case name="K2-RoundEvenFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Invoked fn:round-half-to-even() on 0.5. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(0.5) eq 0</test>
@@ -441,7 +440,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-4">
+  <test-case name="K2-RoundEvenFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Invoked fn:round-half-to-even() on 1.5. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(1.5) eq 2</test>
@@ -450,7 +449,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-5">
+  <test-case name="K2-RoundEvenFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Invoked fn:round-half-to-even() on 2.5. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(2.5) eq 2</test>
@@ -459,7 +458,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-6">
+  <test-case name="K2-RoundEvenFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Invoked fn:round-half-to-even() on a large double. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(3.567812E+3, 2) eq 3567.81E0</test>
@@ -468,7 +467,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-7">
+  <test-case name="K2-RoundEvenFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Invoked fn:round-half-to-even() on a large double with 2 in precision. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(4.7564E-3, 2) eq 0.0E0</test>
@@ -477,7 +476,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-8">
+  <test-case name="K2-RoundEvenFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Invoked fn:round-half-to-even() on a large double with -2 in precision. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(35612.25, -2) eq 35600</test>
@@ -486,25 +485,25 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-9">
+  <test-case name="K2-RoundEvenFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Invoked fn:round-half-to-even() on xs:double -0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:double("-0"))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-10">
+  <test-case name="K2-RoundEvenFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Invoked fn:round-half-to-even() on xs:float -0. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:float("-0"))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-11">
+  <test-case name="K2-RoundEvenFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Invoked fn:round-half-to-even() on xs:double NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:double("NaN"))</test>
@@ -513,7 +512,7 @@
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-12">
+  <test-case name="K2-RoundEvenFunc-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> Invoked fn:round-half-to-even() on xs:float NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:float("NaN"))</test>
@@ -522,7 +521,7 @@
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-13">
+  <test-case name="K2-RoundEvenFunc-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-INF")</response-string>
     <description> Invoked fn:round-half-to-even() on xs:double -INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:double("-INF"))</test>
@@ -531,7 +530,7 @@
       <assert-string-value>-INF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-14">
+  <test-case name="K2-RoundEvenFunc-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-INF")</response-string>
     <description> Invoked fn:round-half-to-even() on xs:float -INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:float("-INF"))</test>
@@ -540,7 +539,7 @@
       <assert-string-value>-INF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-15">
+  <test-case name="K2-RoundEvenFunc-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("INF")</response-string>
     <description> Invoked fn:round-half-to-even() on xs:double INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:double("INF"))</test>
@@ -549,7 +548,7 @@
       <assert-string-value>INF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-16">
+  <test-case name="K2-RoundEvenFunc-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("INF")</response-string>
     <description> Invoked fn:round-half-to-even() on xs:float INF. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:float("INF"))</test>
@@ -558,7 +557,7 @@
       <assert-string-value>INF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-17">
+  <test-case name="K2-RoundEvenFunc-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for unsignedShort. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:unsignedShort("0")) instance of xs:unsignedShort</test>
@@ -571,7 +570,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-18">
+  <test-case name="K2-RoundEvenFunc-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for unsignedLong. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:unsignedLong("0")) instance of xs:unsignedLong</test>
@@ -584,7 +583,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-19">
+  <test-case name="K2-RoundEvenFunc-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for unsignedInt. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:unsignedInt("0")) instance of xs:unsignedInt</test>
@@ -597,7 +596,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-20">
+  <test-case name="K2-RoundEvenFunc-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for unsignedByte. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:unsignedByte("0")) instance of xs:unsignedByte</test>
@@ -610,7 +609,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-21">
+  <test-case name="K2-RoundEvenFunc-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for positiveInteger. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:positiveInteger("1")) instance of xs:positiveInteger</test>
@@ -623,7 +622,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-22">
+  <test-case name="K2-RoundEvenFunc-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for nonPositiveInteger. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:nonPositiveInteger("0")) instance of xs:nonPositiveInteger</test>
@@ -636,7 +635,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-23">
+  <test-case name="K2-RoundEvenFunc-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for nonNegativeInteger. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:nonNegativeInteger("0")) instance of xs:nonNegativeInteger</test>
@@ -649,7 +648,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-24">
+  <test-case name="K2-RoundEvenFunc-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for negativeInteger. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:negativeInteger("-1")) instance of xs:negativeInteger</test>
@@ -662,7 +661,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-25">
+  <test-case name="K2-RoundEvenFunc-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for long. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:long("0")) instance of xs:long</test>
@@ -675,7 +674,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-26">
+  <test-case name="K2-RoundEvenFunc-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for int. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:int("0")) instance of xs:int</test>
@@ -688,7 +687,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-27">
+  <test-case name="K2-RoundEvenFunc-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for short. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:short("0")) instance of xs:short</test>
@@ -701,7 +700,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-RoundEvenFunc-28">
+  <test-case name="K2-RoundEvenFunc-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred for byte. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>round-half-to-even(xs:byte("0")) instance of xs:byte</test>
@@ -714,7 +713,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-1">
+  <test-case name="fn-round-half-to-even-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("integer"),xs:string("decimal"),xs:string("float"),xs:string("double"))</response-string>
     <description> check dynamic type of fn:round-half-to-even on argument of union of numeric types. </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>for $x in (1, xs:decimal(2), xs:float(3), xs:double(4)) 
@@ -728,7 +727,7 @@
       <assert-deep-eq>"integer", "decimal", "float", "double"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-2">
+  <test-case name="fn-round-half-to-even-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("integer"),xs:string("decimal"),xs:string("float"),xs:string("double"))</response-string>
     <description> check dynamic type of fn:round-half-to-even on argument of union of numeric types. </description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>for $x in (1, xs:decimal(2), xs:float(3), xs:double(4)) 
@@ -742,7 +741,7 @@
       <assert-deep-eq>"integer", "decimal", "float", "double"</assert-deep-eq>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-3">
+  <test-case name="fn-round-half-to-even-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1.23")</response-string>
     <description>Positive second argument - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(1.234567, 2)</test>
@@ -754,11 +753,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-4">
+  <test-case name="fn-round-half-to-even-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description>Positive second argument - double</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(1.000005e0, 2)</test>
-    <result-string>xs:double("1.0e0")</result-string>
+    <result-string>xs:double("1")</result-string>
     <result>
       <all-of>
         <assert-eq>1</assert-eq>
@@ -766,11 +765,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-5">
+  <test-case name="fn-round-half-to-even-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("1")</response-string>
     <description>Positive second argument - float</description>
     <created by="Michael Kay" on="2011-07-01"/>
-    <test>round-half-to-even(xs:float('1.000005e0'), 2)</test>
-    <result-string>xs:float("1.0e0")</result-string>
+    <test>round-half-to-even(xs:float(&apos;1.000005e0&apos;), 2)</test>
+    <result-string>xs:float("1")</result-string>
     <result>
       <all-of>
         <assert-eq>1</assert-eq>
@@ -778,11 +777,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-6">
+  <test-case name="fn-round-half-to-even-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("4600")</response-string>
     <description>Negative second argument - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(4561.234567, -2)</test>
-    <result-string>xs:decimal("4600.0")</result-string>
+    <result-string>xs:decimal("4600")</result-string>
     <result>
       <all-of>
         <assert-eq>4600</assert-eq>
@@ -790,11 +789,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-7">
+  <test-case name="fn-round-half-to-even-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("4600")</response-string>
     <description>Negative second argument - double</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(4561.000005e0, -2)</test>
-    <result-string>xs:double("4.6e2")</result-string>
+    <result-string>xs:double("4600")</result-string>
     <result>
       <all-of>
         <assert-eq>4600</assert-eq>
@@ -802,11 +801,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-8">
+  <test-case name="fn-round-half-to-even-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("4600")</response-string>
     <description>Negative second argument - float</description>
     <created by="Michael Kay" on="2011-07-01"/>
-    <test>round-half-to-even(xs:float('4561.000005e0'), -2)</test>
-    <result-string>xs:float("4.6e2")</result-string>
+    <test>round-half-to-even(xs:float(&apos;4561.000005e0&apos;), -2)</test>
+    <result-string>xs:float("4600")</result-string>
     <result>
       <all-of>
         <assert-eq>4600</assert-eq>
@@ -814,7 +813,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-9">
+  <test-case name="fn-round-half-to-even-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("4561234600")</response-string>
     <description>Negative second argument - integer</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(4561234567, -2)</test>
@@ -826,11 +825,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-10">
+  <test-case name="fn-round-half-to-even-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("4561")</response-string>
     <description>Zero second argument - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(4561.234567, 0)</test>
-    <result-string>xs:decimal("4561.0")</result-string>
+    <result-string>xs:decimal("4561")</result-string>
     <result>
       <all-of>
         <assert-eq>4561</assert-eq>
@@ -838,11 +837,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-11">
+  <test-case name="fn-round-half-to-even-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("4561")</response-string>
     <description>Zero second argument - double</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(4561.000005e0, 0)</test>
-    <result-string>xs:double("4.561e3")</result-string>
+    <result-string>xs:double("4561")</result-string>
     <result>
       <all-of>
         <assert-eq>4561</assert-eq>
@@ -850,11 +849,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-12">
+  <test-case name="fn-round-half-to-even-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("4561")</response-string>
     <description>Zero second argument - float</description>
     <created by="Michael Kay" on="2011-07-01"/>
-    <test>round-half-to-even(xs:float('4561.000005e0'), 0)</test>
-    <result-string>xs:float("4.561e3")</result-string>
+    <test>round-half-to-even(xs:float(&apos;4561.000005e0&apos;), 0)</test>
+    <result-string>xs:float("4561")</result-string>
     <result>
       <all-of>
         <assert-eq>4561</assert-eq>
@@ -862,7 +861,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-13">
+  <test-case name="fn-round-half-to-even-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("4561234567")</response-string>
     <description>Zero second argument - integer</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(4561234567, 0)</test>
@@ -874,10 +873,10 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-14">
+  <test-case name="fn-round-half-to-even-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description>Positive second argument - halfway case - float. The expected result is surprising; it arises because 0.05 is not exactly representable as an xs:float</description>
     <created by="Michael Kay" on="2011-07-01"/>
-    <test>round-half-to-even(xs:float('0.05'), 1)</test>
+    <test>round-half-to-even(xs:float(&apos;0.05&apos;), 1)</test>
     <result-string>xs:float("1.0e-1")</result-string>
     <result>
       <all-of>
@@ -886,10 +885,10 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-15">
+  <test-case name="fn-round-half-to-even-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description>Positive second argument - halfway case - float. The expected result is surprising; it arises because -0.05 is not exactly representable as an xs:float</description>
     <created by="Michael Kay" on="2011-07-01"/>
-    <test>round-half-to-even(xs:float('-0.05'), 1)</test>
+    <test>round-half-to-even(xs:float(&apos;-0.05&apos;), 1)</test>
     <result-string>xs:float("-1.0e-1")</result-string>
     <result>
       <all-of>
@@ -898,10 +897,10 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-16">
+  <test-case name="fn-round-half-to-even-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("3.8000000000000003")</response-string>
     <description>Positive second argument - halfway case - float</description>
     <created by="Michael Kay" on="2011-07-01"/>
-    <test>round-half-to-even(xs:float('3.75'), 1)</test>
+    <test>round-half-to-even(xs:float(&apos;3.75&apos;), 1)</test>
     <result-string>xs:float("3.8e0")</result-string>
     <result>
       <all-of>
@@ -910,7 +909,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-17">
+  <test-case name="fn-round-half-to-even-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("123.36")</response-string>
     <description>Positive second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(123.355, 2)</test>
@@ -922,7 +921,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-18">
+  <test-case name="fn-round-half-to-even-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("123.36")</response-string>
     <description>Positive second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(123.365, 2)</test>
@@ -934,7 +933,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-19">
+  <test-case name="fn-round-half-to-even-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("123.38000000000001")</response-string>
     <description>Positive second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(123.375, 2)</test>
@@ -946,7 +945,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-20">
+  <test-case name="fn-round-half-to-even-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("123.38000000000001")</response-string>
     <description>Positive second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(123.385, 2)</test>
@@ -958,7 +957,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-21">
+  <test-case name="fn-round-half-to-even-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-123.36")</response-string>
     <description>Positive second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-123.355, 2)</test>
@@ -970,7 +969,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-22">
+  <test-case name="fn-round-half-to-even-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-123.36")</response-string>
     <description>Positive second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-123.365, 2)</test>
@@ -982,7 +981,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-23">
+  <test-case name="fn-round-half-to-even-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-123.38000000000001")</response-string>
     <description>Positive second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-123.375, 2)</test>
@@ -994,7 +993,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-24">
+  <test-case name="fn-round-half-to-even-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-123.38000000000001")</response-string>
     <description>Positive second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-123.385, 2)</test>
@@ -1006,11 +1005,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-24a">
+  <test-case name="fn-round-half-to-even-24a"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("12400")</response-string>
     <description>Negative second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(12350.00, -2)</test>
-    <result-string>xs:decimal("12400.0")</result-string>
+    <result-string>xs:decimal("12400")</result-string>
     <result>
       <all-of>
         <assert-eq>12400</assert-eq>
@@ -1018,11 +1017,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-25">
+  <test-case name="fn-round-half-to-even-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-12400")</response-string>
     <description>Negative second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-12350.00, -2)</test>
-    <result-string>xs:decimal("-12400.0")</result-string>
+    <result-string>xs:decimal("-12400")</result-string>
     <result>
       <all-of>
         <assert-eq>-12400</assert-eq>
@@ -1030,11 +1029,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-26">
+  <test-case name="fn-round-half-to-even-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("12400")</response-string>
     <description>Negative second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(12450.00, -2)</test>
-    <result-string>xs:decimal("12400.0")</result-string>
+    <result-string>xs:decimal("12400")</result-string>
     <result>
       <all-of>
         <assert-eq>12400</assert-eq>
@@ -1042,11 +1041,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-27">
+  <test-case name="fn-round-half-to-even-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-12400")</response-string>
     <description>Negative second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-12450.00, -2)</test>
-    <result-string>xs:decimal("-12400.0")</result-string>
+    <result-string>xs:decimal("-12400")</result-string>
     <result>
       <all-of>
         <assert-eq>-12400</assert-eq>
@@ -1054,11 +1053,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-28">
+  <test-case name="fn-round-half-to-even-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("12600")</response-string>
     <description>Negative second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(12550.00, -2)</test>
-    <result-string>xs:decimal("12600.0")</result-string>
+    <result-string>xs:decimal("12600")</result-string>
     <result>
       <all-of>
         <assert-eq>12600</assert-eq>
@@ -1066,11 +1065,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-29">
+  <test-case name="fn-round-half-to-even-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-12600")</response-string>
     <description>Negative second argument - halfway case - decimal</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-12550.00, -2)</test>
-    <result-string>xs:decimal("-12600.0")</result-string>
+    <result-string>xs:decimal("-12600")</result-string>
     <result>
       <all-of>
         <assert-eq>-12600</assert-eq>
@@ -1078,7 +1077,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-30">
+  <test-case name="fn-round-half-to-even-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("12400")</response-string>
     <description>Negative second argument - halfway case - integer</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(12350, -2)</test>
@@ -1090,7 +1089,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-31">
+  <test-case name="fn-round-half-to-even-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-12400")</response-string>
     <description>Negative second argument - halfway case - integer</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-12350, -2)</test>
@@ -1102,7 +1101,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-32">
+  <test-case name="fn-round-half-to-even-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("12400")</response-string>
     <description>Negative second argument - halfway case - integer</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(12450, -2)</test>
@@ -1114,7 +1113,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-33">
+  <test-case name="fn-round-half-to-even-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-12400")</response-string>
     <description>Negative second argument - halfway case - integer</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-12450, -2)</test>
@@ -1126,7 +1125,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-34">
+  <test-case name="fn-round-half-to-even-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("12600")</response-string>
     <description>Negative second argument - halfway case - integer</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(12550, -2)</test>
@@ -1138,7 +1137,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-35">
+  <test-case name="fn-round-half-to-even-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-12600")</response-string>
     <description>Negative second argument - halfway case - integer</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-12550, -2)</test>
@@ -1150,11 +1149,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-36">
+  <test-case name="fn-round-half-to-even-36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("12400")</response-string>
     <description>Negative second argument - halfway case - double</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(12350e0, -2)</test>
-    <result-string>xs:double("1.24e4")</result-string>
+    <result-string>xs:double("12400")</result-string>
     <result>
       <all-of>
         <assert-eq>12400</assert-eq>
@@ -1162,11 +1161,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-37">
+  <test-case name="fn-round-half-to-even-37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-12400")</response-string>
     <description>Negative second argument - halfway case - double</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-12350e0, -2)</test>
-    <result-string>xs:double("-1.24e4")</result-string>
+    <result-string>xs:double("-12400")</result-string>
     <result>
       <all-of>
         <assert-eq>-12400</assert-eq>
@@ -1174,11 +1173,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-38">
+  <test-case name="fn-round-half-to-even-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("12400")</response-string>
     <description>Negative second argument - halfway case - double</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(12450e0, -2)</test>
-    <result-string>xs:double("1.24e4")</result-string>
+    <result-string>xs:double("12400")</result-string>
     <result>
       <all-of>
         <assert-eq>12400</assert-eq>
@@ -1186,11 +1185,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-39">
+  <test-case name="fn-round-half-to-even-39"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-12400")</response-string>
     <description>Negative second argument - halfway case - double</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-12450e0, -2)</test>
-    <result-string>xs:double("-1.24e4")</result-string>
+    <result-string>xs:double("-12400")</result-string>
     <result>
       <all-of>
         <assert-eq>-12400</assert-eq>
@@ -1198,11 +1197,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-40">
+  <test-case name="fn-round-half-to-even-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("12600")</response-string>
     <description>Negative second argument - halfway case - double</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(12550e0, -2)</test>
-    <result-string>xs:double("1.26e4")</result-string>
+    <result-string>xs:double("12600")</result-string>
     <result>
       <all-of>
         <assert-eq>12600</assert-eq>
@@ -1210,11 +1209,11 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-round-half-to-even-41">
+  <test-case name="fn-round-half-to-even-41"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-12600")</response-string>
     <description>Negative second argument - halfway case - double</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>round-half-to-even(-12550e0, -2)</test>
-    <result-string>xs:double("-1.26e4")</result-string>
+    <result-string>xs:double("-12600")</result-string>
     <result>
       <all-of>
         <assert-eq>-12600</assert-eq>
@@ -1222,16 +1221,16 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="cbcl-round-half-to-even-001">
+  <test-case name="cbcl-round-half-to-even-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("3567.812")</response-string>
     <description> test fn:found-half-to-even on xs:double with large $precision argment </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(3.567812E+3, 4294967296)</test>
-    <result-string>xs:double("3.567812e3")</result-string>
+    <result-string>xs:double("3567.812")</result-string>
     <result>
       <assert-string-value>3567.812</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-round-half-to-even-002">
+  <test-case name="cbcl-round-half-to-even-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("12345")</response-string>
     <description> test fn:found-half-to-even on integer with positive precision </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(12345, 2)</test>
@@ -1240,7 +1239,7 @@
       <assert-string-value>12345</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-round-half-to-even-003">
+  <test-case name="cbcl-round-half-to-even-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("12300")</response-string>
     <description> test fn:found-half-to-even on integer with negative precision </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(12345, -2)</test>
@@ -1249,7 +1248,7 @@
       <assert-string-value>12300</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-round-half-to-even-004">
+  <test-case name="cbcl-round-half-to-even-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("12345")</response-string>
     <description> test fn:found-half-to-even on short with positive precision </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(xs:short(12345), 2)</test>
@@ -1258,7 +1257,7 @@
       <assert-string-value>12345</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-round-half-to-even-005">
+  <test-case name="cbcl-round-half-to-even-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("12300")</response-string>
     <description> test fn:found-half-to-even on short with negative precision </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(xs:short(12345), -2)</test>
@@ -1267,7 +1266,7 @@
       <assert-string-value>12300</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-round-half-to-even-006">
+  <test-case name="cbcl-round-half-to-even-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("12345.6")</response-string>
     <description> test fn:found-half-to-even on decimal with positive precision </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(12345.6, 2)</test>
@@ -1276,43 +1275,43 @@
       <assert-string-value>12345.6</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-round-half-to-even-007">
+  <test-case name="cbcl-round-half-to-even-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("12300")</response-string>
     <description> test fn:found-half-to-even on decimal with negative precision </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(12345.6, -2)</test>
-    <result-string>xs:decimal("12300.0")</result-string>
+    <result-string>xs:decimal("12300")</result-string>
     <result>
       <assert-string-value>12300</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-round-half-to-even-008">
+  <test-case name="cbcl-round-half-to-even-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("12345.6")</response-string>
     <description> test fn:found-half-to-even on float with positive precision </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(xs:float(12345.6), 2)</test>
-    <result-string>xs:float("1.23456e4")</result-string>
+    <result-string>xs:float("12345.6")</result-string>
     <result>
       <assert-string-value>12345.6</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-round-half-to-even-009">
+  <test-case name="cbcl-round-half-to-even-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("12300")</response-string>
     <description> test fn:found-half-to-even on float with negative precision </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(xs:float(12345.6), -2)</test>
-    <result-string>xs:float("1.23e4")</result-string>
+    <result-string>xs:float("12300")</result-string>
     <result>
       <assert-string-value>12300</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-round-half-to-even-010">
+  <test-case name="cbcl-round-half-to-even-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1234.56")</response-string>
     <description> test fn:found-half-to-even on double with positive precision </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(123456e-2, 2)</test>
-    <result-string>xs:double("1.23456e3")</result-string>
+    <result-string>xs:double("1234.56")</result-string>
     <result>
       <assert-string-value>1234.56</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-round-half-to-even-011">
+  <test-case name="cbcl-round-half-to-even-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1100")</response-string>
     <description> test fn:found-half-to-even on double with negative precision </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(123456e-2, -2)</test>
@@ -1321,7 +1320,7 @@
       <assert-string-value>1200</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-round-half-to-even-012">
+  <test-case name="cbcl-round-half-to-even-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("3.567812")</response-string>
     <description> test fn:found-half-to-even on xs:decimal with large $precision argment </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(3.567812, 4294967296)</test>
@@ -1330,7 +1329,7 @@
       <assert-string-value>3.567812</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-round-half-to-even-013">
+  <test-case name="cbcl-round-half-to-even-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test EBV of fn:found-half-to-even with invalid type for argument 2 </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:boolean(fn:round-half-to-even(5, 1))</test>
@@ -1339,7 +1338,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-round-half-to-even-014">
+  <test-case name="cbcl-round-half-to-even-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> test fn:found-half-to-even with invalid type for argument 2 </description>
     <created by="Tim Mills" on="2008-05-02"/>
     <test>fn:round-half-to-even(123456e-2, "two")</test>

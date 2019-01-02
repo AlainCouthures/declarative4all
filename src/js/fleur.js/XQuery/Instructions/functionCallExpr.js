@@ -65,84 +65,87 @@ Fleur.functionCall = function(ctx, children, xf, args, callback) {
 						var carg = xf.argtypes ? xf.argtypes[iarg] : null;
 						if (carg.type === Fleur.Node) {
 							jsargs.push(effarg);
-						} else if (effarg === Fleur.EmptySequence) {
-							if (carg && (!carg.occurence || (carg.occurence !== "?" && carg.occurence !== "*"))) {
-								a.nodeType = Fleur.Node.TEXT_NODE;
-								a.schemaTypeInfo = Fleur.Type_error;
-								a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
-								throw new Error("error");
-							}
-							jsargs.push(null);
-						} else if (effarg.nodeType === Fleur.Node.SEQUENCE_NODE) {
-							if (carg && (!carg.occurence || carg.occurence === "?")) {
-								a.nodeType = Fleur.Node.TEXT_NODE;
-								a.schemaTypeInfo = Fleur.Type_error;
-								a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
-								throw new Error("error");
-							}
-							var subarr = [];
-							for (var iseq = 0, lseq = effarg.childNodes.length; iseq < lseq; iseq++) {
-								var effchild = effarg.childNodes[iseq];
-								if ((!carg && Fleur.numericTypes.indexOf(effchild.schemaTypeInfo) !== -1) || (carg && (carg.type === Fleur.numericTypes || Fleur.numericTypes.indexOf(carg.type) !== -1))) {
-									op = Fleur.toJSNumber(effchild);
-									if (op[0] < 0) {
-										a = effchild;
-										throw new Error("error");
-									}
-									subarr.push(op[1]);
-								} else if ((!carg && effchild.schemaTypeInfo === Fleur.Type_string) || (carg && carg.type === Fleur.Type_string)) {
-									op = Fleur.toJSString(effchild);
-									if (op[0] < 0) {
-										a = effchild;
-										throw new Error("error");
-									}
-									subarr.push(op[1]);
-								} else if ((!carg && effchild.schemaTypeInfo === Fleur.Type_boolean) || (carg && carg.type === Fleur.Type_boolean)) {
-									op = Fleur.toJSBoolean(effchild);
-									if (op[0] < 0) {
-										a = effchild;
-										throw new Error("error");
-									}
-									subarr.push(op[1]);
-								} else if (carg.type === Fleur.Type_dateTime) {
-								} else {
-									subarr.push(effchild);
-								}
-								if (carg && carg.adaptative) {
-									subarr.push([subarr.pop(), effchild.schemaTypeInfo]);
-								}
-							}
-							jsargs.push(subarr);
-						} else if ((!carg && Fleur.numericTypes.indexOf(effarg.schemaTypeInfo) !== -1) || (carg && (carg.type === Fleur.numericTypes || Fleur.numericTypes.indexOf(carg.type) !== -1 || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION) || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)))) {
-							op = Fleur.toJSNumber(effarg);
-							if (op[0] < 0) {
-								a = effarg;
-								throw new Error("error");
-							}
-							jsargs.push(op[1]);
-						} else if ((!carg && effarg.schemaTypeInfo === Fleur.Type_string) || (carg && (carg.type === Fleur.Type_string || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION)))) {
-							op = Fleur.toJSString(effarg);
-							if (op[0] < 0) {
-								a = effarg;
-								throw new Error("error");
-							}
-							jsargs.push(op[1]);
-						} else if ((!carg && effarg.schemaTypeInfo === Fleur.Type_boolean) || (carg && carg.type === Fleur.Type_boolean)) {
-							op = Fleur.toJSBoolean(effarg);
-							if (op[0] < 0) {
-								a = effarg;
-								throw new Error("error");
-							}
-							jsargs.push(op[1]);
-						} else if ((!carg && [Fleur.Type_dateTime, Fleur.Type_date, Fleur.Type_time].indexOf(effarg.schemaTypeInfo) !== -1) || [Fleur.Type_dateTime, Fleur.Type_date, Fleur.Type_time].indexOf(carg.type) !== -1) {
-							op = Fleur.toJSDate(effarg);
-							if (op[0] < 0) {
-								a = effarg;
-								throw new Error("error");
-							}
-							jsargs.push(op[1]);
 						} else {
-							jsargs.push(effarg);
+							effarg = Fleur.Atomize(effarg, true);
+							if (effarg === Fleur.EmptySequence) {
+								if (carg && (!carg.occurence || (carg.occurence !== "?" && carg.occurence !== "*"))) {
+									a.nodeType = Fleur.Node.TEXT_NODE;
+									a.schemaTypeInfo = Fleur.Type_error;
+									a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+									throw new Error("error");
+								}
+								jsargs.push(null);
+							} else if (effarg.nodeType === Fleur.Node.SEQUENCE_NODE) {
+								if (carg && (!carg.occurence || carg.occurence === "?")) {
+									a.nodeType = Fleur.Node.TEXT_NODE;
+									a.schemaTypeInfo = Fleur.Type_error;
+									a._setNodeNameLocalNamePrefix("http://www.w3.org/2005/xqt-errors", "err:XPTY0004");
+									throw new Error("error");
+								}
+								var subarr = [];
+								for (var iseq = 0, lseq = effarg.childNodes.length; iseq < lseq; iseq++) {
+									var effchild = effarg.childNodes[iseq];
+									if ((!carg && Fleur.numericTypes.indexOf(effchild.schemaTypeInfo) !== -1) || (carg && (carg.type === Fleur.numericTypes || Fleur.numericTypes.indexOf(carg.type) !== -1))) {
+										op = Fleur.toJSNumber(effchild);
+										if (op[0] < 0) {
+											a = effchild;
+											throw new Error("error");
+										}
+										subarr.push(op[1]);
+									} else if ((!carg && effchild.schemaTypeInfo === Fleur.Type_string) || (carg && carg.type === Fleur.Type_string)) {
+										op = Fleur.toJSString(effchild);
+										if (op[0] < 0) {
+											a = effchild;
+											throw new Error("error");
+										}
+										subarr.push(op[1]);
+									} else if ((!carg && effchild.schemaTypeInfo === Fleur.Type_boolean) || (carg && carg.type === Fleur.Type_boolean)) {
+										op = Fleur.toJSBoolean(effchild);
+										if (op[0] < 0) {
+											a = effchild;
+											throw new Error("error");
+										}
+										subarr.push(op[1]);
+									} else if (carg.type === Fleur.Type_dateTime) {
+									} else {
+										subarr.push(effchild);
+									}
+									if (carg && carg.adaptative) {
+										subarr.push([subarr.pop(), effchild.schemaTypeInfo]);
+									}
+								}
+								jsargs.push(subarr);
+							} else if ((!carg && Fleur.numericTypes.indexOf(effarg.schemaTypeInfo) !== -1) || (carg && (carg.type === Fleur.numericTypes || Fleur.numericTypes.indexOf(carg.type) !== -1 || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "integer", Fleur.TypeInfo.DERIVATION_RESTRICTION) || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "decimal", Fleur.TypeInfo.DERIVATION_RESTRICTION) || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "float", Fleur.TypeInfo.DERIVATION_RESTRICTION) || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "double", Fleur.TypeInfo.DERIVATION_RESTRICTION)))) {
+								op = Fleur.toJSNumber(effarg);
+								if (op[0] < 0) {
+									a = effarg;
+									throw new Error("error");
+								}
+								jsargs.push(op[1]);
+							} else if ((!carg && effarg.schemaTypeInfo === Fleur.Type_string) || (carg && (carg.type === Fleur.Type_string || carg.type.isDerivedFrom("http://www.w3.org/2001/XMLSchema", "string", Fleur.TypeInfo.DERIVATION_RESTRICTION)))) {
+								op = Fleur.toJSString(effarg);
+								if (op[0] < 0) {
+									a = effarg;
+									throw new Error("error");
+								}
+								jsargs.push(op[1]);
+							} else if ((!carg && effarg.schemaTypeInfo === Fleur.Type_boolean) || (carg && carg.type === Fleur.Type_boolean)) {
+								op = Fleur.toJSBoolean(effarg);
+								if (op[0] < 0) {
+									a = effarg;
+									throw new Error("error");
+								}
+								jsargs.push(op[1]);
+							} else if ((!carg && [Fleur.Type_dateTime, Fleur.Type_date, Fleur.Type_time].indexOf(effarg.schemaTypeInfo) !== -1) || [Fleur.Type_dateTime, Fleur.Type_date, Fleur.Type_time].indexOf(carg.type) !== -1) {
+								op = Fleur.toJSDate(effarg);
+								if (op[0] < 0) {
+									a = effarg;
+									throw new Error("error");
+								}
+								jsargs.push(op[1]);
+							} else {
+								jsargs.push(effarg);
+							}
 						}
 						if (carg && carg.adaptative && effarg.nodeType !== Fleur.Node.SEQUENCE_NODE) {
 							jsargs.push([jsargs.pop(), effarg.schemaTypeInfo]);

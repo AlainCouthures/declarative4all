@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-day-from-date" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the day-from-date() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-day-from-date" type="spec"/>
-  <test-case name="fn-day-from-date1args-1">
+  <test-case name="fn-day-from-date1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "day-from-date" function with the arguments set as follows: $arg = xs:date(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:day-from-date(xs:date("1970-01-01Z"))</test>
@@ -11,7 +10,7 @@
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-day-from-date1args-2">
+  <test-case name="fn-day-from-date1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("17")</response-string>
     <description> Evaluates The "day-from-date" function with the arguments set as follows: $arg = xs:date(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:day-from-date(xs:date("1983-11-17Z"))</test>
@@ -20,7 +19,7 @@
       <assert-string-value>17</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-day-from-date1args-3">
+  <test-case name="fn-day-from-date1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("31")</response-string>
     <description> Evaluates The "day-from-date" function with the arguments set as follows: $arg = xs:date(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:day-from-date(xs:date("2030-12-31Z"))</test>
@@ -29,7 +28,7 @@
       <assert-string-value>31</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-day-from-date-1">
+  <test-case name="fn-day-from-date-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("31")</response-string>
     <description> Evaluates The "day-from-date" function As per example 1 of the FO specs </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:day-from-date(xs:date("1999-05-31-05:00"))</test>
@@ -38,7 +37,7 @@
       <assert-string-value>31</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-day-from-date-2">
+  <test-case name="fn-day-from-date-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "day-from-date" function As per example 2 of the FO specs </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:day-from-date(xs:date("2000-01-01+05:00"))</test>
@@ -47,7 +46,7 @@
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-day-from-date-3">
+  <test-case name="fn-day-from-date-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "day-from-date" function involving a "numeric-less-than" operation (lt operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:day-from-date(xs:date("1999-12-31Z")) lt fn:day-from-date(xs:date("1999-12-31Z"))</test>
@@ -56,7 +55,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-day-from-date-4">
+  <test-case name="fn-day-from-date-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "day-from-date" function involving a "numeric-less-than" operation (le operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:day-from-date(xs:date("1999-12-31Z")) le fn:day-from-date(xs:date("1999-12-31Z"))</test>
@@ -65,7 +64,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-day-from-date-5">
+  <test-case name="fn-day-from-date-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "day-from-date" function using the empty sequence as an argument. Use count function to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:count(fn:day-from-date(()))</test>
@@ -74,7 +73,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-day-from-date-6">
+  <test-case name="fn-day-from-date-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("31")</response-string>
     <description> Evaluates The "day-from-date" function that returns 31. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:day-from-date(xs:date("1999-05-31Z"))</test>
@@ -83,7 +82,7 @@
       <assert-string-value>31</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-day-from-date-7">
+  <test-case name="fn-day-from-date-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("30")</response-string>
     <description> Evaluates The "day-from-date" function used as arguments to an avg function . </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:avg((fn:day-from-date(xs:date("1999-12-31Z")),fn:day-from-date(xs:date("1999-12-29Z"))))</test>
@@ -92,7 +91,7 @@
       <assert-string-value>30</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-day-from-date-8">
+  <test-case name="fn-day-from-date-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> Evaluates The "day-from-date" function as part of a "+" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:day-from-date(xs:date("1970-01-01Z")) + fn:day-from-date(xs:date("1970-01-01Z"))</test>
@@ -101,7 +100,7 @@
       <assert-string-value>2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-day-from-date-9">
+  <test-case name="fn-day-from-date-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "day-from-date" function as part of a "-" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:day-from-date(xs:date("1970-01-01Z")) - fn:day-from-date(xs:date("1970-01-01Z"))</test>
@@ -110,7 +109,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-day-from-date-10">
+  <test-case name="fn-day-from-date-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("3")</response-string>
     <description> Evaluates The "day-from-date" function as part of a "*" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:day-from-date(xs:date("1970-01-03Z")) * fn:day-from-date(xs:date("0002-01-01Z"))</test>
@@ -119,16 +118,16 @@
       <assert-string-value>3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-day-from-date-11">
+  <test-case name="fn-day-from-date-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> Evaluates The "day-from-date" function as part of a "div" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:day-from-date(xs:date("1970-01-02Z")) div fn:day-from-date(xs:date("1970-01-01Z"))</test>
-    <result-string>xs:decimal("2.0")</result-string>
+    <result-string>xs:integer("2")</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-day-from-date-12">
+  <test-case name="fn-day-from-date-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> Evaluates The "day-from-date" function as part of a "idiv" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:day-from-date(xs:date("1970-01-02Z")) idiv fn:day-from-date(xs:date("1970-01-01Z"))</test>
@@ -137,7 +136,7 @@
       <assert-string-value>2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-day-from-date-13">
+  <test-case name="fn-day-from-date-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "day-from-date" function as part of a "mod" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:day-from-date(xs:date("1970-01-02Z")) mod fn:day-from-date(xs:date("1970-01-01Z"))</test>
@@ -146,7 +145,7 @@
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-day-from-date-14">
+  <test-case name="fn-day-from-date-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "day-from-date" function as part of a "numeric-unary-plus" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>+fn:day-from-date(xs:date("1970-01-01Z"))</test>
@@ -155,7 +154,7 @@
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-day-from-date-15">
+  <test-case name="fn-day-from-date-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1")</response-string>
     <description> Evaluates The "day-from-date" function as part of a "numeric-unary-minus" expression. </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>-fn:day-from-date(xs:date("1970-01-01Z"))</test>
@@ -164,7 +163,7 @@
       <assert-string-value>-1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-day-from-date-16">
+  <test-case name="fn-day-from-date-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "day-from-date" function as part of a "numeric-equal" expression (eq operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:day-from-date(xs:date("1970-01-02Z")) eq fn:day-from-date(xs:date("1970-01-01Z"))</test>
@@ -173,7 +172,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-day-from-date-17">
+  <test-case name="fn-day-from-date-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Evaluates The "month-from-date" function as part of a "numeric-equal" expression (ne operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:month-from-date(xs:date("1970-01-01Z")) ne fn:month-from-date(xs:date("1970-01-03Z"))</test>
@@ -182,7 +181,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-day-from-date-18">
+  <test-case name="fn-day-from-date-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "day-from-date" function as part of a "numeric-equal" expression (le operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:day-from-date(xs:date("1970-01-01Z")) le fn:day-from-date(xs:date("1970-01-02Z"))</test>
@@ -191,7 +190,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-day-from-date-19">
+  <test-case name="fn-day-from-date-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Evaluates The "day-from-date" function as part of a "numeric-equal" expression (ge operator) </description>
     <created by="Carmelo Montanez" on="2005-06-06"/>
     <test>fn:day-from-date(xs:date("1970-01-03Z")) ge fn:day-from-date(xs:date("1970-01-01Z"))</test>
@@ -200,7 +199,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayFromDateFunc-1">
+  <test-case name="K-DayFromDateFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `day-from-date()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>day-from-date()</test>
@@ -209,7 +208,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-DayFromDateFunc-2">
+  <test-case name="K-DayFromDateFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `day-from-date((), "Wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>day-from-date((), "Wrong param")</test>
@@ -218,7 +217,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-DayFromDateFunc-3">
+  <test-case name="K-DayFromDateFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(day-from-date(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(day-from-date(()))</test>
@@ -227,7 +226,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayFromDateFunc-4">
+  <test-case name="K-DayFromDateFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `day-from-date(()) instance of xs:integer?`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>day-from-date(()) instance of xs:integer?</test>
@@ -236,7 +235,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-DayFromDateFunc-5">
+  <test-case name="K-DayFromDateFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `day-from-date(xs:date("2000-02-03")) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>day-from-date(xs:date("2000-02-03")) eq 3</test>

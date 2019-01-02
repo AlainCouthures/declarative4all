@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="prod-DirAttributeList" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the DirAttributeList production (the list of attributes in a direct element constructor)</description>
   <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-DirAttributeList" type="spec"/>
   <link document="XQuery" idref="id-attributes" section-number="3.7.1.1" type="spec"/>
   <dependency type="spec" value="XQ10+"/>
-  <test-case name="Constr-attr-syntax-1">
+  <test-case name="Constr-attr-syntax-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="value"/&gt;</response-string>
     <description> Single attribute </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -17,7 +16,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-syntax-2">
+  <test-case name="Constr-attr-syntax-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr1="val1" attr2="val2" attr3="val3"/&gt;</response-string>
     <description> Multiple attributes </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -30,7 +29,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-syntax-3">
+  <test-case name="Constr-attr-syntax-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="value"/&gt;</response-string>
     <description> Single quotes for attribute </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -43,20 +42,20 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-syntax-4">
+  <test-case name="Constr-attr-syntax-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="&amp;apos;"/&gt;</response-string>
     <description> Escaped single quote </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
       <![CDATA[<elem attr=''''/>]]>
     </test>
-    <result-string><![CDATA[<elem attr="'"/>]]></result-string>
+    <result-string>&lt;elem attr="&amp;apos;"/&gt;</result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem attr="'"/>]]>
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-syntax-5">
+  <test-case name="Constr-attr-syntax-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="&amp;quot;"/&gt;</response-string>
     <description> Escaped double quote </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -69,29 +68,29 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-syntax-6">
+  <test-case name="Constr-attr-syntax-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Mismatched quotes </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
       <![CDATA[<elem attr='value"/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Constr-attr-syntax-7">
+  <test-case name="Constr-attr-syntax-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Mismatched quotes </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
       <![CDATA[<elem attr="value'/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Constr-attr-syntax-8">
+  <test-case name="Constr-attr-syntax-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr1="val1" attr2="val2"/&gt;</response-string>
     <description> Whitespace between attributes </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -104,7 +103,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-syntax-9">
+  <test-case name="Constr-attr-syntax-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="value"/&gt;</response-string>
     <description> Whitespace in attribute definition </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -117,7 +116,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-syntax-10">
+  <test-case name="Constr-attr-syntax-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="value"/&gt;</response-string>
     <description> Whitespace after last attribute </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -130,7 +129,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-parent-1">
+  <test-case name="Constr-attr-parent-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Attribute parent element </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -141,7 +140,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="Constr-attr-nsdecl-1">
+  <test-case name="Constr-attr-nsdecl-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> namespace declaration does not count as attribute </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -152,7 +151,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-attr-nsdecl-2">
+  <test-case name="Constr-attr-nsdecl-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> namespace default declaration does not count as attribute </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -163,7 +162,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-attr-nspre-1">
+  <test-case name="Constr-attr-nspre-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem foo:attr="value"/&gt;</response-string>
     <description> attribute prefix declared in prolog </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -176,7 +175,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-nspre-2">
+  <test-case name="Constr-attr-nspre-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem xmlns:foo="http://www.w3.org/XQueryTest/Construct"&gt;&lt;child foo:attr="value"/&gt;&lt;/elem&gt;</response-string>
     <description> attribute prefix declared in parent element </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -189,7 +188,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-nsprein-1">
+  <test-case name="Constr-attr-nsprein-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem xmlns:foo="http://www.w3.org/XQueryTest/Construct" foo:attr="value"/&gt;</response-string>
     <description> attribute prefix declared in same element before </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -202,7 +201,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-nsprein-2">
+  <test-case name="Constr-attr-nsprein-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem xmlns:foo="http://www.w3.org/XQueryTest/Construct" foo:attr="value"/&gt;</response-string>
     <description> attribute prefix declared in same element after </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -215,7 +214,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-nsprein-3">
+  <test-case name="Constr-attr-nsprein-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem xmlns:p="http://ns.example.com/uri" att=""/&gt;</response-string>
     <description> namespace prefix used in content before it is declared </description>
     <created by="Michael Kay" on="2011-07-06"/>
     <test>
@@ -228,7 +227,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-nsprein-4">
+  <test-case name="Constr-attr-nsprein-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> namespace prefix used deeply nested in content before it is declared </description>
     <created by="Michael Kay" on="2011-07-06"/>
     <test>
@@ -242,7 +241,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-distnames-1">
+  <test-case name="Constr-attr-distnames-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="val2" attr2="val3"/&gt;</response-string>
     <description> attributes with identical local names </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -253,7 +252,7 @@
       <error code="XQST0040"/>
     </result>
   </test-case>
-  <test-case name="Constr-attr-distnames-2">
+  <test-case name="Constr-attr-distnames-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="val3" attr2="val2"/&gt;</response-string>
     <description> attributes with identical local names </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -264,7 +263,7 @@
       <error code="XQST0040"/>
     </result>
   </test-case>
-  <test-case name="Constr-attr-distnames-3">
+  <test-case name="Constr-attr-distnames-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr1="val1" attr="val4" attr2="val3" attr3="val5"/&gt;</response-string>
     <description> attributes with identical local names </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -275,7 +274,7 @@
       <error code="XQST0040"/>
     </result>
   </test-case>
-  <test-case name="Constr-attr-distnames-4">
+  <test-case name="Constr-attr-distnames-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem xmlns:foo="http://www.w3.org/XQueryTest/Construct" xmlns:bar="http://www.w3.org/XQueryTest/Construct" bar:attr="val2"/&gt;</response-string>
     <description> attributes with identical local name and URI </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -286,7 +285,7 @@
       <error code="XQST0040"/>
     </result>
   </test-case>
-  <test-case name="Constr-attr-content-1">
+  <test-case name="Constr-attr-content-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="abxxyz123890!@#$%^*()[]|?/&amp;gt;:;"/&gt;</response-string>
     <description> Direct attribute content characters </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -305,29 +304,29 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="Constr-attr-content-2">
+  <test-case name="Constr-attr-content-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Illegal attribute content "{" </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
       <![CDATA[<elem attr="{"/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Constr-attr-content-3">
+  <test-case name="Constr-attr-content-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Illegal attribute content "}" </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
       <![CDATA[<elem attr="}"/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Constr-attr-content-4">
+  <test-case name="Constr-attr-content-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="&amp;lt;"/&gt;</response-string>
     <description> Illegal attribute content "" </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -338,7 +337,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Constr-attr-content-5">
+  <test-case name="Constr-attr-content-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="&amp;amp;"/&gt;</response-string>
     <description> Illegal attribute content "" </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -349,7 +348,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="Constr-attr-ws-1">
+  <test-case name="Constr-attr-ws-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr=" "/&gt;</response-string>
     <description> Attribute normalization line feed </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -362,7 +361,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-ws-2">
+  <test-case name="Constr-attr-ws-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr=" "/&gt;</response-string>
     <description> Attribute normalization tab </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -375,7 +374,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-ws-3">
+  <test-case name="Constr-attr-ws-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Attribute normalization char ref #xd; </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -388,7 +387,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-ws-4">
+  <test-case name="Constr-attr-ws-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Attribute normalization char ref #xa; </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -401,20 +400,20 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-ws-5">
+  <test-case name="Constr-attr-ws-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="&amp;#9;"/&gt;</response-string>
     <description> Attribute normalization char ref #x9; </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
       <![CDATA[<elem attr="&#x9;"/>]]>
     </test>
-    <result-string><![CDATA[<elem attr="&#x9;"/>]]></result-string>
+    <result-string>&lt;elem attr="&amp;#9;"/&gt;</result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem attr="&#x9;"/>]]>
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-entref-1">
+  <test-case name="Constr-attr-entref-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="&amp;amp;&amp;lt;&amp;gt;"/&gt;</response-string>
     <description> entity references in attribute content </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -427,7 +426,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-entref-2">
+  <test-case name="Constr-attr-entref-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("3")</response-string>
     <description> entity references in attribute content </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -438,7 +437,7 @@
       <assert-eq>3</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-attr-charref-1">
+  <test-case name="Constr-attr-charref-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="012"/&gt;</response-string>
     <description> character references in attribute content </description>
     <created by="Andreas Behm" on="2005-01-05"/>
     <test>
@@ -451,7 +450,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-enclexpr-1">
+  <test-case name="Constr-attr-enclexpr-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="1 string 3.14 0.012345 2002-04-02T12:00:00-01:00"/&gt;</response-string>
     <description> enclosed expression in attribute content - atomic values </description>
     <created by="Andreas Behm" on="2005-03-05"/>
     <test>
@@ -464,7 +463,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-enclexpr-2">
+  <test-case name="Constr-attr-enclexpr-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="123 456 789"/&gt;</response-string>
     <description> enclosed expression in attribute content - nodes </description>
     <created by="Andreas Behm" on="2005-03-05"/>
     <test>
@@ -477,7 +476,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-enclexpr-3">
+  <test-case name="Constr-attr-enclexpr-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="1  2"/&gt;</response-string>
     <description> enclosed expression in attribute content - empty string </description>
     <created by="Andreas Behm" on="2005-03-05"/>
     <test>
@@ -490,7 +489,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-enclexpr-4">
+  <test-case name="Constr-attr-enclexpr-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="1  2"/&gt;</response-string>
     <description> enclosed expression in attribute content - empty node </description>
     <created by="Andreas Behm" on="2005-03-05"/>
     <test>
@@ -503,7 +502,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-enclexpr-5">
+  <test-case name="Constr-attr-enclexpr-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="123456"/&gt;</response-string>
     <description> enclosed expression in attribute content - mix direct content and enclosed expressions </description>
     <created by="Andreas Behm" on="2005-03-05"/>
     <test>
@@ -516,7 +515,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-enclexpr-6">
+  <test-case name="Constr-attr-enclexpr-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="123456"/&gt;</response-string>
     <description> enclosed expression in attribute content - mix direct content and enclosed expressions </description>
     <created by="Andreas Behm" on="2005-03-05"/>
     <test>
@@ -529,7 +528,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-enclexpr-7">
+  <test-case name="Constr-attr-enclexpr-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="12 34 56789"/&gt;</response-string>
     <description> enclosed expression in attribute content - mix direct content and enclosed expressions </description>
     <created by="Andreas Behm" on="2005-03-05"/>
     <test>
@@ -542,7 +541,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-enclexpr-8">
+  <test-case name="Constr-attr-enclexpr-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr="1 23"/&gt;</response-string>
     <description>Author: Oliver Hallam  Multiple content units in attribute content. </description>
     <created by="Andreas Behm" on="2010-03-16"/>
     <test>
@@ -555,7 +554,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-id-1">
+  <test-case name="Constr-attr-id-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> attribute xml:id - content is ncname </description>
     <created by="Andreas Behm" on="2005-03-05"/>
     <test>
@@ -568,7 +567,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-attr-id-2">
+  <test-case name="Constr-attr-id-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> attribute xml:id - content is to be further normalized </description>
     <created by="Andreas Behm" on="2005-03-05"/>
     <test>
@@ -585,47 +584,47 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-1">
+  <test-case name="K2-DirectConElemAttr-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Comments cannot appear inside direct element constructors. a misplaced comment </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<ncname (:a misplaced comment:)/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-2">
+  <test-case name="K2-DirectConElemAttr-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Comments cannot appear inside direct element constructors. a misplaced comment </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<(:a misplaced comment:)ncname/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-3">
-    <description> Space is not allowed between '/' and the element name. </description>
+  <test-case name="K2-DirectConElemAttr-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Space is not allowed between &apos;/&apos; and the element name. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<ncname></ ncname>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case covers="error-XQST0118" name="K2-DirectConElemAttr-4">
+  <test-case covers="error-XQST0118" name="K2-DirectConElemAttr-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Comments are not allowed where whitespace is, in direct element constructors. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<ncname></ncname (:a misplaced comment:)>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XQST0118"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <any-of>
         <error code="XPST0003"/>
@@ -633,18 +632,18 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-5">
+  <test-case name="K2-DirectConElemAttr-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Whitespace is allowed in the end tag after the QName. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<ncname>content</ncname > = 'content']]>
     </test>
-    <result-string>xs:boolean("true")</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case covers="error-XQST0118" name="K2-DirectConElemAttr-6">
+  <test-case covers="error-XQST0118" name="K2-DirectConElemAttr-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> XML tags must be balanced. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -655,38 +654,38 @@
       <error code="XQST0118"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-7">
+  <test-case name="K2-DirectConElemAttr-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> CDATA sections can only appear inside element constructors. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>![CDATA[a string]]</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-8">
+  <test-case name="K2-DirectConElemAttr-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in direct attribute constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<foo attr="""/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-9">
+  <test-case name="K2-DirectConElemAttr-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in direct attribute constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<foo attr='''/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-10">
+  <test-case name="K2-DirectConElemAttr-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;foo attr="content&amp;lt;content"/&gt;</response-string>
     <description> Syntax error in direct attribute constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -697,84 +696,84 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-11">
+  <test-case name="K2-DirectConElemAttr-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in direct attribute constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<foo attr="content}content"/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-12">
+  <test-case name="K2-DirectConElemAttr-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in direct attribute constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<foo attr="content{1"/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-13">
+  <test-case name="K2-DirectConElemAttr-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in direct attribute constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<foo attr="{{{"]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-14">
+  <test-case name="K2-DirectConElemAttr-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in direct attribute constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<foo attr="{"]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-15">
+  <test-case name="K2-DirectConElemAttr-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in direct attribute constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<foo attr="{]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-16">
+  <test-case name="K2-DirectConElemAttr-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in direct attribute constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<e attr="content}"/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-17">
+  <test-case name="K2-DirectConElemAttr-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in direct attribute constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<foo attr="]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-18">
+  <test-case name="K2-DirectConElemAttr-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;foo attr="&amp;lt;foo/&amp;gt;"/&gt;</response-string>
     <description> Syntax error in direct attribute constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -785,7 +784,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-19">
+  <test-case name="K2-DirectConElemAttr-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;foo attr="&amp;lt;?target content?&amp;gt;"/&gt;</response-string>
     <description> Syntax error in direct attribute constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -796,7 +795,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-20">
+  <test-case name="K2-DirectConElemAttr-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;foo attr="&amp;lt;!-- a comment--&amp;gt;"/&gt;</response-string>
     <description> Syntax error in direct attribute constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -807,60 +806,60 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-21">
+  <test-case name="K2-DirectConElemAttr-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in direct attribute constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>foo attr="![CDATA[content]]"/&gt;</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-22">
+  <test-case name="K2-DirectConElemAttr-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in direct attribute constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<foo attr=]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-23">
+  <test-case name="K2-DirectConElemAttr-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in direct attribute constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<elem attr="content'/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-24">
+  <test-case name="K2-DirectConElemAttr-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Syntax error in direct attribute constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<elem attr='content"/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-25">
+  <test-case name="K2-DirectConElemAttr-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Comments cannot appear inside direct element/attribute constructors. comment </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<foo (:comment :)/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-26">
+  <test-case name="K2-DirectConElemAttr-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;foo attr="(:comment:)&amp;quot;value&amp;quot;"/&gt;</response-string>
     <description> Comments cannot appear inside direct element/attribute constructors. comment </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -871,73 +870,73 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-27">
+  <test-case name="K2-DirectConElemAttr-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Comments cannot appear inside direct element/attribute constructors. comment </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<foo attr(:comment:)="value" />]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-28">
+  <test-case name="K2-DirectConElemAttr-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Comments cannot appear inside direct element/attribute constructors. comment </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<foo attr="value" (:comment:) attr2="value" />]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-29">
+  <test-case name="K2-DirectConElemAttr-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("&amp;quot;")</response-string>
     <description> Attribute containing two quotes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[string(<foo attr=""""/>/@attr)]]>
     </test>
-    <result-string>xs:string("&quot;")</result-string>
+    <result-string>xs:string("&amp;quot;")</result-string>
     <result>
       <assert-string-value>"</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-30">
+  <test-case name="K2-DirectConElemAttr-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("&amp;quot;&amp;quot;")</response-string>
     <description> Attribute containing two quotes(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[string(<foo attr='""'/>/@attr)]]>
     </test>
-    <result-string>xs:string("&quot;&quot;")</result-string>
+    <result-string>xs:string("&amp;quot;&amp;quot;")</result-string>
     <result>
       <assert-string-value>""</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-31">
+  <test-case name="K2-DirectConElemAttr-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("&amp;apos;&amp;apos;")</response-string>
     <description> Attribute containing two apostrophes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[string(<foo attr="''"/>/@attr)]]>
     </test>
-    <result-string>xs:string("''")</result-string>
+    <result-string>xs:string("&amp;apos;&amp;apos;")</result-string>
     <result>
-      <assert-string-value>''</assert-string-value>
+      <assert-string-value>&apos;&apos;</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-32">
+  <test-case name="K2-DirectConElemAttr-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("&amp;apos;")</response-string>
     <description> Attribute containing two apostrophes(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[string(<foo attr=''''/>/@attr)]]>
     </test>
-    <result-string>xs:string("'")</result-string>
+    <result-string>xs:string("&amp;apos;")</result-string>
     <result>
-      <assert-string-value>'</assert-string-value>
+      <assert-string-value>&apos;</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-33">
+  <test-case name="K2-DirectConElemAttr-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;e attr="xa b c 1 2 3y"/&gt;</response-string>
     <description> Test that simple content computation is done properly with complex input sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -950,7 +949,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-34">
+  <test-case name="K2-DirectConElemAttr-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Extract the string value from a directly constructed attribute whose content consists of a computed comment constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -961,7 +960,7 @@
       <assert-string-value> content </assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-35">
+  <test-case name="K2-DirectConElemAttr-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Extract the string value from a directly constructed attribute whose content consists of a computed comment constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -972,7 +971,7 @@
       <assert-string-value>attr</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-36">
+  <test-case name="K2-DirectConElemAttr-36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Extract the string value from a directly constructed attribute whose content consists of a computed processing-instruction constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -983,7 +982,7 @@
       <assert-string-value>content </assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-37">
+  <test-case name="K2-DirectConElemAttr-37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Extract the local-name from a directly constructed attribute whose content consists of a computed processing-instruction constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -994,7 +993,7 @@
       <assert-string-value>attr</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-38">
+  <test-case name="K2-DirectConElemAttr-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Extract the string value from a directly constructed attribute whose content consists of a computed attribute constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1005,7 +1004,7 @@
       <assert-string-value>attr</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-39">
+  <test-case name="K2-DirectConElemAttr-39"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Extract the string value from a directly constructed attribute whose content consists of a computed attribute constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1016,20 +1015,20 @@
       <assert-string-value> content </assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-40">
+  <test-case name="K2-DirectConElemAttr-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;elem attr1="&amp;quot;" attr2="&amp;apos;" attr3="&amp;apos;&amp;apos;" attr4="&amp;quot;&amp;quot;" attr5="&amp;apos;" attr6="&amp;quot;"/&gt;</response-string>
     <description> Attributes with many apostrophes and quotes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<elem attr1="""" attr2='''' attr3="''" attr4='""' attr5="'" attr6='"'/>]]>
     </test>
-    <result-string><![CDATA[<elem attr1="&quot;" attr2="'" attr3="''" attr4="&quot;&quot;" attr5="'" attr6="&quot;"/>]]></result-string>
+    <result-string>&lt;elem attr1="&amp;quot;" attr2="&amp;apos;" attr3="&amp;apos;&amp;apos;" attr4="&amp;quot;&amp;quot;" attr5="&amp;apos;" attr6="&amp;quot;"/&gt;</result-string>
     <result>
       <assert-xml>
         <![CDATA[<elem attr1="&quot;" attr2="'" attr3="''" attr4="&quot;&quot;" attr5="'" attr6="&quot;"/>]]>
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-41">
+  <test-case name="K2-DirectConElemAttr-41"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;foo attr=""/&gt;</response-string>
     <description> A direct attribute constructor taking a direct element constructor as input. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1042,7 +1041,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-42">
+  <test-case name="K2-DirectConElemAttr-42"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A direct attribute constructor taking a direct comment constructor as input. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1055,7 +1054,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-43">
+  <test-case name="K2-DirectConElemAttr-43"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A direct attribute constructor taking a direct PI constructor as input. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1068,7 +1067,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-44">
+  <test-case name="K2-DirectConElemAttr-44"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> xml:base attributes do not affect the static base-uri. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1081,7 +1080,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-45">
+  <test-case name="K2-DirectConElemAttr-45"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> xml:base attributes do not affect the static base-uri(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1094,7 +1093,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-46">
+  <test-case name="K2-DirectConElemAttr-46"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;e attr="fo" a="bo"&gt; &lt;/e&gt;</response-string>
     <description> Copy attributes from one element to another. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1107,7 +1106,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-47">
+  <test-case name="K2-DirectConElemAttr-47"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the typed value of directly constructed attributes has the correct type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1118,7 +1117,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-48">
+  <test-case name="K2-DirectConElemAttr-48"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;a foo="1" fb="1"/&gt;</response-string>
     <description> There must be space between attributes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1129,7 +1128,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-49">
+  <test-case name="K2-DirectConElemAttr-49"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;a b="1" c="1"/&gt;</response-string>
     <description> A newline is a valid separator between two attributes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1142,7 +1141,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-50">
+  <test-case name="K2-DirectConElemAttr-50"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;a b="1" c="1"/&gt;</response-string>
     <description> A tab is a valid separator between two attributes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1155,7 +1154,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-51">
+  <test-case name="K2-DirectConElemAttr-51"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;a foo="1" fb="1"/&gt;</response-string>
     <description> There must be space between attributes(using apostrophes). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1166,7 +1165,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-52">
+  <test-case name="K2-DirectConElemAttr-52"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;a b="1" c="1"/&gt;</response-string>
     <description> A tab is a valid separator between two attributes(using apostrophes). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1179,150 +1178,150 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-53">
-    <description> '/' is an invalid separator between two attributes. </description>
+  <test-case name="K2-DirectConElemAttr-53"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> &apos;/&apos; is an invalid separator between two attributes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<a b="1"/a="1"/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-54">
-    <description> '/' is an invalid separator between two attributes(using apostrophes). </description>
+  <test-case name="K2-DirectConElemAttr-54"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> &apos;/&apos; is an invalid separator between two attributes(using apostrophes). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<a b='1'/a='1'/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-55">
-    <description> '/' is an invalid separator between two attributes. </description>
+  <test-case name="K2-DirectConElemAttr-55"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> &apos;/&apos; is an invalid separator between two attributes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<a b="1">a="1"/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-56">
-    <description> '/' is an invalid separator between two attributes(using apostrophes). </description>
+  <test-case name="K2-DirectConElemAttr-56"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> &apos;/&apos; is an invalid separator between two attributes(using apostrophes). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<a b='1'>a='1'/>]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-57">
+  <test-case name="K2-DirectConElemAttr-57"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> End unexpectedly inside a direct element constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<a attr="content"]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-58">
+  <test-case name="K2-DirectConElemAttr-58"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> End unexpectedly inside a direct element constructor(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<a attr='content']]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-59">
+  <test-case name="K2-DirectConElemAttr-59"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> End unexpectedly inside a direct element constructor(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<a attr="content"]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-60">
+  <test-case name="K2-DirectConElemAttr-60"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> End unexpectedly inside a direct element constructor(#4). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<a attr='content']]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-61">
+  <test-case name="K2-DirectConElemAttr-61"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> End unexpectedly inside a direct element constructor(#5). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<a attr='con]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-62">
+  <test-case name="K2-DirectConElemAttr-62"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> End unexpectedly inside a direct element constructor(#6). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<a attr="con]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-63">
+  <test-case name="K2-DirectConElemAttr-63"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> End unexpectedly inside a direct element constructor(#7). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<a attr=]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-64">
+  <test-case name="K2-DirectConElemAttr-64"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> End unexpectedly inside a direct element constructor(#8). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<a attr=]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-65">
+  <test-case name="K2-DirectConElemAttr-65"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> End unexpectedly inside a direct element constructor(#9). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[<a attr]]>
     </test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-66">
+  <test-case name="K2-DirectConElemAttr-66"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;a b="1"/&gt;</response-string>
     <description> End unexpectedly inside a direct element constructor(#10). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1333,7 +1332,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-67">
+  <test-case name="K2-DirectConElemAttr-67"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;a b="1"/&gt;</response-string>
     <description> End unexpectedly inside a direct element constructor(#10). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1344,7 +1343,7 @@
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-68">
+  <test-case name="K2-DirectConElemAttr-68"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;e xmlns=""/&gt;</response-string>
     <description> Use two namespace declarations with the same name. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1355,7 +1354,7 @@
       <error code="XQST0071"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-69">
+  <test-case name="K2-DirectConElemAttr-69"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;e xmlns:xml="http://www.w3.org/XML/1998/namespace"/&gt;</response-string>
     <description> Use two namespace declarations with the same name, in addition to doing invalid bindings. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1366,8 +1365,8 @@
       <error code="XQST0071"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-70">
-    <description> Ensure that attributes constructed with direct constructors doesn't pick up the default namespace. </description>
+  <test-case name="K2-DirectConElemAttr-70"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description> Ensure that attributes constructed with direct constructors doesn&apos;t pick up the default namespace. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[declare default element namespace "http://typedecl"; namespace-uri-from-QName(node-name(exactly-one(<e attr="foo"/>/@attr))) eq ""]]>
@@ -1377,8 +1376,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-71">
-    <description> Ensure that attributes constructed with computed constructors doesn't pick up the default namespace. </description>
+  <test-case name="K2-DirectConElemAttr-71"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description> Ensure that attributes constructed with computed constructors doesn&apos;t pick up the default namespace. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[declare default element namespace "http://typedecl"; namespace-uri-from-QName(node-name(exactly-one(<e>{attribute attr {()} }/</e>/@attr))) eq ""]]>
@@ -1388,8 +1387,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-72">
-    <description> Ensure that attributes constructed with computed constructors doesn't pick up the default namespace. </description>
+  <test-case name="K2-DirectConElemAttr-72"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description> Ensure that attributes constructed with computed constructors doesn&apos;t pick up the default namespace. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
       <![CDATA[namespace-uri-from-QName(node-name(exactly-one(<e xmlns="http://example.com/">{attribute attr {()} }/</e>/@attr))) eq ""]]>
@@ -1399,8 +1398,8 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-73">
-    <description> Ensure that attributes constructed with computed constructors doesn't pick up the default namespace(#2). </description>
+  <test-case name="K2-DirectConElemAttr-73"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
+    <description> Ensure that attributes constructed with computed constructors doesn&apos;t pick up the default namespace(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>declare default element namespace "http://example.com/"; namespace-uri-from-QName(node-name(attribute e {()})) eq ""</test>
     <result-string>xs:boolean("true")</result-string>
@@ -1408,7 +1407,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-74">
+  <test-case name="K2-DirectConElemAttr-74"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;e attr="1V1V"/&gt;</response-string>
     <description> Check that character references next to embedded expressions are parsed correctly. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>
@@ -1421,7 +1420,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-75">
+  <test-case name="K2-DirectConElemAttr-75"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Mix several ways for creating text for various kinds of nodes. This test is useful if an implementation is performing normalization of such constructors. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test file="DirAttributeList/K2-DirectConElemAttr-75.xq"/>
@@ -1430,7 +1429,7 @@
       <assert-xml file="DirAttributeList/K2-DirectConElemAttr-75.out"/>
     </result>
   </test-case>
-  <test-case name="K2-DirectConElemAttr-76">
+  <test-case name="K2-DirectConElemAttr-76"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Pass text nodes through a function and variable, into AVTs. </description>
     <created by="Frans Englich" on="2009-01-08"/>
     <test>
@@ -1447,7 +1446,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="DirectConElemAttr-1">
+  <test-case name="DirectConElemAttr-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;shoe name=" &amp;quot;&amp;quot; "/&gt;</response-string>
     <description> Namespace declaration attributes in direct element constructors. </description>
     <created by="Sorin Nasoi" on="2009-04-01"/>
     <test>
@@ -1460,13 +1459,13 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="DirectConElemAttr-2">
+  <test-case name="DirectConElemAttr-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;shoe name=" &amp;apos;&amp;apos;&amp;apos;&amp;apos;&amp;apos;&amp;apos;&amp;apos;&amp;apos; "/&gt;</response-string>
     <description> Namespace declaration attributes in direct element constructors. </description>
     <created by="Sorin Nasoi" on="2009-04-01"/>
     <test>
       <![CDATA[<shoe name=" '''''''' "/>]]>
     </test>
-    <result-string><![CDATA[<shoe name=" '''''''' "/>]]></result-string>
+    <result-string>&lt;shoe name=" &amp;apos;&amp;apos;&amp;apos;&amp;apos;&amp;apos;&amp;apos;&amp;apos;&amp;apos; "/&gt;</result-string>
     <result>
       <assert-xml>
         <![CDATA[<shoe name=" '''''''' "/>]]>

@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="prod-ContextItemExpr" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the ContextItemExpr production</description>
   <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-ContextItemExpr" type="spec"/>
   <link document="XQuery" idref="id-context-item-expression" section-number="3.1.4" type="spec"/>
-  <test-case name="externalcontextitem-1">
+  <test-case name="externalcontextitem-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Simple context item test (uses just "name" </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -16,7 +15,7 @@
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-2">
+  <test-case name="externalcontextitem-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("E1")</response-string>
     <description> context item expression where context item is used as string. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
@@ -26,7 +25,7 @@
       <assert-string-value>E1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-3">
+  <test-case name="externalcontextitem-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("40")</response-string>
     <description> context item expression where context item is used as an integer. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
@@ -36,37 +35,37 @@
       <assert-eq>40</assert-eq>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-4">
+  <test-case name="externalcontextitem-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("40")</response-string>
     <description> context item expression where context item is used as a decimal. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in (/works/employee[1]) return $var/xs:decimal(exactly-one(hours))</test>
-    <result-string>xs:integer("40")</result-string>
+    <result-string>xs:decimal("40")</result-string>
     <result>
       <assert-eq>40</assert-eq>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-5">
+  <test-case name="externalcontextitem-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("40")</response-string>
     <description> context item expression where context item isused as a float. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in /works/employee[1] return $var/xs:float(exactly-one(hours))</test>
-    <result-string>xs:integer("40")</result-string>
+    <result-string>xs:float("40")</result-string>
     <result>
       <assert-eq>40</assert-eq>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-6">
+  <test-case name="externalcontextitem-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("40")</response-string>
     <description> context item expression where context item is used sa a double. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
     <test>for $var in (/works/employee[1]) return $var/xs:double(exactly-one(hours))</test>
-    <result-string>xs:integer("40")</result-string>
+    <result-string>xs:double("40")</result-string>
     <result>
       <assert-eq>40</assert-eq>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-7">
+  <test-case name="externalcontextitem-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> context item expression where context item is used as an xs:boolean. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
@@ -76,7 +75,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-8">
+  <test-case name="externalcontextitem-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> context item expression where context item is an xs:boolean used with fn:not(). </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
@@ -86,7 +85,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-9">
+  <test-case name="externalcontextitem-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;hours&gt;40&lt;/hours&gt;</response-string>
     <description> context item expression where context item used as argumet to fn:sum. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
@@ -96,7 +95,7 @@
       <assert-eq>80</assert-eq>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-10">
+  <test-case name="externalcontextitem-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("80")</response-string>
     <description> context item expression where context item used in addition operation. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
@@ -106,7 +105,7 @@
       <assert-eq>80</assert-eq>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-11">
+  <test-case name="externalcontextitem-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> context item expression where context item used in subtraction operation. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
@@ -116,7 +115,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-12">
+  <test-case name="externalcontextitem-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1600")</response-string>
     <description> context item expression where context item used in multiplication operation. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
@@ -126,7 +125,7 @@
       <assert-eq>1600</assert-eq>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-13">
+  <test-case name="externalcontextitem-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> context item expression where context item used in mod operation. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
@@ -136,7 +135,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-14">
+  <test-case name="externalcontextitem-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description> context item expression where context item used in division (div operator) operation. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
@@ -146,7 +145,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-15">
+  <test-case name="externalcontextitem-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> context item expression where context item used in division (idiv operator) operation. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
@@ -156,7 +155,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-16">
+  <test-case name="externalcontextitem-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> context item expression where context item used in a boolean (and operator)expression. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
@@ -166,7 +165,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-17">
+  <test-case name="externalcontextitem-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> context item expression where context item used in a boolean (or operator)expression. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
@@ -176,7 +175,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-18">
+  <test-case name="externalcontextitem-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> context item expression where context item used with string-length function. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
@@ -186,7 +185,7 @@
       <assert-eq>2</assert-eq>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-19">
+  <test-case name="externalcontextitem-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;hours&gt;40&lt;/hours&gt;</response-string>
     <description> context item expression where context item used with "avg" function. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
@@ -196,7 +195,7 @@
       <assert-eq>40</assert-eq>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-20">
+  <test-case name="externalcontextitem-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("40")</response-string>
     <description> context item expression where context item used with "min" function. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
@@ -206,7 +205,7 @@
       <assert-eq>22</assert-eq>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-21">
+  <test-case name="externalcontextitem-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("undefined")</response-string>
     <description> context item expression where context item used with "max" function. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <environment ref="works-mod"/>
@@ -216,7 +215,7 @@
       <assert-eq>41</assert-eq>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-22">
+  <test-case name="externalcontextitem-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;employee name="Jane Doe 1" gender="female"&gt;&amp;#10;   &lt;empnum&gt;E1&lt;/empnum&gt;&amp;#10;   &lt;pnum&gt;P1&lt;/pnum&gt;&amp;#10;   &lt;hours&gt;40&lt;/hours&gt;&amp;#10;  &lt;/employee&gt;</response-string>
     <description> context item expression </description>
     <created by="Andrew Eisenberg" on="2006-08-02"/>
     <environment ref="works-mod"/>
@@ -232,7 +231,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-23">
+  <test-case name="externalcontextitem-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Reference to a context item that has not been bound. </description>
     <created by="Andrew Eisenberg" on="2006-08-02"/>
     <environment ref="empty"/>
@@ -246,7 +245,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="externalcontextitem-24">
+  <test-case name="externalcontextitem-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;employee name="Jane Doe 1" gender="female"&gt;&amp;#10;   &lt;empnum&gt;E1&lt;/empnum&gt;&amp;#10;   &lt;pnum&gt;P1&lt;/pnum&gt;&amp;#10;   &lt;hours&gt;40&lt;/hours&gt;&amp;#10;  &lt;/employee&gt;</response-string>
     <description> Reference to a context item that has not been bound. </description>
     <created by="Andrew Eisenberg" on="2006-08-02"/>
     <environment ref="works-mod"/>
@@ -262,7 +261,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="internalcontextitem-1">
+  <test-case name="internalcontextitem-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">document {&lt;dummy/&gt;}</response-string>
     <description> Simple context item test (uses just "." </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -272,7 +271,7 @@
       <error code="XPDY0002"/>
     </result>
   </test-case>
-  <test-case name="internalcontextitem-2">
+  <test-case name="internalcontextitem-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> context item expression wher context item is string. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>("A","B","C")[xs:string(.)]</test>
@@ -281,7 +280,7 @@
       <assert-string-value>A B C</assert-string-value>
     </result>
   </test-case>
-  <test-case name="internalcontextitem-3">
+  <test-case name="internalcontextitem-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"))</response-string>
     <description> context item expression wher context item is an integer. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(1,2,3)[xs:integer(.)]</test>
@@ -290,7 +289,7 @@
       <assert-string-value>1 2 3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="internalcontextitem-4">
+  <test-case name="internalcontextitem-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> context item expression wher context item is a decimal. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(1,2,3)[xs:decimal(.)]</test>
@@ -299,7 +298,7 @@
       <assert-string-value>1 2 3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="internalcontextitem-5">
+  <test-case name="internalcontextitem-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> context item expression where context item is a float. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(1,2,3)[xs:float(.)]</test>
@@ -308,7 +307,7 @@
       <assert-string-value>1 2 3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="internalcontextitem-6">
+  <test-case name="internalcontextitem-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> context item expression where context item is a double. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(1,2,3)[xs:double(.)]</test>
@@ -317,25 +316,25 @@
       <assert-string-value>1 2 3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="internalcontextitem-7">
+  <test-case name="internalcontextitem-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:boolean("true"))</response-string>
     <description> context item expression where context item is an xs:boolean. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(fn:true(),fn:false(),fn:true())[xs:boolean(.)]</test>
-    <result-string>xs:string("true true")</result-string>
+    <result-string>(xs:boolean("true"),xs:boolean("true"))</result-string>
     <result>
       <assert-string-value>true true</assert-string-value>
     </result>
   </test-case>
-  <test-case name="internalcontextitem-8">
+  <test-case name="internalcontextitem-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("false"),xs:boolean("false"))</response-string>
     <description> context item expression where context item is an xs:boolean used with fn:not(). </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(fn:false(),fn:true(),fn:false())[fn:not(xs:boolean(.))]</test>
-    <result-string>xs:string("false false")</result-string>
+    <result-string>(xs:boolean("false"),xs:boolean("false"))</result-string>
     <result>
       <assert-string-value>false false</assert-string-value>
     </result>
   </test-case>
-  <test-case name="internalcontextitem-9">
+  <test-case name="internalcontextitem-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> context item expression where context item is an empty sequence. uses fn:count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>fn:count(((),(),())[xs:string(.)])</test>
@@ -348,16 +347,16 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="internalcontextitem-10">
+  <test-case name="internalcontextitem-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"))</response-string>
     <description> context item expression where context item used in addition operation. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(1,2,3)[(. + .) gt 1]</test>
-    <result-string>xs:string("1 2 3")</result-string>
+    <result-string>(xs:integer("1"),xs:integer("2"),xs:integer("3"))</result-string>
     <result>
       <assert-string-value>1 2 3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="internalcontextitem-11">
+  <test-case name="internalcontextitem-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("3")</response-string>
     <description> context item expression where context item used in subtraction operation. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(3,4,5)[(xs:integer(5) - xs:integer(.)) gt 1]</test>
@@ -366,16 +365,16 @@
       <assert-eq>3</assert-eq>
     </result>
   </test-case>
-  <test-case name="internalcontextitem-12">
+  <test-case name="internalcontextitem-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("3"),xs:integer("4"),xs:integer("5"))</response-string>
     <description> context item expression where context item used in multiplication operation. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(3,4,5)[(xs:integer(.) * xs:integer(.)) gt 2]</test>
-    <result-string>xs:string("3 4 5")</result-string>
+    <result-string>(xs:integer("3"),xs:integer("4"),xs:integer("5"))</result-string>
     <result>
       <assert-string-value>3 4 5</assert-string-value>
     </result>
   </test-case>
-  <test-case name="internalcontextitem-13">
+  <test-case name="internalcontextitem-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("14")</response-string>
     <description> context item expression where context item used in mod operation. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(6,10,14)[(xs:integer(.) mod xs:integer(3)) gt 1]</test>
@@ -384,25 +383,25 @@
       <assert-eq>14</assert-eq>
     </result>
   </test-case>
-  <test-case name="internalcontextitem-14">
+  <test-case name="internalcontextitem-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("10"),xs:integer("14"))</response-string>
     <description> context item expression where context item used in division (div operator) operation. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(6,10,14)[(xs:integer(.) div xs:integer(3)) gt 2]</test>
-    <result-string>xs:string("10 14")</result-string>
+    <result-string>(xs:integer("10"),xs:integer("14"))</result-string>
     <result>
       <assert-string-value>10 14</assert-string-value>
     </result>
   </test-case>
-  <test-case name="internalcontextitem-15">
+  <test-case name="internalcontextitem-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("10"),xs:integer("14"))</response-string>
     <description> context item expression where context item used in division (idiv operator) operation. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(6,10,14)[(xs:integer(.) idiv xs:integer(3)) gt 2]</test>
-    <result-string>xs:string("10 14")</result-string>
+    <result-string>(xs:integer("10"),xs:integer("14"))</result-string>
     <result>
       <assert-string-value>10 14</assert-string-value>
     </result>
   </test-case>
-  <test-case name="internalcontextitem-16">
+  <test-case name="internalcontextitem-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:boolean("true"))</response-string>
     <description> context item expression where context item used in a boolean (and operator)expression. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(fn:true(),fn:false(),fn:true())[xs:boolean(.) and xs:boolean(.)]</test>
@@ -411,43 +410,43 @@
       <assert-string-value>true true</assert-string-value>
     </result>
   </test-case>
-  <test-case name="internalcontextitem-17">
+  <test-case name="internalcontextitem-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:boolean("true"))</response-string>
     <description> context item expression where context item used in a boolean (or operator)expression. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(fn:true(),fn:false(),fn:true())[xs:boolean(.) or xs:boolean(.)]</test>
-    <result-string>xs:string("true true")</result-string>
+    <result-string>(xs:boolean("true"),xs:boolean("true"))</result-string>
     <result>
       <assert-string-value>true true</assert-string-value>
     </result>
   </test-case>
-  <test-case name="internalcontextitem-18">
+  <test-case name="internalcontextitem-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("ABC"),xs:string("DEF"))</response-string>
     <description> context item expression where context item used with string-length function. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>("ABC", "DEF","A")[fn:string-length(.) gt 2]</test>
-    <result-string>xs:string("ABC DEF")</result-string>
+    <result-string>(xs:string("ABC"),xs:string("DEF"))</result-string>
     <result>
       <assert-string-value>ABC DEF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="internalcontextitem-19">
+  <test-case name="internalcontextitem-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("3"))</response-string>
     <description> context item expression where context item used with "avg" function. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(1,2,3)[fn:avg((.,2,3)) gt 2]</test>
-    <result-string>xs:string("2 3")</result-string>
+    <result-string>(xs:integer("2"),xs:integer("3"))</result-string>
     <result>
       <assert-string-value>2 3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="internalcontextitem-20">
+  <test-case name="internalcontextitem-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("2"),xs:integer("3"))</response-string>
     <description> context item expression where context item used with "min" function. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(1,2,3)[fn:min((.,2)) eq 2]</test>
-    <result-string>xs:string("2 3")</result-string>
+    <result-string>(xs:integer("2"),xs:integer("3"))</result-string>
     <result>
       <assert-string-value>2 3</assert-string-value>
     </result>
   </test-case>
-  <test-case name="internalcontextitem-21">
+  <test-case name="internalcontextitem-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("3")</response-string>
     <description> context item expression where context item used with "max" function. </description>
     <created by="Carmelo Montanez" on="2006-02-13"/>
     <test>(1,2,3)[fn:min((.,3)) eq 3]</test>

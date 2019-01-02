@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="prod-CompDocConstructor" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the CompDocConstructor (Document node constructor) production</description>
   <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-CompDocConstructor" type="spec"/>
@@ -16,26 +15,26 @@
     </source>
   </environment>
   <dependency type="spec" value="XQ10+"/>
-  <test-case name="Constr-docnode-adjtext-1">
+  <test-case name="Constr-docnode-adjtext-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("4")</response-string>
     <description> merge adjacent atomic values to text node </description>
     <created by="Andreas Behm" on="2005-05-26"/>
-    <test>count((document {1, 'string', 1,2e3})/text())</test>
+    <test>count((document {1, &apos;string&apos;, 1,2e3})/text())</test>
     <result-string>xs:integer("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-adjtext-2">
+  <test-case name="Constr-docnode-adjtext-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> merge adjacent atomic values and text nodes to text node </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <environment ref="DupNode"/>
-    <test>count((document {1, //text(), 'string'})/text())</test>
+    <test>count((document {1, //text(), &apos;string&apos;})/text())</test>
     <result-string>xs:integer("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-adjtext-3">
+  <test-case name="Constr-docnode-adjtext-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("6")</response-string>
     <description> merge adjacent atomic values between other nodes to text node </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -47,7 +46,7 @@
       <assert-eq>3</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-nested-1">
+  <test-case name="Constr-docnode-nested-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">document {1document {2document {document {}document {3}}4}}</response-string>
     <description> nested computed element constructors </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <test>document {1, document {2, document {document {()}, document {3}}, 4}}</test>
@@ -56,7 +55,7 @@
       <assert-string-value>1234</assert-string-value>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-nested-2">
+  <test-case name="Constr-docnode-nested-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> copy node tree into computed element constructor </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <environment ref="DupNode"/>
@@ -68,7 +67,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-nested-3">
+  <test-case name="Constr-docnode-nested-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> Check that text nodes are merged in nested document constructors. </description>
     <created by="Oliver Hallam" on="2009-10-05"/>
     <test>count(document {1, document{2}, document { document {()}, document {3}}, 4}/text())</test>
@@ -77,7 +76,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-nested-4">
+  <test-case name="Constr-docnode-nested-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> Check that empty text nodes are stripped in nested document constructors. </description>
     <created by="Oliver Hallam" on="2009-10-05"/>
     <test>count(document {"", document{""}, document { document {()}, document {""}}, ""}/text())</test>
@@ -86,7 +85,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-enclexpr-1">
+  <test-case name="Constr-docnode-enclexpr-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">document {}</response-string>
     <description> empty computed element content </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <test>document {()}</test>
@@ -95,16 +94,16 @@
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-enclexpr-2">
+  <test-case name="Constr-docnode-enclexpr-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">document {1a3.54e2}</response-string>
     <description> atomic values in computed element content </description>
     <created by="Andreas Behm" on="2005-05-26"/>
-    <test>document {1,'a',3.5,4e2}</test>
+    <test>document {1,&apos;a&apos;,3.5,4e2}</test>
     <result-string>xs:string("1 a 3.5 400")</result-string>
     <result>
       <assert-string-value>1 a 3.5 400</assert-string-value>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-enclexpr-3">
+  <test-case name="Constr-docnode-enclexpr-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> atomic values and nodes in computed element content </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <environment ref="DupNode"/>
@@ -116,16 +115,16 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-enclexpr-4">
+  <test-case name="Constr-docnode-enclexpr-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">document {12}</response-string>
     <description> empty string in element content </description>
     <created by="Andreas Behm" on="2005-05-26"/>
-    <test>document {1, '', 2}</test>
+    <test>document {1, &apos;&apos;, 2}</test>
     <result-string>xs:string("1  2")</result-string>
     <result>
       <assert-string-value>1  2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-nodeid-1">
+  <test-case name="Constr-docnode-nodeid-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Copied element node has new node identity </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -137,7 +136,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-nodeid-3">
+  <test-case name="Constr-docnode-nodeid-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Copied comment node has new node identity </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -149,7 +148,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-nodeid-4">
+  <test-case name="Constr-docnode-nodeid-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Copied pi node has new node identity </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -161,7 +160,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-nodeid-5">
+  <test-case name="Constr-docnode-nodeid-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Copied text node has new node identity </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -173,7 +172,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-constrmod-1">
+  <test-case name="Constr-docnode-constrmod-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> strip IDREFS type </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <environment ref="atomic"/>
@@ -183,7 +182,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-constrmod-2">
+  <test-case name="Constr-docnode-constrmod-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> preserve IDREFS type </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <environment ref="atomic"/>
@@ -197,7 +196,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-constrmod-3">
+  <test-case name="Constr-docnode-constrmod-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> strip decimal type </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <environment ref="atomic"/>
@@ -207,7 +206,7 @@
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-constrmod-4">
+  <test-case name="Constr-docnode-constrmod-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> preserve decimal type </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <environment ref="atomic"/>
@@ -221,7 +220,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-doc-1">
+  <test-case name="Constr-docnode-doc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">document {document {&lt;root&gt;&lt;child1&gt;&lt;a&gt;text&lt;/a&gt;&lt;!--comment--&gt;processing-instruction pi {"content"}&lt;/child1&gt;&lt;child2&gt;&lt;a&gt;text&lt;/a&gt;&lt;!--comment--&gt;processing-instruction pi {"content"}&lt;/child2&gt;&lt;/root&gt;}}</response-string>
     <description> strip document nodes </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <environment ref="DupNode"/>
@@ -237,7 +236,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-parent-1">
+  <test-case name="Constr-docnode-parent-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> empty parent </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <test>count((document {()})/..)</test>
@@ -250,25 +249,25 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-string-1">
+  <test-case name="Constr-docnode-string-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> string value of element </description>
     <created by="Andreas Behm" on="2005-05-26"/>
-    <test>fn:string(document {'a', element a {}, 'b'})</test>
+    <test>fn:string(document {&apos;a&apos;, element a {}, &apos;b&apos;})</test>
     <result-string>xs:string("ab")</result-string>
     <result>
       <assert-string-value>ab</assert-string-value>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-data-1">
+  <test-case name="Constr-docnode-data-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:untypedAtomic("")</response-string>
     <description> typed value of element </description>
     <created by="Andreas Behm" on="2005-05-26"/>
-    <test>fn:data(document {'a', element a {}, 'b'})</test>
+    <test>fn:data(document {&apos;a&apos;, element a {}, &apos;b&apos;})</test>
     <result-string>xs:string("ab")</result-string>
     <result>
       <assert-string-value>ab</assert-string-value>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-attr-1">
+  <test-case name="Constr-docnode-attr-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> attribute in document constructor </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <environment ref="TreeEmpty"/>
@@ -278,7 +277,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-attr-2">
+  <test-case name="Constr-docnode-attr-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> attribute in document constructor </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <environment ref="TreeEmpty"/>
@@ -291,7 +290,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="Constr-docnode-attr-3">
+  <test-case name="Constr-docnode-attr-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> attribute in document constructor </description>
     <created by="Andreas Behm" on="2005-05-26"/>
     <environment ref="TreeEmpty"/>
@@ -304,26 +303,26 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-1">
+  <test-case name="K2-ConDocNode-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> No node constructor by name document-node exists. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>document-node{"content"}</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-2">
-    <description> A semi-colon can't follow document{}. </description>
+  <test-case name="K2-ConDocNode-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> A semi-colon can&apos;t follow document{}. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>document{"content"};</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-3">
-    <description> A document constructor can't receive attribute nodes. </description>
+  <test-case name="K2-ConDocNode-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> A document constructor can&apos;t receive attribute nodes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -334,8 +333,8 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-4">
-    <description> A document constructor can't receive attribute nodes(#2). </description>
+  <test-case name="K2-ConDocNode-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> A document constructor can&apos;t receive attribute nodes(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -346,8 +345,8 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-5">
-    <description> A document constructor can't receive attribute nodes(#3). </description>
+  <test-case name="K2-ConDocNode-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> A document constructor can&apos;t receive attribute nodes(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -358,8 +357,8 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-6">
-    <description> A document constructor can't receive attribute nodes(#4). </description>
+  <test-case name="K2-ConDocNode-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> A document constructor can&apos;t receive attribute nodes(#4). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -370,8 +369,8 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-7">
-    <description> A document constructor can't receive attribute nodes(#5). </description>
+  <test-case name="K2-ConDocNode-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> A document constructor can&apos;t receive attribute nodes(#5). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -382,8 +381,8 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-8">
-    <description> A document constructor can't receive attribute nodes(#7). </description>
+  <test-case name="K2-ConDocNode-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> A document constructor can&apos;t receive attribute nodes(#7). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
@@ -394,7 +393,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-9">
+  <test-case name="K2-ConDocNode-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">document {&lt;a/&gt;&lt;b/&gt;&lt;c/&gt;}</response-string>
     <description> Document nodes may have several elements as children(#8). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -408,7 +407,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-10">
+  <test-case name="K2-ConDocNode-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">document {&lt;a/&gt;&lt;b/&gt;&lt;c/&gt;}</response-string>
     <description> Document nodes may have several elements as children. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -422,7 +421,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-11">
+  <test-case name="K2-ConDocNode-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;a/&gt;</response-string>
     <description> Extract the typed value from a document node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -436,7 +435,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-12">
+  <test-case name="K2-ConDocNode-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;a/&gt;</response-string>
     <description> Extract the string value from a document node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -450,7 +449,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-13">
+  <test-case name="K2-ConDocNode-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;a/&gt;</response-string>
     <description> Extract the string value from a document node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -464,7 +463,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-14">
+  <test-case name="K2-ConDocNode-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Extract the string value from a document node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(document{"abc"})</test>
@@ -473,7 +472,7 @@
       <assert-string-value>abc</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-15">
+  <test-case name="K2-ConDocNode-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test the atomized type. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>data(document {"content"}) instance of xs:untypedAtomic</test>
@@ -482,7 +481,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-16">
+  <test-case name="K2-ConDocNode-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test node identity of two document nodes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>document {"content"} is document{"content"}</test>
@@ -491,7 +490,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-17">
+  <test-case name="K2-ConDocNode-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("moreeven more&amp;#10;![CDATA[ButNotThis]]       content")</response-string>
     <description> Extract the string value from a complex document node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -504,7 +503,7 @@
       <assert-string-value>stringmoreeven moreButNotThis content</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-18">
+  <test-case name="K2-ConDocNode-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Ensure processing instructions and comments are ignored when extracting the string value from a document node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(document{ text {"data"}, processing-instruction name {"data"}, processing-instruction name {"data"}, text {"data"}, processing-instruction name {"data"}, processing-instruction name1 {"data"}, comment {"content"}, comment {"content"}, text {"data"}, processing-instruction name2 {"data"}, comment {"content"}, text {"data"} })</test>
@@ -513,7 +512,7 @@
       <assert-string-value>datadatadatadata</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-19">
+  <test-case name="K2-ConDocNode-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> A recursive construction of document nodes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(document{document{document{document{()}}}}/child::node())</test>
@@ -522,7 +521,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-20">
+  <test-case name="K2-ConDocNode-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),document {document {document {}}},xs:integer("1"))</response-string>
     <description> A recursive construction of document nodes, combined with the comma operator. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1, document{document{document{document{()}}}}/child::node(), 1</test>
@@ -531,7 +530,7 @@
       <assert-string-value>1 1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-21">
+  <test-case name="K2-ConDocNode-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">document {document {document {&lt;e/&gt;}}}</response-string>
     <description> A recursive construction of document nodes, with one child element. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -545,7 +544,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-22">
+  <test-case name="K2-ConDocNode-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> A recursive construction of document nodes, combined with elements. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -559,7 +558,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-23">
+  <test-case name="K2-ConDocNode-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Extract the string value from a document node with four computed text nodes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(document{ text {"data"}, text {"data"}, text {"data"}, text {"data"} })</test>
@@ -568,7 +567,7 @@
       <assert-string-value>datadatadatadata</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-24">
+  <test-case name="K2-ConDocNode-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("5")</response-string>
     <description> Ensure text nodes gets merged. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -580,7 +579,7 @@
       <assert-eq>3</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-25">
+  <test-case name="K2-ConDocNode-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("4")</response-string>
     <description> Ensure text nodes gets merged(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(document{ text {"data"}, text {"data"}, text {"data"}, text {"data"} }/child::node())</test>
@@ -589,7 +588,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-26">
+  <test-case name="K2-ConDocNode-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Attributes cannot be children of document nodes. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -601,7 +600,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-27">
+  <test-case name="K2-ConDocNode-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Attributes cannot be children of document nodes(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -613,7 +612,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-28">
+  <test-case name="K2-ConDocNode-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Attributes cannot be children of document nodes(#3). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -625,7 +624,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-29">
+  <test-case name="K2-ConDocNode-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> An invalid attribute constructor as child to the document constructor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -637,7 +636,7 @@
       <error code="XQTY0024"/>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-30">
+  <test-case name="K2-ConDocNode-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Ensure two text nodes appearing after a document constructor are merged properly. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -649,7 +648,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-31">
+  <test-case name="K2-ConDocNode-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Ensure a text node is properly constructed with nested document constructors, when extracting the string-value. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(document {1, document {2, document {document {()}, 3, document {4}}, 5}, 6})</test>
@@ -658,7 +657,7 @@
       <assert-string-value>123456</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-ConDocNode-32">
+  <test-case name="K2-ConDocNode-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">document {1document {2document {document {}3document {4}}5}6}</response-string>
     <description> Ensure a text node is properly constructed with nested document constructors, when serializing. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>document {1, document {2, document {document {()}, 3, document {4}}, 5}, 6}</test>

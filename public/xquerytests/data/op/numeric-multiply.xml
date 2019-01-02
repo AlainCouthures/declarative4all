@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="op-numeric-multiply" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the numeric-multiply() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-numeric-multiply" type="spec"/>
-  <test-case name="op-numeric-multiplydec2args-1">
+  <test-case name="op-numeric-multiplydec2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1000000000000000000")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("-1.0000000000") * xs:decimal("-999999999999999999")</test>
@@ -11,16 +10,16 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplydec2args-2">
+  <test-case name="op-numeric-multiplydec2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:decimal(mid range) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("617375191608514839") * xs:decimal("0")</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:decimal("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplydec2args-3">
+  <test-case name="op-numeric-multiplydec2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:decimal(upper bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("999999999999999999") * xs:decimal("-1.0000000000")</test>
@@ -29,16 +28,16 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplydec2args-4">
+  <test-case name="op-numeric-multiplydec2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("0") * xs:decimal("617375191608514839")</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:decimal("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplydec2args-5">
+  <test-case name="op-numeric-multiplydec2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:decimal("-1.0000000000") * xs:decimal("999999999999999999")</test>
@@ -47,97 +46,97 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplydbl2args-1">
+  <test-case name="op-numeric-multiplydbl2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.7976931348623157E308")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double("-1.0000000000") * xs:double("-1.7976931348623157E308")</test>
-    <result-string>xs:double("1.7976931348623157e308")</result-string>
+    <result-string>xs:double("1.7976931348623157E308")</result-string>
     <result>
       <assert-eq>1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplydbl2args-2">
+  <test-case name="op-numeric-multiplydbl2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:double(mid range) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double("0") * xs:double("-1.7976931348623157E308")</test>
-    <result-string>xs:integer("-0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplydbl2args-3">
+  <test-case name="op-numeric-multiplydbl2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157E308")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:double(upper bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double("1.7976931348623157E308") * xs:double("-1.0000000000")</test>
-    <result-string>xs:double("-1.7976931348623157e308")</result-string>
+    <result-string>xs:double("-1.7976931348623157E308")</result-string>
     <result>
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplydbl2args-4">
+  <test-case name="op-numeric-multiplydbl2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double("-1.7976931348623157E308") * xs:double("0")</test>
-    <result-string>xs:integer("-0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplydbl2args-5">
+  <test-case name="op-numeric-multiplydbl2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157E308")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:double("-1.0000000000") * xs:double("1.7976931348623157E308")</test>
-    <result-string>xs:double("-1.7976931348623157e308")</result-string>
+    <result-string>xs:double("-1.7976931348623157E308")</result-string>
     <result>
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplyflt2args-1">
+  <test-case name="op-numeric-multiplyflt2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("3.4028235E38")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float("-1.0000000000") * xs:float("-3.4028235E38")</test>
-    <result-string>xs:float(3.4028235E38)</result-string>
+    <result-string>xs:float("3.4028235E38")</result-string>
     <result>
       <assert-eq>xs:float(3.4028235E38)</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplyflt2args-2">
+  <test-case name="op-numeric-multiplyflt2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:float(mid range) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float("0") * xs:float("-3.4028235E38")</test>
-    <result-string>xs:integer("-0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplyflt2args-3">
+  <test-case name="op-numeric-multiplyflt2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235E38")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:float(upper bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float("3.4028235E38") * xs:float("-1.0000000000")</test>
-    <result-string>xs:float(-3.4028235E38)</result-string>
+    <result-string>xs:float("-3.4028235E38")</result-string>
     <result>
       <assert-eq>xs:float(-3.4028235E38)</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplyflt2args-4">
+  <test-case name="op-numeric-multiplyflt2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float("-3.4028235E38") * xs:float("0")</test>
-    <result-string>xs:integer("-0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-eq>-0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplyflt2args-5">
+  <test-case name="op-numeric-multiplyflt2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235E38")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:float("-1.0000000000") * xs:float("3.4028235E38")</test>
-    <result-string>xs:float(-3.4028235E38)</result-string>
+    <result-string>xs:float("-3.4028235E38")</result-string>
     <result>
       <assert-eq>xs:float(-3.4028235E38)</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplyusht2args-1">
+  <test-case name="op-numeric-multiplyusht2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort("0") * xs:unsignedShort("0")</test>
@@ -146,7 +145,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplyusht2args-2">
+  <test-case name="op-numeric-multiplyusht2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:unsignedShort(mid range) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort("44633") * xs:unsignedShort("0")</test>
@@ -155,7 +154,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplyusht2args-3">
+  <test-case name="op-numeric-multiplyusht2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:unsignedShort(upper bound) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort("65535") * xs:unsignedShort("0")</test>
@@ -164,7 +163,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplyusht2args-4">
+  <test-case name="op-numeric-multiplyusht2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort("0") * xs:unsignedShort("44633")</test>
@@ -173,7 +172,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplyusht2args-5">
+  <test-case name="op-numeric-multiplyusht2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedShort("0") * xs:unsignedShort("65535")</test>
@@ -182,7 +181,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplypint2args-1">
+  <test-case name="op-numeric-multiplypint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("1") * xs:positiveInteger("1")</test>
@@ -191,7 +190,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplypint2args-2">
+  <test-case name="op-numeric-multiplypint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("52704602390610030")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:positiveInteger(mid range) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("52704602390610033") * xs:positiveInteger("1")</test>
@@ -200,7 +199,7 @@
       <assert-eq>52704602390610033</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplypint2args-3">
+  <test-case name="op-numeric-multiplypint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1000000000000000000")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:positiveInteger(upper bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("999999999999999999") * xs:positiveInteger("1")</test>
@@ -209,7 +208,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplypint2args-4">
+  <test-case name="op-numeric-multiplypint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("52704602390610030")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("1") * xs:positiveInteger("52704602390610033")</test>
@@ -218,7 +217,7 @@
       <assert-eq>52704602390610033</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplypint2args-5">
+  <test-case name="op-numeric-multiplypint2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1000000000000000000")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:positiveInteger("1") * xs:positiveInteger("999999999999999999")</test>
@@ -227,7 +226,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplyulng2args-1">
+  <test-case name="op-numeric-multiplyulng2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("0") * xs:unsignedLong("0")</test>
@@ -236,7 +235,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplyulng2args-2">
+  <test-case name="op-numeric-multiplyulng2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:unsignedLong(mid range) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("130747108607674654") * xs:unsignedLong("0")</test>
@@ -245,7 +244,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplyulng2args-3">
+  <test-case name="op-numeric-multiplyulng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:unsignedLong(upper bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("184467440737095516") * xs:unsignedLong("0")</test>
@@ -254,7 +253,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplyulng2args-4">
+  <test-case name="op-numeric-multiplyulng2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("0") * xs:unsignedLong("130747108607674654")</test>
@@ -263,7 +262,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplyulng2args-5">
+  <test-case name="op-numeric-multiplyulng2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:unsignedLong("0") * xs:unsignedLong("184467440737095516")</test>
@@ -272,7 +271,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplynpi2args-1">
+  <test-case name="op-numeric-multiplynpi2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(upper bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger("0") * xs:nonPositiveInteger("-999999999999999999")</test>
@@ -281,7 +280,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplynpi2args-2">
+  <test-case name="op-numeric-multiplynpi2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonPositiveInteger("-999999999999999999") * xs:nonPositiveInteger("0")</test>
@@ -290,7 +289,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplynni2args-1">
+  <test-case name="op-numeric-multiplynni2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("0") * xs:nonNegativeInteger("0")</test>
@@ -299,7 +298,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplynni2args-2">
+  <test-case name="op-numeric-multiplynni2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(mid range) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("303884545991464527") * xs:nonNegativeInteger("0")</test>
@@ -308,7 +307,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplynni2args-3">
+  <test-case name="op-numeric-multiplynni2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(upper bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("999999999999999999") * xs:nonNegativeInteger("0")</test>
@@ -317,7 +316,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplynni2args-4">
+  <test-case name="op-numeric-multiplynni2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("0") * xs:nonNegativeInteger("303884545991464527")</test>
@@ -326,7 +325,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplynni2args-5">
+  <test-case name="op-numeric-multiplynni2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "op:numeric-multiply" operator with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:nonNegativeInteger("0") * xs:nonNegativeInteger("999999999999999999")</test>
@@ -335,7 +334,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplymix2args-1">
+  <test-case name="op-numeric-multiplymix2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Simple multiplication test with () as one operand should return null </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <test>1 * ()</test>
@@ -348,25 +347,25 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplymix2args-2">
+  <test-case name="op-numeric-multiplymix2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("1")</response-string>
     <description> Simple multiplication test pass string for second operator </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
-    <test>1 * '1'</test>
+    <test>1 * &apos;1&apos;</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplymix2args-3">
+  <test-case name="op-numeric-multiplymix2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Simple multiplication test, second operator cast string to integer </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
-    <test>1 * xs:integer('1')</test>
+    <test>1 * xs:integer(&apos;1&apos;)</test>
     <result-string>xs:integer("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplymix2args-4">
+  <test-case name="op-numeric-multiplymix2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("2")</response-string>
     <description> Simple multiplication test, second operator is a node, atomization applied </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -378,7 +377,7 @@
       <assert-eq>2</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplymix2args-5">
+  <test-case name="op-numeric-multiplymix2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("2")</response-string>
     <description> Simple multiplication test, second operator is a node, atomization applied </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -390,7 +389,7 @@
       <assert-eq>2</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplymix2args-6">
+  <test-case name="op-numeric-multiplymix2args-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("2")</response-string>
     <description> Simple multiplication test, second operator node which is not atomizable </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -402,7 +401,7 @@
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplymix2args-7">
+  <test-case name="op-numeric-multiplymix2args-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("2")</response-string>
     <description> Simple multiplication test, two operands are nodes </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -414,7 +413,7 @@
       <assert-eq>2</assert-eq>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplymix2args-8">
+  <test-case name="op-numeric-multiplymix2args-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Simple multiplication test, second operator is a node, atomizable but not castable to integer </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -426,7 +425,7 @@
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiplymix2args-9">
+  <test-case name="op-numeric-multiplymix2args-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> Simple multiplication test, pass an empty node for second operator </description>
     <created by="Ravindranath Chennoju" on="2004-12-13"/>
     <dependency type="spec" value="XQ10+"/>
@@ -438,7 +437,7 @@
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-1">
+  <test-case name="K-NumericMultiply-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:double(6) * xs:double(2) eq 12`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:double(6) * xs:double(2) eq 12</test>
@@ -447,7 +446,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-2">
+  <test-case name="K-NumericMultiply-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:decimal(6) * xs:decimal(2) eq 12`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:decimal(6) * xs:decimal(2) eq 12</test>
@@ -456,7 +455,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-3">
+  <test-case name="K-NumericMultiply-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:integer(6) * xs:integer(2) eq 12`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:integer(6) * xs:integer(2) eq 12</test>
@@ -465,7 +464,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-4">
+  <test-case name="K-NumericMultiply-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `xs:float(6) * xs:float(2) eq 12`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>xs:float(6) * xs:float(2) eq 12</test>
@@ -474,7 +473,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-5">
+  <test-case name="K-NumericMultiply-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:decimal(6) * xs:integer(2)) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) * xs:integer(2)) instance of xs:decimal</test>
@@ -483,7 +482,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-6">
+  <test-case name="K-NumericMultiply-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:integer(6) * xs:decimal(2)) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) * xs:decimal(2)) instance of xs:decimal</test>
@@ -492,7 +491,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-7">
+  <test-case name="K-NumericMultiply-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:integer(6) * xs:integer(2)) instance of xs:integer`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) * xs:integer(2)) instance of xs:integer</test>
@@ -501,7 +500,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-8">
+  <test-case name="K-NumericMultiply-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:decimal(6) * xs:decimal(2)) instance of xs:decimal`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) * xs:decimal(2)) instance of xs:decimal</test>
@@ -510,7 +509,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-9">
+  <test-case name="K-NumericMultiply-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:decimal(6) * xs:float(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) * xs:float(2)) instance of xs:float</test>
@@ -519,7 +518,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-10">
+  <test-case name="K-NumericMultiply-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:float(6) * xs:decimal(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) * xs:decimal(2)) instance of xs:float</test>
@@ -528,7 +527,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-11">
+  <test-case name="K-NumericMultiply-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:float(6) * xs:integer(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) * xs:integer(2)) instance of xs:float</test>
@@ -537,7 +536,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-12">
+  <test-case name="K-NumericMultiply-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:integer(6) * xs:float(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) * xs:float(2)) instance of xs:float</test>
@@ -546,7 +545,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-13">
+  <test-case name="K-NumericMultiply-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:float(6) * xs:float(2)) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) * xs:float(2)) instance of xs:float</test>
@@ -555,7 +554,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-14">
+  <test-case name="K-NumericMultiply-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:decimal(6) * xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:decimal(6) * xs:double(2)) instance of xs:double</test>
@@ -564,7 +563,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-15">
+  <test-case name="K-NumericMultiply-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:double(6) * xs:decimal(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) * xs:decimal(2)) instance of xs:double</test>
@@ -573,7 +572,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-16">
+  <test-case name="K-NumericMultiply-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:double(6) * xs:float(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) * xs:float(2)) instance of xs:double</test>
@@ -582,7 +581,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-17">
+  <test-case name="K-NumericMultiply-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:float(6) * xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:float(6) * xs:double(2)) instance of xs:double</test>
@@ -591,7 +590,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-18">
+  <test-case name="K-NumericMultiply-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:double(6) * xs:integer(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) * xs:integer(2)) instance of xs:double</test>
@@ -600,7 +599,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-19">
+  <test-case name="K-NumericMultiply-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:integer(6) * xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:integer(6) * xs:double(2)) instance of xs:double</test>
@@ -609,7 +608,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-20">
+  <test-case name="K-NumericMultiply-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:double(6) * xs:double(2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:double(6) * xs:double(2)) instance of xs:double</test>
@@ -618,7 +617,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-21">
+  <test-case name="K-NumericMultiply-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(xs:float("NaN") * 3) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(xs:float("NaN") * 3) eq "NaN"</test>
@@ -627,7 +626,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-22">
+  <test-case name="K-NumericMultiply-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(xs:double("NaN") * 3) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(xs:double("NaN") * 3) eq "NaN"</test>
@@ -636,7 +635,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-23">
+  <test-case name="K-NumericMultiply-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(3 * xs:float("NaN")) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(3 * xs:float("NaN")) eq "NaN"</test>
@@ -645,7 +644,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-24">
+  <test-case name="K-NumericMultiply-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(3 * xs:double("NaN")) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(3 * xs:double("NaN")) eq "NaN"</test>
@@ -654,44 +653,44 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-25">
-    <description> Invalid whitespace involving multiplication operator and '/'. </description>
+  <test-case name="K-NumericMultiply-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Invalid whitespace involving multiplication operator and &apos;/&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>/*5</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-26">
-    <description> Invalid whitespace involving multiplication operator and '/'. </description>
+  <test-case name="K-NumericMultiply-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Invalid whitespace involving multiplication operator and &apos;/&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>/ * 5</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-27">
-    <description> Invalid whitespace involving multiplication operator and '/'. </description>
+  <test-case name="K-NumericMultiply-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
+    <description> Invalid whitespace involving multiplication operator and &apos;/&apos;. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>4 + / * 5</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0003"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</result-string>
     <result>
       <error code="XPST0003"/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-28">
-    <description> Invoke the '*' operator with invalid operands. </description>
+  <test-case name="K-NumericMultiply-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
+    <description> Invoke the &apos;*&apos; operator with invalid operands. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>"3" * "3"</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-29">
-    <description> Invoke the '*' operator with invalid operands. </description>
+  <test-case name="K-NumericMultiply-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("3")</response-string>
+    <description> Invoke the &apos;*&apos; operator with invalid operands. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>1 * "3"</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
@@ -699,7 +698,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-30">
+  <test-case name="K-NumericMultiply-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(3 * xs:untypedAtomic(3)) eq 9`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(3 * xs:untypedAtomic(3)) eq 9</test>
@@ -708,7 +707,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-31">
+  <test-case name="K-NumericMultiply-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `(xs:untypedAtomic(3) * 3) eq 9`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>(xs:untypedAtomic(3) * 3) eq 9</test>
@@ -717,7 +716,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-32">
+  <test-case name="K-NumericMultiply-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Operand(s) which are the empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(() * ())</test>
@@ -730,7 +729,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-NumericMultiply-33">
+  <test-case name="K-NumericMultiply-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Operand(s) which are the empty sequence. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(() * 1)</test>
@@ -743,7 +742,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="op-numeric-multiply-1">
+  <test-case name="op-numeric-multiply-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Check dynamic type of numeric multiply on arguments of union of numeric types and untypedAtomic. </description>
     <created by="Oliver Hallam" on="2010-03-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -753,295 +752,295 @@
       <assert-string-value>integer decimal float double double decimal decimal float double double float float float double double double double double double double double double double double double</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-001">
+  <test-case name="cbcl-numeric-multiply-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> test multiplication by xs:double NaN </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:double) as xs:double { $arg * $arg }; 
-      	xs:double('NaN') * local:square(7)</test>
-    <result-string>xs:string("NaN")</result-string>
+      	xs:double(&apos;NaN&apos;) * local:square(7)</test>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-002">
+  <test-case name="cbcl-numeric-multiply-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> test multiplication by xs:double NaN </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:double) as xs:double { $arg * $arg }; 
-      	local:square(7) * xs:double('NaN')</test>
-    <result-string>xs:string("NaN")</result-string>
+      	local:square(7) * xs:double(&apos;NaN&apos;)</test>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-003">
+  <test-case name="cbcl-numeric-multiply-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("49")</response-string>
     <description> test multiplication by xs:double 1 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:double) as xs:double { $arg * $arg }; 
       	local:square(7) * 1e0</test>
-    <result-string>xs:string("49")</result-string>
+    <result-string>xs:double("49")</result-string>
     <result>
       <assert-string-value>49</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-004">
+  <test-case name="cbcl-numeric-multiply-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("49")</response-string>
     <description> test multiplication by xs:double 1 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:double) as xs:double { $arg * $arg }; 
       	1e0 * local:square(7)</test>
-    <result-string>xs:string("49")</result-string>
+    <result-string>xs:double("49")</result-string>
     <result>
       <assert-string-value>49</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-005">
+  <test-case name="cbcl-numeric-multiply-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-49")</response-string>
     <description> test multiplication by xs:double -1 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:double) as xs:double { $arg * $arg }; 
       	local:square(7) * -1e0</test>
-    <result-string>xs:string("-49")</result-string>
+    <result-string>xs:double("-49")</result-string>
     <result>
       <assert-string-value>-49</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-006">
+  <test-case name="cbcl-numeric-multiply-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-49")</response-string>
     <description> test multiplication by xs:double -1 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:double) as xs:double { $arg * $arg }; 
       	-1e0 * local:square(7)</test>
-    <result-string>xs:string("-49")</result-string>
+    <result-string>xs:double("-49")</result-string>
     <result>
       <assert-string-value>-49</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-007">
+  <test-case name="cbcl-numeric-multiply-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> test multiplication by xs:float NaN </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:float) as xs:float { $arg * $arg }; 
-      	xs:float('NaN') * local:square(7)</test>
-    <result-string>xs:string("NaN")</result-string>
+      	xs:float(&apos;NaN&apos;) * local:square(7)</test>
+    <result-string>xs:float("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-008">
+  <test-case name="cbcl-numeric-multiply-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> test multiplication by xs:float NaN </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:float) as xs:float { $arg * $arg }; 
-      	local:square(7) * xs:float('NaN')</test>
-    <result-string>xs:string("NaN")</result-string>
+      	local:square(7) * xs:float(&apos;NaN&apos;)</test>
+    <result-string>xs:float("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-009">
+  <test-case name="cbcl-numeric-multiply-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("49")</response-string>
     <description> test multiplication by xs:float 1 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:float) as xs:float { $arg * $arg }; 
       	local:square(7) * xs:float(1)</test>
-    <result-string>xs:string("49")</result-string>
+    <result-string>xs:float("49")</result-string>
     <result>
       <assert-string-value>49</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-010">
+  <test-case name="cbcl-numeric-multiply-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("49")</response-string>
     <description> test multiplication by xs:float 1 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:float) as xs:float { $arg * $arg }; 
       	xs:float(1) * local:square(7)</test>
-    <result-string>xs:string("49")</result-string>
+    <result-string>xs:float("49")</result-string>
     <result>
       <assert-string-value>49</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-011">
+  <test-case name="cbcl-numeric-multiply-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-49")</response-string>
     <description> test multiplication by xs:float -1 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:float) as xs:float { $arg * $arg }; 
       	local:square(7) * xs:float(-1)</test>
-    <result-string>xs:string("-49")</result-string>
+    <result-string>xs:float("-49")</result-string>
     <result>
       <assert-string-value>-49</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-012">
+  <test-case name="cbcl-numeric-multiply-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-49")</response-string>
     <description> test multiplication by xs:float -1 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:float) as xs:float { $arg * $arg }; 
       	xs:float(-1) * local:square(7)</test>
-    <result-string>xs:string("-49")</result-string>
+    <result-string>xs:float("-49")</result-string>
     <result>
       <assert-string-value>-49</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-013">
+  <test-case name="cbcl-numeric-multiply-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("0")</response-string>
     <description> test multiplication by xs:decimal 0 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:decimal) as xs:decimal { $arg * $arg }; 
       	local:square(2.0) * 0.0</test>
-    <result-string>xs:string("0")</result-string>
+    <result-string>xs:decimal("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-014">
+  <test-case name="cbcl-numeric-multiply-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("0")</response-string>
     <description> test multiplication by xs:decimal 0 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:decimal) as xs:decimal { $arg * $arg }; 
       	0.0 * local:square(7.0)</test>
-    <result-string>xs:string("0")</result-string>
+    <result-string>xs:decimal("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-015">
+  <test-case name="cbcl-numeric-multiply-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("49")</response-string>
     <description> test multiplication by xs:decimal 1 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:decimal) as xs:decimal { $arg * $arg }; 
       	local:square(7.0) * 1.0</test>
-    <result-string>xs:string("49")</result-string>
+    <result-string>xs:decimal("49")</result-string>
     <result>
       <assert-string-value>49</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-016">
+  <test-case name="cbcl-numeric-multiply-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("49")</response-string>
     <description> test multiplication by xs:decimal 1 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:decimal) as xs:decimal { $arg * $arg }; 
       	1.0 * local:square(7.0)</test>
-    <result-string>xs:string("49")</result-string>
+    <result-string>xs:decimal("49")</result-string>
     <result>
       <assert-string-value>49</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-017">
+  <test-case name="cbcl-numeric-multiply-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-49")</response-string>
     <description> test multiplication by xs:decimal -1 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:decimal) as xs:decimal { $arg * $arg }; 
       	local:square(7.0) * -1.0</test>
-    <result-string>xs:string("-49")</result-string>
+    <result-string>xs:decimal("-49")</result-string>
     <result>
       <assert-string-value>-49</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-018">
+  <test-case name="cbcl-numeric-multiply-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-49")</response-string>
     <description> test multiplication by xs:decimal -1 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:decimal) as xs:decimal { $arg * $arg }; 
       	-1.0 * local:square(7.0)</test>
-    <result-string>xs:string("-49")</result-string>
+    <result-string>xs:decimal("-49")</result-string>
     <result>
       <assert-string-value>-49</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-019">
+  <test-case name="cbcl-numeric-multiply-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> test multiplication by xs:integer 0 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:integer) as xs:integer { $arg * $arg }; 
       	local:square(2) * 0</test>
-    <result-string>xs:string("0")</result-string>
+    <result-string>xs:integer("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-020">
+  <test-case name="cbcl-numeric-multiply-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> test multiplication by xs:integer 0 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:integer) as xs:integer { $arg * $arg }; 
       	0 * local:square(2)</test>
-    <result-string>xs:string("0")</result-string>
+    <result-string>xs:integer("0")</result-string>
     <result>
       <assert-string-value>0</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-021">
+  <test-case name="cbcl-numeric-multiply-021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("49")</response-string>
     <description> test multiplication by xs:integer 1 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:integer) as xs:integer { $arg * $arg }; 
       	local:square(7) * 1</test>
-    <result-string>xs:string("49")</result-string>
+    <result-string>xs:integer("49")</result-string>
     <result>
       <assert-string-value>49</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-022">
+  <test-case name="cbcl-numeric-multiply-022"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("49")</response-string>
     <description> test multiplication by xs:integer 1 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:integer) as xs:integer { $arg * $arg }; 
       	1 * local:square(7)</test>
-    <result-string>xs:string("49")</result-string>
+    <result-string>xs:integer("49")</result-string>
     <result>
       <assert-string-value>49</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-023">
+  <test-case name="cbcl-numeric-multiply-023"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-49")</response-string>
     <description> test multiplication by xs:integer -1 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:integer) as xs:integer { $arg * $arg }; 
       	local:square(7) * -1</test>
-    <result-string>xs:string("-49")</result-string>
+    <result-string>xs:integer("-49")</result-string>
     <result>
       <assert-string-value>-49</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-024">
+  <test-case name="cbcl-numeric-multiply-024"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-49")</response-string>
     <description> test multiplication by xs:integer -1 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       	declare function local:square($arg as xs:integer) as xs:integer { $arg * $arg }; 
       	-1 * local:square(7)</test>
-    <result-string>xs:string("-49")</result-string>
+    <result-string>xs:integer("-49")</result-string>
     <result>
       <assert-string-value>-49</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-025">
+  <test-case name="cbcl-numeric-multiply-025"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test multiplication of large xs:decimal </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1057,7 +1056,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-026">
+  <test-case name="cbcl-numeric-multiply-026"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> test multiplication of large xs:integer </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1073,7 +1072,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-numeric-multiply-027">
+  <test-case name="cbcl-numeric-multiply-027"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> ensure that multiplying xs:integers returns an xs:integer </description>
     <created by="Oliver Hallam" on="2008-05-29"/>
     <dependency type="spec" value="XQ10+"/>

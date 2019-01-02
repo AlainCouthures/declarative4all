@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="misc-AnnexE" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the AnnexE operator</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-AnnexE" type="spec"/>
   <link document="FuncOps" idref="if-empty" section-number="E.1.1" type="spec"/>
   <dependency type="spec" value="XQ10+"/>
-  <test-case name="annex-1">
+  <test-case name="annex-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> User defined function # 1 from annex E of F O Specs. </description>
     <created by="XML Query Working Group" on="2006-03-12"/>
     <dependency type="spec" value="XQ10+"/>
@@ -16,7 +15,7 @@
       <assert-string-value>some data</assert-string-value>
     </result>
   </test-case>
-  <test-case name="annex-2">
+  <test-case name="annex-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> User defined function # 2 from annex E of F O Specs. </description>
     <created by="XML Query Working Group" on="2006-03-12"/>
     <dependency type="spec" value="XQ10+"/>
@@ -28,16 +27,16 @@
       <assert-string-value>some data</assert-string-value>
     </result>
   </test-case>
-  <test-case name="annex-3">
+  <test-case name="annex-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"))</response-string>
     <description> User defined function # 3 from annex E of F O Specs. </description>
     <created by="XML Query Working Group" on="2006-03-12"/>
     <test>declare namespace eg = "http://example.org"; declare function eg:value-union ( $arg1 as xs:anyAtomicType*, $arg2 as xs:anyAtomicType*) as xs:anyAtomicType* { fn:distinct-values(($arg1, $arg2)) }; let $arg1 as xs:anyAtomicType := 1 let $arg2 as xs:anyAtomicType := 2 return eg:value-union($arg1,$arg2)</test>
-    <result-string>xs:string("1 2")</result-string>
+    <result-string>(xs:integer("1"),xs:integer("2"))</result-string>
     <result>
       <assert-string-value>1 2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="annex-4">
+  <test-case name="annex-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> User defined function # 4 from annex E of F O Specs. </description>
     <created by="XML Query Working Group" on="2006-03-12"/>
     <test>declare namespace eg = "http://example.org"; declare function eg:value-intersect ( $arg1 as xs:anyAtomicType*, $arg2 as xs:anyAtomicType* ) as xs:anyAtomicType* { fn:distinct-values($arg1[.=$arg2]) }; let $arg1 as xs:anyAtomicType := 1 let $arg2 as xs:anyAtomicType := 1 return eg:value-intersect($arg1,$arg2)</test>
@@ -50,7 +49,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="annex-5">
+  <test-case name="annex-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> User defined function # 5 from annex E of F O Specs. </description>
     <created by="XML Query Working Group" on="2006-03-12"/>
     <test>declare namespace eg = "http://example.org"; declare function eg:value-except ( $arg1 as xs:anyAtomicType*, $arg2 as xs:anyAtomicType*) as xs:anyAtomicType* { fn:distinct-values($arg1[not(.=$arg2)]) }; let $arg1 as xs:anyAtomicType := 1 let $arg2 as xs:anyAtomicType := 2 return eg:value-except($arg1,$arg2)</test>
@@ -63,7 +62,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="annex-6">
+  <test-case name="annex-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> User defined function # 6 from annex E of F O Specs. </description>
     <created by="XML Query Working Group" on="2006-03-12"/>
     <dependency type="spec" value="XQ10+"/>
@@ -75,7 +74,7 @@
       <assert-eq>2</assert-eq>
     </result>
   </test-case>
-  <test-case name="annex-7">
+  <test-case name="annex-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("A StringA StringA String")</response-string>
     <description> User defined function # 7 from annex E of F O Specs. </description>
     <created by="XML Query Working Group" on="2006-03-12"/>
     <test>declare namespace eg = "http://example.org"; declare function eg:string-pad ( $padString as xs:string?, $padCount as xs:integer) as xs:string { fn:string-join((for $i in 1 to $padCount return $padString), "") }; let $arg1 as xs:string := "A String" let $arg2 as xs:integer := 3 return eg:string-pad($arg1,$arg2)</test>
@@ -84,7 +83,7 @@
       <assert-string-value>A StringA StringA String</assert-string-value>
     </result>
   </test-case>
-  <test-case name="annex-8">
+  <test-case name="annex-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> User defined function # 8 from annex E of F O Specs. </description>
     <created by="XML Query Working Group" on="2006-03-12"/>
     <dependency type="spec" value="XQ10+"/>

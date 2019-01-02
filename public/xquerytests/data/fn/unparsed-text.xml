@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set covers="fn-unparsed-text" name="fn-unparsed-text" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the unparsed-text() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-unparsed-text" type="spec"/>
@@ -47,7 +46,7 @@
     <resource encoding="utf-16" file="unparsed-text/invalid-xml.xml" media-type="text/xml" uri="http://www.w3.org/fots/unparsed-text/invalid-xml.xml">
       <description>Invalid XML.</description>
       <created by="Tim Mills" on="2012-01-05"/>
-      <modified by="O'Neil Delpratt" change="Added the encoding attribute" on="2012-10-16"/>
+      <modified by="O&apos;Neil Delpratt" change="Added the encoding attribute" on="2012-10-16"/>
     </resource>
     <resource file="unparsed-text/unknown-encoding.txt" uri="http://www.w3.org/fots/unparsed-text/unknown-encoding.txt">
       <description>A file with an unknown encoding.</description>
@@ -84,25 +83,25 @@
       <created by="Tim Mills" on="2012-01-05"/>
     </resource>
   </environment>
-  <test-case name="fn-unparsed-text-001">
+  <test-case name="fn-unparsed-text-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Attempts to evaluate the "unparsed-text" function with no arguments.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-002">
+  <test-case name="fn-unparsed-text-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Attempts to reference the "unparsed-text" function with arity zero.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text#0</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-003">
+  <test-case name="fn-unparsed-text-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Attempts to reference the "unparsed-text" function with arity one.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <modified by="Tim Mills" change="Context-dependent functions can now be referenced without error." on="2012-05-01"/>
@@ -113,7 +112,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-004">
+  <test-case name="fn-unparsed-text-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Attempts to reference the "unparsed-text" function with arity two.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <modified by="Tim Mills" change="Context-dependent functions can now be referenced without error." on="2012-05-01"/>
@@ -124,25 +123,25 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-005">
+  <test-case name="fn-unparsed-text-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Attempts to evaluate the "unparsed-text" function with three arguments.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text(static-base-uri(), "utf-8", "")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-006">
+  <test-case name="fn-unparsed-text-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Attempts to reference the "unparsed-text" function with arity three.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text#3</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-007">
+  <test-case name="fn-unparsed-text-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Tests the type checking of the $href argument.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="feature" value="staticTyping"/>
@@ -156,13 +155,13 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-008">
+  <test-case name="fn-unparsed-text-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002")))</response-string>
     <description>Tests the type checking of the $href argument.</description>
     <created by="Tim Mills" on="2011-11-28"/>
-    <test>( fn:unparsed-text( if (current-date() eq xs:date('1900-01-01'))
+    <test>( fn:unparsed-text( if (current-date() eq xs:date(&apos;1900-01-01&apos;))
                                 then "http://www.w3.org/fots/unparsed-text/text-plain-utf-8.txt"
                                 else 1 ),
-              fn:unparsed-text( if (current-date() eq xs:date('1900-01-01'))
+              fn:unparsed-text( if (current-date() eq xs:date(&apos;1900-01-01&apos;))
                                 then 1
                                 else "http://www.w3.org/fots/unparsed-text/text-plain-utf-8.txt") )</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
@@ -170,7 +169,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-009">
+  <test-case name="fn-unparsed-text-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Tests the type checking of the $encoding argument.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text"/>
@@ -186,15 +185,15 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-010">
+  <test-case name="fn-unparsed-text-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017")))</response-string>
     <description>Tests the type checking of the $encoding argument.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>( fn:unparsed-text( "http://www.w3.org/fots/unparsed-text/text-plain-utf-8.txt",
-                                if (current-date() eq xs:date('1900-01-01'))
+                                if (current-date() eq xs:date(&apos;1900-01-01&apos;))
                                 then "utf-8"
                                 else 1 ),
               fn:unparsed-text( "http://www.w3.org/fots/unparsed-text/text-plain-utf-8.txt",
-                                if (current-date() eq xs:date('1900-01-01'))
+                                if (current-date() eq xs:date(&apos;1900-01-01&apos;))
                                 then 1
                                 else "utf-8") )</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
@@ -202,7 +201,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-011">
+  <test-case name="fn-unparsed-text-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Tests the type checking of the $encoding argument.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <dependency type="feature" value="staticTyping"/>
@@ -217,15 +216,15 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-012">
+  <test-case name="fn-unparsed-text-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017")))</response-string>
     <description>Tests the type checking of the $encoding argument.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>( fn:unparsed-text( "http://www.w3.org/fots/unparsed-text/text-plain-utf-8.txt",
-                                if (current-date() eq xs:date('1900-01-01'))
+                                if (current-date() eq xs:date(&apos;1900-01-01&apos;))
                                 then "utf-8"
                                 else () ),
               fn:unparsed-text( "http://www.w3.org/fots/unparsed-text/text-plain-utf-8.txt",
-                                if (current-date() eq xs:date('1900-01-01'))
+                                if (current-date() eq xs:date(&apos;1900-01-01&apos;))
                                 then ()
                                 else "utf-8") )</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
@@ -233,7 +232,7 @@
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-013">
+  <test-case name="fn-unparsed-text-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href contains a fragment identifier.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text("http://www.example.org/#fragment")</test>
@@ -242,7 +241,7 @@
       <error code="FOUT1170"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-014">
+  <test-case name="fn-unparsed-text-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href contains a fragment identifier.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text("http://www.example.org/#fragment", "utf-8")</test>
@@ -251,7 +250,7 @@
       <error code="FOUT1170"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-015">
+  <test-case name="fn-unparsed-text-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href is an invalid xs:anyURI.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text("http://www.example.org/%gg")</test>
@@ -260,7 +259,7 @@
       <error code="FOUT1170"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-016">
+  <test-case name="fn-unparsed-text-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href is an invalid xs:anyURI.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text("http://www.example.org/%gg", "utf-8")</test>
@@ -269,7 +268,7 @@
       <error code="FOUT1170"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-017">
+  <test-case name="fn-unparsed-text-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href is an invalid xs:anyURI.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text(":/")</test>
@@ -278,7 +277,7 @@
       <error code="FOUT1170"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-018">
+  <test-case name="fn-unparsed-text-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href is an invalid xs:anyURI.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text(":/", "utf-8")</test>
@@ -287,7 +286,7 @@
       <error code="FOUT1170"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-019">
+  <test-case name="fn-unparsed-text-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href refers to a non-existent file.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text( "http://www.w3.org/fots/unparsed-text/does-not-exist.txt")</test>
@@ -296,7 +295,7 @@
       <error code="FOUT1170"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-020">
+  <test-case name="fn-unparsed-text-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href refers to a non-existent file.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text( "http://www.w3.org/fots/unparsed-text/does-not-exist.txt", "utf-8")</test>
@@ -305,7 +304,7 @@
       <error code="FOUT1170"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-021">
+  <test-case name="fn-unparsed-text-021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href uses a (probably) unsupported URI scheme.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text("surely-nobody-supports-this:/path.txt")</test>
@@ -314,7 +313,7 @@
       <error code="FOUT1170"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-022">
+  <test-case name="fn-unparsed-text-022"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href uses a (probably) unsupported URI scheme.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <test>fn:unparsed-text("surely-nobody-supports-this:/path.txt", "utf-8")</test>
@@ -323,7 +322,7 @@
       <error code="FOUT1170"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-023">
+  <test-case name="fn-unparsed-text-023"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href is a relative URI, static base URI undefined.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment>
@@ -335,7 +334,7 @@
       <error code="XPST0001"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-024">
+  <test-case name="fn-unparsed-text-024"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href is a relative URI, static base URI undefined.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment>
@@ -347,7 +346,7 @@
       <error code="XPST0001"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-025">
+  <test-case name="fn-unparsed-text-025"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href is a relative URI, static base is defined.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment>
@@ -359,7 +358,7 @@
       <error code="FOUT1170"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-026">
+  <test-case name="fn-unparsed-text-026"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href is a relative URI, static base is defined.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment>
@@ -371,7 +370,7 @@
       <error code="FOUT1170"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-027">
+  <test-case name="fn-unparsed-text-027"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href is a relative URI, static base is defined.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-with-base-uri"/>
@@ -381,7 +380,7 @@
       <assert-string-value>helloworld</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-028">
+  <test-case name="fn-unparsed-text-028"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href is a relative URI, static base is defined.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-with-base-uri"/>
@@ -391,7 +390,7 @@
       <assert-string-value>helloworld</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-029">
+  <test-case name="fn-unparsed-text-029"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href is a Windows file path.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-with-base-uri"/>
@@ -401,7 +400,7 @@
       <error code="FOUT1170"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-030">
+  <test-case name="fn-unparsed-text-030"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href is a Windows file path.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-with-base-uri"/>
@@ -411,7 +410,7 @@
       <error code="FOUT1170"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-031">
+  <test-case name="fn-unparsed-text-031"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">document {&amp;lt;?xml-stylesheet href=&amp;quot;xsl/xsltforms.xsl&amp;quot; type=&amp;quot;text/xsl&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;?xsltforms-options domengine=&amp;quot;name=Fleur;url=js/fleur.js;uri=http://www.agencexml.com/Fleur;version=1.0&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;html xmlns=&amp;quot;http://www.w3.org/1999/xhtml&amp;quot; xmlns:xf=&amp;quot;http://www.w3.org/2002/xforms&amp;quot; xmlns:ev=&amp;quot;http://www.w3.org/2001/xml-events&amp;quot; xmlns:qt=&amp;quot;http://www.w3.org/2010/09/qt-fots-catalog&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;lt;head&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;title&amp;gt;XQuery Test Suite&amp;lt;/title&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;style&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;table {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;word-wrap:break-word;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;width:100%;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;margin:auto;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;border-collapse: collapse;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;table-layout:fixed;&amp;#13;&amp;#10;&amp;#9;&amp;#9;}&amp;#13;&amp;#10;&amp;#9;&amp;#9;td, th {&amp;#13;&amp;#10;&amp;#9;&amp;#9;    border: 1px solid black;&amp;#13;&amp;#10;&amp;#9;&amp;#9;}&amp;#9;&amp;#9;&amp;lt;/style&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;xf:model&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:instance id=&amp;quot;selected&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;qt:test-set/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:instance&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:instance id=&amp;quot;catalog&amp;quot; src=&amp;quot;data/catalog.xml&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:instance id=&amp;quot;test-set&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;qt:test-set/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:instance&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:instance id=&amp;quot;response-string&amp;quot; xmlns=&amp;quot;http://www.w3.org/2010/09/qt-fots-catalog&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;response-string&amp;gt;In progress...&amp;lt;/response-string&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:instance&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:submission id=&amp;quot;get-test-set&amp;quot; method=&amp;quot;get&amp;quot; replace=&amp;quot;instance&amp;quot; instance=&amp;quot;test-set&amp;quot; serialization=&amp;quot;none&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:resource value=&amp;quot;concat(&amp;apos;data/&amp;apos;,.)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:action ev:event=&amp;quot;xforms-submit-done&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:load resource=&amp;quot;javascript:document.getElementById(&amp;apos;divtests&amp;apos;).scrollTop=0&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:action iterate=&amp;quot;instance(&amp;apos;test-set&amp;apos;)/qt:test-case&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:insert origin=&amp;quot;instance(&amp;apos;response-string&amp;apos;)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:load&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:resource value=&amp;quot;concat(&amp;apos;javascript:xqeval(&amp;amp;quot;&amp;apos;, @name, &amp;apos;&amp;amp;quot;,&amp;amp;quot;&amp;apos;, escapeJS(concat(&amp;apos;data/&amp;apos;, choose(instance(&amp;apos;catalog&amp;apos;)/qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file, &amp;apos;&amp;apos;, concat(substring-before(instance(&amp;apos;selected&amp;apos;), &amp;apos;/&amp;apos;) , &amp;apos;/&amp;apos;)), ../qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file | instance(&amp;apos;catalog&amp;apos;)/qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file)), &amp;apos;&amp;amp;quot;,&amp;amp;quot;&amp;apos;, escapeJS(qt:test), &amp;apos;&amp;amp;quot;)&amp;apos;)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:load&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:action&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:action&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:submission&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:submission id=&amp;quot;put-test-set&amp;quot; method=&amp;quot;put&amp;quot; ref=&amp;quot;instance(&amp;apos;test-set&amp;apos;)&amp;quot; replace=&amp;quot;none&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:resource value=&amp;quot;concat(&amp;apos;data/&amp;apos;,.)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:submission&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:setvalue ev:event=&amp;quot;evaluate-response&amp;quot; ref=&amp;quot;instance(&amp;apos;test-set&amp;apos;)/qt:test-case[@name = event(&amp;apos;testname&amp;apos;)]/qt:response-string&amp;quot; value=&amp;quot;event(&amp;apos;result&amp;apos;)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;/xf:model&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;var parser = new Fleur.DOMParser();&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;Fleur.noErrorMessage = true;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;function escapeJS(text) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;if (!text) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;return &amp;quot;&amp;quot;;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;}&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;if (typeof(text) === &amp;quot;string&amp;quot;) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;text = text.replace(/\\/gm, &amp;quot;\\\\&amp;quot;);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;text = text.replace(/\t/gm, &amp;quot;\\t&amp;quot;);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;text = text.replace(/\n/gm, &amp;quot;\\n&amp;quot;);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;text = text.replace(/\r/gm, &amp;quot;\\r&amp;quot;);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;text = text.replace(/\&amp;quot;/gm, &amp;quot;\\\&amp;quot;&amp;quot;);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;}&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;return text;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;}&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;function xqeval(testname, envfile, xexpr) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;    var cb = function(buf) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;var xmldoc = parser.parseFromString(buf, &amp;quot;application/xml&amp;quot;);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;try {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;xmldoc.evaluate(xexpr).then(&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;function(res) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;XsltForms_xmlevents.dispatch(XsltForms_globals.defaultModel, &amp;quot;evaluate-response&amp;quot;, null, null, null, null,&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;{&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;testname: testname,&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;result: res.toXQuery()&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;});&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;},&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;function(err) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;XsltForms_xmlevents.dispatch(XsltForms_globals.defaultModel, &amp;quot;evaluate-response&amp;quot;, null, null, null, null,&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;{&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;testname: testname,&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;result: err.toXQuery()&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;});&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;}&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;} catch(e) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;XsltForms_xmlevents.dispatch(XsltForms_globals.defaultModel, &amp;quot;evaluate-response&amp;quot;, null, null, null, null,&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;{&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;testname: testname,&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;result: &amp;quot;Exception!\n&amp;quot; + e.stack&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;});&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;}&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;};&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;if (!envfile.endsWith(&amp;quot;/&amp;quot;)) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;var getp = new Promise(function(resolve, reject) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;var req = new XMLHttpRequest();&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;req.open(&amp;apos;GET&amp;apos;, envfile, true);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;req.onload = function() {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;if (req.status === 200) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;resolve(req.responseText);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;} else {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;reject(&amp;quot;Not loaded!&amp;quot;);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;      &amp;#9;}&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;};&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;req.send(null);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;});&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;getp.then(&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;function(xmlBuf) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;cb(xmlBuf);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;},&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;function(s) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;XsltForms_xmlevents.dispatch(XsltForms_globals.defaultModel, &amp;quot;evaluate-response&amp;quot;, null, null, null, null,&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;{&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;testname: testname,&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;result: s&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;});&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;}&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;} else {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;cb(&amp;quot;\x3cdummy/\x3e&amp;quot;);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;}&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;}&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;/script&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;lt;/head&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;lt;body&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;xf:select1 ref=&amp;quot;.&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:label&amp;gt;Test Set: &amp;lt;/xf:label&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:itemset ref=&amp;quot;instance(&amp;apos;catalog&amp;apos;)/qt:test-set&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:label ref=&amp;quot;@name&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:value ref=&amp;quot;@file&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:itemset&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:send submission=&amp;quot;get-test-set&amp;quot; ev:event=&amp;quot;xforms-value-changed&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;/xf:select1&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;xf:trigger&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:label&amp;gt;Save&amp;lt;/xf:label&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:send submission=&amp;quot;put-test-set&amp;quot; ev:event=&amp;quot;DOMActivate&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;/xf:trigger&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;xf:output value=&amp;quot;choose(. = &amp;apos;&amp;apos;, &amp;apos;&amp;apos;, concat(&amp;apos;&amp;amp;#160;&amp;amp;#160;&amp;amp;#160;&amp;apos;,count(instance(&amp;apos;test-set&amp;apos;)/qt:test-case[qt:response-string = qt:result-string]), &amp;apos;/&amp;apos;, count(instance(&amp;apos;test-set&amp;apos;)/qt:test-case)))&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;div id=&amp;quot;divtests&amp;quot; style=&amp;quot;height:630px; overflow-y: scroll;&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;table&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;tbody&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:repeat id=&amp;quot;tests&amp;quot; ref=&amp;quot;instance(&amp;apos;test-set&amp;apos;)/qt:test-case&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;tr&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;td&amp;gt;&amp;lt;xf:output value=&amp;quot;qt:test&amp;quot;/&amp;gt;&amp;lt;/td&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;td width=&amp;quot;3.3%&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:trigger&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:label&amp;gt;Run&amp;lt;/xf:label&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:load ev:event=&amp;quot;DOMActivate&amp;quot; show=&amp;quot;new&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:resource value=&amp;quot;concat(&amp;apos;runtest.htm?test=&amp;apos;, encodeURIComponent(qt:test), &amp;apos;&amp;amp;amp;resultstring=&amp;apos;, encodeURIComponent(qt:result-string), &amp;apos;&amp;amp;amp;environment=&amp;apos;, encodeURIComponent(concat(&amp;apos;data/&amp;apos;, choose(instance(&amp;apos;catalog&amp;apos;)/qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file, &amp;apos;&amp;apos;, concat(substring-before(instance(&amp;apos;selected&amp;apos;), &amp;apos;/&amp;apos;) , &amp;apos;/&amp;apos;)), ../qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file | instance(&amp;apos;catalog&amp;apos;)/qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file)))&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:load&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:trigger&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/td&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;td&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;div style=&amp;quot;color:{choose(qt:response-string = qt:result-string, &amp;apos;green&amp;apos;, &amp;apos;red&amp;apos;)}&amp;quot;&amp;gt;&amp;lt;xf:output value=&amp;quot;qt:response-string&amp;quot;/&amp;gt;&amp;lt;/div&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;div&amp;gt;&amp;lt;xf:output ref=&amp;quot;qt:result-string[. != ../qt:response-string]&amp;quot;/&amp;gt;&amp;lt;/div&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/td&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;td width=&amp;quot;3.1%&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:trigger&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:label&amp;gt;OK&amp;lt;/xf:label&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:action ev:event=&amp;quot;DOMActivate&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:setvalue ref=&amp;quot;qt:result-string&amp;quot; value=&amp;quot;../qt:response-string&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:action&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:trigger&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/td&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/tr&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:repeat&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/tbody&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;/table&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;/div&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;lt;/body&amp;gt;&amp;#13;&amp;#10;&amp;lt;/html&amp;gt;}</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href is an empty string.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-with-base-uri-2"/>
@@ -421,7 +420,7 @@
       <assert-string-value>helloworld</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-032">
+  <test-case name="fn-unparsed-text-032"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href is an empty string.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text-with-base-uri-2"/>
@@ -431,7 +430,7 @@
       <assert-string-value>helloworld</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-033">
+  <test-case name="fn-unparsed-text-033"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">document {&amp;lt;?xml-stylesheet href=&amp;quot;xsl/xsltforms.xsl&amp;quot; type=&amp;quot;text/xsl&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;?xsltforms-options domengine=&amp;quot;name=Fleur;url=js/fleur.js;uri=http://www.agencexml.com/Fleur;version=1.0&amp;quot;?&amp;gt;&amp;#13;&amp;#10;&amp;lt;html xmlns=&amp;quot;http://www.w3.org/1999/xhtml&amp;quot; xmlns:xf=&amp;quot;http://www.w3.org/2002/xforms&amp;quot; xmlns:ev=&amp;quot;http://www.w3.org/2001/xml-events&amp;quot; xmlns:qt=&amp;quot;http://www.w3.org/2010/09/qt-fots-catalog&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;lt;head&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;title&amp;gt;XQuery Test Suite&amp;lt;/title&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;style&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;table {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;word-wrap:break-word;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;width:100%;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;margin:auto;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;border-collapse: collapse;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;table-layout:fixed;&amp;#13;&amp;#10;&amp;#9;&amp;#9;}&amp;#13;&amp;#10;&amp;#9;&amp;#9;td, th {&amp;#13;&amp;#10;&amp;#9;&amp;#9;    border: 1px solid black;&amp;#13;&amp;#10;&amp;#9;&amp;#9;}&amp;#9;&amp;#9;&amp;lt;/style&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;xf:model&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:instance id=&amp;quot;selected&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;qt:test-set/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:instance&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:instance id=&amp;quot;catalog&amp;quot; src=&amp;quot;data/catalog.xml&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:instance id=&amp;quot;test-set&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;qt:test-set/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:instance&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:instance id=&amp;quot;response-string&amp;quot; xmlns=&amp;quot;http://www.w3.org/2010/09/qt-fots-catalog&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;response-string&amp;gt;In progress...&amp;lt;/response-string&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:instance&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:submission id=&amp;quot;get-test-set&amp;quot; method=&amp;quot;get&amp;quot; replace=&amp;quot;instance&amp;quot; instance=&amp;quot;test-set&amp;quot; serialization=&amp;quot;none&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:resource value=&amp;quot;concat(&amp;apos;data/&amp;apos;,.)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:action ev:event=&amp;quot;xforms-submit-done&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:load resource=&amp;quot;javascript:document.getElementById(&amp;apos;divtests&amp;apos;).scrollTop=0&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:action iterate=&amp;quot;instance(&amp;apos;test-set&amp;apos;)/qt:test-case&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:insert origin=&amp;quot;instance(&amp;apos;response-string&amp;apos;)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:load&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:resource value=&amp;quot;concat(&amp;apos;javascript:xqeval(&amp;amp;quot;&amp;apos;, @name, &amp;apos;&amp;amp;quot;,&amp;amp;quot;&amp;apos;, escapeJS(concat(&amp;apos;data/&amp;apos;, choose(instance(&amp;apos;catalog&amp;apos;)/qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file, &amp;apos;&amp;apos;, concat(substring-before(instance(&amp;apos;selected&amp;apos;), &amp;apos;/&amp;apos;) , &amp;apos;/&amp;apos;)), ../qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file | instance(&amp;apos;catalog&amp;apos;)/qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file)), &amp;apos;&amp;amp;quot;,&amp;amp;quot;&amp;apos;, escapeJS(qt:test), &amp;apos;&amp;amp;quot;)&amp;apos;)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:load&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:action&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:action&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:submission&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:submission id=&amp;quot;put-test-set&amp;quot; method=&amp;quot;put&amp;quot; ref=&amp;quot;instance(&amp;apos;test-set&amp;apos;)&amp;quot; replace=&amp;quot;none&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:resource value=&amp;quot;concat(&amp;apos;data/&amp;apos;,.)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:submission&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:setvalue ev:event=&amp;quot;evaluate-response&amp;quot; ref=&amp;quot;instance(&amp;apos;test-set&amp;apos;)/qt:test-case[@name = event(&amp;apos;testname&amp;apos;)]/qt:response-string&amp;quot; value=&amp;quot;event(&amp;apos;result&amp;apos;)&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;/xf:model&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;var parser = new Fleur.DOMParser();&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;Fleur.noErrorMessage = true;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;function escapeJS(text) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;if (!text) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;return &amp;quot;&amp;quot;;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;}&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;if (typeof(text) === &amp;quot;string&amp;quot;) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;text = text.replace(/\\/gm, &amp;quot;\\\\&amp;quot;);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;text = text.replace(/\t/gm, &amp;quot;\\t&amp;quot;);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;text = text.replace(/\n/gm, &amp;quot;\\n&amp;quot;);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;text = text.replace(/\r/gm, &amp;quot;\\r&amp;quot;);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;text = text.replace(/\&amp;quot;/gm, &amp;quot;\\\&amp;quot;&amp;quot;);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;}&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;return text;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;}&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;function xqeval(testname, envfile, xexpr) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;    var cb = function(buf) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;var xmldoc = parser.parseFromString(buf, &amp;quot;application/xml&amp;quot;);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;try {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;xmldoc.evaluate(xexpr).then(&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;function(res) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;XsltForms_xmlevents.dispatch(XsltForms_globals.defaultModel, &amp;quot;evaluate-response&amp;quot;, null, null, null, null,&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;{&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;testname: testname,&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;result: res.toXQuery()&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;});&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;},&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;function(err) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;XsltForms_xmlevents.dispatch(XsltForms_globals.defaultModel, &amp;quot;evaluate-response&amp;quot;, null, null, null, null,&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;{&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;testname: testname,&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;result: err.toXQuery()&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;});&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;}&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;} catch(e) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;XsltForms_xmlevents.dispatch(XsltForms_globals.defaultModel, &amp;quot;evaluate-response&amp;quot;, null, null, null, null,&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;{&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;testname: testname,&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;result: &amp;quot;Exception!\n&amp;quot; + e.stack&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;});&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;}&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;};&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;if (!envfile.endsWith(&amp;quot;/&amp;quot;)) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;var getp = new Promise(function(resolve, reject) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;var req = new XMLHttpRequest();&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;req.open(&amp;apos;GET&amp;apos;, envfile, true);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;req.onload = function() {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;if (req.status === 200) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;resolve(req.responseText);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;} else {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;reject(&amp;quot;Not loaded!&amp;quot;);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;      &amp;#9;}&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;};&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;req.send(null);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;});&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;getp.then(&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;function(xmlBuf) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;cb(xmlBuf);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;},&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;function(s) {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;XsltForms_xmlevents.dispatch(XsltForms_globals.defaultModel, &amp;quot;evaluate-response&amp;quot;, null, null, null, null,&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;{&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;testname: testname,&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;result: s&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;});&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;}&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;} else {&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;cb(&amp;quot;\x3cdummy/\x3e&amp;quot;);&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;}&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;}&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;/script&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;lt;/head&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;lt;body&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;xf:select1 ref=&amp;quot;.&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:label&amp;gt;Test Set: &amp;lt;/xf:label&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:itemset ref=&amp;quot;instance(&amp;apos;catalog&amp;apos;)/qt:test-set&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:label ref=&amp;quot;@name&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:value ref=&amp;quot;@file&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:itemset&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:send submission=&amp;quot;get-test-set&amp;quot; ev:event=&amp;quot;xforms-value-changed&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;/xf:select1&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;xf:trigger&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:label&amp;gt;Save&amp;lt;/xf:label&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:send submission=&amp;quot;put-test-set&amp;quot; ev:event=&amp;quot;DOMActivate&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;/xf:trigger&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;xf:output value=&amp;quot;choose(. = &amp;apos;&amp;apos;, &amp;apos;&amp;apos;, concat(&amp;apos;&amp;amp;#160;&amp;amp;#160;&amp;amp;#160;&amp;apos;,count(instance(&amp;apos;test-set&amp;apos;)/qt:test-case[qt:response-string = qt:result-string]), &amp;apos;/&amp;apos;, count(instance(&amp;apos;test-set&amp;apos;)/qt:test-case)))&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;div id=&amp;quot;divtests&amp;quot; style=&amp;quot;height:630px; overflow-y: scroll;&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;table&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;tbody&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:repeat id=&amp;quot;tests&amp;quot; ref=&amp;quot;instance(&amp;apos;test-set&amp;apos;)/qt:test-case&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;tr&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;td&amp;gt;&amp;lt;xf:output value=&amp;quot;qt:test&amp;quot;/&amp;gt;&amp;lt;/td&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;td width=&amp;quot;3.3%&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:trigger&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:label&amp;gt;Run&amp;lt;/xf:label&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:load ev:event=&amp;quot;DOMActivate&amp;quot; show=&amp;quot;new&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:resource value=&amp;quot;concat(&amp;apos;runtest.htm?test=&amp;apos;, encodeURIComponent(qt:test), &amp;apos;&amp;amp;amp;resultstring=&amp;apos;, encodeURIComponent(qt:result-string), &amp;apos;&amp;amp;amp;environment=&amp;apos;, encodeURIComponent(concat(&amp;apos;data/&amp;apos;, choose(instance(&amp;apos;catalog&amp;apos;)/qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file, &amp;apos;&amp;apos;, concat(substring-before(instance(&amp;apos;selected&amp;apos;), &amp;apos;/&amp;apos;) , &amp;apos;/&amp;apos;)), ../qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file | instance(&amp;apos;catalog&amp;apos;)/qt:environment[@name = current()/qt:environment/@ref]/qt:source/@file)))&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:load&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:trigger&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/td&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;td&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;div style=&amp;quot;color:{choose(qt:response-string = qt:result-string, &amp;apos;green&amp;apos;, &amp;apos;red&amp;apos;)}&amp;quot;&amp;gt;&amp;lt;xf:output value=&amp;quot;qt:response-string&amp;quot;/&amp;gt;&amp;lt;/div&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;div&amp;gt;&amp;lt;xf:output ref=&amp;quot;qt:result-string[. != ../qt:response-string]&amp;quot;/&amp;gt;&amp;lt;/div&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/td&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;td width=&amp;quot;3.1%&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:trigger&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:label&amp;gt;OK&amp;lt;/xf:label&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:action ev:event=&amp;quot;DOMActivate&amp;quot;&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;xf:setvalue ref=&amp;quot;qt:result-string&amp;quot; value=&amp;quot;../qt:response-string&amp;quot;/&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:action&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:trigger&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/td&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/tr&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/xf:repeat&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;#9;&amp;lt;/tbody&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;/table&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;#9;&amp;lt;/div&amp;gt;&amp;#13;&amp;#10;&amp;#9;&amp;lt;/body&amp;gt;&amp;#13;&amp;#10;&amp;lt;/html&amp;gt;}</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href is an empty string.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment>
@@ -443,7 +442,7 @@
       <error code="FOUT1170"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-034">
+  <test-case name="fn-unparsed-text-034"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href is an empty string.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment>
@@ -455,7 +454,7 @@
       <error code="FOUT1170"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-035">
+  <test-case name="fn-unparsed-text-035"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description>Test the effect of a call to fn:unparsed-text which need not be evaluated.   Since implementations are allowed to dereference the sources in any case, an error is allowed.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text"/>
@@ -469,7 +468,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-036">
+  <test-case name="fn-unparsed-text-036"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $encoding is invalid.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text"/>
@@ -479,7 +478,7 @@
       <error code="FOUT1190"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-037">
+  <test-case name="fn-unparsed-text-037"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href refers to a file whose encoding cannot be determined.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <modified by="Michael Kay" change="added alternative error code as per bug 21885" on="2013-05-01"/>
@@ -494,7 +493,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-038">
+  <test-case name="fn-unparsed-text-038"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href refers to a file whose encoding is invalid for utf-8.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text"/>
@@ -504,7 +503,7 @@
       <error code="FOUT1190"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-039">
+  <test-case name="fn-unparsed-text-039"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href refers to a file which contains non-XML characters.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text"/>
@@ -514,7 +513,7 @@
       <error code="FOUT1190"/>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-040">
+  <test-case name="fn-unparsed-text-040"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href refers to a file which does not contain well-formed XML.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text"/>
@@ -524,7 +523,7 @@
       <assert-string-value>?xml version="1.0" encoding="utf-16"?texthelloworld</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-041">
+  <test-case name="fn-unparsed-text-041"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href refers to a file whose encoding is valid utf-8.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text"/>
@@ -534,7 +533,7 @@
       <assert-string-value>helloworld</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-042">
+  <test-case name="fn-unparsed-text-042"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href refers to a file whose encoding is valid utf-8.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text"/>
@@ -544,7 +543,7 @@
       <assert-string-value>helloworld</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-043">
+  <test-case name="fn-unparsed-text-043"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href refers to a file whose encoding is valid utf-16.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text"/>
@@ -554,7 +553,7 @@
       <assert-string-value>helloworld</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-044">
+  <test-case name="fn-unparsed-text-044"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href refers to a file whose encoding is valid utf-16.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text"/>
@@ -564,7 +563,7 @@
       <assert-string-value>helloworld</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-045">
+  <test-case name="fn-unparsed-text-045"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href refers to a file whose encoding is valid iso-8859-1.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text"/>
@@ -578,7 +577,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-046">
+  <test-case name="fn-unparsed-text-046"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href refers to a file whose encoding is valid utf-8.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text"/>
@@ -588,7 +587,7 @@
       <assert-string-value>?xml version="1.0" encoding="utf-8"?texthelloworld/text</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-047">
+  <test-case name="fn-unparsed-text-047"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href refers to a file whose encoding is valid utf-16.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text"/>
@@ -598,7 +597,7 @@
       <assert-string-value>?xml version="1.0" encoding="utf-16"?texthelloworld/text</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-048">
+  <test-case name="fn-unparsed-text-048"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href refers to a file whose encoding is valid iso-8859-1.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text"/>
@@ -612,7 +611,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-049">
+  <test-case name="fn-unparsed-text-049"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href refers to a file containing various line endings of the form 0A, x0D, and x0Dx0A.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text"/>
@@ -622,7 +621,7 @@
       <assert-string-value>400</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-050">
+  <test-case name="fn-unparsed-text-050"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href refers to a file containing various line endings of the form 0A, x0D, and x0Dx0A.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text"/>
@@ -632,7 +631,7 @@
       <assert-string-value>400</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-051">
+  <test-case name="fn-unparsed-text-051"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href refers to a file containing various line endings of the form 0A, x0D, and x0Dx0A.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text"/>
@@ -642,7 +641,7 @@
       <assert-string-value>400</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-unparsed-text-052">
+  <test-case name="fn-unparsed-text-052"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FODC0002"))</response-string>
     <description>Evaluates the "unparsed-text" function with the argument set as follows: $href refers to a file containing various line endings of the form 0A, x0D, and x0Dx0A.</description>
     <created by="Tim Mills" on="2011-11-28"/>
     <environment ref="unparsed-text"/>

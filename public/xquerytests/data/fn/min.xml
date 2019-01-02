@@ -1,35 +1,34 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-min" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the min() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-min" type="spec"/>
-  <test-case name="fn-minint1args-1">
+  <test-case name="fn-minint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-2147483648")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:int("-2147483648")))</test>
-    <result-string>xs:integer("-2147483648")</result-string>
+    <result-string>xs:int("-2147483648")</result-string>
     <result>
       <assert-eq>-2147483648</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minint1args-2">
+  <test-case name="fn-minint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-1873914410")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:int("-1873914410")))</test>
-    <result-string>xs:integer("-1873914410")</result-string>
+    <result-string>xs:int("-1873914410")</result-string>
     <result>
       <assert-eq>-1873914410</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minint1args-3">
+  <test-case name="fn-minint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("2147483647")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:int("2147483647")))</test>
-    <result-string>xs:integer("2147483647")</result-string>
+    <result-string>xs:int("2147483647")</result-string>
     <result>
       <assert-eq>2147483647</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minintg1args-1">
+  <test-case name="fn-minintg1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-999999999999999999")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:integer("-999999999999999999")))</test>
@@ -38,7 +37,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minintg1args-2">
+  <test-case name="fn-minintg1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("830993497117024304")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:integer("830993497117024304")))</test>
@@ -47,7 +46,7 @@
       <assert-eq>830993497117024304</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minintg1args-3">
+  <test-case name="fn-minintg1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("999999999999999999")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:integer("999999999999999999")))</test>
@@ -56,61 +55,61 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-mindec1args-1">
+  <test-case name="fn-mindec1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-999999999999999999")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:decimal("-999999999999999999")))</test>
-    <result-string>xs:integer("-999999999999999999")</result-string>
+    <result-string>xs:decimal("-999999999999999999")</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-mindec1args-2">
+  <test-case name="fn-mindec1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("617375191608514839")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:decimal("617375191608514839")))</test>
-    <result-string>xs:integer("617375191608514839")</result-string>
+    <result-string>xs:decimal("617375191608514839")</result-string>
     <result>
       <assert-eq>617375191608514839</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-mindec1args-3">
+  <test-case name="fn-mindec1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("999999999999999999")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:decimal("999999999999999999")))</test>
-    <result-string>xs:integer("999999999999999999")</result-string>
+    <result-string>xs:decimal("999999999999999999")</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-mindbl1args-1">
+  <test-case name="fn-mindbl1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157E308")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:double("-1.7976931348623157E308")))</test>
-    <result-string>xs:double("-1.7976931348623157e308")</result-string>
+    <result-string>xs:double("-1.7976931348623157E308")</result-string>
     <result>
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-mindbl1args-2">
+  <test-case name="fn-mindbl1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:double("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-mindbl1args-3">
+  <test-case name="fn-mindbl1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.7976931348623157E308")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:double("1.7976931348623157E308")))</test>
-    <result-string>xs:double("1.7976931348623157e308")</result-string>
+    <result-string>xs:double("1.7976931348623157E308")</result-string>
     <result>
       <assert-eq>1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minflt1args-1">
+  <test-case name="fn-minflt1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235E38")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:float("-3.4028235E38")))</test>
@@ -119,16 +118,16 @@
       <assert-eq>xs:float("-3.4028235E38")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minflt1args-2">
+  <test-case name="fn-minflt1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:float("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minflt1args-3">
+  <test-case name="fn-minflt1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("3.4028235E38")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:float("3.4028235E38")))</test>
@@ -137,7 +136,7 @@
       <assert-eq>xs:float("3.4028235E38")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minlng1args-1">
+  <test-case name="fn-minlng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-92233720368547760")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:long("-92233720368547758")))</test>
@@ -146,7 +145,7 @@
       <assert-eq>-92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minlng1args-2">
+  <test-case name="fn-minlng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-47175562203048460")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:long("-47175562203048468")))</test>
@@ -155,7 +154,7 @@
       <assert-eq>-47175562203048468</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minlng1args-3">
+  <test-case name="fn-minlng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("92233720368547760")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:long("92233720368547758")))</test>
@@ -164,97 +163,97 @@
       <assert-eq>92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minusht1args-1">
+  <test-case name="fn-minusht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("0")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:unsignedShort("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:unsignedShort("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minusht1args-2">
+  <test-case name="fn-minusht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("44633")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:unsignedShort("44633")))</test>
-    <result-string>xs:integer("44633")</result-string>
+    <result-string>xs:unsignedShort("44633")</result-string>
     <result>
       <assert-eq>44633</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minusht1args-3">
+  <test-case name="fn-minusht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("65535")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:unsignedShort("65535")))</test>
-    <result-string>xs:integer("65535")</result-string>
+    <result-string>xs:unsignedShort("65535")</result-string>
     <result>
       <assert-eq>65535</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnint1args-1">
+  <test-case name="fn-minnint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-999999999999999999")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:negativeInteger("-999999999999999999")))</test>
-    <result-string>xs:integer("-999999999999999999")</result-string>
+    <result-string>xs:negativeInteger("-999999999999999999")</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnint1args-2">
+  <test-case name="fn-minnint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-297014075999096793")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:negativeInteger("-297014075999096793")))</test>
-    <result-string>xs:integer("-297014075999096793")</result-string>
+    <result-string>xs:negativeInteger("-297014075999096793")</result-string>
     <result>
       <assert-eq>-297014075999096793</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnint1args-3">
+  <test-case name="fn-minnint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:negativeInteger("-1")))</test>
-    <result-string>xs:integer("-1")</result-string>
+    <result-string>xs:negativeInteger("-1")</result-string>
     <result>
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minpint1args-1">
+  <test-case name="fn-minpint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:positiveInteger("1")))</test>
-    <result-string>xs:integer("1")</result-string>
+    <result-string>xs:positiveInteger("1")</result-string>
     <result>
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minpint1args-2">
+  <test-case name="fn-minpint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("52704602390610033")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:positiveInteger("52704602390610033")))</test>
-    <result-string>xs:integer("52704602390610033")</result-string>
+    <result-string>xs:positiveInteger("52704602390610033")</result-string>
     <result>
       <assert-eq>52704602390610033</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minpint1args-3">
+  <test-case name="fn-minpint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("999999999999999999")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:positiveInteger("999999999999999999")))</test>
-    <result-string>xs:integer("999999999999999999")</result-string>
+    <result-string>xs:positiveInteger("999999999999999999")</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minulng1args-1">
+  <test-case name="fn-minulng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("0")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:unsignedLong("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:unsignedLong("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minulng1args-2">
+  <test-case name="fn-minulng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("130747108607674660")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:unsignedLong("130747108607674654")))</test>
@@ -263,7 +262,7 @@
       <assert-eq>130747108607674654</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minulng1args-3">
+  <test-case name="fn-minulng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("184467440737095520")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:unsignedLong("184467440737095516")))</test>
@@ -272,88 +271,88 @@
       <assert-eq>184467440737095516</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnpi1args-1">
+  <test-case name="fn-minnpi1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-999999999999999999")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:nonPositiveInteger("-999999999999999999")))</test>
-    <result-string>xs:integer("-999999999999999999")</result-string>
+    <result-string>xs:nonPositiveInteger("-999999999999999999")</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnpi1args-2">
+  <test-case name="fn-minnpi1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-475688437271870490")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:nonPositiveInteger("-475688437271870490")))</test>
-    <result-string>xs:integer("-475688437271870490")</result-string>
+    <result-string>xs:nonPositiveInteger("-475688437271870490")</result-string>
     <result>
       <assert-eq>-475688437271870490</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnpi1args-3">
+  <test-case name="fn-minnpi1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("0")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:nonPositiveInteger("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:nonPositiveInteger("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnni1args-1">
+  <test-case name="fn-minnni1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("0")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:nonNegativeInteger("0")))</test>
-    <result-string>xs:integer("0")</result-string>
+    <result-string>xs:nonNegativeInteger("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnni1args-2">
+  <test-case name="fn-minnni1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("303884545991464527")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:nonNegativeInteger("303884545991464527")))</test>
-    <result-string>xs:integer("303884545991464527")</result-string>
+    <result-string>xs:nonNegativeInteger("303884545991464527")</result-string>
     <result>
       <assert-eq>303884545991464527</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnni1args-3">
+  <test-case name="fn-minnni1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("999999999999999999")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:nonNegativeInteger("999999999999999999")))</test>
-    <result-string>xs:integer("999999999999999999")</result-string>
+    <result-string>xs:nonNegativeInteger("999999999999999999")</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minsht1args-1">
+  <test-case name="fn-minsht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-32768")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:short("-32768")))</test>
-    <result-string>xs:integer("-32768")</result-string>
+    <result-string>xs:short("-32768")</result-string>
     <result>
       <assert-eq>-32768</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minsht1args-2">
+  <test-case name="fn-minsht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-5324")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:short("-5324")))</test>
-    <result-string>xs:integer("-5324")</result-string>
+    <result-string>xs:short("-5324")</result-string>
     <result>
       <assert-eq>-5324</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minsht1args-3">
+  <test-case name="fn-minsht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("32767")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:short("32767")))</test>
-    <result-string>xs:integer("32767")</result-string>
+    <result-string>xs:short("32767")</result-string>
     <result>
       <assert-eq>32767</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minint2args-1">
+  <test-case name="fn-minint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-2147483648")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:int("-2147483648"),xs:int("-2147483648")))</test>
@@ -362,7 +361,7 @@
       <assert-eq>-2147483648</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minint2args-2">
+  <test-case name="fn-minint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-2147483648")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:int(mid range) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:int("-1873914410"),xs:int("-2147483648")))</test>
@@ -371,7 +370,7 @@
       <assert-eq>-2147483648</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minint2args-3">
+  <test-case name="fn-minint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-2147483648")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:int(upper bound) $arg2 = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:int("2147483647"),xs:int("-2147483648")))</test>
@@ -380,7 +379,7 @@
       <assert-eq>-2147483648</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minint2args-4">
+  <test-case name="fn-minint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-2147483648")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:int("-2147483648"),xs:int("-1873914410")))</test>
@@ -389,7 +388,7 @@
       <assert-eq>-2147483648</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minint2args-5">
+  <test-case name="fn-minint2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-2147483648")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:int(lower bound) $arg2 = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:int("-2147483648"),xs:int("2147483647")))</test>
@@ -398,7 +397,7 @@
       <assert-eq>-2147483648</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minintg2args-1">
+  <test-case name="fn-minintg2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:integer("-999999999999999999"),xs:integer("-999999999999999999")))</test>
@@ -407,7 +406,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minintg2args-2">
+  <test-case name="fn-minintg2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:integer(mid range) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:integer("830993497117024304"),xs:integer("-999999999999999999")))</test>
@@ -416,7 +415,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minintg2args-3">
+  <test-case name="fn-minintg2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:integer(upper bound) $arg2 = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:integer("999999999999999999"),xs:integer("-999999999999999999")))</test>
@@ -425,7 +424,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minintg2args-4">
+  <test-case name="fn-minintg2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:integer("-999999999999999999"),xs:integer("830993497117024304")))</test>
@@ -434,7 +433,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minintg2args-5">
+  <test-case name="fn-minintg2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:integer(lower bound) $arg2 = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:integer("-999999999999999999"),xs:integer("999999999999999999")))</test>
@@ -443,7 +442,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-mindec2args-1">
+  <test-case name="fn-mindec2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:decimal("-999999999999999999"),xs:decimal("-999999999999999999")))</test>
@@ -452,7 +451,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-mindec2args-2">
+  <test-case name="fn-mindec2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:decimal(mid range) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:decimal("617375191608514839"),xs:decimal("-999999999999999999")))</test>
@@ -461,7 +460,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-mindec2args-3">
+  <test-case name="fn-mindec2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:decimal(upper bound) $arg2 = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:decimal("999999999999999999"),xs:decimal("-999999999999999999")))</test>
@@ -470,7 +469,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-mindec2args-4">
+  <test-case name="fn-mindec2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:decimal("-999999999999999999"),xs:decimal("617375191608514839")))</test>
@@ -479,7 +478,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-mindec2args-5">
+  <test-case name="fn-mindec2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-1000000000000000000")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:decimal(lower bound) $arg2 = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:decimal("-999999999999999999"),xs:decimal("999999999999999999")))</test>
@@ -488,7 +487,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-mindbl2args-1">
+  <test-case name="fn-mindbl2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157e+308")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:double("-1.7976931348623157E308"),xs:double("-1.7976931348623157E308")))</test>
@@ -497,7 +496,7 @@
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-mindbl2args-2">
+  <test-case name="fn-mindbl2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157e+308")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:double(mid range) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:double("0"),xs:double("-1.7976931348623157E308")))</test>
@@ -506,7 +505,7 @@
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-mindbl2args-3">
+  <test-case name="fn-mindbl2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157e+308")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:double(upper bound) $arg2 = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:double("1.7976931348623157E308"),xs:double("-1.7976931348623157E308")))</test>
@@ -515,7 +514,7 @@
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-mindbl2args-4">
+  <test-case name="fn-mindbl2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157e+308")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:double("-1.7976931348623157E308"),xs:double("0")))</test>
@@ -524,7 +523,7 @@
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-mindbl2args-5">
+  <test-case name="fn-mindbl2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157e+308")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:double(lower bound) $arg2 = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:double("-1.7976931348623157E308"),xs:double("1.7976931348623157E308")))</test>
@@ -533,7 +532,7 @@
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minflt2args-1">
+  <test-case name="fn-minflt2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235e+38")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:float("-3.4028235E38"),xs:float("-3.4028235E38")))</test>
@@ -542,7 +541,7 @@
       <assert-eq>xs:float("-3.4028235E38")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minflt2args-2">
+  <test-case name="fn-minflt2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235e+38")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:float(mid range) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:float("0"),xs:float("-3.4028235E38")))</test>
@@ -551,7 +550,7 @@
       <assert-eq>xs:float("-3.4028235E38")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minflt2args-3">
+  <test-case name="fn-minflt2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235e+38")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:float(upper bound) $arg2 = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:float("3.4028235E38"),xs:float("-3.4028235E38")))</test>
@@ -560,7 +559,7 @@
       <assert-eq>xs:float("-3.4028235E38")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minflt2args-4">
+  <test-case name="fn-minflt2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235e+38")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:float("-3.4028235E38"),xs:float("0")))</test>
@@ -569,7 +568,7 @@
       <assert-eq>xs:float("-3.4028235E38")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minflt2args-5">
+  <test-case name="fn-minflt2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235e+38")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:float(lower bound) $arg2 = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:float("-3.4028235E38"),xs:float("3.4028235E38")))</test>
@@ -578,7 +577,7 @@
       <assert-eq>xs:float("-3.4028235E38")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minlng2args-1">
+  <test-case name="fn-minlng2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-92233720368547760")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:long("-92233720368547758"),xs:long("-92233720368547758")))</test>
@@ -587,7 +586,7 @@
       <assert-eq>-92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minlng2args-2">
+  <test-case name="fn-minlng2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-92233720368547760")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:long(mid range) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:long("-47175562203048468"),xs:long("-92233720368547758")))</test>
@@ -596,7 +595,7 @@
       <assert-eq>-92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minlng2args-3">
+  <test-case name="fn-minlng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-92233720368547760")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:long(upper bound) $arg2 = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:long("92233720368547758"),xs:long("-92233720368547758")))</test>
@@ -605,7 +604,7 @@
       <assert-eq>-92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minlng2args-4">
+  <test-case name="fn-minlng2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-92233720368547760")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:long("-92233720368547758"),xs:long("-47175562203048468")))</test>
@@ -614,7 +613,7 @@
       <assert-eq>-92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minlng2args-5">
+  <test-case name="fn-minlng2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-92233720368547760")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:long(lower bound) $arg2 = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:long("-92233720368547758"),xs:long("92233720368547758")))</test>
@@ -623,7 +622,7 @@
       <assert-eq>-92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minusht2args-1">
+  <test-case name="fn-minusht2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:unsignedShort("0"),xs:unsignedShort("0")))</test>
@@ -632,7 +631,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minusht2args-2">
+  <test-case name="fn-minusht2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:unsignedShort(mid range) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:unsignedShort("44633"),xs:unsignedShort("0")))</test>
@@ -641,7 +640,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minusht2args-3">
+  <test-case name="fn-minusht2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:unsignedShort(upper bound) $arg2 = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:unsignedShort("65535"),xs:unsignedShort("0")))</test>
@@ -650,7 +649,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minusht2args-4">
+  <test-case name="fn-minusht2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("44633")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:unsignedShort("0"),xs:unsignedShort("44633")))</test>
@@ -659,7 +658,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minusht2args-5">
+  <test-case name="fn-minusht2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("65535")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:unsignedShort(lower bound) $arg2 = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:unsignedShort("0"),xs:unsignedShort("65535")))</test>
@@ -668,7 +667,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnint2args-1">
+  <test-case name="fn-minnint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:negativeInteger("-999999999999999999"),xs:negativeInteger("-999999999999999999")))</test>
@@ -677,7 +676,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnint2args-2">
+  <test-case name="fn-minnint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:negativeInteger(mid range) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:negativeInteger("-297014075999096793"),xs:negativeInteger("-999999999999999999")))</test>
@@ -686,7 +685,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnint2args-3">
+  <test-case name="fn-minnint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:negativeInteger(upper bound) $arg2 = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:negativeInteger("-1"),xs:negativeInteger("-999999999999999999")))</test>
@@ -695,7 +694,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnint2args-4">
+  <test-case name="fn-minnint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:negativeInteger("-999999999999999999"),xs:negativeInteger("-297014075999096793")))</test>
@@ -704,7 +703,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnint2args-5">
+  <test-case name="fn-minnint2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:negativeInteger(lower bound) $arg2 = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:negativeInteger("-999999999999999999"),xs:negativeInteger("-1")))</test>
@@ -713,7 +712,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minpint2args-1">
+  <test-case name="fn-minpint2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:positiveInteger("1"),xs:positiveInteger("1")))</test>
@@ -722,7 +721,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minpint2args-2">
+  <test-case name="fn-minpint2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:positiveInteger(mid range) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:positiveInteger("52704602390610033"),xs:positiveInteger("1")))</test>
@@ -731,7 +730,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minpint2args-3">
+  <test-case name="fn-minpint2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:positiveInteger(upper bound) $arg2 = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:positiveInteger("999999999999999999"),xs:positiveInteger("1")))</test>
@@ -740,7 +739,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minpint2args-4">
+  <test-case name="fn-minpint2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:positiveInteger("1"),xs:positiveInteger("52704602390610033")))</test>
@@ -749,7 +748,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minpint2args-5">
+  <test-case name="fn-minpint2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:positiveInteger(lower bound) $arg2 = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:positiveInteger("1"),xs:positiveInteger("999999999999999999")))</test>
@@ -758,7 +757,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minulng2args-1">
+  <test-case name="fn-minulng2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:unsignedLong("0"),xs:unsignedLong("0")))</test>
@@ -767,7 +766,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minulng2args-2">
+  <test-case name="fn-minulng2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:unsignedLong(mid range) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:unsignedLong("130747108607674654"),xs:unsignedLong("0")))</test>
@@ -776,7 +775,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minulng2args-3">
+  <test-case name="fn-minulng2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:unsignedLong(upper bound) $arg2 = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:unsignedLong("184467440737095516"),xs:unsignedLong("0")))</test>
@@ -785,7 +784,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minulng2args-4">
+  <test-case name="fn-minulng2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("130747108607674660")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:unsignedLong("0"),xs:unsignedLong("130747108607674654")))</test>
@@ -794,7 +793,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minulng2args-5">
+  <test-case name="fn-minulng2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("184467440737095520")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:unsignedLong(lower bound) $arg2 = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:unsignedLong("0"),xs:unsignedLong("184467440737095516")))</test>
@@ -803,7 +802,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnpi2args-1">
+  <test-case name="fn-minnpi2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:nonPositiveInteger("-999999999999999999"),xs:nonPositiveInteger("-999999999999999999")))</test>
@@ -812,7 +811,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnpi2args-2">
+  <test-case name="fn-minnpi2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(mid range) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:nonPositiveInteger("-475688437271870490"),xs:nonPositiveInteger("-999999999999999999")))</test>
@@ -821,7 +820,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnpi2args-3">
+  <test-case name="fn-minnpi2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(upper bound) $arg2 = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:nonPositiveInteger("0"),xs:nonPositiveInteger("-999999999999999999")))</test>
@@ -830,7 +829,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnpi2args-4">
+  <test-case name="fn-minnpi2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:nonPositiveInteger("-999999999999999999"),xs:nonPositiveInteger("-475688437271870490")))</test>
@@ -839,7 +838,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnpi2args-5">
+  <test-case name="fn-minnpi2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-1000000000000000000")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:nonPositiveInteger(lower bound) $arg2 = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:nonPositiveInteger("-999999999999999999"),xs:nonPositiveInteger("0")))</test>
@@ -848,7 +847,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnni2args-1">
+  <test-case name="fn-minnni2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:nonNegativeInteger("0"),xs:nonNegativeInteger("0")))</test>
@@ -857,7 +856,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnni2args-2">
+  <test-case name="fn-minnni2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(mid range) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:nonNegativeInteger("303884545991464527"),xs:nonNegativeInteger("0")))</test>
@@ -866,7 +865,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnni2args-3">
+  <test-case name="fn-minnni2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(upper bound) $arg2 = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:nonNegativeInteger("999999999999999999"),xs:nonNegativeInteger("0")))</test>
@@ -875,7 +874,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnni2args-4">
+  <test-case name="fn-minnni2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("303884545991464500")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:nonNegativeInteger("0"),xs:nonNegativeInteger("303884545991464527")))</test>
@@ -884,7 +883,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minnni2args-5">
+  <test-case name="fn-minnni2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1000000000000000000")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:nonNegativeInteger(lower bound) $arg2 = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:nonNegativeInteger("0"),xs:nonNegativeInteger("999999999999999999")))</test>
@@ -893,7 +892,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minsht2args-1">
+  <test-case name="fn-minsht2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-32768")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:short("-32768"),xs:short("-32768")))</test>
@@ -902,7 +901,7 @@
       <assert-eq>-32768</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minsht2args-2">
+  <test-case name="fn-minsht2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-32768")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:short(mid range) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:short("-5324"),xs:short("-32768")))</test>
@@ -911,7 +910,7 @@
       <assert-eq>-32768</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minsht2args-3">
+  <test-case name="fn-minsht2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-32768")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:short(upper bound) $arg2 = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:short("32767"),xs:short("-32768")))</test>
@@ -920,7 +919,7 @@
       <assert-eq>-32768</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minsht2args-4">
+  <test-case name="fn-minsht2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-32768")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:short("-32768"),xs:short("-5324")))</test>
@@ -929,7 +928,7 @@
       <assert-eq>-32768</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-minsht2args-5">
+  <test-case name="fn-minsht2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-32768")</response-string>
     <description> Evaluates The "min" function with the arguments set as follows: $arg1 = xs:short(lower bound) $arg2 = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:min((xs:short("-32768"),xs:short("32767")))</test>
@@ -938,25 +937,25 @@
       <assert-eq>-32768</assert-eq>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-1">
+  <test-case name="K-SeqMINFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `min()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-2">
+  <test-case name="K-SeqMINFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `min("a string", "http://www.w3.org/2005/xpath-functions/collation/codepoint", "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min("a string", "http://www.w3.org/2005/xpath-functions/collation/codepoint", "wrong param")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-3">
+  <test-case name="K-SeqMINFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> A test whose essence is: `empty(min(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(min(()))</test>
@@ -965,7 +964,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-4">
+  <test-case name="K-SeqMINFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `min((3, 3, 3, 3, 3, 3)) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((3, 3, 3, 3, 3, 3)) eq 3</test>
@@ -974,7 +973,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-5">
+  <test-case name="K-SeqMINFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `min((3, 1, 1, 1, 1, 1)) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((3, 1, 1, 1, 1, 1)) eq 1</test>
@@ -983,7 +982,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-6">
+  <test-case name="K-SeqMINFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `min((1, 1, 1, 1, 1, 3)) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((1, 1, 1, 1, 1, 3)) eq 1</test>
@@ -992,7 +991,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-7">
+  <test-case name="K-SeqMINFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `min((3, 1, 5, 1, 1, 3)) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((3, 1, 5, 1, 1, 3)) eq 1</test>
@@ -1001,7 +1000,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-8">
+  <test-case name="K-SeqMINFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `min((3, -5.0, 5, 1, -3, 3)) eq -5.0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((3, -5.0, 5, 1, -3, 3)) eq -5.0</test>
@@ -1010,7 +1009,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-9">
+  <test-case name="K-SeqMINFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `min(xs:untypedAtomic("3")) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min(xs:untypedAtomic("3")) instance of xs:double</test>
@@ -1019,7 +1018,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-10">
+  <test-case name="K-SeqMINFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `min(xs:untypedAtomic("3")) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min(xs:untypedAtomic("3")) eq 3</test>
@@ -1028,7 +1027,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-11">
+  <test-case name="K-SeqMINFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `min((xs:untypedAtomic("1"), 3, 2)) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((xs:untypedAtomic("1"), 3, 2)) instance of xs:double</test>
@@ -1037,7 +1036,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-12">
+  <test-case name="K-SeqMINFunc-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `min((3, xs:float(2), xs:untypedAtomic("1"))) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((3, xs:float(2), xs:untypedAtomic("1"))) eq 1</test>
@@ -1046,7 +1045,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-13">
+  <test-case name="K-SeqMINFunc-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `min((3, xs:float(2), xs:untypedAtomic("1"))) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((3, xs:float(2), xs:untypedAtomic("1"))) instance of xs:double</test>
@@ -1055,7 +1054,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-14">
+  <test-case name="K-SeqMINFunc-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `min((1, xs:float(2), xs:decimal(3))) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((1, xs:float(2), xs:decimal(3))) instance of xs:float</test>
@@ -1064,7 +1063,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-15">
+  <test-case name="K-SeqMINFunc-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `min((3, xs:untypedAtomic("1"), xs:float(2))) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((3, xs:untypedAtomic("1"), xs:float(2))) instance of xs:double</test>
@@ -1073,7 +1072,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-16">
+  <test-case name="K-SeqMINFunc-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `string(min((1, xs:untypedAtomic("NaN"), xs:float(2)))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(min((1, xs:untypedAtomic("NaN"), xs:float(2)))) eq "NaN"</test>
@@ -1082,7 +1081,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-17">
+  <test-case name="K-SeqMINFunc-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `string(min((xs:float("NaN"), xs:untypedAtomic("3"), xs:float(2)))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(min((xs:float("NaN"), xs:untypedAtomic("3"), xs:float(2)))) eq "NaN"</test>
@@ -1091,7 +1090,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-18">
+  <test-case name="K-SeqMINFunc-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `min((xs:float("NaN"), xs:untypedAtomic("3"), xs:double(2))) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((xs:float("NaN"), xs:untypedAtomic("3"), xs:double(2))) instance of xs:double</test>
@@ -1100,7 +1099,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-19">
+  <test-case name="K-SeqMINFunc-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `min((xs:float("NaN"), 1, 1, 2, xs:double("NaN"))) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((xs:float("NaN"), 1, 1, 2, xs:double("NaN"))) instance of xs:double</test>
@@ -1109,7 +1108,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-20">
+  <test-case name="K-SeqMINFunc-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `min((xs:double("NaN"), 1, 1, 2, xs:float("NaN"))) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((xs:double("NaN"), 1, 1, 2, xs:float("NaN"))) instance of xs:double</test>
@@ -1118,7 +1117,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-21">
+  <test-case name="K-SeqMINFunc-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> An xs:string cannot be compared to a numeric, even if a value is NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((xs:float("NaN"), 1, "a string"))</test>
@@ -1127,7 +1126,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-22">
+  <test-case name="K-SeqMINFunc-22"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("a string")</response-string>
     <description> An xs:string cannot be compared to a numeric, even if a value is NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min(("a string", 1, xs:float("NaN")))</test>
@@ -1136,7 +1135,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-23">
+  <test-case name="K-SeqMINFunc-23"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> A type error must be reported even if one of other values is NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>max((xs:float("NaN"), 1, xs:untypedAtomic("one")))</test>
@@ -1145,7 +1144,7 @@
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-24">
+  <test-case name="K-SeqMINFunc-24"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("undefined")</response-string>
     <description> A type error must be reported even if one of other values is NaN. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>max((xs:untypedAtomic("one"), 1, xs:float("NaN")))</test>
@@ -1154,7 +1153,7 @@
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-25">
+  <test-case name="K-SeqMINFunc-25"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(min((xs:double("NaN"), xs:double("NaN")))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(min((xs:double("NaN"), xs:double("NaN")))) eq "NaN"</test>
@@ -1163,7 +1162,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-26">
+  <test-case name="K-SeqMINFunc-26"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(min((xs:float("NaN"), xs:float("NaN")))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(min((xs:float("NaN"), xs:float("NaN")))) eq "NaN"</test>
@@ -1172,7 +1171,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-27">
+  <test-case name="K-SeqMINFunc-27"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `string(min((3, xs:double("NaN")))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(min((3, xs:double("NaN")))) eq "NaN"</test>
@@ -1181,7 +1180,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-28">
+  <test-case name="K-SeqMINFunc-28"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `string(min((3, xs:float("NaN")))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(min((3, xs:float("NaN")))) eq "NaN"</test>
@@ -1190,7 +1189,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-29">
+  <test-case name="K-SeqMINFunc-29"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `min((3, xs:double("NaN"))) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((3, xs:double("NaN"))) instance of xs:double</test>
@@ -1199,7 +1198,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-30">
+  <test-case name="K-SeqMINFunc-30"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `min((3, xs:float("NaN"))) instance of xs:float`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((3, xs:float("NaN"))) instance of xs:float</test>
@@ -1208,7 +1207,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-31">
+  <test-case name="K-SeqMINFunc-31"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `string(min((xs:float(-3), xs:untypedAtomic("3"), xs:double("NaN")))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(min((xs:float(-3), xs:untypedAtomic("3"), xs:double("NaN")))) eq "NaN"</test>
@@ -1217,7 +1216,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-32">
+  <test-case name="K-SeqMINFunc-32"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> A test whose essence is: `min((xs:float(-3), xs:untypedAtomic("3"), xs:double("NaN"))) instance of xs:double`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((xs:float(-3), xs:untypedAtomic("3"), xs:double("NaN"))) instance of xs:double</test>
@@ -1226,7 +1225,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-33">
+  <test-case name="K-SeqMINFunc-33"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(min(xs:float("NaN"))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(min(xs:float("NaN"))) eq "NaN"</test>
@@ -1235,7 +1234,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-34">
+  <test-case name="K-SeqMINFunc-34"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `string(min(xs:double("NaN"))) eq "NaN"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>string(min(xs:double("NaN"))) eq "NaN"</test>
@@ -1244,7 +1243,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-35">
+  <test-case name="K-SeqMINFunc-35"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:untypedAtomic("three")</response-string>
     <description> A test whose essence is: `min(xs:untypedAtomic("three"))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min(xs:untypedAtomic("three"))</test>
@@ -1253,7 +1252,7 @@
       <error code="FORG0001"/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-36">
+  <test-case name="K-SeqMINFunc-36"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("3")</response-string>
     <description> A test whose essence is: `min((xs:untypedAtomic("3"), "a string"))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((xs:untypedAtomic("3"), "a string"))</test>
@@ -1262,7 +1261,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-37">
+  <test-case name="K-SeqMINFunc-37"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("3")</response-string>
     <description> A test whose essence is: `min(("a string", xs:untypedAtomic("3")))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min(("a string", xs:untypedAtomic("3")))</test>
@@ -1271,7 +1270,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-38">
+  <test-case name="K-SeqMINFunc-38"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:QName("example.com/", "ncname")</response-string>
     <description> A test whose essence is: `min(QName("example.com/", "ncname"))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min(QName("example.com/", "ncname"))</test>
@@ -1280,7 +1279,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-39">
+  <test-case name="K-SeqMINFunc-39"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `min(xs:anyURI("example.com/")) eq xs:anyURI("example.com/")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min(xs:anyURI("example.com/")) eq xs:anyURI("example.com/")</test>
@@ -1289,7 +1288,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-40">
+  <test-case name="K-SeqMINFunc-40"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> A test whose essence is: `min((xs:anyURI("example.com/"), xs:anyURI("example.com/"))) eq xs:anyURI("example.com/")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((xs:anyURI("example.com/"), xs:anyURI("example.com/"))) eq xs:anyURI("example.com/")</test>
@@ -1298,7 +1297,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-41">
+  <test-case name="K-SeqMINFunc-41"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `min(("a string")) eq "a string"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min(("a string")) eq "a string"</test>
@@ -1307,7 +1306,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-42">
+  <test-case name="K-SeqMINFunc-42"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("a string")</response-string>
     <description> A test whose essence is: `min(("a string", QName("example.com/", "ncname")))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min(("a string", QName("example.com/", "ncname")))</test>
@@ -1316,7 +1315,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-43">
+  <test-case name="K-SeqMINFunc-43"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `min((5, 5.0e0)) eq 5.0e0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((5, 5.0e0)) eq 5.0e0</test>
@@ -1325,7 +1324,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-44">
+  <test-case name="K-SeqMINFunc-44"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `min((5.0e0, 5)) eq 5.0e0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((5.0e0, 5)) eq 5.0e0</test>
@@ -1334,7 +1333,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-45">
+  <test-case name="K-SeqMINFunc-45"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `min((3, 5.0e0)) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((3, 5.0e0)) eq 3</test>
@@ -1343,7 +1342,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-46">
+  <test-case name="K-SeqMINFunc-46"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `min((5.0e0, 3)) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((5.0e0, 3)) eq 3</test>
@@ -1352,7 +1351,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-47">
+  <test-case name="K-SeqMINFunc-47"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Simple test for min() involving xs:date. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((xs:date("2005-01-01"), xs:date("2001-01-01"))) eq xs:date("2001-01-01")</test>
@@ -1361,7 +1360,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-48">
+  <test-case name="K-SeqMINFunc-48"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `min((3,4,5)) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((3,4,5)) eq 3</test>
@@ -1370,7 +1369,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-49">
+  <test-case name="K-SeqMINFunc-49"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `min((5, 5.0e0)) eq 5.0e0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((5, 5.0e0)) eq 5.0e0</test>
@@ -1379,7 +1378,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-50">
+  <test-case name="K-SeqMINFunc-50"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("3")</response-string>
     <description> A test whose essence is: `min((3,4, "Zero"))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((3,4, "Zero"))</test>
@@ -1388,7 +1387,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="K-SeqMINFunc-51">
+  <test-case name="K-SeqMINFunc-51"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `min((xs:float(0.0E0), xs:float(-0.0E0))) eq xs:float("-0")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((xs:float(0.0E0), xs:float(-0.0E0))) eq xs:float("-0")</test>
@@ -1397,7 +1396,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqMINFunc-1">
+  <test-case name="K2-SeqMINFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Invoke fn:min() on two identical xs:anyURI values. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((xs:anyURI("http://example.com/A"), xs:anyURI("http://example.com/A"))) eq xs:anyURI("http://example.com/A")</test>
@@ -1406,7 +1405,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqMINFunc-2">
+  <test-case name="K2-SeqMINFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Invoke fn:min() on two different xs:anyURI values. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((xs:anyURI("http://example.com/B"), xs:anyURI("http://example.com/A"))) eq xs:anyURI("http://example.com/A")</test>
@@ -1415,7 +1414,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqMINFunc-3">
+  <test-case name="K2-SeqMINFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Invoke fn:min() on two different xs:anyURI values(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((xs:anyURI("http://example.com/8"), xs:anyURI("http://example.com/4"))) eq xs:anyURI("http://example.com/4")</test>
@@ -1424,7 +1423,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqMINFunc-4">
+  <test-case name="K2-SeqMINFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Invoke fn:min() with an unsupported collation. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min(("str1", "str2"), "http://example.com/UNSUPPORTED_COLLATION")</test>
@@ -1433,7 +1432,7 @@
       <error code="FOCH0002"/>
     </result>
   </test-case>
-  <test-case name="K2-SeqMINFunc-5">
+  <test-case name="K2-SeqMINFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Invoke fn:min() with an unsupported collation and one xs:anyURI value. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min(xs:anyURI("str1"), "http://example.com/UNSUPPORTED_COLLATION")</test>
@@ -1446,16 +1445,16 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-SeqMINFunc-6">
+  <test-case name="K2-SeqMINFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> Invoke fn:min() with too many arguments. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min(("str1", "str2"), "http://www.w3.org/2005/xpath-functions/collation/codepoint", ())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K2-SeqMINFunc-7">
+  <test-case name="K2-SeqMINFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> fn:min() and xs:double promotion. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((5, 5.0e0)) instance of xs:double</test>
@@ -1464,7 +1463,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqMINFunc-8">
+  <test-case name="K2-SeqMINFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> fn:min() and xs:double promotion. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((5.0e0, 5)) instance of xs:double</test>
@@ -1473,7 +1472,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqMINFunc-9">
+  <test-case name="K2-SeqMINFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> fn:min() and xs:double promotion. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((3, 5.0e0)) instance of xs:double</test>
@@ -1482,7 +1481,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqMINFunc-10">
+  <test-case name="K2-SeqMINFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> fn:min() and xs:double promotion. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((5.0e0, 3)) instance of xs:double</test>
@@ -1491,7 +1490,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqMINFunc-11">
+  <test-case name="K2-SeqMINFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> fn:min() and xs:double promotion. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((1, 1, 1, 1, 1.0)) instance of xs:decimal</test>
@@ -1500,7 +1499,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqMINFunc-12">
+  <test-case name="K2-SeqMINFunc-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> fn:min() and xs:double promotion. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((1.0, 1, 1, 1, 1)) instance of xs:decimal</test>
@@ -1509,7 +1508,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqMINFunc-13">
+  <test-case name="K2-SeqMINFunc-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> fn:min() and xs:double promotion. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min((1.0, 1, 1.0, 1, 1)) instance of xs:decimal</test>
@@ -1518,7 +1517,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqMINFunc-14">
+  <test-case name="K2-SeqMINFunc-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> fn:min() and xs:double promotion. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min(("a", "b", "c")) eq "a"</test>
@@ -1527,7 +1526,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqMINFunc-15">
+  <test-case name="K2-SeqMINFunc-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Ensure the return type is properly inferred. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>min(xs:unsignedShort("1")) instance of xs:unsignedShort</test>
@@ -1536,7 +1535,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-min-1">
+  <test-case name="fn-min-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("3")</response-string>
     <description> Evaluation of the fn:min function with argument to sequence of different types. </description>
     <created by="Carmelo Montanez" on="2005-09-20"/>
     <test>fn:min((3,4,"Zero"))</test>
@@ -1545,16 +1544,16 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="fn-min-2">
+  <test-case name="fn-min-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("5000000")</response-string>
     <description> Evaluation of type promotion when using mixed typed with fn:min function </description>
     <created by="Carmelo Montanez" on="2006-03-13"/>
     <test>fn:min((xs:integer(5000000),xs:double(3e8)))</test>
-    <result-string>xs:double("5.0e6")</result-string>
+    <result-string>xs:integer("5000000")</result-string>
     <result>
       <assert-eq>5.0E6</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-min-3">
+  <test-case name="fn-min-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Evaluation of type promotion when using mixed typed with fn:min function (used derived types)</description>
     <created by="Carmelo Montanez" on="2006-07-13"/>
     <dependency type="spec" value="XP30+ XQ10+"/>
@@ -1564,7 +1563,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-min-4">
+  <test-case name="fn-min-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Test fn:min on a sequence of xs:dayTimeDuration arguments</description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>min((xs:dayTimeDuration("P1D"), xs:dayTimeDuration("PT2H"))) instance of xs:dayTimeDuration</test>
@@ -1573,7 +1572,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-min-5">
+  <test-case name="fn-min-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Test fn:min on a sequence of xs:dayTimeDuration arguments</description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>min(for $x in 1 to 10 return xs:dayTimeDuration(concat("PT",$x,"H")))</test>
@@ -1582,7 +1581,7 @@
       <assert-string-value>PT1H</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-min-6">
+  <test-case name="fn-min-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>Test fn:min on a sequence of xs:yearMonthDuration arguments</description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>min((xs:yearMonthDuration("P1Y"), xs:yearMonthDuration("P1M"))) instance of xs:yearMonthDuration</test>
@@ -1591,7 +1590,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-min-7">
+  <test-case name="fn-min-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description>Test fn:min on a sequence of xs:yearMonthDuration arguments</description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>min(for $x in 1 to 10 return xs:yearMonthDuration(concat("P",$x,"M")))</test>
@@ -1600,7 +1599,7 @@
       <assert-string-value>P1M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-min-8">
+  <test-case name="fn-min-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test fn:min on a sequence of xs:yearMonthDuration and xs:dayTimeDuration arguments</description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>min((xs:yearMonthDuration("P1Y"), xs:dayTimeDuration("P1D")))</test>
@@ -1613,7 +1612,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-min-9">
+  <test-case name="fn-min-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:duration("P1Y1M1D")</response-string>
     <description>Test fn:min on a sequence of xs:duration arguments</description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <test>min(xs:duration("P1Y1M1D"))</test>
@@ -1626,7 +1625,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-min-10">
+  <test-case name="fn-min-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test fn:min on a sequence of numeric arguments</description>
     <created by="Oliver Hallam" on="2010-03-15"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1636,7 +1635,7 @@
       <assert-string-value>integer decimal float double</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-min-11">
+  <test-case name="fn-min-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("a")</response-string>
     <description>Test fn:min on a sequence of strings</description>
     <created by="Michael Kay" on="2011-06-29"/>
     <test>min(("a", "b", "c", "d"))</test>
@@ -1645,16 +1644,16 @@
       <assert-string-value>a</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-min-12">
+  <test-case name="fn-min-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description>Test fn:min on a sequence of dates</description>
     <created by="Michael Kay" on="2011-06-29"/>
-    <test>min((xs:date('1066-10-02'), xs:date('1588-08-08'), xs:date('2011-06-29')))</test>
+    <test>min((xs:date(&apos;1066-10-02&apos;), xs:date(&apos;1588-08-08&apos;), xs:date(&apos;2011-06-29&apos;)))</test>
     <result-string>xs:string("1066-10-02")</result-string>
     <result>
       <assert-string-value>1066-10-02</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-min-001">
+  <test-case name="cbcl-min-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test fn:min on xs:boolean arguments </description>
     <created by="Oliver Hallam" on="2008-04-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1667,7 +1666,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-min-002">
+  <test-case name="cbcl-min-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test fn:min on xs:boolean arguments </description>
     <created by="Oliver Hallam" on="2008-04-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1680,7 +1679,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="cbcl-min-003">
+  <test-case name="cbcl-min-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test fn:min on xs:boolean arguments </description>
     <created by="Oliver Hallam" on="2008-04-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1693,7 +1692,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="cbcl-min-004">
+  <test-case name="cbcl-min-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test fn:min with xs:date argument causing type error </description>
     <created by="Oliver Hallam" on="2008-04-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1708,7 +1707,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="cbcl-min-005">
+  <test-case name="cbcl-min-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test fn:min with xs:dateTime arguments </description>
     <created by="Oliver Hallam" on="2008-04-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1721,7 +1720,7 @@
       <assert-string-value>1996-12-01T12:00:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-min-006">
+  <test-case name="cbcl-min-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test fn:min with xs:dateTime argument causing type error </description>
     <created by="Oliver Hallam" on="2008-04-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1736,7 +1735,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="cbcl-min-007">
+  <test-case name="cbcl-min-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test fn:min with xs:dayTimeDuration arguments </description>
     <created by="Oliver Hallam" on="2008-04-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1749,7 +1748,7 @@
       <assert-string-value>PT3S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-min-008">
+  <test-case name="cbcl-min-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test fn:min with xs:dayTimeDuration argument causing type error </description>
     <created by="Oliver Hallam" on="2008-04-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1762,7 +1761,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="cbcl-min-009">
+  <test-case name="cbcl-min-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test fn:min with numeric arguments </description>
     <created by="Oliver Hallam" on="2008-04-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1775,7 +1774,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-min-010">
+  <test-case name="cbcl-min-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test fn:min with numeric arguments </description>
     <created by="Oliver Hallam" on="2008-04-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1787,7 +1786,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-min-011">
+  <test-case name="cbcl-min-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test fn:min with numeric arguments rasing error </description>
     <created by="Oliver Hallam" on="2008-04-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1800,7 +1799,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="cbcl-min-012">
+  <test-case name="cbcl-min-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> Test fn:min with numeric arguments </description>
     <created by="Oliver Hallam" on="2008-04-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1813,7 +1812,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-min-013">
+  <test-case name="cbcl-min-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test fn:min with xs:time arguments </description>
     <created by="Oliver Hallam" on="2008-04-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1826,7 +1825,7 @@
       <assert-string-value>12:00:00+01:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-min-014">
+  <test-case name="cbcl-min-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> test fn:min with xs:time argument causing type error </description>
     <created by="Oliver Hallam" on="2008-04-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1841,7 +1840,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="cbcl-min-015">
+  <test-case name="cbcl-min-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test fn:min with xs:yearMonthDuration arguments </description>
     <created by="Oliver Hallam" on="2008-04-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1854,7 +1853,7 @@
       <assert-string-value>P11M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-min-016">
+  <test-case name="cbcl-min-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test fn:min with xs:yearMonthDuration argument causing type error </description>
     <created by="Oliver Hallam" on="2008-04-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1867,7 +1866,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="cbcl-min-017">
+  <test-case name="cbcl-min-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Test fn:min with invalid type for first argument </description>
     <created by="Oliver Hallam" on="2008-04-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1880,7 +1879,7 @@
       <error code="FORG0006"/>
     </result>
   </test-case>
-  <test-case name="cbcl-min-018">
+  <test-case name="cbcl-min-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("4")</response-string>
     <description> Test fn:min on a range expression </description>
     <created by="Oliver Hallam" on="2008-04-22"/>
     <dependency type="spec" value="XQ10+"/>
@@ -1888,7 +1887,7 @@
       	declare function local:f($x as xs:integer) as xs:integer { $x }; 
       	min(local:f(4) to local:f(10))
       </test>
-    <result-string>xs:string("4")</result-string>
+    <result-string>xs:integer("4")</result-string>
     <result>
       <assert-string-value>4</assert-string-value>
     </result>

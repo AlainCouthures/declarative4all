@@ -14,6 +14,10 @@ Fleur.XPathConstructor = function(ctx, children, schemaType, others, callback) {
 	}
 	Fleur.XQueryEngine[children[0][0]](ctx, children[0][1], function(n) {
 		var a = Fleur.Atomize(n, true);
+		if (a === Fleur.EmptySequence) {
+			Fleur.callback(function() {callback(a);});
+			return;
+		}
 		if (a.schemaTypeInfo === Fleur.Type_error || a.schemaTypeInfo === schemaType) {
 			Fleur.callback(function() {callback(a);});
 			return;
@@ -31,11 +35,12 @@ Fleur.XPathConstructor = function(ctx, children, schemaType, others, callback) {
 			}
 		}
 		a.schemaTypeInfo = schemaType;
-		if (a.canonicalize()) {
+		try {
+			a.data = a.schemaTypeInfo.canonicalize(a.data);
 			Fleur.callback(function() {callback(a);});
-			return;
+		} catch (e) {
+			Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0001"));});
 		}
-		Fleur.callback(function() {callback(Fleur.error(ctx, "FORG0001"));});
 	});
 };
 
@@ -229,7 +234,7 @@ Fleur.XPathTestOpFunction = function(ctx, children, f, callback) {
 				Fleur.callback(function() {callback(Fleur.error(ctx, "XPTY0004"));});
 				return;
 			}
-			a1.data = String(f(op1, op2));
+			a1.data = String(f(op1, op2, Fleur.getCollation("http://www.w3.org/2005/xpath-functions/collation/codepoint")));
 			a1.schemaTypeInfo = Fleur.Type_boolean;
 			Fleur.callback(function() {callback(a1);});
 		});
@@ -295,11 +300,11 @@ Fleur.XPathGenTestOpFunction = function(ctx, children, f, callback) {
 				if (a2.nodeType === Fleur.Node.SEQUENCE_NODE) {
 					for (b = 0, l = a2.childNodes.length; b < l && !res; b++) {
 						op2 = Fleur.toJSValue(a2.childNodes[b], true, true, true, true, false, true);
-						res = f(op1, op2);
+						res = f(op1, op2, Fleur.getCollation("http://www.w3.org/2005/xpath-functions/collation/codepoint"));
 					}
 				} else {
 					op2 = Fleur.toJSValue(a2, true, true, true, true, false, true);
-					res = f(op1, op2);
+					res = f(op1, op2, Fleur.getCollation("http://www.w3.org/2005/xpath-functions/collation/codepoint"));
 				}
 				if (res) {
 					break;

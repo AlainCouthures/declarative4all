@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-unordered" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
-  <description>Tests for the unordered() function. (Note: many of these tests will only work if unordered() is implemented as a no-op. The tests are therefore incorrect. I'm leaving them as such until someone cares to challenge the results - Michael Kay 2011-06-30 </description>
+  <description>Tests for the unordered() function. (Note: many of these tests will only work if unordered() is implemented as a no-op. The tests are therefore incorrect. I&apos;m leaving them as such until someone cares to challenge the results - Michael Kay 2011-06-30 </description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-unordered" type="spec"/>
-  <test-case name="fn-unordered-mix-args-001">
+  <test-case name="fn-unordered-mix-args-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("c"),xs:integer("1"),xs:string("xzy"))</response-string>
     <description> arg: sequence of string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered( ("c",1, "xzy"))</test>
@@ -11,7 +10,7 @@
       <assert-permutation>"c", 1, "xzy"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-unordered-mix-args-002">
+  <test-case name="fn-unordered-mix-args-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("c"),xs:string("b"),xs:string("a"))</response-string>
     <description> arg: sequence of string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered( ("c", "b", "a") )</test>
@@ -20,7 +19,7 @@
       <assert-permutation>"c",  "b", "a"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-unordered-mix-args-003">
+  <test-case name="fn-unordered-mix-args-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg: sequence of string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered ( ("a", "b", "c"))</test>
@@ -29,7 +28,7 @@
       <assert-permutation>"a", "b", "c"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-unordered-mix-args-004">
+  <test-case name="fn-unordered-mix-args-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:string(""),xs:string("b"),xs:string("c"))</response-string>
     <description> arg: sequence of string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered ( ("a", xs:string(""), "b", "c"))</test>
@@ -38,7 +37,7 @@
       <assert-permutation>"a", "",  "b", "c"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-unordered-mix-args-005">
+  <test-case name="fn-unordered-mix-args-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:anyURI("www.example.com"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg: sequence of string  anyURI </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered ( ("a", xs:anyURI("www.example.com"), "b", "c"))</test>
@@ -47,7 +46,7 @@
       <assert-permutation>"a", "www.example.com", "b", "c"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-unordered-mix-args-006">
+  <test-case name="fn-unordered-mix-args-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg: sequence of string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered ( ("a", (), (), "b", "c"))</test>
@@ -56,7 +55,7 @@
       <assert-permutation>"a", "b", "c"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-unordered-mix-args-007">
+  <test-case name="fn-unordered-mix-args-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:integer("100"),xs:integer("-100"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg: sequence of string  integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered ( ("a", xs:integer("100"), xs:integer("-100"), "b", "c"))</test>
@@ -65,7 +64,7 @@
       <assert-permutation>"a", 100, -100, "b", "c"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-unordered-mix-args-008">
+  <test-case name="fn-unordered-mix-args-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:decimal("-1.000000000001"),xs:integer("-100"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg: sequence of string , decimal  integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered ( ("a", xs:decimal("-1.000000000001"), xs:integer("-100"), "b", "c"))</test>
@@ -74,7 +73,7 @@
       <assert-permutation>"a", -1.000000000001, -100, "b", "c"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-unordered-mix-args-009">
+  <test-case name="fn-unordered-mix-args-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:float("INF"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg: sequence of string  float </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered ( ("a", xs:float("INF"), "b", "c"))</test>
@@ -83,25 +82,25 @@
       <assert-permutation>"a", xs:float("INF"), "b", "c"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-unordered-mix-args-010">
+  <test-case name="fn-unordered-mix-args-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:float("-INF"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg: sequence of string  float </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered ( ("a", xs:float("-INF"), "b", "c"))</test>
     <result-string/>
     <result>
-      <assert-permutation>"a", xs:float('-INF'), "b", "c"</assert-permutation>
+      <assert-permutation>"a", xs:float(&apos;-INF&apos;), "b", "c"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-unordered-mix-args-011">
+  <test-case name="fn-unordered-mix-args-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:float("NaN"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg: sequence of string  float </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered ( ("a", xs:float("NaN"), "b", "c"))</test>
     <result-string/>
     <result>
-      <assert-permutation>"a", xs:float('NaN'), "b", "c"</assert-permutation>
+      <assert-permutation>"a", xs:float(&apos;NaN&apos;), "b", "c"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-unordered-mix-args-012">
+  <test-case name="fn-unordered-mix-args-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:float("1.01"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg: sequence of string  float </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered ( ("a", xs:float("1.01"), "b", "c"))</test>
@@ -110,16 +109,16 @@
       <assert-permutation>"a", 1.01, "b", "c"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-unordered-mix-args-013">
+  <test-case name="fn-unordered-mix-args-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:double("NaN"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg: sequence of string  double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered ( ("a", xs:double("NaN"), "b", "c"))</test>
     <result-string/>
     <result>
-      <assert-permutation>"a", xs:double('NaN'), "b", "c"</assert-permutation>
+      <assert-permutation>"a", xs:double(&apos;NaN&apos;), "b", "c"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-unordered-mix-args-014">
+  <test-case name="fn-unordered-mix-args-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:double("1.01"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg: sequence of string  double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered ( ("a", xs:double("1.01"), "b", "c"))</test>
@@ -128,16 +127,16 @@
       <assert-permutation>"a", 1.01, "b", "c"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-unordered-mix-args-015">
+  <test-case name="fn-unordered-mix-args-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:double("-INF"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg: sequence of string  double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered ( ("a", xs:double("-INF"), "b", "c"))</test>
     <result-string/>
     <result>
-      <assert-permutation>"a", xs:double('-INF'), "b", "c"</assert-permutation>
+      <assert-permutation>"a", xs:double(&apos;-INF&apos;), "b", "c"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-unordered-mix-args-016">
+  <test-case name="fn-unordered-mix-args-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:double("INF"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg: sequence of string  double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered ( ("a", xs:double("INF"), "b", "c"))</test>
@@ -146,7 +145,7 @@
       <assert-permutation>"a", xs:double("INF"), "b", "c"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-unordered-mix-args-017">
+  <test-case name="fn-unordered-mix-args-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:boolean("true"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg: sequence of string  boolean </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered ( ("a", xs:boolean("1"), "b", "c"))</test>
@@ -155,7 +154,7 @@
       <assert-permutation>"a", true(), "b", "c"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-unordered-mix-args-018">
+  <test-case name="fn-unordered-mix-args-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:boolean("false"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg: sequence of string  boolean </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered ( ("a", xs:boolean("0"), "b", "c"))</test>
@@ -164,7 +163,7 @@
       <assert-permutation>"a", false(), "b", "c"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-unordered-mix-args-019">
+  <test-case name="fn-unordered-mix-args-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:boolean("true"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg: sequence of string  boolean </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered ( ("a", xs:boolean("true"), "b", "c"))</test>
@@ -173,7 +172,7 @@
       <assert-permutation>"a", true(), "b", "c"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-unordered-mix-args-020">
+  <test-case name="fn-unordered-mix-args-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:boolean("false"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg: sequence of string  boolean </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered ( ("a", xs:boolean("false"), "b", "c"))</test>
@@ -182,16 +181,16 @@
       <assert-permutation>"a", false(), "b", "c"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-unordered-mix-args-021">
+  <test-case name="fn-unordered-mix-args-021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:date("1993-03-31"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg: sequence of string  date </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered ( ("a", xs:date("1993-03-31"), "b", "c"))</test>
     <result-string/>
     <result>
-      <assert-permutation>"a", xs:date('1993-03-31'), "b", "c"</assert-permutation>
+      <assert-permutation>"a", xs:date(&apos;1993-03-31&apos;), "b", "c"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-unordered-mix-args-022">
+  <test-case name="fn-unordered-mix-args-022"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:dateTime("1972-12-31T00:00:00"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg: sequence of string  dateTime </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered ( ("a", xs:dateTime("1972-12-31T00:00:00"), "b", "c"))</test>
@@ -200,34 +199,34 @@
       <assert-permutation>"a", xs:dateTime("1972-12-31T00:00:00"), "b", "c"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-unordered-mix-args-023">
+  <test-case name="fn-unordered-mix-args-023"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("a"),xs:time("12:30:00"),xs:string("b"),xs:string("c"))</response-string>
     <description> arg: sequence of string  time </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:unordered ( ("a", xs:time("12:30:00"), "b", "c"))</test>
     <result-string/>
     <result>
-      <assert-permutation>"a", xs:time('12:30:00'), "b", "c"</assert-permutation>
+      <assert-permutation>"a", xs:time(&apos;12:30:00&apos;), "b", "c"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="K-SeqUnorderedFunc-1">
+  <test-case name="K-SeqUnorderedFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `unordered()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>unordered()</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqUnorderedFunc-2">
+  <test-case name="K-SeqUnorderedFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `unordered(1, 2)`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>unordered(1, 2)</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0017"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</result-string>
     <result>
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqUnorderedFunc-3">
+  <test-case name="K-SeqUnorderedFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `unordered(1) eq 1`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>unordered(1) eq 1</test>
@@ -236,7 +235,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqUnorderedFunc-4">
+  <test-case name="K-SeqUnorderedFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(unordered((1, 2, 3))) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(unordered((1, 2, 3))) eq 3</test>
@@ -245,7 +244,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqUnorderedFunc-5">
+  <test-case name="K-SeqUnorderedFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(unordered((1, 2, current-time()))) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(unordered((1, 2, current-time()))) eq 3</test>
@@ -254,7 +253,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqUnorderedFunc-6">
+  <test-case name="K-SeqUnorderedFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(unordered(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(unordered(()))</test>
@@ -267,7 +266,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-SeqUnorderedFunc-7">
+  <test-case name="K-SeqUnorderedFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `deep-equal((1, 2, 3), unordered((1, 2, 3)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal((1, 2, 3), unordered((1, 2, 3)))</test>
@@ -276,16 +275,16 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqUnorderedFunc-8">
+  <test-case name="K-SeqUnorderedFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</response-string>
     <description> A test whose essence is: `unordered(error())`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>unordered(error())</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOER0000"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOER0000"))</result-string>
     <result>
       <error code="FOER0000"/>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-unordered-001">
+  <test-case name="cbcl-fn-unordered-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Tests optimizations for unordered </description>
     <created by="Nick Jones" on="2008-06-12"/>
     <test>boolean(unordered(reverse((1 to 10)[. div 2 = 2])))</test>
@@ -294,7 +293,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-unordered-002">
+  <test-case name="cbcl-fn-unordered-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("b")</response-string>
     <description> Tries EvaluateOptionalItem on fn:unordered </description>
     <created by="Nick Jones" on="2008-06-16"/>
     <dependency type="spec" value="XQ10+"/>
@@ -306,7 +305,7 @@
       <assert-string-value>b</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-fn-unordered-003">
+  <test-case name="cbcl-fn-unordered-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Tests corner evaluation case </description>
     <created by="Nick Jones" on="2008-06-27"/>
     <test>floor(unordered((1 to 10)[. div 2 = 0]))</test>

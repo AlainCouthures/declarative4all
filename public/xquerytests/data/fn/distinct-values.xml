@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="fn-distinct-values" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the distinct-values() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-distinct-values" type="spec"/>
-  <test-case name="fn-distinct-valuesint1args-1">
+  <test-case name="fn-distinct-valuesint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-2147483648")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-2147483648")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-2147483648")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-2147483648")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:int(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:int("-2147483648")))</test>
@@ -11,7 +10,7 @@
       <assert-eq>-2147483648</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesint1args-2">
+  <test-case name="fn-distinct-valuesint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-1873914410")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-1873914410")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-1873914410")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("-1873914410")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:int(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:int("-1873914410")))</test>
@@ -20,7 +19,7 @@
       <assert-eq>-1873914410</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesint1args-3">
+  <test-case name="fn-distinct-valuesint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("2147483647")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("2147483647")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("2147483647")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:int("2147483647")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:int(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:int("2147483647")))</test>
@@ -29,7 +28,7 @@
       <assert-eq>2147483647</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesintg1args-1">
+  <test-case name="fn-distinct-valuesintg1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-999999999999999999")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:integer(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:integer("-999999999999999999")))</test>
@@ -38,7 +37,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesintg1args-2">
+  <test-case name="fn-distinct-valuesintg1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("830993497117024304")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("830993497117024304")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("830993497117024304")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("830993497117024304")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:integer(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:integer("830993497117024304")))</test>
@@ -47,7 +46,7 @@
       <assert-eq>830993497117024304</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesintg1args-3">
+  <test-case name="fn-distinct-valuesintg1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("999999999999999999")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:integer(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:integer("999999999999999999")))</test>
@@ -56,88 +55,88 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesdec1args-1">
+  <test-case name="fn-distinct-valuesdec1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("-999999999999999999")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:decimal(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:decimal("-999999999999999999")))</test>
-    <result-string>xs:integer("-999999999999999999")</result-string>
+    <result-string>xs:decimal("-999999999999999999")</result-string>
     <result>
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesdec1args-2">
+  <test-case name="fn-distinct-valuesdec1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("617375191608514839")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("617375191608514839")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("617375191608514839")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("617375191608514839")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:decimal(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:decimal("617375191608514839")))</test>
-    <result-string>xs:decimal("617375191608514839.0")</result-string>
+    <result-string>xs:decimal("617375191608514839")</result-string>
     <result>
       <assert-eq>617375191608514839</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesdec1args-3">
+  <test-case name="fn-distinct-valuesdec1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("999999999999999999")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:decimal(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:decimal("999999999999999999")))</test>
-    <result-string>xs:decimal("999999999999999999.0")</result-string>
+    <result-string>xs:decimal("999999999999999999")</result-string>
     <result>
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesdbl1args-1">
+  <test-case name="fn-distinct-valuesdbl1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157E308")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157E308")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157E308")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("-1.7976931348623157E308")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:double(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:double("-1.7976931348623157E308")))</test>
-    <result-string>xs:double("-1.7976931348623157e308")</result-string>
+    <result-string>xs:double("-1.7976931348623157E308")</result-string>
     <result>
       <assert-eq>-1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesdbl1args-2">
+  <test-case name="fn-distinct-valuesdbl1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("0")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:double(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:double("0")))</test>
-    <result-string>xs:double("0.0e0")</result-string>
+    <result-string>xs:double("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesdbl1args-3">
+  <test-case name="fn-distinct-valuesdbl1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.7976931348623157E308")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.7976931348623157E308")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.7976931348623157E308")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1.7976931348623157E308")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:double(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:double("1.7976931348623157E308")))</test>
-    <result-string>xs:double("1.7976931348623157e308")</result-string>
+    <result-string>xs:double("1.7976931348623157E308")</result-string>
     <result>
       <assert-eq>1.7976931348623157E308</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesflt1args-1">
+  <test-case name="fn-distinct-valuesflt1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235E38")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235E38")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235E38")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-3.4028235E38")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:float(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:float("-3.4028235E38")))</test>
-    <result-string>xs:float("-3.4028235e38")</result-string>
+    <result-string>xs:float("-3.4028235E38")</result-string>
     <result>
       <assert-eq>xs:float("-3.4028235E38")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesflt1args-2">
+  <test-case name="fn-distinct-valuesflt1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("0")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:float(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:float("0")))</test>
-    <result-string>xs:float("0.0e0")</result-string>
+    <result-string>xs:float("0")</result-string>
     <result>
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesflt1args-3">
+  <test-case name="fn-distinct-valuesflt1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("3.4028235E38")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("3.4028235E38")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("3.4028235E38")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("3.4028235E38")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:float(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:float("3.4028235E38")))</test>
-    <result-string>xs:float("3.4028235e38")</result-string>
+    <result-string>xs:float("3.4028235E38")</result-string>
     <result>
       <assert-eq>xs:float("3.4028235E38")</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valueslng1args-1">
+  <test-case name="fn-distinct-valueslng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-92233720368547760")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-92233720368547760")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-92233720368547760")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-92233720368547760")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:long(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:long("-92233720368547758")))</test>
@@ -146,7 +145,7 @@
       <assert-eq>-92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valueslng1args-2">
+  <test-case name="fn-distinct-valueslng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-47175562203048460")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-47175562203048460")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-47175562203048460")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("-47175562203048460")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:long(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:long("-47175562203048468")))</test>
@@ -155,7 +154,7 @@
       <assert-eq>-47175562203048468</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valueslng1args-3">
+  <test-case name="fn-distinct-valueslng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("92233720368547760")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("92233720368547760")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("92233720368547760")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:long("92233720368547760")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:long(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:long("92233720368547758")))</test>
@@ -164,7 +163,7 @@
       <assert-eq>92233720368547758</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesusht1args-1">
+  <test-case name="fn-distinct-valuesusht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("0")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:unsignedShort(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:unsignedShort("0")))</test>
@@ -173,7 +172,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesusht1args-2">
+  <test-case name="fn-distinct-valuesusht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("44633")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("44633")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("44633")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("44633")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:unsignedShort(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:unsignedShort("44633")))</test>
@@ -182,7 +181,7 @@
       <assert-eq>44633</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesusht1args-3">
+  <test-case name="fn-distinct-valuesusht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("65535")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("65535")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("65535")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedShort("65535")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:unsignedShort(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:unsignedShort("65535")))</test>
@@ -191,7 +190,7 @@
       <assert-eq>65535</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesnint1args-1">
+  <test-case name="fn-distinct-valuesnint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-999999999999999999")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:negativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:negativeInteger("-999999999999999999")))</test>
@@ -200,7 +199,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesnint1args-2">
+  <test-case name="fn-distinct-valuesnint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-297014075999096793")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-297014075999096793")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-297014075999096793")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-297014075999096793")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:negativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:negativeInteger("-297014075999096793")))</test>
@@ -209,7 +208,7 @@
       <assert-eq>-297014075999096793</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesnint1args-3">
+  <test-case name="fn-distinct-valuesnint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:negativeInteger("-1")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:negativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:negativeInteger("-1")))</test>
@@ -218,7 +217,7 @@
       <assert-eq>-1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuespint1args-1">
+  <test-case name="fn-distinct-valuespint1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("1")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:positiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:positiveInteger("1")))</test>
@@ -227,7 +226,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuespint1args-2">
+  <test-case name="fn-distinct-valuespint1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("52704602390610033")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("52704602390610033")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("52704602390610033")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("52704602390610033")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:positiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:positiveInteger("52704602390610033")))</test>
@@ -236,7 +235,7 @@
       <assert-eq>52704602390610033</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuespint1args-3">
+  <test-case name="fn-distinct-valuespint1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:positiveInteger("999999999999999999")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:positiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:positiveInteger("999999999999999999")))</test>
@@ -245,7 +244,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesulng1args-1">
+  <test-case name="fn-distinct-valuesulng1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("0")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:unsignedLong(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:unsignedLong("0")))</test>
@@ -254,7 +253,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesulng1args-2">
+  <test-case name="fn-distinct-valuesulng1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("130747108607674660")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("130747108607674660")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("130747108607674660")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("130747108607674660")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:unsignedLong(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:unsignedLong("130747108607674654")))</test>
@@ -263,7 +262,7 @@
       <assert-eq>130747108607674654</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesulng1args-3">
+  <test-case name="fn-distinct-valuesulng1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("184467440737095520")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("184467440737095520")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("184467440737095520")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:unsignedLong("184467440737095520")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:unsignedLong(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:unsignedLong("184467440737095516")))</test>
@@ -272,7 +271,7 @@
       <assert-eq>184467440737095516</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesnpi1args-1">
+  <test-case name="fn-distinct-valuesnpi1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-999999999999999999")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:nonPositiveInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:nonPositiveInteger("-999999999999999999")))</test>
@@ -281,7 +280,7 @@
       <assert-eq>-999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesnpi1args-2">
+  <test-case name="fn-distinct-valuesnpi1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-475688437271870490")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-475688437271870490")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-475688437271870490")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("-475688437271870490")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:nonPositiveInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:nonPositiveInteger("-475688437271870490")))</test>
@@ -290,7 +289,7 @@
       <assert-eq>-475688437271870490</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesnpi1args-3">
+  <test-case name="fn-distinct-valuesnpi1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonPositiveInteger("0")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:nonPositiveInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:nonPositiveInteger("0")))</test>
@@ -299,7 +298,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesnni1args-1">
+  <test-case name="fn-distinct-valuesnni1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("0")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("0")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:nonNegativeInteger(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:nonNegativeInteger("0")))</test>
@@ -308,7 +307,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesnni1args-2">
+  <test-case name="fn-distinct-valuesnni1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("303884545991464527")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("303884545991464527")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("303884545991464527")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("303884545991464527")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:nonNegativeInteger(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:nonNegativeInteger("303884545991464527")))</test>
@@ -317,7 +316,7 @@
       <assert-eq>303884545991464527</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuesnni1args-3">
+  <test-case name="fn-distinct-valuesnni1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("999999999999999999")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:nonNegativeInteger("999999999999999999")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:nonNegativeInteger(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:nonNegativeInteger("999999999999999999")))</test>
@@ -326,7 +325,7 @@
       <assert-eq>999999999999999999</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuessht1args-1">
+  <test-case name="fn-distinct-valuessht1args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-32768")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-32768")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-32768")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-32768")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:short(lower bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:short("-32768")))</test>
@@ -335,7 +334,7 @@
       <assert-eq>-32768</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuessht1args-2">
+  <test-case name="fn-distinct-valuessht1args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-5324")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-5324")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-5324")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("-5324")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:short(mid range) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:short("-5324")))</test>
@@ -344,7 +343,7 @@
       <assert-eq>-5324</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-valuessht1args-3">
+  <test-case name="fn-distinct-valuessht1args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("32767")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("32767")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("32767")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:short("32767")</response-string>
     <description> Evaluates The "distinct-values" function with the arguments set as follows: $arg = xs:short(upper bound) </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>fn:distinct-values((xs:short("32767")))</test>
@@ -353,7 +352,7 @@
       <assert-eq>32767</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-001">
+  <test-case name="fn-distinct-values-mixed-args-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"))</response-string>
     <description> arg: sequence of integer  decimal </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values((1, 2))</test>
@@ -365,7 +364,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-002">
+  <test-case name="fn-distinct-values-mixed-args-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> arg: sequence of integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values(( 1, (1), ((1)) ))</test>
@@ -374,7 +373,7 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-003">
+  <test-case name="fn-distinct-values-mixed-args-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> arg: sequence of integer  double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values(( 1, 1.0e0))</test>
@@ -390,7 +389,7 @@
       </all-of>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-004">
+  <test-case name="fn-distinct-values-mixed-args-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> arg: sequence of integer </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values(( xs:integer(1), 1))</test>
@@ -399,25 +398,25 @@
       <assert-eq>1</assert-eq>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-005">
+  <test-case name="fn-distinct-values-mixed-args-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:double("0"),xs:integer("1"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:double("0"),xs:integer("1"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:double("0"),xs:integer("1"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:double("0"),xs:integer("1"))</response-string>
     <description> arg: sequence of integer  double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values(( 0e0, -0, 0, 1 ))</test>
-    <result-string>(xs:double("0.0e0"),xs:integer("1"))</result-string>
+    <result-string>(xs:double("0"),xs:integer("1"))</result-string>
     <result>
       <assert-permutation>1, 0</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-006">
+  <test-case name="fn-distinct-values-mixed-args-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("cat"),xs:string("CAT"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("cat"),xs:string("CAT"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("cat"),xs:string("CAT"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("cat"),xs:string("CAT"))</response-string>
     <description> arg: sequence of string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:distinct-values(( "cat", 'CAT' ))</test>
+    <test>fn:distinct-values(( "cat", &apos;CAT&apos; ))</test>
     <result-string>(xs:string("cat"),xs:string("CAT"))</result-string>
     <result>
       <assert-permutation>"cat", "CAT"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-007">
+  <test-case name="fn-distinct-values-mixed-args-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("hello")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("hello")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("hello")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("hello")</response-string>
     <description> arg: sequence of string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values(( xs:string("hello"), "hello"))</test>
@@ -426,16 +425,16 @@
       <assert-string-value>hello</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-008">
+  <test-case name="fn-distinct-values-mixed-args-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("")</response-string>
     <description> arg: sequence of string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:distinct-values(( xs:string(""), "", ''))</test>
+    <test>fn:distinct-values(( xs:string(""), "", &apos;&apos;))</test>
     <result-string>xs:string("")</result-string>
     <result>
       <assert-string-value/>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-009">
+  <test-case name="fn-distinct-values-mixed-args-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:boolean("true"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:boolean("true"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:boolean("true"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:boolean("true"))</response-string>
     <description> arg: sequence of integer,decimal,boolean,string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values((1, true(), true(), ()))</test>
@@ -444,136 +443,136 @@
       <assert-permutation>1, true()</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-010">
+  <test-case name="fn-distinct-values-mixed-args-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:decimal("1.2"),xs:decimal("1.2000000000000001"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:decimal("1.2"),xs:decimal("1.2000000000000001"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:decimal("1.2"),xs:decimal("1.2000000000000001"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:decimal("1.2"),xs:decimal("1.2000000000000001"))</response-string>
     <description> arg: sequence of decimal </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:distinct-values((xs:decimal('1.2'), xs:decimal('1.2000000000000001')))</test>
+    <test>fn:distinct-values((xs:decimal(&apos;1.2&apos;), xs:decimal(&apos;1.2000000000000001&apos;)))</test>
     <result-string>(xs:decimal("1.2"),xs:decimal("1.2000000000000001"))</result-string>
     <result>
       <assert-permutation>1.2000000000000001, 1.2</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-011">
+  <test-case name="fn-distinct-values-mixed-args-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:decimal("1.2"),xs:string("1.2"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:decimal("1.2"),xs:string("1.2"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:decimal("1.2"),xs:string("1.2"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:decimal("1.2"),xs:string("1.2"))</response-string>
     <description> arg: sequence of decimal  string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:distinct-values((xs:decimal('1.2'), '1.2'))</test>
+    <test>fn:distinct-values((xs:decimal(&apos;1.2&apos;), &apos;1.2&apos;))</test>
     <result-string>(xs:decimal("1.2"),xs:string("1.2"))</result-string>
     <result>
       <assert-permutation>"1.2", 1.2</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-012">
+  <test-case name="fn-distinct-values-mixed-args-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1.2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1.2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1.2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1.2")</response-string>
     <description> arg: sequence of decimal  float </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:distinct-values((xs:decimal('1.2'), xs:float('1.2')))</test>
+    <test>fn:distinct-values((xs:decimal(&apos;1.2&apos;), xs:float(&apos;1.2&apos;)))</test>
     <result-string>xs:decimal("1.2")</result-string>
     <result>
       <assert-string-value>1.2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-013">
+  <test-case name="fn-distinct-values-mixed-args-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1.2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1.2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1.2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:decimal("1.2")</response-string>
     <description> arg: sequence of decimal  double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:distinct-values((xs:decimal('1.2'), xs:double('1.2')))</test>
+    <test>fn:distinct-values((xs:decimal(&apos;1.2&apos;), xs:double(&apos;1.2&apos;)))</test>
     <result-string>xs:decimal("1.2")</result-string>
     <result>
       <assert-string-value>1.2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-014">
+  <test-case name="fn-distinct-values-mixed-args-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("NaN"),xs:string("NaN"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("NaN"),xs:string("NaN"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("NaN"),xs:string("NaN"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("NaN"),xs:string("NaN"))</response-string>
     <description> arg: sequence of float  string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:distinct-values((xs:float('NaN'), 'NaN'))</test>
+    <test>fn:distinct-values((xs:float(&apos;NaN&apos;), &apos;NaN&apos;))</test>
     <result-string>(xs:float("NaN"),xs:string("NaN"))</result-string>
     <result>
       <assert-string-value>NaN NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-015">
+  <test-case name="fn-distinct-values-mixed-args-015"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("INF"),xs:string("INF"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("INF"),xs:string("INF"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("INF"),xs:string("INF"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("INF"),xs:string("INF"))</response-string>
     <description> arg: sequence of float  string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:distinct-values((xs:float('INF'), 'INF'))</test>
+    <test>fn:distinct-values((xs:float(&apos;INF&apos;), &apos;INF&apos;))</test>
     <result-string>(xs:float("INF"),xs:string("INF"))</result-string>
     <result>
       <assert-string-value>INF INF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-016">
+  <test-case name="fn-distinct-values-mixed-args-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("-INF"),xs:string("-INF"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("-INF"),xs:string("-INF"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("-INF"),xs:string("-INF"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("-INF"),xs:string("-INF"))</response-string>
     <description> arg: sequence of float  string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:distinct-values((xs:float('-INF'), '-INF'))</test>
+    <test>fn:distinct-values((xs:float(&apos;-INF&apos;), &apos;-INF&apos;))</test>
     <result-string>(xs:float("-INF"),xs:string("-INF"))</result-string>
     <result>
       <assert-string-value>-INF -INF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-017">
+  <test-case name="fn-distinct-values-mixed-args-017"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("INF")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("INF")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("INF")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("INF")</response-string>
     <description> arg: sequence of float  float </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:distinct-values((xs:float('INF'), xs:float('INF')))</test>
+    <test>fn:distinct-values((xs:float(&apos;INF&apos;), xs:float(&apos;INF&apos;)))</test>
     <result-string>xs:float("INF")</result-string>
     <result>
       <assert-string-value>INF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-018">
+  <test-case name="fn-distinct-values-mixed-args-018"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("-INF"),xs:float("INF"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("-INF"),xs:float("INF"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("-INF"),xs:float("INF"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:float("-INF"),xs:float("INF"))</response-string>
     <description> arg: sequence of float  float </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:distinct-values((xs:float('-INF'), xs:float('INF')))</test>
+    <test>fn:distinct-values((xs:float(&apos;-INF&apos;), xs:float(&apos;INF&apos;)))</test>
     <result-string>(xs:float("-INF"),xs:float("INF"))</result-string>
     <result>
-      <assert-permutation>xs:float('-INF'), xs:float('INF')</assert-permutation>
+      <assert-permutation>xs:float(&apos;-INF&apos;), xs:float(&apos;INF&apos;)</assert-permutation>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-019">
+  <test-case name="fn-distinct-values-mixed-args-019"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> arg: sequence of float  float </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:distinct-values((xs:float('NaN'), xs:float('NaN')))</test>
+    <test>fn:distinct-values((xs:float(&apos;NaN&apos;), xs:float(&apos;NaN&apos;)))</test>
     <result-string>xs:float("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-020">
+  <test-case name="fn-distinct-values-mixed-args-020"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> arg: sequence of float  float </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:distinct-values((xs:float('NaN'), xs:float('NaN')))</test>
+    <test>fn:distinct-values((xs:float(&apos;NaN&apos;), xs:float(&apos;NaN&apos;)))</test>
     <result-string>xs:float("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-021">
+  <test-case name="fn-distinct-values-mixed-args-021"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("NaN")</response-string>
     <description> arg: sequence of float  double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:distinct-values((xs:float('NaN'), xs:double('NaN')))</test>
+    <test>fn:distinct-values((xs:float(&apos;NaN&apos;), xs:double(&apos;NaN&apos;)))</test>
     <result-string>xs:float("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-022">
+  <test-case name="fn-distinct-values-mixed-args-022"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("INF")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("INF")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("INF")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("INF")</response-string>
     <description> arg: sequence of float  double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:distinct-values((xs:float('INF'), xs:double('INF')))</test>
+    <test>fn:distinct-values((xs:float(&apos;INF&apos;), xs:double(&apos;INF&apos;)))</test>
     <result-string>xs:float("INF")</result-string>
     <result>
       <assert-string-value>INF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-023">
+  <test-case name="fn-distinct-values-mixed-args-023"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-INF")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-INF")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-INF")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:float("-INF")</response-string>
     <description> arg: sequence of float  double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:distinct-values((xs:float('-INF'), xs:double('-INF')))</test>
+    <test>fn:distinct-values((xs:float(&apos;-INF&apos;), xs:double(&apos;-INF&apos;)))</test>
     <result-string>xs:float("-INF")</result-string>
     <result>
       <assert-string-value>-INF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-024">
+  <test-case name="fn-distinct-values-mixed-args-024"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:double("-INF"),xs:double("INF"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:double("-INF"),xs:double("INF"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:double("-INF"),xs:double("INF"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:double("-INF"),xs:double("INF"))</response-string>
     <description> arg: sequence of double  double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:distinct-values((xs:double('-INF'), xs:double('INF')))</test>
+    <test>fn:distinct-values((xs:double(&apos;-INF&apos;), xs:double(&apos;INF&apos;)))</test>
     <result-string>(xs:double("-INF"),xs:double("INF"))</result-string>
     <result>
       <any-of>
@@ -582,25 +581,25 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-025">
+  <test-case name="fn-distinct-values-mixed-args-025"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> arg: sequence of double  double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:distinct-values((xs:double('NaN'), xs:double('NaN')))</test>
+    <test>fn:distinct-values((xs:double(&apos;NaN&apos;), xs:double(&apos;NaN&apos;)))</test>
     <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-026">
+  <test-case name="fn-distinct-values-mixed-args-026"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description> arg: sequence of double  double </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:distinct-values((xs:double('NaN'), xs:double('NaN')))</test>
+    <test>fn:distinct-values((xs:double(&apos;NaN&apos;), xs:double(&apos;NaN&apos;)))</test>
     <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-027">
+  <test-case name="fn-distinct-values-mixed-args-027"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("NaN"),xs:string("-NaN"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("NaN"),xs:string("-NaN"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("NaN"),xs:string("-NaN"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("NaN"),xs:string("-NaN"))</response-string>
     <description> arg: sequence of string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values(("NaN", "-NaN"))</test>
@@ -612,7 +611,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-028">
+  <test-case name="fn-distinct-values-mixed-args-028"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("-INF"),xs:string("INF"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("-INF"),xs:string("INF"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("-INF"),xs:string("INF"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string("-INF"),xs:string("INF"))</response-string>
     <description> arg: sequence of string </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values(("-INF", "INF"))</test>
@@ -624,34 +623,34 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-029">
+  <test-case name="fn-distinct-values-mixed-args-029"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> arg: sequence of boolean </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:distinct-values((xs:boolean('true'), true()))</test>
+    <test>fn:distinct-values((xs:boolean(&apos;true&apos;), true()))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-030">
+  <test-case name="fn-distinct-values-mixed-args-030"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> arg: sequence of boolean </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:distinct-values((xs:boolean('true'), xs:boolean('1')))</test>
+    <test>fn:distinct-values((xs:boolean(&apos;true&apos;), xs:boolean(&apos;1&apos;)))</test>
     <result-string>xs:boolean("true")</result-string>
     <result>
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-031">
+  <test-case name="fn-distinct-values-mixed-args-031"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description> arg: sequence of boolean </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
-    <test>fn:distinct-values((xs:boolean('false'), xs:boolean('0')))</test>
+    <test>fn:distinct-values((xs:boolean(&apos;false&apos;), xs:boolean(&apos;0&apos;)))</test>
     <result-string>xs:boolean("false")</result-string>
     <result>
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-mixed-args-032">
+  <test-case name="fn-distinct-values-mixed-args-032"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:boolean("false"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:boolean("false"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:boolean("false"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:boolean("true"),xs:boolean("false"))</response-string>
     <description> arg: sequence of boolean </description>
     <created by="Pulkita Tyagi" on="2005-05-26"/>
     <test>fn:distinct-values(( true(), false(), () ))</test>
@@ -660,7 +659,7 @@
       <assert-permutation>true(), false()</assert-permutation>
     </result>
   </test-case>
-  <test-case name="K-SeqDistinctValuesFunc-1">
+  <test-case name="K-SeqDistinctValuesFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `distinct-values()`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>distinct-values()</test>
@@ -669,7 +668,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqDistinctValuesFunc-2">
+  <test-case name="K-SeqDistinctValuesFunc-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Invoke fn:distinct-values() with a collation argument, although the function does not perform string comparison. For that reason, output is valid as well. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(distinct-values((1, 2, 3), "http://www.example.com/COLLATION/NOT/SUPPORTED"), (1, 2, 3))</test>
@@ -682,7 +681,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-SeqDistinctValuesFunc-3">
+  <test-case name="K-SeqDistinctValuesFunc-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0017"))</response-string>
     <description> A test whose essence is: `distinct-values("a string", "http://www.w3.org/2005/xpath-functions/collation/codepoint", "wrong param")`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>distinct-values("a string", "http://www.w3.org/2005/xpath-functions/collation/codepoint", "wrong param")</test>
@@ -691,7 +690,7 @@
       <error code="XPST0017"/>
     </result>
   </test-case>
-  <test-case name="K-SeqDistinctValuesFunc-4">
+  <test-case name="K-SeqDistinctValuesFunc-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `distinct-values("a string", "http://www.w3.org/2005/xpath-functions/collation/codepoint") eq "a string"`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>distinct-values("a string", "http://www.w3.org/2005/xpath-functions/collation/codepoint") eq "a string"</test>
@@ -700,7 +699,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDistinctValuesFunc-5">
+  <test-case name="K-SeqDistinctValuesFunc-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `empty(distinct-values(()))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>empty(distinct-values(()))</test>
@@ -713,7 +712,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-SeqDistinctValuesFunc-6">
+  <test-case name="K-SeqDistinctValuesFunc-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `deep-equal(distinct-values( ("1", 1, 2, 1, 1, 3, 1, 1, 3, xs:anyURI("example.com/"), xs:anyURI("example.com/"))), ("1", 1, 2, 3, xs:anyURI("example.com/")))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -735,7 +734,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDistinctValuesFunc-7">
+  <test-case name="K-SeqDistinctValuesFunc-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description> A test whose essence is: `distinct-values((1, 1))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>distinct-values((1, 1))</test>
@@ -748,7 +747,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-SeqDistinctValuesFunc-8">
+  <test-case name="K-SeqDistinctValuesFunc-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-3")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-3")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-3")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("-3")</response-string>
     <description> A test whose essence is: `distinct-values((-3, -3))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>distinct-values((-3, -3))</test>
@@ -761,7 +760,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-SeqDistinctValuesFunc-9">
+  <test-case name="K-SeqDistinctValuesFunc-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(distinct-values((1, 2.0, 3, 2))) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(distinct-values((1, 2.0, 3, 2))) eq 3</test>
@@ -770,7 +769,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDistinctValuesFunc-10">
+  <test-case name="K-SeqDistinctValuesFunc-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> A test whose essence is: `deep-equal(distinct-values((1, 2.0, 3, 2)), (1, 2.0, 3))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>deep-equal(distinct-values((1, 2.0, 3, 2)), (1, 2.0, 3))</test>
@@ -779,7 +778,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDistinctValuesFunc-11">
+  <test-case name="K-SeqDistinctValuesFunc-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `exists(distinct-values((1, 2, 3, 1)))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>exists(distinct-values((1, 2, 3, 1)))</test>
@@ -788,7 +787,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDistinctValuesFunc-12">
+  <test-case name="K-SeqDistinctValuesFunc-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `not(empty(distinct-values((1, 1))))`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>not(empty(distinct-values((1, 1))))</test>
@@ -797,7 +796,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDistinctValuesFunc-13">
+  <test-case name="K-SeqDistinctValuesFunc-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(distinct-values((1, 2, 2, current-time()))) eq 3`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(distinct-values((1, 2, 2, current-time()))) eq 3</test>
@@ -806,7 +805,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-SeqDistinctValuesFunc-14">
+  <test-case name="K-SeqDistinctValuesFunc-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> A test whose essence is: `count(distinct-values(())) eq 0`. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(distinct-values(())) eq 0</test>
@@ -819,7 +818,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K-SeqDistinctValuesFunc-15">
+  <test-case name="K-SeqDistinctValuesFunc-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> fn:distinct-values() applied on an argument of cardinality exactly-one. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>count(distinct-values(current-time())) eq 1</test>
@@ -828,7 +827,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-SeqDistinctValuesFunc-1">
+  <test-case name="K2-SeqDistinctValuesFunc-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002"))</response-string>
     <description> Invoke fn:distinct-values() with an invalid collation. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <test>fn:distinct-values(("1", "2", "3"), "http://www.example.com/COLLATION/NOT/SUPPORTED")</test>
@@ -837,14 +836,14 @@
       <error code="FOCH0002"/>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-1">
+  <test-case name="fn-distinct-values-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Test Bugzilla #5183, [FO] Effect of type promotion in fn:distinct-values </description>
     <created by="Andrew Eisenberg" on="2009-12-24"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
-        let $input := (xs:float('1.0'), xs:decimal('1.0000000000100000000001'), 
-                       xs:double( '1.00000000001'), xs:float('2.0'), 
-                       xs:decimal('2.0000000000100000000001'), xs:double( '2.00000000001')), 
+        let $input := (xs:float(&apos;1.0&apos;), xs:decimal(&apos;1.0000000000100000000001&apos;), 
+                       xs:double( &apos;1.00000000001&apos;), xs:float(&apos;2.0&apos;), 
+                       xs:decimal(&apos;2.0000000000100000000001&apos;), xs:double( &apos;2.00000000001&apos;)), 
             $distinct := distinct-values($input) 
         return ( (every $n in $input satisfies $n = $distinct) and 
         (every $bool in (for $d1 at $p in $distinct, $d2 in $distinct [position()  $p] return $d1 eq $d2) satisfies not($bool)) )</test>
@@ -853,16 +852,16 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="fn-distinct-values-2">
+  <test-case name="fn-distinct-values-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("6"),xs:integer("7"),xs:integer("8"),xs:integer("9"),xs:integer("10"),xs:integer("11"),xs:integer("12"),xs:integer("13"),xs:integer("14"),xs:integer("15"),xs:integer("16"),xs:integer("17"),xs:integer("18"),xs:integer("19"),xs:integer("20"),xs:integer("21"),xs:integer("22"),xs:integer("23"),xs:integer("24"),xs:integer("25"),xs:integer("26"),xs:integer("27"),xs:integer("28"),xs:integer("29"),xs:integer("30"),xs:integer("31"),xs:integer("32"),xs:integer("33"),xs:integer("34"),xs:integer("35"),xs:integer("36"),xs:integer("37"),xs:integer("38"),xs:integer("39"),xs:integer("40"),xs:integer("41"),xs:integer("42"),xs:integer("43"),xs:integer("44"),xs:integer("45"),xs:integer("46"),xs:integer("47"),xs:integer("48"),xs:integer("49"),xs:integer("50"),xs:integer("51"),xs:integer("52"),xs:integer("53"),xs:integer("54"),xs:integer("55"),xs:integer("56"),xs:integer("57"),xs:integer("58"),xs:integer("59"),xs:integer("60"),xs:integer("61"),xs:integer("62"),xs:integer("63"),xs:integer("64"),xs:integer("65"),xs:integer("66"),xs:integer("67"),xs:integer("68"),xs:integer("69"),xs:integer("70"),xs:integer("71"),xs:integer("72"),xs:integer("73"),xs:integer("74"),xs:integer("75"),xs:integer("76"),xs:integer("77"),xs:integer("78"),xs:integer("79"),xs:integer("80"),xs:integer("81"),xs:integer("82"),xs:integer("83"),xs:integer("84"),xs:integer("85"),xs:integer("86"),xs:integer("87"),xs:integer("88"),xs:integer("89"),xs:integer("90"),xs:integer("91"),xs:integer("92"),xs:integer("93"),xs:integer("94"),xs:integer("95"),xs:integer("96"),xs:integer("97"),xs:integer("98"),xs:integer("99"),xs:integer("100"),xs:integer("101"),xs:integer("102"),xs:integer("103"),xs:integer("104"),xs:integer("105"),xs:integer("106"),xs:integer("107"),xs:integer("108"),xs:integer("109"),xs:integer("110"),xs:integer("111"),xs:integer("112"),xs:integer("113"),xs:integer("114"),xs:integer("115"),xs:integer("116"),xs:integer("117"),xs:integer("118"),xs:integer("119"),xs:integer("120"),xs:integer("121"),xs:integer("122"),xs:integer("123"),xs:integer("124"),xs:integer("125"),xs:integer("126"),xs:integer("127"),xs:integer("128"),xs:integer("129"),xs:integer("130"),xs:integer("131"),xs:integer("132"),xs:integer("133"),xs:integer("134"),xs:integer("135"),xs:integer("136"),xs:integer("137"),xs:integer("138"),xs:integer("139"),xs:integer("140"),xs:integer("141"),xs:integer("142"),xs:integer("143"),xs:integer("144"),xs:integer("145"),xs:integer("146"),xs:integer("147"),xs:integer("148"),xs:integer("149"),xs:integer("150"),xs:integer("151"),xs:integer("152"),xs:integer("153"),xs:integer("154"),xs:integer("155"),xs:integer("156"),xs:integer("157"),xs:integer("158"),xs:integer("159"),xs:integer("160"),xs:integer("161"),xs:integer("162"),xs:integer("163"),xs:integer("164"),xs:integer("165"),xs:integer("166"),xs:integer("167"),xs:integer("168"),xs:integer("169"),xs:integer("170"),xs:integer("171"),xs:integer("172"),xs:integer("173"),xs:integer("174"),xs:integer("175"),xs:integer("176"),xs:integer("177"),xs:integer("178"),xs:integer("179"),xs:integer("180"),xs:integer("181"),xs:integer("182"),xs:integer("183"),xs:integer("184"),xs:integer("185"),xs:integer("186"),xs:integer("187"),xs:integer("188"),xs:integer("189"),xs:integer("190"),xs:integer("191"),xs:integer("192"),xs:integer("193"),xs:integer("194"),xs:integer("195"),xs:integer("196"),xs:integer("197"),xs:integer("198"),xs:integer("199"),xs:integer("200"),xs:integer("201"),xs:integer("202"),xs:integer("203"),xs:integer("204"),xs:integer("205"),xs:integer("206"),xs:integer("207"),xs:integer("208"),xs:integer("209"),xs:integer("210"),xs:integer("211"),xs:integer("212"),xs:integer("213"),xs:integer("214"),xs:integer("215"),xs:integer("216"),xs:integer("217"),xs:integer("218"),xs:integer("219"),xs:integer("220"),xs:integer("221"),xs:integer("222"),xs:integer("223"),xs:integer("224"),xs:integer("225"),xs:integer("226"),xs:integer("227"),xs:integer("228"),xs:integer("229"),xs:integer("230"),xs:integer("231"),xs:integer("232"),xs:integer("233"),xs:integer("234"),xs:integer("235"),xs:integer("236"),xs:integer("237"),xs:integer("238"),xs:integer("239"),xs:integer("240"),xs:integer("241"),xs:integer("242"),xs:integer("243"),xs:integer("244"),xs:integer("245"),xs:integer("246"),xs:integer("247"),xs:integer("248"),xs:integer("249"),xs:integer("250"),xs:integer("251"),xs:integer("252"),xs:integer("253"),xs:integer("254"),xs:integer("255"),xs:integer("256"),xs:integer("257"),xs:integer("258"),xs:integer("259"),xs:integer("260"),xs:integer("261"),xs:integer("262"),xs:integer("263"),xs:integer("264"),xs:integer("265"),xs:integer("266"),xs:integer("267"),xs:integer("268"),xs:integer("269"),xs:integer("270"),xs:integer("271"),xs:integer("272"),xs:integer("273"),xs:integer("274"),xs:integer("275"),xs:integer("276"),xs:integer("277"),xs:integer("278"),xs:integer("279"),xs:integer("280"),xs:integer("281"),xs:integer("282"),xs:integer("283"),xs:integer("284"),xs:integer("285"),xs:integer("286"),xs:integer("287"),xs:integer("288"),xs:integer("289"),xs:integer("290"),xs:integer("291"),xs:integer("292"),xs:integer("293"),xs:integer("294"),xs:integer("295"),xs:integer("296"),xs:integer("297"),xs:integer("298"),xs:integer("299"),xs:integer("300"),xs:integer("301"),xs:integer("302"),xs:integer("303"),xs:integer("304"),xs:integer("305"),xs:integer("306"),xs:integer("307"),xs:integer("308"),xs:integer("309"),xs:integer("310"),xs:integer("311"),xs:integer("312"),xs:integer("313"),xs:integer("314"),xs:integer("315"),xs:integer("316"),xs:integer("317"),xs:integer("318"),xs:integer("319"),xs:integer("320"),xs:integer("321"),xs:integer("322"),xs:integer("323"),xs:integer("324"),xs:integer("325"),xs:integer("326"),xs:integer("327"),xs:integer("328"),xs:integer("329"),xs:integer("330"),xs:integer("331"),xs:integer("332"),xs:integer("333"),xs:integer("334"),xs:integer("335"),xs:integer("336"),xs:integer("337"),xs:integer("338"),xs:integer("339"),xs:integer("340"),xs:integer("341"),xs:integer("342"),xs:integer("343"),xs:integer("344"),xs:integer("345"),xs:integer("346"),xs:integer("347"),xs:integer("348"),xs:integer("349"),xs:integer("350"),xs:integer("351"),xs:integer("352"),xs:integer("353"),xs:integer("354"),xs:integer("355"),xs:integer("356"),xs:integer("357"),xs:integer("358"),xs:integer("359"),xs:integer("360"),xs:integer("361"),xs:integer("362"),xs:integer("363"),xs:integer("364"),xs:integer("365"),xs:integer("366"),xs:integer("367"),xs:integer("368"),xs:integer("369"),xs:integer("370"),xs:integer("371"),xs:integer("372"),xs:integer("373"),xs:integer("374"),xs:integer("375"),xs:integer("376"),xs:integer("377"),xs:integer("378"),xs:integer("379"),xs:integer("380"),xs:integer("381"),xs:integer("382"),xs:integer("383"),xs:integer("384"),xs:integer("385"),xs:integer("386"),xs:integer("387"),xs:integer("388"),xs:integer("389"),xs:integer("390"),xs:integer("391"),xs:integer("392"),xs:integer("393"),xs:integer("394"),xs:integer("395"),xs:integer("396"),xs:integer("397"),xs:integer("398"),xs:integer("399"),xs:integer("400"),xs:string("30"),xs:string("31"),xs:string("32"),xs:string("33"),xs:string("34"),xs:string("35"),xs:string("36"),xs:string("37"),xs:string("38"),xs:string("39"),xs:string("40"),xs:string("foo"),xs:string("bar"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("6"),xs:integer("7"),xs:integer("8"),xs:integer("9"),xs:integer("10"),xs:integer("11"),xs:integer("12"),xs:integer("13"),xs:integer("14"),xs:integer("15"),xs:integer("16"),xs:integer("17"),xs:integer("18"),xs:integer("19"),xs:integer("20"),xs:integer("21"),xs:integer("22"),xs:integer("23"),xs:integer("24"),xs:integer("25"),xs:integer("26"),xs:integer("27"),xs:integer("28"),xs:integer("29"),xs:integer("30"),xs:integer("31"),xs:integer("32"),xs:integer("33"),xs:integer("34"),xs:integer("35"),xs:integer("36"),xs:integer("37"),xs:integer("38"),xs:integer("39"),xs:integer("40"),xs:integer("41"),xs:integer("42"),xs:integer("43"),xs:integer("44"),xs:integer("45"),xs:integer("46"),xs:integer("47"),xs:integer("48"),xs:integer("49"),xs:integer("50"),xs:integer("51"),xs:integer("52"),xs:integer("53"),xs:integer("54"),xs:integer("55"),xs:integer("56"),xs:integer("57"),xs:integer("58"),xs:integer("59"),xs:integer("60"),xs:integer("61"),xs:integer("62"),xs:integer("63"),xs:integer("64"),xs:integer("65"),xs:integer("66"),xs:integer("67"),xs:integer("68"),xs:integer("69"),xs:integer("70"),xs:integer("71"),xs:integer("72"),xs:integer("73"),xs:integer("74"),xs:integer("75"),xs:integer("76"),xs:integer("77"),xs:integer("78"),xs:integer("79"),xs:integer("80"),xs:integer("81"),xs:integer("82"),xs:integer("83"),xs:integer("84"),xs:integer("85"),xs:integer("86"),xs:integer("87"),xs:integer("88"),xs:integer("89"),xs:integer("90"),xs:integer("91"),xs:integer("92"),xs:integer("93"),xs:integer("94"),xs:integer("95"),xs:integer("96"),xs:integer("97"),xs:integer("98"),xs:integer("99"),xs:integer("100"),xs:integer("101"),xs:integer("102"),xs:integer("103"),xs:integer("104"),xs:integer("105"),xs:integer("106"),xs:integer("107"),xs:integer("108"),xs:integer("109"),xs:integer("110"),xs:integer("111"),xs:integer("112"),xs:integer("113"),xs:integer("114"),xs:integer("115"),xs:integer("116"),xs:integer("117"),xs:integer("118"),xs:integer("119"),xs:integer("120"),xs:integer("121"),xs:integer("122"),xs:integer("123"),xs:integer("124"),xs:integer("125"),xs:integer("126"),xs:integer("127"),xs:integer("128"),xs:integer("129"),xs:integer("130"),xs:integer("131"),xs:integer("132"),xs:integer("133"),xs:integer("134"),xs:integer("135"),xs:integer("136"),xs:integer("137"),xs:integer("138"),xs:integer("139"),xs:integer("140"),xs:integer("141"),xs:integer("142"),xs:integer("143"),xs:integer("144"),xs:integer("145"),xs:integer("146"),xs:integer("147"),xs:integer("148"),xs:integer("149"),xs:integer("150"),xs:integer("151"),xs:integer("152"),xs:integer("153"),xs:integer("154"),xs:integer("155"),xs:integer("156"),xs:integer("157"),xs:integer("158"),xs:integer("159"),xs:integer("160"),xs:integer("161"),xs:integer("162"),xs:integer("163"),xs:integer("164"),xs:integer("165"),xs:integer("166"),xs:integer("167"),xs:integer("168"),xs:integer("169"),xs:integer("170"),xs:integer("171"),xs:integer("172"),xs:integer("173"),xs:integer("174"),xs:integer("175"),xs:integer("176"),xs:integer("177"),xs:integer("178"),xs:integer("179"),xs:integer("180"),xs:integer("181"),xs:integer("182"),xs:integer("183"),xs:integer("184"),xs:integer("185"),xs:integer("186"),xs:integer("187"),xs:integer("188"),xs:integer("189"),xs:integer("190"),xs:integer("191"),xs:integer("192"),xs:integer("193"),xs:integer("194"),xs:integer("195"),xs:integer("196"),xs:integer("197"),xs:integer("198"),xs:integer("199"),xs:integer("200"),xs:integer("201"),xs:integer("202"),xs:integer("203"),xs:integer("204"),xs:integer("205"),xs:integer("206"),xs:integer("207"),xs:integer("208"),xs:integer("209"),xs:integer("210"),xs:integer("211"),xs:integer("212"),xs:integer("213"),xs:integer("214"),xs:integer("215"),xs:integer("216"),xs:integer("217"),xs:integer("218"),xs:integer("219"),xs:integer("220"),xs:integer("221"),xs:integer("222"),xs:integer("223"),xs:integer("224"),xs:integer("225"),xs:integer("226"),xs:integer("227"),xs:integer("228"),xs:integer("229"),xs:integer("230"),xs:integer("231"),xs:integer("232"),xs:integer("233"),xs:integer("234"),xs:integer("235"),xs:integer("236"),xs:integer("237"),xs:integer("238"),xs:integer("239"),xs:integer("240"),xs:integer("241"),xs:integer("242"),xs:integer("243"),xs:integer("244"),xs:integer("245"),xs:integer("246"),xs:integer("247"),xs:integer("248"),xs:integer("249"),xs:integer("250"),xs:integer("251"),xs:integer("252"),xs:integer("253"),xs:integer("254"),xs:integer("255"),xs:integer("256"),xs:integer("257"),xs:integer("258"),xs:integer("259"),xs:integer("260"),xs:integer("261"),xs:integer("262"),xs:integer("263"),xs:integer("264"),xs:integer("265"),xs:integer("266"),xs:integer("267"),xs:integer("268"),xs:integer("269"),xs:integer("270"),xs:integer("271"),xs:integer("272"),xs:integer("273"),xs:integer("274"),xs:integer("275"),xs:integer("276"),xs:integer("277"),xs:integer("278"),xs:integer("279"),xs:integer("280"),xs:integer("281"),xs:integer("282"),xs:integer("283"),xs:integer("284"),xs:integer("285"),xs:integer("286"),xs:integer("287"),xs:integer("288"),xs:integer("289"),xs:integer("290"),xs:integer("291"),xs:integer("292"),xs:integer("293"),xs:integer("294"),xs:integer("295"),xs:integer("296"),xs:integer("297"),xs:integer("298"),xs:integer("299"),xs:integer("300"),xs:integer("301"),xs:integer("302"),xs:integer("303"),xs:integer("304"),xs:integer("305"),xs:integer("306"),xs:integer("307"),xs:integer("308"),xs:integer("309"),xs:integer("310"),xs:integer("311"),xs:integer("312"),xs:integer("313"),xs:integer("314"),xs:integer("315"),xs:integer("316"),xs:integer("317"),xs:integer("318"),xs:integer("319"),xs:integer("320"),xs:integer("321"),xs:integer("322"),xs:integer("323"),xs:integer("324"),xs:integer("325"),xs:integer("326"),xs:integer("327"),xs:integer("328"),xs:integer("329"),xs:integer("330"),xs:integer("331"),xs:integer("332"),xs:integer("333"),xs:integer("334"),xs:integer("335"),xs:integer("336"),xs:integer("337"),xs:integer("338"),xs:integer("339"),xs:integer("340"),xs:integer("341"),xs:integer("342"),xs:integer("343"),xs:integer("344"),xs:integer("345"),xs:integer("346"),xs:integer("347"),xs:integer("348"),xs:integer("349"),xs:integer("350"),xs:integer("351"),xs:integer("352"),xs:integer("353"),xs:integer("354"),xs:integer("355"),xs:integer("356"),xs:integer("357"),xs:integer("358"),xs:integer("359"),xs:integer("360"),xs:integer("361"),xs:integer("362"),xs:integer("363"),xs:integer("364"),xs:integer("365"),xs:integer("366"),xs:integer("367"),xs:integer("368"),xs:integer("369"),xs:integer("370"),xs:integer("371"),xs:integer("372"),xs:integer("373"),xs:integer("374"),xs:integer("375"),xs:integer("376"),xs:integer("377"),xs:integer("378"),xs:integer("379"),xs:integer("380"),xs:integer("381"),xs:integer("382"),xs:integer("383"),xs:integer("384"),xs:integer("385"),xs:integer("386"),xs:integer("387"),xs:integer("388"),xs:integer("389"),xs:integer("390"),xs:integer("391"),xs:integer("392"),xs:integer("393"),xs:integer("394"),xs:integer("395"),xs:integer("396"),xs:integer("397"),xs:integer("398"),xs:integer("399"),xs:integer("400"),xs:string("30"),xs:string("31"),xs:string("32"),xs:string("33"),xs:string("34"),xs:string("35"),xs:string("36"),xs:string("37"),xs:string("38"),xs:string("39"),xs:string("40"),xs:string("foo"),xs:string("bar"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("6"),xs:integer("7"),xs:integer("8"),xs:integer("9"),xs:integer("10"),xs:integer("11"),xs:integer("12"),xs:integer("13"),xs:integer("14"),xs:integer("15"),xs:integer("16"),xs:integer("17"),xs:integer("18"),xs:integer("19"),xs:integer("20"),xs:integer("21"),xs:integer("22"),xs:integer("23"),xs:integer("24"),xs:integer("25"),xs:integer("26"),xs:integer("27"),xs:integer("28"),xs:integer("29"),xs:integer("30"),xs:integer("31"),xs:integer("32"),xs:integer("33"),xs:integer("34"),xs:integer("35"),xs:integer("36"),xs:integer("37"),xs:integer("38"),xs:integer("39"),xs:integer("40"),xs:integer("41"),xs:integer("42"),xs:integer("43"),xs:integer("44"),xs:integer("45"),xs:integer("46"),xs:integer("47"),xs:integer("48"),xs:integer("49"),xs:integer("50"),xs:integer("51"),xs:integer("52"),xs:integer("53"),xs:integer("54"),xs:integer("55"),xs:integer("56"),xs:integer("57"),xs:integer("58"),xs:integer("59"),xs:integer("60"),xs:integer("61"),xs:integer("62"),xs:integer("63"),xs:integer("64"),xs:integer("65"),xs:integer("66"),xs:integer("67"),xs:integer("68"),xs:integer("69"),xs:integer("70"),xs:integer("71"),xs:integer("72"),xs:integer("73"),xs:integer("74"),xs:integer("75"),xs:integer("76"),xs:integer("77"),xs:integer("78"),xs:integer("79"),xs:integer("80"),xs:integer("81"),xs:integer("82"),xs:integer("83"),xs:integer("84"),xs:integer("85"),xs:integer("86"),xs:integer("87"),xs:integer("88"),xs:integer("89"),xs:integer("90"),xs:integer("91"),xs:integer("92"),xs:integer("93"),xs:integer("94"),xs:integer("95"),xs:integer("96"),xs:integer("97"),xs:integer("98"),xs:integer("99"),xs:integer("100"),xs:integer("101"),xs:integer("102"),xs:integer("103"),xs:integer("104"),xs:integer("105"),xs:integer("106"),xs:integer("107"),xs:integer("108"),xs:integer("109"),xs:integer("110"),xs:integer("111"),xs:integer("112"),xs:integer("113"),xs:integer("114"),xs:integer("115"),xs:integer("116"),xs:integer("117"),xs:integer("118"),xs:integer("119"),xs:integer("120"),xs:integer("121"),xs:integer("122"),xs:integer("123"),xs:integer("124"),xs:integer("125"),xs:integer("126"),xs:integer("127"),xs:integer("128"),xs:integer("129"),xs:integer("130"),xs:integer("131"),xs:integer("132"),xs:integer("133"),xs:integer("134"),xs:integer("135"),xs:integer("136"),xs:integer("137"),xs:integer("138"),xs:integer("139"),xs:integer("140"),xs:integer("141"),xs:integer("142"),xs:integer("143"),xs:integer("144"),xs:integer("145"),xs:integer("146"),xs:integer("147"),xs:integer("148"),xs:integer("149"),xs:integer("150"),xs:integer("151"),xs:integer("152"),xs:integer("153"),xs:integer("154"),xs:integer("155"),xs:integer("156"),xs:integer("157"),xs:integer("158"),xs:integer("159"),xs:integer("160"),xs:integer("161"),xs:integer("162"),xs:integer("163"),xs:integer("164"),xs:integer("165"),xs:integer("166"),xs:integer("167"),xs:integer("168"),xs:integer("169"),xs:integer("170"),xs:integer("171"),xs:integer("172"),xs:integer("173"),xs:integer("174"),xs:integer("175"),xs:integer("176"),xs:integer("177"),xs:integer("178"),xs:integer("179"),xs:integer("180"),xs:integer("181"),xs:integer("182"),xs:integer("183"),xs:integer("184"),xs:integer("185"),xs:integer("186"),xs:integer("187"),xs:integer("188"),xs:integer("189"),xs:integer("190"),xs:integer("191"),xs:integer("192"),xs:integer("193"),xs:integer("194"),xs:integer("195"),xs:integer("196"),xs:integer("197"),xs:integer("198"),xs:integer("199"),xs:integer("200"),xs:integer("201"),xs:integer("202"),xs:integer("203"),xs:integer("204"),xs:integer("205"),xs:integer("206"),xs:integer("207"),xs:integer("208"),xs:integer("209"),xs:integer("210"),xs:integer("211"),xs:integer("212"),xs:integer("213"),xs:integer("214"),xs:integer("215"),xs:integer("216"),xs:integer("217"),xs:integer("218"),xs:integer("219"),xs:integer("220"),xs:integer("221"),xs:integer("222"),xs:integer("223"),xs:integer("224"),xs:integer("225"),xs:integer("226"),xs:integer("227"),xs:integer("228"),xs:integer("229"),xs:integer("230"),xs:integer("231"),xs:integer("232"),xs:integer("233"),xs:integer("234"),xs:integer("235"),xs:integer("236"),xs:integer("237"),xs:integer("238"),xs:integer("239"),xs:integer("240"),xs:integer("241"),xs:integer("242"),xs:integer("243"),xs:integer("244"),xs:integer("245"),xs:integer("246"),xs:integer("247"),xs:integer("248"),xs:integer("249"),xs:integer("250"),xs:integer("251"),xs:integer("252"),xs:integer("253"),xs:integer("254"),xs:integer("255"),xs:integer("256"),xs:integer("257"),xs:integer("258"),xs:integer("259"),xs:integer("260"),xs:integer("261"),xs:integer("262"),xs:integer("263"),xs:integer("264"),xs:integer("265"),xs:integer("266"),xs:integer("267"),xs:integer("268"),xs:integer("269"),xs:integer("270"),xs:integer("271"),xs:integer("272"),xs:integer("273"),xs:integer("274"),xs:integer("275"),xs:integer("276"),xs:integer("277"),xs:integer("278"),xs:integer("279"),xs:integer("280"),xs:integer("281"),xs:integer("282"),xs:integer("283"),xs:integer("284"),xs:integer("285"),xs:integer("286"),xs:integer("287"),xs:integer("288"),xs:integer("289"),xs:integer("290"),xs:integer("291"),xs:integer("292"),xs:integer("293"),xs:integer("294"),xs:integer("295"),xs:integer("296"),xs:integer("297"),xs:integer("298"),xs:integer("299"),xs:integer("300"),xs:integer("301"),xs:integer("302"),xs:integer("303"),xs:integer("304"),xs:integer("305"),xs:integer("306"),xs:integer("307"),xs:integer("308"),xs:integer("309"),xs:integer("310"),xs:integer("311"),xs:integer("312"),xs:integer("313"),xs:integer("314"),xs:integer("315"),xs:integer("316"),xs:integer("317"),xs:integer("318"),xs:integer("319"),xs:integer("320"),xs:integer("321"),xs:integer("322"),xs:integer("323"),xs:integer("324"),xs:integer("325"),xs:integer("326"),xs:integer("327"),xs:integer("328"),xs:integer("329"),xs:integer("330"),xs:integer("331"),xs:integer("332"),xs:integer("333"),xs:integer("334"),xs:integer("335"),xs:integer("336"),xs:integer("337"),xs:integer("338"),xs:integer("339"),xs:integer("340"),xs:integer("341"),xs:integer("342"),xs:integer("343"),xs:integer("344"),xs:integer("345"),xs:integer("346"),xs:integer("347"),xs:integer("348"),xs:integer("349"),xs:integer("350"),xs:integer("351"),xs:integer("352"),xs:integer("353"),xs:integer("354"),xs:integer("355"),xs:integer("356"),xs:integer("357"),xs:integer("358"),xs:integer("359"),xs:integer("360"),xs:integer("361"),xs:integer("362"),xs:integer("363"),xs:integer("364"),xs:integer("365"),xs:integer("366"),xs:integer("367"),xs:integer("368"),xs:integer("369"),xs:integer("370"),xs:integer("371"),xs:integer("372"),xs:integer("373"),xs:integer("374"),xs:integer("375"),xs:integer("376"),xs:integer("377"),xs:integer("378"),xs:integer("379"),xs:integer("380"),xs:integer("381"),xs:integer("382"),xs:integer("383"),xs:integer("384"),xs:integer("385"),xs:integer("386"),xs:integer("387"),xs:integer("388"),xs:integer("389"),xs:integer("390"),xs:integer("391"),xs:integer("392"),xs:integer("393"),xs:integer("394"),xs:integer("395"),xs:integer("396"),xs:integer("397"),xs:integer("398"),xs:integer("399"),xs:integer("400"),xs:string("30"),xs:string("31"),xs:string("32"),xs:string("33"),xs:string("34"),xs:string("35"),xs:string("36"),xs:string("37"),xs:string("38"),xs:string("39"),xs:string("40"),xs:string("foo"),xs:string("bar"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("6"),xs:integer("7"),xs:integer("8"),xs:integer("9"),xs:integer("10"),xs:integer("11"),xs:integer("12"),xs:integer("13"),xs:integer("14"),xs:integer("15"),xs:integer("16"),xs:integer("17"),xs:integer("18"),xs:integer("19"),xs:integer("20"),xs:integer("21"),xs:integer("22"),xs:integer("23"),xs:integer("24"),xs:integer("25"),xs:integer("26"),xs:integer("27"),xs:integer("28"),xs:integer("29"),xs:integer("30"),xs:integer("31"),xs:integer("32"),xs:integer("33"),xs:integer("34"),xs:integer("35"),xs:integer("36"),xs:integer("37"),xs:integer("38"),xs:integer("39"),xs:integer("40"),xs:integer("41"),xs:integer("42"),xs:integer("43"),xs:integer("44"),xs:integer("45"),xs:integer("46"),xs:integer("47"),xs:integer("48"),xs:integer("49"),xs:integer("50"),xs:integer("51"),xs:integer("52"),xs:integer("53"),xs:integer("54"),xs:integer("55"),xs:integer("56"),xs:integer("57"),xs:integer("58"),xs:integer("59"),xs:integer("60"),xs:integer("61"),xs:integer("62"),xs:integer("63"),xs:integer("64"),xs:integer("65"),xs:integer("66"),xs:integer("67"),xs:integer("68"),xs:integer("69"),xs:integer("70"),xs:integer("71"),xs:integer("72"),xs:integer("73"),xs:integer("74"),xs:integer("75"),xs:integer("76"),xs:integer("77"),xs:integer("78"),xs:integer("79"),xs:integer("80"),xs:integer("81"),xs:integer("82"),xs:integer("83"),xs:integer("84"),xs:integer("85"),xs:integer("86"),xs:integer("87"),xs:integer("88"),xs:integer("89"),xs:integer("90"),xs:integer("91"),xs:integer("92"),xs:integer("93"),xs:integer("94"),xs:integer("95"),xs:integer("96"),xs:integer("97"),xs:integer("98"),xs:integer("99"),xs:integer("100"),xs:integer("101"),xs:integer("102"),xs:integer("103"),xs:integer("104"),xs:integer("105"),xs:integer("106"),xs:integer("107"),xs:integer("108"),xs:integer("109"),xs:integer("110"),xs:integer("111"),xs:integer("112"),xs:integer("113"),xs:integer("114"),xs:integer("115"),xs:integer("116"),xs:integer("117"),xs:integer("118"),xs:integer("119"),xs:integer("120"),xs:integer("121"),xs:integer("122"),xs:integer("123"),xs:integer("124"),xs:integer("125"),xs:integer("126"),xs:integer("127"),xs:integer("128"),xs:integer("129"),xs:integer("130"),xs:integer("131"),xs:integer("132"),xs:integer("133"),xs:integer("134"),xs:integer("135"),xs:integer("136"),xs:integer("137"),xs:integer("138"),xs:integer("139"),xs:integer("140"),xs:integer("141"),xs:integer("142"),xs:integer("143"),xs:integer("144"),xs:integer("145"),xs:integer("146"),xs:integer("147"),xs:integer("148"),xs:integer("149"),xs:integer("150"),xs:integer("151"),xs:integer("152"),xs:integer("153"),xs:integer("154"),xs:integer("155"),xs:integer("156"),xs:integer("157"),xs:integer("158"),xs:integer("159"),xs:integer("160"),xs:integer("161"),xs:integer("162"),xs:integer("163"),xs:integer("164"),xs:integer("165"),xs:integer("166"),xs:integer("167"),xs:integer("168"),xs:integer("169"),xs:integer("170"),xs:integer("171"),xs:integer("172"),xs:integer("173"),xs:integer("174"),xs:integer("175"),xs:integer("176"),xs:integer("177"),xs:integer("178"),xs:integer("179"),xs:integer("180"),xs:integer("181"),xs:integer("182"),xs:integer("183"),xs:integer("184"),xs:integer("185"),xs:integer("186"),xs:integer("187"),xs:integer("188"),xs:integer("189"),xs:integer("190"),xs:integer("191"),xs:integer("192"),xs:integer("193"),xs:integer("194"),xs:integer("195"),xs:integer("196"),xs:integer("197"),xs:integer("198"),xs:integer("199"),xs:integer("200"),xs:integer("201"),xs:integer("202"),xs:integer("203"),xs:integer("204"),xs:integer("205"),xs:integer("206"),xs:integer("207"),xs:integer("208"),xs:integer("209"),xs:integer("210"),xs:integer("211"),xs:integer("212"),xs:integer("213"),xs:integer("214"),xs:integer("215"),xs:integer("216"),xs:integer("217"),xs:integer("218"),xs:integer("219"),xs:integer("220"),xs:integer("221"),xs:integer("222"),xs:integer("223"),xs:integer("224"),xs:integer("225"),xs:integer("226"),xs:integer("227"),xs:integer("228"),xs:integer("229"),xs:integer("230"),xs:integer("231"),xs:integer("232"),xs:integer("233"),xs:integer("234"),xs:integer("235"),xs:integer("236"),xs:integer("237"),xs:integer("238"),xs:integer("239"),xs:integer("240"),xs:integer("241"),xs:integer("242"),xs:integer("243"),xs:integer("244"),xs:integer("245"),xs:integer("246"),xs:integer("247"),xs:integer("248"),xs:integer("249"),xs:integer("250"),xs:integer("251"),xs:integer("252"),xs:integer("253"),xs:integer("254"),xs:integer("255"),xs:integer("256"),xs:integer("257"),xs:integer("258"),xs:integer("259"),xs:integer("260"),xs:integer("261"),xs:integer("262"),xs:integer("263"),xs:integer("264"),xs:integer("265"),xs:integer("266"),xs:integer("267"),xs:integer("268"),xs:integer("269"),xs:integer("270"),xs:integer("271"),xs:integer("272"),xs:integer("273"),xs:integer("274"),xs:integer("275"),xs:integer("276"),xs:integer("277"),xs:integer("278"),xs:integer("279"),xs:integer("280"),xs:integer("281"),xs:integer("282"),xs:integer("283"),xs:integer("284"),xs:integer("285"),xs:integer("286"),xs:integer("287"),xs:integer("288"),xs:integer("289"),xs:integer("290"),xs:integer("291"),xs:integer("292"),xs:integer("293"),xs:integer("294"),xs:integer("295"),xs:integer("296"),xs:integer("297"),xs:integer("298"),xs:integer("299"),xs:integer("300"),xs:integer("301"),xs:integer("302"),xs:integer("303"),xs:integer("304"),xs:integer("305"),xs:integer("306"),xs:integer("307"),xs:integer("308"),xs:integer("309"),xs:integer("310"),xs:integer("311"),xs:integer("312"),xs:integer("313"),xs:integer("314"),xs:integer("315"),xs:integer("316"),xs:integer("317"),xs:integer("318"),xs:integer("319"),xs:integer("320"),xs:integer("321"),xs:integer("322"),xs:integer("323"),xs:integer("324"),xs:integer("325"),xs:integer("326"),xs:integer("327"),xs:integer("328"),xs:integer("329"),xs:integer("330"),xs:integer("331"),xs:integer("332"),xs:integer("333"),xs:integer("334"),xs:integer("335"),xs:integer("336"),xs:integer("337"),xs:integer("338"),xs:integer("339"),xs:integer("340"),xs:integer("341"),xs:integer("342"),xs:integer("343"),xs:integer("344"),xs:integer("345"),xs:integer("346"),xs:integer("347"),xs:integer("348"),xs:integer("349"),xs:integer("350"),xs:integer("351"),xs:integer("352"),xs:integer("353"),xs:integer("354"),xs:integer("355"),xs:integer("356"),xs:integer("357"),xs:integer("358"),xs:integer("359"),xs:integer("360"),xs:integer("361"),xs:integer("362"),xs:integer("363"),xs:integer("364"),xs:integer("365"),xs:integer("366"),xs:integer("367"),xs:integer("368"),xs:integer("369"),xs:integer("370"),xs:integer("371"),xs:integer("372"),xs:integer("373"),xs:integer("374"),xs:integer("375"),xs:integer("376"),xs:integer("377"),xs:integer("378"),xs:integer("379"),xs:integer("380"),xs:integer("381"),xs:integer("382"),xs:integer("383"),xs:integer("384"),xs:integer("385"),xs:integer("386"),xs:integer("387"),xs:integer("388"),xs:integer("389"),xs:integer("390"),xs:integer("391"),xs:integer("392"),xs:integer("393"),xs:integer("394"),xs:integer("395"),xs:integer("396"),xs:integer("397"),xs:integer("398"),xs:integer("399"),xs:integer("400"),xs:string("30"),xs:string("31"),xs:string("32"),xs:string("33"),xs:string("34"),xs:string("35"),xs:string("36"),xs:string("37"),xs:string("38"),xs:string("39"),xs:string("40"),xs:string("foo"),xs:string("bar"))</response-string>
     <description>distinct-values() on a somewhat larger set of values</description>
     <created by="Michael Kay" on="2011-07-01"/>
     <test>distinct-values((1 to 300, 100 to 400, 29, 145, 20 to 50, for $x in (30 to 40) return xs:string($x), "foo", "bar"))</test>
-    <result-string/>
+    <result-string>(xs:integer("1"),xs:integer("2"),xs:integer("3"),xs:integer("4"),xs:integer("5"),xs:integer("6"),xs:integer("7"),xs:integer("8"),xs:integer("9"),xs:integer("10"),xs:integer("11"),xs:integer("12"),xs:integer("13"),xs:integer("14"),xs:integer("15"),xs:integer("16"),xs:integer("17"),xs:integer("18"),xs:integer("19"),xs:integer("20"),xs:integer("21"),xs:integer("22"),xs:integer("23"),xs:integer("24"),xs:integer("25"),xs:integer("26"),xs:integer("27"),xs:integer("28"),xs:integer("29"),xs:integer("30"),xs:integer("31"),xs:integer("32"),xs:integer("33"),xs:integer("34"),xs:integer("35"),xs:integer("36"),xs:integer("37"),xs:integer("38"),xs:integer("39"),xs:integer("40"),xs:integer("41"),xs:integer("42"),xs:integer("43"),xs:integer("44"),xs:integer("45"),xs:integer("46"),xs:integer("47"),xs:integer("48"),xs:integer("49"),xs:integer("50"),xs:integer("51"),xs:integer("52"),xs:integer("53"),xs:integer("54"),xs:integer("55"),xs:integer("56"),xs:integer("57"),xs:integer("58"),xs:integer("59"),xs:integer("60"),xs:integer("61"),xs:integer("62"),xs:integer("63"),xs:integer("64"),xs:integer("65"),xs:integer("66"),xs:integer("67"),xs:integer("68"),xs:integer("69"),xs:integer("70"),xs:integer("71"),xs:integer("72"),xs:integer("73"),xs:integer("74"),xs:integer("75"),xs:integer("76"),xs:integer("77"),xs:integer("78"),xs:integer("79"),xs:integer("80"),xs:integer("81"),xs:integer("82"),xs:integer("83"),xs:integer("84"),xs:integer("85"),xs:integer("86"),xs:integer("87"),xs:integer("88"),xs:integer("89"),xs:integer("90"),xs:integer("91"),xs:integer("92"),xs:integer("93"),xs:integer("94"),xs:integer("95"),xs:integer("96"),xs:integer("97"),xs:integer("98"),xs:integer("99"),xs:integer("100"),xs:integer("101"),xs:integer("102"),xs:integer("103"),xs:integer("104"),xs:integer("105"),xs:integer("106"),xs:integer("107"),xs:integer("108"),xs:integer("109"),xs:integer("110"),xs:integer("111"),xs:integer("112"),xs:integer("113"),xs:integer("114"),xs:integer("115"),xs:integer("116"),xs:integer("117"),xs:integer("118"),xs:integer("119"),xs:integer("120"),xs:integer("121"),xs:integer("122"),xs:integer("123"),xs:integer("124"),xs:integer("125"),xs:integer("126"),xs:integer("127"),xs:integer("128"),xs:integer("129"),xs:integer("130"),xs:integer("131"),xs:integer("132"),xs:integer("133"),xs:integer("134"),xs:integer("135"),xs:integer("136"),xs:integer("137"),xs:integer("138"),xs:integer("139"),xs:integer("140"),xs:integer("141"),xs:integer("142"),xs:integer("143"),xs:integer("144"),xs:integer("145"),xs:integer("146"),xs:integer("147"),xs:integer("148"),xs:integer("149"),xs:integer("150"),xs:integer("151"),xs:integer("152"),xs:integer("153"),xs:integer("154"),xs:integer("155"),xs:integer("156"),xs:integer("157"),xs:integer("158"),xs:integer("159"),xs:integer("160"),xs:integer("161"),xs:integer("162"),xs:integer("163"),xs:integer("164"),xs:integer("165"),xs:integer("166"),xs:integer("167"),xs:integer("168"),xs:integer("169"),xs:integer("170"),xs:integer("171"),xs:integer("172"),xs:integer("173"),xs:integer("174"),xs:integer("175"),xs:integer("176"),xs:integer("177"),xs:integer("178"),xs:integer("179"),xs:integer("180"),xs:integer("181"),xs:integer("182"),xs:integer("183"),xs:integer("184"),xs:integer("185"),xs:integer("186"),xs:integer("187"),xs:integer("188"),xs:integer("189"),xs:integer("190"),xs:integer("191"),xs:integer("192"),xs:integer("193"),xs:integer("194"),xs:integer("195"),xs:integer("196"),xs:integer("197"),xs:integer("198"),xs:integer("199"),xs:integer("200"),xs:integer("201"),xs:integer("202"),xs:integer("203"),xs:integer("204"),xs:integer("205"),xs:integer("206"),xs:integer("207"),xs:integer("208"),xs:integer("209"),xs:integer("210"),xs:integer("211"),xs:integer("212"),xs:integer("213"),xs:integer("214"),xs:integer("215"),xs:integer("216"),xs:integer("217"),xs:integer("218"),xs:integer("219"),xs:integer("220"),xs:integer("221"),xs:integer("222"),xs:integer("223"),xs:integer("224"),xs:integer("225"),xs:integer("226"),xs:integer("227"),xs:integer("228"),xs:integer("229"),xs:integer("230"),xs:integer("231"),xs:integer("232"),xs:integer("233"),xs:integer("234"),xs:integer("235"),xs:integer("236"),xs:integer("237"),xs:integer("238"),xs:integer("239"),xs:integer("240"),xs:integer("241"),xs:integer("242"),xs:integer("243"),xs:integer("244"),xs:integer("245"),xs:integer("246"),xs:integer("247"),xs:integer("248"),xs:integer("249"),xs:integer("250"),xs:integer("251"),xs:integer("252"),xs:integer("253"),xs:integer("254"),xs:integer("255"),xs:integer("256"),xs:integer("257"),xs:integer("258"),xs:integer("259"),xs:integer("260"),xs:integer("261"),xs:integer("262"),xs:integer("263"),xs:integer("264"),xs:integer("265"),xs:integer("266"),xs:integer("267"),xs:integer("268"),xs:integer("269"),xs:integer("270"),xs:integer("271"),xs:integer("272"),xs:integer("273"),xs:integer("274"),xs:integer("275"),xs:integer("276"),xs:integer("277"),xs:integer("278"),xs:integer("279"),xs:integer("280"),xs:integer("281"),xs:integer("282"),xs:integer("283"),xs:integer("284"),xs:integer("285"),xs:integer("286"),xs:integer("287"),xs:integer("288"),xs:integer("289"),xs:integer("290"),xs:integer("291"),xs:integer("292"),xs:integer("293"),xs:integer("294"),xs:integer("295"),xs:integer("296"),xs:integer("297"),xs:integer("298"),xs:integer("299"),xs:integer("300"),xs:integer("301"),xs:integer("302"),xs:integer("303"),xs:integer("304"),xs:integer("305"),xs:integer("306"),xs:integer("307"),xs:integer("308"),xs:integer("309"),xs:integer("310"),xs:integer("311"),xs:integer("312"),xs:integer("313"),xs:integer("314"),xs:integer("315"),xs:integer("316"),xs:integer("317"),xs:integer("318"),xs:integer("319"),xs:integer("320"),xs:integer("321"),xs:integer("322"),xs:integer("323"),xs:integer("324"),xs:integer("325"),xs:integer("326"),xs:integer("327"),xs:integer("328"),xs:integer("329"),xs:integer("330"),xs:integer("331"),xs:integer("332"),xs:integer("333"),xs:integer("334"),xs:integer("335"),xs:integer("336"),xs:integer("337"),xs:integer("338"),xs:integer("339"),xs:integer("340"),xs:integer("341"),xs:integer("342"),xs:integer("343"),xs:integer("344"),xs:integer("345"),xs:integer("346"),xs:integer("347"),xs:integer("348"),xs:integer("349"),xs:integer("350"),xs:integer("351"),xs:integer("352"),xs:integer("353"),xs:integer("354"),xs:integer("355"),xs:integer("356"),xs:integer("357"),xs:integer("358"),xs:integer("359"),xs:integer("360"),xs:integer("361"),xs:integer("362"),xs:integer("363"),xs:integer("364"),xs:integer("365"),xs:integer("366"),xs:integer("367"),xs:integer("368"),xs:integer("369"),xs:integer("370"),xs:integer("371"),xs:integer("372"),xs:integer("373"),xs:integer("374"),xs:integer("375"),xs:integer("376"),xs:integer("377"),xs:integer("378"),xs:integer("379"),xs:integer("380"),xs:integer("381"),xs:integer("382"),xs:integer("383"),xs:integer("384"),xs:integer("385"),xs:integer("386"),xs:integer("387"),xs:integer("388"),xs:integer("389"),xs:integer("390"),xs:integer("391"),xs:integer("392"),xs:integer("393"),xs:integer("394"),xs:integer("395"),xs:integer("396"),xs:integer("397"),xs:integer("398"),xs:integer("399"),xs:integer("400"),xs:string("30"),xs:string("31"),xs:string("32"),xs:string("33"),xs:string("34"),xs:string("35"),xs:string("36"),xs:string("37"),xs:string("38"),xs:string("39"),xs:string("40"),xs:string("foo"),xs:string("bar"))</result-string>
     <result>
       <assert-permutation>1 to 400, "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "foo", "bar"</assert-permutation>
     </result>
   </test-case>
-  <test-case name="cbcl-distinct-values-001">
+  <test-case name="cbcl-distinct-values-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> Test fn:distinct-values on a mixture of numeric types containing several NaN values. </description>
     <created by="Oliver Hallam" on="2008-04-30"/>
     <test>count(distinct-values((xs:integer("3"), xs:float("3"), xs:float("NaN"), xs:double("3"), xs:double("NaN"), xs:decimal("3"), xs:float("3"))))</test>
@@ -871,7 +870,7 @@
       <assert-string-value>2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-distinct-values-002">
+  <test-case name="cbcl-distinct-values-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:untypedAtomic("---01"),xs:untypedAtomic("---15Z"),xs:untypedAtomic("--06"),xs:untypedAtomic("--06-01"),xs:untypedAtomic("--12-15Z"),xs:untypedAtomic("--12Z"),xs:untypedAtomic("-1"),xs:untypedAtomic("-P1DT15H0M0S"),xs:untypedAtomic("-P2DT15H0M0S"),xs:untypedAtomic("0"),xs:untypedAtomic("00:00:00"),xs:untypedAtomic("1"),xs:untypedAtomic("12:00:00"),xs:untypedAtomic("1972-06-01T12:00:00+01:00"),xs:dateTime("1972-06-01T12:00:00+01:00"),xs:untypedAtomic("1972-06-01Z"),xs:untypedAtomic("1972-12Z"),xs:untypedAtomic("1972Z"),xs:untypedAtomic("2008"),xs:untypedAtomic("2008-06"),xs:untypedAtomic("2008-06-01"),xs:untypedAtomic("2008-06-01T12:00:00"),xs:dateTime("2008-06-01T12:00:00"),xs:untypedAtomic("3.141"),xs:untypedAtomic("3.333"),xs:untypedAtomic("333.3"),xs:untypedAtomic("FFFEFDFC"),xs:untypedAtomic("NaN"),xs:untypedAtomic("P10Y15M"),xs:untypedAtomic("P20Y15M"),xs:untypedAtomic("aGVsbG8="),xs:untypedAtomic("false"),xs:boolean("false"),xs:untypedAtomic("http://www.example.com/"),xs:untypedAtomic("true"),xs:untypedAtomic("zero"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:untypedAtomic("---01"),xs:untypedAtomic("---15Z"),xs:untypedAtomic("--06"),xs:untypedAtomic("--06-01"),xs:untypedAtomic("--12-15Z"),xs:untypedAtomic("--12Z"),xs:untypedAtomic("-1"),xs:untypedAtomic("-P1DT15H0M0S"),xs:untypedAtomic("-P2DT15H0M0S"),xs:untypedAtomic("0"),xs:untypedAtomic("00:00:00"),xs:untypedAtomic("1"),xs:untypedAtomic("12:00:00"),xs:untypedAtomic("1972-06-01T12:00:00+01:00"),xs:dateTime("1972-06-01T12:00:00+01:00"),xs:untypedAtomic("1972-06-01Z"),xs:untypedAtomic("1972-12Z"),xs:untypedAtomic("1972Z"),xs:untypedAtomic("2008"),xs:untypedAtomic("2008-06"),xs:untypedAtomic("2008-06-01"),xs:untypedAtomic("2008-06-01T12:00:00"),xs:dateTime("2008-06-01T12:00:00"),xs:untypedAtomic("3.141"),xs:untypedAtomic("3.333"),xs:untypedAtomic("333.3"),xs:untypedAtomic("FFFEFDFC"),xs:untypedAtomic("NaN"),xs:untypedAtomic("P10Y15M"),xs:untypedAtomic("P20Y15M"),xs:untypedAtomic("aGVsbG8="),xs:untypedAtomic("false"),xs:boolean("false"),xs:untypedAtomic("http://www.example.com/"),xs:untypedAtomic("true"),xs:untypedAtomic("zero"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:untypedAtomic("---01"),xs:untypedAtomic("---15Z"),xs:untypedAtomic("--06"),xs:untypedAtomic("--06-01"),xs:untypedAtomic("--12-15Z"),xs:untypedAtomic("--12Z"),xs:untypedAtomic("-1"),xs:untypedAtomic("-P1DT15H0M0S"),xs:untypedAtomic("-P2DT15H0M0S"),xs:untypedAtomic("0"),xs:untypedAtomic("00:00:00"),xs:untypedAtomic("1"),xs:untypedAtomic("12:00:00"),xs:untypedAtomic("1972-06-01T12:00:00+01:00"),xs:dateTime("1972-06-01T12:00:00+01:00"),xs:untypedAtomic("1972-06-01Z"),xs:untypedAtomic("1972-12Z"),xs:untypedAtomic("1972Z"),xs:untypedAtomic("2008"),xs:untypedAtomic("2008-06"),xs:untypedAtomic("2008-06-01"),xs:untypedAtomic("2008-06-01T12:00:00"),xs:dateTime("2008-06-01T12:00:00"),xs:untypedAtomic("3.141"),xs:untypedAtomic("3.333"),xs:untypedAtomic("333.3"),xs:untypedAtomic("FFFEFDFC"),xs:untypedAtomic("NaN"),xs:untypedAtomic("P10Y15M"),xs:untypedAtomic("P20Y15M"),xs:untypedAtomic("aGVsbG8="),xs:untypedAtomic("false"),xs:boolean("false"),xs:untypedAtomic("http://www.example.com/"),xs:untypedAtomic("true"),xs:untypedAtomic("zero"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:untypedAtomic("---01"),xs:untypedAtomic("---15Z"),xs:untypedAtomic("--06"),xs:untypedAtomic("--06-01"),xs:untypedAtomic("--12-15Z"),xs:untypedAtomic("--12Z"),xs:untypedAtomic("-1"),xs:untypedAtomic("-P1DT15H0M0S"),xs:untypedAtomic("-P2DT15H0M0S"),xs:untypedAtomic("0"),xs:untypedAtomic("00:00:00"),xs:untypedAtomic("1"),xs:untypedAtomic("12:00:00"),xs:untypedAtomic("1972-06-01T12:00:00+01:00"),xs:dateTime("1972-06-01T12:00:00+01:00"),xs:untypedAtomic("1972-06-01Z"),xs:untypedAtomic("1972-12Z"),xs:untypedAtomic("1972Z"),xs:untypedAtomic("2008"),xs:untypedAtomic("2008-06"),xs:untypedAtomic("2008-06-01"),xs:untypedAtomic("2008-06-01T12:00:00"),xs:dateTime("2008-06-01T12:00:00"),xs:untypedAtomic("3.141"),xs:untypedAtomic("3.333"),xs:untypedAtomic("333.3"),xs:untypedAtomic("FFFEFDFC"),xs:untypedAtomic("NaN"),xs:untypedAtomic("P10Y15M"),xs:untypedAtomic("P20Y15M"),xs:untypedAtomic("aGVsbG8="),xs:untypedAtomic("false"),xs:boolean("false"),xs:untypedAtomic("http://www.example.com/"),xs:untypedAtomic("true"),xs:untypedAtomic("zero"))</response-string>
     <description> test fn:distinct-values with a mix of types </description>
     <created by="Tim Mills" on="2008-06-02"/>
     <dependency type="spec" value="XQ10"/>
@@ -968,16 +967,16 @@
        	}; 
        	for $value in fn:distinct-values( ( local:create(0), local:create(-1), local:create(1), local:create(3.141),
        	 	local:create(3.141e0), local:create(3.333), local:create(3.141e0), local:create(3.333e2),
-       	  	local:create('NaN'), local:create('zero'), local:create('false'), local:create('true'),
-       	   	local:create('http://www.example.com/'), local:create('2008-06-01'), local:create('1972-06-01Z'), 
-       	   	local:create('2008-06-01T12:00:00'), local:create('1972-06-01T12:00:00+01:00'), 
-       	   	local:create('00:00:00'), local:create('12:00:00'), local:create('2008'), local:create('1972Z'), 
-       	   	local:create('--06'), local:create('--12Z'), local:create('2008-06'), local:create('1972-12Z'), 
-       	   	local:create('--06-01'), local:create('--12-15Z'), local:create('---01'), local:create('---15Z'), 
-       	   	local:create('P20Y15M'), local:create('P10Y15M'), local:create('-P2DT15H0M0S'), 
-       	   	local:create('-P1DT15H0M0S'), local:create(fn:QName("http://www.example.com/example", "person")), 
-       	   	local:create(fn:QName("http://www.example.com/example", "ht:person")), local:create('-P2DT15H0M0S'), 
-       	   	local:create('FFFEFDFC'), local:create('aGVsbG8=') )) 
+       	  	local:create(&apos;NaN&apos;), local:create(&apos;zero&apos;), local:create(&apos;false&apos;), local:create(&apos;true&apos;),
+       	   	local:create(&apos;http://www.example.com/&apos;), local:create(&apos;2008-06-01&apos;), local:create(&apos;1972-06-01Z&apos;), 
+       	   	local:create(&apos;2008-06-01T12:00:00&apos;), local:create(&apos;1972-06-01T12:00:00+01:00&apos;), 
+       	   	local:create(&apos;00:00:00&apos;), local:create(&apos;12:00:00&apos;), local:create(&apos;2008&apos;), local:create(&apos;1972Z&apos;), 
+       	   	local:create(&apos;--06&apos;), local:create(&apos;--12Z&apos;), local:create(&apos;2008-06&apos;), local:create(&apos;1972-12Z&apos;), 
+       	   	local:create(&apos;--06-01&apos;), local:create(&apos;--12-15Z&apos;), local:create(&apos;---01&apos;), local:create(&apos;---15Z&apos;), 
+       	   	local:create(&apos;P20Y15M&apos;), local:create(&apos;P10Y15M&apos;), local:create(&apos;-P2DT15H0M0S&apos;), 
+       	   	local:create(&apos;-P1DT15H0M0S&apos;), local:create(fn:QName("http://www.example.com/example", "person")), 
+       	   	local:create(fn:QName("http://www.example.com/example", "ht:person")), local:create(&apos;-P2DT15H0M0S&apos;), 
+       	   	local:create(&apos;FFFEFDFC&apos;), local:create(&apos;aGVsbG8=&apos;) )) 
        	 order by string($value) return $value</test>
     <result-string>xs:string("---01 ---01 ---15Z ---15Z --06 --06 --06-01 --06-01 --12-15Z --12-15Z --12Z --12Z -1 -1 -P1DT15H -P1DT15H0M0S -P2DT15H -P2DT15H0M0S 0 0 00:00:00 00:00:00 1 1 12:00:00 12:00:00 1972-06-01T12:00:00+01:00 1972-06-01T12:00:00+01:00 1972-06-01Z 1972-06-01Z 1972-12Z 1972-12Z 1972Z 1972Z 2008 2008 2008 2008 2008 2008-06 2008-06 2008-06-01 2008-06-01 2008-06-01T12:00:00 2008-06-01T12:00:00 3 3.141 3.141 3.141 3.333 3.333 3.333 333 333.3 333.3 333.3 FFFEFDFC FFFEFDFC FFFEFDFC NaN NaN P10Y15M P11Y3M P20Y15M P21Y3M aGVsbG8= aGVsbG8= false false ht:person ht:person http://www.example.com/ person true true true zero zero")</result-string>
     <result-string>xs:string("---01 ---01 ---15Z ---15Z --06 --06 --06-01 --06-01 --12-15Z --12-15Z --12Z --12Z -1 -1 -P1DT15H -P1DT15H0M0S -P2DT15H -P2DT15H0M0S 0 0 00:00:00 00:00:00 1 1 12:00:00 12:00:00 1972-06-01T12:00:00+01:00 1972-06-01T12:00:00+01:00 1972-06-01Z 1972-06-01Z 1972-12Z 1972-12Z 1972Z 1972Z 2008 2008 2008 2008 2008 2008-06 2008-06 2008-06-01 2008-06-01 2008-06-01T12:00:00 2008-06-01T12:00:00 3 3.141 3.141 3.141 3.333 3.333 3.333 333 333.3 333.3 333.3 FFFEFDFC FFFEFDFC FFFEFDFC NaN NaN P10Y15M P11Y3M P20Y15M P21Y3M aGVsbG8= aGVsbG8= false false ht:person http://www.example.com/ person person true true true zero zero")</result-string>
@@ -990,17 +989,17 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="cbcl-distinct-values-002b">
+  <test-case name="cbcl-distinct-values-002b"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:untypedAtomic("---01"),xs:untypedAtomic("---15Z"),xs:untypedAtomic("--06"),xs:untypedAtomic("--06-01"),xs:untypedAtomic("--12-15Z"),xs:untypedAtomic("--12Z"),xs:untypedAtomic("-1"),xs:untypedAtomic("-P1DT15H0M0S"),xs:untypedAtomic("-P2DT15H0M0S"),xs:untypedAtomic("0"),xs:untypedAtomic("00:00:00"),xs:untypedAtomic("1"),xs:untypedAtomic("12:00:00"),xs:untypedAtomic("1972-06-01T12:00:00+01:00"),xs:dateTime("1972-06-01T12:00:00+01:00"),xs:untypedAtomic("1972-06-01Z"),xs:untypedAtomic("1972-12Z"),xs:untypedAtomic("1972Z"),xs:untypedAtomic("2008"),xs:untypedAtomic("2008-06"),xs:untypedAtomic("2008-06-01"),xs:untypedAtomic("2008-06-01T12:00:00"),xs:dateTime("2008-06-01T12:00:00"),xs:untypedAtomic("3.141"),xs:untypedAtomic("3.333"),xs:untypedAtomic("333.3"),xs:untypedAtomic("FFFEFDFC"),xs:untypedAtomic("NaN"),xs:untypedAtomic("P10Y15M"),xs:untypedAtomic("P20Y15M"),xs:untypedAtomic("aGVsbG8="),xs:untypedAtomic("false"),xs:boolean("false"),xs:untypedAtomic("http://www.example.com/"),xs:untypedAtomic("true"),xs:untypedAtomic("zero"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:untypedAtomic("---01"),xs:untypedAtomic("---15Z"),xs:untypedAtomic("--06"),xs:untypedAtomic("--06-01"),xs:untypedAtomic("--12-15Z"),xs:untypedAtomic("--12Z"),xs:untypedAtomic("-1"),xs:untypedAtomic("-P1DT15H0M0S"),xs:untypedAtomic("-P2DT15H0M0S"),xs:untypedAtomic("0"),xs:untypedAtomic("00:00:00"),xs:untypedAtomic("1"),xs:untypedAtomic("12:00:00"),xs:untypedAtomic("1972-06-01T12:00:00+01:00"),xs:dateTime("1972-06-01T12:00:00+01:00"),xs:untypedAtomic("1972-06-01Z"),xs:untypedAtomic("1972-12Z"),xs:untypedAtomic("1972Z"),xs:untypedAtomic("2008"),xs:untypedAtomic("2008-06"),xs:untypedAtomic("2008-06-01"),xs:untypedAtomic("2008-06-01T12:00:00"),xs:dateTime("2008-06-01T12:00:00"),xs:untypedAtomic("3.141"),xs:untypedAtomic("3.333"),xs:untypedAtomic("333.3"),xs:untypedAtomic("FFFEFDFC"),xs:untypedAtomic("NaN"),xs:untypedAtomic("P10Y15M"),xs:untypedAtomic("P20Y15M"),xs:untypedAtomic("aGVsbG8="),xs:untypedAtomic("false"),xs:boolean("false"),xs:untypedAtomic("http://www.example.com/"),xs:untypedAtomic("true"),xs:untypedAtomic("zero"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:untypedAtomic("---01"),xs:untypedAtomic("---15Z"),xs:untypedAtomic("--06"),xs:untypedAtomic("--06-01"),xs:untypedAtomic("--12-15Z"),xs:untypedAtomic("--12Z"),xs:untypedAtomic("-1"),xs:untypedAtomic("-P1DT15H0M0S"),xs:untypedAtomic("-P2DT15H0M0S"),xs:untypedAtomic("0"),xs:untypedAtomic("00:00:00"),xs:untypedAtomic("1"),xs:untypedAtomic("12:00:00"),xs:untypedAtomic("1972-06-01T12:00:00+01:00"),xs:dateTime("1972-06-01T12:00:00+01:00"),xs:untypedAtomic("1972-06-01Z"),xs:untypedAtomic("1972-12Z"),xs:untypedAtomic("1972Z"),xs:untypedAtomic("2008"),xs:untypedAtomic("2008-06"),xs:untypedAtomic("2008-06-01"),xs:untypedAtomic("2008-06-01T12:00:00"),xs:dateTime("2008-06-01T12:00:00"),xs:untypedAtomic("3.141"),xs:untypedAtomic("3.333"),xs:untypedAtomic("333.3"),xs:untypedAtomic("FFFEFDFC"),xs:untypedAtomic("NaN"),xs:untypedAtomic("P10Y15M"),xs:untypedAtomic("P20Y15M"),xs:untypedAtomic("aGVsbG8="),xs:untypedAtomic("false"),xs:boolean("false"),xs:untypedAtomic("http://www.example.com/"),xs:untypedAtomic("true"),xs:untypedAtomic("zero"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:untypedAtomic("---01"),xs:untypedAtomic("---15Z"),xs:untypedAtomic("--06"),xs:untypedAtomic("--06-01"),xs:untypedAtomic("--12-15Z"),xs:untypedAtomic("--12Z"),xs:untypedAtomic("-1"),xs:untypedAtomic("-P1DT15H0M0S"),xs:untypedAtomic("-P2DT15H0M0S"),xs:untypedAtomic("0"),xs:untypedAtomic("00:00:00"),xs:untypedAtomic("1"),xs:untypedAtomic("12:00:00"),xs:untypedAtomic("1972-06-01T12:00:00+01:00"),xs:dateTime("1972-06-01T12:00:00+01:00"),xs:untypedAtomic("1972-06-01Z"),xs:untypedAtomic("1972-12Z"),xs:untypedAtomic("1972Z"),xs:untypedAtomic("2008"),xs:untypedAtomic("2008-06"),xs:untypedAtomic("2008-06-01"),xs:untypedAtomic("2008-06-01T12:00:00"),xs:dateTime("2008-06-01T12:00:00"),xs:untypedAtomic("3.141"),xs:untypedAtomic("3.333"),xs:untypedAtomic("333.3"),xs:untypedAtomic("FFFEFDFC"),xs:untypedAtomic("NaN"),xs:untypedAtomic("P10Y15M"),xs:untypedAtomic("P20Y15M"),xs:untypedAtomic("aGVsbG8="),xs:untypedAtomic("false"),xs:boolean("false"),xs:untypedAtomic("http://www.example.com/"),xs:untypedAtomic("true"),xs:untypedAtomic("zero"))</response-string>
     <description> test fn:distinct-values with a mix of types </description>
     <created by="Tim Mills" on="2008-06-02"/>
     <dependency type="spec" value="XQ30+"/>
-    <test>declare function local:create($arg) as xs:anyAtomicType* { ( if ($arg castable as xs:untypedAtomic) then $arg cast as xs:untypedAtomic else () ), ( if ($arg castable as xs:dateTime) then $arg cast as xs:dateTime else () ), ( if ($arg castable as xs:date) then $arg cast as xs:date else () ), ( if ($arg castable as xs:time) then $arg cast as xs:time else () ), ( if ($arg castable as xs:time) then $arg cast as xs:time else () ), ( if ($arg castable as xs:duration) then $arg cast as xs:duration else () ), ( if ($arg castable as xs:yearMonthDuration) then $arg cast as xs:yearMonthDuration else () ), ( if ($arg castable as xs:dayTimeDuration) then $arg cast as xs:dayTimeDuration else () ), ( if ($arg castable as xs:float) then $arg cast as xs:float else () ), ( if ($arg castable as xs:double) then $arg cast as xs:double else () ), ( if ($arg castable as xs:decimal) then $arg cast as xs:decimal else () ), ( if ($arg castable as xs:integer) then $arg cast as xs:integer else () ), ( if ($arg castable as xs:nonPositiveInteger) then $arg cast as xs:nonPositiveInteger else () ), ( if ($arg castable as xs:negativeInteger) then $arg cast as xs:negativeInteger else () ), ( if ($arg castable as xs:long) then $arg cast as xs:long else () ), ( if ($arg castable as xs:int) then $arg cast as xs:int else () ), ( if ($arg castable as xs:short) then $arg cast as xs:short else () ), ( if ($arg castable as xs:byte) then $arg cast as xs:byte else () ), ( if ($arg castable as xs:byte) then $arg cast as xs:byte else () ), ( if ($arg castable as xs:nonNegativeInteger) then $arg cast as xs:nonNegativeInteger else () ), ( if ($arg castable as xs:unsignedLong) then $arg cast as xs:unsignedLong else () ), ( if ($arg castable as xs:unsignedInt) then $arg cast as xs:unsignedInt else () ), ( if ($arg castable as xs:unsignedShort) then $arg cast as xs:unsignedShort else () ), ( if ($arg castable as xs:unsignedByte) then $arg cast as xs:unsignedByte else () ), ( if ($arg castable as xs:positiveInteger) then $arg cast as xs:positiveInteger else () ), ( if ($arg castable as xs:gYearMonth) then $arg cast as xs:gYearMonth else () ), ( if ($arg castable as xs:gYear) then $arg cast as xs:gYear else () ), ( if ($arg castable as xs:gMonthDay) then $arg cast as xs:gMonthDay else () ), ( if ($arg castable as xs:gDay) then $arg cast as xs:gDay else () ), ( if ($arg castable as xs:gMonth) then $arg cast as xs:gMonth else () ), ( if ($arg castable as xs:string) then $arg cast as xs:string else () ), ( if ($arg castable as xs:normalizedString) then $arg cast as xs:normalizedString else () ), ( if ($arg castable as xs:token) then $arg cast as xs:token else () ), ( if ($arg castable as xs:language) then $arg cast as xs:language else () ), ( if ($arg castable as xs:NMTOKEN) then $arg cast as xs:NMTOKEN else () ), ( if ($arg castable as xs:Name) then $arg cast as xs:Name else () ), ( if ($arg castable as xs:NCName) then $arg cast as xs:NCName else () ), ( if ($arg castable as xs:ID) then $arg cast as xs:ID else () ), ( if ($arg castable as xs:IDREF) then $arg cast as xs:IDREF else () ), ( if ($arg castable as xs:ENTITY) then $arg cast as xs:ENTITY else () ), ( if ($arg castable as xs:boolean) then $arg cast as xs:boolean else () ), ( if ($arg castable as xs:base64Binary) then $arg cast as xs:base64Binary else () ), ( if ($arg castable as xs:hexBinary) then $arg cast as xs:hexBinary else () ), ( if ($arg castable as xs:QName) then $arg cast as xs:QName else () ) }; for $value in fn:distinct-values( ( local:create(0), local:create(-1), local:create(1), local:create(3.141), local:create(3.141e0), local:create(3.333), local:create(3.141e0), local:create(3.333e2), local:create('NaN'), local:create('zero'), local:create('false'), local:create('true'), local:create('http://www.example.com/'), local:create('2008-06-01'), local:create('1972-06-01Z'), local:create('2008-06-01T12:00:00'), local:create('1972-06-01T12:00:00+01:00'), local:create('00:00:00'), local:create('12:00:00'), local:create('2008'), local:create('1972Z'), local:create('--06'), local:create('--12Z'), local:create('2008-06'), local:create('1972-12Z'), local:create('--06-01'), local:create('--12-15Z'), local:create('---01'), local:create('---15Z'), local:create('P20Y15M'), local:create('P10Y15M'), local:create('-P2DT15H0M0S'), local:create('-P1DT15H0M0S'), local:create(fn:QName("http://www.example.com/example", "person")), local:create(fn:QName("http://www.example.com/example", "ht:person")), local:create('-P2DT15H0M0S'), local:create('FFFEFDFC'), local:create('aGVsbG8=') )) order by string($value) return $value</test>
+    <test>declare function local:create($arg) as xs:anyAtomicType* { ( if ($arg castable as xs:untypedAtomic) then $arg cast as xs:untypedAtomic else () ), ( if ($arg castable as xs:dateTime) then $arg cast as xs:dateTime else () ), ( if ($arg castable as xs:date) then $arg cast as xs:date else () ), ( if ($arg castable as xs:time) then $arg cast as xs:time else () ), ( if ($arg castable as xs:time) then $arg cast as xs:time else () ), ( if ($arg castable as xs:duration) then $arg cast as xs:duration else () ), ( if ($arg castable as xs:yearMonthDuration) then $arg cast as xs:yearMonthDuration else () ), ( if ($arg castable as xs:dayTimeDuration) then $arg cast as xs:dayTimeDuration else () ), ( if ($arg castable as xs:float) then $arg cast as xs:float else () ), ( if ($arg castable as xs:double) then $arg cast as xs:double else () ), ( if ($arg castable as xs:decimal) then $arg cast as xs:decimal else () ), ( if ($arg castable as xs:integer) then $arg cast as xs:integer else () ), ( if ($arg castable as xs:nonPositiveInteger) then $arg cast as xs:nonPositiveInteger else () ), ( if ($arg castable as xs:negativeInteger) then $arg cast as xs:negativeInteger else () ), ( if ($arg castable as xs:long) then $arg cast as xs:long else () ), ( if ($arg castable as xs:int) then $arg cast as xs:int else () ), ( if ($arg castable as xs:short) then $arg cast as xs:short else () ), ( if ($arg castable as xs:byte) then $arg cast as xs:byte else () ), ( if ($arg castable as xs:byte) then $arg cast as xs:byte else () ), ( if ($arg castable as xs:nonNegativeInteger) then $arg cast as xs:nonNegativeInteger else () ), ( if ($arg castable as xs:unsignedLong) then $arg cast as xs:unsignedLong else () ), ( if ($arg castable as xs:unsignedInt) then $arg cast as xs:unsignedInt else () ), ( if ($arg castable as xs:unsignedShort) then $arg cast as xs:unsignedShort else () ), ( if ($arg castable as xs:unsignedByte) then $arg cast as xs:unsignedByte else () ), ( if ($arg castable as xs:positiveInteger) then $arg cast as xs:positiveInteger else () ), ( if ($arg castable as xs:gYearMonth) then $arg cast as xs:gYearMonth else () ), ( if ($arg castable as xs:gYear) then $arg cast as xs:gYear else () ), ( if ($arg castable as xs:gMonthDay) then $arg cast as xs:gMonthDay else () ), ( if ($arg castable as xs:gDay) then $arg cast as xs:gDay else () ), ( if ($arg castable as xs:gMonth) then $arg cast as xs:gMonth else () ), ( if ($arg castable as xs:string) then $arg cast as xs:string else () ), ( if ($arg castable as xs:normalizedString) then $arg cast as xs:normalizedString else () ), ( if ($arg castable as xs:token) then $arg cast as xs:token else () ), ( if ($arg castable as xs:language) then $arg cast as xs:language else () ), ( if ($arg castable as xs:NMTOKEN) then $arg cast as xs:NMTOKEN else () ), ( if ($arg castable as xs:Name) then $arg cast as xs:Name else () ), ( if ($arg castable as xs:NCName) then $arg cast as xs:NCName else () ), ( if ($arg castable as xs:ID) then $arg cast as xs:ID else () ), ( if ($arg castable as xs:IDREF) then $arg cast as xs:IDREF else () ), ( if ($arg castable as xs:ENTITY) then $arg cast as xs:ENTITY else () ), ( if ($arg castable as xs:boolean) then $arg cast as xs:boolean else () ), ( if ($arg castable as xs:base64Binary) then $arg cast as xs:base64Binary else () ), ( if ($arg castable as xs:hexBinary) then $arg cast as xs:hexBinary else () ), ( if ($arg castable as xs:QName) then $arg cast as xs:QName else () ) }; for $value in fn:distinct-values( ( local:create(0), local:create(-1), local:create(1), local:create(3.141), local:create(3.141e0), local:create(3.333), local:create(3.141e0), local:create(3.333e2), local:create(&apos;NaN&apos;), local:create(&apos;zero&apos;), local:create(&apos;false&apos;), local:create(&apos;true&apos;), local:create(&apos;http://www.example.com/&apos;), local:create(&apos;2008-06-01&apos;), local:create(&apos;1972-06-01Z&apos;), local:create(&apos;2008-06-01T12:00:00&apos;), local:create(&apos;1972-06-01T12:00:00+01:00&apos;), local:create(&apos;00:00:00&apos;), local:create(&apos;12:00:00&apos;), local:create(&apos;2008&apos;), local:create(&apos;1972Z&apos;), local:create(&apos;--06&apos;), local:create(&apos;--12Z&apos;), local:create(&apos;2008-06&apos;), local:create(&apos;1972-12Z&apos;), local:create(&apos;--06-01&apos;), local:create(&apos;--12-15Z&apos;), local:create(&apos;---01&apos;), local:create(&apos;---15Z&apos;), local:create(&apos;P20Y15M&apos;), local:create(&apos;P10Y15M&apos;), local:create(&apos;-P2DT15H0M0S&apos;), local:create(&apos;-P1DT15H0M0S&apos;), local:create(fn:QName("http://www.example.com/example", "person")), local:create(fn:QName("http://www.example.com/example", "ht:person")), local:create(&apos;-P2DT15H0M0S&apos;), local:create(&apos;FFFEFDFC&apos;), local:create(&apos;aGVsbG8=&apos;) )) order by string($value) return $value</test>
     <result-string>xs:string("---01 ---01 ---15Z ---15Z --06 --06 --06-01 --06-01 --12-15Z --12-15Z --12Z --12Z -1 -1 -P1DT15H -P1DT15H0M0S -P2DT15H -P2DT15H0M0S 0 0 00:00:00 00:00:00 1 1 12:00:00 12:00:00 1972-06-01T12:00:00+01:00 1972-06-01T12:00:00+01:00 1972-06-01Z 1972-06-01Z 1972-12Z 1972-12Z 1972Z 1972Z 2008 2008 2008 2008 2008 2008-06 2008-06 2008-06-01 2008-06-01 2008-06-01T12:00:00 2008-06-01T12:00:00 3 3.141 3.141 3.141 3.333 3.333 3.333 333 333.3 333.3 333.3 FFFEFDFC FFFEFDFC FFFEFDFC FFFEFDFC NaN NaN NaN P10Y15M P10Y15M P11Y3M P20Y15M P20Y15M P21Y3M aGVsbG8= aGVsbG8= false false false ht:person http://www.example.com/ person person true true true true zero zero zero")</result-string>
     <result>
       <assert-string-value>---01 ---01 ---15Z ---15Z --06 --06 --06-01 --06-01 --12-15Z --12-15Z --12Z --12Z -1 -1 -P1DT15H -P1DT15H0M0S -P2DT15H -P2DT15H0M0S 0 0 00:00:00 00:00:00 1 1 12:00:00 12:00:00 1972-06-01T12:00:00+01:00 1972-06-01T12:00:00+01:00 1972-06-01Z 1972-06-01Z 1972-12Z 1972-12Z 1972Z 1972Z 2008 2008 2008 2008 2008 2008-06 2008-06 2008-06-01 2008-06-01 2008-06-01T12:00:00 2008-06-01T12:00:00 3 3.141 3.141 3.141 3.333 3.333 3.333 333 333.3 333.3 333.3 FFFEFDFC FFFEFDFC FFFEFDFC FFFEFDFC NaN NaN NaN P10Y15M P10Y15M P11Y3M P20Y15M P20Y15M P21Y3M aGVsbG8= aGVsbG8= false false false ht:person http://www.example.com/ person person true true true true zero zero zero</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-distinct-values-003">
+  <test-case name="cbcl-distinct-values-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Test with static context dependant values </description>
     <created by="Nick Jones" on="2008-06-13"/>
     <modified by="Tim Mills" change="Bug 21222" on="2013-03-15"/>
@@ -1012,121 +1011,120 @@
       <assert-count>1</assert-count>
     </result>
   </test-case>
-  <test-case name="cbcl-distinct-values-004">
+  <test-case name="cbcl-distinct-values-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:date("1918-11-11Z"),xs:date("1972-06-01Z"),xs:date("2008-06-01"),xs:date("2012-06-01"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:date("1918-11-11Z"),xs:date("1972-06-01Z"),xs:date("2008-06-01"),xs:date("2012-06-01"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:date("1918-11-11Z"),xs:date("1972-06-01Z"),xs:date("2008-06-01"),xs:date("2012-06-01"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:date("1918-11-11Z"),xs:date("1972-06-01Z"),xs:date("2008-06-01"),xs:date("2012-06-01"))</response-string>
     <description> test fn:distinct-values with xs:date </description>
     <created by="Tim Mills" on="2008-06-02"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>for $value in fn:distinct-values(( xs:date('2008-06-01'), xs:date('2008-06-01'), xs:date('2012-06-01'), xs:date('1918-11-11Z'), xs:date('1972-06-01Z'), xs:date('1972-06-01Z') )) order by $value return $value</test>
-    <result-string>xs:string("1918-11-11Z 1972-06-01Z 2008-06-01 2012-06-01")</result-string>
+    <test>for $value in fn:distinct-values(( xs:date(&apos;2008-06-01&apos;), xs:date(&apos;2008-06-01&apos;), xs:date(&apos;2012-06-01&apos;), xs:date(&apos;1918-11-11Z&apos;), xs:date(&apos;1972-06-01Z&apos;), xs:date(&apos;1972-06-01Z&apos;) )) order by $value return $value</test>
+    <result-string>(xs:date("1918-11-11Z"),xs:date("1972-06-01Z"),xs:date("2008-06-01"),xs:date("2012-06-01"))</result-string>
     <result>
       <assert-string-value>1918-11-11Z 1972-06-01Z 2008-06-01 2012-06-01</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-distinct-values-005">
+  <test-case name="cbcl-distinct-values-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:dateTime("1918-11-11T11:00:00Z"),xs:dateTime("1972-06-01T13:00:00Z"),xs:dateTime("2008-06-01T00:00:00"),xs:dateTime("2008-06-01T12:00:00"),xs:dateTime("2008-06-02T00:00:00"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:dateTime("1918-11-11T11:00:00Z"),xs:dateTime("1972-06-01T13:00:00Z"),xs:dateTime("2008-06-01T00:00:00"),xs:dateTime("2008-06-01T12:00:00"),xs:dateTime("2008-06-02T00:00:00"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:dateTime("1918-11-11T11:00:00Z"),xs:dateTime("1972-06-01T13:00:00Z"),xs:dateTime("2008-06-01T00:00:00"),xs:dateTime("2008-06-01T12:00:00"),xs:dateTime("2008-06-02T00:00:00"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:dateTime("1918-11-11T11:00:00Z"),xs:dateTime("1972-06-01T13:00:00Z"),xs:dateTime("2008-06-01T00:00:00"),xs:dateTime("2008-06-01T12:00:00"),xs:dateTime("2008-06-02T00:00:00"))</response-string>
     <description> test fn:distinct-values with xs:dateTime </description>
     <created by="Tim Mills" on="2008-06-02"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>for $value in fn:distinct-values(( xs:dateTime('2008-06-01T12:00:00'), xs:dateTime('2008-06-01T12:00:00'), xs:dateTime('2008-06-01T00:00:00'), xs:dateTime('2008-06-02T00:00:00'), xs:dateTime('1918-11-11T11:00:00Z'), xs:dateTime('1972-06-01T13:00:00Z'), xs:dateTime('1972-06-01T13:00:00Z') )) order by $value return $value</test>
-    <result-string>xs:string("1918-11-11T11:00:00Z 1972-06-01T13:00:00Z 2008-06-01T00:00:00 2008-06-01T12:00:00 2008-06-02T00:00:00")</result-string>
+    <test>for $value in fn:distinct-values(( xs:dateTime(&apos;2008-06-01T12:00:00&apos;), xs:dateTime(&apos;2008-06-01T12:00:00&apos;), xs:dateTime(&apos;2008-06-01T00:00:00&apos;), xs:dateTime(&apos;2008-06-02T00:00:00&apos;), xs:dateTime(&apos;1918-11-11T11:00:00Z&apos;), xs:dateTime(&apos;1972-06-01T13:00:00Z&apos;), xs:dateTime(&apos;1972-06-01T13:00:00Z&apos;) )) order by $value return $value</test>
+    <result-string>(xs:dateTime("1918-11-11T11:00:00Z"),xs:dateTime("1972-06-01T13:00:00Z"),xs:dateTime("2008-06-01T00:00:00"),xs:dateTime("2008-06-01T12:00:00"),xs:dateTime("2008-06-02T00:00:00"))</result-string>
     <result>
       <assert-string-value>1918-11-11T11:00:00Z 1972-06-01T13:00:00Z 2008-06-01T00:00:00 2008-06-01T12:00:00 2008-06-02T00:00:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-distinct-values-006">
+  <test-case name="cbcl-distinct-values-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:time("11:00:00"),xs:time("12:00:00"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:time("11:00:00"),xs:time("12:00:00"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:time("11:00:00"),xs:time("12:00:00"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:time("11:00:00"),xs:time("12:00:00"))</response-string>
     <description> test fn:distinct-values with xs:time </description>
     <created by="Tim Mills" on="2008-06-02"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>for $value in fn:distinct-values(( xs:time('12:00:00'), xs:time('11:00:00'), xs:time('12:00:00'))) order by $value return $value</test>
-    <result-string>xs:string("11:00:00 12:00:00")</result-string>
+    <test>for $value in fn:distinct-values(( xs:time(&apos;12:00:00&apos;), xs:time(&apos;11:00:00&apos;), xs:time(&apos;12:00:00&apos;))) order by $value return $value</test>
+    <result-string>(xs:time("11:00:00"),xs:time("12:00:00"))</result-string>
     <result>
       <assert-string-value>11:00:00 12:00:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-distinct-values-007">
+  <test-case name="cbcl-distinct-values-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> test fn:distinct-values with xs:time </description>
     <created by="Tim Mills" on="2008-06-02"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>for $value at $p in ( for $time in fn:distinct-values(( xs:time('12:00:00'), xs:time('12:00:00'), xs:time('20:00:00'), xs:time('01:00:00+12:00'), xs:time('02:00:00+13:00'))) order by $time return $time ) return adjust-time-to-timezone($value, (xs:dayTimeDuration("PT0S")[$p]))</test>
+    <test>for $value at $p in ( for $time in fn:distinct-values(( xs:time(&apos;12:00:00&apos;), xs:time(&apos;12:00:00&apos;), xs:time(&apos;20:00:00&apos;), xs:time(&apos;01:00:00+12:00&apos;), xs:time(&apos;02:00:00+13:00&apos;))) order by $time return $time ) return adjust-time-to-timezone($value, (xs:dayTimeDuration("PT0S")[$p]))</test>
     <result-string>xs:string("13:00:00Z 12:00:00 20:00:00")</result-string>
     <result>
       <assert-string-value>13:00:00Z 12:00:00 20:00:00</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-distinct-values-008">
+  <test-case name="cbcl-distinct-values-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:hexBinary("FF"),xs:hexBinary("FFFE"),xs:hexBinary("FFFF"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:hexBinary("FF"),xs:hexBinary("FFFE"),xs:hexBinary("FFFF"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:hexBinary("FF"),xs:hexBinary("FFFE"),xs:hexBinary("FFFF"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:hexBinary("FF"),xs:hexBinary("FFFE"),xs:hexBinary("FFFF"))</response-string>
     <description> test fn:distinct-values with xs:hexBinary </description>
     <created by="Tim Mills" on="2008-06-13"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>for $value in fn:distinct-values(( xs:hexBinary('FFFF'), xs:hexBinary('FFFF'), xs:hexBinary('FFFE'), xs:hexBinary('FF'))) order by string($value) return $value</test>
-    <result-string>xs:string("FF FFFE FFFF")</result-string>
+    <test>for $value in fn:distinct-values(( xs:hexBinary(&apos;FFFF&apos;), xs:hexBinary(&apos;FFFF&apos;), xs:hexBinary(&apos;FFFE&apos;), xs:hexBinary(&apos;FF&apos;))) order by string($value) return $value</test>
+    <result-string>(xs:hexBinary("FF"),xs:hexBinary("FFFE"),xs:hexBinary("FFFF"))</result-string>
     <result>
       <assert-string-value>FF FFFE FFFF</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-distinct-values-009">
+  <test-case name="cbcl-distinct-values-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:base64Binary("aGFsbG8NCg=="),xs:base64Binary("aGVsbG8NCg=="),xs:base64Binary("aGkNCg=="))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:base64Binary("aGFsbG8NCg=="),xs:base64Binary("aGVsbG8NCg=="),xs:base64Binary("aGkNCg=="))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:base64Binary("aGFsbG8NCg=="),xs:base64Binary("aGVsbG8NCg=="),xs:base64Binary("aGkNCg=="))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:base64Binary("aGFsbG8NCg=="),xs:base64Binary("aGVsbG8NCg=="),xs:base64Binary("aGkNCg=="))</response-string>
     <description> test fn:distinct-values with xs:base64Binary </description>
     <created by="Tim Mills" on="2008-06-13"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>for $value in fn:distinct-values(( xs:base64Binary('aGVsbG8NCg=='), xs:base64Binary('aGVsbG8NCg=='), xs:base64Binary('aGFsbG8NCg=='), xs:base64Binary('aGkNCg=='))) order by string($value) return $value</test>
-    <result-string>xs:string("aGFsbG8NCg== aGVsbG8NCg== aGkNCg==")</result-string>
+    <test>for $value in fn:distinct-values(( xs:base64Binary(&apos;aGVsbG8NCg==&apos;), xs:base64Binary(&apos;aGVsbG8NCg==&apos;), xs:base64Binary(&apos;aGFsbG8NCg==&apos;), xs:base64Binary(&apos;aGkNCg==&apos;))) order by string($value) return $value</test>
+    <result-string>(xs:base64Binary("aGFsbG8NCg=="),xs:base64Binary("aGVsbG8NCg=="),xs:base64Binary("aGkNCg=="))</result-string>
     <result>
       <assert-string-value>aGFsbG8NCg== aGVsbG8NCg== aGkNCg==</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-distinct-values-010">
+  <test-case name="cbcl-distinct-values-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:untypedAtomic(""),xs:untypedAtomic("a"),xs:untypedAtomic("b"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:untypedAtomic(""),xs:untypedAtomic("a"),xs:untypedAtomic("b"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:untypedAtomic(""),xs:untypedAtomic("a"),xs:untypedAtomic("b"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:untypedAtomic(""),xs:untypedAtomic("a"),xs:untypedAtomic("b"))</response-string>
     <description> test fn:distinct-values with xs:untypedAtomic </description>
     <created by="Tim Mills" on="2008-06-13"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>for $value in fn:distinct-values(( xs:untypedAtomic('a'), xs:untypedAtomic('a'), xs:untypedAtomic('b'), xs:untypedAtomic(''))) order by string($value) return $value</test>
-    <result-string>xs:string(" a b")</result-string>
+    <test>for $value in fn:distinct-values(( xs:untypedAtomic(&apos;a&apos;), xs:untypedAtomic(&apos;a&apos;), xs:untypedAtomic(&apos;b&apos;), xs:untypedAtomic(&apos;&apos;))) order by string($value) return $value</test>
+    <result-string>(xs:untypedAtomic(""),xs:untypedAtomic("a"),xs:untypedAtomic("b"))</result-string>
     <result>
       <assert-string-value> a b</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-distinct-values-011">
+  <test-case name="cbcl-distinct-values-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string(""),xs:string("a"),xs:string("b"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string(""),xs:string("a"),xs:string("b"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string(""),xs:string("a"),xs:string("b"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:string(""),xs:string("a"),xs:string("b"))</response-string>
     <description> test fn:distinct-values with xs:string </description>
     <created by="Tim Mills" on="2008-06-13"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>for $value in fn:distinct-values(( xs:string('a'), xs:string('a'), xs:string('b'), xs:string(''))) order by string($value) return $value</test>
-    <result-string>xs:string(" a b")</result-string>
+    <test>for $value in fn:distinct-values(( xs:string(&apos;a&apos;), xs:string(&apos;a&apos;), xs:string(&apos;b&apos;), xs:string(&apos;&apos;))) order by string($value) return $value</test>
+    <result-string>(xs:string(""),xs:string("a"),xs:string("b"))</result-string>
     <result>
       <assert-string-value> a b</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-distinct-values-012">
+  <test-case name="cbcl-distinct-values-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:gYear("1972"),xs:gYear("2008"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:gYear("1972"),xs:gYear("2008"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:gYear("1972"),xs:gYear("2008"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:gYear("1972"),xs:gYear("2008"))</response-string>
     <description> test fn:distinct-values with xs:gYear </description>
     <created by="Tim Mills" on="2008-06-13"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>for $value in fn:distinct-values(( xs:gYear('2008'), xs:gYear('2008'), xs:gYear('1972'))) order by string($value) return $value</test>
-    <result-string>xs:string("1972 2008")</result-string>
+    <test>for $value in fn:distinct-values(( xs:gYear(&apos;2008&apos;), xs:gYear(&apos;2008&apos;), xs:gYear(&apos;1972&apos;))) order by string($value) return $value</test>
+    <result-string>(xs:gYear("1972"),xs:gYear("2008"))</result-string>
     <result>
       <assert-string-value>1972 2008</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-distinct-values-013">
+  <test-case name="cbcl-distinct-values-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:yearMonthDuration("P0M"),xs:duration("P0Y"),xs:dayTimeDuration("P1D"),xs:yearMonthDuration("P1Y"),xs:duration("P1Y"),xs:dayTimeDuration("PT0S"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:yearMonthDuration("P0M"),xs:duration("P0Y"),xs:dayTimeDuration("P1D"),xs:yearMonthDuration("P1Y"),xs:duration("P1Y"),xs:dayTimeDuration("PT0S"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:yearMonthDuration("P0M"),xs:duration("P0Y"),xs:dayTimeDuration("P1D"),xs:yearMonthDuration("P1Y"),xs:duration("P1Y"),xs:dayTimeDuration("PT0S"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:yearMonthDuration("P0M"),xs:duration("P0Y"),xs:dayTimeDuration("P1D"),xs:yearMonthDuration("P1Y"),xs:duration("P1Y"),xs:dayTimeDuration("PT0S"))</response-string>
     <description> test fn:distinct-values with durations </description>
     <created by="Tim Mills" on="2008-06-13"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>for $value in fn:distinct-values(( xs:dayTimeDuration('P0D'), xs:yearMonthDuration('P0Y'), xs:duration('P0Y'), xs:duration('P0Y'), xs:yearMonthDuration('P0Y'), xs:dayTimeDuration('P0D'), xs:dayTimeDuration('P1D'), xs:yearMonthDuration('P1Y'), xs:duration('P1Y'))) order by string($value) return $value</test>
+    <test>for $value in fn:distinct-values(( xs:dayTimeDuration(&apos;P0D&apos;), xs:yearMonthDuration(&apos;P0Y&apos;), xs:duration(&apos;P0Y&apos;), xs:duration(&apos;P0Y&apos;), xs:yearMonthDuration(&apos;P0Y&apos;), xs:dayTimeDuration(&apos;P0D&apos;), xs:dayTimeDuration(&apos;P1D&apos;), xs:yearMonthDuration(&apos;P1Y&apos;), xs:duration(&apos;P1Y&apos;))) order by string($value) return $value</test>
     <result-string>xs:string("P1D P1Y PT0S")</result-string>
     <result>
       <assert-string-value>P1D P1Y PT0S</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-distinct-values-014">
+  <test-case name="cbcl-distinct-values-014"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:gMonthDay("--06-16"),xs:gMonthDay("--12-15"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:gMonthDay("--06-16"),xs:gMonthDay("--12-15"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:gMonthDay("--06-16"),xs:gMonthDay("--12-15"))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:gMonthDay("--06-16"),xs:gMonthDay("--12-15"))</response-string>
     <description> test fn:distinct-values with xs:gMnnthDay </description>
     <created by="Tim Mills" on="2008-06-13"/>
     <dependency type="spec" value="XQ10+"/>
-    <test>for $value in fn:distinct-values(( xs:gMonthDay('--06-16'), xs:gMonthDay('--06-16'), xs:gMonthDay('--12-15'))) order by string($value) return $value</test>
-    <result-string>xs:string("--06-16 --12-15")</result-string>
+    <test>for $value in fn:distinct-values(( xs:gMonthDay(&apos;--06-16&apos;), xs:gMonthDay(&apos;--06-16&apos;), xs:gMonthDay(&apos;--12-15&apos;))) order by string($value) return $value</test>
+    <result-string>(xs:gMonthDay("--06-16"),xs:gMonthDay("--12-15"))</result-string>
     <result>
       <assert-string-value>--06-16 --12-15</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-distinct-values-016">
+  <test-case name="cbcl-distinct-values-016"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")))</response-string><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")),fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002")))</response-string>
     <description> Tests distinct values with unknown, but unneeded collation </description>
     <created by="Nick Jones" on="2008-06-16"/>
     <test>for $x in 65 to 75 return distinct-values(1 to 10,codepoints-to-string($x to $x+10))</test>
-    <result-string>xs:string("1 2 3 4 5 6 7 8 9 10 1 2 3 4 5 6 7 8 9 10 1 2 3 4 5 6 7 8 9 10 1 2 3 4 5 6 7 8 9 10 1 2 3 4 5 6 7 8 9 10 1 2 3 4 5 6 7 8 9 10 1 2 3 4 5 6 7 8 9 10 1 2 3 4 5 6 7 8 9 10 1 2 3 4 5 6 7 8 9 10 1 2 3 4 5 6 7 8 9 10 1 2 3 4 5 6 7 8 9 10")</result-string>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FOCH0002"))</result-string>
     <result>
       <any-of>

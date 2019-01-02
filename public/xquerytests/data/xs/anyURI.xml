@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="xs-anyURI" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for conversion to/from xs:anyURI</description>
-  <test-case name="cbcl-anyURI-001">
+  <test-case name="cbcl-anyURI-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description>Test xs:anyURI on empty sequence</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <test>xs:anyURI(())</test>
@@ -10,159 +9,159 @@
       <assert-empty/>
     </result>
   </test-case>
-  <test-case name="cbcl-anyURI-002">
-    <description>Test parsing of characters '+', '-', '.' in scheme</description>
+  <test-case name="cbcl-anyURI-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:anyURI("odd-scheme+1.://www.example.org/")</response-string>
+    <description>Test parsing of characters &apos;+&apos;, &apos;-&apos;, &apos;.&apos; in scheme</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <test>xs:anyURI("odd-scheme+1.://www.example.org/")</test>
-    <result-string>xs:string("odd-scheme+1.://www.example.org/")</result-string>
+    <result-string>xs:anyURI("odd-scheme+1.://www.example.org/")</result-string>
     <result>
       <assert-string-value>odd-scheme+1.://www.example.org/</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-anyURI-003">
+  <test-case name="cbcl-anyURI-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:anyURI("http://%0Ad%E2%9C%90%F0%98%9A%A0/")</response-string>
     <description>Test parsing of pct-encoded characters in reg-name</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <test>xs:anyURI("http://%0Ad%E2%9C%90%F0%98%9A%A0/")</test>
-    <result-string>xs:string("http://%0Ad%E2%9C%90%F0%98%9A%A0/")</result-string>
+    <result-string>xs:anyURI("http://%0Ad%E2%9C%90%F0%98%9A%A0/")</result-string>
     <result>
       <assert-string-value>http://%0Ad%E2%9C%90%F0%98%9A%A0/</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-anyURI-004">
+  <test-case name="cbcl-anyURI-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:anyURI("http://!$&amp;amp;&amp;apos;()*+,;=/")</response-string>
     <description>Test parsing of subdelim characters in reg-name</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[xs:anyURI("http://!$&amp;'()*+,;=/")]]>
     </test>
-    <result-string>xs:string("http://!$'()*+,;=/")</result-string>
+    <result-string>xs:anyURI("http://!$&amp;amp;&amp;apos;()*+,;=/")</result-string>
     <result>
-      <assert-string-value>http://!$'()*+,;=/</assert-string-value>
+      <assert-string-value>http://!$&apos;()*+,;=/</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-anyURI-004b">
+  <test-case name="cbcl-anyURI-004b"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:anyURI("http://!$&amp;apos;()*+,;=/")</response-string>
     <description>Test parsing of subdelim characters in reg-name</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <dependency type="spec" value="XP20+"/>
-    <test>xs:anyURI("http://!$'()*+,;=/")</test>
-    <result-string>xs:string("http://!$'()*+,;=/")</result-string>
+    <test>xs:anyURI("http://!$&apos;()*+,;=/")</test>
+    <result-string>xs:anyURI("http://!$&amp;apos;()*+,;=/")</result-string>
     <result>
-      <assert-string-value>http://!$'()*+,;=/</assert-string-value>
+      <assert-string-value>http://!$&apos;()*+,;=/</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-anyURI-005">
+  <test-case name="cbcl-anyURI-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:anyURI("http://www.example.org/%0Ad%E2%9C%90%F0%98%9A%A0/")</response-string>
     <description>Test parsing of pct-encoded characters in segment</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <test>xs:anyURI("http://www.example.org/%0Ad%E2%9C%90%F0%98%9A%A0/")</test>
-    <result-string>xs:string("http://www.example.org/%0Ad%E2%9C%90%F0%98%9A%A0/")</result-string>
+    <result-string>xs:anyURI("http://www.example.org/%0Ad%E2%9C%90%F0%98%9A%A0/")</result-string>
     <result>
       <assert-string-value>http://www.example.org/%0Ad%E2%9C%90%F0%98%9A%A0/</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-anyURI-006">
+  <test-case name="cbcl-anyURI-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:anyURI("http://www.example.org/!/$/&amp;amp;/&amp;apos;/(/)/*/+/,/;/=/")</response-string>
     <description>Test parsing of subdelim characters in seqment</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[xs:anyURI("http://www.example.org/!/$/&amp;/'/(/)/*/+/,/;/=/")]]>
     </test>
-    <result-string>xs:string("http://www.example.org/!/$//'/(/)/*/+/,/;/=/")</result-string>
+    <result-string>xs:anyURI("http://www.example.org/!/$/&amp;amp;/&amp;apos;/(/)/*/+/,/;/=/")</result-string>
     <result>
-      <assert-string-value>http://www.example.org/!/$//'/(/)/*/+/,/;/=/</assert-string-value>
+      <assert-string-value>http://www.example.org/!/$//&apos;/(/)/*/+/,/;/=/</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-anyURI-006b">
+  <test-case name="cbcl-anyURI-006b"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:anyURI("http://www.example.org/!/$//&amp;apos;/(/)/*/+/,/;/=/")</response-string>
     <description>Test parsing of subdelim characters in seqment</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <dependency type="spec" value="XP20+"/>
-    <test>xs:anyURI("http://www.example.org/!/$//'/(/)/*/+/,/;/=/")</test>
-    <result-string>xs:string("http://www.example.org/!/$//'/(/)/*/+/,/;/=/")</result-string>
+    <test>xs:anyURI("http://www.example.org/!/$//&apos;/(/)/*/+/,/;/=/")</test>
+    <result-string>xs:anyURI("http://www.example.org/!/$//&amp;apos;/(/)/*/+/,/;/=/")</result-string>
     <result>
-      <assert-string-value>http://www.example.org/!/$//'/(/)/*/+/,/;/=/</assert-string-value>
+      <assert-string-value>http://www.example.org/!/$//&apos;/(/)/*/+/,/;/=/</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-anyURI-007">
-    <description>Test parsing characters ':','@' in segment</description>
+  <test-case name="cbcl-anyURI-007"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:anyURI("http://www.example.org/:/@/")</response-string>
+    <description>Test parsing characters &apos;:&apos;,&apos;@&apos; in segment</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <test>xs:anyURI("http://www.example.org/:/@/")</test>
-    <result-string>xs:string("http://www.example.org/:/@/")</result-string>
+    <result-string>xs:anyURI("http://www.example.org/:/@/")</result-string>
     <result>
       <assert-string-value>http://www.example.org/:/@/</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-anyURI-008">
+  <test-case name="cbcl-anyURI-008"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:anyURI("http://www.example.org/?%0Ad%E2%9C%90%F0%98%9A%A0/")</response-string>
     <description>Test parsing of pct-encoded characters in query</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <test>xs:anyURI("http://www.example.org/?%0Ad%E2%9C%90%F0%98%9A%A0/")</test>
-    <result-string>xs:string("http://www.example.org/?%0Ad%E2%9C%90%F0%98%9A%A0/")</result-string>
+    <result-string>xs:anyURI("http://www.example.org/?%0Ad%E2%9C%90%F0%98%9A%A0/")</result-string>
     <result>
       <assert-string-value>http://www.example.org/?%0Ad%E2%9C%90%F0%98%9A%A0/</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-anyURI-009">
+  <test-case name="cbcl-anyURI-009"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:anyURI("http://www.example.org/?!$&amp;amp;&amp;apos;()*+,;=")</response-string>
     <description>Test parsing of subdelim characters in query</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[xs:anyURI("http://www.example.org/?!$&amp;'()*+,;=")]]>
     </test>
-    <result-string>xs:string("http://www.example.org/?!$'()*+,;=")</result-string>
+    <result-string>xs:anyURI("http://www.example.org/?!$&amp;amp;&amp;apos;()*+,;=")</result-string>
     <result>
-      <assert-string-value>http://www.example.org/?!$'()*+,;=</assert-string-value>
+      <assert-string-value>http://www.example.org/?!$&apos;()*+,;=</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-anyURI-009b">
+  <test-case name="cbcl-anyURI-009b"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:anyURI("http://www.example.org/?!$&amp;apos;()*+,;=")</response-string>
     <description>Test parsing of subdelim characters in query</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <dependency type="spec" value="XP20+"/>
-    <test>xs:anyURI("http://www.example.org/?!$'()*+,;=")</test>
-    <result-string>xs:string("http://www.example.org/?!$'()*+,;=")</result-string>
+    <test>xs:anyURI("http://www.example.org/?!$&apos;()*+,;=")</test>
+    <result-string>xs:anyURI("http://www.example.org/?!$&amp;apos;()*+,;=")</result-string>
     <result>
-      <assert-string-value>http://www.example.org/?!$'()*+,;=</assert-string-value>
+      <assert-string-value>http://www.example.org/?!$&apos;()*+,;=</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-anyURI-010">
-    <description>Test parsing characters ':','@' in query</description>
+  <test-case name="cbcl-anyURI-010"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:anyURI("http://www.example.org/?:@")</response-string>
+    <description>Test parsing characters &apos;:&apos;,&apos;@&apos; in query</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <test>xs:anyURI("http://www.example.org/?:@")</test>
-    <result-string>xs:string("http://www.example.org/?:@")</result-string>
+    <result-string>xs:anyURI("http://www.example.org/?:@")</result-string>
     <result>
       <assert-string-value>http://www.example.org/?:@</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-anyURI-011">
+  <test-case name="cbcl-anyURI-011"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:anyURI("http://www.example.org/#%0Ad%E2%9C%90%F0%98%9A%A0/")</response-string>
     <description>Test parsing of pct-encoded characters in fragment</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <test>xs:anyURI("http://www.example.org/#%0Ad%E2%9C%90%F0%98%9A%A0/")</test>
-    <result-string>xs:string("http://www.example.org/#%0Ad%E2%9C%90%F0%98%9A%A0/")</result-string>
+    <result-string>xs:anyURI("http://www.example.org/#%0Ad%E2%9C%90%F0%98%9A%A0/")</result-string>
     <result>
       <assert-string-value>http://www.example.org/#%0Ad%E2%9C%90%F0%98%9A%A0/</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-anyURI-012">
+  <test-case name="cbcl-anyURI-012"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description>Test parsing of subdelim characters in fragment</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[xs:anyURI("http://www.example.org/#!$&amp;'()*+,;=")]]>
     </test>
-    <result-string>xs:string("http://www.example.org/#!$'()*+,;=")</result-string>
+    <result-string>xs:string("http://www.example.org/#!$&apos;()*+,;=")</result-string>
     <result>
-      <assert-string-value>http://www.example.org/#!$'()*+,;=</assert-string-value>
+      <assert-string-value>http://www.example.org/#!$&apos;()*+,;=</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-anyURI-012b">
+  <test-case name="cbcl-anyURI-012b"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
     <description>Test parsing of subdelim characters in fragment</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <dependency type="spec" value="XP20+"/>
-    <test>xs:anyURI("http://www.example.org/#!$'()*+,;=")</test>
-    <result-string>xs:string("http://www.example.org/#!$'()*+,;=")</result-string>
+    <test>xs:anyURI("http://www.example.org/#!$&apos;()*+,;=")</test>
+    <result-string>xs:string("http://www.example.org/#!$&apos;()*+,;=")</result-string>
     <result>
-      <assert-string-value>http://www.example.org/#!$'()*+,;=</assert-string-value>
+      <assert-string-value>http://www.example.org/#!$&apos;()*+,;=</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-anyURI-013">
-    <description>Test parsing characters ':','@' in fragment</description>
+  <test-case name="cbcl-anyURI-013"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:FORG0001"))</response-string>
+    <description>Test parsing characters &apos;:&apos;,&apos;@&apos; in fragment</description>
     <created by="Tim Mills" on="2013-02-15"/>
     <test>xs:anyURI("http://www.example.org/#:@")</test>
     <result-string>xs:string("http://www.example.org/#:@")</result-string>

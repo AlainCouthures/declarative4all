@@ -35,7 +35,7 @@ Fleur.Type_boolean.canonicalize = function(s) {
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "decimal");
 Fleur.Type_decimal = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["decimal"];
 Fleur.Type_decimal.canonicalize = function(s) {
-	if (/^[\-+]?([0-9]+(\.[0-9]*)?|\.[0-9]+)$/.test(s)) {
+	if (/^[\-+]?([0-9]+(\.[0-9]*)?|[\-+]?\.[0-9]+)$/.test(s)) {
 		var ret = "";
 		var i = 0;
 		var c = s.charAt(i);
@@ -79,9 +79,21 @@ Fleur.Type_decimal.canonicalize = function(s) {
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "float");
 Fleur.Type_float = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["float"];
 Fleur.Type_float.canonicalize = function(s) {
-	if (/^(([\-+]?([0-9]+(\.[0-9]*)?)|(\.[0-9]+))([eE][-+]?[0-9]+)?|-?INF|NaN)$/.test(s)) {
+	if (/^(([\-+]?([0-9]+(\.[0-9]*)?)|[\-+]?(\.[0-9]+))([eE][\-+]?[0-9]+)?|[\-+]?INF|NaN)$/.test(s)) {
+		if (s === "+INF") {
+			s = "INF";
+		}
 		if (s !== "INF" && s !== "-INF" && s !== "NaN") {
 			var value = parseFloat(s);
+			if (value === Infinity) {
+				return "INF";
+			}
+			if (value === -Infinity) {
+				return "-INF";
+			}
+			if (1 / value === -Infinity) {
+				return "-0";
+			}
 			var absvalue = Math.abs(value);
 			if (absvalue < 0.000001 || absvalue >= 1000000) {
 				var ret;
@@ -286,7 +298,7 @@ new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "long", Fleur.TypeInfo.DE
 Fleur.Types["http://www.w3.org/2001/XMLSchema"]["long"].canonicalize = function(s) {
 	if (/^[\-+]?[0-9]+$/.test(s)) {
 		var value = parseInt(s, 10);
-		if (value >= -9223372036854775808 && value < 9223372036854775807) {
+		if (value >= -9223372036854775808 && value <= 9223372036854775807) {
 			return String(value);
 		}
 	}
@@ -326,7 +338,7 @@ Fleur.Types["http://www.w3.org/2001/XMLSchema"]["byte"].canonicalize = function(
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "nonNegativeInteger", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].integer);
 Fleur.Type_nonNegativeInteger = Fleur.Types["http://www.w3.org/2001/XMLSchema"]["nonNegativeInteger"];
 Fleur.Types["http://www.w3.org/2001/XMLSchema"]["nonNegativeInteger"].canonicalize = function(s) {
-	if (/^(\+?[0-9]+|-0)$/.test(s)) {
+	if (/^(\+?[0-9]+|-0+)$/.test(s)) {
 		var ret = "";
 		var i = 0;
 		var c = s.charAt(i);
@@ -349,7 +361,7 @@ Fleur.Types["http://www.w3.org/2001/XMLSchema"]["nonNegativeInteger"].canonicali
 };
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "unsignedLong", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].nonNegativeInteger);
 Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedLong"].canonicalize = function(s) {
-	if (/^(\+?[0-9]+|-0)$/.test(s)) {
+	if (/^(\+?[0-9]+|-0+)$/.test(s)) {
 		var value = parseInt(s, 10);
 		if (value <= 18446744073709551615) {
 			return String(value);
@@ -359,7 +371,7 @@ Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedLong"].canonicalize = f
 };
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "unsignedInt", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].unsignedLong);
 Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedInt"].canonicalize = function(s) {
-	if (/^(\+?[0-9]+|-0)$/.test(s)) {
+	if (/^(\+?[0-9]+|-0+)$/.test(s)) {
 		var value = parseInt(s, 10);
 		if (value <= 4294967295) {
 			return String(value);
@@ -369,7 +381,7 @@ Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedInt"].canonicalize = fu
 };
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "unsignedShort", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].unsignedInt);
 Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedShort"].canonicalize = function(s) {
-	if (/^(\+?[0-9]+|-0)$/.test(s)) {
+	if (/^(\+?[0-9]+|-0+)$/.test(s)) {
 		var value = parseInt(s, 10);
 		if (value <= 65535) {
 			return String(value);
@@ -379,7 +391,7 @@ Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedShort"].canonicalize = 
 };
 new Fleur.TypeInfo("http://www.w3.org/2001/XMLSchema", "unsignedByte", Fleur.TypeInfo.DERIVATION_RESTRICTION, Fleur.Types["http://www.w3.org/2001/XMLSchema"].unsignedShort);
 Fleur.Types["http://www.w3.org/2001/XMLSchema"]["unsignedByte"].canonicalize = function(s) {
-	if (/^(\+?[0-9]+|-0)$/.test(s)) {
+	if (/^(\+?[0-9]+|-0+)$/.test(s)) {
 		var value = parseInt(s, 10);
 		if (value <= 255) {
 			return String(value);

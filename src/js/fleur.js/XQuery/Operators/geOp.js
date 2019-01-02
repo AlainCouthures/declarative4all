@@ -12,7 +12,7 @@ Fleur.geOp = function(op1, op2) {
 		return op1[1] >= op2[1];
 	}
 	if (op1[0] === 4) {
-		return op1[1].localeCompare(op2[1]) >= 0;
+		return op1[1] >= op2[1]
 	}
 	if (op1[0] === 5) {
 		return (op1[1] === "true") >= (op2[1] === "true");

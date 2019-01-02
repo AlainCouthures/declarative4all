@@ -1,9 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="prod-AxisStep.ancestor" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the AxisStep production</description>
   <link document="http://www.w3.org/TR/xquery-30/" idref="doc-xquery30-AxisStep" type="spec"/>
   <link document="XQuery" idref="axes" section-number="3.2.1.1" type="spec"/>
-  <test-case name="ancestor-1">
+  <test-case name="ancestor-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">()</response-string>
     <description> Evaluation of the ancestor axis for which the context node is not a node. </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <test>(200)/ancestor::*</test>
@@ -12,7 +11,7 @@
       <error code="XPTY0019"/>
     </result>
   </test-case>
-  <test-case name="ancestor-2">
+  <test-case name="ancestor-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluation of the ancestor axis for which the given node does not exists. Uses fn:count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
@@ -22,7 +21,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="ancestor-3">
+  <test-case name="ancestor-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of the ancestor axis that is part of an "is" expression (return true). </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
@@ -32,7 +31,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="ancestor-4">
+  <test-case name="ancestor-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of the ancestor axis that is part of an "is" expression (return false). </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
@@ -42,7 +41,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="ancestor-5">
+  <test-case name="ancestor-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of the ancestor axis that is part of an "node before" expression (return true). </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
@@ -54,7 +53,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="ancestor-6">
+  <test-case name="ancestor-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of the ancestor axis that is part of an "node before" expression and both operands are the same (return false). </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
@@ -66,7 +65,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="ancestor-7">
+  <test-case name="ancestor-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of the ancestor axis that is part of an "node before" expression both operands are differents (return false). </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
@@ -78,7 +77,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="ancestor-8">
+  <test-case name="ancestor-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of the ancestor axis that is part of an "node after" expression (returns true). </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
@@ -88,7 +87,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="ancestor-9">
+  <test-case name="ancestor-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of the ancestor axis that is part of an "node after" expression with both operands the same (returns false). </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
@@ -98,7 +97,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="ancestor-10">
+  <test-case name="ancestor-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of the ancestor axis that is part of an "node after" expression with both operands the same (returns false). </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
@@ -108,7 +107,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="ancestor-11">
+  <test-case name="ancestor-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of the ancestor axis that is part of an "union " operation. Both operands are the same. </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
@@ -123,7 +122,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="ancestor-12">
+  <test-case name="ancestor-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of the ancestor axis that is part of an "union" operation. Both operands are different </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
@@ -138,7 +137,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="ancestor-13">
+  <test-case name="ancestor-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Evaluation of the ancestor axis that is part of an "intersect" operation. Both operands are the same. Uses fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
@@ -158,7 +157,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="ancestor-14">
+  <test-case name="ancestor-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Evaluation of the ancestor axis that is part of an "except" operation. Both operands are the same. Uses fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
@@ -168,7 +167,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="ancestor-15">
+  <test-case name="ancestor-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Evaluation of the ancestor axis that is part of an "except" operation. Both operands are different. Uses fn:count to avoid empty file </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
@@ -178,7 +177,7 @@
       <assert-string-value>Tuesday</assert-string-value>
     </result>
   </test-case>
-  <test-case name="ancestor-16">
+  <test-case name="ancestor-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;day&gt;Monday&lt;/day&gt;,&lt;day&gt;Tuesday&lt;/day&gt;)</response-string>
     <description> Evaluation of the ancestor axis that is part of a boolean expression ("and" and fn:true(). </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
@@ -188,7 +187,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="ancestor-17">
+  <test-case name="ancestor-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;day&gt;Monday&lt;/day&gt;,&lt;day&gt;Tuesday&lt;/day&gt;)</response-string>
     <description> Evaluation of the ancestor axis that is part of a boolean expression ("and" and fn:false()). </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
@@ -198,7 +197,7 @@
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="ancestor-18">
+  <test-case name="ancestor-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of the ancestor axis that is part of a boolean expression ("or" and fn:true()). </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
@@ -208,7 +207,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="ancestor-19">
+  <test-case name="ancestor-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description> Evaluation of the ancestor axis that is part of a boolean expression ("or" and fn:false()). </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
@@ -218,7 +217,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="ancestor-20">
+  <test-case name="ancestor-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">In progress...</response-string>
     <description> Evaluation of the ancestor axis that used as part of the deep-equal-function. </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <environment ref="works-mod"/>
@@ -228,7 +227,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="ancestor-21">
+  <test-case name="ancestor-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("0")</response-string>
     <description> Evaluation of the ancestor axis used together with a newly constructed element. Uses fn:count to avoid empty file. </description>
     <created by="Carmelo Montanez" on="2005-12-12"/>
     <dependency type="spec" value="XQ10+"/>
@@ -240,7 +239,7 @@
       <assert-eq>0</assert-eq>
     </result>
   </test-case>
-  <test-case name="unabbreviatedSyntax-10">
+  <test-case name="unabbreviatedSyntax-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;employee name="Jane Doe 1" gender="female"&gt;&amp;#10;   &lt;empnum&gt;E1&lt;/empnum&gt;&amp;#10;   &lt;pnum&gt;P1&lt;/pnum&gt;&amp;#10;   &lt;hours&gt;40&lt;/hours&gt;&amp;#10;  &lt;/employee&gt;</response-string>
     <description> Evaluate selecting an ancestor (ancestor::employee)- Select the "employee" ancestors of the context node </description>
     <created by="Carmelo Montanez" on="2005-07-08"/>
     <environment ref="works-mod"/>
@@ -256,7 +255,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-ancestorAxis-1">
+  <test-case name="K2-ancestorAxis-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Apply the ancestor axis to a single processing instruction. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -272,7 +271,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-ancestorAxis-2">
+  <test-case name="K2-ancestorAxis-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Apply the ancestor axis to a single comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -288,7 +287,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-ancestorAxis-3">
+  <test-case name="K2-ancestorAxis-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Apply the ancestor axis to a single element. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -304,7 +303,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-ancestorAxis-4">
+  <test-case name="K2-ancestorAxis-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Apply the ancestor axis to a single attribute. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -318,7 +317,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-ancestorAxis-5">
+  <test-case name="K2-ancestorAxis-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Apply the ancestor axis to a single document node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -332,7 +331,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-ancestorAxis-6">
+  <test-case name="K2-ancestorAxis-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Apply the ancestor axis to a single document node with content. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -348,7 +347,7 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-ancestorAxis-7">
+  <test-case name="K2-ancestorAxis-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;b c=""&gt;&lt;c/&gt;&lt;/b&gt;,&lt;a&gt;&lt;b c=""&gt;&lt;c/&gt;&lt;/b&gt;&lt;d/&gt;&lt;/a&gt;)</response-string>
     <description> Apply the ancestor axis to a simple tree constructed with constructors. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -362,7 +361,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-ancestorAxis-8">
+  <test-case name="K2-ancestorAxis-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;b c=""&gt;&lt;c/&gt;&lt;/b&gt;</response-string>
     <description> Apply the ancestor axis to a simple tree constructed with constructors, combined with a [1]-predicate. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -376,7 +375,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-ancestorAxis-9">
+  <test-case name="K2-ancestorAxis-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;b c=""&gt;&lt;c/&gt;&lt;/b&gt;</response-string>
     <description> Apply the ancestor axis to a simple tree constructed with constructors, combined with a [1]-predicate. Paranteses are added to ensure that the result of the axis step is delivered in document order. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -390,7 +389,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-ancestorAxis-10">
+  <test-case name="K2-ancestorAxis-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description> Apply axis ancestor on a single root node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -402,7 +401,7 @@
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K2-ancestorAxis-11">
+  <test-case name="K2-ancestorAxis-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;a&gt;&lt;b c=""&gt;&lt;c/&gt;&lt;/b&gt;&lt;d/&gt;&lt;/a&gt;</response-string>
     <description> Apply the ancestor axis to a simple tree constructed with constructors, combined with fn:last(). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -416,7 +415,7 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-ancestorAxis-12">
+  <test-case name="K2-ancestorAxis-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">&lt;a&gt;&lt;b c=""&gt;&lt;c/&gt;&lt;/b&gt;&lt;d/&gt;&lt;/a&gt;</response-string>
     <description> Apply the ancestor axis to a simple tree constructed with constructors, combined with fn:last(). Paranteses are added to ensure that the result of the axis step is delivered in document order. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -430,19 +429,19 @@
       </assert-xml>
     </result>
   </test-case>
-  <test-case name="K2-ancestorAxis-13">
+  <test-case name="K2-ancestorAxis-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("1"))</response-string>
     <description> Apply axis ancestor on a single element. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[1, <element/>/ancestor::node(), 1]]>
     </test>
-    <result-string>xs:string("1 1")</result-string>
+    <result-string>(xs:integer("1"),xs:integer("1"))</result-string>
     <result>
       <assert-string-value>1 1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-ancestorAxis-14">
+  <test-case name="K2-ancestorAxis-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Apply axis ancestor to a single processing instruction. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -454,17 +453,17 @@
       <assert-string-value>1 1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-ancestorAxis-15">
+  <test-case name="K2-ancestorAxis-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("1"))</response-string>
     <description> Apply axis ancestor to a single attribute. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>1, attribute name {"content"}/ancestor::node(), 1</test>
-    <result-string>xs:string("1 1")</result-string>
+    <result-string>(xs:integer("1"),xs:integer("1"))</result-string>
     <result>
       <assert-string-value>1 1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-ancestorAxis-16">
+  <test-case name="K2-ancestorAxis-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPST0003"))</response-string>
     <description> Apply axis ancestor to a single comment. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
@@ -476,13 +475,13 @@
       <assert-string-value>1 1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-ancestorAxis-17">
+  <test-case name="K2-ancestorAxis-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("0"),xs:integer("1"))</response-string>
     <description> Apply axis ancestor to a single document node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>document {()}/ancestor::node(), count(document {()}/ancestor::node()), 1</test>
-    <result-string>xs:string("0 1")</result-string>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPST0005"))</result-string>
+    <result-string>(xs:integer("0"),xs:integer("1"))</result-string>
+    <result-string>(xs:integer("0"),xs:integer("1"))</result-string>
     <result>
       <any-of>
         <assert-string-value>0 1</assert-string-value>
@@ -490,41 +489,41 @@
       </any-of>
     </result>
   </test-case>
-  <test-case name="K2-ancestorAxis-18">
+  <test-case name="K2-ancestorAxis-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("1"),xs:integer("1"))</response-string>
     <description> Apply axis ancestor to a single text node. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>1, text {""}/ancestor::node(), 1</test>
-    <result-string>xs:string("1 1")</result-string>
+    <result-string>(xs:integer("1"),xs:integer("1"))</result-string>
     <result>
       <assert-string-value>1 1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-ancestorAxis-19">
+  <test-case name="K2-ancestorAxis-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("2")</response-string>
     <description> Apply fn:count() to the result of axis ancestor. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[count(<a> <b c=""> <c/> </b> <d/> </a>/b/c/(ancestor::*))]]>
     </test>
-    <result-string>xs:string("2")</result-string>
+    <result-string>xs:integer("2")</result-string>
     <result>
       <assert-string-value>2</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-ancestorAxis-20">
+  <test-case name="K2-ancestorAxis-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:integer("0"),xs:integer("1"),xs:integer("2"),xs:integer("1"))</response-string>
     <description> Apply fn:count() to the result of axis ancestor(#2). </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
       <![CDATA[<a> <b c=""> <c/> </b> <d/> </a>//count(ancestor::*)]]>
     </test>
-    <result-string>xs:string("0 1 2 1")</result-string>
+    <result-string>(xs:integer("0"),xs:integer("1"),xs:integer("2"),xs:integer("1"))</result-string>
     <result>
       <assert-string-value>0 1 2 1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K2-ancestorAxis-21">
+  <test-case name="K2-ancestorAxis-21"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(&lt;b&gt;&lt;c/&gt;&lt;/b&gt;,&lt;a&gt;&lt;b&gt;&lt;c/&gt;&lt;/b&gt;&lt;/a&gt;,&lt;r&gt;&lt;a&gt;&lt;b&gt;&lt;c/&gt;&lt;/b&gt;&lt;/a&gt;&lt;/r&gt;)</response-string>
     <description> Use positional predicates. </description>
     <created by="Frans Englich" on="2007-11-26"/>
     <dependency type="spec" value="XQ10+"/>

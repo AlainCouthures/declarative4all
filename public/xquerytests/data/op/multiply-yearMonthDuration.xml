@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <test-set name="op-multiply-yearMonthDuration" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">
   <description>Tests for the multiply-yearMonthDuration() function</description>
   <link document="http://www.w3.org/TR/xpath-functions-30/" idref="func-multiply-yearMonthDuration" type="spec"/>
-  <test-case name="op-multiply-yearMonthDuration2args-1">
+  <test-case name="op-multiply-yearMonthDuration2args-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P0M")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration2args-1              
@@ -16,12 +15,12 @@ $arg2 = xs:double(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P0Y0M") * xs:double("-1.7976931348623157E308")</test>
-    <result-string>xs:string("P0M")</result-string>
+    <result-string>xs:yearMonthDuration("P0M")</result-string>
     <result>
       <assert-string-value>P0M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration2args-2">
+  <test-case name="op-multiply-yearMonthDuration2args-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P0M")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration2args-2              
@@ -35,12 +34,12 @@ $arg2 = xs:double(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P1000Y6M") * xs:double("-0")</test>
-    <result-string>xs:string("P0M")</result-string>
+    <result-string>xs:yearMonthDuration("P0M")</result-string>
     <result>
       <assert-string-value>P0M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration2args-3">
+  <test-case name="op-multiply-yearMonthDuration2args-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P0M")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration2args-3              
@@ -54,12 +53,12 @@ $arg2 = xs:double(lower bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P2030Y12M") * xs:double("-0")</test>
-    <result-string>xs:string("P0M")</result-string>
+    <result-string>xs:yearMonthDuration("P0M")</result-string>
     <result>
       <assert-string-value>P0M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration2args-4">
+  <test-case name="op-multiply-yearMonthDuration2args-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P0M")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration2args-4              
@@ -73,12 +72,12 @@ $arg2 = xs:double(mid range)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P0Y0M") * xs:double("0")</test>
-    <result-string>xs:string("P0M")</result-string>
+    <result-string>xs:yearMonthDuration("P0M")</result-string>
     <result>
       <assert-string-value>P0M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration2args-5">
+  <test-case name="op-multiply-yearMonthDuration2args-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P0M")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration2args-5              
@@ -92,12 +91,12 @@ $arg2 = xs:double(upper bound)
 </description>
     <created by="Carmelo Montanez" on="2004-12-13"/>
     <test>xs:yearMonthDuration("P0Y0M") * xs:double("1.7976931348623157E308")</test>
-    <result-string>xs:string("P0M")</result-string>
+    <result-string>xs:yearMonthDuration("P0M")</result-string>
     <result>
       <assert-string-value>P0M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration-1">
+  <test-case name="op-multiply-yearMonthDuration-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P6Y9M")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration-1                  
@@ -109,12 +108,12 @@ As per example 1 (for this function)of the FO specs.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>xs:yearMonthDuration("P2Y11M") * 2.3</test>
-    <result-string>xs:string("P6Y9M")</result-string>
+    <result-string>xs:yearMonthDuration("P6Y9M")</result-string>
     <result>
       <assert-string-value>P6Y9M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration-2">
+  <test-case name="op-multiply-yearMonthDuration-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration-2                  
@@ -132,7 +131,7 @@ used as part of a boolean expression (and operator) and the "fn:false" function.
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration-3">
+  <test-case name="op-multiply-yearMonthDuration-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration-3                  
@@ -150,7 +149,7 @@ part of a boolean expression (or operator) and the "fn:boolean" function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration-4">
+  <test-case name="op-multiply-yearMonthDuration-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration-4                  
@@ -168,7 +167,7 @@ return true and used together with fn:not.
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration-5">
+  <test-case name="op-multiply-yearMonthDuration-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration-5                  
@@ -186,7 +185,7 @@ is used as an argument to the fn:boolean function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration-6">
+  <test-case name="op-multiply-yearMonthDuration-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("NaN")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration-6                  
@@ -198,12 +197,12 @@ is used as an argument to the fn:number function.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:number(xs:yearMonthDuration("P02Y09M") * 2.0)</test>
-    <result-string>xs:string("NaN")</result-string>
+    <result-string>xs:double("NaN")</result-string>
     <result>
       <assert-string-value>NaN</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration-7">
+  <test-case name="op-multiply-yearMonthDuration-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:string("P7Y4M")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration-7                  
@@ -220,7 +219,7 @@ as an argument to the "fn:string" function).
       <assert-string-value>P7Y4M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration-8">
+  <test-case name="op-multiply-yearMonthDuration-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("-P20Y2M")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration-8                  
@@ -232,12 +231,12 @@ returns a negative value.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>(xs:yearMonthDuration("P10Y01M") * -2.0)</test>
-    <result-string>xs:string("-P20Y2M")</result-string>
+    <result-string>xs:yearMonthDuration("-P20Y2M")</result-string>
     <result>
       <assert-string-value>-P20Y2M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration-9">
+  <test-case name="op-multiply-yearMonthDuration-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration-9                  
@@ -255,7 +254,7 @@ together with and "and" expression.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration-10">
+  <test-case name="op-multiply-yearMonthDuration-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration-10                 
@@ -273,7 +272,7 @@ together with an "or" expression.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration-11">
+  <test-case name="op-multiply-yearMonthDuration-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:double("1")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration-11                 
@@ -290,7 +289,7 @@ together with a "div" expression.
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration-12">
+  <test-case name="op-multiply-yearMonthDuration-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration-12                 
@@ -308,7 +307,7 @@ with a boolean expression and the "fn:true" function.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration-13">
+  <test-case name="op-multiply-yearMonthDuration-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration-13                 
@@ -325,7 +324,7 @@ together with the numeric-equal- operator "eq".
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration-14">
+  <test-case name="op-multiply-yearMonthDuration-14"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration-14                 
@@ -342,7 +341,7 @@ together with the numeric-equal operator "ne".
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration-15">
+  <test-case name="op-multiply-yearMonthDuration-15"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration-15                 
@@ -359,7 +358,7 @@ together with the numeric-equal operator "le".
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration-16">
+  <test-case name="op-multiply-yearMonthDuration-16"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("false")</response-string>
     <description>
 *******************************************************
 Test: op-subtract-yearMonthDurations-16                
@@ -376,7 +375,7 @@ together with the numeric-equal operator "ge".
       <assert-false/>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration-17">
+  <test-case name="op-multiply-yearMonthDuration-17"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration-16                 
@@ -388,12 +387,12 @@ multiplied by +0.  Use of fn:count to avoid empty file.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:count((xs:yearMonthDuration("P13Y09M") *+0))</test>
-    <result-string>xs:string("1")</result-string>
+    <result-string>xs:integer("1")</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration-18">
+  <test-case name="op-multiply-yearMonthDuration-18"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:integer("1")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration-18                 
@@ -405,12 +404,12 @@ multiplied by -0.  Use of fn:count to avoid empty file.
 </description>
     <created by="Carmelo Montanez" on="2005-06-29"/>
     <test>fn:count((xs:yearMonthDuration("P13Y09M") *-0))</test>
-    <result-string>xs:string("1")</result-string>
+    <result-string>xs:integer("1")</result-string>
     <result>
       <assert-string-value>1</assert-string-value>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration-19">
+  <test-case name="op-multiply-yearMonthDuration-19"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("PNaNYNaNM")</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration-19                 
@@ -427,7 +426,7 @@ with arg2 set to NaN.  Should raise an error
       <error code="FOCA0005"/>
     </result>
   </test-case>
-  <test-case name="op-multiply-yearMonthDuration-20">
+  <test-case name="op-multiply-yearMonthDuration-20"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">(xs:yearMonthDuration("-P4M"),xs:yearMonthDuration("-P3M"),xs:yearMonthDuration("-P3M"),xs:yearMonthDuration("-P1M"),xs:yearMonthDuration("P0M"),xs:yearMonthDuration("P0M"),xs:yearMonthDuration("P0M"),xs:yearMonthDuration("P1M"),xs:yearMonthDuration("P1M"),xs:yearMonthDuration("P3M"),xs:yearMonthDuration("P4M"),xs:yearMonthDuration("P4M"))</response-string>
     <description>
 *******************************************************
 Test: op-multiply-yearMonthDuration-20                 
@@ -438,12 +437,12 @@ Purpose: Test rounding behaviour, FO.E12.
 </description>
     <created by="Michael Kay, Saxonica" on="2009-03-05"/>
     <test>for $i in (-3.9, -3.5, -3.1, -0.9, -0.5, -0.1, +0.1, +0.5, +0.9, +3.1, +3.5, +3.9) return xs:yearMonthDuration("P1M") * $i</test>
-    <result-string>xs:string("-P4M -P3M -P3M -P1M P0M P0M P0M P1M P1M P3M P4M P4M")</result-string>
+    <result-string>(xs:yearMonthDuration("-P4M"),xs:yearMonthDuration("-P3M"),xs:yearMonthDuration("-P3M"),xs:yearMonthDuration("-P1M"),xs:yearMonthDuration("P0M"),xs:yearMonthDuration("P0M"),xs:yearMonthDuration("P0M"),xs:yearMonthDuration("P1M"),xs:yearMonthDuration("P1M"),xs:yearMonthDuration("P3M"),xs:yearMonthDuration("P4M"),xs:yearMonthDuration("P4M"))</result-string>
     <result>
       <assert-string-value>-P4M -P3M -P3M -P1M P0M P0M P0M P1M P1M P3M P4M P4M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationMultiply-1">
+  <test-case name="K-YearMonthDurationMultiply-1"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationMultiply-1                   
@@ -459,7 +458,7 @@ Purpose: Test rounding behaviour, FO.E12.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationMultiply-2">
+  <test-case name="K-YearMonthDurationMultiply-2"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationMultiply-2                   
@@ -475,7 +474,7 @@ Purpose: Test rounding behaviour, FO.E12.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationMultiply-3">
+  <test-case name="K-YearMonthDurationMultiply-3"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationMultiply-3                   
@@ -491,7 +490,7 @@ Purpose: Test rounding behaviour, FO.E12.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationMultiply-4">
+  <test-case name="K-YearMonthDurationMultiply-4"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:boolean("true")</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationMultiply-4                   
@@ -507,7 +506,7 @@ Purpose: Test rounding behaviour, FO.E12.
       <assert-true/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationMultiply-5">
+  <test-case name="K-YearMonthDurationMultiply-5"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("PInfinityYNaNM")</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationMultiply-5                   
@@ -523,7 +522,7 @@ Purpose: Test rounding behaviour, FO.E12.
       <error code="FODT0002"/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationMultiply-6">
+  <test-case name="K-YearMonthDurationMultiply-6"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("-PInfinityYNaNM")</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationMultiply-6                   
@@ -539,7 +538,7 @@ Purpose: Test rounding behaviour, FO.E12.
       <error code="FODT0002"/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationMultiply-7">
+  <test-case name="K-YearMonthDurationMultiply-7"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("PNaNYNaNM")</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationMultiply-7                   
@@ -555,7 +554,7 @@ Purpose: Test rounding behaviour, FO.E12.
       <error code="FOCA0005"/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationMultiply-8">
+  <test-case name="K-YearMonthDurationMultiply-8"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationMultiply-8                   
@@ -566,12 +565,12 @@ Purpose: Test rounding behaviour, FO.E12.
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:duration("P1Y3M") * 3</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationMultiply-9">
+  <test-case name="K-YearMonthDurationMultiply-9"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationMultiply-9                   
@@ -582,12 +581,12 @@ Purpose: Test rounding behaviour, FO.E12.
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>3 * xs:duration("P1Y3M")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationMultiply-10">
+  <test-case name="K-YearMonthDurationMultiply-10"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationMultiply-10                  
@@ -598,12 +597,12 @@ Purpose: Test rounding behaviour, FO.E12.
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dayTimeDuration("P3D") * xs:yearMonthDuration("P3Y3M")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationMultiply-11">
+  <test-case name="K-YearMonthDurationMultiply-11"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationMultiply-11                  
@@ -614,12 +613,12 @@ Purpose: Test rounding behaviour, FO.E12.
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:yearMonthDuration("P3Y3M") * xs:dayTimeDuration("P3D")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationMultiply-12">
+  <test-case name="K-YearMonthDurationMultiply-12"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationMultiply-12                  
@@ -630,12 +629,12 @@ Purpose: Test rounding behaviour, FO.E12.
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:yearMonthDuration("P3Y3M") * xs:yearMonthDuration("P3Y3M")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="K-YearMonthDurationMultiply-13">
+  <test-case name="K-YearMonthDurationMultiply-13"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</response-string>
     <description>
 *******************************************************
  Test: K-YearMonthDurationMultiply-13                  
@@ -646,72 +645,72 @@ Purpose: Test rounding behaviour, FO.E12.
 </description>
     <created by="Frans Englich" on="2007-11-26+01:00"/>
     <test>xs:dayTimeDuration("P3D") * xs:dayTimeDuration("P3D")</test>
-    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "XPTY0004"))</result-string>
+    <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "err:XPTY0004"))</result-string>
     <result>
       <error code="XPTY0004"/>
     </result>
   </test-case>
-  <test-case name="cbcl-multiply-yearMonthDuration-001">
+  <test-case name="cbcl-multiply-yearMonthDuration-001"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P0M")</response-string>
     <description> test multiplication of xs:yearMonthDuration by 0 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:yearMonthDuration($years as xs:integer) as xs:yearMonthDuration { xs:yearMonthDuration(concat("P", $years, "Y")) };
         local:yearMonthDuration(2) * 0</test>
-    <result-string>xs:string("P0M")</result-string>
+    <result-string>xs:yearMonthDuration("P0M")</result-string>
     <result>
       <assert-string-value>P0M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-multiply-yearMonthDuration-002">
+  <test-case name="cbcl-multiply-yearMonthDuration-002"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P2Y")</response-string>
     <description> test multiplication of xs:yearMonthDuration by 1 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:yearMonthDuration($years as xs:integer) as xs:yearMonthDuration { xs:yearMonthDuration(concat("P", $years, "Y")) };
         local:yearMonthDuration(2) * 1</test>
-    <result-string>xs:string("P2Y")</result-string>
+    <result-string>xs:yearMonthDuration("P2Y")</result-string>
     <result>
       <assert-string-value>P2Y</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-multiply-yearMonthDuration-003">
+  <test-case name="cbcl-multiply-yearMonthDuration-003"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("PNaNYNaNM")</response-string>
     <description> test multiplication of xs:yearMonthDuration by NaN </description>
     <created by="Tim Mills" on="2008-05-14"/>
-    <test>xs:yearMonthDuration("P2Y") * xs:double('NaN')</test>
+    <test>xs:yearMonthDuration("P2Y") * xs:double(&apos;NaN&apos;)</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOCA0005"))</result-string>
     <result>
       <error code="FOCA0005"/>
     </result>
   </test-case>
-  <test-case name="cbcl-multiply-yearMonthDuration-004">
+  <test-case name="cbcl-multiply-yearMonthDuration-004"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P0M")</response-string>
     <description> test multiplication of xs:yearMonthDuration by 0 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:yearMonthDuration($years as xs:integer) as xs:yearMonthDuration { xs:yearMonthDuration(concat("P", $years, "Y")) };
         0 * local:yearMonthDuration(2)</test>
-    <result-string>xs:string("P0M")</result-string>
+    <result-string>xs:yearMonthDuration("P0M")</result-string>
     <result>
       <assert-string-value>P0M</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-multiply-yearMonthDuration-005">
+  <test-case name="cbcl-multiply-yearMonthDuration-005"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("P2Y")</response-string>
     <description> test multiplication of xs:yearMonthDuration by 1 </description>
     <created by="Tim Mills" on="2008-05-14"/>
     <dependency type="spec" value="XQ10+"/>
     <test>
         declare function local:yearMonthDuration($years as xs:integer) as xs:yearMonthDuration { xs:yearMonthDuration(concat("P", $years, "Y")) };
         1 * local:yearMonthDuration(2)</test>
-    <result-string>xs:string("P2Y")</result-string>
+    <result-string>xs:yearMonthDuration("P2Y")</result-string>
     <result>
       <assert-string-value>P2Y</assert-string-value>
     </result>
   </test-case>
-  <test-case name="cbcl-multiply-yearMonthDuration-006">
+  <test-case name="cbcl-multiply-yearMonthDuration-006"><response-string xmlns:qt="http://www.w3.org/2010/09/qt-fots-catalog" xmlns="http://www.w3.org/2010/09/qt-fots-catalog">xs:yearMonthDuration("PNaNYNaNM")</response-string>
     <description> test multiplication of xs:yearMonthDuration by NaN </description>
     <created by="Tim Mills" on="2008-05-14"/>
-    <test>xs:double('NaN') * xs:yearMonthDuration("P2Y")</test>
+    <test>xs:double(&apos;NaN&apos;) * xs:yearMonthDuration("P2Y")</test>
     <result-string>fn:error(fn:QName("http://www.w3.org/2005/xqt-errors", "FOCA0005"))</result-string>
     <result>
       <error code="FOCA0005"/>
